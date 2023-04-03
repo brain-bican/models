@@ -1,0 +1,90 @@
+id: https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1
+name: figure1
+prefixes:
+  linkml: https://w3id.org/linkml/
+imports:
+  - linkml:types
+default_range: string
+
+classes:
+
+  CellClass:
+    description: >-
+      Class division in Figure 1, also found in Supplementary Materials: Table 7
+    attributes:
+      full_name:
+      id:
+        identifier: true  # unique key
+      label:
+        required: true
+      category:
+        required: true
+        range: CellCategory
+
+  CellSubclass:
+    description: >-
+      Subclass division in Figure 1
+    attributes:
+      full_name:
+      id:
+        identifier: true  # unique key
+      label:
+        required: true # TODO: see if we can inherit from one class
+
+    Cluster:
+      description: >-
+        Cluster in Supplementary Materials: Table 7
+      attributes:
+        id:
+          identifier: true  # unique key
+        label:
+          required: true
+
+    Supertype:
+      description: >- # TODO: under Cluster class?
+        Supertype in Supplementary Materials: Table 7
+      attributes:
+        id:
+          identifier: true  # unique key
+        label:
+          required: true
+
+    Division:
+      description: >-
+        Division in Figure 1, also found in Supplementary Materials: Table 7
+      attributes:
+        id:
+          identifier: true
+        label:
+          required: true
+
+    NTType:
+      description: >-
+        Neurotransmitter Type in Figure 1
+      attributes:
+        label:
+          required: true
+        combo_label:
+          required: true
+
+    BroadRegion:
+      description: >-
+        Broad Region in Figure 1
+      attributes:
+        label:
+          required: true
+
+    Region:
+      description: >-
+        Region in Figure 1
+      attributes:
+        label:
+          required: true
+
+enums:
+  CellCategory:
+    permissible_values: # table 4
+      NEURON
+      OTHER_IMN
+      OTHER_VASCULAR
+      NEUROGLIAL
