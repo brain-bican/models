@@ -1,0 +1,51 @@
+subclasses:
+  - id: sb:001
+    label: Car3 Glut
+    division: Pallium glutamatergic
+    nt_type: Glut
+    has_hierarchical_relationships:
+      - relationship_type: CHILD_OF
+        related_to: cl:001
+  - id: sb:002
+    label: IT EP-CLA Glut
+    division: Pallium glutamatergic
+    nt_type: Glut
+    has_hierarchical_relationships:
+      - relationship_type: CHILD_OF
+        related_to: cl:001
+
+classes:
+  - id: cl:001
+    label: IT-ET Glut
+    category: NEURON
+    has_hierarchical_relationships:
+      - relationship_type: PARENT_OF
+        related_to: sb:001
+      - relationship_type: PARENT_OF
+        related_to: sb:002
+
+cells:
+  - id: c:GATGC
+    label: GATGC
+    has_group_relationships:
+      - relationship_type: MEMBER_OF
+        related_to: clu:0001
+    broad_region: PALL
+  - id: c:CATCA
+    label: CATCA
+    has_group_relationships:
+      - relationship_type: MEMBER_OF
+        related_to: clu:0001
+    broad_region: PALL
+
+clusters:
+  - id: clu:0001
+    label: Car3 Glut_1
+    has_hierarchical_relationships:
+      - relationship_type: CHILD_OF
+        related_to: sb:001
+    has_group_relationships:
+      - relationship_type: CONSISTS_OF
+        related_to: c:GATGC
+      - relationship_type: CONSISTS_OF
+        related_to: c:CATCA

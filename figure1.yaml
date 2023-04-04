@@ -7,84 +7,193 @@ imports:
 default_range: string
 
 classes:
+  NamedThing:
+    slots:
+      - id
+      - label
 
   CellClass:
+    is_a: NamedThing
     description: >-
       Class division in Figure 1, also found in Supplementary Materials: Table 7
     attributes:
-      full_name:
-      id:
-        identifier: true  # unique key
-      label:
-        required: true
       category:
         required: true
         range: CellCategory
+      has_hierarchical_relationships:
+        multivalued: true
+        range: HierarchicalRelationship
+        inlined_as_list: true
 
   CellSubclass:
+    is_a: NamedThing
     description: >-
       Subclass division in Figure 1
     attributes:
-      full_name:
-      id:
-        identifier: true  # unique key
-      label:
-        required: true # TODO: see if we can inherit from one class
+      has_hierarchical_relationships:
+        multivalued: true
+        range: HierarchicalRelationship
+        inlined_as_list: true
+      division:
+        range: Division
+      nt_type:
+        range: NTType
 
-    Cluster:
-      description: >-
-        Cluster in Supplementary Materials: Table 7
-      attributes:
-        id:
-          identifier: true  # unique key
-        label:
-          required: true
+  Cluster:
+    is_a: NamedThing
+    description: >-
+      Cluster in Supplementary Materials: Table 7
+    attributes:
+      has_hierarchical_relationships:
+        multivalued: true
+        range: HierarchicalRelationship
+        inlined_as_list: true
+      has_group_relationships:
+        multivalued: true
+        range: GroupRelationship
+        inlined_as_list: true
 
-    Supertype:
-      description: >- # TODO: under Cluster class?
-        Supertype in Supplementary Materials: Table 7
-      attributes:
-        id:
-          identifier: true  # unique key
-        label:
-          required: true
+  Cell:
+    is_a: NamedThing
+    description: >-
+      Cell, a member of a cluster
+    attributes:
+      has_group_relationships:
+        multivalued: true
+        range: GroupRelationship
+        inlined_as_list: true
+      broad_region:
+        range: BroadRegion
 
-    Division:
-      description: >-
-        Division in Figure 1, also found in Supplementary Materials: Table 7
-      attributes:
-        id:
-          identifier: true
-        label:
-          required: true
+#    Supertype:
+#      description: >- # TODO: under Cluster class?
+#        Supertype in Supplementary Materials: Table 7
+#      attributes:
+#        id:
+#          identifier: true  # unique key
+#        label:
+#          required: true
+#
+#  Division:
+#    is_a: NamedThing
+#    description: >-
+#      Division in Figure 1, also found in Supplementary Materials: Table 7
+#
+#    NTType:
+#      description: >-
+#        Neurotransmitter Type in Figure 1
+#      attributes:
+#        label:
+#          required: true
+#        combo_label:
+#          required: true
+#
+#    BroadRegion:
+#      description: >-
+#        Broad Region in Figure 1
+#      attributes:
+#        label:
+#          required: true
+#
+#    Region:
+#      description: >-
+#        Region in Figure 1
+#      attributes:
+#        label:
+#          required: true
 
-    NTType:
-      description: >-
-        Neurotransmitter Type in Figure 1
-      attributes:
-        label:
-          required: true
-        combo_label:
-          required: true
+  Relationship:
+    abstract: true
+    attributes:
+      related_to:
+        range: NamedThing
+        required: true
+#      relationship_type:
 
-    BroadRegion:
-      description: >-
-        Broad Region in Figure 1
-      attributes:
-        label:
-          required: true
+  HierarchicalRelationship:
+    is_a: Relationship
+    attributes:
+      relationship_type:
+        range: HierarchicalRelationshipType
 
-    Region:
-      description: >-
-        Region in Figure 1
-      attributes:
-        label:
-          required: true
+  GroupRelationship:
+    is_a: Relationship
+    attributes:
+      relationship_type:
+        range: GroupRelationshipType
+
+  Container:
+    tree_root: true
+    attributes:
+      subclasses:
+        multivalued: true
+        inlined_as_list: true
+        range: CellSubclass
+      classes:
+        multivalued: true
+        inlined_as_list: true
+        range: CellClass
+      cells:
+        multivalued: true
+        inlined_as_list: true
+        range: Cell
+      clusters:
+        multivalued: true
+        inlined_as_list: true
+        range: Cluster
+
+slots:
+  id:
+    identifier: true
+  label:
 
 enums:
   CellCategory:
     permissible_values: # table 4
-      NEURON
-      OTHER_IMN
-      OTHER_VASCULAR
-      NEUROGLIAL
+      NEURON:
+      OTHER_IMN:
+      OTHER_VASCULAR:
+      NEUROGLIAL:
+
+  BroadRegion:
+    permissible_values:
+      PALL:
+      CNU:
+      TH:
+      HY:
+      MB:
+      HB:
+      CB:
+
+  Division:
+    permissible_values:
+      Pallium glutamatergic:
+      Subpallium GABAergic:
+      PAL−sAMY−TH−HY −MB−HB neuronal:
+      CBX−MOB−other neuronal:
+      Neuroglial:
+      Vascular:
+      Immune:
+
+  NTType:
+    permissible_values:
+      Glut:
+      GABA:
+      Glut−GABA:
+      GABA−Glyc:
+      Chol:
+      Dopa:
+      Sero:
+      Nora:
+      Hist:
+      NA:
+
+  HierarchicalRelationshipType:
+    permissible_values:
+      PARENT_OF:
+      CHILD_OF:
+
+  GroupRelationshipType:
+    permissible_values:
+      CONSISTS_OF:
+      MEMBER_OF:
