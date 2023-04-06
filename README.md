@@ -1,2 +1,3 @@
-# models
-data models using linkML (yaml files only)
+# BICAN Knowledgebase data models
+
+Data models using linkML for BICAN knowledgebase
