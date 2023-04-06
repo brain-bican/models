@@ -8,13 +8,6 @@ prefixes:
 imports:
   - linkml:types
 
-oneOf:
-  - $ref: "#/definitions/taxonomy"
-  - $ref: "#/definitions/cross_taxonomy_mapping"
-  - $ref: "#/definitions/location_mapping"
-  - $ref: "#/definitions/cell_set_accession_to_cell_mapping"
-
-
 default_curi_maps:
   - semweb_context
 
