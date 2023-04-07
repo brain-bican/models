@@ -1,0 +1,55 @@
+id: https://identifiers.org/brain-bican/kb-model
+name: Knowledgebase Model
+prefixes:
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/
+imports:
+  - linkml:types
+  - biolink:biolink-model
+default_range: string
+
+classes:
+  gene annotation:
+    is_a: biolink:gene
+    description: >
+      An annotation describing the location, boundaries, and functions of 
+      individual genes within a genome annotation.
+    slots:
+      - provided by
+
+  genome_annotation:
+    is_a: prov:Entity
+    description: >
+      Location and nomenclature of genes and all of the coding regions in a genome assembly 
+      and the classification of genes and transcripts into types.
+    slots:
+      - reference assembly
+      - version
+      - digest
+      - atLocation
+
+  mapping:
+    is_a: prov:Entity
+    description:
+    class_uri:
+    slots:
+      - gene_identifier_1
+      - gene_identifier_2
+      - authority
+      - method
+      - creation_date
+      - access_date
+      - member of
+    notes: relate to
+
+
+  mappings:
+    is_a: collection
+    description: >
+      A collection of mappings between identifiers
+    slots:
+      - has member
+
+slots:
+  provided by:
+    range: prov:Entity
