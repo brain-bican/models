@@ -1,11 +1,5 @@
 {
     "$defs": {
-        "CellSetAccession": {
-            "additionalProperties": false,
-            "description": "Primary identifier for cell set.",
-            "title": "CellSetAccession",
-            "type": "object"
-        },
         "CellSetAccessionToCellMapping": {
             "additionalProperties": false,
             "description": "",
@@ -29,21 +23,17 @@
             "title": "CellSetAccessionToCellMapping",
             "type": "object"
         },
-        "CellTypeName": {
-            "additionalProperties": false,
-            "description": "The primary name/symbol to be used for the cell type defined by this cell set.",
-            "title": "CellTypeName",
-            "type": "object"
-        },
         "CrossTaxonomyMapping": {
             "additionalProperties": false,
             "description": "",
             "properties": {
                 "cell_set_accession": {
-                    "$ref": "#/$defs/CellSetAccession"
+                    "description": "Primary identifier for cell set.",
+                    "type": "string"
                 },
                 "cell_type_name": {
-                    "$ref": "#/$defs/CellTypeName"
+                    "description": "The primary name/symbol to be used for the cell type defined by this cell set.",
+                    "type": "string"
                 },
                 "evidence_comment": {
                     "description": "A free text description of the evidence supporting this mapping. If a similarity_score is include, please also include details of how this was calculated.",
@@ -58,7 +48,8 @@
                     "type": "string"
                 },
                 "provenance": {
-                    "$ref": "#/$defs/Provenance"
+                    "description": "ORCID of the person doing the mapping using the syntax ORCID:0123-4567-890. Optionally include supporting publications using DOIs of the form doi:10.1126/journal.abj6641.",
+                    "type": "string"
                 },
                 "similarity_score": {
                     "description": "A score recording the similarity between mapped nodes.",
@@ -82,10 +73,12 @@
             "description": "",
             "properties": {
                 "cell_set_accession": {
-                    "$ref": "#/$defs/CellSetAccession"
+                    "description": "Primary identifier for cell set.",
+                    "type": "string"
                 },
                 "cell_type_name": {
-                    "$ref": "#/$defs/CellTypeName"
+                    "description": "The primary name/symbol to be used for the cell type defined by this cell set.",
+                    "type": "string"
                 },
                 "evidence_comment": {
                     "description": "A comment describing the evidence for this location mapping",
@@ -100,7 +93,8 @@
                     "type": "string"
                 },
                 "provenance": {
-                    "$ref": "#/$defs/Provenance"
+                    "description": "ORCID of the person doing the mapping using the syntax ORCID:0123-4567-890. Optionally include supporting publications using DOIs of the form doi:10.1126/journal.abj6641.",
+                    "type": "string"
                 },
                 "supporting_data": {
                     "description": "A link to data supporting this location mapping.",
@@ -115,12 +109,6 @@
                 "provenance"
             ],
             "title": "LocationMapping",
-            "type": "object"
-        },
-        "Provenance": {
-            "additionalProperties": false,
-            "description": "ORCID of the person doing the mapping using the syntax ORCID:0123-4567-890. Optionally include supporting publications using DOIs of the form doi:10.1126/journal.abj6641.",
-            "title": "Provenance",
             "type": "object"
         },
         "Rank": {
@@ -192,7 +180,7 @@
             "type": "object"
         }
     },
-    "$id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1",
+    "$id": "CCN2",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": true,
     "metamodel_version": "1.7.0",
