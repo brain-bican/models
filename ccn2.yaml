@@ -2,6 +2,8 @@ id: CCN2 # TODO: what should be here
 name: CCN2
 prefixes:
   linkml: https://w3id.org/linkml/
+  ccn2: https://github.com/brain-bican/CCN2
+default_prefix: ccn2
 imports:
   - linkml:types
 default_range: string
