@@ -4,6 +4,8 @@ prefixes:
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/vocab/
   bican: https://identifiers.org/brain-bican/vocab/
+  spdx: http://spdx.org/rdf/terms#
+  schema: http://schema.org/
 imports:
   - linkml:types
   - https://raw.githubusercontent.com/biolink/biolink-model/master/biolink-model
@@ -18,8 +20,13 @@ classes:
       individual genes within a genome annotation.
     slots:
       - referenced in
+    id_prefixes:
+      - ENSEMBL
+      - MGI
+      - NCBIGene
 
   genome annotation:
+    is_a: genome
     description: >-
       Location and nomenclature of genes and all of the coding regions in a genome assembly 
       and the classification of genes and transcripts into types.
@@ -28,6 +35,14 @@ classes:
       - version
       - digest
       - content_url
+
+  checksum:
+    is_a: entity
+    description: >-
+      Checksum values associated with digital entities.
+    slots:
+      - checksum algorithm
+      - value
 
   mapping:
     description: text
@@ -53,8 +68,14 @@ slots:
   referenced in:
     range: genome annotation
   reference assembly:
+    range: uriorcurie
   digest:
+    range: checksum
+    multivalued: true
+    required: true
   content_url:
+    slot_uri: schema:url
+    multivalued: true
   gene_identifier_1:
     range: gene annotation
   gene_identifier_2:
@@ -63,3 +84,16 @@ slots:
   method:
   creation_date:
   access_date:
+  checksum algorithm:
+    range: DigestType
+  value:
+
+enums:
+  DigestType:
+    permissible_values:
+      SHA1:
+        meaning: spdx:checksumAlgorithm_sha1
+      MD5:
+        meaning: spdx:checksumAlgorithm_md5
+      SHA256:
+        meaning: spdx:checksumAlgorithm_sha256
