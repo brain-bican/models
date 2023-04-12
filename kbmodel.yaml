@@ -2,20 +2,24 @@ id: https://identifiers.org/brain-bican/kb-model
 name: kb-model
 prefixes:
   linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/vocab/
+  bican: https://identifiers.org/brain-bican/vocab/
 imports:
   - linkml:types
   - https://raw.githubusercontent.com/biolink/biolink-model/master/biolink-model
 default_range: string
+default_prefix: bican
 
 classes:
   gene annotation:
+    is_a: gene
     description: >-
       An annotation describing the location, boundaries, and functions of 
       individual genes within a genome annotation.
     slots:
       - referenced in
 
-  genome_annotation:
+  genome annotation:
     description: >-
       Location and nomenclature of genes and all of the coding regions in a genome assembly 
       and the classification of genes and transcripts into types.
