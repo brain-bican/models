@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install dandischema
+      - name: Install the required packages
         run: python -m pip install .[test]
 
       - name: Run pytest
