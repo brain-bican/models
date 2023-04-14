@@ -96,11 +96,6 @@ classes:
       - classification provenance
       - classification comment
       - rank
-    defining_slots:
-      - cell set accession
-      - parent cell set accession
-      - classifying ontology term name
-      - classification provenance
     slot_usage:
       cell set accession:
         description: >-
@@ -127,12 +122,6 @@ classes:
       - evidence comment
       - similarity score
       - provenance
-    defining_slots:
-      - cell set accession
-      - cell type name
-      - mapped cell set accession
-      - mapped cell type name
-      - evidence comment
     slot_usage:
       cell set accession:
         required: true
@@ -156,12 +145,6 @@ classes:
       - evidence comment
       - supporting data
       - provenance
-    defining_slots:
-      - cell set accession
-      - cell type name
-      - location ontology term id
-      - location ontology term name
-      - provenance
     slot_usage:
       cell set accession:
         required: true
@@ -180,9 +163,6 @@ classes:
 
   cell set accession to cell mapping:
     slots:
-      - sample
-      - cell accessions
-    defining_slots:
       - sample
       - cell accessions
     slot_usage:
