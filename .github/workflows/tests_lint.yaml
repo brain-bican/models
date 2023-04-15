@@ -1,0 +1,30 @@
+name: testing schemas with linkml-lint
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.10" ]
+
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install the required packages
+        run: python -m pip install .[test]
+
+      - name: Run linter
+        run: for f in linkml-schema/*.yaml; do linkml-lint --config lint_config.yaml $f; done
