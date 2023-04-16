@@ -64,6 +64,14 @@ classes:
       - has member
     notes: use this model - https://mapping-commons.github.io/sssom/
 
+  annotation collection:
+    tree_root: true
+    attributes:
+      annotations:
+        multivalued: true
+        inlined_as_list: true
+        range: gene annotation
+
 slots:
   referenced in:
     range: genome annotation

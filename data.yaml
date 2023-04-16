@@ -1,0 +1,51 @@
+annotations:
+- id: ENSEMBL:ENSG00000101327
+  name: prodynorphin [Source:HGNC Symbol%3BAcc:HGNC:8820]
+  symbol: PDYN
+  synonym:
+  - Ensembl-9606-108
+- id: NCBIGene:5173
+  name: prodynorphin
+  symbol: PDYN
+  synonym:
+  - NCBI-9606-110
+- id: ENSEMBL:ENSMUSG00000027400
+  name: prodynorphin [Source:MGI Symbol%3BAcc:MGI:97535]
+  symbol: Pdyn
+  synonym:
+  - Ensembl-10090-102
+- id: NCBIGene:5173
+  name: prodynorphin
+  symbol: PDYN
+  synonym:
+  - NCBI-9606-109
+- id: NCBIGene:18610
+  name: prodynorphin
+  symbol: Pdyn
+  synonym:
+  - NCBI-10090-108
+- id: ENSEMBL:ENSG00000101327
+  name: prodynorphin [Source:HGNC Symbol%3BAcc:HGNC:8820]
+  symbol: PDYN
+  synonym:
+  - Ensembl-9606-109
+- id: ENSEMBL:ENSMUSG00000027400
+  name: prodynorphin [Source:MGI Symbol%3BAcc:MGI:97535]
+  symbol: Pdyn
+  synonym:
+  - Ensembl-10090-98
+- id: NCBIGene:18610
+  name: prodynorphin
+  symbol: Pdyn
+  synonym:
+  - NCBI-10090-109
+- id: ENSEMBL:ENSMUSG00000027400
+  name: prodynorphin [Source:MGI Symbol%3BAcc:MGI:97535]
+  symbol: Pdyn
+  synonym:
+  - Ensembl-10090-108
+- id: ENSEMBL:ENSMUSG00000027400
+  name: prodynorphin [Source:MGI Symbol%3BAcc:MGI:97535]
+  symbol: Pdyn
+  synonym:
+  - Ensembl-10090-109

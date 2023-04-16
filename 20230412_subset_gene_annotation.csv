@@ -1,0 +1,11 @@
+genome_annotation_label,gene_identifier_prefix,gene_local_unique_identifier,symbol,name,gene_biotype
+Ensembl-9606-108,ensembl,ENSG00000101327,PDYN,prodynorphin [Source:HGNC Symbol%3BAcc:HGNC:8820],protein_coding
+NCBI-9606-110,ncbigene,5173,PDYN,prodynorphin,protein_coding
+Ensembl-10090-102,ensembl,ENSMUSG00000027400,Pdyn,prodynorphin [Source:MGI Symbol%3BAcc:MGI:97535],protein_coding
+NCBI-9606-109,ncbigene,5173,PDYN,prodynorphin,protein_coding
+NCBI-10090-108,ncbigene,18610,Pdyn,prodynorphin,protein_coding
+Ensembl-9606-109,ensembl,ENSG00000101327,PDYN,prodynorphin [Source:HGNC Symbol%3BAcc:HGNC:8820],protein_coding
+Ensembl-10090-98,ensembl,ENSMUSG00000027400,Pdyn,prodynorphin [Source:MGI Symbol%3BAcc:MGI:97535],protein_coding
+NCBI-10090-109,ncbigene,18610,Pdyn,prodynorphin,protein_coding
+Ensembl-10090-108,ensembl,ENSMUSG00000027400,Pdyn,prodynorphin [Source:MGI Symbol%3BAcc:MGI:97535],protein_coding
+Ensembl-10090-109,ensembl,ENSMUSG00000027400,Pdyn,prodynorphin [Source:MGI Symbol%3BAcc:MGI:97535],protein_coding
