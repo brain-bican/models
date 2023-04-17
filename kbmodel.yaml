@@ -6,6 +6,7 @@ prefixes:
   bican: https://identifiers.org/brain-bican/vocab/
   spdx: http://spdx.org/rdf/terms#
   schema: http://schema.org/
+  ncbi: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi
 imports:
   - linkml:types
   - https://raw.githubusercontent.com/biolink/biolink-model/master/biolink-model
@@ -20,6 +21,7 @@ classes:
       individual genes within a genome annotation.
     slots:
       - referenced in
+      - molecular type
     id_prefixes:
       - ENSEMBL
       - MGI
@@ -35,6 +37,16 @@ classes:
       - version
       - digest
       - content_url
+
+  genome assembly:
+    description: >-
+      Genome assembly to contain version and label information
+    attributes:
+      id:
+      taxon:
+      version:
+      label:
+      description:
 
   checksum:
     is_a: entity
@@ -71,10 +83,20 @@ classes:
         multivalued: true
         inlined_as_list: true
         range: gene annotation
+      genome_annotations:
+        multivalued: true
+        inlined_as_list: true
+        range: genome annotation
+      genome_assemblies:
+        multivalued: true
+        inlined_as_list: true
+        range: genome assembly
 
 slots:
   referenced in:
     range: genome annotation
+  molecular type:
+    range: BioType
   reference assembly:
     range: uriorcurie
   digest:
@@ -105,3 +127,15 @@ enums:
         meaning: spdx:checksumAlgorithm_md5
       SHA256:
         meaning: spdx:checksumAlgorithm_sha256
+
+  BioType:
+    permissible_values:
+      protein_coding:
+      noncoding:
+
+  TaxonType:
+    permissible_values:
+      mouse:
+        meaning: ncbi:10090
+      human:
+        meaning: ncbi:9606

@@ -28,6 +28,20 @@ class DigestType(str, Enum):
     
     
 
+class BioType(str, Enum):
+    
+    protein_coding = "protein_coding"
+    noncoding = "noncoding"
+    
+    
+
+class TaxonType(str, Enum):
+    
+    mouse = "mouse"
+    human = "human"
+    
+    
+
 class AnatomicalContextQualifierEnum(str, Enum):
     
     
@@ -259,6 +273,18 @@ class FDAIDAAdverseEventEnum(str, Enum):
     
     
 
+class GenomeAssembly(ConfiguredBaseModel):
+    """
+    Genome assembly to contain version and label information
+    """
+    id: Optional[str] = Field(None)
+    taxon: Optional[str] = Field(None)
+    version: Optional[str] = Field(None)
+    label: Optional[str] = Field(None)
+    description: Optional[str] = Field(None)
+    
+
+
 class Mapping(ConfiguredBaseModel):
     """
     text
@@ -285,6 +311,8 @@ class Mappings(ConfiguredBaseModel):
 class AnnotationCollection(ConfiguredBaseModel):
     
     annotations: Optional[List[GeneAnnotation]] = Field(default_factory=list)
+    genome_annotations: Optional[List[GenomeAnnotation]] = Field(default_factory=list)
+    genome_assemblies: Optional[List[GenomeAssembly]] = Field(default_factory=list)
     
 
 
@@ -2704,6 +2732,7 @@ class GeneAnnotation(Gene):
     An annotation describing the location, boundaries, and functions of  individual genes within a genome annotation.
     """
     referenced_in: Optional[str] = Field(None)
+    molecular_type: Optional[BioType] = Field(None)
     symbol: Optional[str] = Field(None, description="""Symbol for a particular thing""")
     synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
@@ -7929,6 +7958,7 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
 
 # Update forward refs
 # see https://pydantic-docs.helpmanual.io/usage/postponed_annotations/
+GenomeAssembly.update_forward_refs()
 Mapping.update_forward_refs()
 Mappings.update_forward_refs()
 AnnotationCollection.update_forward_refs()
