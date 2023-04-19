@@ -1,0 +1,6 @@
+extends: recommended
+
+rules:
+  standard_naming:
+    level: disabled
+

@@ -1,0 +1,190 @@
+{
+    "$defs": {
+        "CellSetAccessionToCellMapping": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "cell_accessions": {
+                    "description": "List of cell set accession identifiers.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "sample": {
+                    "description": "Cell sample identifier.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "sample",
+                "cell_accessions"
+            ],
+            "title": "CellSetAccessionToCellMapping",
+            "type": "object"
+        },
+        "CrossTaxonomyMapping": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "cell_set_accession": {
+                    "description": "Primary identifier for cell set.",
+                    "type": "string"
+                },
+                "cell_type_name": {
+                    "description": "The primary name/symbol to be used for the cell type defined by this cell set.",
+                    "type": "string"
+                },
+                "evidence_comment": {
+                    "description": "A free text description of the evidence supporting this mapping. If a similarity_score is include, please also include details of how this was calculated.",
+                    "type": "string"
+                },
+                "mapped_cell_set_accession": {
+                    "description": "The accession (ID) of a cell set in a second taxonomy that this cell set maps to.",
+                    "type": "string"
+                },
+                "mapped_cell_type_name": {
+                    "description": "The name of the cell type corresponding to the mapped_cell_set_accession.",
+                    "type": "string"
+                },
+                "provenance": {
+                    "description": "ORCID of the person doing the mapping using the syntax ORCID:0123-4567-890. Optionally include supporting publications using DOIs of the form doi:10.1126/journal.abj6641.",
+                    "type": "string"
+                },
+                "similarity_score": {
+                    "description": "A score recording the similarity between mapped nodes.",
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "cell_set_accession",
+                "cell_type_name",
+                "mapped_cell_set_accession",
+                "mapped_cell_type_name",
+                "evidence_comment"
+            ],
+            "title": "CrossTaxonomyMapping",
+            "type": "object"
+        },
+        "LocationMapping": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "cell_set_accession": {
+                    "description": "Primary identifier for cell set.",
+                    "type": "string"
+                },
+                "cell_type_name": {
+                    "description": "The primary name/symbol to be used for the cell type defined by this cell set.",
+                    "type": "string"
+                },
+                "evidence_comment": {
+                    "description": "A comment describing the evidence for this location mapping",
+                    "type": "string"
+                },
+                "location_ontology_term_id": {
+                    "description": "The ID of an ontology term that refers to a brain region that this cell type is located in. Ideally this should be the ID of a term defined as a region in a standard atlas.",
+                    "type": "string"
+                },
+                "location_ontology_term_name": {
+                    "description": "Name of the term whose ID is recorded in the ontology_term_id field.",
+                    "type": "string"
+                },
+                "provenance": {
+                    "description": "ORCID of the person doing the mapping using the syntax ORCID:0123-4567-890. Optionally include supporting publications using DOIs of the form doi:10.1126/journal.abj6641.",
+                    "type": "string"
+                },
+                "supporting_data": {
+                    "description": "A link to data supporting this location mapping.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "cell_set_accession",
+                "cell_type_name",
+                "location_ontology_term_id",
+                "location_ontology_term_name",
+                "provenance"
+            ],
+            "title": "LocationMapping",
+            "type": "object"
+        },
+        "Rank": {
+            "description": "",
+            "enum": [
+                "leaf_node",
+                "family",
+                "gross"
+            ],
+            "title": "Rank",
+            "type": "string"
+        },
+        "Taxonomy": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "cell_set_accession": {
+                    "description": "Primary identifier of the cell set. This field should be programmatically assigned, not edited.",
+                    "type": "string"
+                },
+                "cell_type_name": {
+                    "description": "The primary name/symbol to be used for the (provisional) cell type defined by this cell set. This is left optional, but is strongly encouraged for every node that is linked.",
+                    "type": "string"
+                },
+                "classification_comment": {
+                    "description": "A free text comment describing the evidence for this classification.",
+                    "type": "string"
+                },
+                "classification_provenance": {
+                    "description": "Either the DOI(s) of a supporting publication (in the form the form doi:10.1126/journal.abj6641) or the editor's ORCID (in the form: ORCID:01243-234-678). Multiple entries should be separated by a '|'.",
+                    "type": "string"
+                },
+                "classifying_ontology_term_id": {
+                    "description": "The ID of an ontology term that classifies the cell type defined by this node.",
+                    "type": "string"
+                },
+                "classifying_ontology_term_name": {
+                    "description": "The name of the ontology term in the classification_id column",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Optional free text description of the cluster. This could be particularly useful for describing the properties of cells clustered from techniques that provide data on morphology, function and connectivity, e.g. patch-seq & epi-retro-seq.",
+                    "type": "string"
+                },
+                "parent_cell_set_accession": {
+                    "description": "The cell set accession of the parent cell set in the taxonomy. This field should be programmatically assigned, not edited.",
+                    "type": "string"
+                },
+                "rank": {
+                    "$ref": "#/$defs/Rank",
+                    "description": "Algorithmically generated hierarchical taxonomies can be complex, with many nodes between root and leaf and branches of variable depth. To simplify this for display and discussion it can be useful to assign nodes to a 3 level hierarchy, with leaf nodes at the bottom."
+                },
+                "synonym_provenance": {
+                    "description": "Each entry in the synonyms field should have a corresponding entry here, either the DOI of a supporting publication (in the form the form doi:10.1126/journal.abj6641) or the editor's ORCID (in the form: ORCID:01243-234-678). Multiple entries should be separated by a '|'.",
+                    "type": "string"
+                },
+                "synonyms": {
+                    "description": "A list of alternative names for this cell type. Separate entries with a '|'. Do not use terms with a scope that is much narrower or broader than the cell type being described.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "cell_set_accession",
+                "parent_cell_set_accession",
+                "classifying_ontology_term_name",
+                "classification_provenance"
+            ],
+            "title": "Taxonomy",
+            "type": "object"
+        }
+    },
+    "$id": "CCN2",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": true,
+    "metamodel_version": "1.7.0",
+    "title": "CCN2",
+    "type": "object",
+    "version": null
+}
