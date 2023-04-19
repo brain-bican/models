@@ -1,6 +1,9 @@
-from kbmodel import AnnotationCollection
+from models_py.kbmodel import AnnotationCollection
 import yaml
 import csv
+from pathlib import Path
+
+data_files = (Path(__file__).parent / "../source-data")
 
 # read csv data file into a list of dictionaries of data
 def readCSV(filename):
@@ -11,12 +14,12 @@ def readCSV(filename):
             results.append(row)
     return results
 
-annots = readCSV('20230412_subset_gene_annotation.csv')
-genomeannots = readCSV('20230412_subset_genome_annotation.csv')
-genomeassemblies = readCSV('20230412_subset_genome_assembly.csv')
+annots = readCSV(data_files / '20230412_subset_gene_annotation.csv')
+genomeannots = readCSV(data_files / '20230412_subset_genome_annotation.csv')
+genomeassemblies = readCSV(data_files / '20230412_subset_genome_assembly.csv')
 
 # map csv to data yaml
-with open(r'data.yaml', 'w') as file:
+with open(r'../data.yaml', 'w') as file:
     classannots = dict()
 
     translatedannots = []
@@ -57,7 +60,7 @@ with open(r'data.yaml', 'w') as file:
     yaml.dump(classannots, file)
 
 # load data yaml
-with open('data.yaml') as fp:
+with open('../data.yaml') as fp:
     data = yaml.safe_load(fp)
 myannotations = AnnotationCollection(annotations=data.get("annotations"))
 mygenomeannotations = AnnotationCollection(genome_annotations=data.get("genome annotations"))
