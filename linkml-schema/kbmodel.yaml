@@ -39,6 +39,9 @@ classes:
       - content_url
 
   genome assembly:
+#    is_a: named thing
+#    mixins:
+#      - thing with taxon
     description: >-
       Genome assembly to contain version and label information
     attributes:
