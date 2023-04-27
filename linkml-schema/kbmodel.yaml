@@ -2,14 +2,14 @@ id: https://identifiers.org/brain-bican/kb-model
 name: kb-model
 prefixes:
   linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/vocab/
+  biolink: https://w3id.org/biolink/
   bican: https://identifiers.org/brain-bican/vocab/
   spdx: http://spdx.org/rdf/terms#
   schema: http://schema.org/
   ncbi: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi
 imports:
   - linkml:types
-  - https://raw.githubusercontent.com/biolink/biolink-model/master/biolink-model
+  - biolink:biolink-model
 default_range: string
 default_prefix: bican
 
