@@ -1,0 +1,144 @@
+id: https://identifiers.org/brain-bican/kb-model
+name: kb-model
+prefixes:
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/
+  bican: https://identifiers.org/brain-bican/vocab/
+  spdx: http://spdx.org/rdf/terms#
+  schema: http://schema.org/
+  ncbi: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi
+imports:
+  - linkml:types
+  - biolink:biolink-model
+default_range: string
+default_prefix: bican
+
+classes:
+  gene annotation:
+    is_a: gene
+    description: >-
+      An annotation describing the location, boundaries, and functions of 
+      individual genes within a genome annotation.
+    slots:
+      - referenced in
+      - molecular type
+    id_prefixes:
+      - ENSEMBL
+      - MGI
+      - NCBIGene
+
+  genome annotation:
+    is_a: genome
+    description: >-
+      Location and nomenclature of genes and all of the coding regions in a genome assembly 
+      and the classification of genes and transcripts into types.
+    slots:
+      - reference assembly
+      - version
+      - digest
+      - content_url
+
+  genome assembly:
+#    is_a: named thing
+#    mixins:
+#      - thing with taxon
+    description: >-
+      Genome assembly to contain version and label information
+    attributes:
+      id:
+      taxon:
+      version:
+      label:
+      description:
+
+  checksum:
+    is_a: entity
+    description: >-
+      Checksum values associated with digital entities.
+    slots:
+      - checksum algorithm
+      - value
+
+  mapping:
+    description: text
+    slots:
+      - gene_identifier_1
+      - gene_identifier_2
+      - authority
+      - method
+      - creation_date
+      - access_date
+      - member of
+    notes: relate to - https://mapping-commons.github.io/sssom/
+
+
+  mappings:
+    description: >
+      A collection of mappings between identifiers
+    slots:
+      - has member
+    notes: use this model - https://mapping-commons.github.io/sssom/
+
+  annotation collection:
+    tree_root: true
+    attributes:
+      annotations:
+        multivalued: true
+        inlined_as_list: true
+        range: gene annotation
+      genome_annotations:
+        multivalued: true
+        inlined_as_list: true
+        range: genome annotation
+      genome_assemblies:
+        multivalued: true
+        inlined_as_list: true
+        range: genome assembly
+
+slots:
+  referenced in:
+    range: genome annotation
+  molecular type:
+    range: BioType
+  reference assembly:
+    range: uriorcurie
+  digest:
+    range: checksum
+    multivalued: true
+    required: true
+  content_url:
+    slot_uri: schema:url
+    multivalued: true
+  gene_identifier_1:
+    range: gene annotation
+  gene_identifier_2:
+    range: gene annotation
+  authority:
+  method:
+  creation_date:
+  access_date:
+  checksum algorithm:
+    range: DigestType
+  value:
+
+enums:
+  DigestType:
+    permissible_values:
+      SHA1:
+        meaning: spdx:checksumAlgorithm_sha1
+      MD5:
+        meaning: spdx:checksumAlgorithm_md5
+      SHA256:
+        meaning: spdx:checksumAlgorithm_sha256
+
+  BioType:
+    permissible_values:
+      protein_coding:
+      noncoding:
+
+  TaxonType:
+    permissible_values:
+      mouse:
+        meaning: ncbi:10090
+      human:
+        meaning: ncbi:9606

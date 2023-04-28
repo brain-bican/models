@@ -1,0 +1,11 @@
+assembly_identifier_prefix,assembly_local_unqiue_identifier,label,taxon_identifier_prefix,taxon_local_unique_identifier,authority,version,gene_identifier_prefix,description,url
+assembly,GCF_000001635.26,Ensembl-10090-102,taxonomy,10090,Ensembl,102,ensembl,Ensembl Release 102 (November 2020),https://ftp.ensembl.org/pub/release-102/gff3/mus_musculus/Mus_musculus.GRCm38.102.gff3.gz
+assembly,GCF_000001635.27,Ensembl-10090-108,taxonomy,10090,Ensembl,108,ensembl,Ensembl Release 108 (Oct 2022),https://ftp.ensembl.org/pub/release-108/gff3/mus_musculus/Mus_musculus.GRCm39.108.gff3.gz
+assembly,GCF_000001635.27,Ensembl-10090-109,taxonomy,10090,Ensembl,109,ensembl,Ensembl Release 109 (Feb 2023),https://ftp.ensembl.org/pub/release-109/gff3/mus_musculus/Mus_musculus.GRCm39.109.gff3.gz
+assembly,GCF_000001635.26,Ensembl-10090-98,taxonomy,10090,Ensembl,98,ensembl,Ensembl Archive Release 98 (September 2019),https://ftp.ensembl.org/pub/release-98/gff3/mus_musculus/Mus_musculus.GRCm38.98.gff3.gz
+assembly,GCF_000001405.39 ,Ensembl-9606-108,taxonomy,9606,Ensembl,108,ensembl,Ensembl Release 108 (Oct 2022),https://ftp.ensembl.org/pub/release-108/gff3/homo_sapiens/Homo_sapiens.GRCh38.108.gff3.gz
+assembly,GCF_000001405.39,Ensembl-9606-109,taxonomy,9606,Ensembl,109,ensembl,Ensembl Release 109 (Feb 2023),https://ftp.ensembl.org/pub/release-109/gff3/homo_sapiens/Homo_sapiens.GRCh38.109.gff3.gz
+assembly,GCF_000001635.26,NCBI-10090-108,taxonomy,10090,NCBI,108,ncbigene,NCBI Annotation Release 108,https://ftp.ncbi.nlm.nih.gov/genomes/all/annotation_releases/10090/108/GCF_000001635.26_GRCm38.p6/GCF_000001635.26_GRCm38.p6_genomic.gff.gz
+assembly,GCF_000001635.27,NCBI-10090-109,taxonomy,10090,NCBI,109,ncbigene,NCBI Annotation Release 109,https://ftp.ncbi.nlm.nih.gov/genomes/all/annotation_releases/10090/109/GCF_000001635.27_GRCm39/GCF_000001635.27_GRCm39_genomic.gff.gz
+assembly,GCF_000001405.38,NCBI-9606-109,taxonomy,9606,NCBI,109,ncbigene,NCBI Annotation Release 109,https://ftp.ncbi.nlm.nih.gov/genomes/all/annotation_releases/9606/109/GCF_000001405.38_GRCh38.p12/GCF_000001405.38_GRCh38.p12_genomic.gff.gz
+assembly,GCF_000001405.40,NCBI-9606-110,taxonomy,9606,NCBI,110,ncbigene,NCBI Annotation Release 110,https://ftp.ncbi.nlm.nih.gov/genomes/all/annotation_releases/9606/110/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_genomic.gff.gz
