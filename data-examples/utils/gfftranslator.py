@@ -2,8 +2,7 @@ import pandas as pd
 import os
 from pathlib import Path
 from translator import readCSV
-import yaml
-from models_py.kbmodel import AnnotationCollection
+from models_py.kbmodel import AnnotationCollection, GeneAnnotation
 
 
 data_files = (Path(__file__).parent / "../source-data")
@@ -99,26 +98,16 @@ for each in genomeannots:
     out_df.to_csv(file, index=False)
 
     # TODO: refactor common functionality and these scripts into accepting args of data files
-    yamlname = fname[:34] + 'yaml'
-    data_output = (Path(__file__).parent / yamlname)
     annots = readCSV(file)
-    with open(data_output, 'w') as dataoutputfile:
-        classannots = dict()
-        translatedannots = []
-        for each in annots:
-            translated = dict()
-            translated['id'] = each['gene_identifier_prefix'].upper().replace('ENE', 'ene') + ':' + each['gene_local_unique_identifier']
-            translated['symbol'] = each['symbol']
-            translated['name'] = each['name']
-            translated['referenced_in'] = each['genome_annotation_label']
-            translated['molecular_type'] = each['gene_biotype'] if each['gene_biotype'] == 'protein_coding' else 'noncoding' #TODO: confirm if noncoding for the rest of the values or parse them as new enum values
-            translatedannots.append(translated)
-        classannots['annotations'] = translatedannots
-        yaml.dump(classannots, dataoutputfile)
+    translatedannots = []
+    for each in annots:
+        myannotation = GeneAnnotation(id = each['gene_identifier_prefix'].upper().replace('ENE', 'ene') + ':' + each['gene_local_unique_identifier'],
+                                      symbol = each['symbol'],
+                                      name = each['name'],
+                                      referenced_in = each['genome_annotation_label'],
+                                      molecular_type = each['gene_biotype'] if each['gene_biotype'] == 'protein_coding' else 'noncoding') #TODO: confirm if noncoding for the rest of the values or parse them as new enum values)
+        translatedannots.append(myannotation)
 
     break # TODO: this only parses first gff file url since it is a huge file and takes a long time to parse, revisit when refactoring through above TODO
 
-# load data yaml
-with open(data_output) as fp:
-    genedata = yaml.safe_load(fp)
-myannotations = AnnotationCollection(annotations=genedata.get("annotations"))
+myannotations = AnnotationCollection(annotations=translatedannots)
