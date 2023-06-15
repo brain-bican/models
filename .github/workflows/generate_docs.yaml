@@ -34,5 +34,4 @@ jobs:
           mkdir docs
           touch docs/.nojekyll
           cp -r src/docs/* docs/
-#          gen-doc -d docs linkml-schema/kbmodel.yaml
           mkdocs gh-deploy --force
