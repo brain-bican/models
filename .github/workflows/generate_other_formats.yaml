@@ -2,8 +2,6 @@ name: generating other formats
 
 on:
   push:
-  pull_request:
-
 
 jobs:
   test:
