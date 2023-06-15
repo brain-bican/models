@@ -27,6 +27,7 @@ GenomeAnnotation {
 }
 GeneAnnotation {
     BioType molecular_type  
+    string source_id  
     string symbol  
     label_typeList synonym  
     uriorcurieList xref  

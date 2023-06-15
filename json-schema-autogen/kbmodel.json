@@ -11945,6 +11945,10 @@
                 "referenced_in": {
                     "type": "string"
                 },
+                "source_id": {
+                    "description": "the authority's identifier",
+                    "type": "string"
+                },
                 "symbol": {
                     "description": "Symbol for a particular thing",
                     "type": "string"
