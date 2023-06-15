@@ -30,6 +30,8 @@ jobs:
           sudo apt-get install -y build-essential git wget curl
 
       - name: Create local docs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir docs
           touch docs/.nojekyll
