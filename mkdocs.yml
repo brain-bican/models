@@ -1,0 +1,10 @@
+site_name: "model"
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+
+plugins:
+  - search
+  - mermaid2
