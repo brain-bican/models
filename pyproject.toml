@@ -25,6 +25,10 @@ dependencies = [
 test = [
     "pytest",
 ]
+docs = [
+    "mkdocs-material",
+    "mkdocs-mermaid2-plugin"
+]
 
 [project.urls]
 "Homepage" = "https://github.com/atlaskb/models"

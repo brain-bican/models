@@ -1,0 +1,306 @@
+{
+    "$defs": {
+        "BroadRegion": {
+            "description": "",
+            "enum": [
+                "PALL",
+                "CNU",
+                "TH",
+                "HY",
+                "MB",
+                "HB",
+                "CB"
+            ],
+            "title": "BroadRegion",
+            "type": "string"
+        },
+        "Cell": {
+            "additionalProperties": false,
+            "description": "Cell, a member of a cluster",
+            "properties": {
+                "broad_region": {
+                    "$ref": "#/$defs/BroadRegion"
+                },
+                "has_group_relationships": {
+                    "items": {
+                        "$ref": "#/$defs/GroupRelationship"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Cell",
+            "type": "object"
+        },
+        "CellCategory": {
+            "description": "",
+            "enum": [
+                "NEURON",
+                "OTHER_IMN",
+                "OTHER_VASCULAR",
+                "NEUROGLIAL"
+            ],
+            "title": "CellCategory",
+            "type": "string"
+        },
+        "CellClass": {
+            "additionalProperties": false,
+            "description": "Class division in Figure 1, also found in Supplementary Materials: Table 7",
+            "properties": {
+                "category": {
+                    "$ref": "#/$defs/CellCategory"
+                },
+                "has_hierarchical_relationships": {
+                    "items": {
+                        "$ref": "#/$defs/HierarchicalRelationship"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "category",
+                "id"
+            ],
+            "title": "CellClass",
+            "type": "object"
+        },
+        "CellSubclass": {
+            "additionalProperties": false,
+            "description": "Subclass division in Figure 1",
+            "properties": {
+                "division": {
+                    "$ref": "#/$defs/Division"
+                },
+                "has_hierarchical_relationships": {
+                    "items": {
+                        "$ref": "#/$defs/HierarchicalRelationship"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "nt_type": {
+                    "$ref": "#/$defs/NTType"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "CellSubclass",
+            "type": "object"
+        },
+        "Cluster": {
+            "additionalProperties": false,
+            "description": "Cluster in Supplementary Materials: Table 7",
+            "properties": {
+                "has_group_relationships": {
+                    "items": {
+                        "$ref": "#/$defs/GroupRelationship"
+                    },
+                    "type": "array"
+                },
+                "has_hierarchical_relationships": {
+                    "items": {
+                        "$ref": "#/$defs/HierarchicalRelationship"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Cluster",
+            "type": "object"
+        },
+        "Container": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "cells": {
+                    "items": {
+                        "$ref": "#/$defs/Cell"
+                    },
+                    "type": "array"
+                },
+                "classes": {
+                    "items": {
+                        "$ref": "#/$defs/CellClass"
+                    },
+                    "type": "array"
+                },
+                "clusters": {
+                    "items": {
+                        "$ref": "#/$defs/Cluster"
+                    },
+                    "type": "array"
+                },
+                "subclasses": {
+                    "items": {
+                        "$ref": "#/$defs/CellSubclass"
+                    },
+                    "type": "array"
+                }
+            },
+            "title": "Container",
+            "type": "object"
+        },
+        "Division": {
+            "description": "",
+            "enum": [
+                "Pallium glutamatergic",
+                "Subpallium GABAergic",
+                "PAL\u2212sAMY\u2212TH\u2212HY \u2212MB\u2212HB neuronal",
+                "CBX\u2212MOB\u2212other neuronal",
+                "Neuroglial",
+                "Vascular",
+                "Immune"
+            ],
+            "title": "Division",
+            "type": "string"
+        },
+        "GroupRelationship": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "related_to": {
+                    "type": "string"
+                },
+                "relationship_type": {
+                    "$ref": "#/$defs/GroupRelationshipType"
+                }
+            },
+            "required": [
+                "related_to"
+            ],
+            "title": "GroupRelationship",
+            "type": "object"
+        },
+        "GroupRelationshipType": {
+            "description": "",
+            "enum": [
+                "CONSISTS_OF",
+                "MEMBER_OF"
+            ],
+            "title": "GroupRelationshipType",
+            "type": "string"
+        },
+        "HierarchicalRelationship": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "related_to": {
+                    "type": "string"
+                },
+                "relationship_type": {
+                    "$ref": "#/$defs/HierarchicalRelationshipType"
+                }
+            },
+            "required": [
+                "related_to"
+            ],
+            "title": "HierarchicalRelationship",
+            "type": "object"
+        },
+        "HierarchicalRelationshipType": {
+            "description": "",
+            "enum": [
+                "PARENT_OF",
+                "CHILD_OF"
+            ],
+            "title": "HierarchicalRelationshipType",
+            "type": "string"
+        },
+        "NTType": {
+            "description": "",
+            "enum": [
+                "Glut",
+                "GABA",
+                "Glut\u2212GABA",
+                "GABA\u2212Glyc",
+                "Chol",
+                "Dopa",
+                "Sero",
+                "Nora",
+                "Hist",
+                "NA"
+            ],
+            "title": "NTType",
+            "type": "string"
+        },
+        "NamedThing": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "NamedThing",
+            "type": "object"
+        }
+    },
+    "$id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": true,
+    "description": "",
+    "metamodel_version": "1.7.0",
+    "properties": {
+        "cells": {
+            "items": {
+                "$ref": "#/$defs/Cell"
+            },
+            "type": "array"
+        },
+        "classes": {
+            "items": {
+                "$ref": "#/$defs/CellClass"
+            },
+            "type": "array"
+        },
+        "clusters": {
+            "items": {
+                "$ref": "#/$defs/Cluster"
+            },
+            "type": "array"
+        },
+        "subclasses": {
+            "items": {
+                "$ref": "#/$defs/CellSubclass"
+            },
+            "type": "array"
+        }
+    },
+    "title": "figure1",
+    "type": "object",
+    "version": null
+}

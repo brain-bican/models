@@ -1,0 +1,40 @@
+name: generating documentation
+
+on:
+  push:
+    paths:
+      - linkml-schema/kbmodel.yaml
+  pull_request:
+    paths:
+      - linkml-schema/kbmodel.yaml
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Install the required python packages
+        run: python -m pip install .[docs]
+
+      - name: Other installations
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential git wget curl
+
+      - name: Create local docs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir docs
+          touch docs/.nojekyll
+          cp -r src/docs/* docs/
+          gen-doc -d docs linkml-schema/kbmodel.yaml
+          mkdocs gh-deploy --force
