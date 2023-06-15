@@ -2,19 +2,15 @@ name: generating documentation
 
 on:
   push:
-    branches:
-      - GA_converter_tmp
     paths:
       - linkml-schema/kbmodel.yaml
   pull_request:
-
+    paths:
+      - linkml-schema/kbmodel.yaml
 
 jobs:
   test:
     runs-on: ubuntu-latest
-#    strategy:
-#      matrix:
-#        python-version: "3.9"
 
     steps:
       - name: Checkout this repository
@@ -26,7 +22,7 @@ jobs:
           python-version: 3.9
 
       - name: Install the required python packages
-        run: python -m pip install .[test,docs]
+        run: python -m pip install .[docs]
 
       - name: Other installations
         run: |
@@ -37,6 +33,5 @@ jobs:
         run: |
           mkdir docs
           touch docs/.nojekyll
-          cp -r src/docs/* docs/
           gen-doc -d docs linkml-schema/kbmodel.yaml
           mkdocs gh-deploy --force
