@@ -25,16 +25,27 @@ ccn2:CrossTaxonomyMapping a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 6 ;
             sh:path ccn2:provenance ],
-        [ sh:description "The primary name/symbol to be used for the cell type defined by this cell set." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path ccn2:cell_type_name ],
         [ sh:description "A free text description of the evidence supporting this mapping. If a similarity_score is include, please also include details of how this was calculated." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 4 ;
             sh:path ccn2:evidence_comment ],
+        [ sh:description "The name of the cell type corresponding to the mapped_cell_set_accession." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path ccn2:mapped_cell_type_name ],
+        [ sh:description "The primary name/symbol to be used for the cell type defined by this cell set." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path ccn2:cell_type_name ],
+        [ sh:description "A score recording the similarity between mapped nodes." ;
+            sh:maxCount 1 ;
+            sh:maxInclusive 1 ;
+            sh:minInclusive 0 ;
+            sh:order 5 ;
+            sh:path ccn2:similarity_score ],
         [ sh:description "Primary identifier for cell set." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -44,52 +55,41 @@ ccn2:CrossTaxonomyMapping a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 2 ;
-            sh:path ccn2:mapped_cell_set_accession ],
-        [ sh:description "A score recording the similarity between mapped nodes." ;
-            sh:maxCount 1 ;
-            sh:maxInclusive 1 ;
-            sh:minInclusive 0 ;
-            sh:order 5 ;
-            sh:path ccn2:similarity_score ],
-        [ sh:description "The name of the cell type corresponding to the mapped_cell_set_accession." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 3 ;
-            sh:path ccn2:mapped_cell_type_name ] ;
+            sh:path ccn2:mapped_cell_set_accession ] ;
     sh:targetClass ccn2:CrossTaxonomyMapping .
 
 ccn2:LocationMapping a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "ORCID of the person doing the mapping using the syntax ORCID:0123-4567-890. Optionally include supporting publications using DOIs of the form doi:10.1126/journal.abj6641." ;
+    sh:property [ sh:description "The primary name/symbol to be used for the cell type defined by this cell set." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 6 ;
-            sh:path ccn2:provenance ],
-        [ sh:description "Name of the term whose ID is recorded in the ontology_term_id field." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 3 ;
-            sh:path ccn2:location_ontology_term_name ],
-        [ sh:description "A link to data supporting this location mapping." ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path ccn2:supporting_data ],
+            sh:order 1 ;
+            sh:path ccn2:cell_type_name ],
         [ sh:description "The ID of an ontology term that refers to a brain region that this cell type is located in. Ideally this should be the ID of a term defined as a region in a standard atlas." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 2 ;
             sh:path ccn2:location_ontology_term_id ],
-        [ sh:description "The primary name/symbol to be used for the cell type defined by this cell set." ;
+        [ sh:description "A link to data supporting this location mapping." ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path ccn2:supporting_data ],
+        [ sh:description "ORCID of the person doing the mapping using the syntax ORCID:0123-4567-890. Optionally include supporting publications using DOIs of the form doi:10.1126/journal.abj6641." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path ccn2:cell_type_name ],
+            sh:order 6 ;
+            sh:path ccn2:provenance ],
         [ sh:description "Primary identifier for cell set." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path ccn2:cell_set_accession ],
+        [ sh:description "Name of the term whose ID is recorded in the ontology_term_id field." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path ccn2:location_ontology_term_name ],
         [ sh:description "A comment describing the evidence for this location mapping" ;
             sh:maxCount 1 ;
             sh:order 4 ;
@@ -107,34 +107,6 @@ ccn2:Taxonomy a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 4 ;
             sh:path ccn2:synonym_provenance ],
-        [ sh:description "The name of the ontology term in the classification_id column" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 7 ;
-            sh:path ccn2:classifying_ontology_term_name ],
-        [ sh:description "A list of alternative names for this cell type. Separate entries with a '|'. Do not use terms with a scope that is much narrower or broader than the cell type being described." ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path ccn2:synonyms ],
-        [ sh:description "Either the DOI(s) of a supporting publication (in the form the form doi:10.1126/journal.abj6641) or the editor's ORCID (in the form: ORCID:01243-234-678). Multiple entries should be separated by a '|'." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 8 ;
-            sh:path ccn2:classification_provenance ],
-        [ sh:description "Algorithmically generated hierarchical taxonomies can be complex, with many nodes between root and leaf and branches of variable depth. To simplify this for display and discussion it can be useful to assign nodes to a 3 level hierarchy, with leaf nodes at the bottom." ;
-            sh:in ( "leaf_node" "family" "gross" ) ;
-            sh:maxCount 1 ;
-            sh:order 10 ;
-            sh:path ccn2:rank ],
-        [ sh:description "The cell set accession of the parent cell set in the taxonomy. This field should be programmatically assigned, not edited." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path ccn2:parent_cell_set_accession ],
-        [ sh:description "Optional free text description of the cluster. This could be particularly useful for describing the properties of cells clustered from techniques that provide data on morphology, function and connectivity, e.g. patch-seq & epi-retro-seq." ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path ccn2:description ],
         [ sh:description "Primary identifier of the cell set. This field should be programmatically assigned, not edited." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -144,10 +116,38 @@ ccn2:Taxonomy a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 1 ;
             sh:path ccn2:cell_type_name ],
+        [ sh:description "Either the DOI(s) of a supporting publication (in the form the form doi:10.1126/journal.abj6641) or the editor's ORCID (in the form: ORCID:01243-234-678). Multiple entries should be separated by a '|'." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 8 ;
+            sh:path ccn2:classification_provenance ],
+        [ sh:description "Optional free text description of the cluster. This could be particularly useful for describing the properties of cells clustered from techniques that provide data on morphology, function and connectivity, e.g. patch-seq & epi-retro-seq." ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path ccn2:description ],
+        [ sh:description "The cell set accession of the parent cell set in the taxonomy. This field should be programmatically assigned, not edited." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path ccn2:parent_cell_set_accession ],
+        [ sh:description "Algorithmically generated hierarchical taxonomies can be complex, with many nodes between root and leaf and branches of variable depth. To simplify this for display and discussion it can be useful to assign nodes to a 3 level hierarchy, with leaf nodes at the bottom." ;
+            sh:in ( "leaf_node" "family" "gross" ) ;
+            sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path ccn2:rank ],
         [ sh:description "A free text comment describing the evidence for this classification." ;
             sh:maxCount 1 ;
             sh:order 9 ;
-            sh:path ccn2:classification_comment ] ;
+            sh:path ccn2:classification_comment ],
+        [ sh:description "The name of the ontology term in the classification_id column" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 7 ;
+            sh:path ccn2:classifying_ontology_term_name ],
+        [ sh:description "A list of alternative names for this cell type. Separate entries with a '|'. Do not use terms with a scope that is much narrower or broader than the cell type being described." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path ccn2:synonyms ] ;
     sh:targetClass ccn2:Taxonomy .
 
 
