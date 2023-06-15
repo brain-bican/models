@@ -22,6 +22,7 @@ classes:
     slots:
       - referenced in
       - molecular type
+      - source id
     id_prefixes:
       - ENSEMBL
       - MGI
@@ -120,6 +121,9 @@ slots:
   checksum algorithm:
     range: DigestType
   value:
+  source id:
+    description: the authority's identifier 
+    slot_uri: schema:identifier
 
 enums:
   DigestType:
