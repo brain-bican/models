@@ -2,11 +2,11 @@ name: generating documentation
 
 on:
   push:
-#    paths:
-#      - linkml-schema/kbmodel.yaml
+    paths:
+      - linkml-schema/kbmodel.yaml
   pull_request:
-#    paths:
-#      - linkml-schema/kbmodel.yaml
+    paths:
+      - linkml-schema/kbmodel.yaml
 
 jobs:
   test:
