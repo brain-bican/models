@@ -1,83 +1,122 @@
 from __future__ import annotations
 from datetime import datetime, date
 from enum import Enum
-from typing import List, Dict, Optional, Any, Union, Literal
+from typing import List, Dict, Optional, Any, Union
 from pydantic import BaseModel as BaseModel, Field
 from linkml_runtime.linkml_model import Decimal
+import sys
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
+
 
 metamodel_version = "None"
 version = "None"
 
 class WeakRefShimBaseModel(BaseModel):
    __slots__ = '__weakref__'
-    
+
 class ConfiguredBaseModel(WeakRefShimBaseModel,
-                validate_assignment = True, 
-                validate_all = True, 
-                underscore_attrs_are_private = True, 
-                extra = 'forbid', 
-                arbitrary_types_allowed = True):
-    pass                    
+                validate_assignment = True,
+                validate_all = True,
+                underscore_attrs_are_private = True,
+                extra = 'forbid',
+                arbitrary_types_allowed = True,
+                use_enum_values = True):
+    pass
 
 
 class CellCategory(str, Enum):
     
+    
     NEURON = "NEURON"
+    
     OTHER_IMN = "OTHER_IMN"
+    
     OTHER_VASCULAR = "OTHER_VASCULAR"
+    
     NEUROGLIAL = "NEUROGLIAL"
     
     
 
 class BroadRegion(str, Enum):
     
+    
     PALL = "PALL"
+    
     CNU = "CNU"
+    
     TH = "TH"
+    
     HY = "HY"
+    
     MB = "MB"
+    
     HB = "HB"
+    
     CB = "CB"
     
     
 
 class Division(str, Enum):
     
+    
     Pallium_glutamatergic = "Pallium glutamatergic"
+    
     Subpallium_GABAergic = "Subpallium GABAergic"
+    
     PALMINUS_SIGNsAMYMINUS_SIGNTHMINUS_SIGNHY_MINUS_SIGNMBMINUS_SIGNHB_neuronal = "PAL−sAMY−TH−HY −MB−HB neuronal"
+    
     CBXMINUS_SIGNMOBMINUS_SIGNother_neuronal = "CBX−MOB−other neuronal"
+    
     Neuroglial = "Neuroglial"
+    
     Vascular = "Vascular"
+    
     Immune = "Immune"
     
     
 
 class NTType(str, Enum):
     
+    
     Glut = "Glut"
+    
     GABA = "GABA"
+    
     GlutMINUS_SIGNGABA = "Glut−GABA"
+    
     GABAMINUS_SIGNGlyc = "GABA−Glyc"
+    
     Chol = "Chol"
+    
     Dopa = "Dopa"
+    
     Sero = "Sero"
+    
     Nora = "Nora"
+    
     Hist = "Hist"
+    
     NA = "NA"
     
     
 
 class HierarchicalRelationshipType(str, Enum):
     
+    
     PARENT_OF = "PARENT_OF"
+    
     CHILD_OF = "CHILD_OF"
     
     
 
 class GroupRelationshipType(str, Enum):
     
+    
     CONSISTS_OF = "CONSISTS_OF"
+    
     MEMBER_OF = "MEMBER_OF"
     
     
@@ -93,9 +132,9 @@ class CellClass(NamedThing):
     """
     Class division in Figure 1, also found in Supplementary Materials: Table 7
     """
-    category: CellCategory = Field(None)
+    category: CellCategory = Field(...)
     has_hierarchical_relationships: Optional[List[HierarchicalRelationship]] = Field(default_factory=list)
-    id: Optional[str] = Field(None)
+    id: str = Field(...)
     label: Optional[str] = Field(None)
     
 
@@ -107,7 +146,7 @@ class CellSubclass(NamedThing):
     has_hierarchical_relationships: Optional[List[HierarchicalRelationship]] = Field(default_factory=list)
     division: Optional[Division] = Field(None)
     nt_type: Optional[NTType] = Field(None)
-    id: Optional[str] = Field(None)
+    id: str = Field(...)
     label: Optional[str] = Field(None)
     
 
@@ -118,7 +157,7 @@ class Cluster(NamedThing):
     """
     has_hierarchical_relationships: Optional[List[HierarchicalRelationship]] = Field(default_factory=list)
     has_group_relationships: Optional[List[GroupRelationship]] = Field(default_factory=list)
-    id: Optional[str] = Field(None)
+    id: str = Field(...)
     label: Optional[str] = Field(None)
     
 
@@ -129,28 +168,28 @@ class Cell(NamedThing):
     """
     has_group_relationships: Optional[List[GroupRelationship]] = Field(default_factory=list)
     broad_region: Optional[BroadRegion] = Field(None)
-    id: Optional[str] = Field(None)
+    id: str = Field(...)
     label: Optional[str] = Field(None)
     
 
 
 class Relationship(ConfiguredBaseModel):
     
-    related_to: str = Field(None)
+    related_to: str = Field(...)
     
 
 
 class HierarchicalRelationship(Relationship):
     
     relationship_type: Optional[HierarchicalRelationshipType] = Field(None)
-    related_to: str = Field(None)
+    related_to: str = Field(...)
     
 
 
 class GroupRelationship(Relationship):
     
     relationship_type: Optional[GroupRelationshipType] = Field(None)
-    related_to: str = Field(None)
+    related_to: str = Field(...)
     
 
 

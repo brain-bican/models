@@ -1,0 +1,57 @@
+name: generating other formats
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Install the required python packages
+        run: python -m pip install .[test]
+
+      - name: Other installations
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential git wget curl
+
+      - name: Generate other model representations
+        run: |
+          cd linkml-schema
+          for file in *.yaml;
+            do name=`basename ${file} .yaml`;
+            echo "Processing $name file..";
+            gen-json-schema  ${file} > ../json-schema-autogen/${name}.json;
+            gen-pydantic ${file} > ../models_py-autogen/${name}.py;
+            gen-shacl ${file} > ../shacl-autogen/${name}.shacl.ttl;
+            if [ ${name} = "kbmodel" ]; then
+              echo "Creating and Fixing kbmodel diagram..";
+              python ../utils/create_fix_kbmodel_diagram.py
+            else
+              gen-erdiagram ${file} > ../erdiagram-autogen/${name}.md;
+            fi
+          done
+          cd ..
+      - name: Adding other model representations to git
+        # this might fail when running in PR mode because of the git push
+        # but the files should be added since it's also run on push
+        continue-on-error: true
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add json-schema-autogen/*.json
+          git add models_py-autogen/*.py
+          git add shacl-autogen/*.shacl.ttl
+          git add erdiagram-autogen/*.md
+          git commit -m "generate another formats"
+          git push
