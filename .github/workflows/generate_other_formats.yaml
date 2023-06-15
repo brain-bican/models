@@ -2,8 +2,6 @@ name: generating other formats
 
 on:
   push:
-    branches:
-      - main
   pull_request:
 
 
@@ -14,8 +12,6 @@ jobs:
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.ref_name }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
