@@ -2,11 +2,7 @@ name: generating documentation
 
 on:
   push:
-    paths:
-      - linkml-schema/kbmodel.yaml
   pull_request:
-    paths:
-      - linkml-schema/kbmodel.yaml
 
 jobs:
   test:
@@ -30,11 +26,13 @@ jobs:
           sudo apt-get install -y build-essential git wget curl
 
       - name: Create local docs
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir docs
           touch docs/.nojekyll
           cp -r src/docs/* docs/
-          gen-doc -d docs linkml-schema/kbmodel.yaml
-          mkdocs gh-deploy --force
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs
+          COMMIT_MESSAGE: 'Update documentation'
