@@ -4,6 +4,9 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -35,4 +38,3 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: docs
-          COMMIT_MESSAGE: 'Update documentation'
