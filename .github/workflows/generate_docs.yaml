@@ -37,6 +37,4 @@ jobs:
           gen-doc -d docs linkml-schema/kbmodel.yaml
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: docs
+        run: mkdocs gh-deploy --force
