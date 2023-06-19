@@ -19,6 +19,7 @@ GenomeAnnotation {
     label_type in_taxon_label  
     stringList provided_by  
     uriorcurieList xref  
+    label_type full_name  
     iri_type iri  
     category_typeList category  
     stringList type  
@@ -34,6 +35,7 @@ GeneAnnotation {
     string id  
     label_type in_taxon_label  
     stringList provided_by  
+    label_type full_name  
     iri_type iri  
     category_typeList category  
     stringList type  
