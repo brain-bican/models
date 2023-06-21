@@ -16,6 +16,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -94,6 +98,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -168,6 +176,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -229,6 +241,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -716,6 +732,10 @@
                 "format": {
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -1012,6 +1032,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -1089,6 +1113,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -1171,6 +1199,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
@@ -1476,6 +1508,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -1558,6 +1594,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -1656,6 +1696,10 @@
                     },
                     "type": "array"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -1751,6 +1795,10 @@
                     },
                     "type": "array"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -1839,6 +1887,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -1916,6 +1968,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -2015,6 +2071,10 @@
                     "type": "string"
                 },
                 "format": {
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -2131,6 +2191,10 @@
                 "format": {
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -2232,6 +2296,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -2771,6 +2839,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "may often be an organism attribute",
                     "items": {
@@ -2843,6 +2915,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -3301,6 +3377,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "may often be an organism attribute",
                     "items": {
@@ -3373,6 +3453,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -3734,6 +3818,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -4199,6 +4287,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -4502,6 +4594,10 @@
                 },
                 "drug_regulatory_status_world_wide": {
                     "description": "An agglomeration of drug regulatory status worldwide. Not specific to FDA.",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -4991,6 +5087,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -5827,6 +5927,10 @@
                 "format": {
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -5894,6 +5998,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -5975,6 +6083,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -6054,6 +6166,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -6115,6 +6231,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -6191,6 +6311,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -6252,6 +6376,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -6333,6 +6461,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -6412,6 +6544,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -6480,6 +6616,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -6583,6 +6723,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "may often be an organism attribute",
                     "items": {
@@ -6665,6 +6809,10 @@
                 "format": {
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -6732,6 +6880,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -6822,6 +6974,10 @@
                 },
                 "drug_regulatory_status_world_wide": {
                     "description": "An agglomeration of drug regulatory status worldwide. Not specific to FDA.",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -6929,6 +7085,10 @@
                 "format": {
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -7004,6 +7164,10 @@
                     "type": "string"
                 },
                 "format": {
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -7490,6 +7654,10 @@
                 "format": {
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -7570,6 +7738,10 @@
                 "format": {
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -7645,6 +7817,10 @@
                     "type": "string"
                 },
                 "format": {
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -7730,6 +7906,10 @@
                 "format": {
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -7808,6 +7988,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -7869,6 +8053,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -7955,6 +8143,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -8029,6 +8221,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -8101,6 +8297,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -8975,6 +9175,10 @@
                     "description": "An agglomeration of drug regulatory status worldwide. Not specific to FDA.",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -9092,6 +9296,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -9189,6 +9397,10 @@
                     "type": "string"
                 },
                 "format": {
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -9468,6 +9680,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -10172,6 +10388,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -10256,6 +10476,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -10324,6 +10548,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -10408,6 +10636,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -10475,6 +10707,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -10546,6 +10782,10 @@
                     "type": "string"
                 },
                 "format": {
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -10622,6 +10862,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -11364,6 +11608,10 @@
                     "description": "An agglomeration of drug regulatory status worldwide. Not specific to FDA.",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -11466,6 +11714,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -11735,6 +11987,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "may often be an organism attribute",
                     "items": {
@@ -11807,6 +12063,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -11898,6 +12158,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -11946,7 +12210,7 @@
                     "type": "string"
                 },
                 "source_id": {
-                    "description": "the authority's identifier",
+                    "description": "The authority specific identifier.",
                     "type": "string"
                 },
                 "symbol": {
@@ -12217,6 +12481,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -14579,6 +14847,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -14651,6 +14923,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -14742,6 +15018,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
@@ -14849,6 +15129,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -15160,6 +15444,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -16408,6 +16696,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -16485,6 +16777,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -16571,6 +16867,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -16640,6 +16940,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -16718,6 +17022,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "may often be an organism attribute",
                     "items": {
@@ -16790,6 +17098,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -16870,6 +17182,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -16937,6 +17253,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -17011,6 +17331,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -17272,6 +17596,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "may often be an organism attribute",
                     "items": {
@@ -17359,6 +17687,10 @@
                     "type": "string"
                 },
                 "format": {
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -17472,6 +17804,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "may often be an organism attribute",
                     "items": {
@@ -17554,6 +17890,10 @@
                 "format": {
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -17631,6 +17971,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -18262,6 +18606,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "may often be an organism attribute",
                     "items": {
@@ -18382,6 +18730,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -18824,6 +19176,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -18938,6 +19294,10 @@
                         "$ref": "#/$defs/MacromolecularMachineMixin"
                     },
                     "type": "array"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
@@ -19589,6 +19949,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -19684,6 +20048,10 @@
                 },
                 "drug_regulatory_status_world_wide": {
                     "description": "An agglomeration of drug regulatory status worldwide. Not specific to FDA.",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -19787,6 +20155,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -20044,6 +20416,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -20159,6 +20535,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -20260,6 +20640,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -20332,6 +20716,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -20427,6 +20815,10 @@
                 "format": {
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -20494,6 +20886,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -20575,6 +20971,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -20652,6 +21052,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -21861,6 +22265,10 @@
                 "format": {
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -21955,6 +22363,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -22045,6 +22457,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "may often be an organism attribute",
                     "items": {
@@ -22125,6 +22541,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
@@ -22212,6 +22632,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -22311,6 +22735,10 @@
                     },
                     "type": "array"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -22409,6 +22837,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -22470,6 +22902,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -22544,6 +22980,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -22625,6 +23065,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -22704,6 +23148,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -22773,6 +23221,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
@@ -22862,6 +23314,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -22923,6 +23379,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -22999,6 +23459,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -23071,6 +23535,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -23332,6 +23800,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -23520,6 +23992,10 @@
                 "format": {
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -23614,6 +24090,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -23686,6 +24166,10 @@
                 },
                 "drug_regulatory_status_world_wide": {
                     "description": "An agglomeration of drug regulatory status worldwide. Not specific to FDA.",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -23785,6 +24269,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -23864,6 +24352,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -23947,6 +24439,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -24026,6 +24522,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -24122,6 +24622,10 @@
                     "type": "string"
                 },
                 "format": {
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -24241,6 +24745,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -24354,6 +24862,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -24878,6 +25390,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -24954,6 +25470,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -25057,6 +25577,10 @@
                 "format": {
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -25142,6 +25666,10 @@
                     "type": "string"
                 },
                 "format": {
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -25606,6 +26134,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -25704,6 +26236,10 @@
                     "type": "string"
                 },
                 "format": {
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -25813,6 +26349,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -25897,6 +26437,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -26014,6 +26558,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -26098,6 +26646,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -26185,6 +26737,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -26262,6 +26818,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -26366,6 +26926,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -26427,6 +26991,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -26509,6 +27077,10 @@
                     "type": "string"
                 },
                 "format": {
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -26797,6 +27369,10 @@
                 "format": {
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -26871,6 +27447,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -27159,6 +27739,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -27235,6 +27819,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -28527,6 +29115,10 @@
                     "description": "a human-readable description of an entity",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "may often be an organism attribute",
                     "items": {
@@ -28599,6 +29191,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -28688,6 +29284,10 @@
                     "type": "string"
                 },
                 "format": {
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
@@ -28782,6 +29382,10 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": "string"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
                     "type": "string"
                 },
                 "has_attribute": {
