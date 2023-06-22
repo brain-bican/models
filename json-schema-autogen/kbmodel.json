@@ -12209,6 +12209,10 @@
                 "referenced_in": {
                     "type": "string"
                 },
+                "source_id": {
+                    "description": "The authority specific identifier.",
+                    "type": "string"
+                },
                 "symbol": {
                     "description": "Symbol for a particular thing",
                     "type": "string"
