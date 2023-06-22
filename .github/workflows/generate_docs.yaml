@@ -4,6 +4,8 @@ on:
   push:
     branches:
     - main
+    paths:
+      - linkml-schema/kbmodel.yaml
 
 permissions:
   contents: write
