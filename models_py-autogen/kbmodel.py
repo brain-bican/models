@@ -3188,6 +3188,7 @@ class GeneAnnotation(Gene):
     """
     referenced_in: Optional[str] = Field(None)
     molecular_type: Optional[BioType] = Field(None)
+    source_id: Optional[str] = Field(None, description="""The authority specific identifier.""")
     symbol: Optional[str] = Field(None, description="""Symbol for a particular thing""")
     synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
