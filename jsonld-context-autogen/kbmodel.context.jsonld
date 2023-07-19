@@ -532,7 +532,7 @@
       },
       "ncats.drug": "https://drugs.ncats.io/drug/",
       "ncbi": {
-         "@id": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi",
+         "@id": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=",
          "@prefix": true
       },
       "oboInOwl": "http://www.geneontology.org/formats/oboInOwl#",
@@ -1179,7 +1179,7 @@
       },
       "has_dataset": {
          "@type": "@id",
-         "@id": "dct:source"
+         "@id": "biolink:has_dataset"
       },
       "has_decreased_amount": {
          "@type": "@id",
@@ -1477,7 +1477,7 @@
          "@id": "biolink:indirectly_physically_interacts_with"
       },
       "ingest_date": {
-         "@id": "pav:version"
+         "@id": "biolink:ingest_date"
       },
       "interacting_molecules_category": {
          "@type": "@id",
