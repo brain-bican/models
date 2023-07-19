@@ -7,6 +7,8 @@ prefixes:
   spdx: http://spdx.org/rdf/terms#
   schema: http://schema.org/
   ncbi: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=
+  NCBIAssembly: https://www.ncbi.nlm.nih.gov/assembly/
+
 imports:
   - linkml:types
   - biolink:biolink-model
@@ -38,19 +40,19 @@ classes:
       - version
       - digest
       - content_url
+      - authority
 
   genome assembly:
-#    is_a: named thing
-#    mixins:
-#      - thing with taxon
+    is_a: named thing
+    mixins:
+      - thing with taxon
     description: >-
       Genome assembly to contain version and label information
+    slots:
+      - version
     attributes:
-      id:
-      taxon:
-      version:
-      label:
-      description:
+      strain:
+        description: The genetic variant or subtype of a species or organism. 
 
   checksum:
     is_a: entity
@@ -58,7 +60,10 @@ classes:
       Checksum values associated with digital entities.
     slots:
       - checksum algorithm
-      - value
+    attributes:
+      value: 
+        description: The checksum value obtained from a specific cryotographic hash function.
+
 
   mapping:
     description: text
@@ -104,6 +109,7 @@ slots:
   reference assembly:
     range: uriorcurie
   digest:
+    description: Stores checksum information. 
     range: checksum
     multivalued: true
     required: true
@@ -115,12 +121,14 @@ slots:
   gene_identifier_2:
     range: gene annotation
   authority:
+    description: The organization responsible for publishing the data. 
   method:
   creation_date:
   access_date:
   checksum algorithm:
+    description: The type of cryptographic hash function used to calculate the checksum value.
     range: DigestType
-  value:
+  version:
   source id:
     description: The authority specific identifier. 
     slot_uri: schema:identifier
