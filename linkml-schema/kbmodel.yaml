@@ -108,6 +108,7 @@ classes:
 
   #TODO:
   brain segment:
+    is_a: process output
 
 
   # 026 - brain_segment_sectioning.ipynb
