@@ -106,18 +106,22 @@ classes:
       - age at death
       - full genotype
 
-  #TODO:
+
+  # 027 - brain_extraction.ipynb
   brain segment:
     is_a: process output
-
+    slots:
+      - barcode
+    attributes:
+      anatomical division:
+    
 
   # 026 - brain_segment_sectioning.ipynb
   brain section:
     is_a: process output
+    slots:
+      - barcode
     attributes:
-      barcode: 
-        description: >-
-          The barcode of the section.
       ordinal:
         description: >-
           The ordinal number of the section.
@@ -274,6 +278,10 @@ slots:
   full genotype:  
     description: The full genotype of the donor.
     range: string
+
+  barcode: 
+    description: The unique identifier of the object.
+    slot_uri: schema:identifier
 
   method:
     description: 
