@@ -50,9 +50,7 @@ classes:
       Genome assembly to contain version and label information
     slots:
       - version
-    attributes:
-      strain:
-        description: The genetic variant or subtype of a species or organism. 
+      - strain
 
   checksum:
     is_a: entity
@@ -63,28 +61,7 @@ classes:
     attributes:
       value: 
         description: The checksum value obtained from a specific cryotographic hash function.
-
-
-  mapping:
-    description: text
-    slots:
-      - gene_identifier_1
-      - gene_identifier_2
-      - authority
-      - method
-      - creation_date
-      - access_date
-      - member of
-    notes: relate to - https://mapping-commons.github.io/sssom/
-
-
-  mappings:
-    description: >
-      A collection of mappings between identifiers
-    slots:
-      - has member
-    notes: use this model - https://mapping-commons.github.io/sssom/
-
+  
   annotation collection:
     tree_root: true
     attributes:
@@ -101,37 +78,234 @@ classes:
         inlined_as_list: true
         range: genome assembly
 
+  process output:
+    description: >-
+      The output of a process.
+    slots:
+      - label
+    attributes:
+      created by process id:
+        description: >-
+          The id of the process that created the output.
+      created by process type:
+        description: >-
+          The type of process that created the output.
+
+  # 028 - donors.ipynb
+  donor:
+    is_a: entity
+    mixins:
+      - thing with taxon
+    description: >-
+      A person or organism that is the source of a biological sample.
+    slots:
+      - label
+      - sex
+      - date of birth
+      - date of death
+      - age at death
+      - full genotype
+
+  #TODO:
+  brain segment:
+
+
+  # 026 - brain_segment_sectioning.ipynb
+  brain section:
+    is_a: process output
+    attributes:
+      barcode: 
+        description: >-
+          The barcode of the section.
+      ordinal:
+        description: >-
+          The ordinal number of the section.
+        range: integer
+    # slots:
+    #   - label
+    #   - created by process id
+    #   - created by process type
+
+  # 025b - tissue_dissectioning.ipynb
+  tissue sample:
+    is_a: process output
+    attributes:
+      roi plan:
+      region of interest label:
+        description: >-
+          The label of the region of interest.
+    # slots:
+    #   - label
+    #   - created by process id
+    #   - created by process type
+
+  # 024 - cell_dissociation.ipynb
+  dissociated cell sample:
+    is_a: process output
+    attributes:
+      cell prep type:
+      facs population plan: 
+    # slots:
+    #   - label
+    #   - created by process id
+    #   - created by process type
+
+  #TODO:
+  enriched cell sample:
+
+  # 023 - cell_barcoding.ipynb
+  barcoded cell sample:
+    is_a: process output
+    attributes:
+      port well:
+      sample quallity count:
+    # slots:
+    #   - label
+    #   - created by process id
+    #   - created by process type
+
+  # 022 - cnda_amplification.ipynb
+  amplified cdna:
+    is_a: process output
+    attributes:
+      amplified quantity:
+        description: >-
+          Amount of cDNA amplified (ng).
+        range: float
+      pcr cycles:
+      percent cdna longer than 400bp:
+      rna amplification pass fail:
+    slots:
+      - method
+      # - label
+      # - created by process id
+      # - created by process type
+
+  # 021 - library_constructions.ipynb
+  library:
+    is_a: process output
+    attributes:
+      avg size:
+        description: The average size (bp) of the library fragments. bp stands for base pairs.
+        range: integer
+      input amount:
+        description: The amount of input material (ng) used to create the library.
+        range: float
+      library prep pass:
+      quantification fmol:
+        range: float
+      quantification ng:
+        range: float
+      quantification nm: 
+        range: float
+      r1 index:
+      r1 sequence:
+      r2 index:
+      r2 sequence:
+    slots:
+      - method 
+      - creation date
+      # - label
+      # - created by process id
+      # - created by process type
+      
+
+  # 020 - aliquoting_and_pooling.ipynb
+  library aliquot:
+    is_a: process output
+    attributes:
+      input quantity:
+        description: The amount of input material (fmol) used to create the library aliquot.
+        range: integer
+    # slots:
+    #   - label
+    #   - created by process id
+    #   - created by process type
+
+  # 020 - aliquoting_and_pooling.ipynb
+  library pool:
+    is_a: process output
+    attributes:
+      tube avg size:
+      tube contents:
+        description: The content concentration (nm).
+        range: float
+      tube internal label:
+        description: The internal name.
+    # slots:
+    #   - label
+    #   - created by process id
+    #   - created by process type
+
+
 slots:
   referenced in:
     range: genome annotation
+
   molecular type:
     range: BioType
+
   reference assembly:
     range: uriorcurie
+
   digest:
     description: Stores checksum information. 
     range: checksum
     multivalued: true
     required: true
+
   content_url:
     slot_uri: schema:url
     multivalued: true
-  gene_identifier_1:
-    range: gene annotation
-  gene_identifier_2:
-    range: gene annotation
+
   authority:
     description: The organization responsible for publishing the data. 
-  method:
-  creation_date:
-  access_date:
+
   checksum algorithm:
     description: The type of cryptographic hash function used to calculate the checksum value.
     range: DigestType
+
   version:
+    description: The version of the data used to populate the object.
+
   source id:
     description: The authority specific identifier. 
     slot_uri: schema:identifier
+  
+  strain:
+    description: The genetic variant or subtype of a species or organism. 
+
+  label:
+    description: The name of the object.
+    slot_uri: schema:name
+
+  sex:
+    range: SexType  
+  
+  date of birth:
+    description: The date of birth of the donor.
+    range: date
+
+  date of death:
+    description: The date of death of the donor.
+    range: date
+  
+  age at death:
+    description: The age of the donor at the time of death.
+    range: integer
+
+  full genotype:  
+    description: The full genotype of the donor.
+    range: string
+
+  method:
+    description: 
+    slot_uri: schema:name
+
+  creation date:
+    description: The date and time the object was created.
+    range: datetime
+
 
 enums:
   DigestType:
@@ -142,6 +316,11 @@ enums:
         meaning: spdx:checksumAlgorithm_md5
       SHA256:
         meaning: spdx:checksumAlgorithm_sha256
+
+  SexType:
+    permissible_values:
+      female:
+      male:
 
   BioType:
     permissible_values:
@@ -154,3 +333,4 @@ enums:
         meaning: ncbi:10090
       human:
         meaning: ncbi:9606
+
