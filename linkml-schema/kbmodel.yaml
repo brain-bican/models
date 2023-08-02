@@ -86,10 +86,10 @@ classes:
     attributes:
       created by process id:
         description: >-
-          The id of the process that created the output.
+          The id of the process that created this object.
       created by process type:
         description: >-
-          The type of process that created the output.
+          The type of process that created this object.
 
   # 028 - donors.ipynb
   donor:
@@ -121,10 +121,7 @@ classes:
         description: >-
           The ordinal number of the section.
         range: integer
-    # slots:
-    #   - label
-    #   - created by process id
-    #   - created by process type
+
 
   # 025b - tissue_dissectioning.ipynb
   tissue sample:
@@ -134,10 +131,7 @@ classes:
       region of interest label:
         description: >-
           The label of the region of interest.
-    # slots:
-    #   - label
-    #   - created by process id
-    #   - created by process type
+
 
   # 024 - cell_dissociation.ipynb
   dissociated cell sample:
@@ -145,13 +139,11 @@ classes:
     attributes:
       cell prep type:
       facs population plan: 
-    # slots:
-    #   - label
-    #   - created by process id
-    #   - created by process type
+
 
   #TODO:
   enriched cell sample:
+
 
   # 023 - cell_barcoding.ipynb
   barcoded cell sample:
@@ -159,10 +151,7 @@ classes:
     attributes:
       port well:
       sample quallity count:
-    # slots:
-    #   - label
-    #   - created by process id
-    #   - created by process type
+
 
   # 022 - cnda_amplification.ipynb
   amplified cdna:
@@ -177,9 +166,7 @@ classes:
       rna amplification pass fail:
     slots:
       - method
-      # - label
-      # - created by process id
-      # - created by process type
+
 
   # 021 - library_constructions.ipynb
   library:
@@ -205,9 +192,6 @@ classes:
     slots:
       - method 
       - creation date
-      # - label
-      # - created by process id
-      # - created by process type
       
 
   # 020 - aliquoting_and_pooling.ipynb
@@ -217,10 +201,7 @@ classes:
       input quantity:
         description: The amount of input material (fmol) used to create the library aliquot.
         range: integer
-    # slots:
-    #   - label
-    #   - created by process id
-    #   - created by process type
+
 
   # 020 - aliquoting_and_pooling.ipynb
   library pool:
@@ -231,11 +212,6 @@ classes:
         description: The content concentration (nm).
         range: float
       tube internal label:
-        description: The internal name.
-    # slots:
-    #   - label
-    #   - created by process id
-    #   - created by process type
 
 
 slots:
