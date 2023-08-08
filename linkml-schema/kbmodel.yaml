@@ -197,6 +197,10 @@ classes:
     slots:
       - method 
       - creation date
+    slot_usage:
+      creation date:    
+        description: The date and time the object was created. 
+        range: datetime
       
 
   # 020 - aliquoting_and_pooling.ipynb
@@ -246,9 +250,6 @@ slots:
     description: The type of cryptographic hash function used to calculate the checksum value.
     range: DigestType
 
-  version:
-    description: The version of the data used to populate the object.
-
   source id:
     description: The authority specific identifier. 
     slot_uri: schema:identifier
@@ -287,9 +288,11 @@ slots:
     description: 
     slot_uri: schema:name
 
-  creation date:
-    description: The date and time the object was created.
-    range: datetime
+  # SLOTS IMPORTED FROM BIOLINK #
+  # creation date:
+  # version:
+
+
 
 
 enums:
