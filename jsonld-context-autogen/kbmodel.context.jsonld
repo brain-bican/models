@@ -280,6 +280,7 @@
          "@prefix": true
       },
       "NBO-PROPERTY": "http://purl.obolibrary.org/obo/nbo#",
+      "NCBIAssembly": "https://www.ncbi.nlm.nih.gov/assembly/",
       "NCBIGene": "http://identifiers.org/ncbigene/",
       "NCBITaxon": {
          "@id": "http://purl.obolibrary.org/obo/NCBITaxon_",
@@ -626,6 +627,9 @@
          "@type": "@id",
          "@id": "biolink:affiliation"
       },
+      "age_at_death": {
+         "@type": "xsd:integer"
+      },
       "id": "@id",
       "aggregate_statistic": {
          "@id": "biolink:aggregate_statistic"
@@ -644,6 +648,9 @@
       "amount_or_activity_increased_by": {
          "@type": "@id",
          "@id": "biolink:amount_or_activity_increased_by"
+      },
+      "amplified_quantity": {
+         "@type": "xsd:float"
       },
       "anatomical_context_qualifier": {
          "@id": "biolink:anatomical_context_qualifier"
@@ -715,6 +722,9 @@
          },
          "@id": "biolink:available_from"
       },
+      "barcode": {
+         "@id": "schema:identifier"
+      },
       "base_coordinate": {
          "@type": "xsd:integer",
          "@id": "biolink:base_coordinate"
@@ -733,6 +743,9 @@
       "bonferonni_adjusted_p_value": {
          "@type": "xsd:float",
          "@id": "biolink:bonferonni_adjusted_p_value"
+      },
+      "ordinal": {
+         "@type": "xsd:integer"
       },
       "broad_match": {
          "@type": "@id",
@@ -898,6 +911,12 @@
       },
       "dataset_download_url": {
          "@id": "dcat:downloadURL"
+      },
+      "date_of_birth": {
+         "@type": "xsd:date"
+      },
+      "date_of_death": {
+         "@type": "xsd:date"
       },
       "decreased_amount_in": {
          "@type": "@id",
@@ -1079,12 +1098,6 @@
       "gene_fusion_with": {
          "@type": "@id",
          "@id": "biolink:gene_fusion_with"
-      },
-      "gene_identifier_1": {
-         "@type": "@id"
-      },
-      "gene_identifier_2": {
-         "@type": "@id"
       },
       "genetic_association": {
          "@type": "@id",
@@ -1599,6 +1612,9 @@
       "knowledge_source": {
          "@id": "biolink:knowledge_source"
       },
+      "label": {
+         "@id": "schema:name"
+      },
       "lacks_part": {
          "@type": "@id",
          "@id": "biolink:lacks_part"
@@ -1606,6 +1622,27 @@
       "latitude": {
          "@type": "xsd:float",
          "@id": "biolink:latitude"
+      },
+      "avg_size": {
+         "@type": "xsd:integer"
+      },
+      "input_amount": {
+         "@type": "xsd:float"
+      },
+      "quantification_fmol": {
+         "@type": "xsd:float"
+      },
+      "quantification_ng": {
+         "@type": "xsd:float"
+      },
+      "quantification_nm": {
+         "@type": "xsd:float"
+      },
+      "input_quantity": {
+         "@type": "xsd:integer"
+      },
+      "tube_contents": {
+         "@type": "xsd:float"
       },
       "license": {
          "@id": "biolink:license"
@@ -1684,6 +1721,9 @@
       "mesh_terms": {
          "@type": "@id",
          "@id": "biolink:mesh_terms"
+      },
+      "method": {
+         "@id": "schema:name"
       },
       "missing_from": {
          "@type": "@id",
@@ -2090,6 +2130,10 @@
          "@type": "@id",
          "@id": "biolink:same_as"
       },
+      "semmed_agreement_count": {
+         "@type": "xsd:integer",
+         "@id": "biolink:semmed_agreement_count"
+      },
       "sensitivity_associated_with": {
          "@type": "@id",
          "@id": "biolink:sensitivity_associated_with"
@@ -2108,6 +2152,14 @@
       "severity_qualifier": {
          "@type": "@id",
          "@id": "biolink:severity_qualifier"
+      },
+      "sex": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
       },
       "sex_qualifier": {
          "@type": "@id",
