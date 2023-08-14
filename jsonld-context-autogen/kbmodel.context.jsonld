@@ -649,9 +649,6 @@
       "amplified_quantity": {
          "@type": "xsd:float"
       },
-      "created_by_process": {
-         "@type": "@id"
-      },
       "pcr_cycles": {
          "@type": "xsd:integer"
       },
@@ -752,12 +749,6 @@
       "bonferonni_adjusted_p_value": {
          "@type": "xsd:float",
          "@id": "biolink:bonferonni_adjusted_p_value"
-      },
-      "input_entity": {
-         "@type": "@id"
-      },
-      "output_entity": {
-         "@type": "@id"
       },
       "ordinal": {
          "@type": "xsd:integer"
@@ -1643,6 +1634,9 @@
       },
       "avg_size": {
          "@type": "xsd:integer"
+      },
+      "created_by_process": {
+         "@type": "@id"
       },
       "input_amount": {
          "@type": "xsd:float"

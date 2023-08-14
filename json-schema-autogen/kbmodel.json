@@ -257,7 +257,8 @@
                     "type": "number"
                 },
                 "created_by_process": {
-                    "$ref": "#/$defs/CdnaAmplification"
+                    "$ref": "#/$defs/CdnaAmplification",
+                    "description": "The process that created the object."
                 },
                 "label": {
                     "description": "The name of the object.",
@@ -1264,7 +1265,8 @@
             "description": "",
             "properties": {
                 "created_by_process": {
-                    "$ref": "#/$defs/CellBarcoding"
+                    "$ref": "#/$defs/CellBarcoding",
+                    "description": "The process that created the object."
                 },
                 "label": {
                     "description": "The name of the object.",
@@ -1273,7 +1275,7 @@
                 "port_well": {
                     "type": "string"
                 },
-                "sample_quallity_count": {
+                "sample_quality_count": {
                     "type": "string"
                 }
             },
@@ -2453,10 +2455,16 @@
             "description": "A process that takes a brain sample from a donor and produces a brain segment.",
             "properties": {
                 "input_entity": {
+                    "description": "The input entity of the process.",
                     "type": "string"
                 },
                 "output_entity": {
-                    "$ref": "#/$defs/BrainSegment"
+                    "$ref": "#/$defs/BrainSegment",
+                    "description": "The output entity of the process."
+                },
+                "process_id": {
+                    "description": "The id of the process.",
+                    "type": "string"
                 }
             },
             "title": "BrainExtraction",
@@ -2471,7 +2479,8 @@
                     "type": "string"
                 },
                 "created_by_process": {
-                    "$ref": "#/$defs/BrainSegmentSectioning"
+                    "$ref": "#/$defs/BrainSegmentSectioning",
+                    "description": "The process that created the object."
                 },
                 "label": {
                     "description": "The name of the object.",
@@ -2497,7 +2506,8 @@
                     "type": "string"
                 },
                 "created_by_process": {
-                    "$ref": "#/$defs/BrainExtraction"
+                    "$ref": "#/$defs/BrainExtraction",
+                    "description": "The process that created the object."
                 },
                 "label": {
                     "description": "The name of the object.",
@@ -2512,10 +2522,16 @@
             "description": "A process that takes a brain segment and produces a brain section.",
             "properties": {
                 "input_entity": {
-                    "$ref": "#/$defs/BrainSegment"
+                    "$ref": "#/$defs/BrainSegment",
+                    "description": "The input entity of the process."
                 },
                 "output_entity": {
-                    "$ref": "#/$defs/BrainSection"
+                    "$ref": "#/$defs/BrainSection",
+                    "description": "The output entity of the process."
+                },
+                "process_id": {
+                    "description": "The id of the process.",
+                    "type": "string"
                 }
             },
             "title": "BrainSegmentSectioning",
@@ -3074,10 +3090,16 @@
             "description": "A process that takes a barcoded cell sample and produces an amplified cDNA sample.",
             "properties": {
                 "input_entity": {
-                    "$ref": "#/$defs/BarcodedCellSample"
+                    "$ref": "#/$defs/BarcodedCellSample",
+                    "description": "The input entity of the process."
                 },
                 "output_entity": {
-                    "$ref": "#/$defs/AmplifiedCdna"
+                    "$ref": "#/$defs/AmplifiedCdna",
+                    "description": "The output entity of the process."
+                },
+                "process_id": {
+                    "description": "The id of the process.",
+                    "type": "string"
                 }
             },
             "title": "CdnaAmplification",
@@ -3173,10 +3195,16 @@
             "description": "A process that takes an enriched cell sample and produces a barcoded cell sample.",
             "properties": {
                 "input_entity": {
-                    "$ref": "#/$defs/EnrichedCellSample"
+                    "$ref": "#/$defs/EnrichedCellSample",
+                    "description": "The input entity of the process."
                 },
                 "output_entity": {
-                    "$ref": "#/$defs/BarcodedCellSample"
+                    "$ref": "#/$defs/BarcodedCellSample",
+                    "description": "The output entity of the process."
+                },
+                "process_id": {
+                    "description": "The id of the process.",
+                    "type": "string"
                 }
             },
             "title": "CellBarcoding",
@@ -3187,10 +3215,16 @@
             "description": "A process that takes a tissue sample and produces a dissociated cell sample.",
             "properties": {
                 "input_entity": {
-                    "$ref": "#/$defs/TissueSample"
+                    "$ref": "#/$defs/TissueSample",
+                    "description": "The input entity of the process."
                 },
                 "output_entity": {
-                    "$ref": "#/$defs/DissociatedCellSample"
+                    "$ref": "#/$defs/DissociatedCellSample",
+                    "description": "The output entity of the process."
+                },
+                "process_id": {
+                    "description": "The id of the process.",
+                    "type": "string"
                 }
             },
             "title": "CellDissociation",
@@ -3201,10 +3235,16 @@
             "description": "A process that takes a dissociated cell sample and produces an enriched cell sample.",
             "properties": {
                 "input_entity": {
-                    "$ref": "#/$defs/DissociatedCellSample"
+                    "$ref": "#/$defs/DissociatedCellSample",
+                    "description": "The input entity of the process."
                 },
                 "output_entity": {
-                    "$ref": "#/$defs/EnrichedCellSample"
+                    "$ref": "#/$defs/EnrichedCellSample",
+                    "description": "The output entity of the process."
+                },
+                "process_id": {
+                    "description": "The id of the process.",
+                    "type": "string"
                 }
             },
             "title": "CellEnrichment",
@@ -9691,7 +9731,8 @@
                     "type": "string"
                 },
                 "created_by_process": {
-                    "$ref": "#/$defs/CellDissociation"
+                    "$ref": "#/$defs/CellDissociation",
+                    "description": "The process that created the object."
                 },
                 "facs_population_plan": {
                     "type": "string"
@@ -10669,7 +10710,8 @@
             "description": "",
             "properties": {
                 "created_by_process": {
-                    "$ref": "#/$defs/CellEnrichment"
+                    "$ref": "#/$defs/CellEnrichment",
+                    "description": "The process that created the object."
                 },
                 "label": {
                     "description": "The name of the object.",
@@ -18796,7 +18838,8 @@
             "description": "",
             "properties": {
                 "created_by_process": {
-                    "$ref": "#/$defs/LibraryAliquoting"
+                    "$ref": "#/$defs/LibraryAliquoting",
+                    "description": "The process that created the object."
                 },
                 "input_quantity": {
                     "description": "The amount of input material (fmol) used to create the library aliquot.",
@@ -18815,10 +18858,16 @@
             "description": "A process that takes a library and produces an library aliquot.",
             "properties": {
                 "input_entity": {
-                    "$ref": "#/$defs/Library"
+                    "$ref": "#/$defs/Library",
+                    "description": "The input entity of the process."
                 },
                 "output_entity": {
-                    "$ref": "#/$defs/LibraryAliquot"
+                    "$ref": "#/$defs/LibraryAliquot",
+                    "description": "The output entity of the process."
+                },
+                "process_id": {
+                    "description": "The id of the process.",
+                    "type": "string"
                 }
             },
             "title": "LibraryAliquoting",
@@ -18829,10 +18878,16 @@
             "description": "A process that takes an amplified cDNA sample and produces a library.",
             "properties": {
                 "input_entity": {
-                    "$ref": "#/$defs/AmplifiedCdna"
+                    "$ref": "#/$defs/AmplifiedCdna",
+                    "description": "The input entity of the process."
                 },
                 "output_entity": {
-                    "$ref": "#/$defs/Library"
+                    "$ref": "#/$defs/Library",
+                    "description": "The output entity of the process."
+                },
+                "process_id": {
+                    "description": "The id of the process.",
+                    "type": "string"
                 }
             },
             "title": "LibraryConstruction",
@@ -18843,7 +18898,8 @@
             "description": "",
             "properties": {
                 "created_by_process": {
-                    "$ref": "#/$defs/LibraryPooling"
+                    "$ref": "#/$defs/LibraryPooling",
+                    "description": "The process that created the object."
                 },
                 "label": {
                     "description": "The name of the object.",
@@ -18869,10 +18925,16 @@
             "description": "A process that takes a library aliquot and produces a library pool.",
             "properties": {
                 "input_entity": {
-                    "$ref": "#/$defs/LibraryAliquot"
+                    "$ref": "#/$defs/LibraryAliquot",
+                    "description": "The input entity of the process."
                 },
                 "output_entity": {
-                    "$ref": "#/$defs/LibraryPool"
+                    "$ref": "#/$defs/LibraryPool",
+                    "description": "The output entity of the process."
+                },
+                "process_id": {
+                    "description": "The id of the process.",
+                    "type": "string"
                 }
             },
             "title": "LibraryPooling",
@@ -25434,6 +25496,22 @@
             "title": "Process",
             "type": "object"
         },
+        "ProcessOutput": {
+            "additionalProperties": false,
+            "description": "The output of a process.",
+            "properties": {
+                "created_by_process": {
+                    "description": "The process that created the object.",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "The name of the object.",
+                    "type": "string"
+                }
+            },
+            "title": "ProcessOutput",
+            "type": "object"
+        },
         "ProcessedMaterial": {
             "additionalProperties": false,
             "description": "A chemical entity (often a mixture) processed for consumption for nutritional, medical or technical use. Is a material entity that is created or changed during material processing.",
@@ -28866,10 +28944,16 @@
             "description": "A process that takes a brain section and produces a tissue sample.",
             "properties": {
                 "input_entity": {
-                    "$ref": "#/$defs/BrainSection"
+                    "$ref": "#/$defs/BrainSection",
+                    "description": "The input entity of the process."
                 },
                 "output_entity": {
-                    "$ref": "#/$defs/TissueSample"
+                    "$ref": "#/$defs/TissueSample",
+                    "description": "The output entity of the process."
+                },
+                "process_id": {
+                    "description": "The id of the process.",
+                    "type": "string"
                 }
             },
             "title": "TissueDissecting",
@@ -28880,7 +28964,8 @@
             "description": "",
             "properties": {
                 "created_by_process": {
-                    "$ref": "#/$defs/TissueDissecting"
+                    "$ref": "#/$defs/TissueDissecting",
+                    "description": "The process that created the object."
                 },
                 "label": {
                     "description": "The name of the object.",

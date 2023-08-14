@@ -453,166 +453,184 @@ class Process(ConfiguredBaseModel):
     
 
 
-class BrainExtraction(ConfiguredBaseModel):
+class BrainExtraction(Process):
     """
     A process that takes a brain sample from a donor and produces a brain segment.
     """
-    input_entity: Optional[str] = Field(None)
-    output_entity: Optional[BrainSegment] = Field(None)
+    input_entity: Optional[str] = Field(None, description="""The input entity of the process.""")
+    output_entity: Optional[BrainSegment] = Field(None, description="""The output entity of the process.""")
+    process_id: Optional[str] = Field(None, description="""The id of the process.""")
     
 
 
-class BrainSegmentSectioning(ConfiguredBaseModel):
+class BrainSegmentSectioning(Process):
     """
     A process that takes a brain segment and produces a brain section.
     """
-    input_entity: Optional[BrainSegment] = Field(None)
-    output_entity: Optional[BrainSection] = Field(None)
+    input_entity: Optional[BrainSegment] = Field(None, description="""The input entity of the process.""")
+    output_entity: Optional[BrainSection] = Field(None, description="""The output entity of the process.""")
+    process_id: Optional[str] = Field(None, description="""The id of the process.""")
     
 
 
-class TissueDissecting(ConfiguredBaseModel):
+class TissueDissecting(Process):
     """
     A process that takes a brain section and produces a tissue sample.
     """
-    input_entity: Optional[BrainSection] = Field(None)
-    output_entity: Optional[TissueSample] = Field(None)
+    input_entity: Optional[BrainSection] = Field(None, description="""The input entity of the process.""")
+    output_entity: Optional[TissueSample] = Field(None, description="""The output entity of the process.""")
+    process_id: Optional[str] = Field(None, description="""The id of the process.""")
     
 
 
-class CellDissociation(ConfiguredBaseModel):
+class CellDissociation(Process):
     """
     A process that takes a tissue sample and produces a dissociated cell sample.
     """
-    input_entity: Optional[TissueSample] = Field(None)
-    output_entity: Optional[DissociatedCellSample] = Field(None)
+    input_entity: Optional[TissueSample] = Field(None, description="""The input entity of the process.""")
+    output_entity: Optional[DissociatedCellSample] = Field(None, description="""The output entity of the process.""")
+    process_id: Optional[str] = Field(None, description="""The id of the process.""")
     
 
 
-class CellEnrichment(ConfiguredBaseModel):
+class CellEnrichment(Process):
     """
     A process that takes a dissociated cell sample and produces an enriched cell sample.
     """
-    input_entity: Optional[DissociatedCellSample] = Field(None)
-    output_entity: Optional[EnrichedCellSample] = Field(None)
+    input_entity: Optional[DissociatedCellSample] = Field(None, description="""The input entity of the process.""")
+    output_entity: Optional[EnrichedCellSample] = Field(None, description="""The output entity of the process.""")
+    process_id: Optional[str] = Field(None, description="""The id of the process.""")
     
 
 
-class CellBarcoding(ConfiguredBaseModel):
+class CellBarcoding(Process):
     """
     A process that takes an enriched cell sample and produces a barcoded cell sample.
     """
-    input_entity: Optional[EnrichedCellSample] = Field(None)
-    output_entity: Optional[BarcodedCellSample] = Field(None)
+    input_entity: Optional[EnrichedCellSample] = Field(None, description="""The input entity of the process.""")
+    output_entity: Optional[BarcodedCellSample] = Field(None, description="""The output entity of the process.""")
+    process_id: Optional[str] = Field(None, description="""The id of the process.""")
     
 
 
-class CdnaAmplification(ConfiguredBaseModel):
+class CdnaAmplification(Process):
     """
     A process that takes a barcoded cell sample and produces an amplified cDNA sample.
     """
-    input_entity: Optional[BarcodedCellSample] = Field(None)
-    output_entity: Optional[AmplifiedCdna] = Field(None)
+    input_entity: Optional[BarcodedCellSample] = Field(None, description="""The input entity of the process.""")
+    output_entity: Optional[AmplifiedCdna] = Field(None, description="""The output entity of the process.""")
+    process_id: Optional[str] = Field(None, description="""The id of the process.""")
     
 
 
-class LibraryConstruction(ConfiguredBaseModel):
+class LibraryConstruction(Process):
     """
     A process that takes an amplified cDNA sample and produces a library.
     """
-    input_entity: Optional[AmplifiedCdna] = Field(None)
-    output_entity: Optional[Library] = Field(None)
+    input_entity: Optional[AmplifiedCdna] = Field(None, description="""The input entity of the process.""")
+    output_entity: Optional[Library] = Field(None, description="""The output entity of the process.""")
+    process_id: Optional[str] = Field(None, description="""The id of the process.""")
     
 
 
-class LibraryAliquoting(ConfiguredBaseModel):
+class LibraryAliquoting(Process):
     """
     A process that takes a library and produces an library aliquot.
     """
-    input_entity: Optional[Library] = Field(None)
-    output_entity: Optional[LibraryAliquot] = Field(None)
+    input_entity: Optional[Library] = Field(None, description="""The input entity of the process.""")
+    output_entity: Optional[LibraryAliquot] = Field(None, description="""The output entity of the process.""")
+    process_id: Optional[str] = Field(None, description="""The id of the process.""")
     
 
 
-class LibraryPooling(ConfiguredBaseModel):
+class LibraryPooling(Process):
     """
     A process that takes a library aliquot and produces a library pool.
     """
-    input_entity: Optional[LibraryAliquot] = Field(None)
-    output_entity: Optional[LibraryPool] = Field(None)
+    input_entity: Optional[LibraryAliquot] = Field(None, description="""The input entity of the process.""")
+    output_entity: Optional[LibraryPool] = Field(None, description="""The output entity of the process.""")
+    process_id: Optional[str] = Field(None, description="""The id of the process.""")
     
 
 
-class BrainSegment(ConfiguredBaseModel):
-    
+class ProcessOutput(ConfiguredBaseModel):
+    """
+    The output of a process.
+    """
     label: Optional[str] = Field(None, description="""The name of the object.""")
+    created_by_process: Optional[str] = Field(None, description="""The process that created the object.""")
+    
+
+
+class BrainSegment(ProcessOutput):
+    
     barcode: Optional[str] = Field(None, description="""The unique identifier of the object.""")
     anatomical_division: Optional[str] = Field(None)
-    created_by_process: Optional[BrainExtraction] = Field(None)
-    
-
-
-class BrainSection(ConfiguredBaseModel):
-    
     label: Optional[str] = Field(None, description="""The name of the object.""")
+    created_by_process: Optional[BrainExtraction] = Field(None, description="""The process that created the object.""")
+    
+
+
+class BrainSection(ProcessOutput):
+    
     barcode: Optional[str] = Field(None, description="""The unique identifier of the object.""")
     ordinal: Optional[int] = Field(None, description="""The ordinal number of the section.""")
-    created_by_process: Optional[BrainSegmentSectioning] = Field(None)
-    
-
-
-class TissueSample(ConfiguredBaseModel):
-    
     label: Optional[str] = Field(None, description="""The name of the object.""")
+    created_by_process: Optional[BrainSegmentSectioning] = Field(None, description="""The process that created the object.""")
+    
+
+
+class TissueSample(ProcessOutput):
+    
     roi_plan: Optional[str] = Field(None)
     region_of_interest_label: Optional[str] = Field(None, description="""The label of the region of interest.""")
-    created_by_process: Optional[TissueDissecting] = Field(None)
-    
-
-
-class DissociatedCellSample(ConfiguredBaseModel):
-    
     label: Optional[str] = Field(None, description="""The name of the object.""")
+    created_by_process: Optional[TissueDissecting] = Field(None, description="""The process that created the object.""")
+    
+
+
+class DissociatedCellSample(ProcessOutput):
+    
     cell_prep_type: Optional[str] = Field(None)
     facs_population_plan: Optional[str] = Field(None)
     number_of_cells_collected: Optional[int] = Field(None)
-    created_by_process: Optional[CellDissociation] = Field(None)
+    label: Optional[str] = Field(None, description="""The name of the object.""")
+    created_by_process: Optional[CellDissociation] = Field(None, description="""The process that created the object.""")
     
 
 
-class EnrichedCellSample(ConfiguredBaseModel):
+class EnrichedCellSample(ProcessOutput):
     
     label: Optional[str] = Field(None, description="""The name of the object.""")
-    created_by_process: Optional[CellEnrichment] = Field(None)
+    created_by_process: Optional[CellEnrichment] = Field(None, description="""The process that created the object.""")
     
 
 
-class BarcodedCellSample(ConfiguredBaseModel):
+class BarcodedCellSample(ProcessOutput):
     
-    label: Optional[str] = Field(None, description="""The name of the object.""")
     port_well: Optional[str] = Field(None)
-    sample_quallity_count: Optional[str] = Field(None)
-    created_by_process: Optional[CellBarcoding] = Field(None)
+    sample_quality_count: Optional[str] = Field(None)
+    label: Optional[str] = Field(None, description="""The name of the object.""")
+    created_by_process: Optional[CellBarcoding] = Field(None, description="""The process that created the object.""")
     
 
 
-class AmplifiedCdna(ConfiguredBaseModel):
+class AmplifiedCdna(ProcessOutput):
     
     method: Optional[str] = Field(None)
-    label: Optional[str] = Field(None, description="""The name of the object.""")
     amplified_quantity: Optional[float] = Field(None, description="""Amount of cDNA amplified (ng).""")
     pcr_cycles: Optional[int] = Field(None, description="""Number of PCR cycles used to amplify the cDNA.""")
     percent_cdna_longer_than_400bp: Optional[float] = Field(None, description="""The percentage of cDNA fragments that are longer than 400bp.""")
     rna_amplification_pass: Optional[bool] = Field(None)
-    created_by_process: Optional[CdnaAmplification] = Field(None)
+    label: Optional[str] = Field(None, description="""The name of the object.""")
+    created_by_process: Optional[CdnaAmplification] = Field(None, description="""The process that created the object.""")
     
 
 
-class Library(ConfiguredBaseModel):
+class Library(ProcessOutput):
     
     method: Optional[str] = Field(None)
     creation_date: Optional[datetime ] = Field(None, description="""The date and time the object was created.""")
-    label: Optional[str] = Field(None, description="""The name of the object.""")
     avg_size: Optional[int] = Field(None, description="""The average size (bp) of the library fragments. bp stands for base pairs.""")
     input_amount: Optional[float] = Field(None, description="""The amount of input material (ng) used to create the library.""")
     library_prep_pass: Optional[bool] = Field(None)
@@ -624,24 +642,25 @@ class Library(ConfiguredBaseModel):
     r2_index: Optional[str] = Field(None)
     r2_sequence: Optional[str] = Field(None)
     created_by_process: Optional[LibraryConstruction] = Field(None)
-    
-
-
-class LibraryAliquot(ConfiguredBaseModel):
-    
     label: Optional[str] = Field(None, description="""The name of the object.""")
+    
+
+
+class LibraryAliquot(ProcessOutput):
+    
     input_quantity: Optional[int] = Field(None, description="""The amount of input material (fmol) used to create the library aliquot.""")
-    created_by_process: Optional[LibraryAliquoting] = Field(None)
-    
-
-
-class LibraryPool(ConfiguredBaseModel):
-    
     label: Optional[str] = Field(None, description="""The name of the object.""")
+    created_by_process: Optional[LibraryAliquoting] = Field(None, description="""The process that created the object.""")
+    
+
+
+class LibraryPool(ProcessOutput):
+    
     tube_avg_size: Optional[int] = Field(None, description="""The average size (bp) of the library fragments in the tube.""")
     tube_contents: Optional[float] = Field(None, description="""The content concentration (nm).""")
     tube_internal_label: Optional[str] = Field(None)
-    created_by_process: Optional[LibraryPooling] = Field(None)
+    label: Optional[str] = Field(None, description="""The name of the object.""")
+    created_by_process: Optional[LibraryPooling] = Field(None, description="""The process that created the object.""")
     
 
 
@@ -9071,6 +9090,7 @@ CdnaAmplification.update_forward_refs()
 LibraryConstruction.update_forward_refs()
 LibraryAliquoting.update_forward_refs()
 LibraryPooling.update_forward_refs()
+ProcessOutput.update_forward_refs()
 BrainSegment.update_forward_refs()
 BrainSection.update_forward_refs()
 TissueSample.update_forward_refs()
