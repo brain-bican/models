@@ -78,18 +78,138 @@ classes:
         inlined_as_list: true
         range: genome assembly
 
-  process output:
+  process:
     description: >-
-      The output of a process.
+      A process that takes input entities and produces output entities.
     slots:
-      - label
+      - input entity
+      - output entity
+      - process id 
+
+
+  brain extraction:
+    description: >-
+      A process that takes a brain sample from a donor and produces a brain segment.
+    #is_a: process
+    #slot usage:
     attributes:
-      created by process id:
-        description: >-
-          The id of the process that created this object.
-      created by process type:
-        description: >-
-          The type of process that created this object.
+      input entity:
+        range: donor
+      output entity:
+        range: brain segment
+
+  brain segment sectioning:
+    description: >-
+      A process that takes a brain segment and produces a brain section.
+    #is_a: process
+    #slot usage:
+    attributes:
+      input entity:
+        range: brain segment
+      output entity:
+        range: brain section
+
+  tissue dissecting:
+    description: >-
+      A process that takes a brain section and produces a tissue sample.
+    #is_a: process
+    #slot usage:
+    attributes:
+      input entity:
+        range: brain section
+      output entity:
+        range: tissue sample
+
+  cell dissociation:
+    description: >-
+      A process that takes a tissue sample and produces a dissociated cell sample.
+    #is_a: process
+    #slot usage:
+    attributes:
+      input entity:
+        range: tissue sample
+      output entity:
+        range: dissociated cell sample
+
+  cell enrichment:
+    description: >-
+      A process that takes a dissociated cell sample and produces an enriched cell sample.
+    #is_a: process
+    #slot usage:
+    attributes:
+      input entity:
+        range: dissociated cell sample
+      output entity:
+        range: enriched cell sample 
+
+  cell barcoding:
+    description: >-
+      A process that takes an enriched cell sample and produces a barcoded cell sample.
+    #is_a: process
+    #slot usage:
+    attributes:
+      input entity:
+        range: enriched cell sample
+      output entity:
+        range: barcoded cell sample
+
+  cdna amplification:
+    description: >-
+      A process that takes a barcoded cell sample and produces an amplified cDNA sample.
+    #is_a: process
+    #slot usage:
+    attributes:
+      input entity:
+        range: barcoded cell sample
+      output entity:
+        range: amplified cdna
+  
+  library construction:
+    description: >-
+      A process that takes an amplified cDNA sample and produces a library.
+    #is_a: process
+    #slot usage:
+    attributes:
+      input entity:
+        range: amplified cdna
+      output entity:
+        range: library
+  
+  library aliquoting:
+    description: >-
+      A process that takes a library and produces an library aliquot.
+    #is_a: process
+    #slot usage:
+    attributes:
+      input entity:
+        range: library
+      output entity:
+        range: library aliquot
+
+  library pooling:
+    description: >-
+      A process that takes a library aliquot and produces a library pool.
+    #is_a: process
+    #slot usage:
+    attributes:
+      input entity:
+        range: library aliquot
+      output entity:
+        range: library pool
+
+
+  # # process output:
+  # #   description: >-
+  # #     The output of a process.
+  # #   slots:
+  # #     - label
+  # #   attributes:
+  # #     created by process id:
+  # #       description: >-
+  # #         The id of the process that created this object.
+  # #     created by process type:
+  # #       description: >-
+  # #         The type of process that created this object.
 
   # 028 - donors.ipynb
   donor:
@@ -107,75 +227,132 @@ classes:
       - full genotype
 
 
+
   # 027 - brain_extraction.ipynb
   brain segment:
-    is_a: process output
+    #is_a: process output
     slots:
+      - label 
       - barcode
+      # - created by process
     attributes:
       anatomical division:
+    #slot usage:
+      created by process:
+        range: brain extraction
     
+
 
   # 026 - brain_segment_sectioning.ipynb
   brain section:
-    is_a: process output
+    #is_a: process output
     slots:
+      - label
       - barcode
+      # - created by process
     attributes:
       ordinal:
         description: >-
           The ordinal number of the section.
         range: integer
+    #slot usage:
+      created by process:
+        range: brain segment sectioning
 
 
   # 025b - tissue_dissectioning.ipynb
   tissue sample:
-    is_a: process output
+    #is_a: process output
+    slots:
+      - label
+      # - created by process
     attributes:
       roi plan:
       region of interest label:
         description: >-
           The label of the region of interest.
+    #slot usage:
+      created by process:
+        range: tissue dissecting
 
 
   # 024 - cell_dissociation.ipynb
   dissociated cell sample:
-    is_a: process output
+    #is_a: process output
+    slots:
+      - label
+      # - created by process
     attributes:
       cell prep type:
       facs population plan: 
+      number of cells collected:
+        range: integer
+    #slot usage:
+      created by process:
+        range: cell dissociation
 
 
-  #TODO:
+  #TODO: Add addtional attributes and slots to this class.
   enriched cell sample:
+    slots:
+      - label
+      # - created by process
+    # slot usage:
+    attributes:
+      created by process:
+        range: cell enrichment
 
 
   # 023 - cell_barcoding.ipynb
   barcoded cell sample:
-    is_a: process output
+    #is_a: process output
+    slots:
+      - label
+      # - created by process
     attributes:
       port well:
       sample quallity count:
+    # slot usage:
+      created by process:
+        range: cell barcoding
 
 
   # 022 - cnda_amplification.ipynb
   amplified cdna:
-    is_a: process output
+    # is_a: process output
+    slots:
+      - method
+      - label
+      # - created by process
     attributes:
       amplified quantity:
         description: >-
           Amount of cDNA amplified (ng).
         range: float
       pcr cycles:
+        description: >-
+          Number of PCR cycles used to amplify the cDNA.
+        range: integer
       percent cdna longer than 400bp:
-      rna amplification pass fail:
-    slots:
-      - method
+        description: >-
+          The percentage of cDNA fragments that are longer than 400bp.
+        range: float
+      rna amplification pass:
+        range: boolean
+    # slot usage:
+      created by process:
+        range: cdna amplification
+
 
 
   # 021 - library_constructions.ipynb
   library:
-    is_a: process output
+    # is_a: process output
+    slots:
+      - method 
+      - creation date
+      - label
+      # - created by process
     attributes:
       avg size:
         description: The average size (bp) of the library fragments. bp stands for base pairs.
@@ -184,6 +361,7 @@ classes:
         description: The amount of input material (ng) used to create the library.
         range: float
       library prep pass:
+        range: boolean
       quantification fmol:
         range: float
       quantification ng:
@@ -194,9 +372,8 @@ classes:
       r1 sequence:
       r2 index:
       r2 sequence:
-    slots:
-      - method 
-      - creation date
+      created by process:
+        range: library construction
     slot_usage:
       creation date:    
         description: The date and time the object was created. 
@@ -205,22 +382,36 @@ classes:
 
   # 020 - aliquoting_and_pooling.ipynb
   library aliquot:
-    is_a: process output
+    # is_a: process output
+    slots:
+      - label
+      # - created by process
     attributes:
       input quantity:
         description: The amount of input material (fmol) used to create the library aliquot.
         range: integer
+    # slot_usage:
+      created by process:
+        range: library aliquoting
 
 
   # 020 - aliquoting_and_pooling.ipynb
   library pool:
-    is_a: process output
+    # is_a: process output
+    slots:
+      - label
+      # - created by process
     attributes:
       tube avg size:
+        description: The average size (bp) of the library fragments in the tube.
+        range: integer
       tube contents:
         description: The content concentration (nm).
         range: float
       tube internal label:
+    # slot usage:
+      created by process:
+        range: library pooling
 
 
 slots:
@@ -274,7 +465,7 @@ slots:
   
   age at death:
     description: The age of the donor at the time of death.
-    range: integer
+    range: string
 
   full genotype:  
     description: The full genotype of the donor.
@@ -287,6 +478,22 @@ slots:
   method:
     description: 
     slot_uri: schema:name
+
+  input entity:
+    description: The input entity of the process.
+
+  output entity:
+    description: The output entity of the process.
+
+  process id:
+    description: The id of the process.
+    range: string
+  
+  created by process:
+    description: The process that created the object.
+    
+  
+
 
   # SLOTS IMPORTED FROM BIOLINK #
   # creation date:
