@@ -627,9 +627,6 @@
          "@type": "@id",
          "@id": "biolink:affiliation"
       },
-      "age_at_death": {
-         "@type": "xsd:integer"
-      },
       "id": "@id",
       "aggregate_statistic": {
          "@id": "biolink:aggregate_statistic"
@@ -651,6 +648,18 @@
       },
       "amplified_quantity": {
          "@type": "xsd:float"
+      },
+      "created_by_process": {
+         "@type": "@id"
+      },
+      "pcr_cycles": {
+         "@type": "xsd:integer"
+      },
+      "percent_cdna_longer_than_400bp": {
+         "@type": "xsd:float"
+      },
+      "rna_amplification_pass": {
+         "@type": "xsd:boolean"
       },
       "anatomical_context_qualifier": {
          "@id": "biolink:anatomical_context_qualifier"
@@ -743,6 +752,12 @@
       "bonferonni_adjusted_p_value": {
          "@type": "xsd:float",
          "@id": "biolink:bonferonni_adjusted_p_value"
+      },
+      "input_entity": {
+         "@type": "@id"
+      },
+      "output_entity": {
+         "@type": "@id"
       },
       "ordinal": {
          "@type": "xsd:integer"
@@ -985,6 +1000,9 @@
       "disrupts": {
          "@type": "@id",
          "@id": "biolink:disrupts"
+      },
+      "number_of_cells_collected": {
+         "@type": "xsd:integer"
       },
       "distribution_download_url": {
          "@id": "biolink:distribution_download_url"
@@ -1629,6 +1647,9 @@
       "input_amount": {
          "@type": "xsd:float"
       },
+      "library_prep_pass": {
+         "@type": "xsd:boolean"
+      },
       "quantification_fmol": {
          "@type": "xsd:float"
       },
@@ -1639,6 +1660,9 @@
          "@type": "xsd:float"
       },
       "input_quantity": {
+         "@type": "xsd:integer"
+      },
+      "tube_avg_size": {
          "@type": "xsd:integer"
       },
       "tube_contents": {
