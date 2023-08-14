@@ -1,25 +1,28 @@
 ```mermaid
 erDiagram
 LibraryPool {
-    string tube_avg_size  
+    string label  
+    integer tube_avg_size  
     float tube_contents  
     string tube_internal_label  
-    string label  
-    string created_by_process_id  
-    string created_by_process_type  
+}
+LibraryPooling {
+
 }
 LibraryAliquot {
-    integer input_quantity  
     string label  
-    string created_by_process_id  
-    string created_by_process_type  
+    integer input_quantity  
+}
+LibraryAliquoting {
+
 }
 Library {
     string method  
     datetime creation_date  
+    string label  
     integer avg_size  
     float input_amount  
-    string library_prep_pass  
+    boolean library_prep_pass  
     float quantification_fmol  
     float quantification_ng  
     float quantification_nm  
@@ -27,64 +30,74 @@ Library {
     string r1_sequence  
     string r2_index  
     string r2_sequence  
-    string label  
-    string created_by_process_id  
-    string created_by_process_type  
+}
+LibraryConstruction {
+
 }
 AmplifiedCdna {
     string method  
-    float amplified_quantity  
-    string pcr_cycles  
-    string percent_cdna_longer_than_400bp  
-    string rna_amplification_pass_fail  
     string label  
-    string created_by_process_id  
-    string created_by_process_type  
+    float amplified_quantity  
+    integer pcr_cycles  
+    float percent_cdna_longer_than_400bp  
+    boolean rna_amplification_pass  
+}
+CdnaAmplification {
+
 }
 BarcodedCellSample {
+    string label  
     string port_well  
     string sample_quallity_count  
-    string label  
-    string created_by_process_id  
-    string created_by_process_type  
+}
+CellBarcoding {
+
 }
 EnrichedCellSample {
+    string label  
+}
+CellEnrichment {
 
 }
 DissociatedCellSample {
+    string label  
     string cell_prep_type  
     string facs_population_plan  
-    string label  
-    string created_by_process_id  
-    string created_by_process_type  
+    integer number_of_cells_collected  
+}
+CellDissociation {
+
 }
 TissueSample {
+    string label  
     string roi_plan  
     string region_of_interest_label  
-    string label  
-    string created_by_process_id  
-    string created_by_process_type  
+}
+TissueDissecting {
+
 }
 BrainSection {
+    string label  
     string barcode  
     integer ordinal  
-    string label  
-    string created_by_process_id  
-    string created_by_process_type  
+}
+BrainSegmentSectioning {
+
 }
 BrainSegment {
+    string label  
     string barcode  
     string anatomical_division  
-    string label  
-    string created_by_process_id  
-    string created_by_process_type  
+}
+BrainExtraction {
+
 }
 Donor {
     string label  
     SexType sex  
     date date_of_birth  
     date date_of_death  
-    integer age_at_death  
+    string age_at_death  
     string full_genotype  
     label_type in_taxon_label  
     string id  
@@ -94,10 +107,10 @@ Donor {
     label_type name  
     narrative_text description  
 }
-ProcessOutput {
-    string label  
-    string created_by_process_id  
-    string created_by_process_type  
+Process {
+    string input_entity  
+    string output_entity  
+    string process_id  
 }
 AnnotationCollection {
 
@@ -163,6 +176,36 @@ Checksum {
     narrative_text description  
 }
 
+LibraryPool ||--|o LibraryPooling : "created by process"
+LibraryPooling ||--|o LibraryAliquot : "input entity"
+LibraryPooling ||--|o LibraryPool : "output entity"
+LibraryAliquot ||--|o LibraryAliquoting : "created by process"
+LibraryAliquoting ||--|o Library : "input entity"
+LibraryAliquoting ||--|o LibraryAliquot : "output entity"
+Library ||--|o LibraryConstruction : "created by process"
+LibraryConstruction ||--|o AmplifiedCdna : "input entity"
+LibraryConstruction ||--|o Library : "output entity"
+AmplifiedCdna ||--|o CdnaAmplification : "created by process"
+CdnaAmplification ||--|o BarcodedCellSample : "input entity"
+CdnaAmplification ||--|o AmplifiedCdna : "output entity"
+BarcodedCellSample ||--|o CellBarcoding : "created by process"
+CellBarcoding ||--|o EnrichedCellSample : "input entity"
+CellBarcoding ||--|o BarcodedCellSample : "output entity"
+EnrichedCellSample ||--|o CellEnrichment : "created by process"
+CellEnrichment ||--|o DissociatedCellSample : "input entity"
+CellEnrichment ||--|o EnrichedCellSample : "output entity"
+DissociatedCellSample ||--|o CellDissociation : "created by process"
+CellDissociation ||--|o TissueSample : "input entity"
+CellDissociation ||--|o DissociatedCellSample : "output entity"
+TissueSample ||--|o TissueDissecting : "created by process"
+TissueDissecting ||--|o BrainSection : "input entity"
+TissueDissecting ||--|o TissueSample : "output entity"
+BrainSection ||--|o BrainSegmentSectioning : "created by process"
+BrainSegmentSectioning ||--|o BrainSegment : "input entity"
+BrainSegmentSectioning ||--|o BrainSection : "output entity"
+BrainSegment ||--|o BrainExtraction : "created by process"
+BrainExtraction ||--|o Donor : "input entity"
+BrainExtraction ||--|o BrainSegment : "output entity"
 Donor ||--}o OrganismTaxon : "in taxon"
 Donor ||--}o Attribute : "has attribute"
 AnnotationCollection ||--}o GeneAnnotation : "annotations"
