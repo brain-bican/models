@@ -1179,7 +1179,7 @@
       },
       "has_dataset": {
          "@type": "@id",
-         "@id": "dct:source"
+         "@id": "biolink:has_dataset"
       },
       "has_decreased_amount": {
          "@type": "@id",
@@ -1477,7 +1477,7 @@
          "@id": "biolink:indirectly_physically_interacts_with"
       },
       "ingest_date": {
-         "@id": "pav:version"
+         "@id": "biolink:ingest_date"
       },
       "interacting_molecules_category": {
          "@type": "@id",
@@ -2089,6 +2089,10 @@
       "same_as": {
          "@type": "@id",
          "@id": "biolink:same_as"
+      },
+      "semmed_agreement_count": {
+         "@type": "xsd:integer",
+         "@id": "biolink:semmed_agreement_count"
       },
       "sensitivity_associated_with": {
          "@type": "@id",

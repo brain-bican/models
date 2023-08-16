@@ -20,6 +20,7 @@ GenomeAnnotation {
     stringList provided_by  
     uriorcurieList xref  
     label_type full_name  
+    label_typeList synonym  
     iri_type iri  
     category_typeList category  
     stringList type  
@@ -30,13 +31,13 @@ GeneAnnotation {
     BioType molecular_type  
     string source_id  
     string symbol  
-    label_typeList synonym  
     uriorcurieList xref  
     biological_sequence has_biological_sequence  
     string id  
     label_type in_taxon_label  
     stringList provided_by  
     label_type full_name  
+    label_typeList synonym  
     iri_type iri  
     category_typeList category  
     stringList type  

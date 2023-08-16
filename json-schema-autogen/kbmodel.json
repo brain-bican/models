@@ -61,6 +61,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -123,6 +130,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -206,6 +220,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -279,6 +300,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -805,6 +833,13 @@
                     "description": "executive  summary of a publication",
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -1077,6 +1112,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -1151,6 +1193,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -1250,6 +1299,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -1553,6 +1609,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "timepoint": {
                     "description": "a point in time",
                     "format": "time",
@@ -1632,6 +1695,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -1751,6 +1821,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -1850,6 +1927,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -1927,6 +2011,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -2010,6 +2101,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -2134,6 +2232,13 @@
                     "description": "executive  summary of a publication",
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "description": "Should generally be set to an ontology class defined term for 'book'.",
                     "items": {
@@ -2256,6 +2361,13 @@
                     "description": "executive  summary of a publication",
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -2334,6 +2446,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -2880,6 +2999,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -2953,6 +3079,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -3418,6 +3551,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -3491,6 +3631,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -3639,7 +3786,7 @@
                     "description": "connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object."
                 },
                 "object_aspect_qualifier": {
-                    "$ref": "#/$defs/GeneOrGeneProductOrChemicalPartQualifierEnum"
+                    "$ref": "#/$defs/GeneOrGeneProductOrChemicalEntityAspectEnum"
                 },
                 "object_category": {
                     "description": "Used to hold the biolink class/category of an association. This is a denormalized  field used primarily in the SQL serialization of a knowledge graph via KGX.",
@@ -3729,7 +3876,7 @@
                     "type": "string"
                 },
                 "subject_aspect_qualifier": {
-                    "$ref": "#/$defs/GeneOrGeneProductOrChemicalPartQualifierEnum"
+                    "$ref": "#/$defs/GeneOrGeneProductOrChemicalEntityAspectEnum"
                 },
                 "subject_category": {
                     "description": "Used to hold the biolink class/category of an association. This is a denormalized  field used primarily in the SQL serialization of a knowledge graph via KGX.",
@@ -3860,6 +4007,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -4332,6 +4486,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "timepoint": {
                     "description": "a point in time",
                     "format": "time",
@@ -4653,6 +4814,13 @@
                     "description": "the method or process of administering a pharmaceutical compound to achieve a therapeutic effect in humans or animals.",
                     "items": {
                         "$ref": "#/$defs/DrugDeliveryEnum"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
                     },
                     "type": "array"
                 },
@@ -5129,6 +5297,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -5963,6 +6138,13 @@
                 "rights": {
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -6040,6 +6222,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -6128,6 +6317,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -6191,6 +6387,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -6274,6 +6477,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -6336,6 +6546,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -6418,6 +6635,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -6506,6 +6730,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -6569,6 +6800,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -6682,6 +6920,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "trade_name": {
                     "description": "",
                     "type": "string"
@@ -6759,6 +7004,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -6845,6 +7097,13 @@
                 "rights": {
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -6922,6 +7181,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -7036,6 +7302,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "trade_name": {
                     "description": "",
                     "type": "string"
@@ -7121,6 +7394,13 @@
                 "rights": {
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -7201,6 +7481,13 @@
                 },
                 "rights": {
                     "type": "string"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "type": {
                     "items": {
@@ -7690,6 +7977,13 @@
                 "rights": {
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -7773,6 +8067,13 @@
                 },
                 "rights": {
                     "type": "string"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "type": {
                     "items": {
@@ -7860,6 +8161,13 @@
                 },
                 "source_web_page": {
                     "type": "string"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "type": {
                     "items": {
@@ -7951,6 +8259,13 @@
                 "rights": {
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -8018,6 +8333,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -8080,6 +8402,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -8184,6 +8513,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -8257,6 +8593,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -8339,6 +8682,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -9235,6 +9585,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "trade_name": {
                     "description": "",
                     "type": "string"
@@ -9336,6 +9693,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -9459,6 +9823,13 @@
                 "summary": {
                     "description": "executive  summary of a publication",
                     "type": "string"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "type": {
                     "items": {
@@ -9729,6 +10100,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -10433,6 +10811,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "timepoint": {
                     "description": "a point in time",
                     "format": "time",
@@ -10501,6 +10886,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -10595,6 +10987,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "trade_name": {
                     "description": "",
                     "type": "string"
@@ -10661,6 +11060,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -10734,6 +11140,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -10819,6 +11232,13 @@
                 },
                 "rights": {
                     "type": "string"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "type": {
                     "items": {
@@ -10923,6 +11343,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -11668,6 +12095,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "trade_name": {
                     "description": "",
                     "type": "string"
@@ -11756,6 +12190,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -12023,6 +12464,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -12531,6 +12979,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -12796,6 +13251,8 @@
                 "transport",
                 "secretion",
                 "uptake",
+                "splicing",
+                "molecular_interaction",
                 "molecular_modification",
                 "acetylation",
                 "acylation",
@@ -14888,6 +15345,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -14965,6 +15429,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -15066,6 +15537,13 @@
                 },
                 "reference_assembly": {
                     "type": "string"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "type": {
                     "items": {
@@ -15193,6 +15671,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -15489,6 +15974,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -16741,6 +17233,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -16819,6 +17318,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -16905,6 +17411,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -16975,6 +17488,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -17063,6 +17583,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -17145,6 +17672,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -17207,6 +17741,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -17296,6 +17837,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -17369,6 +17917,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -17637,6 +18192,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -17762,6 +18324,13 @@
                     "description": "executive  summary of a publication",
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -17840,6 +18409,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -17926,6 +18502,13 @@
                 "rights": {
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -18009,6 +18592,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -18647,6 +19237,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -18757,6 +19354,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -19345,6 +19949,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -19998,6 +20609,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "trade_name": {
                     "description": "",
                     "type": "string"
@@ -20110,6 +20728,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "trade_name": {
                     "description": "",
                     "type": "string"
@@ -20182,6 +20807,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -20599,6 +21231,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "trade_name": {
                     "description": "",
                     "type": "string"
@@ -20676,6 +21315,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -20851,6 +21497,13 @@
                 "rights": {
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -20928,6 +21581,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -21016,6 +21676,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -21079,6 +21746,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -22326,6 +23000,13 @@
                     "description": "executive  summary of a publication",
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -22403,6 +23084,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -22493,6 +23181,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -22597,6 +23292,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -22674,6 +23376,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -22790,6 +23499,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -22862,6 +23578,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -22945,6 +23668,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -23022,6 +23752,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -23110,6 +23847,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -23173,6 +23917,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -23277,6 +24028,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -23339,6 +24097,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -23422,6 +24187,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -23500,6 +24272,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -23573,6 +24352,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -24053,6 +24839,13 @@
                     "description": "executive  summary of a publication",
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -24115,6 +24908,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -24225,6 +25025,13 @@
                     "description": "the method or process of administering a pharmaceutical compound to achieve a therapeutic effect in humans or animals.",
                     "items": {
                         "$ref": "#/$defs/DrugDeliveryEnum"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
                     },
                     "type": "array"
                 },
@@ -24402,6 +25209,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -24482,6 +25296,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -24684,6 +25505,13 @@
                 "summary": {
                     "description": "executive  summary of a publication",
                     "type": "string"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "type": {
                     "items": {
@@ -25435,6 +26263,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -25512,6 +26347,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -25613,6 +26455,13 @@
                 "rights": {
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -25711,6 +26560,13 @@
                 },
                 "rights": {
                     "type": "string"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "type": {
                     "items": {
@@ -26186,6 +27042,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -26307,6 +27170,13 @@
                     "description": "executive  summary of a publication",
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "description": "Should generally be set to an ontology class defined term for 'serial' or 'journal'.",
                     "items": {
@@ -26389,6 +27259,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -26607,6 +27484,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "trade_name": {
                     "description": "",
                     "type": "string"
@@ -26700,6 +27584,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -26777,6 +27668,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -26860,6 +27758,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -26956,6 +27861,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -27029,6 +27941,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -27114,6 +28033,13 @@
                 },
                 "rights": {
                     "type": "string"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "type": {
                     "items": {
@@ -27405,6 +28331,13 @@
                 "rights": {
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -27508,6 +28441,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -27784,6 +28724,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -27867,6 +28814,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -29156,6 +30110,13 @@
                     },
                     "type": "array"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -29229,6 +30190,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -29347,6 +30315,13 @@
                     "description": "executive  summary of a publication",
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -29424,6 +30399,13 @@
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
