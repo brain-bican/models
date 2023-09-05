@@ -1,25 +1,24 @@
 ```mermaid
 erDiagram
 LibraryPool {
-    string label  
     integer tube_avg_size  
     float tube_contents  
     string tube_internal_label  
+    string label  
 }
 LibraryPooling {
-
+    string process_id  
 }
 LibraryAliquot {
-    string label  
     integer input_quantity  
+    string label  
 }
 LibraryAliquoting {
-
+    string process_id  
 }
 Library {
     string method  
     datetime creation_date  
-    string label  
     integer avg_size  
     float input_amount  
     boolean library_prep_pass  
@@ -30,67 +29,68 @@ Library {
     string r1_sequence  
     string r2_index  
     string r2_sequence  
+    string label  
 }
 LibraryConstruction {
-
+    string process_id  
 }
 AmplifiedCdna {
     string method  
-    string label  
     float amplified_quantity  
     integer pcr_cycles  
     float percent_cdna_longer_than_400bp  
     boolean rna_amplification_pass  
+    string label  
 }
 CdnaAmplification {
-
+    string process_id  
 }
 BarcodedCellSample {
-    string label  
     string port_well  
-    string sample_quallity_count  
+    string sample_quality_count  
+    string label  
 }
 CellBarcoding {
-
+    string process_id  
 }
 EnrichedCellSample {
     string label  
 }
 CellEnrichment {
-
+    string process_id  
 }
 DissociatedCellSample {
-    string label  
     string cell_prep_type  
     string facs_population_plan  
     integer number_of_cells_collected  
+    string label  
 }
 CellDissociation {
-
+    string process_id  
 }
 TissueSample {
-    string label  
     string roi_plan  
     string region_of_interest_label  
+    string label  
 }
 TissueDissecting {
-
+    string process_id  
 }
 BrainSection {
-    string label  
     string barcode  
     integer ordinal  
+    string label  
 }
 BrainSegmentSectioning {
-
+    string process_id  
 }
 BrainSegment {
-    string label  
     string barcode  
     string anatomical_division  
+    string label  
 }
 BrainExtraction {
-
+    string process_id  
 }
 Donor {
     string label  
@@ -106,6 +106,10 @@ Donor {
     stringList type  
     label_type name  
     narrative_text description  
+}
+ProcessOutput {
+    string label  
+    string created_by_process  
 }
 Process {
     string input_entity  
