@@ -1108,6 +1108,10 @@
          "@type": "@id",
          "@id": "biolink:gene_fusion_with"
       },
+      "generated": {
+         "@type": "@id",
+         "@id": "prov:generated"
+      },
       "genetic_association": {
          "@type": "@id",
          "@id": "biolink:genetic_association"
@@ -1634,9 +1638,6 @@
       },
       "avg_size": {
          "@type": "xsd:integer"
-      },
-      "created_by_process": {
-         "@type": "@id"
       },
       "input_amount": {
          "@type": "xsd:float"
@@ -2414,6 +2415,10 @@
          "@type": "@id",
          "@id": "biolink:upstream_resource_ids"
       },
+      "used": {
+         "@type": "@id",
+         "@id": "prov:used"
+      },
       "variant_part_of": {
          "@type": "@id",
          "@id": "biolink:variant_part_of"
@@ -2427,6 +2432,14 @@
       },
       "volume": {
          "@id": "biolink:volume"
+      },
+      "wasDerivedFrom": {
+         "@type": "@id",
+         "@id": "prov:wasDerivedFrom"
+      },
+      "wasGeneratedBy": {
+         "@type": "@id",
+         "@id": "prov:wasGeneratedBy"
       },
       "xenologous_to": {
          "@type": "@id",

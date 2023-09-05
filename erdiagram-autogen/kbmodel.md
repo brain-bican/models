@@ -4,17 +4,45 @@ LibraryPool {
     integer tube_avg_size  
     float tube_contents  
     string tube_internal_label  
-    string label  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 LibraryPooling {
-    string process_id  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 LibraryAliquot {
     integer input_quantity  
-    string label  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 LibraryAliquoting {
-    string process_id  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 Library {
     string method  
@@ -29,10 +57,24 @@ Library {
     string r1_sequence  
     string r2_index  
     string r2_sequence  
-    string label  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 LibraryConstruction {
-    string process_id  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 AmplifiedCdna {
     string method  
@@ -40,60 +82,157 @@ AmplifiedCdna {
     integer pcr_cycles  
     float percent_cdna_longer_than_400bp  
     boolean rna_amplification_pass  
-    string label  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 CdnaAmplification {
-    string process_id  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 BarcodedCellSample {
     string port_well  
     string sample_quality_count  
-    string label  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 CellBarcoding {
-    string process_id  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 EnrichedCellSample {
-    string label  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 CellEnrichment {
-    string process_id  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 DissociatedCellSample {
     string cell_prep_type  
     string facs_population_plan  
     integer number_of_cells_collected  
-    string label  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 CellDissociation {
-    string process_id  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 TissueSample {
     string roi_plan  
     string region_of_interest_label  
-    string label  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 TissueDissecting {
-    string process_id  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 BrainSection {
     string barcode  
     integer ordinal  
-    string label  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 BrainSegmentSectioning {
-    string process_id  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 BrainSegment {
     string barcode  
     string anatomical_division  
-    string label  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 BrainExtraction {
-    string process_id  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
 Donor {
-    string label  
     SexType sex  
     date date_of_birth  
     date date_of_death  
@@ -107,14 +246,31 @@ Donor {
     label_type name  
     narrative_text description  
 }
-ProcessOutput {
-    string label  
-    string created_by_process  
+Activity {
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
 }
-Process {
-    string input_entity  
-    string output_entity  
-    string process_id  
+Entity {
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+ProvEntity {
+
+}
+ProvActivity {
+
 }
 AnnotationCollection {
 
@@ -180,38 +336,76 @@ Checksum {
     narrative_text description  
 }
 
-LibraryPool ||--|o LibraryPooling : "created by process"
-LibraryPooling ||--|o LibraryAliquot : "input entity"
-LibraryPooling ||--|o LibraryPool : "output entity"
-LibraryAliquot ||--|o LibraryAliquoting : "created by process"
-LibraryAliquoting ||--|o Library : "input entity"
-LibraryAliquoting ||--|o LibraryAliquot : "output entity"
-Library ||--|o LibraryConstruction : "created by process"
-LibraryConstruction ||--|o AmplifiedCdna : "input entity"
-LibraryConstruction ||--|o Library : "output entity"
-AmplifiedCdna ||--|o CdnaAmplification : "created by process"
-CdnaAmplification ||--|o BarcodedCellSample : "input entity"
-CdnaAmplification ||--|o AmplifiedCdna : "output entity"
-BarcodedCellSample ||--|o CellBarcoding : "created by process"
-CellBarcoding ||--|o EnrichedCellSample : "input entity"
-CellBarcoding ||--|o BarcodedCellSample : "output entity"
-EnrichedCellSample ||--|o CellEnrichment : "created by process"
-CellEnrichment ||--|o DissociatedCellSample : "input entity"
-CellEnrichment ||--|o EnrichedCellSample : "output entity"
-DissociatedCellSample ||--|o CellDissociation : "created by process"
-CellDissociation ||--|o TissueSample : "input entity"
-CellDissociation ||--|o DissociatedCellSample : "output entity"
-TissueSample ||--|o TissueDissecting : "created by process"
-TissueDissecting ||--|o BrainSection : "input entity"
-TissueDissecting ||--|o TissueSample : "output entity"
-BrainSection ||--|o BrainSegmentSectioning : "created by process"
-BrainSegmentSectioning ||--|o BrainSegment : "input entity"
-BrainSegmentSectioning ||--|o BrainSection : "output entity"
-BrainSegment ||--|o BrainExtraction : "created by process"
-BrainExtraction ||--|o Donor : "input entity"
-BrainExtraction ||--|o BrainSegment : "output entity"
+LibraryPool ||--}o LibraryAliquot : "wasDerivedFrom"
+LibraryPool ||--}o LibraryPooling : "wasGeneratedBy"
+LibraryPool ||--}o Attribute : "has attribute"
+LibraryPooling ||--}o LibraryAliquot : "used"
+LibraryPooling ||--}o LibraryPool : "generated"
+LibraryPooling ||--}o Attribute : "has attribute"
+LibraryAliquot ||--}o Library : "wasDerivedFrom"
+LibraryAliquot ||--}o LibraryAliquoting : "wasGeneratedBy"
+LibraryAliquot ||--}o Attribute : "has attribute"
+LibraryAliquoting ||--}o Library : "used"
+LibraryAliquoting ||--}o LibraryAliquot : "generated"
+LibraryAliquoting ||--}o Attribute : "has attribute"
+Library ||--}o AmplifiedCdna : "wasDerivedFrom"
+Library ||--}o LibraryConstruction : "wasGeneratedBy"
+Library ||--}o Attribute : "has attribute"
+LibraryConstruction ||--}o AmplifiedCdna : "used"
+LibraryConstruction ||--}o Library : "generated"
+LibraryConstruction ||--}o Attribute : "has attribute"
+AmplifiedCdna ||--}o BarcodedCellSample : "wasDerivedFrom"
+AmplifiedCdna ||--}o CdnaAmplification : "wasGeneratedBy"
+AmplifiedCdna ||--}o Attribute : "has attribute"
+CdnaAmplification ||--}o BarcodedCellSample : "used"
+CdnaAmplification ||--}o AmplifiedCdna : "generated"
+CdnaAmplification ||--}o Attribute : "has attribute"
+BarcodedCellSample ||--}o EnrichedCellSample : "wasDerivedFrom"
+BarcodedCellSample ||--}o CellBarcoding : "wasGeneratedBy"
+BarcodedCellSample ||--}o Attribute : "has attribute"
+CellBarcoding ||--}o EnrichedCellSample : "used"
+CellBarcoding ||--}o BarcodedCellSample : "generated"
+CellBarcoding ||--}o Attribute : "has attribute"
+EnrichedCellSample ||--}o DissociatedCellSample : "wasDerivedFrom"
+EnrichedCellSample ||--}o CellEnrichment : "wasGeneratedBy"
+EnrichedCellSample ||--}o Attribute : "has attribute"
+CellEnrichment ||--}o DissociatedCellSample : "used"
+CellEnrichment ||--}o EnrichedCellSample : "generated"
+CellEnrichment ||--}o Attribute : "has attribute"
+DissociatedCellSample ||--}o TissueSample : "wasDerivedFrom"
+DissociatedCellSample ||--}o CellDissociation : "wasGeneratedBy"
+DissociatedCellSample ||--}o Attribute : "has attribute"
+CellDissociation ||--}o TissueSample : "used"
+CellDissociation ||--}o DissociatedCellSample : "generated"
+CellDissociation ||--}o Attribute : "has attribute"
+TissueSample ||--}o BrainSection : "wasDerivedFrom"
+TissueSample ||--}o TissueDissecting : "wasGeneratedBy"
+TissueSample ||--}o Attribute : "has attribute"
+TissueDissecting ||--}o BrainSection : "used"
+TissueDissecting ||--}o TissueSample : "generated"
+TissueDissecting ||--}o Attribute : "has attribute"
+BrainSection ||--}o BrainSegment : "wasDerivedFrom"
+BrainSection ||--}o BrainSegmentSectioning : "wasGeneratedBy"
+BrainSection ||--}o Attribute : "has attribute"
+BrainSegmentSectioning ||--}o BrainSegment : "used"
+BrainSegmentSectioning ||--}o BrainSection : "generated"
+BrainSegmentSectioning ||--}o Attribute : "has attribute"
+BrainSegment ||--}o Donor : "wasDerivedFrom"
+BrainSegment ||--}o BrainExtraction : "wasGeneratedBy"
+BrainSegment ||--}o Attribute : "has attribute"
+BrainExtraction ||--}o Donor : "used"
+BrainExtraction ||--}o BrainSegment : "generated"
+BrainExtraction ||--}o Attribute : "has attribute"
 Donor ||--}o OrganismTaxon : "in taxon"
+Donor ||--}o Entity : "wasDerivedFrom"
+Donor ||--}o Activity : "wasGeneratedBy"
 Donor ||--}o Attribute : "has attribute"
+Activity ||--}o Attribute : "has attribute"
+Entity ||--}o Attribute : "has attribute"
+ProvEntity ||--}o Entity : "wasDerivedFrom"
+ProvEntity ||--}o Activity : "wasGeneratedBy"
+ProvActivity ||--}o Entity : "used"
+ProvActivity ||--}o Entity : "generated"
 AnnotationCollection ||--}o GeneAnnotation : "annotations"
 AnnotationCollection ||--}o GenomeAnnotation : "genome_annotations"
 AnnotationCollection ||--}o GenomeAssembly : "genome_assemblies"
