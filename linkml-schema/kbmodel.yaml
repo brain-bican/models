@@ -8,6 +8,8 @@ prefixes:
   schema: http://schema.org/
   ncbi: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=
   NCBIAssembly: https://www.ncbi.nlm.nih.gov/assembly/
+  prov: http://www.w3.org/ns/prov#
+
 
 imports:
   - linkml:types
@@ -78,122 +80,140 @@ classes:
         inlined_as_list: true
         range: genome assembly
 
-  process:
+  prov activity:
     description: >-
-      A process that takes input entities and produces output entities.
+      Based off prov:Activity; an activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
     slots:
-      - input entity
-      - output entity
-      - process id 
-
+      - used
+      - generated
 
   brain extraction:
     description: >-
       A process that takes a brain sample from a donor and produces a brain segment.
-    is_a: process
+    is_a: activity
+    mixins: 
+      - prov activity
     slot_usage:
-      input entity:
+      used:
         range: donor
-      output entity:
+      generated:
         range: brain segment
 
   brain segment sectioning:
     description: >-
       A process that takes a brain segment and produces a brain section.
-    is_a: process
+    is_a: activity
+    mixins: 
+      - prov activity
     slot_usage:
-      input entity:
+      used:
         range: brain segment
-      output entity:
+      generated:
         range: brain section
 
   tissue dissecting:
     description: >-
       A process that takes a brain section and produces a tissue sample.
-    is_a: process
+    is_a: activity
+    mixins: 
+      - prov activity
     slot_usage:
-      input entity:
+      used:
         range: brain section
-      output entity:
+      generated:
         range: tissue sample
 
   cell dissociation:
     description: >-
       A process that takes a tissue sample and produces a dissociated cell sample.
-    is_a: process
+    is_a: activity
+    mixins: 
+      - prov activity
     slot_usage:
-      input entity:
+      used:
         range: tissue sample
-      output entity:
+      generated:
         range: dissociated cell sample
 
   cell enrichment:
     description: >-
       A process that takes a dissociated cell sample and produces an enriched cell sample.
-    is_a: process
+    is_a: activity
+    mixins: 
+      - prov activity
     slot_usage:
-      input entity:
+      used:
         range: dissociated cell sample
-      output entity:
+      generated:
         range: enriched cell sample 
 
   cell barcoding:
     description: >-
       A process that takes an enriched cell sample and produces a barcoded cell sample.
-    is_a: process
+    is_a: activity
+    mixins: 
+      - prov activity
     slot_usage:
-      input entity:
+      used:
         range: enriched cell sample
-      output entity:
+      generated:
         range: barcoded cell sample
 
   cdna amplification:
     description: >-
       A process that takes a barcoded cell sample and produces an amplified cDNA sample.
-    is_a: process
+    is_a: activity
+    mixins: 
+      - prov activity
     slot_usage:
-      input entity:
+      used:
         range: barcoded cell sample
-      output entity:
+      generated:
         range: amplified cdna
   
   library construction:
     description: >-
       A process that takes an amplified cDNA sample and produces a library.
-    is_a: process
+    is_a: activity
+    mixins: 
+      - prov activity
     slot_usage:
-      input entity:
+      used:
         range: amplified cdna
-      output entity:
+      generated:
         range: library
   
   library aliquoting:
     description: >-
       A process that takes a library and produces an library aliquot.
-    is_a: process
+    is_a: activity
+    mixins: 
+      - prov activity
     slot_usage:
-      input entity:
+      used:
         range: library
-      output entity:
+      generated:
         range: library aliquot
 
   library pooling:
     description: >-
       A process that takes a library aliquot and produces a library pool.
-    is_a: process
+    is_a: activity
+    mixins: 
+      - prov activity
     slot_usage:
-      input entity:
+      used:
         range: library aliquot
-      output entity:
+      generated:
         range: library pool
 
 
-  process output:
+  prov entity:
     description: >-
-      The output of a process.
+      Based off prov:Entity; an entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary.
     slots:
-      - label
-      - created by process
+      - wasDerivedFrom
+      - wasGeneratedBy
 
 
   # 028 - donors.ipynb
@@ -201,10 +221,10 @@ classes:
     is_a: entity
     mixins:
       - thing with taxon
+      - prov entity
     description: >-
       A person or organism that is the source of a biological sample.
     slots:
-      - label
       - sex
       - date of birth
       - date of death
@@ -215,20 +235,26 @@ classes:
 
   # 027 - brain_extraction.ipynb
   brain segment:
-    is_a: process output
+    is_a: entity
+    mixins:    
+      - prov entity
     slots:
       - barcode
     attributes:
       anatomical division:
     slot_usage:
-      created by process:
+      wasGeneratedBy:
         range: brain extraction
+      wasDerivedFrom:
+        range: donor
     
 
 
   # 026 - brain_segment_sectioning.ipynb
   brain section:
-    is_a: process output
+    is_a: entity
+    mixins:    
+      - prov entity
     slots:
       - barcode
     attributes:
@@ -237,58 +263,78 @@ classes:
           The ordinal number of the section.
         range: integer
     slot_usage:
-      created by process:
+      wasGeneratedBy:
         range: brain segment sectioning
+      wasDerivedFrom:
+        range: brain segment
 
 
   # 025b - tissue_dissectioning.ipynb
   tissue sample:
-    is_a: process output
+    is_a: entity
+    mixins:    
+      - prov entity
     attributes:
       roi plan:
       region of interest label:
         description: >-
           The label of the region of interest.
     slot_usage:
-      created by process:
+      wasGeneratedBy:
         range: tissue dissecting
+      wasDerivedFrom:
+        range: brain section
 
 
   # 024 - cell_dissociation.ipynb
   dissociated cell sample:
-    is_a: process output
+    is_a: entity
+    mixins:    
+      - prov entity
     attributes:
       cell prep type:
       facs population plan: 
       number of cells collected:
         range: integer
     slot_usage:
-      created by process:
+      wasGeneratedBy:
         range: cell dissociation
+      wasDerivedFrom:
+        range: tissue sample
 
 
   #TODO: Add addtional attributes and slots to this class.
   enriched cell sample:
-    is_a: process output
+    is_a: entity
+    mixins:    
+      - prov entity
     slot_usage:
-      created by process:
+      wasGeneratedBy:
         range: cell enrichment
+      wasDerivedFrom:
+        range: dissociated cell sample
 
 
   # 023 - cell_barcoding.ipynb
   barcoded cell sample:
-    is_a: process output
+    is_a: entity
+    mixins:    
+      - prov entity
     attributes:
       port well:
       sample quality count:
     slot_usage:
-      created by process:
+      wasGeneratedBy:
         range: cell barcoding
+      wasDerivedFrom:
+        range: enriched cell sample
 
 
   # 022 - cnda_amplification.ipynb
   amplified cdna:
-    is_a: process output
+    is_a: entity
+    mixins:    
+      - prov entity
     slots:
       - method
     attributes:
@@ -307,14 +353,18 @@ classes:
       rna amplification pass:
         range: boolean
     slot_usage:
-      created by process:
+      wasGeneratedBy:
         range: cdna amplification
+      wasDerivedFrom:
+        range: barcoded cell sample
 
 
 
   # 021 - library_constructions.ipynb
   library:
-    is_a: process output
+    is_a: entity
+    mixins:    
+      - prov entity
     slots:
       - method 
       - creation date
@@ -337,31 +387,37 @@ classes:
       r1 sequence:
       r2 index:
       r2 sequence:
-      created by process:
-        range: library construction
     slot_usage:
       creation date:    
         description: The date and time the object was created. 
         range: datetime
-      created by process:
+      wasGeneratedBy:
         range: library construction
+      wasDerivedFrom:
+        range: amplified cdna
       
 
   # 020 - aliquoting_and_pooling.ipynb
   library aliquot:
-    is_a: process output
+    is_a: entity
+    mixins:    
+      - prov entity
     attributes:
       input quantity:
         description: The amount of input material (fmol) used to create the library aliquot.
         range: integer
     slot_usage:
-      created by process:
+      wasGeneratedBy:
         range: library aliquoting
+      wasDerivedFrom:
+        range: library
 
 
   # 020 - aliquoting_and_pooling.ipynb
   library pool:
-    is_a: process output
+    is_a: entity
+    mixins:    
+      - prov entity
     attributes:
       tube avg size:
         description: The average size (bp) of the library fragments in the tube.
@@ -371,11 +427,41 @@ classes:
         range: float
       tube internal label:
     slot_usage:
-      created by process:
+      wasGeneratedBy:
         range: library pooling
+      wasDerivedFrom:
+        range: library aliquot
 
 
 slots:
+  used:
+    slot_uri: prov:used
+    domain: activity
+    range: entity 
+    multivalued: true
+    inlined_as_list: true
+
+  generated:
+    slot_uri: prov:generated
+    domain: activity
+    range: entity
+    multivalued: true
+    inlined_as_list: true
+  
+  wasGeneratedBy:
+    slot_uri: prov:wasGeneratedBy
+    domain: entity
+    range: activity
+    multivalued: true
+    inlined_as_list: true
+
+  wasDerivedFrom:
+    slot_uri: prov:wasDerivedFrom
+    domain: entity
+    range: entity
+    multivalued: true
+    inlined_as_list: true
+
   referenced in:
     range: genome annotation
 
@@ -440,22 +526,11 @@ slots:
     description: 
     slot_uri: schema:name
 
-  input entity:
-    description: The input entity of the process.
-
-  output entity:
-    description: The output entity of the process.
-
   process id:
     description: The id of the process.
     range: string
-  
-  created by process:
-    description: The process that created the object.
+
     
-  
-
-
   # SLOTS IMPORTED FROM BIOLINK #
   # creation date:
   # version:
