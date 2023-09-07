@@ -81,11 +81,15 @@ classes:
         range: genome assembly
 
   prov activity:
+    mixin: true
     description: >-
-      Based off prov:Activity; an activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
+      Based off prov:Activity; an activity is something that occurs over a period of time and acts upon or with entities; 
+      it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
     slots:
       - used
       - generated
+      - wasAssociatedWith
+
 
   brain extraction:
     description: >-
@@ -209,37 +213,40 @@ classes:
 
 
   prov entity:
+    mixin: true
     description: >-
-      Based off prov:Entity; an entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary.
+      Based off prov:Entity; an entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; 
+      entities may be real or imaginary.
     slots:
       - wasDerivedFrom
       - wasGeneratedBy
+      - wasAttributedTo
 
 
   # 028 - donors.ipynb
+  # age_at_death -> death age, date_of_birth -> birth date, date_of_death -> death date, full_genotype -> full genotype,
+  # entity_type -> type/category, label -> name, ncbitaxonomyid -> in_taxon, sex -> sex
   donor:
-    is_a: entity
+    is_a: agent
     mixins:
       - thing with taxon
-      - prov entity
     description: >-
       A person or organism that is the source of a biological sample.
     slots:
       - sex
-      - date of birth
-      - date of death
-      - age at death
+      - birth date
+      - death date
+      - death age
       - full genotype
 
 
-
   # 027 - brain_extraction.ipynb
+  # mappings (notebook -> model): anatomical_division -> anatomical division, barcode -> id, 
+  # (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category, label -> name
   brain segment:
     is_a: entity
     mixins:    
       - prov entity
-    slots:
-      - barcode
     attributes:
       anatomical division:
     slot_usage:
@@ -249,18 +256,16 @@ classes:
         range: donor
     
 
-
   # 026 - brain_segment_sectioning.ipynb
+  # mappings (notebook -> model): barcode -> id, (created_by_process_id & created_by_process_type) -> wasGeneratedBy, 
+  # entity_type -> type/category, label -> name, ordinal -> ordinal
   brain section:
     is_a: entity
     mixins:    
       - prov entity
-    slots:
-      - barcode
     attributes:
       ordinal:
-        description: >-
-          The ordinal number of the section.
+        description: The ordinal number of the section.
         range: integer
     slot_usage:
       wasGeneratedBy:
@@ -270,15 +275,16 @@ classes:
 
 
   # 025b - tissue_dissectioning.ipynb
+  # mappings (notebook -> model): (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category,
+  # label -> name, roi_plan -> roi plan, roi_label -> roi label 
   tissue sample:
     is_a: entity
     mixins:    
       - prov entity
     attributes:
       roi plan:
-      region of interest label:
-        description: >-
-          The label of the region of interest.
+      roi label:
+        description: The label of the region of interest.
     slot_usage:
       wasGeneratedBy:
         range: tissue dissecting
@@ -287,6 +293,8 @@ classes:
 
 
   # 024 - cell_dissociation.ipynb
+  # mappings (notebook -> model): cell_prep_type -> cell prep type, (created_by_process_id & created_by_process_type) -> wasGeneratedBy, 
+  # entity_type -> type/category, facs_population_plan -> facs population plan, label -> name, number_of_cells_collected -> num cells collected
   dissociated cell sample:
     is_a: entity
     mixins:    
@@ -294,7 +302,7 @@ classes:
     attributes:
       cell prep type:
       facs population plan: 
-      number of cells collected:
+      num cells collected:
         range: integer
     slot_usage:
       wasGeneratedBy:
@@ -303,7 +311,6 @@ classes:
         range: tissue sample
 
 
-  #TODO: Add addtional attributes and slots to this class.
   enriched cell sample:
     is_a: entity
     mixins:    
@@ -316,6 +323,8 @@ classes:
 
 
   # 023 - cell_barcoding.ipynb
+  # mappings (notebook -> model): (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category, 
+  # label -> name, port_well -> port well, sample_quality_count -> sample quality count 
   barcoded cell sample:
     is_a: entity
     mixins:    
@@ -331,17 +340,17 @@ classes:
 
 
   # 022 - cnda_amplification.ipynb
+  # amplified_quantity_ng -> input quantity, (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category,
+  # label -> name, method -> method, pcr_cycles -> pcr cycles, percent_cdna_longer_than_400bp -> percent cdna longer than 400bp, rna_amplification_pass_fail -> process pass
   amplified cdna:
     is_a: entity
     mixins:    
       - prov entity
     slots:
       - method
+      - input quantity
+      - process pass
     attributes:
-      amplified quantity:
-        description: >-
-          Amount of cDNA amplified (ng).
-        range: float
       pcr cycles:
         description: >-
           Number of PCR cycles used to amplify the cDNA.
@@ -350,17 +359,22 @@ classes:
         description: >-
           The percentage of cDNA fragments that are longer than 400bp.
         range: float
-      rna amplification pass:
-        range: boolean
     slot_usage:
+      input quantity:
+        description: The amount of input cDNA (ng) amplified.
+      process pass:
+        description: Indicates whether the rna amplification process passed or failed.
       wasGeneratedBy:
         range: cdna amplification
       wasDerivedFrom:
         range: barcoded cell sample
 
 
-
   # 021 - library_constructions.ipynb
+  # avg_size_bp -> avg size bp, (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category, label -> name,
+  # library_creation_date -> creation date, library_input_ng -> input quantity, method -> method, process_pass -> process pass, 
+  # quantification_fmole -> quantification fmol, quantification_ng -> quantification ng, quantification_nm -> quantification nm,
+  # r1_index -> r1 index, r1_sequence -> r1 sequence, r2_index -> r2 index, r2_sequence -> r2 sequence
   library:
     is_a: entity
     mixins:    
@@ -368,15 +382,10 @@ classes:
     slots:
       - method 
       - creation date
+      - input quantity
+      - process pass
+      - avg size bp
     attributes:
-      avg size:
-        description: The average size (bp) of the library fragments. bp stands for base pairs.
-        range: integer
-      input amount:
-        description: The amount of input material (ng) used to create the library.
-        range: float
-      library prep pass:
-        range: boolean
       quantification fmol:
         range: float
       quantification ng:
@@ -391,42 +400,53 @@ classes:
       creation date:    
         description: The date and time the object was created. 
         range: datetime
+      input quantity:
+        description: The amount of input material (ng) used to create the library.
+      process pass:
+        description: Indicates whether the library prep process passed or failed.
+      avg size bp:
+        description: The average size (bp) of the library fragments.
       wasGeneratedBy:
         range: library construction
       wasDerivedFrom:
         range: amplified cdna
-      
+       
 
   # 020 - aliquoting_and_pooling.ipynb
+  # mappings (notebook -> model): label -> name, input_quantity_fmol -> input quantity, library_label -> xref,
+  # (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category, 
   library aliquot:
     is_a: entity
     mixins:    
       - prov entity
-    attributes:
-      input quantity:
-        description: The amount of input material (fmol) used to create the library aliquot.
-        range: integer
+    slots:
+      - input quantity
     slot_usage:
       wasGeneratedBy:
         range: library aliquoting
       wasDerivedFrom:
         range: library
+      input quantity:
+        description: The amount of input material (fmol) used to create the library aliquot.
+        range: integer
 
 
   # 020 - aliquoting_and_pooling.ipynb
+  # mappings (notebook -> model): label -> name, tube_avg_size_bp -> avg size bp, tube_contents_nm -> tube contents nm, tube_internal_label -> xref,
+  # (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category, 
   library pool:
     is_a: entity
     mixins:    
       - prov entity
+    slots:
+      - avg size bp
     attributes:
-      tube avg size:
-        description: The average size (bp) of the library fragments in the tube.
-        range: integer
       tube contents:
         description: The content concentration (nm).
         range: float
-      tube internal label:
     slot_usage:
+      avg size bp:
+        description: The average size (bp) of the library fragments in the tube.
       wasGeneratedBy:
         range: library pooling
       wasDerivedFrom:
@@ -459,6 +479,20 @@ slots:
     slot_uri: prov:wasDerivedFrom
     domain: entity
     range: entity
+    multivalued: true
+    inlined_as_list: true
+  
+  wasAssociatedWith:
+    slot_uri: prov:wasAssociatedWith
+    domain: activity
+    range: agent
+    multivalued: true
+    inlined_as_list: true
+  
+  wasAttributedTo:
+    slot_uri: prov:wasAttributedTo
+    domain: entity
+    range: agent
     multivalued: true
     inlined_as_list: true
 
@@ -495,47 +529,40 @@ slots:
   strain:
     description: The genetic variant or subtype of a species or organism. 
 
-  label:
-    description: The name of the object.
-    slot_uri: schema:name
-
   sex:
     range: SexType  
   
-  date of birth:
+  birth date:
     description: The date of birth of the donor.
     range: date
 
-  date of death:
+  death date:
     description: The date of death of the donor.
     range: date
   
-  age at death:
-    description: The age of the donor at the time of death.
+  death age:
+    description: The age of the donor at the time of death (ISO 8601 format).
     range: string
 
   full genotype:  
     description: The full genotype of the donor.
     range: string
 
-  barcode: 
-    description: The unique identifier of the object.
-    slot_uri: schema:identifier
-
   method:
     description: 
     slot_uri: schema:name
-
-  process id:
-    description: The id of the process.
-    range: string
-
-    
-  # SLOTS IMPORTED FROM BIOLINK #
-  # creation date:
-  # version:
-
-
+  
+  input quantity:
+    description: The amount of input material used for an activity. 
+    range: float
+  
+  process pass:
+    description: Indicates whether the process passed or failed. 
+    range: boolean
+  
+  avg size bp:
+    description: The average size (bp = base pairs) of an entity. 
+    range: integer
 
 
 enums:
@@ -564,4 +591,3 @@ enums:
         meaning: ncbi:10090
       human:
         meaning: ncbi:9606
-
