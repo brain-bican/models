@@ -252,10 +252,6 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "amplified_quantity": {
-                    "description": "Amount of cDNA amplified (ng).",
-                    "type": "number"
-                },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.\n * In a neo4j database this MAY correspond to the neo4j label tag.\n * In an RDF database it should be a biolink model class URI.\nThis field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`, ...\nIn an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
                     "items": {
@@ -278,6 +274,10 @@
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
                     "type": "string"
                 },
+                "input_quantity": {
+                    "description": "The amount of input cDNA (ng) amplified.",
+                    "type": "number"
+                },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
                     "type": "string"
@@ -297,12 +297,19 @@
                     "description": "The percentage of cDNA fragments that are longer than 400bp.",
                     "type": "number"
                 },
-                "rna_amplification_pass": {
+                "process_pass": {
+                    "description": "Indicates whether the rna amplification process passed or failed.",
                     "type": "boolean"
                 },
                 "type": {
                     "items": {
                         "type": "string"
+                    },
+                    "type": "array"
+                },
+                "wasAttributedTo": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
                     },
                     "type": "array"
                 },
@@ -1346,6 +1353,12 @@
                 "type": {
                     "items": {
                         "type": "string"
+                    },
+                    "type": "array"
+                },
+                "wasAttributedTo": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
                     },
                     "type": "array"
                 },
@@ -2607,6 +2620,12 @@
                     },
                     "type": "array"
                 },
+                "wasAssociatedWith": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "type": "array"
+                },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
@@ -2626,10 +2645,6 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "barcode": {
-                    "description": "The unique identifier of the object.",
-                    "type": "string"
-                },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.\n * In a neo4j database this MAY correspond to the neo4j label tag.\n * In an RDF database it should be a biolink model class URI.\nThis field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`, ...\nIn an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
                     "items": {
@@ -2670,6 +2685,12 @@
                     },
                     "type": "array"
                 },
+                "wasAttributedTo": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "type": "array"
+                },
                 "wasDerivedFrom": {
                     "items": {
                         "$ref": "#/$defs/BrainSegment"
@@ -2694,10 +2715,6 @@
             "description": "",
             "properties": {
                 "anatomical_division": {
-                    "type": "string"
-                },
-                "barcode": {
-                    "description": "The unique identifier of the object.",
                     "type": "string"
                 },
                 "category": {
@@ -2733,6 +2750,12 @@
                 "type": {
                     "items": {
                         "type": "string"
+                    },
+                    "type": "array"
+                },
+                "wasAttributedTo": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
                     },
                     "type": "array"
                 },
@@ -2823,6 +2846,12 @@
                 "used": {
                     "items": {
                         "$ref": "#/$defs/BrainSegment"
+                    },
+                    "type": "array"
+                },
+                "wasAssociatedWith": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
                     },
                     "type": "array"
                 },
@@ -3460,6 +3489,12 @@
                     },
                     "type": "array"
                 },
+                "wasAssociatedWith": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "type": "array"
+                },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
@@ -3631,6 +3666,12 @@
                     },
                     "type": "array"
                 },
+                "wasAssociatedWith": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "type": "array"
+                },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
@@ -3717,6 +3758,12 @@
                     },
                     "type": "array"
                 },
+                "wasAssociatedWith": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "type": "array"
+                },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
@@ -3800,6 +3847,12 @@
                 "used": {
                     "items": {
                         "$ref": "#/$defs/DissociatedCellSample"
+                    },
+                    "type": "array"
+                },
+                "wasAssociatedWith": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
                     },
                     "type": "array"
                 },
@@ -10331,12 +10384,18 @@
                     "description": "A human-readable name for an attribute or entity.",
                     "type": "string"
                 },
-                "number_of_cells_collected": {
+                "num_cells_collected": {
                     "type": "integer"
                 },
                 "type": {
                     "items": {
                         "type": "string"
+                    },
+                    "type": "array"
+                },
+                "wasAttributedTo": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
                     },
                     "type": "array"
                 },
@@ -10363,23 +10422,35 @@
             "additionalProperties": false,
             "description": "A person or organism that is the source of a biological sample.",
             "properties": {
-                "age_at_death": {
-                    "description": "The age of the donor at the time of death.",
+                "address": {
+                    "description": "the particulars of the place where someone or an organization is situated.  For now, this slot is a simple text \"blob\" containing all relevant details of the given location for fitness of purpose. For the moment, this \"address\" can include other contact details such as email and phone number(?).",
                     "type": "string"
                 },
-                "category": {
-                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.\n * In a neo4j database this MAY correspond to the neo4j label tag.\n * In an RDF database it should be a biolink model class URI.\nThis field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`, ...\nIn an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                "affiliation": {
+                    "description": "a professional relationship between one provider (often a person) within another provider (often an organization). Target provider identity should be specified by a CURIE. Providers may have multiple affiliations.",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
                 },
-                "date_of_birth": {
+                "birth_date": {
                     "description": "The date of birth of the donor.",
                     "format": "date",
                     "type": "string"
                 },
-                "date_of_death": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.\n * In a neo4j database this MAY correspond to the neo4j label tag.\n * In an RDF database it should be a biolink model class URI.\nThis field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`, ...\nIn an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "items": {
+                        "pattern": "^biolink:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "death_age": {
+                    "description": "The age of the donor at the time of death (ISO 8601 format).",
+                    "type": "string"
+                },
+                "death_date": {
                     "description": "The date of death of the donor.",
                     "format": "date",
                     "type": "string"
@@ -10392,6 +10463,10 @@
                     "description": "The full genotype of the donor.",
                     "type": "string"
                 },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": "string"
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -10400,7 +10475,7 @@
                     "type": "array"
                 },
                 "id": {
-                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "description": "Different classes of agents have distinct preferred identifiers. For publishers, use the ISBN publisher code. See https://grp.isbn-international.org/ for publisher code lookups. For editors, authors and  individual providers, use the individual's ORCID if available; Otherwise, a ScopusID, ResearchID or Google Scholar ID ('GSID') may be used if the author ORCID is unknown. Institutional agents could be identified by an International Standard Name Identifier ('ISNI') code.",
                     "type": "string"
                 },
                 "in_taxon": {
@@ -10419,11 +10494,25 @@
                     "type": "string"
                 },
                 "name": {
-                    "description": "A human-readable name for an attribute or entity.",
+                    "description": "it is recommended that an author's 'name' property be formatted as \"surname, firstname initial.\"",
                     "type": "string"
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "sex": {
                     "$ref": "#/$defs/SexType"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "type": {
                     "items": {
@@ -10431,21 +10520,17 @@
                     },
                     "type": "array"
                 },
-                "wasDerivedFrom": {
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
-                        "$ref": "#/$defs/Entity"
-                    },
-                    "type": "array"
-                },
-                "wasGeneratedBy": {
-                    "items": {
-                        "$ref": "#/$defs/Activity"
+                        "type": "string"
                     },
                     "type": "array"
                 }
             },
             "required": [
-                "id"
+                "id",
+                "category"
             ],
             "title": "Donor",
             "type": "object"
@@ -11361,6 +11446,12 @@
                 "type": {
                     "items": {
                         "type": "string"
+                    },
+                    "type": "array"
+                },
+                "wasAttributedTo": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
                     },
                     "type": "array"
                 },
@@ -19446,8 +19537,8 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "avg_size": {
-                    "description": "The average size (bp) of the library fragments. bp stands for base pairs.",
+                "avg_size_bp": {
+                    "description": "The average size (bp) of the library fragments.",
                     "type": "integer"
                 },
                 "category": {
@@ -19477,7 +19568,7 @@
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
                     "type": "string"
                 },
-                "input_amount": {
+                "input_quantity": {
                     "description": "The amount of input material (ng) used to create the library.",
                     "type": "number"
                 },
@@ -19485,15 +19576,16 @@
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
                     "type": "string"
                 },
-                "library_prep_pass": {
-                    "type": "boolean"
-                },
                 "method": {
                     "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
                     "type": "string"
+                },
+                "process_pass": {
+                    "description": "Indicates whether the library prep process passed or failed.",
+                    "type": "boolean"
                 },
                 "quantification_fmol": {
                     "type": "number"
@@ -19519,6 +19611,12 @@
                 "type": {
                     "items": {
                         "type": "string"
+                    },
+                    "type": "array"
+                },
+                "wasAttributedTo": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
                     },
                     "type": "array"
                 },
@@ -19582,6 +19680,12 @@
                 "type": {
                     "items": {
                         "type": "string"
+                    },
+                    "type": "array"
+                },
+                "wasAttributedTo": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
                     },
                     "type": "array"
                 },
@@ -19675,6 +19779,12 @@
                     },
                     "type": "array"
                 },
+                "wasAssociatedWith": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "type": "array"
+                },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
@@ -19761,6 +19871,12 @@
                     },
                     "type": "array"
                 },
+                "wasAssociatedWith": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "type": "array"
+                },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
@@ -19780,6 +19896,10 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "avg_size_bp": {
+                    "description": "The average size (bp) of the library fragments in the tube.",
+                    "type": "integer"
+                },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.\n * In a neo4j database this MAY correspond to the neo4j label tag.\n * In an RDF database it should be a biolink model class URI.\nThis field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`, ...\nIn an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
                     "items": {
@@ -19810,20 +19930,19 @@
                     "description": "A human-readable name for an attribute or entity.",
                     "type": "string"
                 },
-                "tube_avg_size": {
-                    "description": "The average size (bp) of the library fragments in the tube.",
-                    "type": "integer"
-                },
                 "tube_contents": {
                     "description": "The content concentration (nm).",
                     "type": "number"
                 },
-                "tube_internal_label": {
-                    "type": "string"
-                },
                 "type": {
                     "items": {
                         "type": "string"
+                    },
+                    "type": "array"
+                },
+                "wasAttributedTo": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
                     },
                     "type": "array"
                 },
@@ -19914,6 +20033,12 @@
                 "used": {
                     "items": {
                         "$ref": "#/$defs/LibraryAliquot"
+                    },
+                    "type": "array"
+                },
+                "wasAssociatedWith": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
                     },
                     "type": "array"
                 },
@@ -26941,46 +27066,6 @@
             "title": "ProteinIsoform",
             "type": "object"
         },
-        "ProvActivity": {
-            "additionalProperties": false,
-            "description": "Based off prov:Activity; an activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.",
-            "properties": {
-                "generated": {
-                    "items": {
-                        "$ref": "#/$defs/Entity"
-                    },
-                    "type": "array"
-                },
-                "used": {
-                    "items": {
-                        "$ref": "#/$defs/Entity"
-                    },
-                    "type": "array"
-                }
-            },
-            "title": "ProvActivity",
-            "type": "object"
-        },
-        "ProvEntity": {
-            "additionalProperties": false,
-            "description": "Based off prov:Entity; an entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary.",
-            "properties": {
-                "wasDerivedFrom": {
-                    "items": {
-                        "$ref": "#/$defs/Entity"
-                    },
-                    "type": "array"
-                },
-                "wasGeneratedBy": {
-                    "items": {
-                        "$ref": "#/$defs/Activity"
-                    },
-                    "type": "array"
-                }
-            },
-            "title": "ProvEntity",
-            "type": "object"
-        },
         "Publication": {
             "additionalProperties": false,
             "description": "Any \u2018published\u2019 piece of information. Publications are considered broadly  to include any document or document part made available in print or on the  web - which may include scientific journal issues, individual articles, and  books - as well as things like pre-prints, white papers, patents, drug  labels, web pages, protocol documents,  and even a part of a publication if  of significant knowledge scope (e.g. a figure, figure legend, or section  highlighted by NLP).",
@@ -30006,6 +30091,12 @@
                     },
                     "type": "array"
                 },
+                "wasAssociatedWith": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "type": "array"
+                },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
@@ -30055,7 +30146,7 @@
                     "description": "A human-readable name for an attribute or entity.",
                     "type": "string"
                 },
-                "region_of_interest_label": {
+                "roi_label": {
                     "description": "The label of the region of interest.",
                     "type": "string"
                 },
@@ -30065,6 +30156,12 @@
                 "type": {
                     "items": {
                         "type": "string"
+                    },
+                    "type": "array"
+                },
+                "wasAttributedTo": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
                     },
                     "type": "array"
                 },

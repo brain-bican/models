@@ -1,9 +1,22 @@
 ```mermaid
 erDiagram
 LibraryPool {
-    integer tube_avg_size  
+    integer avg_size_bp  
     float tube_contents  
-    string tube_internal_label  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+Agent {
+    uriorcurieList affiliation  
+    string address  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -47,9 +60,9 @@ LibraryAliquoting {
 Library {
     string method  
     datetime creation_date  
-    integer avg_size  
-    float input_amount  
-    boolean library_prep_pass  
+    float input_quantity  
+    boolean process_pass  
+    integer avg_size_bp  
     float quantification_fmol  
     float quantification_ng  
     float quantification_nm  
@@ -78,10 +91,10 @@ LibraryConstruction {
 }
 AmplifiedCdna {
     string method  
-    float amplified_quantity  
+    float input_quantity  
+    boolean process_pass  
     integer pcr_cycles  
     float percent_cdna_longer_than_400bp  
-    boolean rna_amplification_pass  
     string id  
     iri_type iri  
     category_typeList category  
@@ -146,7 +159,7 @@ CellEnrichment {
 DissociatedCellSample {
     string cell_prep_type  
     string facs_population_plan  
-    integer number_of_cells_collected  
+    integer num_cells_collected  
     string id  
     iri_type iri  
     category_typeList category  
@@ -168,7 +181,7 @@ CellDissociation {
 }
 TissueSample {
     string roi_plan  
-    string region_of_interest_label  
+    string roi_label  
     string id  
     iri_type iri  
     category_typeList category  
@@ -189,7 +202,6 @@ TissueDissecting {
     narrative_text description  
 }
 BrainSection {
-    string barcode  
     integer ordinal  
     string id  
     iri_type iri  
@@ -211,7 +223,6 @@ BrainSegmentSectioning {
     narrative_text description  
 }
 BrainSegment {
-    string barcode  
     string anatomical_division  
     string id  
     iri_type iri  
@@ -234,17 +245,26 @@ BrainExtraction {
 }
 Donor {
     SexType sex  
-    date date_of_birth  
-    date date_of_death  
-    string age_at_death  
+    date birth_date  
+    date death_date  
+    string death_age  
     string full_genotype  
     label_type in_taxon_label  
+    uriorcurieList affiliation  
+    string address  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
     stringList type  
     label_type name  
     narrative_text description  
+}
+ProvEntity {
+
 }
 Activity {
     stringList provided_by  
@@ -265,9 +285,6 @@ Entity {
     stringList type  
     label_type name  
     narrative_text description  
-}
-ProvEntity {
-
 }
 ProvActivity {
 
@@ -338,74 +355,95 @@ Checksum {
 
 LibraryPool ||--}o LibraryAliquot : "wasDerivedFrom"
 LibraryPool ||--}o LibraryPooling : "wasGeneratedBy"
+LibraryPool ||--}o Agent : "wasAttributedTo"
 LibraryPool ||--}o Attribute : "has attribute"
+Agent ||--}o Attribute : "has attribute"
 LibraryPooling ||--}o LibraryAliquot : "used"
 LibraryPooling ||--}o LibraryPool : "generated"
+LibraryPooling ||--}o Agent : "wasAssociatedWith"
 LibraryPooling ||--}o Attribute : "has attribute"
 LibraryAliquot ||--}o Library : "wasDerivedFrom"
 LibraryAliquot ||--}o LibraryAliquoting : "wasGeneratedBy"
+LibraryAliquot ||--}o Agent : "wasAttributedTo"
 LibraryAliquot ||--}o Attribute : "has attribute"
 LibraryAliquoting ||--}o Library : "used"
 LibraryAliquoting ||--}o LibraryAliquot : "generated"
+LibraryAliquoting ||--}o Agent : "wasAssociatedWith"
 LibraryAliquoting ||--}o Attribute : "has attribute"
 Library ||--}o AmplifiedCdna : "wasDerivedFrom"
 Library ||--}o LibraryConstruction : "wasGeneratedBy"
+Library ||--}o Agent : "wasAttributedTo"
 Library ||--}o Attribute : "has attribute"
 LibraryConstruction ||--}o AmplifiedCdna : "used"
 LibraryConstruction ||--}o Library : "generated"
+LibraryConstruction ||--}o Agent : "wasAssociatedWith"
 LibraryConstruction ||--}o Attribute : "has attribute"
 AmplifiedCdna ||--}o BarcodedCellSample : "wasDerivedFrom"
 AmplifiedCdna ||--}o CdnaAmplification : "wasGeneratedBy"
+AmplifiedCdna ||--}o Agent : "wasAttributedTo"
 AmplifiedCdna ||--}o Attribute : "has attribute"
 CdnaAmplification ||--}o BarcodedCellSample : "used"
 CdnaAmplification ||--}o AmplifiedCdna : "generated"
+CdnaAmplification ||--}o Agent : "wasAssociatedWith"
 CdnaAmplification ||--}o Attribute : "has attribute"
 BarcodedCellSample ||--}o EnrichedCellSample : "wasDerivedFrom"
 BarcodedCellSample ||--}o CellBarcoding : "wasGeneratedBy"
+BarcodedCellSample ||--}o Agent : "wasAttributedTo"
 BarcodedCellSample ||--}o Attribute : "has attribute"
 CellBarcoding ||--}o EnrichedCellSample : "used"
 CellBarcoding ||--}o BarcodedCellSample : "generated"
+CellBarcoding ||--}o Agent : "wasAssociatedWith"
 CellBarcoding ||--}o Attribute : "has attribute"
 EnrichedCellSample ||--}o DissociatedCellSample : "wasDerivedFrom"
 EnrichedCellSample ||--}o CellEnrichment : "wasGeneratedBy"
+EnrichedCellSample ||--}o Agent : "wasAttributedTo"
 EnrichedCellSample ||--}o Attribute : "has attribute"
 CellEnrichment ||--}o DissociatedCellSample : "used"
 CellEnrichment ||--}o EnrichedCellSample : "generated"
+CellEnrichment ||--}o Agent : "wasAssociatedWith"
 CellEnrichment ||--}o Attribute : "has attribute"
 DissociatedCellSample ||--}o TissueSample : "wasDerivedFrom"
 DissociatedCellSample ||--}o CellDissociation : "wasGeneratedBy"
+DissociatedCellSample ||--}o Agent : "wasAttributedTo"
 DissociatedCellSample ||--}o Attribute : "has attribute"
 CellDissociation ||--}o TissueSample : "used"
 CellDissociation ||--}o DissociatedCellSample : "generated"
+CellDissociation ||--}o Agent : "wasAssociatedWith"
 CellDissociation ||--}o Attribute : "has attribute"
 TissueSample ||--}o BrainSection : "wasDerivedFrom"
 TissueSample ||--}o TissueDissecting : "wasGeneratedBy"
+TissueSample ||--}o Agent : "wasAttributedTo"
 TissueSample ||--}o Attribute : "has attribute"
 TissueDissecting ||--}o BrainSection : "used"
 TissueDissecting ||--}o TissueSample : "generated"
+TissueDissecting ||--}o Agent : "wasAssociatedWith"
 TissueDissecting ||--}o Attribute : "has attribute"
 BrainSection ||--}o BrainSegment : "wasDerivedFrom"
 BrainSection ||--}o BrainSegmentSectioning : "wasGeneratedBy"
+BrainSection ||--}o Agent : "wasAttributedTo"
 BrainSection ||--}o Attribute : "has attribute"
 BrainSegmentSectioning ||--}o BrainSegment : "used"
 BrainSegmentSectioning ||--}o BrainSection : "generated"
+BrainSegmentSectioning ||--}o Agent : "wasAssociatedWith"
 BrainSegmentSectioning ||--}o Attribute : "has attribute"
 BrainSegment ||--}o Donor : "wasDerivedFrom"
 BrainSegment ||--}o BrainExtraction : "wasGeneratedBy"
+BrainSegment ||--}o Agent : "wasAttributedTo"
 BrainSegment ||--}o Attribute : "has attribute"
 BrainExtraction ||--}o Donor : "used"
 BrainExtraction ||--}o BrainSegment : "generated"
+BrainExtraction ||--}o Agent : "wasAssociatedWith"
 BrainExtraction ||--}o Attribute : "has attribute"
 Donor ||--}o OrganismTaxon : "in taxon"
-Donor ||--}o Entity : "wasDerivedFrom"
-Donor ||--}o Activity : "wasGeneratedBy"
 Donor ||--}o Attribute : "has attribute"
-Activity ||--}o Attribute : "has attribute"
-Entity ||--}o Attribute : "has attribute"
 ProvEntity ||--}o Entity : "wasDerivedFrom"
 ProvEntity ||--}o Activity : "wasGeneratedBy"
+ProvEntity ||--}o Agent : "wasAttributedTo"
+Activity ||--}o Attribute : "has attribute"
+Entity ||--}o Attribute : "has attribute"
 ProvActivity ||--}o Entity : "used"
 ProvActivity ||--}o Entity : "generated"
+ProvActivity ||--}o Agent : "wasAssociatedWith"
 AnnotationCollection ||--}o GeneAnnotation : "annotations"
 AnnotationCollection ||--}o GenomeAnnotation : "genome_annotations"
 AnnotationCollection ||--}o GenomeAssembly : "genome_assemblies"
