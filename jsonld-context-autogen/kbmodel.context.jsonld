@@ -2817,6 +2817,9 @@
       "Gene": {
          "@id": "biolink:Gene"
       },
+      "GeneAffectsChemicalAssociation": {
+         "@id": "biolink:GeneAffectsChemicalAssociation"
+      },
       "GeneAsAModelOfDiseaseAssociation": {
          "@id": "biolink:GeneAsAModelOfDiseaseAssociation"
       },
