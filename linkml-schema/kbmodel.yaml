@@ -509,7 +509,7 @@ classes:
       quantity ng:
         description: Amount of library generated in terms of nanograms
       concentration nm:
-        descrption: >-
+        description: >-
           Concentration of library in terms of nM (nMol/L). 
           Number of molecules is needed for accurate pooling of the libraries and for generating the number of target reads/cell in sequencing.
         range: float
