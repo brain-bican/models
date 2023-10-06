@@ -646,17 +646,11 @@
          "@type": "@id",
          "@id": "biolink:amount_or_activity_increased_by"
       },
-      "amplified_quantity": {
-         "@type": "xsd:float"
-      },
       "pcr_cycles": {
          "@type": "xsd:integer"
       },
       "percent_cdna_longer_than_400bp": {
          "@type": "xsd:float"
-      },
-      "rna_amplification_pass": {
-         "@type": "xsd:boolean"
       },
       "anatomical_context_qualifier": {
          "@id": "biolink:anatomical_context_qualifier"
@@ -728,8 +722,8 @@
          },
          "@id": "biolink:available_from"
       },
-      "barcode": {
-         "@id": "schema:identifier"
+      "avg_size_bp": {
+         "@type": "xsd:integer"
       },
       "base_coordinate": {
          "@type": "xsd:integer",
@@ -745,6 +739,9 @@
       "biomarker_for": {
          "@type": "@id",
          "@id": "biolink:biomarker_for"
+      },
+      "birth_date": {
+         "@type": "xsd:date"
       },
       "bonferonni_adjusted_p_value": {
          "@type": "xsd:float",
@@ -918,10 +915,7 @@
       "dataset_download_url": {
          "@id": "dcat:downloadURL"
       },
-      "date_of_birth": {
-         "@type": "xsd:date"
-      },
-      "date_of_death": {
+      "death_date": {
          "@type": "xsd:date"
       },
       "decreased_amount_in": {
@@ -992,7 +986,7 @@
          "@type": "@id",
          "@id": "biolink:disrupts"
       },
-      "number_of_cells_collected": {
+      "num_cells_collected": {
          "@type": "xsd:integer"
       },
       "distribution_download_url": {
@@ -1505,6 +1499,9 @@
       "ingest_date": {
          "@id": "biolink:ingest_date"
       },
+      "input_quantity": {
+         "@type": "xsd:float"
+      },
       "interacting_molecules_category": {
          "@type": "@id",
          "@id": "biolink:interacting_molecules_category"
@@ -1625,9 +1622,6 @@
       "knowledge_source": {
          "@id": "biolink:knowledge_source"
       },
-      "label": {
-         "@id": "schema:name"
-      },
       "lacks_part": {
          "@type": "@id",
          "@id": "biolink:lacks_part"
@@ -1635,15 +1629,6 @@
       "latitude": {
          "@type": "xsd:float",
          "@id": "biolink:latitude"
-      },
-      "avg_size": {
-         "@type": "xsd:integer"
-      },
-      "input_amount": {
-         "@type": "xsd:float"
-      },
-      "library_prep_pass": {
-         "@type": "xsd:boolean"
       },
       "quantification_fmol": {
          "@type": "xsd:float"
@@ -1653,12 +1638,6 @@
       },
       "quantification_nm": {
          "@type": "xsd:float"
-      },
-      "input_quantity": {
-         "@type": "xsd:integer"
-      },
-      "tube_avg_size": {
-         "@type": "xsd:integer"
       },
       "tube_contents": {
          "@type": "xsd:float"
@@ -1976,6 +1955,9 @@
       },
       "primary_knowledge_source": {
          "@id": "biolink:primary_knowledge_source"
+      },
+      "process_pass": {
+         "@type": "xsd:boolean"
       },
       "produced_by": {
          "@type": "@id",
@@ -2432,6 +2414,14 @@
       },
       "volume": {
          "@id": "biolink:volume"
+      },
+      "wasAssociatedWith": {
+         "@type": "@id",
+         "@id": "prov:wasAssociatedWith"
+      },
+      "wasAttributedTo": {
+         "@type": "@id",
+         "@id": "prov:wasAttributedTo"
       },
       "wasDerivedFrom": {
          "@type": "@id",
