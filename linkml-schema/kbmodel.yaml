@@ -17,6 +17,7 @@ imports:
 default_range: string
 default_prefix: bican
 
+
 classes:
   gene annotation:
     is_a: gene
@@ -31,6 +32,9 @@ classes:
       - ENSEMBL
       - MGI
       - NCBIGene
+    slot_usage:
+      referenced in:
+        range: genome annotation
 
   genome annotation:
     is_a: genome
@@ -115,7 +119,7 @@ classes:
       generated:
         range: brain section
 
-  tissue dissecting:
+  tissue dissection:
     description: >-
       A process that takes a brain section and produces a tissue sample.
     is_a: activity
@@ -287,7 +291,7 @@ classes:
         description: The label of the region of interest.
     slot_usage:
       wasGeneratedBy:
-        range: tissue dissecting
+        range: tissue dissection
       wasDerivedFrom:
         range: brain section
 
@@ -299,24 +303,58 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    slots:
+      - source barcode name
     attributes:
       cell prep type:
+        description: The type of cell preparation. For example Cells, Nuclei. This is a property of dissociated_cell_sample.
+        range: CellPrepType
+        required: true
       facs population plan: 
       num cells collected:
         range: integer
     slot_usage:
+      name: 
+        description: Name of a collection of dissociated cells or nuclei derived from dissociation of a tissue sample.
+        required: true 
+      source barcode name: 
+        description: >-
+          Name of oligo used in cell plexing. The oligo will tag allow separate dissociated cell samples to be combined downstream in the barcoded cell sample.
+          The oligo name is associated with a sequence in a lookup table. 
+          This sequence will be needed to during analysis, after alignment, to associate reads with parent dissociated cell sample.
+        required: true
       wasGeneratedBy:
         range: cell dissociation
       wasDerivedFrom:
         range: tissue sample
 
 
+
   enriched cell sample:
     is_a: entity
     mixins:    
       - prov entity
+    slots:
+      - source barcode name
+    attributes:
+      histone modification marker:
+        description: >- 
+          Histone modification marker antibodies (eg H3K27ac, H3K27me3, H3K9me3) used in conjunction with an Enriched Cell Source Barcode in order to combine multiple Enriched Cell Populations before Barcoded Cell Sample step for 10xMultiome method. 
+          Each of the Histone antibodies captures an essential part of the epigenome.
+      population: 
+        description: >-
+          Actual percentage of cells as a result of using set of fluorescent marker label(s) to enrich dissociated_cell_sample with desired mix of cell populations. 
+          This plan can also be used to describe 'No FACS' where no enrichment was performed. This is a property of enriched_cell_prep_container.
+        required: true
     slot_usage:
-      wasGeneratedBy:
+      name:
+        description: >- 
+          Name of collection of enriched cells or nuclei after enrichment process (usually via FACS using the Enrichment Plan) applied to dissociated_cell_sample.
+        required: true
+      source barcode name:
+        description: >- 
+          Name of molecular barcode used to individual Enriched Cell Source to allow for pooling of Enriched Cell Sources before 10x load (Barcoding Cell step) [aka 1st round barcodes].
+          wasGeneratedBy:
         range: cell enrichment
       wasDerivedFrom:
         range: dissociated cell sample
@@ -329,10 +367,39 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    slots:
+      - input quantity
+      - cohort 
     attributes:
       port well:
-      sample quality count:
+        description: >-
+          Specific position of the loaded port of the 10x chip. An Enriched or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded Cell Sample).
+          Can be left null for non-10x methods.
+        required: true
+      expected cell capture:
+        description: >-
+          Expected number of cells/nuclei of a barcoded_cell_sample that will be barcoded and available for sequencing. 
+          This is a derived number from 'Barcoded cell input quantity count' that is dependent on the "capture rate" of the barcoding method. 
+          It is usually a calculated fraction of the 'Barcoded cell input quantity count' going into the barcoding method.
+        range: integer  
+        required: true
     slot_usage:
+      name: 
+        description: >-
+          Name of a collection of barcoded cells. Input will be either dissociated_cell_sample or enriched_cell_sample. 
+          Cell barcodes are only guaranteed to be unique within this one collection. One dissociated_cell_sample or enriched_cell_sample can lead to multiple barcoded_cell_samples.
+        required: true
+      input quantity: 
+        description: Number of enriched or dissociated cells/nuclei going into the barcoding process.
+        range: integer
+        required: true
+      cohort: 
+        description: >-
+          Intended cohort or dataset that the Barcoded Cell Sample initially belongs to. 
+          This Study helps to group together samples that are meant to be analyzed together. 
+          Multiple Studies can be assigned to a Barcoded Cell Sample. 
+          These studies are more granular than the grant or PI and can be used to group together samples from related ROIs.
+        required: true
       wasGeneratedBy:
         range: cell barcoding
       wasDerivedFrom:
@@ -340,39 +407,58 @@ classes:
 
 
   # 022 - cnda_amplification.ipynb
-  # amplified_quantity_ng -> input quantity, (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category,
-  # label -> name, method -> method, pcr_cycles -> pcr cycles, percent_cdna_longer_than_400bp -> percent cdna longer than 400bp, rna_amplification_pass_fail -> process pass
+  # amplified_quantity_ng -> quantity, (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category,
+  # label -> name, method -> method, pcr_cycles -> pcr cycles, percent_cdna_longer_than_400bp -> percent cdna longer than 400bp, rna_amplification_pass_fail -> pass fail result  
   amplified cdna:
     is_a: entity
     mixins:    
       - prov entity
     slots:
-      - method
-      - input quantity
-      - process pass
+      - quantity
+      - pass fail result
+      - creation date
+      - cohort
     attributes:
-      pcr cycles:
+      num cycles:
         description: >-
-          Number of PCR cycles used to amplify the cDNA.
+          Number of PCR cycles used during cDNA amplification for this cDNA.
         range: integer
-      percent cdna longer than 400bp:
-        description: >-
-          The percentage of cDNA fragments that are longer than 400bp.
+        required: true
+      percent greater than 400bp:
+        description: >- 
+          QC metric to measure mRNA degradation of cDNA. Higher % is higher quality starting material.
+          Over 400bp is used as a universal cutoff for intact (full length) vs degraded cDNA and is a common output from Bioanalyzer and Fragment Analyzer elecropheragrams.
         range: float
+        required: true
     slot_usage:
-      input quantity:
-        description: The amount of input cDNA (ng) amplified.
-      process pass:
-        description: Indicates whether the rna amplification process passed or failed.
+      name:
+        description: >-
+          Name of a collection of cDNA molecules derived and amplified from an input barcoded_cell_sample. 
+          These cDNA molecules represent the gene expression of each cell, with all cDNA molecules from a given cell retaining that cell's unique barcode from the cell barcoding step.
+          This is a necessary step for GEX methods but is not used for ATAC methods.
+        required: true
+      quantity ng:
+        description: Amount of cDNA produced after cDNA amplification measured in nanograms.
+        required: true
+      pass fail result:
+        description: Pass or Fail result based on qualitative assessment of cDNA yield and size.
+        range: PassFailResult
+        required: true
       wasGeneratedBy:
         range: cdna amplification
       wasDerivedFrom:
         range: barcoded cell sample
+      creation date:
+        description: Date of cDNA amplification.
+      cohort: 
+        description: cDNA amplification set, containing multiple amplified_cDNA_names that were processed at the same time.
+        required: true
+        identifier: true
 
 
   # 021 - library_constructions.ipynb
   # avg_size_bp -> avg size bp, (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category, label -> name,
-  # library_creation_date -> creation date, library_input_ng -> input quantity, method -> method, process_pass -> process pass, 
+  # library_creation_date -> creation date, library_input_ng -> quantity, method -> method, process_pass -> pass fail result, 
   # quantification_fmole -> quantification fmol, quantification_ng -> quantification ng, quantification_nm -> quantification nm,
   # r1_index -> r1 index, r1_sequence -> r1 sequence, r2_index -> r2 index, r2_sequence -> r2 sequence
   library:
@@ -382,30 +468,59 @@ classes:
     slots:
       - method 
       - creation date
-      - input quantity
-      - process pass
+      - pass fail result
       - avg size bp
+      - concentration nm
+      - quantity fmol
+      - quantity ng
+      - input quantity
+      - cohort
     attributes:
-      quantification fmol:
-        range: float
-      quantification ng:
-        range: float
-      quantification nm: 
-        range: float
+      #! How do we proceed with R1/R2 index name
       r1 index:
       r1 sequence:
       r2 index:
       r2 sequence:
+      #!
     slot_usage:
+      name: 
+        description: >- 
+          Name of a library, which is a collection of fragmented and barcode-indexed DNA molecules for sequencing. 
+          An index or barcode is typically introduced to enable identification of library origin to allow libraries to be pooled together for sequencing.
+        required: true
+      method: 
+        description: >-
+          Standardized nomenclature to describe the library method used. This specifies the alignment method required for the library. 
+          For example, 10xV3.1 (for RNASeq single assay), 10xMult-GEX (for RNASeq multiome assay), and 10xMult-ATAC (for ATACSeq multiome assay)
+          required: true
       creation date:    
-        description: The date and time the object was created. 
-        range: datetime
-      input quantity:
-        description: The amount of input material (ng) used to create the library.
-      process pass:
-        description: Indicates whether the library prep process passed or failed.
+        description: Date of library construction.
+        range: datetime #! datetime or date
+      pass fail result:
+        description: Pass or Fail result based on qualitative assessment of library yield and size.
+        range: PassFailResult
+        required: true
       avg size bp:
-        description: The average size (bp) of the library fragments.
+        description: Average size of the library in terms of base pairs. This is used to calculate the molarity before pooling and sequencing.
+        required: true
+      quantity fmol:
+        description: Amount of library generated in terms of femtomoles
+        required: true
+      quantity ng:
+        description: Amount of library generated in terms of nanograms
+      concentration nm:
+        descrption: >-
+          Concentration of library in terms of nM (nMol/L). 
+          Number of molecules is needed for accurate pooling of the libraries and for generating the number of target reads/cell in sequencing.
+        range: float
+      input quantity:
+        description: Amount of cDNA going into library construction in nanograms.
+        range: float
+        required: true
+      cohort:
+        description: Library set, containing multiple library_names that were processed at the same time.
+        required: true
+        identifier: true
       wasGeneratedBy:
         range: library construction
       wasDerivedFrom:
@@ -413,7 +528,7 @@ classes:
        
 
   # 020 - aliquoting_and_pooling.ipynb
-  # mappings (notebook -> model): label -> name, input_quantity_fmol -> input quantity, library_label -> xref,
+  # mappings (notebook -> model): label -> name, input_quantity_fmol -> quantity, library_label -> xref,
   # (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category, 
   library aliquot:
     is_a: entity
@@ -422,6 +537,12 @@ classes:
     slots:
       - input quantity
     slot_usage:
+      name: 
+        description: >- 
+          One library in the library pool.
+          Each Library_aliquot_name in a library pool will have a unique R1/R2 index to allow for sequencing together then separating the sequencing output by originating library aliquot through the process of demultiplexing. 
+          The resulting demultiplexed fastq files will include the library_aliquot_name.
+        required: true
       wasGeneratedBy:
         range: library aliquoting
       wasDerivedFrom:
@@ -440,13 +561,68 @@ classes:
       - prov entity
     slots:
       - avg size bp
+      - quantity fmol
+      - quantity pM
+      - concentration nm 
+      - volume ul
     attributes:
       tube contents:
         description: The content concentration (nm).
         range: float
+      tube barcode:
+        description: >- 
+          Library Pool tube name as provided by the SeqCore (often a barcode).
+          This tube is provided from the SeqCore and is part of the SeqCore tracking system.
+        identifier: true
+        required: true
+      read1 length:
+        description: Length of Read 1
+        range: integer
+        required: true
+      read2 length:
+        description: Length of Read 2 (for Paired End Runs)
+        range: integer
+        required: true
+      index1 length:
+        description: Length of Index 1 (i7 Primer)
+        range: integer
+        required: true
+      index2 length:
+        description: Length of Index 2 (i5 Primer)
+        range: integer
+        required: true
+      PhiX spike:
+        description: >-
+          PhiX spike-in percent desired to be added to the library pool for sequencing. 
+          PhiX is used to increase complexity of the sample being sequenced, to reduce sequencing artifacts maintain sequencing quality on the instruments. 
+          This is an optional instruction to the SeqCore.
+        range: float
+      custom primers:
+        description: >-
+          Custom sequencing primers if needed, indicate with reads require them (R1/R2/i7/i5)
+        range: boolean
     slot_usage:
+      name: 
+        description: >- 
+          Library lab's library pool name. For some labs this may be the same as "Libray pool tube local name". 
+          Other labs distinguish between the local tube label of the library pool and the library pool name provided to SeqCore for tracking. 
+          Local Pool Name is used to communicate sequencing status between SeqCore and Library Labs.
+        required: true
+      xref: 
+        description: >-
+          Library Pool Tube local name. Label of the tube containing the library pool, which is made up of multiple library_aliquots. 
+          This is a Library Lab local tube name, before the pool is aliquoted to the Seq Core provided tube 'Library Pool Tube Name'.
+        required: true
+      quantity fmol:
+        description: Amount of library pool in the tube as measured in femtamoles (fmol)
+      quantity pM:
+        description: Sequencer Loading Concentration as measured in pM (pmol/L). This is a value used by the SeqCore.
+      concentration nm: 
+        description: Library pool concentration as measured in nanomolarity (nMol/L)
+      volume ul:
+        description: Library pool volume as measured in ul
       avg size bp:
-        description: The average size (bp) of the library fragments in the tube.
+        description: Average insert size of library pool, measured in base pairs.
       wasGeneratedBy:
         range: library pooling
       wasDerivedFrom:
@@ -552,17 +728,37 @@ slots:
     description: 
     slot_uri: schema:name
   
-  input quantity:
-    description: The amount of input material used for an activity. 
+  quantity ng: 
+    range: float
+
+  quantity fmol:
+    range: float
+
+  concentration nm:
     range: float
   
-  process pass:
+  quantity pM:
+    range: float
+ 
+  input quantity:
+
+  volume ul:
+    description: The volume of the sample in microliters.
+    range: integer
+
+  pass fail result:
     description: Indicates whether the process passed or failed. 
-    range: boolean
   
   avg size bp:
     description: The average size (bp = base pairs) of an entity. 
     range: integer
+  
+  source barcode name:
+
+  cohort: 
+    description: A group of entities that share a common characteristic or experience within a defined period.
+    range: string
+    multivalued: true
 
 
 enums:
@@ -584,10 +780,27 @@ enums:
     permissible_values:
       protein_coding:
       noncoding:
-
-  TaxonType:
+  
+  AuthorityType: 
     permissible_values:
-      mouse:
-        meaning: ncbi:10090
-      human:
-        meaning: ncbi:9606
+      ENSEMBL:
+      NCBI:
+
+  CellPrepType:
+    permissible_values:
+      NUCLEI:
+        description: isolated nuclei
+      CELLS:
+        description: isolated whole cells
+      BULK:
+
+  PassFailResult:
+    permissible_values:
+      PASS:
+        description: The process passed the QA/QC
+      FAIL: 
+        description: The process failed the QA/QC
+      LOW_QC:
+        description: Low pass
+      NOT_EVALUATED:
+        description: The process was not evaluated for QA/QC  
