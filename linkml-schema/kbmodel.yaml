@@ -414,7 +414,6 @@ classes:
     mixins:    
       - prov entity
     slots:
-      - quantity
       - pass fail result
       - creation date
       - cohort
