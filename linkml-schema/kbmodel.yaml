@@ -452,7 +452,7 @@ classes:
       cohort: 
         description: cDNA amplification set, containing multiple amplified_cDNA_names that were processed at the same time.
         required: true
-        identifier: true
+        #identifier: true
 
 
   # 021 - library_constructions.ipynb
@@ -519,7 +519,7 @@ classes:
       cohort:
         description: Library set, containing multiple library_names that were processed at the same time.
         required: true
-        identifier: true
+        #identifier: true
       wasGeneratedBy:
         range: library construction
       wasDerivedFrom:
@@ -572,7 +572,7 @@ classes:
         description: >- 
           Library Pool tube name as provided by the SeqCore (often a barcode).
           This tube is provided from the SeqCore and is part of the SeqCore tracking system.
-        identifier: true
+        #identifier: true
         required: true
       read1 length:
         description: Length of Read 1
