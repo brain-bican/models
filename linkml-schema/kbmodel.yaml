@@ -25,16 +25,20 @@ classes:
       An annotation describing the location, boundaries, and functions of 
       individual genes within a genome annotation.
     slots:
-      - referenced in
       - molecular type
       - source id
+    attributes:
+      referenced in: 
+        description: The genome annotation that this gene annotation was referenced from.
+        required: true
+        any_of:
+          - range: genome annotation
+          - range: string
     id_prefixes:
       - ENSEMBL
       - MGI
       - NCBIGene
-    slot_usage:
-      referenced in:
-        range: genome annotation
+
 
   genome annotation:
     is_a: genome
@@ -42,21 +46,31 @@ classes:
       Location and nomenclature of genes and all of the coding regions in a genome assembly 
       and the classification of genes and transcripts into types.
     slots:
-      - reference assembly
       - version
       - digest
       - content_url
       - authority
+    attributes:
+      reference assembly:
+        description: The reference genome assembly that this genome annotation was created from.
+        required: true
+        any_of:
+          - range: genome assembly
+          - range: string
 
   genome assembly:
     is_a: named thing
     mixins:
       - thing with taxon
-    description: >-
-      Genome assembly to contain version and label information
+    description:
     slots:
       - version
       - strain
+    slot_usage:
+      in taxon:
+        any_of:
+          - range: organism taxon
+          - range: string
 
   checksum:
     is_a: entity
@@ -94,6 +108,7 @@ classes:
       - generated
       - wasAssociatedWith
 
+  # START OF PROCESSES (ORANGE BOXES) #
 
   brain extraction:
     description: >-
@@ -119,6 +134,18 @@ classes:
       generated:
         range: brain section
 
+  roi delineation:
+    description: >-
+      A process that takes a brain section and produces a region of interest polygon.
+    is_a: activity
+    mixins: 
+      - prov activity
+    slot_usage:
+      used:
+        range: brain section
+      generated:
+        range: roi polygon
+
   tissue dissection:
     description: >-
       A process that takes a brain section and produces a tissue sample.
@@ -140,6 +167,7 @@ classes:
     slot_usage:
       used:
         range: tissue sample
+        multivalued: true
       generated:
         range: dissociated cell sample
 
@@ -152,8 +180,21 @@ classes:
     slot_usage:
       used:
         range: dissociated cell sample
+        multivalued: true
       generated:
         range: enriched cell sample 
+
+  split:
+    description: >-
+      A process that takes an enriched cell sample and produces a split enriched cell sample.
+    is_a: activity
+    mixins: 
+      - prov activity
+    slot_usage:
+      used:
+        range: enriched cell sample
+      generated:
+        range: enriched cell sample
 
   cell barcoding:
     description: >-
@@ -164,6 +205,7 @@ classes:
     slot_usage:
       used:
         range: enriched cell sample
+        multivalued: true
       generated:
         range: barcoded cell sample
 
@@ -212,9 +254,37 @@ classes:
     slot_usage:
       used:
         range: library aliquot
+        multivalued: true
       generated:
         range: library pool
 
+  sequencing:
+    description: >-
+      A process that takes a library pool and produces sequenced data (FASTQ files).
+      A set of FASTQ files (R1, R2, R3, l1, l2) for each aliquot in a library pool "demultiplexed fastqs".
+    is_a: activity
+    mixins: 
+      - prov activity
+    slot_usage:
+      used:
+        range: library pool
+      generated:
+        range: sequenced data 
+
+  alignment:
+    description: >-
+      A process that takes sequenced data and produces aligned data (cell x gene matrix).
+    is_a: activity
+    mixins: 
+      - prov activity
+    slot_usage:
+      used:
+        range: sequenced data
+        multivalued: true
+      generated:
+        range: aligned data
+
+# END OF PROCESSES (ORANGE BOXES) #
 
   prov entity:
     mixin: true
@@ -226,6 +296,8 @@ classes:
       - wasGeneratedBy
       - wasAttributedTo
 
+
+  # START OF OBJECTS (PURPLE BOXES) #
 
   # 028 - donors.ipynb
   # age_at_death -> death age, date_of_birth -> birth date, date_of_death -> death date, full_genotype -> full genotype,
@@ -242,6 +314,11 @@ classes:
       - death date
       - death age
       - full genotype
+    slot_usage:
+      in taxon:
+        any_of:
+          - range: organism taxon
+          - range: string
 
 
   # 027 - brain_extraction.ipynb
@@ -327,6 +404,7 @@ classes:
         range: cell dissociation
       wasDerivedFrom:
         range: tissue sample
+        multivalued: true
 
 
 
@@ -358,6 +436,7 @@ classes:
         range: cell enrichment
       wasDerivedFrom:
         range: dissociated cell sample
+        multivalued: true
 
 
   # 023 - cell_barcoding.ipynb
@@ -404,6 +483,7 @@ classes:
         range: cell barcoding
       wasDerivedFrom:
         range: enriched cell sample
+        multivalued: true
 
 
   # 022 - cnda_amplification.ipynb
@@ -452,7 +532,6 @@ classes:
       cohort: 
         description: cDNA amplification set, containing multiple amplified_cDNA_names that were processed at the same time.
         required: true
-        #identifier: true
 
 
   # 021 - library_constructions.ipynb
@@ -519,7 +598,6 @@ classes:
       cohort:
         description: Library set, containing multiple library_names that were processed at the same time.
         required: true
-        #identifier: true
       wasGeneratedBy:
         range: library construction
       wasDerivedFrom:
@@ -626,7 +704,44 @@ classes:
         range: library pooling
       wasDerivedFrom:
         range: library aliquot
+        multivalued: true
 
+# END OF OBJECTS (PURPLE BOXES) #
+
+# START OF DIGITAL DATA ASSET (BLUE BOXES) #
+  roi polygon:
+    is_a: entity
+    mixins:    
+      - prov entity
+    slot_usage:
+      wasGeneratedBy:
+        range: roi delineation
+      wasDerivedFrom:
+        range: brain section
+
+  sequenced data:
+    is_a: entity
+    mixins:    
+      - prov entity
+    slot_usage:
+      wasGeneratedBy:
+        range: sequencing
+      wasDerivedFrom:
+        range: library pool
+
+  aligned data:
+    is_a: entity
+    mixins:    
+      - prov entity
+    slot_usage:
+      wasGeneratedBy:
+        range: alignment
+      wasDerivedFrom:
+        range: sequenced data
+        multivalued: true
+
+
+# END OF DIGITAL DATA ASSET (BLUE BOXES) #
 
 slots:
   used:
@@ -671,20 +786,16 @@ slots:
     multivalued: true
     inlined_as_list: true
 
-  referenced in:
-    range: genome annotation
-
   molecular type:
     range: BioType
 
-  reference assembly:
-    range: uriorcurie
-
   digest:
     description: Stores checksum information. 
-    range: checksum
+    any_of:
+      - range: checksum
+      - range: string
     multivalued: true
-    required: true
+    #required: true
 
   content_url:
     slot_uri: schema:url
@@ -692,6 +803,7 @@ slots:
 
   authority:
     description: The organization responsible for publishing the data. 
+    range: AuthorityType
 
   checksum algorithm:
     description: The type of cryptographic hash function used to calculate the checksum value.
