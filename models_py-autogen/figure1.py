@@ -122,7 +122,7 @@ class GroupRelationshipType(str, Enum):
 
 class NamedThing(ConfiguredBaseModel):
     
-    id: Optional[str] = Field(None)
+    id: str = Field(...)
     label: Optional[str] = Field(None)
     
 

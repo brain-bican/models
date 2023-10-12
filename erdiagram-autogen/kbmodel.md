@@ -2,7 +2,18 @@
 erDiagram
 LibraryPool {
     integer avg_size_bp  
+    float quantity_fmol  
+    float quantity_pM  
+    float concentration_nm  
+    integer volume_ul  
     float tube_contents  
+    string tube_barcode  
+    integer read1_length  
+    integer read2_length  
+    integer index1_length  
+    integer index2_length  
+    float PhiX_spike  
+    boolean custom_primers  
     string id  
     iri_type iri  
     category_typeList category  
@@ -60,12 +71,13 @@ LibraryAliquoting {
 Library {
     string method  
     datetime creation_date  
-    float input_quantity  
-    boolean process_pass  
+    PassFailResult pass_fail_result  
     integer avg_size_bp  
-    float quantification_fmol  
-    float quantification_ng  
-    float quantification_nm  
+    float concentration_nm  
+    float quantity_fmol  
+    float quantity_ng  
+    float input_quantity  
+    stringList cohort  
     string r1_index  
     string r1_sequence  
     string r2_index  
@@ -90,11 +102,11 @@ LibraryConstruction {
     narrative_text description  
 }
 AmplifiedCdna {
-    string method  
-    float input_quantity  
-    boolean process_pass  
-    integer pcr_cycles  
-    float percent_cdna_longer_than_400bp  
+    PassFailResult pass_fail_result  
+    date creation_date  
+    stringList cohort  
+    integer num_cycles  
+    float percent_greater_than_400bp  
     string id  
     iri_type iri  
     category_typeList category  
@@ -115,8 +127,10 @@ CdnaAmplification {
     narrative_text description  
 }
 BarcodedCellSample {
+    integer input_quantity  
+    stringList cohort  
     string port_well  
-    string sample_quality_count  
+    integer expected_cell_capture  
     string id  
     iri_type iri  
     category_typeList category  
@@ -137,6 +151,8 @@ CellBarcoding {
     narrative_text description  
 }
 EnrichedCellSample {
+    string histone_modification_marker  
+    string population  
     string id  
     iri_type iri  
     category_typeList category  
@@ -144,7 +160,7 @@ EnrichedCellSample {
     label_type name  
     narrative_text description  
 }
-CellEnrichment {
+Activity {
     stringList provided_by  
     uriorcurieList xref  
     label_type full_name  
@@ -157,7 +173,8 @@ CellEnrichment {
     narrative_text description  
 }
 DissociatedCellSample {
-    string cell_prep_type  
+    string source_barcode_name  
+    CellPrepType cell_prep_type  
     string facs_population_plan  
     integer num_cells_collected  
     string id  
@@ -189,7 +206,7 @@ TissueSample {
     label_type name  
     narrative_text description  
 }
-TissueDissecting {
+TissueDissection {
     stringList provided_by  
     uriorcurieList xref  
     label_type full_name  
@@ -266,11 +283,7 @@ Donor {
 ProvEntity {
 
 }
-Activity {
-    stringList provided_by  
-    uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
+Entity {
     string id  
     iri_type iri  
     category_typeList category  
@@ -278,7 +291,11 @@ Activity {
     label_type name  
     narrative_text description  
 }
-Entity {
+CellEnrichment {
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -394,14 +411,12 @@ CellBarcoding ||--}o EnrichedCellSample : "used"
 CellBarcoding ||--}o BarcodedCellSample : "generated"
 CellBarcoding ||--}o Agent : "wasAssociatedWith"
 CellBarcoding ||--}o Attribute : "has attribute"
+EnrichedCellSample ||--|o CellEnrichment : "source barcode name"
 EnrichedCellSample ||--}o DissociatedCellSample : "wasDerivedFrom"
-EnrichedCellSample ||--}o CellEnrichment : "wasGeneratedBy"
+EnrichedCellSample ||--}o Activity : "wasGeneratedBy"
 EnrichedCellSample ||--}o Agent : "wasAttributedTo"
 EnrichedCellSample ||--}o Attribute : "has attribute"
-CellEnrichment ||--}o DissociatedCellSample : "used"
-CellEnrichment ||--}o EnrichedCellSample : "generated"
-CellEnrichment ||--}o Agent : "wasAssociatedWith"
-CellEnrichment ||--}o Attribute : "has attribute"
+Activity ||--}o Attribute : "has attribute"
 DissociatedCellSample ||--}o TissueSample : "wasDerivedFrom"
 DissociatedCellSample ||--}o CellDissociation : "wasGeneratedBy"
 DissociatedCellSample ||--}o Agent : "wasAttributedTo"
@@ -411,13 +426,13 @@ CellDissociation ||--}o DissociatedCellSample : "generated"
 CellDissociation ||--}o Agent : "wasAssociatedWith"
 CellDissociation ||--}o Attribute : "has attribute"
 TissueSample ||--}o BrainSection : "wasDerivedFrom"
-TissueSample ||--}o TissueDissecting : "wasGeneratedBy"
+TissueSample ||--}o TissueDissection : "wasGeneratedBy"
 TissueSample ||--}o Agent : "wasAttributedTo"
 TissueSample ||--}o Attribute : "has attribute"
-TissueDissecting ||--}o BrainSection : "used"
-TissueDissecting ||--}o TissueSample : "generated"
-TissueDissecting ||--}o Agent : "wasAssociatedWith"
-TissueDissecting ||--}o Attribute : "has attribute"
+TissueDissection ||--}o BrainSection : "used"
+TissueDissection ||--}o TissueSample : "generated"
+TissueDissection ||--}o Agent : "wasAssociatedWith"
+TissueDissection ||--}o Attribute : "has attribute"
 BrainSection ||--}o BrainSegment : "wasDerivedFrom"
 BrainSection ||--}o BrainSegmentSectioning : "wasGeneratedBy"
 BrainSection ||--}o Agent : "wasAttributedTo"
@@ -439,8 +454,11 @@ Donor ||--}o Attribute : "has attribute"
 ProvEntity ||--}o Entity : "wasDerivedFrom"
 ProvEntity ||--}o Activity : "wasGeneratedBy"
 ProvEntity ||--}o Agent : "wasAttributedTo"
-Activity ||--}o Attribute : "has attribute"
 Entity ||--}o Attribute : "has attribute"
+CellEnrichment ||--}o DissociatedCellSample : "used"
+CellEnrichment ||--}o EnrichedCellSample : "generated"
+CellEnrichment ||--}o Agent : "wasAssociatedWith"
+CellEnrichment ||--}o Attribute : "has attribute"
 ProvActivity ||--}o Entity : "used"
 ProvActivity ||--}o Entity : "generated"
 ProvActivity ||--}o Agent : "wasAssociatedWith"

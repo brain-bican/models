@@ -646,10 +646,10 @@
          "@type": "@id",
          "@id": "biolink:amount_or_activity_increased_by"
       },
-      "pcr_cycles": {
+      "num_cycles": {
          "@type": "xsd:integer"
       },
-      "percent_cdna_longer_than_400bp": {
+      "percent_greater_than_400bp": {
          "@type": "xsd:float"
       },
       "anatomical_context_qualifier": {
@@ -723,6 +723,9 @@
          "@id": "biolink:available_from"
       },
       "avg_size_bp": {
+         "@type": "xsd:integer"
+      },
+      "expected_cell_capture": {
          "@type": "xsd:integer"
       },
       "base_coordinate": {
@@ -846,6 +849,9 @@
       "composed_primarily_of": {
          "@type": "@id",
          "@id": "biolink:composed_primarily_of"
+      },
+      "concentration_nm": {
+         "@type": "xsd:float"
       },
       "concept_count_object": {
          "@type": "xsd:integer",
@@ -985,6 +991,14 @@
       "disrupts": {
          "@type": "@id",
          "@id": "biolink:disrupts"
+      },
+      "cell_prep_type": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
       },
       "num_cells_collected": {
          "@type": "xsd:integer"
@@ -1499,9 +1513,6 @@
       "ingest_date": {
          "@id": "biolink:ingest_date"
       },
-      "input_quantity": {
-         "@type": "xsd:float"
-      },
       "interacting_molecules_category": {
          "@type": "@id",
          "@id": "biolink:interacting_molecules_category"
@@ -1630,14 +1641,23 @@
          "@type": "xsd:float",
          "@id": "biolink:latitude"
       },
-      "quantification_fmol": {
+      "custom_primers": {
+         "@type": "xsd:boolean"
+      },
+      "index1_length": {
+         "@type": "xsd:integer"
+      },
+      "index2_length": {
+         "@type": "xsd:integer"
+      },
+      "PhiX_spike": {
          "@type": "xsd:float"
       },
-      "quantification_ng": {
-         "@type": "xsd:float"
+      "read1_length": {
+         "@type": "xsd:integer"
       },
-      "quantification_nm": {
-         "@type": "xsd:float"
+      "read2_length": {
+         "@type": "xsd:integer"
       },
       "tube_contents": {
          "@type": "xsd:float"
@@ -1956,9 +1976,6 @@
       "primary_knowledge_source": {
          "@id": "biolink:primary_knowledge_source"
       },
-      "process_pass": {
-         "@type": "xsd:boolean"
-      },
       "produced_by": {
          "@type": "@id",
          "@id": "biolink:produced_by"
@@ -2002,6 +2019,15 @@
       "quantifier_qualifier": {
          "@type": "@id",
          "@id": "biolink:quantifier_qualifier"
+      },
+      "quantity_fmol": {
+         "@type": "xsd:float"
+      },
+      "quantity_ng": {
+         "@type": "xsd:float"
+      },
+      "quantity_pM": {
+         "@type": "xsd:float"
       },
       "reaction_balanced": {
          "@type": "xsd:boolean",
@@ -2415,6 +2441,9 @@
       "volume": {
          "@id": "biolink:volume"
       },
+      "volume_ul": {
+         "@type": "xsd:integer"
+      },
       "wasAssociatedWith": {
          "@type": "@id",
          "@id": "prov:wasAssociatedWith"
@@ -2816,6 +2845,9 @@
       },
       "Gene": {
          "@id": "biolink:Gene"
+      },
+      "GeneAffectsChemicalAssociation": {
+         "@id": "biolink:GeneAffectsChemicalAssociation"
       },
       "GeneAsAModelOfDiseaseAssociation": {
          "@id": "biolink:GeneAsAModelOfDiseaseAssociation"
