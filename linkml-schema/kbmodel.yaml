@@ -31,9 +31,10 @@ classes:
       referenced in: 
         description: The genome annotation that this gene annotation was referenced from.
         required: true
-        any_of:
-          - range: genome annotation
-          - range: string
+        range: genome annotation
+        # any_of:
+        #   - range: genome annotation
+        #   - range: string
     id_prefixes:
       - ENSEMBL
       - MGI
@@ -54,9 +55,10 @@ classes:
       reference assembly:
         description: The reference genome assembly that this genome annotation was created from.
         required: true
-        any_of:
-          - range: genome assembly
-          - range: string
+        range: genome assembly
+        # any_of:
+        #   - range: genome assembly
+        #   - range: string
 
   genome assembly:
     is_a: named thing
@@ -66,11 +68,11 @@ classes:
     slots:
       - version
       - strain
-    slot_usage:
-      in taxon:
-        any_of:
-          - range: organism taxon
-          - range: string
+    # slot_usage:
+    #   in taxon:
+    #     any_of:
+    #       - range: organism taxon
+    #       - range: string
 
   checksum:
     is_a: entity
@@ -314,11 +316,11 @@ classes:
       - death date
       - death age
       - full genotype
-    slot_usage:
-      in taxon:
-        any_of:
-          - range: organism taxon
-          - range: string
+    # slot_usage:
+    #   in taxon:
+    #     any_of:
+    #       - range: organism taxon
+    #       - range: string
 
 
   # 027 - brain_extraction.ipynb
@@ -791,9 +793,10 @@ slots:
 
   digest:
     description: Stores checksum information. 
-    any_of:
-      - range: checksum
-      - range: string
+    # any_of:
+    #   - range: checksum
+    #   - range: string
+    range: checksum
     multivalued: true
     #required: true
 
