@@ -1,19 +1,6 @@
 ```mermaid
 erDiagram
-LibraryPool {
-    integer avg_size_bp  
-    float quantity_fmol  
-    float quantity_pM  
-    float concentration_nm  
-    integer volume_ul  
-    float tube_contents  
-    string tube_barcode  
-    integer read1_length  
-    integer read2_length  
-    integer index1_length  
-    integer index2_length  
-    float PhiX_spike  
-    boolean custom_primers  
+AlignedData {
     string id  
     iri_type iri  
     category_typeList category  
@@ -28,6 +15,59 @@ Agent {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+Alignment {
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+SequencedData {
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+Sequencing {
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+LibraryPool {
+    integer avg_size_bp  
+    float quantity_fmol  
+    float quantity_pM  
+    float concentration_nm  
+    integer volume_ul  
+    float tube_contents  
+    string tube_barcode  
+    integer read1_length  
+    integer read2_length  
+    integer index1_length  
+    integer index2_length  
+    float PhiX_spike  
+    boolean custom_primers  
     string id  
     iri_type iri  
     category_typeList category  
@@ -280,10 +320,42 @@ Donor {
     label_type name  
     narrative_text description  
 }
+RoiPolygon {
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+RoiDelineation {
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
 ProvEntity {
 
 }
 Entity {
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+Split {
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -325,10 +397,9 @@ GenomeAssembly {
     narrative_text description  
 }
 GenomeAnnotation {
-    uriorcurie reference_assembly  
     string version  
     stringList content_url  
-    string authority  
+    AuthorityType authority  
     biological_sequence has_biological_sequence  
     string id  
     label_type in_taxon_label  
@@ -370,11 +441,27 @@ Checksum {
     narrative_text description  
 }
 
+AlignedData ||--}o SequencedData : "wasDerivedFrom"
+AlignedData ||--}o Alignment : "wasGeneratedBy"
+AlignedData ||--}o Agent : "wasAttributedTo"
+AlignedData ||--}o Attribute : "has attribute"
+Agent ||--}o Attribute : "has attribute"
+Alignment ||--}o SequencedData : "used"
+Alignment ||--}o AlignedData : "generated"
+Alignment ||--}o Agent : "wasAssociatedWith"
+Alignment ||--}o Attribute : "has attribute"
+SequencedData ||--}o LibraryPool : "wasDerivedFrom"
+SequencedData ||--}o Sequencing : "wasGeneratedBy"
+SequencedData ||--}o Agent : "wasAttributedTo"
+SequencedData ||--}o Attribute : "has attribute"
+Sequencing ||--}o LibraryPool : "used"
+Sequencing ||--}o SequencedData : "generated"
+Sequencing ||--}o Agent : "wasAssociatedWith"
+Sequencing ||--}o Attribute : "has attribute"
 LibraryPool ||--}o LibraryAliquot : "wasDerivedFrom"
 LibraryPool ||--}o LibraryPooling : "wasGeneratedBy"
 LibraryPool ||--}o Agent : "wasAttributedTo"
 LibraryPool ||--}o Attribute : "has attribute"
-Agent ||--}o Attribute : "has attribute"
 LibraryPooling ||--}o LibraryAliquot : "used"
 LibraryPooling ||--}o LibraryPool : "generated"
 LibraryPooling ||--}o Agent : "wasAssociatedWith"
@@ -451,10 +538,22 @@ BrainExtraction ||--}o Agent : "wasAssociatedWith"
 BrainExtraction ||--}o Attribute : "has attribute"
 Donor ||--}o OrganismTaxon : "in taxon"
 Donor ||--}o Attribute : "has attribute"
+RoiPolygon ||--}o BrainSection : "wasDerivedFrom"
+RoiPolygon ||--}o RoiDelineation : "wasGeneratedBy"
+RoiPolygon ||--}o Agent : "wasAttributedTo"
+RoiPolygon ||--}o Attribute : "has attribute"
+RoiDelineation ||--}o BrainSection : "used"
+RoiDelineation ||--}o RoiPolygon : "generated"
+RoiDelineation ||--}o Agent : "wasAssociatedWith"
+RoiDelineation ||--}o Attribute : "has attribute"
 ProvEntity ||--}o Entity : "wasDerivedFrom"
 ProvEntity ||--}o Activity : "wasGeneratedBy"
 ProvEntity ||--}o Agent : "wasAttributedTo"
 Entity ||--}o Attribute : "has attribute"
+Split ||--}o EnrichedCellSample : "used"
+Split ||--}o EnrichedCellSample : "generated"
+Split ||--}o Agent : "wasAssociatedWith"
+Split ||--}o Attribute : "has attribute"
 CellEnrichment ||--}o DissociatedCellSample : "used"
 CellEnrichment ||--}o EnrichedCellSample : "generated"
 CellEnrichment ||--}o Agent : "wasAssociatedWith"
@@ -467,10 +566,11 @@ AnnotationCollection ||--}o GenomeAnnotation : "genome_annotations"
 AnnotationCollection ||--}o GenomeAssembly : "genome_assemblies"
 GenomeAssembly ||--}o OrganismTaxon : "in taxon"
 GenomeAssembly ||--}o Attribute : "has attribute"
-GenomeAnnotation ||--}| Checksum : "digest"
+GenomeAnnotation ||--}o Checksum : "digest"
+GenomeAnnotation ||--|| GenomeAssembly : "reference assembly"
 GenomeAnnotation ||--}o OrganismTaxon : "in taxon"
 GenomeAnnotation ||--}o Attribute : "has attribute"
-GeneAnnotation ||--|o GenomeAnnotation : "referenced in"
+GeneAnnotation ||--|| GenomeAnnotation : "referenced in"
 GeneAnnotation ||--}o OrganismTaxon : "in taxon"
 GeneAnnotation ||--}o Attribute : "has attribute"
 Checksum ||--}o Attribute : "has attribute"
