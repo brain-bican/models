@@ -398,8 +398,10 @@ GenomeAssembly {
 }
 GenomeAnnotation {
     string version  
+    stringList digest  
     stringList content_url  
     AuthorityType authority  
+    string reference_assembly  
     biological_sequence has_biological_sequence  
     string id  
     label_type in_taxon_label  
@@ -416,6 +418,7 @@ GenomeAnnotation {
 GeneAnnotation {
     BioType molecular_type  
     string source_id  
+    string referenced_in  
     string symbol  
     uriorcurieList xref  
     biological_sequence has_biological_sequence  
@@ -566,11 +569,8 @@ AnnotationCollection ||--}o GenomeAnnotation : "genome_annotations"
 AnnotationCollection ||--}o GenomeAssembly : "genome_assemblies"
 GenomeAssembly ||--}o OrganismTaxon : "in taxon"
 GenomeAssembly ||--}o Attribute : "has attribute"
-GenomeAnnotation ||--}o Checksum : "digest"
-GenomeAnnotation ||--|| GenomeAssembly : "reference assembly"
 GenomeAnnotation ||--}o OrganismTaxon : "in taxon"
 GenomeAnnotation ||--}o Attribute : "has attribute"
-GeneAnnotation ||--|| GenomeAnnotation : "referenced in"
 GeneAnnotation ||--}o OrganismTaxon : "in taxon"
 GeneAnnotation ||--}o Attribute : "has attribute"
 Checksum ||--}o Attribute : "has attribute"

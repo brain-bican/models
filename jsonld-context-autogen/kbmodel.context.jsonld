@@ -515,8 +515,8 @@
       "fabio": "http://purl.org/spar/fabio/",
       "faldo": "http://biohackathon.org/resource/faldo#",
       "foaf": "http://xmlns.com/foaf/0.1/",
-      "foodb.compound": "http://foodb.ca/foods/",
-      "foodb.food": "http://foodb.ca/compounds/",
+      "foodb.compound": "http://foodb.ca/compounds/",
+      "foodb.food": "http://foodb.ca/foods/",
       "gff3": "https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md#",
       "gpi": "https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md#",
       "gtpo": "https://rdf.guidetopharmacology.org/ns/gtpo#",
@@ -974,9 +974,6 @@
          "@type": "@id",
          "@id": "biolink:diagnoses"
       },
-      "digest": {
-         "@type": "@id"
-      },
       "direction_qualifier": {
          "@id": "biolink:direction_qualifier"
       },
@@ -1124,9 +1121,6 @@
          "@type": "@id",
          "@id": "biolink:gene_fusion_with"
       },
-      "referenced_in": {
-         "@type": "@id"
-      },
       "generated": {
          "@type": "@id",
          "@id": "prov:generated"
@@ -1155,9 +1149,6 @@
             "meaning": "@id"
          },
          "@id": "biolink:genome_build"
-      },
-      "reference_assembly": {
-         "@type": "@id"
       },
       "has_active_component": {
          "@type": "@id",
