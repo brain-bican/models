@@ -709,6 +709,14 @@
          "@type": "@id",
          "@id": "biolink:author"
       },
+      "authority": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
       "authors": {
          "@type": "@id",
          "@id": "biolink:authors"
@@ -1116,6 +1124,9 @@
          "@type": "@id",
          "@id": "biolink:gene_fusion_with"
       },
+      "referenced_in": {
+         "@type": "@id"
+      },
       "generated": {
          "@type": "@id",
          "@id": "prov:generated"
@@ -1144,6 +1155,9 @@
             "meaning": "@id"
          },
          "@id": "biolink:genome_build"
+      },
+      "reference_assembly": {
+         "@type": "@id"
       },
       "has_active_component": {
          "@type": "@id",
@@ -2050,12 +2064,6 @@
             "meaning": "@id"
          },
          "@id": "biolink:reaction_side"
-      },
-      "reference_assembly": {
-         "@type": "@id"
-      },
-      "referenced_in": {
-         "@type": "@id"
       },
       "regulated_by": {
          "@type": "@id",
