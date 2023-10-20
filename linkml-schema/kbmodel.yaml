@@ -1,5 +1,11 @@
 id: https://identifiers.org/brain-bican/kb-model
 name: kb-model
+
+
+## ------------
+##
+## PREFIXES
+## ------------
 prefixes:
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/vocab/
@@ -10,20 +16,60 @@ prefixes:
   NCBIAssembly: https://www.ncbi.nlm.nih.gov/assembly/
   prov: http://www.w3.org/ns/prov#
 
-
+## ------------
+## IMPORTS
+## ------------
 imports:
   - linkml:types
   - biolink:biolink-model
+
+## ------------
+## DEFAULTS
+## ------------
+
 default_range: string
 default_prefix: bican
 
+## ------------
+## SUBSETS
+## ------------
+subsets:
+  bican:
+    description: >-
+      A subset of classes that are associated with BICAN.
 
+  gars:
+    description: >-
+      A subset of classes that are associated with GARS.
+ 
+  tissue_specimen:
+    description: >-
+      A subset of classes that are associated with tissue specimens (first row of purple/orange box diagram).
+ 
+  library_generation:
+    description: >-
+      A subset of classes that are associated with library generation (second row of purple/orange box diagram).
+
+  sequencing_elements:
+    description: >-
+      A subset of classes that are associated with sequencing (third row of purple/orange box diagram).
+  
+  processing_elements:
+    description: >-
+      A subset of classes that are associated with processing (fourth row in purple/orange box diagram).
+
+## ------------
+## CLASSES
+## ------------
 classes:
   gene annotation:
     is_a: gene
     description: >-
       An annotation describing the location, boundaries, and functions of 
       individual genes within a genome annotation.
+    in_subset: 
+      - bican
+      - gars
     slots:
       - molecular type
       - source id
@@ -31,10 +77,13 @@ classes:
       referenced in: 
         description: The genome annotation that this gene annotation was referenced from.
         required: true
-        #range: genome annotation
+        inlined: true
         any_of:
           - range: genome annotation
           - range: string
+    # slot_usage:
+    #   in taxon:
+    #     inlined_as_list: true
     id_prefixes:
       - ENSEMBL
       - MGI
@@ -46,6 +95,9 @@ classes:
     description: >-
       Location and nomenclature of genes and all of the coding regions in a genome assembly 
       and the classification of genes and transcripts into types.
+    in_subset: 
+      - bican
+      - gars
     slots:
       - version
       - digest
@@ -55,29 +107,37 @@ classes:
       reference assembly:
         description: The reference genome assembly that this genome annotation was created from.
         required: true
-        #range: genome assembly
+        inlined: true
         any_of:
           - range: genome assembly
           - range: string
+    # slot_usage:
+    #   in taxon:
+    #     inlined_as_list: true
 
   genome assembly:
     is_a: named thing
     mixins:
       - thing with taxon
     description:
+    in_subset: 
+      - bican
+      - gars
     slots:
       - version
       - strain
     # slot_usage:
     #   in taxon:
     #     any_of:
-    #       - range: organism taxon
-    #       - range: string
+    #       inlined_as_list: true
 
   checksum:
     is_a: entity
     description: >-
       Checksum values associated with digital entities.
+    in_subset: 
+      - bican
+      - gars
     slots:
       - checksum algorithm
     attributes:
@@ -86,6 +146,8 @@ classes:
   
   annotation collection:
     tree_root: true
+    in_subset: 
+      - bican
     attributes:
       annotations:
         multivalued: true
@@ -105,6 +167,8 @@ classes:
     description: >-
       Based off prov:Activity; an activity is something that occurs over a period of time and acts upon or with entities; 
       it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
+    in_subset: 
+      - bican
     slots:
       - used
       - generated
@@ -118,6 +182,9 @@ classes:
     is_a: activity
     mixins: 
       - prov activity
+    in_subset: 
+      - bican
+      - tissue_specimen
     slot_usage:
       used:
         range: donor
@@ -130,6 +197,9 @@ classes:
     is_a: activity
     mixins: 
       - prov activity
+    in_subset: 
+      - bican
+      - tissue_specimen
     slot_usage:
       used:
         range: brain segment
@@ -142,6 +212,9 @@ classes:
     is_a: activity
     mixins: 
       - prov activity
+    in_subset: 
+      - bican
+      - tissue_specimen
     slot_usage:
       used:
         range: brain section
@@ -154,6 +227,9 @@ classes:
     is_a: activity
     mixins: 
       - prov activity
+    in_subset: 
+      - bican
+      - tissue_specimen
     slot_usage:
       used:
         range: brain section
@@ -166,6 +242,9 @@ classes:
     is_a: activity
     mixins: 
       - prov activity
+    in_subset: 
+      - bican
+      - library_generation
     slot_usage:
       used:
         range: tissue sample
@@ -179,6 +258,9 @@ classes:
     is_a: activity
     mixins: 
       - prov activity
+    in_subset: 
+      - bican
+      - library_generation
     slot_usage:
       used:
         range: dissociated cell sample
@@ -192,6 +274,9 @@ classes:
     is_a: activity
     mixins: 
       - prov activity
+    in_subset: 
+      - bican
+      - library_generation
     slot_usage:
       used:
         range: enriched cell sample
@@ -204,6 +289,9 @@ classes:
     is_a: activity
     mixins: 
       - prov activity
+    in_subset: 
+      - bican
+      - library_generation
     slot_usage:
       used:
         range: enriched cell sample
@@ -217,6 +305,9 @@ classes:
     is_a: activity
     mixins: 
       - prov activity
+    in_subset: 
+      - bican
+      - library_generation
     slot_usage:
       used:
         range: barcoded cell sample
@@ -229,6 +320,9 @@ classes:
     is_a: activity
     mixins: 
       - prov activity
+    in_subset: 
+      - bican
+      - library_generation
     slot_usage:
       used:
         range: amplified cdna
@@ -241,6 +335,9 @@ classes:
     is_a: activity
     mixins: 
       - prov activity
+    in_subset: 
+      - bican
+      - library_generation
     slot_usage:
       used:
         range: library
@@ -253,6 +350,9 @@ classes:
     is_a: activity
     mixins: 
       - prov activity
+    in_subset: 
+      - bican
+      - library_generation
     slot_usage:
       used:
         range: library aliquot
@@ -267,6 +367,9 @@ classes:
     is_a: activity
     mixins: 
       - prov activity
+    in_subset: 
+      - bican
+      - sequencing_elements
     slot_usage:
       used:
         range: library pool
@@ -279,6 +382,9 @@ classes:
     is_a: activity
     mixins: 
       - prov activity
+    in_subset: 
+      - bican
+      - processing_elements
     slot_usage:
       used:
         range: sequenced data
@@ -293,6 +399,8 @@ classes:
     description: >-
       Based off prov:Entity; an entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; 
       entities may be real or imaginary.
+    in_subset:
+      - bican
     slots:
       - wasDerivedFrom
       - wasGeneratedBy
@@ -310,6 +418,9 @@ classes:
       - thing with taxon
     description: >-
       A person or organism that is the source of a biological sample.
+    in_subset:
+      - bican
+      - tissue_specimen
     slots:
       - sex
       - birth date
@@ -330,6 +441,9 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    in_subset:
+      - bican
+      - tissue_specimen
     attributes:
       anatomical division:
     slot_usage:
@@ -346,6 +460,9 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    in_subset:
+      - bican
+      - tissue_specimen
     attributes:
       ordinal:
         description: The ordinal number of the section.
@@ -364,6 +481,9 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    in_subset:
+      - bican
+      - library_generation
     attributes:
       roi plan:
       roi label:
@@ -382,6 +502,9 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    in_subset:
+      - bican
+      - library_generation
     slots:
       - source barcode name
     attributes:
@@ -414,6 +537,9 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    in_subset:
+      - bican
+      - library_generation
     slots:
       - source barcode name
     attributes:
@@ -448,6 +574,9 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    in_subset:
+      - bican
+      - library_generation
     slots:
       - input quantity
       - cohort 
@@ -495,6 +624,9 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    in_subset:
+      - bican
+      - library_generation
     slots:
       - pass fail result
       - creation date
@@ -545,6 +677,9 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    in_subset:
+      - bican
+      - library_generation
     slots:
       - method 
       - creation date
@@ -613,6 +748,9 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    in_subset:
+      - bican
+      - library_generation
     slots:
       - input quantity
     slot_usage:
@@ -638,6 +776,9 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    in_subset:
+      - bican
+      - library_generation
     slots:
       - avg size bp
       - quantity fmol
@@ -715,6 +856,9 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    in_subset:
+      - bican
+      - tissue_specimen
     slot_usage:
       wasGeneratedBy:
         range: roi delineation
@@ -725,6 +869,9 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    in_subset:
+      - bican
+      - sequencing_elements
     slot_usage:
       wasGeneratedBy:
         range: sequencing
@@ -735,6 +882,9 @@ classes:
     is_a: entity
     mixins:    
       - prov entity
+    in_subset:
+      - bican
+      - processing_elements
     slot_usage:
       wasGeneratedBy:
         range: alignment
@@ -742,9 +892,11 @@ classes:
         range: sequenced data
         multivalued: true
 
-
 # END OF DIGITAL DATA ASSET (BLUE BOXES) #
 
+## ------------
+## SLOTS
+## ------------
 slots:
   used:
     slot_uri: prov:used
@@ -793,12 +945,11 @@ slots:
 
   digest:
     description: Stores checksum information. 
+    multivalued: true
+    inlined_as_list: true
     any_of:
       - range: checksum
       - range: string
-    #range: checksum
-    multivalued: true
-    #required: true
 
   content_url:
     slot_uri: schema:url
@@ -874,7 +1025,9 @@ slots:
     range: string
     multivalued: true
 
-
+## ------------
+## ENUMS
+## ------------
 enums:
   DigestType:
     permissible_values:
