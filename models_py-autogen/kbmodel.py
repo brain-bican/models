@@ -3858,7 +3858,7 @@ class GeneAnnotation(Gene):
     """
     molecular_type: Optional[BioType] = Field(None)
     source_id: Optional[str] = Field(None, description="""The authority specific identifier.""")
-    referenced_in: str = Field(..., description="""The genome annotation that this gene annotation was referenced from.""")
+    referenced_in: Union[GenomeAnnotation, str] = Field(..., description="""The genome annotation that this gene annotation was referenced from.""")
     symbol: Optional[str] = Field(None, description="""Symbol for a particular thing""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     has_biological_sequence: Optional[str] = Field(None, description="""connects a genomic feature to its sequence""")
@@ -3974,10 +3974,10 @@ class GenomeAnnotation(Genome):
     Location and nomenclature of genes and all of the coding regions in a genome assembly  and the classification of genes and transcripts into types.
     """
     version: Optional[str] = Field(None)
-    digest: Optional[List[str]] = Field(default_factory=list, description="""Stores checksum information.""")
+    digest: Optional[List[Union[Checksum, str]]] = Field(default_factory=list, description="""Stores checksum information.""")
     content_url: Optional[List[str]] = Field(default_factory=list)
     authority: Optional[AuthorityType] = Field(None, description="""The organization responsible for publishing the data.""")
-    reference_assembly: str = Field(..., description="""The reference genome assembly that this genome annotation was created from.""")
+    reference_assembly: Union[GenomeAssembly, str] = Field(..., description="""The reference genome assembly that this genome annotation was created from.""")
     has_biological_sequence: Optional[str] = Field(None, description="""connects a genomic feature to its sequence""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
