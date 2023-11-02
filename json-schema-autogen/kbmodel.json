@@ -769,6 +769,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -956,6 +960,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -1322,6 +1330,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -1939,6 +1951,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -3510,6 +3526,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -3731,6 +3751,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -4580,6 +4604,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -4771,6 +4799,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -5228,6 +5260,10 @@
                     "description": "Predicate to be used in an association when subject and object qualifiers are present and the full reading of the statement requires a qualification to the predicate in use in order to refine or  increase the specificity of the full statement reading.  This qualifier holds a relationship to be used instead of that  expressed by the primary predicate, in a \u2018full statement\u2019 reading of the association, where qualifier-based  semantics are included.  This is necessary only in cases where the primary predicate does not work in a  full statement reading.",
                     "type": "string"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -5537,6 +5573,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -5735,6 +5775,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -6034,6 +6078,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -6361,6 +6409,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -6552,6 +6604,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -6848,6 +6904,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -7043,6 +7103,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -7231,6 +7295,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -7418,6 +7486,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -9057,6 +9129,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "this field can be used to annotate special characteristics of an agent relationship, such as the fact that a given author agent of a publication is the 'corresponding author'",
                     "items": {
@@ -9270,6 +9346,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -10307,6 +10387,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -10495,6 +10579,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -10682,6 +10770,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -10893,6 +10985,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -11673,6 +11769,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -12002,6 +12102,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -12348,6 +12452,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -12539,6 +12647,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -13345,6 +13457,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -13536,6 +13652,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -13752,6 +13872,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -14207,6 +14331,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -14462,11 +14590,7 @@
         },
         "GeneAffectsChemicalAssociation": {
             "additionalProperties": false,
-<<<<<<< HEAD
             "description": "Describes an effect that a gene or gene product has on a chemical entity (e.g. an impact of on its abundance, activity, localization, processing, transport, etc.)",
-=======
-            "description": "Describes an effect that a gene or gene product has on a chemical entity (e.g. an impact of on its abundance, activity,localization, processing, expression, etc.)",
->>>>>>> upstream/main
             "properties": {
                 "aggregator_knowledge_source": {
                     "description": "An intermediate aggregator resource from which knowledge expressed in an Association was retrieved downstream of the original source, on its path to its current serialized form.",
@@ -14481,12 +14605,9 @@
                 },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.\n * In a neo4j database this MAY correspond to the neo4j label tag.\n * In an RDF database it should be a biolink model class URI.\nThis field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`, ...\nIn an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
-<<<<<<< HEAD
                     "enum": [
                         "biolink:GeneAffectsChemicalAssociation"
                     ],
-=======
->>>>>>> upstream/main
                     "items": {
                         "type": "string"
                     },
@@ -14608,6 +14729,10 @@
                 },
                 "qualified_predicate": {
                     "description": "Predicate to be used in an association when subject and object qualifiers are present and the full reading of the statement requires a qualification to the predicate in use in order to refine or  increase the specificity of the full statement reading.  This qualifier holds a relationship to be used instead of that  expressed by the primary predicate, in a \u2018full statement\u2019 reading of the association, where qualifier-based  semantics are included.  This is necessary only in cases where the primary predicate does not work in a  full statement reading.",
+                    "type": "string"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
                     "type": "string"
                 },
                 "qualifiers": {
@@ -14958,6 +15083,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -15278,6 +15407,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -15577,6 +15710,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -15802,6 +15939,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -16000,6 +16141,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -16205,6 +16350,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -16401,6 +16550,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -16588,6 +16741,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -16777,6 +16934,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -16965,6 +17126,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -17152,6 +17317,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -17366,6 +17535,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -18106,6 +18279,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -18405,6 +18582,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -18605,6 +18786,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -18797,6 +18982,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -18984,6 +19173,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -19196,6 +19389,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -19391,6 +19588,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -20384,6 +20585,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -21778,6 +21983,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -21966,6 +22175,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -22153,6 +22366,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -22507,6 +22724,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -22694,6 +22915,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -23080,6 +23305,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -23268,6 +23497,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -23455,6 +23688,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -23955,6 +24192,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -24892,6 +25133,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -25080,6 +25325,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -25267,6 +25516,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -25464,6 +25717,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -25656,6 +25913,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -25846,6 +26107,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -27571,6 +27836,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -28962,6 +29231,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -29161,6 +29434,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -29960,6 +30237,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -30156,6 +30437,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -31744,6 +32029,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -32326,6 +32615,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -32717,6 +33010,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -32917,6 +33214,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -33108,6 +33409,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -33304,6 +33609,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
@@ -33524,6 +33833,10 @@
                     },
                     "type": "array"
                 },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
+                },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
                     "items": {
@@ -33739,6 +34052,10 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "qualifier": {
+                    "description": "grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes",
+                    "type": "string"
                 },
                 "qualifiers": {
                     "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
