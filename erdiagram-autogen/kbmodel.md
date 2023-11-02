@@ -193,6 +193,7 @@ CellBarcoding {
     narrative_text description  
 }
 EnrichedCellSample {
+    string source_barcode_name  
     string histone_modification_marker  
     string population  
     string id  
@@ -202,7 +203,7 @@ EnrichedCellSample {
     label_type name  
     narrative_text description  
 }
-Activity {
+CellEnrichment {
     stringList provided_by  
     uriorcurieList xref  
     label_type full_name  
@@ -345,15 +346,7 @@ RoiDelineation {
 ProvEntity {
 
 }
-Entity {
-    string id  
-    iri_type iri  
-    category_typeList category  
-    stringList type  
-    label_type name  
-    narrative_text description  
-}
-Split {
+Activity {
     stringList provided_by  
     uriorcurieList xref  
     label_type full_name  
@@ -365,7 +358,15 @@ Split {
     label_type name  
     narrative_text description  
 }
-CellEnrichment {
+Entity {
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+Split {
     stringList provided_by  
     uriorcurieList xref  
     label_type full_name  
@@ -503,12 +504,14 @@ CellBarcoding ||--}o EnrichedCellSample : "used"
 CellBarcoding ||--}o BarcodedCellSample : "generated"
 CellBarcoding ||--}o Agent : "wasAssociatedWith"
 CellBarcoding ||--}o Attribute : "has attribute"
-EnrichedCellSample ||--|o CellEnrichment : "source barcode name"
 EnrichedCellSample ||--}o DissociatedCellSample : "wasDerivedFrom"
-EnrichedCellSample ||--}o Activity : "wasGeneratedBy"
+EnrichedCellSample ||--}o CellEnrichment : "wasGeneratedBy"
 EnrichedCellSample ||--}o Agent : "wasAttributedTo"
 EnrichedCellSample ||--}o Attribute : "has attribute"
-Activity ||--}o Attribute : "has attribute"
+CellEnrichment ||--}o DissociatedCellSample : "used"
+CellEnrichment ||--}o EnrichedCellSample : "generated"
+CellEnrichment ||--}o Agent : "wasAssociatedWith"
+CellEnrichment ||--}o Attribute : "has attribute"
 DissociatedCellSample ||--}o TissueSample : "wasDerivedFrom"
 DissociatedCellSample ||--}o CellDissociation : "wasGeneratedBy"
 DissociatedCellSample ||--}o Agent : "wasAttributedTo"
@@ -554,15 +557,12 @@ RoiDelineation ||--}o Attribute : "has attribute"
 ProvEntity ||--}o Entity : "wasDerivedFrom"
 ProvEntity ||--}o Activity : "wasGeneratedBy"
 ProvEntity ||--}o Agent : "wasAttributedTo"
+Activity ||--}o Attribute : "has attribute"
 Entity ||--}o Attribute : "has attribute"
 Split ||--}o EnrichedCellSample : "used"
 Split ||--}o EnrichedCellSample : "generated"
 Split ||--}o Agent : "wasAssociatedWith"
 Split ||--}o Attribute : "has attribute"
-CellEnrichment ||--}o DissociatedCellSample : "used"
-CellEnrichment ||--}o EnrichedCellSample : "generated"
-CellEnrichment ||--}o Agent : "wasAssociatedWith"
-CellEnrichment ||--}o Attribute : "has attribute"
 ProvActivity ||--}o Entity : "used"
 ProvActivity ||--}o Entity : "generated"
 ProvActivity ||--}o Agent : "wasAssociatedWith"
