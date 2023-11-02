@@ -858,7 +858,7 @@
          "@type": "@id",
          "@id": "biolink:composed_primarily_of"
       },
-      "concentration_nm": {
+      "concentration_nM": {
          "@type": "xsd:float"
       },
       "concept_count_object": {
