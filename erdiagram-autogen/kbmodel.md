@@ -58,8 +58,9 @@ LibraryPool {
     integer avg_size_bp  
     float quantity_fmol  
     float quantity_pM  
-    float concentration_nm  
+    float concentration_nM  
     integer volume_ul  
+    uriorcurieList xref  
     float tube_contents  
     string tube_barcode  
     integer read1_length  
@@ -113,7 +114,7 @@ Library {
     datetime creation_date  
     PassFailResult pass_fail_result  
     integer avg_size_bp  
-    float concentration_nm  
+    float concentration_nM  
     float quantity_fmol  
     float quantity_ng  
     float input_quantity  
@@ -145,6 +146,7 @@ AmplifiedCdna {
     PassFailResult pass_fail_result  
     date creation_date  
     stringList cohort  
+    float quantity_ng  
     integer num_cycles  
     float percent_greater_than_400bp  
     string id  

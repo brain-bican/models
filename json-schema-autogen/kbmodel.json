@@ -511,6 +511,10 @@
                     "description": "QC metric to measure mRNA degradation of cDNA. Higher % is higher quality starting material. Over 400bp is used as a universal cutoff for intact (full length) vs degraded cDNA and is a common output from Bioanalyzer and Fragment Analyzer elecropheragrams.",
                     "type": "number"
                 },
+                "quantity_ng": {
+                    "description": "Amount of cDNA produced after cDNA amplification measured in nanograms.",
+                    "type": "number"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -554,6 +558,7 @@
             "required": [
                 "pass_fail_result",
                 "cohort",
+                "quantity_ng",
                 "num_cycles",
                 "percent_greater_than_400bp",
                 "id",
@@ -20912,7 +20917,7 @@
                     },
                     "type": "array"
                 },
-                "concentration_nm": {
+                "concentration_nM": {
                     "description": "Concentration of library in terms of nM (nMol/L).  Number of molecules is needed for accurate pooling of the libraries and for generating the number of target reads/cell in sequencing.",
                     "type": "number"
                 },
@@ -21358,7 +21363,7 @@
                     },
                     "type": "array"
                 },
-                "concentration_nm": {
+                "concentration_nM": {
                     "description": "Library pool concentration as measured in nanomolarity (nMol/L)",
                     "type": "number"
                 },
@@ -21463,9 +21468,17 @@
                         ]
                     },
                     "type": "array"
+                },
+                "xref": {
+                    "description": "Library Pool Tube local name. Label of the tube containing the library pool, which is made up of multiple library_aliquots.  This is a Library Lab local tube name, before the pool is aliquoted to the Seq Core provided tube 'Library Pool Tube Name'.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
+                "xref",
                 "tube_barcode",
                 "read1_length",
                 "read2_length",
