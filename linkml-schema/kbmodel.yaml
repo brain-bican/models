@@ -631,6 +631,7 @@ classes:
       - pass fail result
       - creation date
       - cohort
+      - quantity ng
     attributes:
       num cycles:
         description: >-
@@ -685,7 +686,7 @@ classes:
       - creation date
       - pass fail result
       - avg size bp
-      - concentration nm
+      - concentration nM
       - quantity fmol
       - quantity ng
       - input quantity
@@ -723,7 +724,7 @@ classes:
         required: true
       quantity ng:
         description: Amount of library generated in terms of nanograms
-      concentration nm:
+      concentration nM:
         description: >-
           Concentration of library in terms of nM (nMol/L). 
           Number of molecules is needed for accurate pooling of the libraries and for generating the number of target reads/cell in sequencing.
@@ -783,8 +784,9 @@ classes:
       - avg size bp
       - quantity fmol
       - quantity pM
-      - concentration nm 
+      - concentration nM 
       - volume ul
+      - xref
     attributes:
       tube contents:
         description: The content concentration (nm).
@@ -837,7 +839,7 @@ classes:
         description: Amount of library pool in the tube as measured in femtamoles (fmol)
       quantity pM:
         description: Sequencer Loading Concentration as measured in pM (pmol/L). This is a value used by the SeqCore.
-      concentration nm: 
+      concentration nM: 
         description: Library pool concentration as measured in nanomolarity (nMol/L)
       volume ul:
         description: Library pool volume as measured in ul
@@ -999,7 +1001,7 @@ slots:
   quantity fmol:
     range: float
 
-  concentration nm:
+  concentration nM:
     range: float
   
   quantity pM:
