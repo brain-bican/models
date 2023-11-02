@@ -560,7 +560,7 @@ classes:
       source barcode name:
         description: >- 
           Name of molecular barcode used to individual Enriched Cell Source to allow for pooling of Enriched Cell Sources before 10x load (Barcoding Cell step) [aka 1st round barcodes].
-          wasGeneratedBy:
+      wasGeneratedBy:
         range: cell enrichment
       wasDerivedFrom:
         range: dissociated cell sample
