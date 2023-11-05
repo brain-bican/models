@@ -2,8 +2,7 @@ from __future__ import annotations
 from datetime import datetime, date
 from enum import Enum
 from typing import List, Dict, Optional, Any, Union
-from pydantic import BaseModel as BaseModel, Field
-from linkml_runtime.linkml_model import Decimal
+from pydantic import BaseModel as BaseModel, ConfigDict, Field
 import sys
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -53,7 +52,6 @@ class Taxonomy(ConfiguredBaseModel):
     rank: Optional[Rank] = Field(None, description="""Algorithmically generated hierarchical taxonomies can be complex, with many nodes between root and leaf and branches of variable depth. To simplify this for display and discussion it can be useful to assign nodes to a 3 level hierarchy, with leaf nodes at the bottom.""")
     
 
-
 class CrossTaxonomyMapping(ConfiguredBaseModel):
     
     cell_set_accession: str = Field(..., description="""Primary identifier for cell set.""")
@@ -64,7 +62,6 @@ class CrossTaxonomyMapping(ConfiguredBaseModel):
     similarity_score: Optional[float] = Field(None, description="""A score recording the similarity between mapped nodes.""", ge=0, le=1)
     provenance: Optional[str] = Field(None, description="""ORCID of the person doing the mapping using the syntax ORCID:0123-4567-890. Optionally include supporting publications using DOIs of the form doi:10.1126/journal.abj6641.""")
     
-
 
 class LocationMapping(ConfiguredBaseModel):
     
@@ -77,13 +74,11 @@ class LocationMapping(ConfiguredBaseModel):
     provenance: str = Field(..., description="""ORCID of the person doing the mapping using the syntax ORCID:0123-4567-890. Optionally include supporting publications using DOIs of the form doi:10.1126/journal.abj6641.""")
     
 
-
 class CellSetAccessionToCellMapping(ConfiguredBaseModel):
     
     sample: str = Field(..., description="""Cell sample identifier.""")
     cell_accessions: List[str] = Field(..., description="""List of cell set accession identifiers.""")
     
-
 
 
 # Update forward refs

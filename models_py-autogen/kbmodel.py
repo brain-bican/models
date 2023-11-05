@@ -2,8 +2,7 @@ from __future__ import annotations
 from datetime import datetime, date
 from enum import Enum
 from typing import List, Dict, Optional, Any, Union
-from pydantic import BaseModel as BaseModel, Field
-from linkml_runtime.linkml_model import Decimal
+from pydantic import BaseModel as BaseModel, ConfigDict, Field
 import sys
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -148,6 +147,10 @@ class GeneOrGeneProductOrChemicalEntityAspectEnum(str, Enum):
     secretion = "secretion"
     
     uptake = "uptake"
+    
+    splicing = "splicing"
+    
+    molecular_interaction = "molecular_interaction"
     
     molecular_modification = "molecular_modification"
     
@@ -437,7 +440,6 @@ class GenomeAssembly(ConfiguredBaseModel):
     description: Optional[str] = Field(None)
     
 
-
 class Mapping(ConfiguredBaseModel):
     """
     text
@@ -451,7 +453,6 @@ class Mapping(ConfiguredBaseModel):
     member_of: Optional[List[str]] = Field(None, description="""Defines a mereological relation between a item and a collection.""")
     
 
-
 class Mappings(ConfiguredBaseModel):
     """
     A collection of mappings between identifiers
@@ -460,7 +461,6 @@ class Mappings(ConfiguredBaseModel):
     has_member: Optional[List[str]] = Field(None, description="""Defines a mereological relation between a collection and an item.""")
     
 
-
 class AnnotationCollection(ConfiguredBaseModel):
     
     annotations: Optional[List[GeneAnnotation]] = Field(default_factory=list)
@@ -468,14 +468,12 @@ class AnnotationCollection(ConfiguredBaseModel):
     genome_assemblies: Optional[List[GenomeAssembly]] = Field(default_factory=list)
     
 
-
 class MappingCollection(ConfiguredBaseModel):
     """
     A collection of deprecated mappings.
     """
     predicate_mappings: Optional[List[PredicateMapping]] = Field(None, description="""A collection of relationships that are not used in biolink, but have biolink patterns that can  be used to replace them.  This is a temporary slot to help with the transition to the fully qualified predicate model in Biolink3.""")
     
-
 
 class PredicateMapping(ConfiguredBaseModel):
     """
@@ -504,7 +502,6 @@ class PredicateMapping(ConfiguredBaseModel):
     broad_match: Optional[List[str]] = Field(None, description="""a list of terms from different schemas or terminology systems that have a broader, more general meaning. Broader terms are typically shown as parents in a hierarchy or tree.""")
     
 
-
 class OntologyClass(ConfiguredBaseModel):
     """
     a concept or class in an ontology, vocabulary or thesaurus. Note that nodes in a biolink compatible KG can be considered both instances of biolink classes, and OWL classes in their own right. In general you should not need to use this class directly. Instead, use the appropriate biolink class. For example, for the GO concept of endocytosis (GO:0006897), use bl:BiologicalProcess as the type.
@@ -512,14 +509,12 @@ class OntologyClass(ConfiguredBaseModel):
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     
 
-
 class Annotation(ConfiguredBaseModel):
     """
     Biolink Model root class for entity annotations.
     """
     None
     
-
 
 class QuantityValue(Annotation):
     """
@@ -529,24 +524,20 @@ class QuantityValue(Annotation):
     has_numeric_value: Optional[float] = Field(None, description="""connects a quantity value to a number""")
     
 
-
 class RelationshipQuantifier(ConfiguredBaseModel):
     
     None
     
-
 
 class SensitivityQuantifier(RelationshipQuantifier):
     
     None
     
 
-
 class SpecificityQuantifier(RelationshipQuantifier):
     
     None
     
-
 
 class PathognomonicityQuantifier(SpecificityQuantifier):
     """
@@ -554,7 +545,6 @@ class PathognomonicityQuantifier(SpecificityQuantifier):
     """
     None
     
-
 
 class FrequencyQuantifier(RelationshipQuantifier):
     
@@ -564,12 +554,10 @@ class FrequencyQuantifier(RelationshipQuantifier):
     has_percentage: Optional[float] = Field(None, description="""equivalent to has quotient multiplied by 100""")
     
 
-
 class ChemicalOrDrugOrTreatment(ConfiguredBaseModel):
     
     None
     
-
 
 class Entity(ConfiguredBaseModel):
     """
@@ -587,7 +575,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class Checksum(Entity):
     """
@@ -608,7 +595,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class NamedThing(Entity):
     """
     a databased entity or concept/class
@@ -616,6 +602,7 @@ class NamedThing(Entity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/NamedThing","biolink:NamedThing"]] = Field(["biolink:NamedThing"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -628,7 +615,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class Attribute(NamedThing, OntologyClass):
     """
@@ -643,6 +629,7 @@ class Attribute(NamedThing, OntologyClass):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/Attribute","biolink:Attribute"]] = Field(["biolink:Attribute"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -652,7 +639,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class ChemicalRole(Attribute):
     """
@@ -667,6 +653,7 @@ class ChemicalRole(Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/ChemicalRole","biolink:ChemicalRole"]] = Field(["biolink:ChemicalRole"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -676,7 +663,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class BiologicalSex(Attribute):
     
@@ -689,6 +675,7 @@ class BiologicalSex(Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/BiologicalSex","biolink:BiologicalSex"]] = Field(["biolink:BiologicalSex"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -698,7 +685,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class PhenotypicSex(BiologicalSex):
     """
@@ -713,6 +699,7 @@ class PhenotypicSex(BiologicalSex):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/PhenotypicSex","biolink:PhenotypicSex"]] = Field(["biolink:PhenotypicSex"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -722,7 +709,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class GenotypicSex(BiologicalSex):
     """
@@ -737,6 +723,7 @@ class GenotypicSex(BiologicalSex):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/GenotypicSex","biolink:GenotypicSex"]] = Field(["biolink:GenotypicSex"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -746,7 +733,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class SeverityValue(Attribute):
     """
@@ -761,6 +747,7 @@ class SeverityValue(Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/SeverityValue","biolink:SeverityValue"]] = Field(["biolink:SeverityValue"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -771,14 +758,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class RelationshipType(OntologyClass):
     """
     An OWL property used as an edge label
     """
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     
-
 
 class TaxonomicRank(OntologyClass):
     """
@@ -787,7 +772,6 @@ class TaxonomicRank(OntologyClass):
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     
 
-
 class OrganismTaxon(NamedThing):
     """
     A classification of a set of organisms. Example instances: NCBITaxon:9606 (Homo sapiens), NCBITaxon:2 (Bacteria). Can also be used to represent strains or subspecies.
@@ -795,6 +779,7 @@ class OrganismTaxon(NamedThing):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/OrganismTaxon","biolink:OrganismTaxon"]] = Field(["biolink:OrganismTaxon"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -808,7 +793,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Event(NamedThing):
     """
     Something that happens at a given place and time.
@@ -816,6 +800,7 @@ class Event(NamedThing):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Event","biolink:Event"]] = Field(["biolink:Event"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -829,12 +814,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class AdministrativeEntity(NamedThing):
     
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/AdministrativeEntity","biolink:AdministrativeEntity"]] = Field(["biolink:AdministrativeEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -848,7 +833,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Agent(AdministrativeEntity):
     """
     person, group, organization or project that provides a piece of information (i.e. a knowledge association)
@@ -858,6 +842,7 @@ class Agent(AdministrativeEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""Different classes of agents have distinct preferred identifiers. For publishers, use the ISBN publisher code. See https://grp.isbn-international.org/ for publisher code lookups. For editors, authors and  individual providers, use the individual's ORCID if available; Otherwise, a ScopusID, ResearchID or Google Scholar ID ('GSID') may be used if the author ORCID is unknown. Institutional agents could be identified by an International Standard Name Identifier ('ISNI') code.""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Agent","biolink:Agent"]] = Field(["biolink:Agent"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -871,7 +856,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class InformationContentEntity(NamedThing):
     """
     a piece of information that typically describes some topic of discourse or is used as support.
@@ -883,6 +867,7 @@ class InformationContentEntity(NamedThing):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/InformationContentEntity","biolink:InformationContentEntity"]] = Field(["biolink:InformationContentEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -896,7 +881,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class StudyResult(InformationContentEntity):
     """
     A collection of data items from a study that are about a particular study subject or experimental unit (the  'focus' of the Result) - optionally with context/provenance metadata that may be relevant to the interpretation of this data as evidence.
@@ -908,6 +892,7 @@ class StudyResult(InformationContentEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/StudyResult","biolink:StudyResult"]] = Field(["biolink:StudyResult"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -921,7 +906,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class StudyVariable(InformationContentEntity):
     """
     a variable that is used as a measure in the investigation of a study
@@ -933,6 +917,7 @@ class StudyVariable(InformationContentEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/StudyVariable","biolink:StudyVariable"]] = Field(["biolink:StudyVariable"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -946,7 +931,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class CommonDataElement(InformationContentEntity):
     """
     A Common Data Element (CDE) is a standardized, precisely defined question, paired with a set of allowable  responses, used systematically across different sites, studies, or clinical trials to ensure consistent  data collection. Multiple CDEs (from one or more Collections) can be curated into Forms.  (https://cde.nlm.nih.gov/home)
@@ -958,6 +942,7 @@ class CommonDataElement(InformationContentEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/CommonDataElement","biolink:CommonDataElement"]] = Field(["biolink:CommonDataElement"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -971,7 +956,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ConceptCountAnalysisResult(StudyResult):
     """
     A result of a concept count analysis.
@@ -983,6 +967,7 @@ class ConceptCountAnalysisResult(StudyResult):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ConceptCountAnalysisResult","biolink:ConceptCountAnalysisResult"]] = Field(["biolink:ConceptCountAnalysisResult"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -996,7 +981,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ObservedExpectedFrequencyAnalysisResult(StudyResult):
     """
     A result of a observed expected frequency analysis.
@@ -1008,6 +992,7 @@ class ObservedExpectedFrequencyAnalysisResult(StudyResult):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ObservedExpectedFrequencyAnalysisResult","biolink:ObservedExpectedFrequencyAnalysisResult"]] = Field(["biolink:ObservedExpectedFrequencyAnalysisResult"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1021,7 +1006,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class RelativeFrequencyAnalysisResult(StudyResult):
     """
     A result of a relative frequency analysis.
@@ -1033,6 +1017,7 @@ class RelativeFrequencyAnalysisResult(StudyResult):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/RelativeFrequencyAnalysisResult","biolink:RelativeFrequencyAnalysisResult"]] = Field(["biolink:RelativeFrequencyAnalysisResult"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1046,7 +1031,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class TextMiningResult(StudyResult):
     """
     A result of text mining.
@@ -1058,6 +1042,7 @@ class TextMiningResult(StudyResult):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/TextMiningResult","biolink:TextMiningResult"]] = Field(["biolink:TextMiningResult"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1071,7 +1056,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ChiSquaredAnalysisResult(StudyResult):
     """
     A result of a chi squared analysis.
@@ -1083,6 +1067,7 @@ class ChiSquaredAnalysisResult(StudyResult):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ChiSquaredAnalysisResult","biolink:ChiSquaredAnalysisResult"]] = Field(["biolink:ChiSquaredAnalysisResult"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1096,7 +1081,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class LogOddsAnalysisResult(StudyResult):
     """
     A result of a log odds ratio analysis.
@@ -1108,6 +1092,7 @@ class LogOddsAnalysisResult(StudyResult):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/LogOddsAnalysisResult","biolink:LogOddsAnalysisResult"]] = Field(["biolink:LogOddsAnalysisResult"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1121,7 +1106,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Dataset(InformationContentEntity):
     """
     an item that refers to a collection of data from a data source.
@@ -1133,6 +1117,7 @@ class Dataset(InformationContentEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Dataset","biolink:Dataset"]] = Field(["biolink:Dataset"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1146,7 +1131,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class DatasetDistribution(InformationContentEntity):
     """
     an item that holds distribution level information about a dataset.
@@ -1159,6 +1143,7 @@ class DatasetDistribution(InformationContentEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/DatasetDistribution","biolink:DatasetDistribution"]] = Field(["biolink:DatasetDistribution"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1171,7 +1156,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class DatasetVersion(InformationContentEntity):
     """
@@ -1187,6 +1171,7 @@ class DatasetVersion(InformationContentEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/DatasetVersion","biolink:DatasetVersion"]] = Field(["biolink:DatasetVersion"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1199,7 +1184,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class DatasetSummary(InformationContentEntity):
     """
@@ -1214,6 +1198,7 @@ class DatasetSummary(InformationContentEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/DatasetSummary","biolink:DatasetSummary"]] = Field(["biolink:DatasetSummary"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1227,7 +1212,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ConfidenceLevel(InformationContentEntity):
     """
     Level of confidence in a statement
@@ -1239,6 +1223,7 @@ class ConfidenceLevel(InformationContentEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ConfidenceLevel","biolink:ConfidenceLevel"]] = Field(["biolink:ConfidenceLevel"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1252,7 +1237,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class EvidenceType(InformationContentEntity):
     """
     Class of evidence that supports an association
@@ -1264,6 +1248,7 @@ class EvidenceType(InformationContentEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/EvidenceType","biolink:EvidenceType"]] = Field(["biolink:EvidenceType"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1276,7 +1261,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class Publication(InformationContentEntity):
     """
@@ -1294,6 +1278,7 @@ class Publication(InformationContentEntity):
     creation_date: Optional[date] = Field(None, description="""date on which an entity was created. This can be applied to nodes or edges""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""Different kinds of publication subtypes will have different preferred identifiers (curies when feasible). Precedence of identifiers for scientific articles is as follows: PMID if available; DOI if not; actual alternate CURIE otherwise. Enclosing publications (i.e. referenced by 'published in' node property) such as books and journals, should have industry-standard identifier such as from ISBN and ISSN.""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Publication","biolink:Publication"]] = Field(["biolink:Publication"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1306,7 +1291,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class Book(Publication):
     """
@@ -1324,6 +1308,7 @@ class Book(Publication):
     creation_date: Optional[date] = Field(None, description="""date on which an entity was created. This can be applied to nodes or edges""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""Books should have industry-standard identifier such as from ISBN.""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Book","biolink:Book"]] = Field(["biolink:Book"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1336,7 +1321,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class BookChapter(Publication):
     
@@ -1355,6 +1339,7 @@ class BookChapter(Publication):
     creation_date: Optional[date] = Field(None, description="""date on which an entity was created. This can be applied to nodes or edges""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""Different kinds of publication subtypes will have different preferred identifiers (curies when feasible). Precedence of identifiers for scientific articles is as follows: PMID if available; DOI if not; actual alternate CURIE otherwise. Enclosing publications (i.e. referenced by 'published in' node property) such as books and journals, should have industry-standard identifier such as from ISBN and ISSN.""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/BookChapter","biolink:BookChapter"]] = Field(["biolink:BookChapter"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1367,7 +1352,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class Serial(Publication):
     """
@@ -1388,6 +1372,7 @@ class Serial(Publication):
     creation_date: Optional[date] = Field(None, description="""date on which an entity was created. This can be applied to nodes or edges""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""Serials (journals) should have industry-standard identifier such as from ISSN.""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Serial","biolink:Serial"]] = Field(["biolink:Serial"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1400,7 +1385,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class Article(Publication):
     """
@@ -1422,6 +1406,7 @@ class Article(Publication):
     creation_date: Optional[date] = Field(None, description="""date on which an entity was created. This can be applied to nodes or edges""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""Different kinds of publication subtypes will have different preferred identifiers (curies when feasible). Precedence of identifiers for scientific articles is as follows: PMID if available; DOI if not; actual alternate CURIE otherwise. Enclosing publications (i.e. referenced by 'published in' node property) such as books and journals, should have industry-standard identifier such as from ISBN and ISSN.""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Article","biolink:Article"]] = Field(["biolink:Article"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1434,7 +1419,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class JournalArticle(Article):
     """
@@ -1456,6 +1440,7 @@ class JournalArticle(Article):
     creation_date: Optional[date] = Field(None, description="""date on which an entity was created. This can be applied to nodes or edges""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""Different kinds of publication subtypes will have different preferred identifiers (curies when feasible). Precedence of identifiers for scientific articles is as follows: PMID if available; DOI if not; actual alternate CURIE otherwise. Enclosing publications (i.e. referenced by 'published in' node property) such as books and journals, should have industry-standard identifier such as from ISBN and ISSN.""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/JournalArticle","biolink:JournalArticle"]] = Field(["biolink:JournalArticle"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1468,7 +1453,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class Patent(Publication):
     """
@@ -1486,6 +1470,7 @@ class Patent(Publication):
     creation_date: Optional[date] = Field(None, description="""date on which an entity was created. This can be applied to nodes or edges""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""Different kinds of publication subtypes will have different preferred identifiers (curies when feasible). Precedence of identifiers for scientific articles is as follows: PMID if available; DOI if not; actual alternate CURIE otherwise. Enclosing publications (i.e. referenced by 'published in' node property) such as books and journals, should have industry-standard identifier such as from ISBN and ISSN.""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Patent","biolink:Patent"]] = Field(["biolink:Patent"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1498,7 +1483,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class WebPage(Publication):
     """
@@ -1516,6 +1500,7 @@ class WebPage(Publication):
     creation_date: Optional[date] = Field(None, description="""date on which an entity was created. This can be applied to nodes or edges""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""Different kinds of publication subtypes will have different preferred identifiers (curies when feasible). Precedence of identifiers for scientific articles is as follows: PMID if available; DOI if not; actual alternate CURIE otherwise. Enclosing publications (i.e. referenced by 'published in' node property) such as books and journals, should have industry-standard identifier such as from ISBN and ISSN.""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/WebPage","biolink:WebPage"]] = Field(["biolink:WebPage"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1528,7 +1513,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class PreprintPublication(Publication):
     """
@@ -1546,6 +1530,7 @@ class PreprintPublication(Publication):
     creation_date: Optional[date] = Field(None, description="""date on which an entity was created. This can be applied to nodes or edges""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""Different kinds of publication subtypes will have different preferred identifiers (curies when feasible). Precedence of identifiers for scientific articles is as follows: PMID if available; DOI if not; actual alternate CURIE otherwise. Enclosing publications (i.e. referenced by 'published in' node property) such as books and journals, should have industry-standard identifier such as from ISBN and ISSN.""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/PreprintPublication","biolink:PreprintPublication"]] = Field(["biolink:PreprintPublication"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1558,7 +1543,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class DrugLabel(Publication):
     """
@@ -1576,6 +1560,7 @@ class DrugLabel(Publication):
     creation_date: Optional[date] = Field(None, description="""date on which an entity was created. This can be applied to nodes or edges""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""Different kinds of publication subtypes will have different preferred identifiers (curies when feasible). Precedence of identifiers for scientific articles is as follows: PMID if available; DOI if not; actual alternate CURIE otherwise. Enclosing publications (i.e. referenced by 'published in' node property) such as books and journals, should have industry-standard identifier such as from ISBN and ISSN.""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/DrugLabel","biolink:DrugLabel"]] = Field(["biolink:DrugLabel"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1588,7 +1573,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class RetrievalSource(InformationContentEntity):
     """
@@ -1604,6 +1588,7 @@ class RetrievalSource(InformationContentEntity):
     creation_date: Optional[date] = Field(None, description="""date on which an entity was created. This can be applied to nodes or edges""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/RetrievalSource","biolink:RetrievalSource"]] = Field(["biolink:RetrievalSource"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1617,14 +1602,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class PhysicalEssenceOrOccurrent(ConfiguredBaseModel):
     """
     Either a physical or processual entity.
     """
     None
     
-
 
 class PhysicalEssence(PhysicalEssenceOrOccurrent):
     """
@@ -1633,7 +1616,6 @@ class PhysicalEssence(PhysicalEssenceOrOccurrent):
     None
     
 
-
 class PhysicalEntity(PhysicalEssence, NamedThing):
     """
     An entity that has material reality (a.k.a. physical essence).
@@ -1641,6 +1623,7 @@ class PhysicalEntity(PhysicalEssence, NamedThing):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/PhysicalEntity","biolink:PhysicalEntity"]] = Field(["biolink:PhysicalEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1654,14 +1637,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Occurrent(PhysicalEssenceOrOccurrent):
     """
     A processual entity.
     """
     None
     
-
 
 class ActivityAndBehavior(Occurrent):
     """
@@ -1670,7 +1651,6 @@ class ActivityAndBehavior(Occurrent):
     None
     
 
-
 class Activity(ActivityAndBehavior, NamedThing):
     """
     An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
@@ -1678,6 +1658,7 @@ class Activity(ActivityAndBehavior, NamedThing):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Activity","biolink:Activity"]] = Field(["biolink:Activity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1691,7 +1672,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Study(Activity):
     """
     a detailed investigation and/or analysis
@@ -1699,6 +1679,7 @@ class Study(Activity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Study","biolink:Study"]] = Field(["biolink:Study"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1712,7 +1693,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Procedure(ActivityAndBehavior, NamedThing):
     """
     A series of actions conducted in a certain order or manner
@@ -1720,6 +1700,7 @@ class Procedure(ActivityAndBehavior, NamedThing):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Procedure","biolink:Procedure"]] = Field(["biolink:Procedure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1733,7 +1714,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Phenomenon(Occurrent, NamedThing):
     """
     a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question
@@ -1741,6 +1721,7 @@ class Phenomenon(Occurrent, NamedThing):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Phenomenon","biolink:Phenomenon"]] = Field(["biolink:Phenomenon"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1754,7 +1735,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Device(NamedThing):
     """
     A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
@@ -1762,6 +1742,7 @@ class Device(NamedThing):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Device","biolink:Device"]] = Field(["biolink:Device"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1775,7 +1756,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class DiagnosticAid(NamedThing):
     """
     A device or substance used to help diagnose disease or injury
@@ -1783,6 +1763,7 @@ class DiagnosticAid(NamedThing):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/DiagnosticAid","biolink:DiagnosticAid"]] = Field(["biolink:DiagnosticAid"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1796,14 +1777,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class SubjectOfInvestigation(ConfiguredBaseModel):
     """
     An entity that has the role of being studied in an investigation, study, or experiment
     """
     None
     
-
 
 class MaterialSample(SubjectOfInvestigation, PhysicalEntity):
     """
@@ -1812,6 +1791,7 @@ class MaterialSample(SubjectOfInvestigation, PhysicalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/MaterialSample","biolink:MaterialSample"]] = Field(["biolink:MaterialSample"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1825,7 +1805,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class PlanetaryEntity(NamedThing):
     """
     Any entity or process that exists at the level of the whole planet
@@ -1833,6 +1812,7 @@ class PlanetaryEntity(NamedThing):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/PlanetaryEntity","biolink:PlanetaryEntity"]] = Field(["biolink:PlanetaryEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1846,12 +1826,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class EnvironmentalProcess(PlanetaryEntity, Occurrent):
     
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/EnvironmentalProcess","biolink:EnvironmentalProcess"]] = Field(["biolink:EnvironmentalProcess"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1865,12 +1845,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class EnvironmentalFeature(PlanetaryEntity):
     
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/EnvironmentalFeature","biolink:EnvironmentalFeature"]] = Field(["biolink:EnvironmentalFeature"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1884,7 +1864,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GeographicLocation(PlanetaryEntity):
     """
     a location that can be described in lat/long coordinates
@@ -1894,6 +1873,7 @@ class GeographicLocation(PlanetaryEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/GeographicLocation","biolink:GeographicLocation"]] = Field(["biolink:GeographicLocation"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1907,7 +1887,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GeographicLocationAtTime(GeographicLocation):
     """
     a location that can be described in lat/long coordinates, for a particular time
@@ -1918,6 +1897,7 @@ class GeographicLocationAtTime(GeographicLocation):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/GeographicLocationAtTime","biolink:GeographicLocationAtTime"]] = Field(["biolink:GeographicLocationAtTime"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1931,7 +1911,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ThingWithTaxon(ConfiguredBaseModel):
     """
     A mixin that can be used on any entity that can be taxonomically classified. This includes individual organisms; genes, their products and other molecular entities; body parts; biological processes
@@ -1940,7 +1919,6 @@ class ThingWithTaxon(ConfiguredBaseModel):
     in_taxon_label: Optional[str] = Field(None, description="""The human readable scientific name for the taxon of the entity.""")
     
 
-
 class BiologicalEntity(ThingWithTaxon, NamedThing):
     
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
@@ -1948,6 +1926,7 @@ class BiologicalEntity(ThingWithTaxon, NamedThing):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/BiologicalEntity","biolink:BiologicalEntity"]] = Field(["biolink:BiologicalEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -1961,18 +1940,15 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GenomicEntity(ConfiguredBaseModel):
     
     has_biological_sequence: Optional[str] = Field(None, description="""connects a genomic feature to its sequence""")
     
 
-
 class EpigenomicEntity(ConfiguredBaseModel):
     
     has_biological_sequence: Optional[str] = Field(None, description="""connects a genomic feature to its sequence""")
     
-
 
 class BiologicalProcessOrActivity(BiologicalEntity, Occurrent, OntologyClass):
     """
@@ -1987,6 +1963,7 @@ class BiologicalProcessOrActivity(BiologicalEntity, Occurrent, OntologyClass):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/BiologicalProcessOrActivity","biolink:BiologicalProcessOrActivity"]] = Field(["biolink:BiologicalProcessOrActivity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -1998,7 +1975,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class MolecularActivity(BiologicalProcessOrActivity, Occurrent, OntologyClass):
     """
@@ -2013,6 +1989,7 @@ class MolecularActivity(BiologicalProcessOrActivity, Occurrent, OntologyClass):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/MolecularActivity","biolink:MolecularActivity"]] = Field(["biolink:MolecularActivity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -2024,7 +2001,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class BiologicalProcess(BiologicalProcessOrActivity, Occurrent, OntologyClass):
     """
@@ -2039,6 +2015,7 @@ class BiologicalProcess(BiologicalProcessOrActivity, Occurrent, OntologyClass):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/BiologicalProcess","biolink:BiologicalProcess"]] = Field(["biolink:BiologicalProcess"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -2051,7 +2028,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Pathway(BiologicalProcess, OntologyClass):
     
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
@@ -2063,6 +2039,7 @@ class Pathway(BiologicalProcess, OntologyClass):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Pathway","biolink:Pathway"]] = Field(["biolink:Pathway"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -2075,7 +2052,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class PhysiologicalProcess(BiologicalProcess, OntologyClass):
     
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
@@ -2087,6 +2063,7 @@ class PhysiologicalProcess(BiologicalProcess, OntologyClass):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/PhysiologicalProcess","biolink:PhysiologicalProcess"]] = Field(["biolink:PhysiologicalProcess"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -2099,7 +2076,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Behavior(BiologicalProcess, ActivityAndBehavior, OntologyClass):
     
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
@@ -2111,6 +2087,7 @@ class Behavior(BiologicalProcess, ActivityAndBehavior, OntologyClass):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Behavior","biolink:Behavior"]] = Field(["biolink:Behavior"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -2122,7 +2099,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class OrganismAttribute(Attribute):
     """
@@ -2137,6 +2113,7 @@ class OrganismAttribute(Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/OrganismAttribute","biolink:OrganismAttribute"]] = Field(["biolink:OrganismAttribute"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -2146,7 +2123,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class PhenotypicQuality(OrganismAttribute):
     """
@@ -2161,6 +2137,7 @@ class PhenotypicQuality(OrganismAttribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/PhenotypicQuality","biolink:PhenotypicQuality"]] = Field(["biolink:PhenotypicQuality"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -2171,7 +2148,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GeneticInheritance(BiologicalEntity):
     """
     The pattern or 'mode' in which a particular genetic trait or disorder is passed from one generation to the next, e.g. autosomal dominant, autosomal recessive, etc.
@@ -2181,6 +2157,7 @@ class GeneticInheritance(BiologicalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/GeneticInheritance","biolink:GeneticInheritance"]] = Field(["biolink:GeneticInheritance"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2194,7 +2171,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class OrganismalEntity(BiologicalEntity, SubjectOfInvestigation):
     """
     A named entity that is either a part of an organism, a whole organism, population or clade of organisms, excluding chemical entities
@@ -2204,6 +2180,7 @@ class OrganismalEntity(BiologicalEntity, SubjectOfInvestigation):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/OrganismalEntity","biolink:OrganismalEntity"]] = Field(["biolink:OrganismalEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2217,7 +2194,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class Bacterium(OrganismalEntity):
     """
     A member of a group of unicellular microorganisms lacking a nuclear membrane, that reproduce by binary fission and are often motile.
@@ -2227,6 +2203,7 @@ class Bacterium(OrganismalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Bacterium","biolink:Bacterium"]] = Field(["biolink:Bacterium"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2240,7 +2217,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class Virus(OrganismalEntity, SubjectOfInvestigation):
     """
     A virus is a microorganism that replicates itself as a microRNA and infects the host cell.
@@ -2250,6 +2226,7 @@ class Virus(OrganismalEntity, SubjectOfInvestigation):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Virus","biolink:Virus"]] = Field(["biolink:Virus"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2263,7 +2240,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class CellularOrganism(OrganismalEntity, SubjectOfInvestigation):
     
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
@@ -2271,6 +2247,7 @@ class CellularOrganism(OrganismalEntity, SubjectOfInvestigation):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/CellularOrganism","biolink:CellularOrganism"]] = Field(["biolink:CellularOrganism"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2284,7 +2261,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class Mammal(CellularOrganism, SubjectOfInvestigation):
     """
     A member of the class Mammalia, a clade of endothermic amniotes distinguished from reptiles and birds by the possession of hair, three middle ear bones, mammary glands, and a neocortex
@@ -2294,6 +2270,7 @@ class Mammal(CellularOrganism, SubjectOfInvestigation):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Mammal","biolink:Mammal"]] = Field(["biolink:Mammal"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2307,7 +2284,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class Human(Mammal, SubjectOfInvestigation):
     """
     A member of the the species Homo sapiens.
@@ -2317,6 +2293,7 @@ class Human(Mammal, SubjectOfInvestigation):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Human","biolink:Human"]] = Field(["biolink:Human"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2330,7 +2307,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class Plant(CellularOrganism):
     
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
@@ -2338,6 +2314,7 @@ class Plant(CellularOrganism):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Plant","biolink:Plant"]] = Field(["biolink:Plant"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2351,7 +2328,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class Invertebrate(CellularOrganism):
     """
     An animal lacking a vertebral column. This group consists of 98% of all animal species.
@@ -2361,6 +2337,7 @@ class Invertebrate(CellularOrganism):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Invertebrate","biolink:Invertebrate"]] = Field(["biolink:Invertebrate"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2374,7 +2351,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class Vertebrate(CellularOrganism):
     """
     A sub-phylum of animals consisting of those having a bony or cartilaginous vertebral column.
@@ -2384,6 +2360,7 @@ class Vertebrate(CellularOrganism):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Vertebrate","biolink:Vertebrate"]] = Field(["biolink:Vertebrate"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2397,7 +2374,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class Fungus(CellularOrganism):
     """
     A kingdom of eukaryotic, heterotrophic organisms that live as saprobes or parasites,  including mushrooms, yeasts, smuts, molds, etc. They reproduce either sexually or asexually, and have life cycles that range from simple to complex. Filamentous  fungi refer to those that grow as multicellular colonies (mushrooms and molds).
@@ -2407,6 +2383,7 @@ class Fungus(CellularOrganism):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Fungus","biolink:Fungus"]] = Field(["biolink:Fungus"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2420,7 +2397,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class LifeStage(OrganismalEntity):
     """
     A stage of development or growth of an organism, including post-natal adult stages
@@ -2430,6 +2406,7 @@ class LifeStage(OrganismalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/LifeStage","biolink:LifeStage"]] = Field(["biolink:LifeStage"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2443,7 +2420,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class IndividualOrganism(OrganismalEntity, SubjectOfInvestigation):
     """
     An instance of an organism. For example, Richard Nixon, Charles Darwin, my pet cat. Example ID: ORCID:0000-0002-5355-2576
@@ -2453,6 +2429,7 @@ class IndividualOrganism(OrganismalEntity, SubjectOfInvestigation):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/IndividualOrganism","biolink:IndividualOrganism"]] = Field(["biolink:IndividualOrganism"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2466,7 +2443,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class PopulationOfIndividualOrganisms(OrganismalEntity, SubjectOfInvestigation):
     """
     A collection of individuals from the same taxonomic class distinguished by one or more characteristics.  Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes.
@@ -2476,6 +2452,7 @@ class PopulationOfIndividualOrganisms(OrganismalEntity, SubjectOfInvestigation):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/PopulationOfIndividualOrganisms","biolink:PopulationOfIndividualOrganisms"]] = Field(["biolink:PopulationOfIndividualOrganisms"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2489,7 +2466,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class StudyPopulation(PopulationOfIndividualOrganisms):
     """
     A group of people banded together or treated as a group as participants in a research study.
@@ -2499,6 +2475,7 @@ class StudyPopulation(PopulationOfIndividualOrganisms):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/StudyPopulation","biolink:StudyPopulation"]] = Field(["biolink:StudyPopulation"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2512,7 +2489,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class DiseaseOrPhenotypicFeature(BiologicalEntity):
     """
     Either one of a disease or an individual phenotypic feature. Some knowledge resources such as Monarch treat these as distinct, others such as MESH conflate.  Please see definitions of phenotypic feature and disease in this model for their independent descriptions.  This class is helpful to enforce domains and ranges   that may involve either a disease or a phenotypic feature.
@@ -2522,6 +2498,7 @@ class DiseaseOrPhenotypicFeature(BiologicalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeature","biolink:DiseaseOrPhenotypicFeature"]] = Field(["biolink:DiseaseOrPhenotypicFeature"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2535,7 +2512,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Disease(DiseaseOrPhenotypicFeature):
     """
     A disorder of structure or function, especially one that produces specific  signs, phenotypes or symptoms or that affects a specific location and is not simply a  direct result of physical injury.  A disposition to undergo pathological processes that exists in an  organism because of one or more disorders in that organism.
@@ -2545,6 +2521,7 @@ class Disease(DiseaseOrPhenotypicFeature):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Disease","biolink:Disease"]] = Field(["biolink:Disease"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2558,7 +2535,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class PhenotypicFeature(DiseaseOrPhenotypicFeature):
     """
     A combination of entity and quality that makes up a phenotyping statement. An observable characteristic of an  individual resulting from the interaction of its genotype with its molecular and physical environment.
@@ -2568,6 +2544,7 @@ class PhenotypicFeature(DiseaseOrPhenotypicFeature):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/PhenotypicFeature","biolink:PhenotypicFeature"]] = Field(["biolink:PhenotypicFeature"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2581,7 +2558,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class BehavioralFeature(PhenotypicFeature):
     """
     A phenotypic feature which is behavioral in nature.
@@ -2591,6 +2567,7 @@ class BehavioralFeature(PhenotypicFeature):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/BehavioralFeature","biolink:BehavioralFeature"]] = Field(["biolink:BehavioralFeature"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2604,7 +2581,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class AnatomicalEntity(OrganismalEntity, PhysicalEssence):
     """
     A subcellular location, cell type or gross anatomical part
@@ -2614,6 +2590,7 @@ class AnatomicalEntity(OrganismalEntity, PhysicalEssence):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/AnatomicalEntity","biolink:AnatomicalEntity"]] = Field(["biolink:AnatomicalEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2627,7 +2604,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class CellularComponent(AnatomicalEntity):
     """
     A location in or around a cell
@@ -2637,6 +2613,7 @@ class CellularComponent(AnatomicalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/CellularComponent","biolink:CellularComponent"]] = Field(["biolink:CellularComponent"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2650,7 +2627,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class Cell(AnatomicalEntity):
     
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
@@ -2658,6 +2634,7 @@ class Cell(AnatomicalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Cell","biolink:Cell"]] = Field(["biolink:Cell"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2671,7 +2648,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class CellLine(OrganismalEntity, SubjectOfInvestigation):
     
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
@@ -2679,6 +2655,7 @@ class CellLine(OrganismalEntity, SubjectOfInvestigation):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/CellLine","biolink:CellLine"]] = Field(["biolink:CellLine"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2692,7 +2669,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class GrossAnatomicalStructure(AnatomicalEntity):
     
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
@@ -2700,6 +2676,7 @@ class GrossAnatomicalStructure(AnatomicalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/GrossAnatomicalStructure","biolink:GrossAnatomicalStructure"]] = Field(["biolink:GrossAnatomicalStructure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2713,14 +2690,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class ChemicalEntityOrGeneOrGeneProduct(ConfiguredBaseModel):
     """
     A union of chemical entities and children, and gene or gene product. This mixin is helpful to use when searching across chemical entities that must include genes and their children as chemical entities.
     """
     None
     
-
 
 class RegulatoryRegion(ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
     """
@@ -2733,6 +2708,7 @@ class RegulatoryRegion(ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, Biologi
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/RegulatoryRegion","biolink:RegulatoryRegion"]] = Field(["biolink:RegulatoryRegion"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -2745,7 +2721,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class AccessibleDnaRegion(RegulatoryRegion, ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, PhysicalEssence, OntologyClass):
     """
     A region (or regions) of a chromatinized genome that has been measured to be more accessible to an enzyme such as DNase-I or Tn5 Transpose
@@ -2757,6 +2732,7 @@ class AccessibleDnaRegion(RegulatoryRegion, ChemicalEntityOrGeneOrGeneProduct, G
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/AccessibleDnaRegion","biolink:AccessibleDnaRegion"]] = Field(["biolink:AccessibleDnaRegion"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -2769,7 +2745,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class TranscriptionFactorBindingSite(RegulatoryRegion, ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, PhysicalEssence, OntologyClass):
     """
     A region (or regions) of the genome that contains a region of DNA known or predicted to bind a protein that modulates gene transcription
@@ -2781,6 +2756,7 @@ class TranscriptionFactorBindingSite(RegulatoryRegion, ChemicalEntityOrGeneOrGen
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/TranscriptionFactorBindingSite","biolink:TranscriptionFactorBindingSite"]] = Field(["biolink:TranscriptionFactorBindingSite"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -2793,14 +2769,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ChemicalEntityOrProteinOrPolypeptide(ConfiguredBaseModel):
     """
     A union of chemical entities and children, and protein and polypeptide. This mixin is helpful to use when searching across chemical entities that must include genes and their children as chemical entities.
     """
     None
     
-
 
 class ChemicalEntity(ChemicalEntityOrProteinOrPolypeptide, ChemicalEntityOrGeneOrGeneProduct, PhysicalEssence, NamedThing, ChemicalOrDrugOrTreatment):
     """
@@ -2814,6 +2788,7 @@ class ChemicalEntity(ChemicalEntityOrProteinOrPolypeptide, ChemicalEntityOrGeneO
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ChemicalEntity","biolink:ChemicalEntity"]] = Field(["biolink:ChemicalEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2826,7 +2801,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class MolecularEntity(ChemicalEntity):
     """
@@ -2841,6 +2815,7 @@ class MolecularEntity(ChemicalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/MolecularEntity","biolink:MolecularEntity"]] = Field(["biolink:MolecularEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2853,7 +2828,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class SmallMolecule(MolecularEntity):
     """
@@ -2868,6 +2842,7 @@ class SmallMolecule(MolecularEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/SmallMolecule","biolink:SmallMolecule"]] = Field(["biolink:SmallMolecule"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2880,7 +2855,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class ChemicalMixture(ChemicalEntity):
     """
@@ -2898,6 +2872,7 @@ class ChemicalMixture(ChemicalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ChemicalMixture","biolink:ChemicalMixture"]] = Field(["biolink:ChemicalMixture"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2910,7 +2885,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class NucleicAcidEntity(MolecularEntity, GenomicEntity, ThingWithTaxon, PhysicalEssence, OntologyClass):
     """
@@ -2929,6 +2903,7 @@ class NucleicAcidEntity(MolecularEntity, GenomicEntity, ThingWithTaxon, Physical
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/NucleicAcidEntity","biolink:NucleicAcidEntity"]] = Field(["biolink:NucleicAcidEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -2940,7 +2915,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class MolecularMixture(ChemicalMixture):
     """
@@ -2958,6 +2932,7 @@ class MolecularMixture(ChemicalMixture):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/MolecularMixture","biolink:MolecularMixture"]] = Field(["biolink:MolecularMixture"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -2970,7 +2945,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class ComplexMolecularMixture(ChemicalMixture):
     """
@@ -2988,6 +2962,7 @@ class ComplexMolecularMixture(ChemicalMixture):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ComplexMolecularMixture","biolink:ComplexMolecularMixture"]] = Field(["biolink:ComplexMolecularMixture"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -3000,7 +2975,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class ProcessedMaterial(ChemicalMixture):
     """
@@ -3018,6 +2992,7 @@ class ProcessedMaterial(ChemicalMixture):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ProcessedMaterial","biolink:ProcessedMaterial"]] = Field(["biolink:ProcessedMaterial"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -3030,7 +3005,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class Drug(MolecularMixture, ChemicalOrDrugOrTreatment, OntologyClass):
     """
@@ -3049,6 +3023,7 @@ class Drug(MolecularMixture, ChemicalOrDrugOrTreatment, OntologyClass):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Drug","biolink:Drug"]] = Field(["biolink:Drug"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3061,7 +3036,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class EnvironmentalFoodContaminant(ChemicalEntity):
     
     trade_name: Optional[str] = Field(None)
@@ -3072,6 +3046,7 @@ class EnvironmentalFoodContaminant(ChemicalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/EnvironmentalFoodContaminant","biolink:EnvironmentalFoodContaminant"]] = Field(["biolink:EnvironmentalFoodContaminant"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -3085,7 +3060,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class FoodAdditive(ChemicalEntity):
     
     trade_name: Optional[str] = Field(None)
@@ -3096,6 +3070,7 @@ class FoodAdditive(ChemicalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/FoodAdditive","biolink:FoodAdditive"]] = Field(["biolink:FoodAdditive"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -3108,7 +3083,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class Food(ChemicalMixture):
     """
@@ -3126,6 +3100,7 @@ class Food(ChemicalMixture):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Food","biolink:Food"]] = Field(["biolink:Food"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -3139,14 +3114,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class MacromolecularMachineMixin(ConfiguredBaseModel):
     """
     A union of gene locus, gene product, and macromolecular complex. These are the basic units of function in a cell. They either carry out individual biological activities, or they encode molecules which do this.
     """
     name: Optional[str] = Field(None, description="""genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name""")
     
-
 
 class GeneOrGeneProduct(MacromolecularMachineMixin):
     """
@@ -3155,13 +3128,11 @@ class GeneOrGeneProduct(MacromolecularMachineMixin):
     name: Optional[str] = Field(None, description="""genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name""")
     
 
-
 class Gene(GeneOrGeneProduct, ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
     """
     A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene locus may include regulatory regions, transcribed regions and/or other functional sequence regions.
     """
     symbol: Optional[str] = Field(None, description="""Symbol for a particular thing""")
-    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     has_biological_sequence: Optional[str] = Field(None, description="""connects a genomic feature to its sequence""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
@@ -3169,6 +3140,7 @@ class Gene(GeneOrGeneProduct, ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, 
     in_taxon_label: Optional[str] = Field(None, description="""The human readable scientific name for the taxon of the entity.""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Gene","biolink:Gene"]] = Field(["biolink:Gene"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3181,7 +3153,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GeneAnnotation(Gene):
     """
     An annotation describing the location, boundaries, and functions of  individual genes within a genome annotation.
@@ -3190,7 +3161,6 @@ class GeneAnnotation(Gene):
     molecular_type: Optional[BioType] = Field(None)
     source_id: Optional[str] = Field(None, description="""The authority specific identifier.""")
     symbol: Optional[str] = Field(None, description="""Symbol for a particular thing""")
-    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     has_biological_sequence: Optional[str] = Field(None, description="""connects a genomic feature to its sequence""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
@@ -3198,6 +3168,7 @@ class GeneAnnotation(Gene):
     in_taxon_label: Optional[str] = Field(None, description="""The human readable scientific name for the taxon of the entity.""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://identifiers.org/brain-bican/vocab/GeneAnnotation","bican:GeneAnnotation"]] = Field(["bican:GeneAnnotation"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3210,7 +3181,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GeneProductMixin(GeneOrGeneProduct):
     """
     The functional molecular product of a single gene locus. Gene products are either proteins or functional RNA molecules.
@@ -3220,7 +3190,6 @@ class GeneProductMixin(GeneOrGeneProduct):
     name: Optional[str] = Field(None, description="""genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name""")
     
 
-
 class GeneProductIsoformMixin(GeneProductMixin):
     """
     This is an abstract class that can be mixed in with different kinds of gene products to indicate that the gene product is intended to represent a specific isoform rather than a canonical or reference or generic product. The designation of canonical or reference may be arbitrary, or it may represent the superclass of all isoforms.
@@ -3229,7 +3198,6 @@ class GeneProductIsoformMixin(GeneProductMixin):
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     name: Optional[str] = Field(None, description="""genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name""")
     
-
 
 class MacromolecularComplex(MacromolecularMachineMixin, BiologicalEntity):
     """
@@ -3241,6 +3209,7 @@ class MacromolecularComplex(MacromolecularMachineMixin, BiologicalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/MacromolecularComplex","biolink:MacromolecularComplex"]] = Field(["biolink:MacromolecularComplex"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -3253,7 +3222,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class NucleosomeModification(GeneProductIsoformMixin, EpigenomicEntity, GenomicEntity, BiologicalEntity):
     """
     A chemical modification of a histone protein within a nucleosome octomer or a substitution of a histone with a variant histone isoform. e.g. Histone 4 Lysine 20 methylation (H4K20me), histone variant H2AZ substituting H2A.
@@ -3264,6 +3232,7 @@ class NucleosomeModification(GeneProductIsoformMixin, EpigenomicEntity, GenomicE
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/NucleosomeModification","biolink:NucleosomeModification"]] = Field(["biolink:NucleosomeModification"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -3275,9 +3244,7 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     name: Optional[str] = Field(None, description="""genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name""")
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
-    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     
-
 
 class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
     """
@@ -3290,6 +3257,7 @@ class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Genome","biolink:Genome"]] = Field(["biolink:Genome"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3301,7 +3269,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class GenomeAnnotation(Genome):
     """
@@ -3318,6 +3285,7 @@ class GenomeAnnotation(Genome):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://identifiers.org/brain-bican/vocab/GenomeAnnotation","bican:GenomeAnnotation"]] = Field(["bican:GenomeAnnotation"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3330,24 +3298,17 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
-class Exon(NucleicAcidEntity):
+class Exon(BiologicalEntity):
     """
     A region of the transcript sequence within a gene which is not removed from the primary RNA transcript by RNA splicing.
     """
-    has_biological_sequence: Optional[str] = Field(None, description="""connects a genomic feature to its sequence""")
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
     in_taxon_label: Optional[str] = Field(None, description="""The human readable scientific name for the taxon of the entity.""")
-    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
-    is_metabolite: Optional[bool] = Field(None, description="""indicates whether a molecular entity is a metabolite""")
-    trade_name: Optional[str] = Field(None)
-    available_from: Optional[List[DrugAvailabilityEnum]] = Field(None)
-    max_tolerated_dose: Optional[str] = Field(None, description="""The highest dose of a drug or treatment that does not cause unacceptable side effects. The maximum tolerated dose is determined in clinical trials by testing increasing doses on different groups of people until the highest dose with acceptable side effects is found. Also called MTD.""")
-    is_toxic: Optional[bool] = Field(None)
-    has_chemical_role: Optional[List[str]] = Field(None, description="""A role is particular behaviour which a chemical entity may exhibit.""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
+    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Exon","biolink:Exon"]] = Field(["biolink:Exon"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3360,24 +3321,17 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
-class Transcript(NucleicAcidEntity):
+class Transcript(BiologicalEntity):
     """
     An RNA synthesized on a DNA or RNA template by an RNA polymerase.
     """
-    has_biological_sequence: Optional[str] = Field(None, description="""connects a genomic feature to its sequence""")
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
     in_taxon_label: Optional[str] = Field(None, description="""The human readable scientific name for the taxon of the entity.""")
-    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
-    is_metabolite: Optional[bool] = Field(None, description="""indicates whether a molecular entity is a metabolite""")
-    trade_name: Optional[str] = Field(None)
-    available_from: Optional[List[DrugAvailabilityEnum]] = Field(None)
-    max_tolerated_dose: Optional[str] = Field(None, description="""The highest dose of a drug or treatment that does not cause unacceptable side effects. The maximum tolerated dose is determined in clinical trials by testing increasing doses on different groups of people until the highest dose with acceptable side effects is found. Also called MTD.""")
-    is_toxic: Optional[bool] = Field(None)
-    has_chemical_role: Optional[List[str]] = Field(None, description="""A role is particular behaviour which a chemical entity may exhibit.""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
+    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Transcript","biolink:Transcript"]] = Field(["biolink:Transcript"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3390,22 +3344,16 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
-class CodingSequence(NucleicAcidEntity):
+class CodingSequence(GenomicEntity, BiologicalEntity):
     
     has_biological_sequence: Optional[str] = Field(None, description="""connects a genomic feature to its sequence""")
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
     in_taxon_label: Optional[str] = Field(None, description="""The human readable scientific name for the taxon of the entity.""")
-    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
-    is_metabolite: Optional[bool] = Field(None, description="""indicates whether a molecular entity is a metabolite""")
-    trade_name: Optional[str] = Field(None)
-    available_from: Optional[List[DrugAvailabilityEnum]] = Field(None)
-    max_tolerated_dose: Optional[str] = Field(None, description="""The highest dose of a drug or treatment that does not cause unacceptable side effects. The maximum tolerated dose is determined in clinical trials by testing increasing doses on different groups of people until the highest dose with acceptable side effects is found. Also called MTD.""")
-    is_toxic: Optional[bool] = Field(None)
-    has_chemical_role: Optional[List[str]] = Field(None, description="""A role is particular behaviour which a chemical entity may exhibit.""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
+    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/CodingSequence","biolink:CodingSequence"]] = Field(["biolink:CodingSequence"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3418,7 +3366,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Polypeptide(ChemicalEntityOrProteinOrPolypeptide, ChemicalEntityOrGeneOrGeneProduct, BiologicalEntity):
     """
     A polypeptide is a molecular entity characterized by availability in protein databases of amino-acid-based sequence representations of its precise primary structure; for convenience of representation, partial sequences of various kinds are included, even if they do not represent a physical molecule.
@@ -3428,6 +3375,7 @@ class Polypeptide(ChemicalEntityOrProteinOrPolypeptide, ChemicalEntityOrGeneOrGe
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Polypeptide","biolink:Polypeptide"]] = Field(["biolink:Polypeptide"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -3440,7 +3388,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class Protein(Polypeptide, GeneProductMixin):
     """
@@ -3465,7 +3412,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ProteinIsoform(Protein, GeneProductIsoformMixin):
     """
     Represents a protein that is a specific isoform of the canonical or reference protein. See https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4114032/
@@ -3489,7 +3435,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class PosttranslationalModification(GeneProductIsoformMixin, BiologicalEntity):
     """
     A chemical modification of a polypeptide or protein that occurs after translation.  e.g. polypeptide cleavage to form separate proteins, methylation or acetylation of histone tail amino acids,  protein ubiquitination.
@@ -3499,6 +3444,7 @@ class PosttranslationalModification(GeneProductIsoformMixin, BiologicalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/PosttranslationalModification","biolink:PosttranslationalModification"]] = Field(["biolink:PosttranslationalModification"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -3510,9 +3456,7 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     name: Optional[str] = Field(None, description="""genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name""")
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
-    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     
-
 
 class NucleicAcidSequenceMotif(BiologicalEntity):
     """
@@ -3523,6 +3467,7 @@ class NucleicAcidSequenceMotif(BiologicalEntity):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/NucleicAcidSequenceMotif","biolink:NucleicAcidSequenceMotif"]] = Field(["biolink:NucleicAcidSequenceMotif"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -3536,23 +3481,15 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class RNAProduct(Transcript, GeneProductMixin):
     
     synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
-    has_biological_sequence: Optional[str] = Field(None, description="""connects a genomic feature to its sequence""")
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
     in_taxon_label: Optional[str] = Field(None, description="""The human readable scientific name for the taxon of the entity.""")
-    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
-    is_metabolite: Optional[bool] = Field(None, description="""indicates whether a molecular entity is a metabolite""")
-    trade_name: Optional[str] = Field(None)
-    available_from: Optional[List[DrugAvailabilityEnum]] = Field(None)
-    max_tolerated_dose: Optional[str] = Field(None, description="""The highest dose of a drug or treatment that does not cause unacceptable side effects. The maximum tolerated dose is determined in clinical trials by testing increasing doses on different groups of people until the highest dose with acceptable side effects is found. Also called MTD.""")
-    is_toxic: Optional[bool] = Field(None)
-    has_chemical_role: Optional[List[str]] = Field(None, description="""A role is particular behaviour which a chemical entity may exhibit.""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/RNAProduct","biolink:RNAProduct"]] = Field(["biolink:RNAProduct"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3565,25 +3502,17 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class RNAProductIsoform(RNAProduct, GeneProductIsoformMixin):
     """
     Represents a protein that is a specific isoform of the canonical or reference RNA
     """
     synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
-    has_biological_sequence: Optional[str] = Field(None, description="""connects a genomic feature to its sequence""")
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
     in_taxon_label: Optional[str] = Field(None, description="""The human readable scientific name for the taxon of the entity.""")
-    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
-    is_metabolite: Optional[bool] = Field(None, description="""indicates whether a molecular entity is a metabolite""")
-    trade_name: Optional[str] = Field(None)
-    available_from: Optional[List[DrugAvailabilityEnum]] = Field(None)
-    max_tolerated_dose: Optional[str] = Field(None, description="""The highest dose of a drug or treatment that does not cause unacceptable side effects. The maximum tolerated dose is determined in clinical trials by testing increasing doses on different groups of people until the highest dose with acceptable side effects is found. Also called MTD.""")
-    is_toxic: Optional[bool] = Field(None)
-    has_chemical_role: Optional[List[str]] = Field(None, description="""A role is particular behaviour which a chemical entity may exhibit.""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/RNAProductIsoform","biolink:RNAProductIsoform"]] = Field(["biolink:RNAProductIsoform"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3596,23 +3525,15 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class NoncodingRNAProduct(RNAProduct):
     
     synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
-    has_biological_sequence: Optional[str] = Field(None, description="""connects a genomic feature to its sequence""")
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
     in_taxon_label: Optional[str] = Field(None, description="""The human readable scientific name for the taxon of the entity.""")
-    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
-    is_metabolite: Optional[bool] = Field(None, description="""indicates whether a molecular entity is a metabolite""")
-    trade_name: Optional[str] = Field(None)
-    available_from: Optional[List[DrugAvailabilityEnum]] = Field(None)
-    max_tolerated_dose: Optional[str] = Field(None, description="""The highest dose of a drug or treatment that does not cause unacceptable side effects. The maximum tolerated dose is determined in clinical trials by testing increasing doses on different groups of people until the highest dose with acceptable side effects is found. Also called MTD.""")
-    is_toxic: Optional[bool] = Field(None)
-    has_chemical_role: Optional[List[str]] = Field(None, description="""A role is particular behaviour which a chemical entity may exhibit.""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/NoncodingRNAProduct","biolink:NoncodingRNAProduct"]] = Field(["biolink:NoncodingRNAProduct"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3625,23 +3546,15 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class MicroRNA(NoncodingRNAProduct):
     
     synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
-    has_biological_sequence: Optional[str] = Field(None, description="""connects a genomic feature to its sequence""")
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
     in_taxon_label: Optional[str] = Field(None, description="""The human readable scientific name for the taxon of the entity.""")
-    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
-    is_metabolite: Optional[bool] = Field(None, description="""indicates whether a molecular entity is a metabolite""")
-    trade_name: Optional[str] = Field(None)
-    available_from: Optional[List[DrugAvailabilityEnum]] = Field(None)
-    max_tolerated_dose: Optional[str] = Field(None, description="""The highest dose of a drug or treatment that does not cause unacceptable side effects. The maximum tolerated dose is determined in clinical trials by testing increasing doses on different groups of people until the highest dose with acceptable side effects is found. Also called MTD.""")
-    is_toxic: Optional[bool] = Field(None)
-    has_chemical_role: Optional[List[str]] = Field(None, description="""A role is particular behaviour which a chemical entity may exhibit.""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/MicroRNA","biolink:MicroRNA"]] = Field(["biolink:MicroRNA"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3654,25 +3567,17 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class SiRNA(NoncodingRNAProduct):
     """
     A small RNA molecule that is the product of a longer exogenous or endogenous dsRNA, which is either a bimolecular duplex or very long hairpin, processed (via the Dicer pathway) such that numerous siRNAs accumulate from both strands of the dsRNA. SRNAs trigger the cleavage of their target molecules.
     """
     synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
-    has_biological_sequence: Optional[str] = Field(None, description="""connects a genomic feature to its sequence""")
     in_taxon: Optional[List[str]] = Field(None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""")
     in_taxon_label: Optional[str] = Field(None, description="""The human readable scientific name for the taxon of the entity.""")
-    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
-    is_metabolite: Optional[bool] = Field(None, description="""indicates whether a molecular entity is a metabolite""")
-    trade_name: Optional[str] = Field(None)
-    available_from: Optional[List[DrugAvailabilityEnum]] = Field(None)
-    max_tolerated_dose: Optional[str] = Field(None, description="""The highest dose of a drug or treatment that does not cause unacceptable side effects. The maximum tolerated dose is determined in clinical trials by testing increasing doses on different groups of people until the highest dose with acceptable side effects is found. Also called MTD.""")
-    is_toxic: Optional[bool] = Field(None)
-    has_chemical_role: Optional[List[str]] = Field(None, description="""A role is particular behaviour which a chemical entity may exhibit.""")
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/SiRNA","biolink:SiRNA"]] = Field(["biolink:SiRNA"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3685,14 +3590,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GeneGroupingMixin(ConfiguredBaseModel):
     """
     any grouping of multiple genes or gene products
     """
     has_gene_or_gene_product: Optional[List[str]] = Field(None, description="""connects an entity with one or more gene or gene products""")
     
-
 
 class ProteinDomain(GeneGroupingMixin, ChemicalEntityOrGeneOrGeneProduct, BiologicalEntity):
     """
@@ -3704,6 +3607,7 @@ class ProteinDomain(GeneGroupingMixin, ChemicalEntityOrGeneOrGeneProduct, Biolog
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ProteinDomain","biolink:ProteinDomain"]] = Field(["biolink:ProteinDomain"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -3717,7 +3621,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ProteinFamily(GeneGroupingMixin, ChemicalEntityOrGeneOrGeneProduct, BiologicalEntity):
     
     has_gene_or_gene_product: Optional[List[str]] = Field(None, description="""connects an entity with one or more gene or gene products""")
@@ -3726,6 +3629,7 @@ class ProteinFamily(GeneGroupingMixin, ChemicalEntityOrGeneOrGeneProduct, Biolog
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ProteinFamily","biolink:ProteinFamily"]] = Field(["biolink:ProteinFamily"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -3739,7 +3643,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GeneFamily(GeneGroupingMixin, ChemicalEntityOrGeneOrGeneProduct, BiologicalEntity):
     """
     any grouping of multiple genes or gene products related by common descent
@@ -3750,6 +3653,7 @@ class GeneFamily(GeneGroupingMixin, ChemicalEntityOrGeneOrGeneProduct, Biologica
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/GeneFamily","biolink:GeneFamily"]] = Field(["biolink:GeneFamily"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -3763,7 +3667,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Zygosity(Attribute):
     
     name: Optional[str] = Field(None, description="""The human-readable 'attribute name' can be set to a string which reflects its context of interpretation, e.g. SEPIO evidence/provenance/confidence annotation or it can default to the name associated with the 'has attribute type' slot ontology term.""")
@@ -3775,6 +3678,7 @@ class Zygosity(Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/Zygosity","biolink:Zygosity"]] = Field(["biolink:Zygosity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -3784,7 +3688,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class Genotype(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
     """
@@ -3798,6 +3701,7 @@ class Genotype(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Genotype","biolink:Genotype"]] = Field(["biolink:Genotype"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3810,7 +3714,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Haplotype(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
     """
     A set of zero or more Alleles on a single instance of a Sequence[VMC]
@@ -3822,6 +3725,7 @@ class Haplotype(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass)
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Haplotype","biolink:Haplotype"]] = Field(["biolink:Haplotype"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3833,7 +3737,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class SequenceVariant(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
     """
@@ -3847,6 +3750,7 @@ class SequenceVariant(GenomicEntity, BiologicalEntity, PhysicalEssence, Ontology
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/SequenceVariant","biolink:SequenceVariant"]] = Field(["biolink:SequenceVariant"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3858,7 +3762,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class Snv(SequenceVariant):
     """
@@ -3872,6 +3775,7 @@ class Snv(SequenceVariant):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Snv","biolink:Snv"]] = Field(["biolink:Snv"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3884,7 +3788,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ReagentTargetedGene(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
     """
     A gene altered in its expression level in the context of some experiment as a result of being targeted by gene-knockdown reagent(s) such as a morpholino or RNAi.
@@ -3896,6 +3799,7 @@ class ReagentTargetedGene(GenomicEntity, BiologicalEntity, PhysicalEssence, Onto
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ReagentTargetedGene","biolink:ReagentTargetedGene"]] = Field(["biolink:ReagentTargetedGene"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -3907,7 +3811,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class ClinicalAttribute(Attribute):
     """
@@ -3922,6 +3825,7 @@ class ClinicalAttribute(Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/ClinicalAttribute","biolink:ClinicalAttribute"]] = Field(["biolink:ClinicalAttribute"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -3931,7 +3835,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class ClinicalMeasurement(ClinicalAttribute):
     """
@@ -3946,6 +3849,7 @@ class ClinicalMeasurement(ClinicalAttribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/ClinicalMeasurement","biolink:ClinicalMeasurement"]] = Field(["biolink:ClinicalMeasurement"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -3955,7 +3859,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class ClinicalModifier(ClinicalAttribute):
     """
@@ -3970,6 +3873,7 @@ class ClinicalModifier(ClinicalAttribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/ClinicalModifier","biolink:ClinicalModifier"]] = Field(["biolink:ClinicalModifier"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -3979,7 +3883,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class ClinicalCourse(ClinicalAttribute):
     """
@@ -3994,6 +3897,7 @@ class ClinicalCourse(ClinicalAttribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/ClinicalCourse","biolink:ClinicalCourse"]] = Field(["biolink:ClinicalCourse"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4003,7 +3907,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class Onset(ClinicalCourse):
     """
@@ -4018,6 +3921,7 @@ class Onset(ClinicalCourse):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/Onset","biolink:Onset"]] = Field(["biolink:Onset"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4028,7 +3932,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ClinicalEntity(NamedThing):
     """
     Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed under biological entities
@@ -4036,6 +3939,7 @@ class ClinicalEntity(NamedThing):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ClinicalEntity","biolink:ClinicalEntity"]] = Field(["biolink:ClinicalEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -4049,12 +3953,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ClinicalTrial(ClinicalEntity):
     
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ClinicalTrial","biolink:ClinicalTrial"]] = Field(["biolink:ClinicalTrial"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -4068,12 +3972,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ClinicalIntervention(ClinicalEntity):
     
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ClinicalIntervention","biolink:ClinicalIntervention"]] = Field(["biolink:ClinicalIntervention"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -4087,7 +3991,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ClinicalFinding(PhenotypicFeature):
     """
     this category is currently considered broad enough to tag clinical lab measurements and other biological attributes taken as 'clinical traits' with some statistical score, for example, a p value in genetic associations.
@@ -4097,6 +4000,7 @@ class ClinicalFinding(PhenotypicFeature):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/ClinicalFinding","biolink:ClinicalFinding"]] = Field(["biolink:ClinicalFinding"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -4110,12 +4014,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Hospitalization(ClinicalIntervention):
     
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Hospitalization","biolink:Hospitalization"]] = Field(["biolink:Hospitalization"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -4128,7 +4032,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class SocioeconomicAttribute(Attribute):
     """
@@ -4143,6 +4046,7 @@ class SocioeconomicAttribute(Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/SocioeconomicAttribute","biolink:SocioeconomicAttribute"]] = Field(["biolink:SocioeconomicAttribute"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4153,7 +4057,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class Case(IndividualOrganism, SubjectOfInvestigation):
     """
     An individual (human) organism that has a patient role in some clinical context.
@@ -4163,6 +4066,7 @@ class Case(IndividualOrganism, SubjectOfInvestigation):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Case","biolink:Case"]] = Field(["biolink:Case"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -4176,7 +4080,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class Cohort(StudyPopulation, SubjectOfInvestigation):
     """
     A group of people banded together or treated as a group who share common characteristics. A cohort 'study' is a particular form of longitudinal study that samples a cohort, performing a cross-section at intervals through time.
@@ -4186,6 +4089,7 @@ class Cohort(StudyPopulation, SubjectOfInvestigation):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Cohort","biolink:Cohort"]] = Field(["biolink:Cohort"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -4199,7 +4103,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
 
-
 class ExposureEvent(OntologyClass):
     """
     A (possibly time bounded) incidence of a feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes
@@ -4207,7 +4110,6 @@ class ExposureEvent(OntologyClass):
     timepoint: Optional[str] = Field(None, description="""a point in time""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     
-
 
 class GenomicBackgroundExposure(ExposureEvent, GeneGroupingMixin, GenomicEntity, ThingWithTaxon, PhysicalEssence, Attribute, OntologyClass):
     """
@@ -4227,6 +4129,7 @@ class GenomicBackgroundExposure(ExposureEvent, GeneGroupingMixin, GenomicEntity,
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/GenomicBackgroundExposure","biolink:GenomicBackgroundExposure"]] = Field(["biolink:GenomicBackgroundExposure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4237,14 +4140,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class PathologicalEntityMixin(ConfiguredBaseModel):
     """
     A pathological (abnormal) structure or process.
     """
     None
     
-
 
 class PathologicalProcess(PathologicalEntityMixin, BiologicalProcess):
     """
@@ -4259,6 +4160,7 @@ class PathologicalProcess(PathologicalEntityMixin, BiologicalProcess):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/PathologicalProcess","biolink:PathologicalProcess"]] = Field(["biolink:PathologicalProcess"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
@@ -4270,7 +4172,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class PathologicalProcessExposure(ExposureEvent, Attribute):
     """
@@ -4286,6 +4187,7 @@ class PathologicalProcessExposure(ExposureEvent, Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/PathologicalProcessExposure","biolink:PathologicalProcessExposure"]] = Field(["biolink:PathologicalProcessExposure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4296,7 +4198,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class PathologicalAnatomicalStructure(PathologicalEntityMixin, AnatomicalEntity):
     """
     An anatomical structure with the potential of have an abnormal or deleterious effect at the subcellular, cellular, multicellular, or organismal level.
@@ -4306,6 +4207,7 @@ class PathologicalAnatomicalStructure(PathologicalEntityMixin, AnatomicalEntity)
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/PathologicalAnatomicalStructure","biolink:PathologicalAnatomicalStructure"]] = Field(["biolink:PathologicalAnatomicalStructure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -4318,7 +4220,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""may often be an organism attribute""")
     
-
 
 class PathologicalAnatomicalExposure(ExposureEvent, Attribute):
     """
@@ -4334,6 +4235,7 @@ class PathologicalAnatomicalExposure(ExposureEvent, Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/PathologicalAnatomicalExposure","biolink:PathologicalAnatomicalExposure"]] = Field(["biolink:PathologicalAnatomicalExposure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4343,7 +4245,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class DiseaseOrPhenotypicFeatureExposure(PathologicalEntityMixin, ExposureEvent, Attribute):
     """
@@ -4359,6 +4260,7 @@ class DiseaseOrPhenotypicFeatureExposure(PathologicalEntityMixin, ExposureEvent,
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeatureExposure","biolink:DiseaseOrPhenotypicFeatureExposure"]] = Field(["biolink:DiseaseOrPhenotypicFeatureExposure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4368,7 +4270,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class ChemicalExposure(ExposureEvent, Attribute):
     """
@@ -4384,6 +4285,7 @@ class ChemicalExposure(ExposureEvent, Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/ChemicalExposure","biolink:ChemicalExposure"]] = Field(["biolink:ChemicalExposure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4393,7 +4295,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class ComplexChemicalExposure(Attribute):
     """
@@ -4408,6 +4309,7 @@ class ComplexChemicalExposure(Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/ComplexChemicalExposure","biolink:ComplexChemicalExposure"]] = Field(["biolink:ComplexChemicalExposure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4417,7 +4319,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class DrugExposure(ChemicalExposure, ExposureEvent):
     """
@@ -4433,6 +4334,7 @@ class DrugExposure(ChemicalExposure, ExposureEvent):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/DrugExposure","biolink:DrugExposure"]] = Field(["biolink:DrugExposure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4442,7 +4344,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class DrugToGeneInteractionExposure(DrugExposure, GeneGroupingMixin):
     """
@@ -4459,6 +4360,7 @@ class DrugToGeneInteractionExposure(DrugExposure, GeneGroupingMixin):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/DrugToGeneInteractionExposure","biolink:DrugToGeneInteractionExposure"]] = Field(["biolink:DrugToGeneInteractionExposure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4468,7 +4370,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class Treatment(ExposureEvent, NamedThing, ChemicalOrDrugOrTreatment):
     """
@@ -4481,6 +4382,7 @@ class Treatment(ExposureEvent, NamedThing, ChemicalOrDrugOrTreatment):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
     category: List[Literal["https://w3id.org/biolink/vocab/Treatment","biolink:Treatment"]] = Field(["biolink:Treatment"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
@@ -4493,7 +4395,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class BioticExposure(ExposureEvent, Attribute):
     """
@@ -4509,6 +4410,7 @@ class BioticExposure(ExposureEvent, Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/BioticExposure","biolink:BioticExposure"]] = Field(["biolink:BioticExposure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4518,7 +4420,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class EnvironmentalExposure(ExposureEvent, Attribute):
     """
@@ -4534,6 +4435,7 @@ class EnvironmentalExposure(ExposureEvent, Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/EnvironmentalExposure","biolink:EnvironmentalExposure"]] = Field(["biolink:EnvironmentalExposure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4543,7 +4445,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class GeographicExposure(EnvironmentalExposure, ExposureEvent):
     """
@@ -4559,6 +4460,7 @@ class GeographicExposure(EnvironmentalExposure, ExposureEvent):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/GeographicExposure","biolink:GeographicExposure"]] = Field(["biolink:GeographicExposure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4568,7 +4470,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class BehavioralExposure(ExposureEvent, Attribute):
     """
@@ -4584,6 +4485,7 @@ class BehavioralExposure(ExposureEvent, Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/BehavioralExposure","biolink:BehavioralExposure"]] = Field(["biolink:BehavioralExposure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4593,7 +4495,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 class SocioeconomicExposure(ExposureEvent, Attribute):
     """
@@ -4609,6 +4510,7 @@ class SocioeconomicExposure(ExposureEvent, Attribute):
     provided_by: Optional[List[str]] = Field(None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""")
     xref: Optional[List[str]] = Field(default_factory=list, description="""A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""")
     full_name: Optional[str] = Field(None, description="""a long-form human readable name for a thing""")
+    synonym: Optional[List[str]] = Field(default_factory=list, description="""Alternate human-readable names for a thing""")
     category: List[Literal["https://w3id.org/biolink/vocab/SocioeconomicExposure","biolink:SocioeconomicExposure"]] = Field(["biolink:SocioeconomicExposure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
@@ -4619,14 +4521,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: List[str] = Field(..., description="""connects any entity to an attribute""")
     
 
-
 class Outcome(ConfiguredBaseModel):
     """
     An entity that has the role of being the consequence of an exposure event. This is an abstract mixin grouping of various categories of possible biological or non-biological (e.g. clinical) outcomes.
     """
     None
     
-
 
 class PathologicalProcessOutcome(Outcome):
     """
@@ -4635,14 +4535,12 @@ class PathologicalProcessOutcome(Outcome):
     None
     
 
-
 class PathologicalAnatomicalOutcome(Outcome):
     """
     An outcome resulting from an exposure event which is the manifestation of an abnormal anatomical structure.
     """
     None
     
-
 
 class DiseaseOrPhenotypicFeatureOutcome(Outcome):
     """
@@ -4651,14 +4549,12 @@ class DiseaseOrPhenotypicFeatureOutcome(Outcome):
     None
     
 
-
 class BehavioralOutcome(Outcome):
     """
     An outcome resulting from an exposure event which is the manifestation of human behavior.
     """
     None
     
-
 
 class HospitalizationOutcome(Outcome):
     """
@@ -4667,14 +4563,12 @@ class HospitalizationOutcome(Outcome):
     None
     
 
-
 class MortalityOutcome(Outcome):
     """
     An outcome of death from resulting from an exposure event.
     """
     None
     
-
 
 class EpidemiologicalOutcome(Outcome):
     """
@@ -4683,14 +4577,12 @@ class EpidemiologicalOutcome(Outcome):
     None
     
 
-
 class SocioeconomicOutcome(Outcome):
     """
     An general social or economic outcome, such as healthcare costs, utilization, etc., resulting from an exposure event
     """
     None
     
-
 
 class Association(Entity):
     """
@@ -4700,6 +4592,7 @@ class Association(Entity):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -4734,13 +4627,13 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ChemicalEntityAssessesNamedThingAssociation(Association):
     
     subject: str = Field(..., description="""connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -4775,7 +4668,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ContributorAssociation(Association):
     """
     Any association between an entity (such as a publication) and various agents that contribute to its realisation
@@ -4784,6 +4676,7 @@ class ContributorAssociation(Association):
     predicate: str = Field(..., description="""generally one of the predicate values 'provider', 'publisher', 'editor' or 'author'""")
     object: str = Field(..., description="""agent helping to realise the given entity (e.g. such as a publication)""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""this field can be used to annotate special characteristics of an agent relationship, such as the fact that a given author agent of a publication is the 'corresponding author'""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -4818,7 +4711,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GenotypeToGenotypePartAssociation(Association):
     """
     Any association between one genotype and a genotypic entity that is a sub-component of it
@@ -4827,6 +4719,7 @@ class GenotypeToGenotypePartAssociation(Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""child genotype""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -4861,7 +4754,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GenotypeToGeneAssociation(Association):
     """
     Any association between a genotype and a gene. The genotype have have multiple variants in that gene or a single one. There is no assumption of cardinality
@@ -4870,6 +4762,7 @@ class GenotypeToGeneAssociation(Association):
     predicate: str = Field(..., description="""the relationship type used to connect genotype to gene""")
     object: str = Field(..., description="""gene implicated in genotype""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -4904,7 +4797,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GenotypeToVariantAssociation(Association):
     """
     Any association between a genotype and a sequence variant.
@@ -4913,6 +4805,7 @@ class GenotypeToVariantAssociation(Association):
     predicate: str = Field(..., description="""the relationship type used to connect genotype to gene""")
     object: str = Field(..., description="""gene implicated in genotype""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -4947,7 +4840,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GeneToGeneAssociation(Association):
     """
     abstract parent class for different kinds of gene-gene or gene product to gene product relationships. Includes homology and interaction.
@@ -4956,6 +4848,7 @@ class GeneToGeneAssociation(Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the object gene in the association. If the relation is symmetric, subject vs object is arbitrary. We allow a gene product to stand as a proxy for the gene or vice versa.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -4990,7 +4883,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GeneToGeneHomologyAssociation(GeneToGeneAssociation):
     """
     A homology association between two genes. May be orthology (in which case the species of subject and object should differ) or paralogy (in which case the species may be the same)
@@ -4999,6 +4891,7 @@ class GeneToGeneHomologyAssociation(GeneToGeneAssociation):
     predicate: str = Field(..., description="""homology relationship type""")
     object: str = Field(..., description="""the object gene in the association. If the relation is symmetric, subject vs object is arbitrary. We allow a gene product to stand as a proxy for the gene or vice versa.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5033,7 +4926,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GeneToGeneFamilyAssociation(Association):
     """
     Set membership of a gene in a family of genes related by common evolutionary ancestry usually inferred by sequence comparisons. The genes in a given family generally share common sequence motifs which generally map onto shared gene product structure-function relationships.
@@ -5042,6 +4934,7 @@ class GeneToGeneFamilyAssociation(Association):
     predicate: str = Field(..., description="""membership of the gene in the given gene family.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5076,7 +4969,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GeneExpressionMixin(ConfiguredBaseModel):
     """
     Observed gene expression intensity, context (site, stage) and associated phenotypic status within which the expression occurs.
@@ -5086,7 +4978,6 @@ class GeneExpressionMixin(ConfiguredBaseModel):
     stage_qualifier: Optional[str] = Field(None, description="""stage during which gene or protein expression of takes place.""")
     phenotypic_state: Optional[str] = Field(None, description="""in experiments (e.g. gene expression) assaying diseased or unhealthy tissue, the phenotypic state can be put here, e.g. MONDO ID. For healthy tissues, use XXX.""")
     
-
 
 class GeneToGeneCoexpressionAssociation(GeneExpressionMixin, GeneToGeneAssociation):
     """
@@ -5100,6 +4991,7 @@ class GeneToGeneCoexpressionAssociation(GeneExpressionMixin, GeneToGeneAssociati
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the object gene in the association. If the relation is symmetric, subject vs object is arbitrary. We allow a gene product to stand as a proxy for the gene or vice versa.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5134,7 +5026,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class PairwiseGeneToGeneInteraction(GeneToGeneAssociation):
     """
     An interaction between two genes or two gene products. May be physical (e.g. protein binding) or genetic (between genes). May be symmetric (e.g. protein interaction) or directed (e.g. phosphorylation)
@@ -5143,6 +5034,7 @@ class PairwiseGeneToGeneInteraction(GeneToGeneAssociation):
     predicate: str = Field(..., description="""interaction relationship type""")
     object: str = Field(..., description="""the object gene in the association. If the relation is symmetric, subject vs object is arbitrary. We allow a gene product to stand as a proxy for the gene or vice versa.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5177,7 +5069,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class PairwiseMolecularInteraction(PairwiseGeneToGeneInteraction):
     """
     An interaction at the molecular level between two physical entities
@@ -5187,6 +5078,7 @@ class PairwiseMolecularInteraction(PairwiseGeneToGeneInteraction):
     predicate: str = Field(..., description="""interaction relationship type""")
     object: str = Field(..., description="""the object gene in the association. If the relation is symmetric, subject vs object is arbitrary. We allow a gene product to stand as a proxy for the gene or vice versa.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5221,14 +5113,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class CellLineToEntityAssociationMixin(ConfiguredBaseModel):
     """
     An relationship between a cell line and another entity
     """
     None
     
-
 
 class ChemicalEntityToEntityAssociationMixin(ConfiguredBaseModel):
     """
@@ -5237,14 +5127,12 @@ class ChemicalEntityToEntityAssociationMixin(ConfiguredBaseModel):
     None
     
 
-
 class DrugToEntityAssociationMixin(ChemicalEntityToEntityAssociationMixin):
     """
     An interaction between a drug and another entity
     """
     None
     
-
 
 class ChemicalToEntityAssociationMixin(ChemicalEntityToEntityAssociationMixin):
     """
@@ -5253,14 +5141,12 @@ class ChemicalToEntityAssociationMixin(ChemicalEntityToEntityAssociationMixin):
     None
     
 
-
 class CaseToEntityAssociationMixin(ConfiguredBaseModel):
     """
     An abstract association for use where the case is the subject
     """
     None
     
-
 
 class ChemicalToChemicalAssociation(ChemicalToEntityAssociationMixin, Association):
     """
@@ -5270,6 +5156,7 @@ class ChemicalToChemicalAssociation(ChemicalToEntityAssociationMixin, Associatio
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the chemical element that is the target of the statement""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5304,7 +5191,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ReactionToParticipantAssociation(ChemicalToChemicalAssociation):
     
     stoichiometry: Optional[int] = Field(None, description="""the relationship between the relative quantities of substances taking part in a reaction or forming a compound, typically a ratio of whole integers.""")
@@ -5314,6 +5200,7 @@ class ReactionToParticipantAssociation(ChemicalToChemicalAssociation):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the chemical element that is the target of the statement""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5348,7 +5235,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ReactionToCatalystAssociation(ReactionToParticipantAssociation):
     
     stoichiometry: Optional[int] = Field(None, description="""the relationship between the relative quantities of substances taking part in a reaction or forming a compound, typically a ratio of whole integers.""")
@@ -5358,6 +5244,7 @@ class ReactionToCatalystAssociation(ReactionToParticipantAssociation):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the chemical element that is the target of the statement""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5392,7 +5279,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ChemicalToChemicalDerivationAssociation(ChemicalToChemicalAssociation):
     """
     A causal relationship between two chemical entities, where the subject represents the upstream entity and the object represents the downstream. For any such association there is an implicit reaction:
@@ -5409,6 +5295,7 @@ class ChemicalToChemicalDerivationAssociation(ChemicalToChemicalAssociation):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the downstream chemical entity""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5443,7 +5330,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class MolecularActivityToPathwayAssociation(Association):
     """
     Association that holds the relationship between a reaction and the pathway it participates in.
@@ -5452,6 +5338,7 @@ class MolecularActivityToPathwayAssociation(Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5486,7 +5373,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ChemicalToPathwayAssociation(ChemicalToEntityAssociationMixin, Association):
     """
     An interaction between a chemical entity and a biological process or pathway.
@@ -5495,6 +5381,7 @@ class ChemicalToPathwayAssociation(ChemicalToEntityAssociationMixin, Association
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the pathway that is affected by the chemical""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5529,13 +5416,13 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class NamedThingAssociatedWithLikelihoodOfNamedThingAssociation(Association):
     
     subject: str = Field(..., description="""connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5570,7 +5457,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ChemicalGeneInteractionAssociation(ChemicalToEntityAssociationMixin, Association):
     """
     describes a physical interaction between a chemical entity and a gene or gene product. Any biological or chemical effect resulting from such an interaction are out of scope, and covered by the ChemicalAffectsGeneAssociation type (e.g. impact of a chemical on the abundance, activity, structure, etc, of either participant in the interaction)
@@ -5587,6 +5473,7 @@ class ChemicalGeneInteractionAssociation(ChemicalToEntityAssociationMixin, Assoc
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5621,20 +5508,19 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ChemicalAffectsGeneAssociation(Association):
     """
-    Describes an effect that a chemical has on a gene or gene product (e.g. an impact of on its abundance, activity, localization, processing, expression, etc.)
+    Describes an effect that a chemical has on a gene or gene product (e.g. an impact of on its abundance, activity,localization, processing, expression, etc.)
     """
     subject_form_or_variant_qualifier: Optional[ChemicalOrGeneOrGeneProductFormOrVariantEnum] = Field(None)
     subject_part_qualifier: Optional[GeneOrGeneProductOrChemicalPartQualifierEnum] = Field(None)
     subject_derivative_qualifier: Optional[ChemicalEntityDerivativeEnum] = Field(None)
-    subject_aspect_qualifier: Optional[GeneOrGeneProductOrChemicalPartQualifierEnum] = Field(None)
+    subject_aspect_qualifier: Optional[GeneOrGeneProductOrChemicalEntityAspectEnum] = Field(None)
     subject_context_qualifier: Optional[str] = Field(None)
     subject_direction_qualifier: Optional[DirectionQualifierEnum] = Field(None)
     object_form_or_variant_qualifier: Optional[ChemicalOrGeneOrGeneProductFormOrVariantEnum] = Field(None)
     object_part_qualifier: Optional[GeneOrGeneProductOrChemicalPartQualifierEnum] = Field(None)
-    object_aspect_qualifier: Optional[GeneOrGeneProductOrChemicalPartQualifierEnum] = Field(None)
+    object_aspect_qualifier: Optional[GeneOrGeneProductOrChemicalEntityAspectEnum] = Field(None)
     object_context_qualifier: Optional[str] = Field(None)
     causal_mechanism_qualifier: Optional[CausalMechanismQualifierEnum] = Field(None, description="""A statement qualifier representing a type of molecular control mechanism through which an effect of a chemical on a gene or gene product is mediated (e.g. 'agonism', 'inhibition', 'allosteric modulation', 'channel blocker')""")
     anatomical_context_qualifier: Optional[str] = Field(None, description="""A statement qualifier representing an anatomical location where an relationship expressed in an association took place (can be a tissue, cell type, or sub-cellular location).""")
@@ -5643,6 +5529,7 @@ class ChemicalAffectsGeneAssociation(Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5677,6 +5564,61 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
+class GeneAffectsChemicalAssociation(Association):
+    """
+    Describes an effect that a gene or gene product has on a chemical entity (e.g. an impact of on its abundance, activity, localization, processing, transport, etc.)
+    """
+    subject_form_or_variant_qualifier: Optional[ChemicalOrGeneOrGeneProductFormOrVariantEnum] = Field(None)
+    subject_part_qualifier: Optional[GeneOrGeneProductOrChemicalPartQualifierEnum] = Field(None)
+    subject_derivative_qualifier: Optional[str] = Field(None)
+    subject_aspect_qualifier: Optional[GeneOrGeneProductOrChemicalEntityAspectEnum] = Field(None)
+    subject_context_qualifier: Optional[str] = Field(None)
+    subject_direction_qualifier: Optional[DirectionQualifierEnum] = Field(None)
+    object_form_or_variant_qualifier: Optional[ChemicalOrGeneOrGeneProductFormOrVariantEnum] = Field(None)
+    object_part_qualifier: Optional[GeneOrGeneProductOrChemicalPartQualifierEnum] = Field(None)
+    object_aspect_qualifier: Optional[GeneOrGeneProductOrChemicalEntityAspectEnum] = Field(None)
+    object_context_qualifier: Optional[str] = Field(None)
+    causal_mechanism_qualifier: Optional[CausalMechanismQualifierEnum] = Field(None, description="""A statement qualifier representing a type of molecular control mechanism through which an effect of a chemical on a gene or gene product is mediated (e.g. 'agonism', 'inhibition', 'allosteric modulation', 'channel blocker')""")
+    anatomical_context_qualifier: Optional[str] = Field(None, description="""A statement qualifier representing an anatomical location where an relationship expressed in an association took place (can be a tissue, cell type, or sub-cellular location).""")
+    qualified_predicate: Optional[str] = Field(None, description="""Predicate to be used in an association when subject and object qualifiers are present and the full reading of the statement requires a qualification to the predicate in use in order to refine or  increase the specificity of the full statement reading.  This qualifier holds a relationship to be used instead of that  expressed by the primary predicate, in a ‘full statement’ reading of the association, where qualifier-based  semantics are included.  This is necessary only in cases where the primary predicate does not work in a  full statement reading.""")
+    subject: str = Field(..., description="""connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
+    predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
+    object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
+    negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
+    qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
+    publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
+    has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
+    knowledge_source: Optional[str] = Field(None, description="""An Information Resource from which the knowledge expressed in an Association was retrieved, directly or indirectly. This can be any resource through which the knowledge passed on its way to its currently serialized form. In practice, implementers should use one of the more specific subtypes of this generic property.""")
+    primary_knowledge_source: Optional[str] = Field(None, description="""The most upstream source of the knowledge expressed in an Association that an implementer can identify.  Performing a rigorous analysis of upstream data providers is expected; every effort is made to catalog the most upstream source of data in this property.  Only one data source should be declared primary in any association.  \"aggregator knowledge source\" can be used to capture non-primary sources.""")
+    aggregator_knowledge_source: Optional[List[str]] = Field(None, description="""An intermediate aggregator resource from which knowledge expressed in an Association was retrieved downstream of the original source, on its path to its current serialized form.""")
+    timepoint: Optional[str] = Field(None, description="""a point in time""")
+    original_subject: Optional[str] = Field(None, description="""used to hold the original subject of a relation (or predicate) that an external knowledge source uses before transformation to match the biolink-model specification.""")
+    original_predicate: Optional[str] = Field(None, description="""used to hold the original relation/predicate that an external knowledge source uses before transformation to match the biolink-model specification.""")
+    original_object: Optional[str] = Field(None, description="""used to hold the original object of a relation (or predicate) that an external knowledge source uses before transformation to match the biolink-model specification.""")
+    subject_category: Optional[str] = Field(None, description="""Used to hold the biolink class/category of an association. This is a denormalized  field used primarily in the SQL serialization of a knowledge graph via KGX.""")
+    object_category: Optional[str] = Field(None, description="""Used to hold the biolink class/category of an association. This is a denormalized  field used primarily in the SQL serialization of a knowledge graph via KGX.""")
+    subject_closure: Optional[List[str]] = Field(None, description="""Used to hold the subject closure of an association. This is a denormalized  field used primarily in the SQL serialization of a knowledge graph via KGX.""")
+    object_closure: Optional[List[str]] = Field(None, description="""Used to hold the object closure of an association. This is a denormalized  field used primarily in the SQL serialization of a knowledge graph via KGX.""")
+    subject_category_closure: Optional[List[str]] = Field(None, description="""Used to hold the subject category closure of an association. This is a denormalized  field used primarily in the SQL serialization of a knowledge graph via KGX.""")
+    object_category_closure: Optional[List[str]] = Field(None, description="""Used to hold the object category closure of an association. This is a denormalized  field used primarily in the SQL serialization of a knowledge graph via KGX.""")
+    subject_namespace: Optional[str] = Field(None, description="""Used to hold the subject namespace of an association. This is a denormalized  field used primarily in the SQL serialization of a knowledge graph via KGX.""")
+    object_namespace: Optional[str] = Field(None, description="""Used to hold the object namespace of an association. This is a denormalized  field used primarily in the SQL serialization of a knowledge graph via KGX.""")
+    subject_label_closure: Optional[List[str]] = Field(None, description="""Used to hold the subject label closure of an association. This is a denormalized  field used primarily in the SQL serialization of a knowledge graph via KGX.""")
+    object_label_closure: Optional[List[str]] = Field(None, description="""Used to hold the object label closure of an association. This is a denormalized  field used primarily in the SQL serialization of a knowledge graph via KGX.""")
+    retrieval_source_ids: Optional[List[str]] = Field(None, description="""A list of retrieval sources that served as a source of knowledge expressed in an Edge, or a source of data used to generate this knowledge.""")
+    id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
+    iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")
+    category: List[Literal["https://w3id.org/biolink/vocab/GeneAffectsChemicalAssociation","biolink:GeneAffectsChemicalAssociation"]] = Field(["biolink:GeneAffectsChemicalAssociation"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a biolink model class URI.
+This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`, ...
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}""")
+    type: Optional[List[str]] = Field(default_factory=list, description="""rdf:type of biolink:Association should be fixed at rdf:Statement""")
+    name: Optional[str] = Field(None, description="""A human-readable name for an attribute or entity.""")
+    description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
+    has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
+    
 
 class DrugToGeneAssociation(DrugToEntityAssociationMixin, Association):
     """
@@ -5686,6 +5628,7 @@ class DrugToGeneAssociation(DrugToEntityAssociationMixin, Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the gene or gene product that is affected by the drug""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5720,14 +5663,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class MaterialSampleToEntityAssociationMixin(ConfiguredBaseModel):
     """
     An association between a material sample and something.
     """
     None
     
-
 
 class MaterialSampleDerivationAssociation(Association):
     """
@@ -5737,6 +5678,7 @@ class MaterialSampleDerivationAssociation(Association):
     predicate: str = Field(..., description="""derivation relationship""")
     object: str = Field(..., description="""the material entity the sample was derived from. This may be another material sample, or any other material entity, including for example an organism, a geographic feature, or some environmental material.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5771,12 +5713,10 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class DiseaseToEntityAssociationMixin(ConfiguredBaseModel):
     
     None
     
-
 
 class EntityToExposureEventAssociationMixin(ConfiguredBaseModel):
     """
@@ -5784,7 +5724,6 @@ class EntityToExposureEventAssociationMixin(ConfiguredBaseModel):
     """
     None
     
-
 
 class DiseaseToExposureEventAssociation(EntityToExposureEventAssociationMixin, DiseaseToEntityAssociationMixin, Association):
     """
@@ -5794,6 +5733,7 @@ class DiseaseToExposureEventAssociation(EntityToExposureEventAssociationMixin, D
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5828,14 +5768,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class EntityToOutcomeAssociationMixin(ConfiguredBaseModel):
     """
     An association between some entity and an outcome
     """
     None
     
-
 
 class ExposureEventToOutcomeAssociation(EntityToOutcomeAssociationMixin, Association):
     """
@@ -5847,6 +5785,7 @@ class ExposureEventToOutcomeAssociation(EntityToOutcomeAssociationMixin, Associa
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5881,14 +5820,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class FrequencyQualifierMixin(ConfiguredBaseModel):
     """
     Qualifier for frequency type associations
     """
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
-
 
 class EntityToFeatureOrDiseaseQualifiersMixin(FrequencyQualifierMixin):
     """
@@ -5898,7 +5835,6 @@ class EntityToFeatureOrDiseaseQualifiersMixin(FrequencyQualifierMixin):
     onset_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state when the phenotype appears is in the subject""")
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
-
 
 class EntityToPhenotypicFeatureAssociationMixin(EntityToFeatureOrDiseaseQualifiersMixin, FrequencyQuantifier):
     
@@ -5912,7 +5848,6 @@ class EntityToPhenotypicFeatureAssociationMixin(EntityToFeatureOrDiseaseQualifie
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class InformationContentEntityToNamedThingAssociation(Association):
     """
     association between a named thing and a information content entity where the specific context of the relationship between that named thing and the publication is unknown. For example, model organisms databases often capture the knowledge that a gene is found in a journal article, but not specifically the context in which that gene was documented in the article. In these cases, this association with the accompanying predicate 'mentions' could be used. Conversely, for more specific associations (like 'gene to disease association', the publication should be captured as an edge property).
@@ -5921,6 +5856,7 @@ class InformationContentEntityToNamedThingAssociation(Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -5955,7 +5891,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class EntityToDiseaseAssociationMixin(EntityToFeatureOrDiseaseQualifiersMixin):
     """
     mixin class for any association whose object (target node) is a disease
@@ -5965,12 +5900,10 @@ class EntityToDiseaseAssociationMixin(EntityToFeatureOrDiseaseQualifiersMixin):
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class DiseaseOrPhenotypicFeatureToEntityAssociationMixin(ConfiguredBaseModel):
     
     None
     
-
 
 class DiseaseOrPhenotypicFeatureToLocationAssociation(DiseaseOrPhenotypicFeatureToEntityAssociationMixin, Association):
     """
@@ -5980,6 +5913,7 @@ class DiseaseOrPhenotypicFeatureToLocationAssociation(DiseaseOrPhenotypicFeature
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""anatomical entity in which the disease or feature is found.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6014,7 +5948,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class DiseaseOrPhenotypicFeatureToGeneticInheritanceAssociation(DiseaseOrPhenotypicFeatureToEntityAssociationMixin, Association):
     """
     An association between either a disease or a phenotypic feature and its mode of (genetic) inheritance.
@@ -6023,6 +5956,7 @@ class DiseaseOrPhenotypicFeatureToGeneticInheritanceAssociation(DiseaseOrPhenoty
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""genetic inheritance associated with the specified disease or phenotypic feature.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6057,12 +5991,10 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class EntityToDiseaseOrPhenotypicFeatureAssociationMixin(ConfiguredBaseModel):
     
     None
     
-
 
 class CellLineToDiseaseOrPhenotypicFeatureAssociation(EntityToDiseaseOrPhenotypicFeatureAssociationMixin, CellLineToEntityAssociationMixin, Association):
     """
@@ -6072,6 +6004,7 @@ class CellLineToDiseaseOrPhenotypicFeatureAssociation(EntityToDiseaseOrPhenotypi
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""disease or phenotype""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6106,7 +6039,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ChemicalToDiseaseOrPhenotypicFeatureAssociation(EntityToDiseaseOrPhenotypicFeatureAssociationMixin, ChemicalToEntityAssociationMixin, Association):
     """
     An interaction between a chemical entity and a phenotype or disease, where the presence of the chemical gives rise to or exacerbates the phenotype.
@@ -6115,6 +6047,7 @@ class ChemicalToDiseaseOrPhenotypicFeatureAssociation(EntityToDiseaseOrPhenotypi
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the disease or phenotype that is affected by the chemical""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6149,7 +6082,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ChemicalOrDrugOrTreatmentToDiseaseOrPhenotypicFeatureAssociation(EntityToDiseaseOrPhenotypicFeatureAssociationMixin, ChemicalToEntityAssociationMixin, Association):
     """
     This association defines a relationship between a chemical or treatment (or procedure) and a disease or phenotypic feature where the disesae or phenotypic feature is a secondary undesirable effect.
@@ -6159,6 +6091,7 @@ class ChemicalOrDrugOrTreatmentToDiseaseOrPhenotypicFeatureAssociation(EntityToD
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""disease or phenotype""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6193,7 +6126,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ChemicalOrDrugOrTreatmentSideEffectDiseaseOrPhenotypicFeatureAssociation(ChemicalOrDrugOrTreatmentToDiseaseOrPhenotypicFeatureAssociation, EntityToDiseaseOrPhenotypicFeatureAssociationMixin, ChemicalToEntityAssociationMixin):
     """
     This association defines a relationship between a chemical or treatment (or procedure) and a disease or phenotypic feature where the disesae or phenotypic feature is a secondary, typically (but not always) undesirable effect.
@@ -6203,6 +6135,7 @@ class ChemicalOrDrugOrTreatmentSideEffectDiseaseOrPhenotypicFeatureAssociation(C
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""disease or phenotype""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6237,7 +6170,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class MaterialSampleToDiseaseOrPhenotypicFeatureAssociation(EntityToDiseaseOrPhenotypicFeatureAssociationMixin, MaterialSampleToEntityAssociationMixin, Association):
     """
     An association between a material sample and a disease or phenotype.
@@ -6246,6 +6178,7 @@ class MaterialSampleToDiseaseOrPhenotypicFeatureAssociation(EntityToDiseaseOrPhe
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""disease or phenotype""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6280,12 +6213,10 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GenotypeToEntityAssociationMixin(ConfiguredBaseModel):
     
     None
     
-
 
 class GenotypeToPhenotypicFeatureAssociation(GenotypeToEntityAssociationMixin, EntityToPhenotypicFeatureAssociationMixin, Association):
     """
@@ -6296,6 +6227,7 @@ class GenotypeToPhenotypicFeatureAssociation(GenotypeToEntityAssociationMixin, E
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6337,7 +6269,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class ExposureEventToPhenotypicFeatureAssociation(EntityToPhenotypicFeatureAssociationMixin, Association):
     """
     Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype.
@@ -6347,6 +6278,7 @@ class ExposureEventToPhenotypicFeatureAssociation(EntityToPhenotypicFeatureAssoc
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6388,7 +6320,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class DiseaseToPhenotypicFeatureAssociation(EntityToPhenotypicFeatureAssociationMixin, DiseaseToEntityAssociationMixin, Association):
     """
     An association between a disease and a phenotypic feature in which the phenotypic feature is associated with the disease in some way.
@@ -6398,6 +6329,7 @@ class DiseaseToPhenotypicFeatureAssociation(EntityToPhenotypicFeatureAssociation
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6439,7 +6371,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class CaseToPhenotypicFeatureAssociation(EntityToPhenotypicFeatureAssociationMixin, CaseToEntityAssociationMixin, Association):
     """
     An association between a case (e.g. individual patient) and a phenotypic feature in which the individual has or has had the phenotype.
@@ -6449,6 +6380,7 @@ class CaseToPhenotypicFeatureAssociation(EntityToPhenotypicFeatureAssociationMix
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6490,7 +6422,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class BehaviorToBehavioralFeatureAssociation(EntityToPhenotypicFeatureAssociationMixin, Association):
     """
     An association between an mixture behavior and a behavioral feature manifested by the individual exhibited or has exhibited the behavior.
@@ -6500,6 +6431,7 @@ class BehaviorToBehavioralFeatureAssociation(EntityToPhenotypicFeatureAssociatio
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""behavioral feature that is the object of the association""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6541,12 +6473,10 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class GeneToEntityAssociationMixin(ConfiguredBaseModel):
     
     None
     
-
 
 class GeneToPathwayAssociation(GeneToEntityAssociationMixin, Association):
     """
@@ -6556,6 +6486,7 @@ class GeneToPathwayAssociation(GeneToEntityAssociationMixin, Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the pathway that includes or is affected by the gene or gene product""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6590,12 +6521,10 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class VariantToEntityAssociationMixin(ConfiguredBaseModel):
     
     None
     
-
 
 class GeneToDiseaseOrPhenotypicFeatureAssociation(GeneToEntityAssociationMixin, EntityToPhenotypicFeatureAssociationMixin, Association):
     
@@ -6606,6 +6535,7 @@ class GeneToDiseaseOrPhenotypicFeatureAssociation(GeneToEntityAssociationMixin, 
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6647,7 +6577,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class GeneToPhenotypicFeatureAssociation(GeneToDiseaseOrPhenotypicFeatureAssociation, GeneToEntityAssociationMixin, EntityToPhenotypicFeatureAssociationMixin):
     
     sex_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state whether the association is specific to a particular sex.""")
@@ -6657,6 +6586,7 @@ class GeneToPhenotypicFeatureAssociation(GeneToDiseaseOrPhenotypicFeatureAssocia
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6698,7 +6628,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class GeneToDiseaseAssociation(GeneToDiseaseOrPhenotypicFeatureAssociation, GeneToEntityAssociationMixin, EntityToDiseaseAssociationMixin):
     
     subject_aspect_qualifier: Optional[GeneOrGeneProductOrChemicalEntityAspectEnum] = Field(None)
@@ -6708,6 +6637,7 @@ class GeneToDiseaseAssociation(GeneToDiseaseOrPhenotypicFeatureAssociation, Gene
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""disease""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6749,7 +6679,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class CausalGeneToDiseaseAssociation(GeneToDiseaseAssociation, GeneToEntityAssociationMixin, EntityToDiseaseAssociationMixin):
     
     subject_aspect_qualifier: Optional[GeneOrGeneProductOrChemicalEntityAspectEnum] = Field(None)
@@ -6759,6 +6688,7 @@ class CausalGeneToDiseaseAssociation(GeneToDiseaseAssociation, GeneToEntityAssoc
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""disease""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6800,7 +6730,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class CorrelatedGeneToDiseaseAssociation(GeneToDiseaseAssociation, GeneToEntityAssociationMixin, EntityToDiseaseAssociationMixin):
     
     subject_aspect_qualifier: Optional[GeneOrGeneProductOrChemicalEntityAspectEnum] = Field(None)
@@ -6810,6 +6739,7 @@ class CorrelatedGeneToDiseaseAssociation(GeneToDiseaseAssociation, GeneToEntityA
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""disease""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6851,7 +6781,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class DruggableGeneToDiseaseAssociation(GeneToDiseaseAssociation, GeneToEntityAssociationMixin, EntityToDiseaseAssociationMixin):
     
     subject_aspect_qualifier: Optional[GeneOrGeneProductOrChemicalEntityAspectEnum] = Field(None)
@@ -6861,6 +6790,7 @@ class DruggableGeneToDiseaseAssociation(GeneToDiseaseAssociation, GeneToEntityAs
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""disease""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[DruggableGeneCategoryEnum]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6902,7 +6832,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class VariantToGeneAssociation(VariantToEntityAssociationMixin, Association):
     """
     An association between a variant and a gene, where the variant has a genetic association with the gene (i.e. is in linkage disequilibrium)
@@ -6911,6 +6840,7 @@ class VariantToGeneAssociation(VariantToEntityAssociationMixin, Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6945,7 +6875,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class VariantToGeneExpressionAssociation(VariantToGeneAssociation, GeneExpressionMixin):
     """
     An association between a variant and expression of a gene (i.e. e-QTL)
@@ -6958,6 +6887,7 @@ class VariantToGeneExpressionAssociation(VariantToGeneAssociation, GeneExpressio
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -6992,7 +6922,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class VariantToPopulationAssociation(VariantToEntityAssociationMixin, FrequencyQualifierMixin, Association, FrequencyQuantifier):
     """
     An association between a variant and a population, where the variant has particular frequency in the population
@@ -7006,6 +6935,7 @@ class VariantToPopulationAssociation(VariantToEntityAssociationMixin, FrequencyQ
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the population that is observed to have the frequency""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7040,7 +6970,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class PopulationToPopulationAssociation(Association):
     """
     An association between a two populations
@@ -7049,6 +6978,7 @@ class PopulationToPopulationAssociation(Association):
     predicate: str = Field(..., description="""A relationship type that holds between the subject and object populations. Standard mereological relations can be used. E.g. subject part-of object, subject overlaps object. Derivation relationships can also be used""")
     object: str = Field(..., description="""the population that form the object of the association""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7083,7 +7013,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class VariantToPhenotypicFeatureAssociation(VariantToEntityAssociationMixin, EntityToPhenotypicFeatureAssociationMixin, Association):
     
     sex_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state whether the association is specific to a particular sex.""")
@@ -7091,6 +7020,7 @@ class VariantToPhenotypicFeatureAssociation(VariantToEntityAssociationMixin, Ent
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7132,13 +7062,13 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class VariantToDiseaseAssociation(VariantToEntityAssociationMixin, EntityToDiseaseAssociationMixin, Association):
     
     subject: str = Field(..., description="""a sequence variant in which the allele state is associated in some way with the disease state""")
     predicate: str = Field(..., description="""E.g. is pathogenic for""")
     object: str = Field(..., description="""a disease that is associated with that variant""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7176,13 +7106,13 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class GenotypeToDiseaseAssociation(GenotypeToEntityAssociationMixin, EntityToDiseaseAssociationMixin, Association):
     
     subject: str = Field(..., description="""a genotype that is associated in some way with a disease state""")
     predicate: str = Field(..., description="""E.g. is pathogenic for""")
     object: str = Field(..., description="""a disease that is associated with that genotype""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7220,14 +7150,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class ModelToDiseaseAssociationMixin(ConfiguredBaseModel):
     """
     This mixin is used for any association class for which the subject (source node) plays the role of a 'model', in that it recapitulates some features of the disease in a way that is useful for studying the disease outside a patient carrying the disease
     """
     None
     
-
 
 class GeneAsAModelOfDiseaseAssociation(ModelToDiseaseAssociationMixin, GeneToDiseaseAssociation, EntityToDiseaseAssociationMixin):
     
@@ -7238,6 +7166,7 @@ class GeneAsAModelOfDiseaseAssociation(ModelToDiseaseAssociationMixin, GeneToDis
     predicate: str = Field(..., description="""The relationship to the disease""")
     object: str = Field(..., description="""disease""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7279,13 +7208,13 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class VariantAsAModelOfDiseaseAssociation(ModelToDiseaseAssociationMixin, VariantToDiseaseAssociation, EntityToDiseaseAssociationMixin):
     
     subject: str = Field(..., description="""A variant that has a role in modeling the disease.""")
     predicate: str = Field(..., description="""The relationship to the disease""")
     object: str = Field(..., description="""disease""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7323,13 +7252,13 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class GenotypeAsAModelOfDiseaseAssociation(ModelToDiseaseAssociationMixin, GenotypeToDiseaseAssociation, EntityToDiseaseAssociationMixin):
     
     subject: str = Field(..., description="""A genotype that has a role in modeling the disease.""")
     predicate: str = Field(..., description="""The relationship to the disease""")
     object: str = Field(..., description="""disease""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7367,13 +7296,13 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class CellLineAsAModelOfDiseaseAssociation(ModelToDiseaseAssociationMixin, CellLineToDiseaseOrPhenotypicFeatureAssociation, EntityToDiseaseAssociationMixin):
     
     subject: str = Field(..., description="""A cell line derived from an organismal entity with a disease state that is used as a model of that disease.""")
     predicate: str = Field(..., description="""The relationship to the disease""")
     object: str = Field(..., description="""disease""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7411,13 +7340,13 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class OrganismalEntityAsAModelOfDiseaseAssociation(ModelToDiseaseAssociationMixin, EntityToDiseaseAssociationMixin, Association):
     
     subject: str = Field(..., description="""A organismal entity (strain, breed) with a predisposition to a disease, or bred/created specifically to model a disease.""")
     predicate: str = Field(..., description="""The relationship to the disease""")
     object: str = Field(..., description="""disease""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7455,13 +7384,13 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class OrganismToOrganismAssociation(Association):
     
     subject: str = Field(..., description="""connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""An association between two individual organisms.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7496,13 +7425,13 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class TaxonToTaxonAssociation(Association):
     
     subject: str = Field(..., description="""connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""An association between individuals of different taxa.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7537,7 +7466,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GeneHasVariantThatContributesToDiseaseAssociation(GeneToDiseaseAssociation):
     
     subject_form_or_variant_qualifier: Optional[str] = Field(None)
@@ -7548,6 +7476,7 @@ class GeneHasVariantThatContributesToDiseaseAssociation(GeneToDiseaseAssociation
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""disease""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7589,7 +7518,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     frequency_qualifier: Optional[str] = Field(None, description="""a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject""")
     
 
-
 class GeneToExpressionSiteAssociation(Association):
     """
     An association between a gene and a gene expression site, possibly qualified by stage/timing info.
@@ -7600,6 +7528,7 @@ class GeneToExpressionSiteAssociation(Association):
     predicate: str = Field(..., description="""expression relationship""")
     object: str = Field(..., description="""location in which the gene is expressed""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7634,7 +7563,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class SequenceVariantModulatesTreatmentAssociation(Association):
     """
     An association between a sequence variant and a treatment or health intervention. The treatment object itself encompasses both the disease and the drug used.
@@ -7643,6 +7571,7 @@ class SequenceVariantModulatesTreatmentAssociation(Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""treatment whose efficacy is modulated by the subject variant""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7677,7 +7606,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class FunctionalAssociation(Association):
     """
     An association between a macromolecular machine mixin (gene, gene product or complex of gene products) and either a molecular activity, a biological process or a cellular location in which a function is executed.
@@ -7686,6 +7614,7 @@ class FunctionalAssociation(Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""class describing the activity, process or localization of the gene product""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7720,14 +7649,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class MacromolecularMachineToEntityAssociationMixin(ConfiguredBaseModel):
     """
     an association which has a macromolecular machine mixin as a subject
     """
     None
     
-
 
 class MacromolecularMachineToMolecularActivityAssociation(MacromolecularMachineToEntityAssociationMixin, FunctionalAssociation):
     """
@@ -7737,6 +7664,7 @@ class MacromolecularMachineToMolecularActivityAssociation(MacromolecularMachineT
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""class describing the activity, process or localization of the gene product""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7771,7 +7699,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class MacromolecularMachineToBiologicalProcessAssociation(MacromolecularMachineToEntityAssociationMixin, FunctionalAssociation):
     """
     A functional association between a macromolecular machine (gene, gene product or complex) and a biological process or pathway (as represented in the GO biological process branch), where the entity carries out some part of the process, regulates it, or acts upstream of it.
@@ -7780,6 +7707,7 @@ class MacromolecularMachineToBiologicalProcessAssociation(MacromolecularMachineT
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""class describing the activity, process or localization of the gene product""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7814,7 +7742,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class MacromolecularMachineToCellularComponentAssociation(MacromolecularMachineToEntityAssociationMixin, FunctionalAssociation):
     """
     A functional association between a macromolecular machine (gene, gene product or complex) and a cellular component (as represented in the GO cellular component branch), where the entity carries out its function in the cellular component.
@@ -7823,6 +7750,7 @@ class MacromolecularMachineToCellularComponentAssociation(MacromolecularMachineT
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""class describing the activity, process or localization of the gene product""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7857,7 +7785,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class MolecularActivityToChemicalEntityAssociation(Association):
     """
     Added in response to capturing relationship between microbiome activities as measured via measurements of blood analytes as collected via blood and stool samples
@@ -7866,6 +7793,7 @@ class MolecularActivityToChemicalEntityAssociation(Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7900,7 +7828,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class MolecularActivityToMolecularActivityAssociation(Association):
     """
     Added in response to capturing relationship between microbiome activities as measured via measurements of blood analytes as collected via blood and stool samples
@@ -7909,6 +7836,7 @@ class MolecularActivityToMolecularActivityAssociation(Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7943,13 +7871,13 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GeneToGoTermAssociation(FunctionalAssociation):
     
     subject: str = Field(..., description="""gene, product or macromolecular complex that has the function associated with the GO term""")
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""class describing the activity, process or localization of the gene product""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -7984,7 +7912,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class EntityToDiseaseAssociation(Association):
     
     FDA_approval_status: Optional[FDAApprovalStatusEnum] = Field(None)
@@ -7992,6 +7919,7 @@ class EntityToDiseaseAssociation(Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8026,7 +7954,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class EntityToPhenotypicFeatureAssociation(Association):
     
     FDA_approval_status: Optional[FDAApprovalStatusEnum] = Field(None)
@@ -8034,6 +7961,7 @@ class EntityToPhenotypicFeatureAssociation(Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8068,7 +7996,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class SequenceAssociation(Association):
     """
     An association between a sequence feature and a nucleic acid entity it is localized to.
@@ -8077,6 +8004,7 @@ class SequenceAssociation(Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8111,7 +8039,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GenomicSequenceLocalization(SequenceAssociation):
     """
     A relationship between a sequence feature and a nucleic acid entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig.
@@ -8125,6 +8052,7 @@ class GenomicSequenceLocalization(SequenceAssociation):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8159,7 +8087,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class SequenceFeatureRelationship(Association):
     """
     For example, a particular exon is part of a particular transcript or gene
@@ -8168,6 +8095,7 @@ class SequenceFeatureRelationship(Association):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8202,7 +8130,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class TranscriptToGeneRelationship(SequenceFeatureRelationship):
     """
     A gene is a collection of transcripts
@@ -8211,6 +8138,7 @@ class TranscriptToGeneRelationship(SequenceFeatureRelationship):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8245,7 +8173,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class GeneToGeneProductRelationship(SequenceFeatureRelationship):
     """
     A gene is transcribed and potentially translated to a gene product
@@ -8254,6 +8181,7 @@ class GeneToGeneProductRelationship(SequenceFeatureRelationship):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8288,7 +8216,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ExonToTranscriptRelationship(SequenceFeatureRelationship):
     """
     A transcript is formed from multiple exons
@@ -8297,6 +8224,7 @@ class ExonToTranscriptRelationship(SequenceFeatureRelationship):
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8331,7 +8259,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class ChemicalEntityOrGeneOrGeneProductRegulatesGeneAssociation(Association):
     """
     A regulatory relationship between two genes
@@ -8341,6 +8268,7 @@ class ChemicalEntityOrGeneOrGeneProductRegulatesGeneAssociation(Association):
     predicate: str = Field(..., description="""the direction is always from regulator to regulated""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8375,13 +8303,13 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class AnatomicalEntityToAnatomicalEntityAssociation(Association):
     
     subject: str = Field(..., description="""connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8416,7 +8344,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class AnatomicalEntityToAnatomicalEntityPartOfAssociation(AnatomicalEntityToAnatomicalEntityAssociation):
     """
     A relationship between two anatomical entities where the relationship is mereological, i.e the two entities are related by parthood. This includes relationships between cellular components and cells, between cells and tissues, tissues and whole organisms
@@ -8425,6 +8352,7 @@ class AnatomicalEntityToAnatomicalEntityPartOfAssociation(AnatomicalEntityToAnat
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the whole""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8459,7 +8387,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class AnatomicalEntityToAnatomicalEntityOntogenicAssociation(AnatomicalEntityToAnatomicalEntityAssociation):
     """
     A relationship between two anatomical entities where the relationship is ontogenic, i.e. the two entities are related by development. A number of different relationship types can be used to specify the precise nature of the relationship.
@@ -8468,6 +8395,7 @@ class AnatomicalEntityToAnatomicalEntityOntogenicAssociation(AnatomicalEntityToA
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the structure at an earlier time""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8502,14 +8430,12 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class OrganismTaxonToEntityAssociation(ConfiguredBaseModel):
     """
     An association between an organism taxon and another entity
     """
     None
     
-
 
 class OrganismTaxonToOrganismTaxonAssociation(OrganismTaxonToEntityAssociation, Association):
     """
@@ -8519,6 +8445,7 @@ class OrganismTaxonToOrganismTaxonAssociation(OrganismTaxonToEntityAssociation, 
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8553,7 +8480,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class OrganismTaxonToOrganismTaxonSpecialization(OrganismTaxonToOrganismTaxonAssociation):
     """
     A child-parent relationship between two taxa. For example: Homo sapiens subclass_of Homo
@@ -8562,6 +8488,7 @@ class OrganismTaxonToOrganismTaxonSpecialization(OrganismTaxonToOrganismTaxonAss
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the more general taxon""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8596,7 +8523,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class OrganismTaxonToOrganismTaxonInteraction(OrganismTaxonToOrganismTaxonAssociation):
     """
     An interaction relationship between two taxa. This may be a symbiotic relationship (encompassing mutualism and parasitism), or it may be non-symbiotic. Example: plague transmitted_by flea; cattle domesticated_by Homo sapiens; plague infects Homo sapiens
@@ -8606,6 +8532,7 @@ class OrganismTaxonToOrganismTaxonInteraction(OrganismTaxonToOrganismTaxonAssoci
     predicate: str = Field(..., description="""A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.""")
     object: str = Field(..., description="""the taxon that is the subject of the association""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8640,13 +8567,13 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
 
-
 class OrganismTaxonToEnvironmentAssociation(OrganismTaxonToEntityAssociation, Association):
     
     subject: str = Field(..., description="""the taxon that is the subject of the association""")
     predicate: str = Field(..., description="""predicate describing the relationship between the taxon and the environment""")
     object: str = Field(..., description="""the environment in which the organism occurs""")
     negated: Optional[bool] = Field(None, description="""if set to true, then the association is negated i.e. is not true""")
+    qualifier: Optional[str] = Field(None, description="""grouping slot for all qualifiers on an edge.  useful for testing compliance with association classes""")
     qualifiers: Optional[List[str]] = Field(default_factory=list, description="""connects an association to qualifiers that modify or qualify the meaning of that association""")
     publications: Optional[List[str]] = Field(default_factory=list, description="""One or more publications that report the statement expressed in an  Association, or provide information used as evidence supporting this statement.""")
     has_evidence: Optional[List[str]] = Field(None, description="""connects an association to an instance of supporting evidence""")
@@ -8680,7 +8607,6 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
     description: Optional[str] = Field(None, description="""a human-readable description of an entity""")
     has_attribute: Optional[List[str]] = Field(None, description="""connects any entity to an attribute""")
     
-
 
 
 # Update forward refs
@@ -8913,6 +8839,7 @@ ChemicalToPathwayAssociation.update_forward_refs()
 NamedThingAssociatedWithLikelihoodOfNamedThingAssociation.update_forward_refs()
 ChemicalGeneInteractionAssociation.update_forward_refs()
 ChemicalAffectsGeneAssociation.update_forward_refs()
+GeneAffectsChemicalAssociation.update_forward_refs()
 DrugToGeneAssociation.update_forward_refs()
 MaterialSampleToEntityAssociationMixin.update_forward_refs()
 MaterialSampleDerivationAssociation.update_forward_refs()

@@ -2,8 +2,7 @@ from __future__ import annotations
 from datetime import datetime, date
 from enum import Enum
 from typing import List, Dict, Optional, Any, Union
-from pydantic import BaseModel as BaseModel, Field
-from linkml_runtime.linkml_model import Decimal
+from pydantic import BaseModel as BaseModel, ConfigDict, Field
 import sys
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -123,10 +122,9 @@ class GroupRelationshipType(str, Enum):
 
 class NamedThing(ConfiguredBaseModel):
     
-    id: Optional[str] = Field(None)
+    id: str = Field(...)
     label: Optional[str] = Field(None)
     
-
 
 class CellClass(NamedThing):
     """
@@ -137,7 +135,6 @@ class CellClass(NamedThing):
     id: str = Field(...)
     label: Optional[str] = Field(None)
     
-
 
 class CellSubclass(NamedThing):
     """
@@ -150,7 +147,6 @@ class CellSubclass(NamedThing):
     label: Optional[str] = Field(None)
     
 
-
 class Cluster(NamedThing):
     """
     Cluster in Supplementary Materials: Table 7
@@ -160,7 +156,6 @@ class Cluster(NamedThing):
     id: str = Field(...)
     label: Optional[str] = Field(None)
     
-
 
 class Cell(NamedThing):
     """
@@ -172,12 +167,10 @@ class Cell(NamedThing):
     label: Optional[str] = Field(None)
     
 
-
 class Relationship(ConfiguredBaseModel):
     
     related_to: str = Field(...)
     
-
 
 class HierarchicalRelationship(Relationship):
     
@@ -185,13 +178,11 @@ class HierarchicalRelationship(Relationship):
     related_to: str = Field(...)
     
 
-
 class GroupRelationship(Relationship):
     
     relationship_type: Optional[GroupRelationshipType] = Field(None)
     related_to: str = Field(...)
     
-
 
 class Container(ConfiguredBaseModel):
     
@@ -200,7 +191,6 @@ class Container(ConfiguredBaseModel):
     cells: Optional[List[Cell]] = Field(default_factory=list)
     clusters: Optional[List[Cluster]] = Field(default_factory=list)
     
-
 
 
 # Update forward refs

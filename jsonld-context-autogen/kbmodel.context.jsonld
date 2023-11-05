@@ -514,8 +514,8 @@
       "fabio": "http://purl.org/spar/fabio/",
       "faldo": "http://biohackathon.org/resource/faldo#",
       "foaf": "http://xmlns.com/foaf/0.1/",
-      "foodb.compound": "http://foodb.ca/foods/",
-      "foodb.food": "http://foodb.ca/compounds/",
+      "foodb.compound": "http://foodb.ca/compounds/",
+      "foodb.food": "http://foodb.ca/foods/",
       "gff3": "https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md#",
       "gpi": "https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md#",
       "gtpo": "https://rdf.guidetopharmacology.org/ns/gtpo#",
@@ -1179,7 +1179,7 @@
       },
       "has_dataset": {
          "@type": "@id",
-         "@id": "dct:source"
+         "@id": "biolink:has_dataset"
       },
       "has_decreased_amount": {
          "@type": "@id",
@@ -1477,7 +1477,7 @@
          "@id": "biolink:indirectly_physically_interacts_with"
       },
       "ingest_date": {
-         "@id": "pav:version"
+         "@id": "biolink:ingest_date"
       },
       "interacting_molecules_category": {
          "@type": "@id",
@@ -2089,6 +2089,10 @@
       "same_as": {
          "@type": "@id",
          "@id": "biolink:same_as"
+      },
+      "semmed_agreement_count": {
+         "@type": "xsd:integer",
+         "@id": "biolink:semmed_agreement_count"
       },
       "sensitivity_associated_with": {
          "@type": "@id",
@@ -2743,6 +2747,9 @@
       },
       "Gene": {
          "@id": "biolink:Gene"
+      },
+      "GeneAffectsChemicalAssociation": {
+         "@id": "biolink:GeneAffectsChemicalAssociation"
       },
       "GeneAsAModelOfDiseaseAssociation": {
          "@id": "biolink:GeneAsAModelOfDiseaseAssociation"
