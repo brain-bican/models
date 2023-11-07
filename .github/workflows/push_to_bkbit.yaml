@@ -10,7 +10,7 @@ jobs:
     #container: ubuntu
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Pushes to another repository
         #uses: cpina/github-action-push-to-another-repository@composite-1.5.1
