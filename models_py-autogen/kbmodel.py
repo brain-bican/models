@@ -696,11 +696,11 @@ In an RDF database, nodes will typically have an rdf:type triples. This can be t
 
 class EnrichedCellSample(Entity, ProvEntity):
     
-    source_barcode_name: Optional[str] = Field(None, description="""Name of molecular barcode used to individual Enriched Cell Source to allow for pooling of Enriched Cell Sources before 10x load (Barcoding Cell step) [aka 1st round barcodes]. wasGeneratedBy:""")
+    source_barcode_name: Optional[str] = Field(None, description="""Name of molecular barcode used to individual Enriched Cell Source to allow for pooling of Enriched Cell Sources before 10x load (Barcoding Cell step) [aka 1st round barcodes].""")
     histone_modification_marker: Optional[str] = Field(None, description="""Histone modification marker antibodies (eg H3K27ac, H3K27me3, H3K9me3) used in conjunction with an Enriched Cell Source Barcode in order to combine multiple Enriched Cell Populations before Barcoded Cell Sample step for 10xMultiome method.  Each of the Histone antibodies captures an essential part of the epigenome.""")
     population: str = Field(..., description="""Actual percentage of cells as a result of using set of fluorescent marker label(s) to enrich dissociated_cell_sample with desired mix of cell populations.  This plan can also be used to describe 'No FACS' where no enrichment was performed. This is a property of enriched_cell_prep_container.""")
     wasDerivedFrom: Optional[List[DissociatedCellSample]] = Field(default_factory=list)
-    wasGeneratedBy: Optional[List[Union[Activity,BrainExtraction,BrainSegmentSectioning,RoiDelineation,TissueDissection,CellDissociation,CellEnrichment,Split,CellBarcoding,CdnaAmplification,LibraryConstruction,LibraryAliquoting,LibraryPooling,Sequencing,Alignment,Study]]] = Field(default_factory=list)
+    wasGeneratedBy: Optional[List[CellEnrichment]] = Field(default_factory=list)
     wasAttributedTo: Optional[List[Union[Agent,Donor]]] = Field(default_factory=list)
     id: str = Field(..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""")
     iri: Optional[str] = Field(None, description="""An IRI for an entity. This is determined by the id using expansion rules.""")

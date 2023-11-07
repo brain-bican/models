@@ -12238,7 +12238,7 @@
                     "type": "string"
                 },
                 "source_barcode_name": {
-                    "description": "Name of molecular barcode used to individual Enriched Cell Source to allow for pooling of Enriched Cell Sources before 10x load (Barcoding Cell step) [aka 1st round barcodes]. wasGeneratedBy:",
+                    "description": "Name of molecular barcode used to individual Enriched Cell Source to allow for pooling of Enriched Cell Sources before 10x load (Barcoding Cell step) [aka 1st round barcodes].",
                     "type": "string"
                 },
                 "type": {
@@ -12274,52 +12274,7 @@
                     "items": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/Activity"
-                            },
-                            {
-                                "$ref": "#/$defs/BrainExtraction"
-                            },
-                            {
-                                "$ref": "#/$defs/BrainSegmentSectioning"
-                            },
-                            {
-                                "$ref": "#/$defs/RoiDelineation"
-                            },
-                            {
-                                "$ref": "#/$defs/TissueDissection"
-                            },
-                            {
-                                "$ref": "#/$defs/CellDissociation"
-                            },
-                            {
                                 "$ref": "#/$defs/CellEnrichment"
-                            },
-                            {
-                                "$ref": "#/$defs/Split"
-                            },
-                            {
-                                "$ref": "#/$defs/CellBarcoding"
-                            },
-                            {
-                                "$ref": "#/$defs/CdnaAmplification"
-                            },
-                            {
-                                "$ref": "#/$defs/LibraryConstruction"
-                            },
-                            {
-                                "$ref": "#/$defs/LibraryAliquoting"
-                            },
-                            {
-                                "$ref": "#/$defs/LibraryPooling"
-                            },
-                            {
-                                "$ref": "#/$defs/Sequencing"
-                            },
-                            {
-                                "$ref": "#/$defs/Alignment"
-                            },
-                            {
-                                "$ref": "#/$defs/Study"
                             }
                         ]
                     },
