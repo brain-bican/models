@@ -17,7 +17,7 @@ jobs:
         uses: dmnemec/copy_file_to_another_repo_action@main
 
         env: 
-          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source_file: 'models_py-autogen/kbmodel.py'
           destination_repo: 'puja-trivedi/bkbit'
