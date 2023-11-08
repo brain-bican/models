@@ -315,21 +315,13 @@
                 },
                 "wasDerivedFrom": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/SequencedData"
-                            }
-                        ]
+                        "$ref": "#/$defs/SequencedData"
                     },
                     "type": "array"
                 },
                 "wasGeneratedBy": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Alignment"
-                            }
-                        ]
+                        "$ref": "#/$defs/Alignment"
                     },
                     "type": "array"
                 }
@@ -365,11 +357,7 @@
                 },
                 "generated": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/AlignedData"
-                            }
-                        ]
+                        "$ref": "#/$defs/AlignedData"
                     },
                     "type": "array"
                 },
@@ -414,11 +402,7 @@
                 },
                 "used": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/SequencedData"
-                            }
-                        ]
+                        "$ref": "#/$defs/SequencedData"
                     },
                     "type": "array"
                 },
@@ -536,21 +520,13 @@
                 },
                 "wasDerivedFrom": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/BarcodedCellSample"
-                            }
-                        ]
+                        "$ref": "#/$defs/BarcodedCellSample"
                     },
                     "type": "array"
                 },
                 "wasGeneratedBy": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/CdnaAmplification"
-                            }
-                        ]
+                        "$ref": "#/$defs/CdnaAmplification"
                     },
                     "type": "array"
                 }
@@ -1045,31 +1021,19 @@
             "properties": {
                 "annotations": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/GeneAnnotation"
-                            }
-                        ]
+                        "$ref": "#/$defs/GeneAnnotation"
                     },
                     "type": "array"
                 },
                 "genome_annotations": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/GenomeAnnotation"
-                            }
-                        ]
+                        "$ref": "#/$defs/GenomeAnnotation"
                     },
                     "type": "array"
                 },
                 "genome_assemblies": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/GenomeAssembly"
-                            }
-                        ]
+                        "$ref": "#/$defs/GenomeAssembly"
                     },
                     "type": "array"
                 }
@@ -1676,21 +1640,13 @@
                 },
                 "wasDerivedFrom": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/EnrichedCellSample"
-                            }
-                        ]
+                        "$ref": "#/$defs/EnrichedCellSample"
                     },
                     "type": "array"
                 },
                 "wasGeneratedBy": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/CellBarcoding"
-                            }
-                        ]
+                        "$ref": "#/$defs/CellBarcoding"
                     },
                     "type": "array"
                 }
@@ -2933,11 +2889,7 @@
                 },
                 "generated": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/BrainSegment"
-                            }
-                        ]
+                        "$ref": "#/$defs/BrainSegment"
                     },
                     "type": "array"
                 },
@@ -2982,11 +2934,7 @@
                 },
                 "used": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Donor"
-                            }
-                        ]
+                        "$ref": "#/$defs/Donor"
                     },
                     "type": "array"
                 },
@@ -3080,21 +3028,13 @@
                 },
                 "wasDerivedFrom": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/BrainSegment"
-                            }
-                        ]
+                        "$ref": "#/$defs/BrainSegment"
                     },
                     "type": "array"
                 },
                 "wasGeneratedBy": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/BrainSegmentSectioning"
-                            }
-                        ]
+                        "$ref": "#/$defs/BrainSegmentSectioning"
                     },
                     "type": "array"
                 }
@@ -3166,21 +3106,13 @@
                 },
                 "wasDerivedFrom": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Donor"
-                            }
-                        ]
+                        "$ref": "#/$defs/Donor"
                     },
                     "type": "array"
                 },
                 "wasGeneratedBy": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/BrainExtraction"
-                            }
-                        ]
+                        "$ref": "#/$defs/BrainExtraction"
                     },
                     "type": "array"
                 }
@@ -3216,11 +3148,7 @@
                 },
                 "generated": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/BrainSection"
-                            }
-                        ]
+                        "$ref": "#/$defs/BrainSection"
                     },
                     "type": "array"
                 },
@@ -3265,11 +3193,7 @@
                 },
                 "used": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/BrainSegment"
-                            }
-                        ]
+                        "$ref": "#/$defs/BrainSegment"
                     },
                     "type": "array"
                 },
@@ -3891,11 +3815,7 @@
                 },
                 "generated": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/AmplifiedCdna"
-                            }
-                        ]
+                        "$ref": "#/$defs/AmplifiedCdna"
                     },
                     "type": "array"
                 },
@@ -3940,11 +3860,7 @@
                 },
                 "used": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/BarcodedCellSample"
-                            }
-                        ]
+                        "$ref": "#/$defs/BarcodedCellSample"
                     },
                     "type": "array"
                 },
@@ -4089,11 +4005,7 @@
                 },
                 "generated": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/BarcodedCellSample"
-                            }
-                        ]
+                        "$ref": "#/$defs/BarcodedCellSample"
                     },
                     "type": "array"
                 },
@@ -4138,11 +4050,7 @@
                 },
                 "used": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/EnrichedCellSample"
-                            }
-                        ]
+                        "$ref": "#/$defs/EnrichedCellSample"
                     },
                     "type": "array"
                 },
@@ -4199,11 +4107,7 @@
                 },
                 "generated": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/DissociatedCellSample"
-                            }
-                        ]
+                        "$ref": "#/$defs/DissociatedCellSample"
                     },
                     "type": "array"
                 },
@@ -4248,11 +4152,7 @@
                 },
                 "used": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/TissueSample"
-                            }
-                        ]
+                        "$ref": "#/$defs/TissueSample"
                     },
                     "type": "array"
                 },
@@ -4309,11 +4209,7 @@
                 },
                 "generated": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/EnrichedCellSample"
-                            }
-                        ]
+                        "$ref": "#/$defs/EnrichedCellSample"
                     },
                     "type": "array"
                 },
@@ -4358,11 +4254,7 @@
                 },
                 "used": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/DissociatedCellSample"
-                            }
-                        ]
+                        "$ref": "#/$defs/DissociatedCellSample"
                     },
                     "type": "array"
                 },
@@ -11144,21 +11036,13 @@
                 },
                 "wasDerivedFrom": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/TissueSample"
-                            }
-                        ]
+                        "$ref": "#/$defs/TissueSample"
                     },
                     "type": "array"
                 },
                 "wasGeneratedBy": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/CellDissociation"
-                            }
-                        ]
+                        "$ref": "#/$defs/CellDissociation"
                     },
                     "type": "array"
                 }
@@ -12262,21 +12146,13 @@
                 },
                 "wasDerivedFrom": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/DissociatedCellSample"
-                            }
-                        ]
+                        "$ref": "#/$defs/DissociatedCellSample"
                     },
                     "type": "array"
                 },
                 "wasGeneratedBy": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/CellEnrichment"
-                            }
-                        ]
+                        "$ref": "#/$defs/CellEnrichment"
                     },
                     "type": "array"
                 }
@@ -20957,21 +20833,13 @@
                 },
                 "wasDerivedFrom": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/AmplifiedCdna"
-                            }
-                        ]
+                        "$ref": "#/$defs/AmplifiedCdna"
                     },
                     "type": "array"
                 },
                 "wasGeneratedBy": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/LibraryConstruction"
-                            }
-                        ]
+                        "$ref": "#/$defs/LibraryConstruction"
                     },
                     "type": "array"
                 }
@@ -21050,21 +20918,13 @@
                 },
                 "wasDerivedFrom": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Library"
-                            }
-                        ]
+                        "$ref": "#/$defs/Library"
                     },
                     "type": "array"
                 },
                 "wasGeneratedBy": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/LibraryAliquoting"
-                            }
-                        ]
+                        "$ref": "#/$defs/LibraryAliquoting"
                     },
                     "type": "array"
                 }
@@ -21101,11 +20961,7 @@
                 },
                 "generated": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/LibraryAliquot"
-                            }
-                        ]
+                        "$ref": "#/$defs/LibraryAliquot"
                     },
                     "type": "array"
                 },
@@ -21150,11 +21006,7 @@
                 },
                 "used": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Library"
-                            }
-                        ]
+                        "$ref": "#/$defs/Library"
                     },
                     "type": "array"
                 },
@@ -21211,11 +21063,7 @@
                 },
                 "generated": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Library"
-                            }
-                        ]
+                        "$ref": "#/$defs/Library"
                     },
                     "type": "array"
                 },
@@ -21260,11 +21108,7 @@
                 },
                 "used": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/AmplifiedCdna"
-                            }
-                        ]
+                        "$ref": "#/$defs/AmplifiedCdna"
                     },
                     "type": "array"
                 },
@@ -21406,21 +21250,13 @@
                 },
                 "wasDerivedFrom": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/LibraryAliquot"
-                            }
-                        ]
+                        "$ref": "#/$defs/LibraryAliquot"
                     },
                     "type": "array"
                 },
                 "wasGeneratedBy": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/LibraryPooling"
-                            }
-                        ]
+                        "$ref": "#/$defs/LibraryPooling"
                     },
                     "type": "array"
                 },
@@ -21470,11 +21306,7 @@
                 },
                 "generated": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/LibraryPool"
-                            }
-                        ]
+                        "$ref": "#/$defs/LibraryPool"
                     },
                     "type": "array"
                 },
@@ -21519,11 +21351,7 @@
                 },
                 "used": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/LibraryAliquot"
-                            }
-                        ]
+                        "$ref": "#/$defs/LibraryAliquot"
                     },
                     "type": "array"
                 },
@@ -29918,11 +29746,7 @@
                 },
                 "generated": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/RoiPolygon"
-                            }
-                        ]
+                        "$ref": "#/$defs/RoiPolygon"
                     },
                     "type": "array"
                 },
@@ -29967,11 +29791,7 @@
                 },
                 "used": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/BrainSection"
-                            }
-                        ]
+                        "$ref": "#/$defs/BrainSection"
                     },
                     "type": "array"
                 },
@@ -30061,21 +29881,13 @@
                 },
                 "wasDerivedFrom": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/BrainSection"
-                            }
-                        ]
+                        "$ref": "#/$defs/BrainSection"
                     },
                     "type": "array"
                 },
                 "wasGeneratedBy": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/RoiDelineation"
-                            }
-                        ]
+                        "$ref": "#/$defs/RoiDelineation"
                     },
                     "type": "array"
                 }
@@ -30636,21 +30448,13 @@
                 },
                 "wasDerivedFrom": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/LibraryPool"
-                            }
-                        ]
+                        "$ref": "#/$defs/LibraryPool"
                     },
                     "type": "array"
                 },
                 "wasGeneratedBy": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Sequencing"
-                            }
-                        ]
+                        "$ref": "#/$defs/Sequencing"
                     },
                     "type": "array"
                 }
@@ -30686,11 +30490,7 @@
                 },
                 "generated": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/SequencedData"
-                            }
-                        ]
+                        "$ref": "#/$defs/SequencedData"
                     },
                     "type": "array"
                 },
@@ -30735,11 +30535,7 @@
                 },
                 "used": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/LibraryPool"
-                            }
-                        ]
+                        "$ref": "#/$defs/LibraryPool"
                     },
                     "type": "array"
                 },
@@ -31526,11 +31322,7 @@
                 },
                 "generated": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/EnrichedCellSample"
-                            }
-                        ]
+                        "$ref": "#/$defs/EnrichedCellSample"
                     },
                     "type": "array"
                 },
@@ -31575,11 +31367,7 @@
                 },
                 "used": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/EnrichedCellSample"
-                            }
-                        ]
+                        "$ref": "#/$defs/EnrichedCellSample"
                     },
                     "type": "array"
                 },
@@ -32201,11 +31989,7 @@
                 },
                 "generated": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/TissueSample"
-                            }
-                        ]
+                        "$ref": "#/$defs/TissueSample"
                     },
                     "type": "array"
                 },
@@ -32250,11 +32034,7 @@
                 },
                 "used": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/BrainSection"
-                            }
-                        ]
+                        "$ref": "#/$defs/BrainSection"
                     },
                     "type": "array"
                 },
@@ -32351,21 +32131,13 @@
                 },
                 "wasDerivedFrom": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/BrainSection"
-                            }
-                        ]
+                        "$ref": "#/$defs/BrainSection"
                     },
                     "type": "array"
                 },
                 "wasGeneratedBy": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/TissueDissection"
-                            }
-                        ]
+                        "$ref": "#/$defs/TissueDissection"
                     },
                     "type": "array"
                 }
@@ -34495,31 +34267,19 @@
     "properties": {
         "annotations": {
             "items": {
-                "anyOf": [
-                    {
-                        "$ref": "#/$defs/GeneAnnotation"
-                    }
-                ]
+                "$ref": "#/$defs/GeneAnnotation"
             },
             "type": "array"
         },
         "genome_annotations": {
             "items": {
-                "anyOf": [
-                    {
-                        "$ref": "#/$defs/GenomeAnnotation"
-                    }
-                ]
+                "$ref": "#/$defs/GenomeAnnotation"
             },
             "type": "array"
         },
         "genome_assemblies": {
             "items": {
-                "anyOf": [
-                    {
-                        "$ref": "#/$defs/GenomeAssembly"
-                    }
-                ]
+                "$ref": "#/$defs/GenomeAssembly"
             },
             "type": "array"
         }
