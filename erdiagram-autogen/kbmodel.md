@@ -13,8 +13,6 @@ Agent {
     string address  
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -25,8 +23,6 @@ Agent {
 Alignment {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -45,8 +41,6 @@ SequencedData {
 Sequencing {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -79,8 +73,6 @@ LibraryPool {
 LibraryPooling {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -100,8 +92,6 @@ LibraryAliquot {
 LibraryAliquoting {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -133,8 +123,6 @@ Library {
 LibraryConstruction {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -159,8 +147,6 @@ AmplifiedCdna {
 CdnaAmplification {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -183,8 +169,6 @@ BarcodedCellSample {
 CellBarcoding {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -206,8 +190,6 @@ EnrichedCellSample {
 CellEnrichment {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -230,8 +212,6 @@ DissociatedCellSample {
 CellDissociation {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -252,8 +232,6 @@ TissueSample {
 TissueDissection {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -273,8 +251,6 @@ BrainSection {
 BrainSegmentSectioning {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -294,8 +270,6 @@ BrainSegment {
 BrainExtraction {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -309,13 +283,10 @@ Donor {
     date death_date  
     string death_age  
     string full_genotype  
-    label_type in_taxon_label  
     uriorcurieList affiliation  
     string address  
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -334,8 +305,6 @@ RoiPolygon {
 RoiDelineation {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -349,8 +318,6 @@ ProvEntity {
 Activity {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -369,8 +336,6 @@ Entity {
 Split {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -387,11 +352,8 @@ AnnotationCollection {
 GenomeAssembly {
     string version  
     string strain  
-    label_type in_taxon_label  
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -407,11 +369,8 @@ GenomeAnnotation {
     string reference_assembly  
     biological_sequence has_biological_sequence  
     string id  
-    label_type in_taxon_label  
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     iri_type iri  
     category_typeList category  
     stringList type  
@@ -423,13 +382,11 @@ GeneAnnotation {
     string source_id  
     string referenced_in  
     string symbol  
+    label_typeList synonym  
     uriorcurieList xref  
     biological_sequence has_biological_sequence  
     string id  
-    label_type in_taxon_label  
     stringList provided_by  
-    label_type full_name  
-    label_typeList synonym  
     iri_type iri  
     category_typeList category  
     stringList type  

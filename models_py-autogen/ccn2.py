@@ -13,17 +13,13 @@ else:
 metamodel_version = "None"
 version = "None"
 
-class WeakRefShimBaseModel(BaseModel):
-   __slots__ = '__weakref__'
-
-class ConfiguredBaseModel(WeakRefShimBaseModel,
-                validate_assignment = True,
-                validate_all = True,
-                underscore_attrs_are_private = True,
-                extra = 'forbid',
-                arbitrary_types_allowed = True,
-                use_enum_values = True):
-    pass
+class ConfiguredBaseModel(BaseModel):
+    model_config = ConfigDict(
+        validate_assignment=True,
+        validate_default=True,
+        extra='forbid',
+        arbitrary_types_allowed=True,
+        use_enum_values = True)
 
 
 class Rank(str, Enum):
@@ -81,10 +77,10 @@ class CellSetAccessionToCellMapping(ConfiguredBaseModel):
     
 
 
-# Update forward refs
-# see https://pydantic-docs.helpmanual.io/usage/postponed_annotations/
-Taxonomy.update_forward_refs()
-CrossTaxonomyMapping.update_forward_refs()
-LocationMapping.update_forward_refs()
-CellSetAccessionToCellMapping.update_forward_refs()
+# Model rebuild
+# see https://pydantic-docs.helpmanual.io/usage/models/#rebuilding-a-model
+Taxonomy.model_rebuild()
+CrossTaxonomyMapping.model_rebuild()
+LocationMapping.model_rebuild()
+CellSetAccessionToCellMapping.model_rebuild()
 

@@ -20,6 +20,7 @@
       "BIGG.METABOLITE": "http://identifiers.org/bigg.metabolite/",
       "BIGG.REACTION": "http://identifiers.org/bigg.reaction/",
       "BIOGRID": "http://identifiers.org/biogrid/",
+      "BIOLINK": "https://raw.githubusercontent.com/biolink/biolink-model/latest/",
       "BIOSAMPLE": "http://identifiers.org/biosample/",
       "BSPO": {
          "@id": "http://purl.obolibrary.org/obo/BSPO_",
@@ -504,7 +505,7 @@
          "@prefix": true
       },
       "bican": "https://identifiers.org/brain-bican/vocab/",
-      "biolink": "https://w3id.org/biolink/vocab/",
+      "biolink": "https://raw.githubusercontent.com/biolink/biolink-model/latest/",
       "bioschemas": "https://bioschemas.org/",
       "dcat": "http://www.w3.org/ns/dcat#",
       "dcid": "https://datacommons.org/browser/",
@@ -515,8 +516,8 @@
       "fabio": "http://purl.org/spar/fabio/",
       "faldo": "http://biohackathon.org/resource/faldo#",
       "foaf": "http://xmlns.com/foaf/0.1/",
-      "foodb.compound": "http://foodb.ca/compounds/",
-      "foodb.food": "http://foodb.ca/foods/",
+      "foodb.compound": "http://foodb.ca/foods/",
+      "foodb.food": "http://foodb.ca/compounds/",
       "gff3": "https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md#",
       "gpi": "https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md#",
       "gtpo": "https://rdf.guidetopharmacology.org/ns/gtpo#",
@@ -632,6 +633,7 @@
          "@id": "biolink:aggregate_statistic"
       },
       "aggregator_knowledge_source": {
+         "@type": "@id",
          "@id": "biolink:aggregator_knowledge_source"
       },
       "ameliorates": {
@@ -653,6 +655,12 @@
          "@type": "xsd:float"
       },
       "anatomical_context_qualifier": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
          "@id": "biolink:anatomical_context_qualifier"
       },
       "animal_model_available_from": {
@@ -921,10 +929,6 @@
       "creation_date": {
          "@type": "xsd:date",
          "@id": "biolink:creation_date"
-      },
-      "dataset_count": {
-         "@type": "xsd:integer",
-         "@id": "biolink:dataset_count"
       },
       "dataset_download_url": {
          "@id": "dcat:downloadURL"
@@ -1218,7 +1222,7 @@
       },
       "has_dataset": {
          "@type": "@id",
-         "@id": "biolink:has_dataset"
+         "@id": "dct:source"
       },
       "has_decreased_amount": {
          "@type": "@id",
@@ -1515,8 +1519,21 @@
          "@type": "@id",
          "@id": "biolink:indirectly_physically_interacts_with"
       },
+      "information_resource_status": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "biolink:information_resource_status"
+      },
+      "information_resources": {
+         "@type": "@id",
+         "@id": "biolink:information_resources"
+      },
       "ingest_date": {
-         "@id": "biolink:ingest_date"
+         "@id": "pav:version"
       },
       "interacting_molecules_category": {
          "@type": "@id",
@@ -1636,6 +1653,7 @@
          "@id": "biolink:keywords"
       },
       "knowledge_source": {
+         "@type": "@id",
          "@id": "biolink:knowledge_source"
       },
       "lacks_part": {
@@ -1693,14 +1711,6 @@
       "location_of_disease": {
          "@type": "@id",
          "@id": "biolink:location_of_disease"
-      },
-      "log_odds_ratio": {
-         "@type": "xsd:float",
-         "@id": "biolink:log_odds_ratio"
-      },
-      "log_odds_ratio_95_ci": {
-         "@type": "xsd:float",
-         "@id": "biolink:log_odds_ratio_95_ci"
       },
       "logical_interpretation": {
          "@context": {
@@ -1979,6 +1989,7 @@
          "@id": "biolink:primarily_composed_of"
       },
       "primary_knowledge_source": {
+         "@type": "@id",
          "@id": "biolink:primary_knowledge_source"
       },
       "produced_by": {
@@ -2156,10 +2167,6 @@
          "@type": "@id",
          "@id": "biolink:same_as"
       },
-      "semmed_agreement_count": {
-         "@type": "xsd:integer",
-         "@id": "biolink:semmed_agreement_count"
-      },
       "sensitivity_associated_with": {
          "@type": "@id",
          "@id": "biolink:sensitivity_associated_with"
@@ -2300,9 +2307,11 @@
          "@id": "biolink:support_graphs"
       },
       "supporting_data_set": {
+         "@type": "@id",
          "@id": "biolink:supporting_data_set"
       },
       "supporting_data_source": {
+         "@type": "@id",
          "@id": "biolink:supporting_data_source"
       },
       "supporting_document_type": {
@@ -2378,10 +2387,6 @@
       "timepoint": {
          "@type": "xsd:time",
          "@id": "biolink:timepoint"
-      },
-      "total_sample_size": {
-         "@type": "xsd:integer",
-         "@id": "biolink:total_sample_size"
       },
       "trade_name": {
          "@type": "@id",
@@ -2468,910 +2473,904 @@
          "@id": "biolink:xref"
       },
       "AccessibleDnaRegion": {
-         "@id": "biolink:AccessibleDnaRegion"
+         "@id": "BIOLINK:AccessibleDnaRegion"
       },
       "Activity": {
-         "@id": "biolink:Activity"
+         "@id": "BIOLINK:Activity"
       },
       "ActivityAndBehavior": {
-         "@id": "biolink:ActivityAndBehavior"
+         "@id": "BIOLINK:ActivityAndBehavior"
       },
       "AdministrativeEntity": {
-         "@id": "biolink:AdministrativeEntity"
+         "@id": "BIOLINK:AdministrativeEntity"
       },
       "Agent": {
-         "@id": "biolink:Agent"
+         "@id": "BIOLINK:Agent"
       },
       "AnatomicalEntity": {
-         "@id": "biolink:AnatomicalEntity"
+         "@id": "BIOLINK:AnatomicalEntity"
       },
       "AnatomicalEntityToAnatomicalEntityAssociation": {
-         "@id": "biolink:AnatomicalEntityToAnatomicalEntityAssociation"
+         "@id": "BIOLINK:AnatomicalEntityToAnatomicalEntityAssociation"
       },
       "AnatomicalEntityToAnatomicalEntityOntogenicAssociation": {
-         "@id": "biolink:AnatomicalEntityToAnatomicalEntityOntogenicAssociation"
+         "@id": "BIOLINK:AnatomicalEntityToAnatomicalEntityOntogenicAssociation"
       },
       "AnatomicalEntityToAnatomicalEntityPartOfAssociation": {
-         "@id": "biolink:AnatomicalEntityToAnatomicalEntityPartOfAssociation"
+         "@id": "BIOLINK:AnatomicalEntityToAnatomicalEntityPartOfAssociation"
       },
       "Annotation": {
-         "@id": "biolink:Annotation"
+         "@id": "BIOLINK:Annotation"
       },
       "Article": {
-         "@id": "biolink:Article"
+         "@id": "BIOLINK:Article"
       },
       "Association": {
-         "@id": "biolink:Association"
+         "@id": "BIOLINK:Association"
       },
       "Attribute": {
-         "@id": "biolink:Attribute"
+         "@id": "BIOLINK:Attribute"
       },
       "Bacterium": {
-         "@id": "biolink:Bacterium"
+         "@id": "BIOLINK:Bacterium"
       },
       "Behavior": {
-         "@id": "biolink:Behavior"
+         "@id": "BIOLINK:Behavior"
       },
       "BehaviorToBehavioralFeatureAssociation": {
-         "@id": "biolink:BehaviorToBehavioralFeatureAssociation"
+         "@id": "BIOLINK:BehaviorToBehavioralFeatureAssociation"
       },
       "BehavioralExposure": {
-         "@id": "biolink:BehavioralExposure"
+         "@id": "BIOLINK:BehavioralExposure"
       },
       "BehavioralFeature": {
-         "@id": "biolink:BehavioralFeature"
+         "@id": "BIOLINK:BehavioralFeature"
       },
       "BehavioralOutcome": {
-         "@id": "biolink:BehavioralOutcome"
+         "@id": "BIOLINK:BehavioralOutcome"
       },
       "BiologicalEntity": {
-         "@id": "biolink:BiologicalEntity"
+         "@id": "BIOLINK:BiologicalEntity"
       },
       "BiologicalProcess": {
-         "@id": "biolink:BiologicalProcess"
+         "@id": "BIOLINK:BiologicalProcess"
       },
       "BiologicalProcessOrActivity": {
-         "@id": "biolink:BiologicalProcessOrActivity"
+         "@id": "BIOLINK:BiologicalProcessOrActivity"
       },
       "BiologicalSex": {
-         "@id": "biolink:BiologicalSex"
+         "@id": "BIOLINK:BiologicalSex"
       },
       "BioticExposure": {
-         "@id": "biolink:BioticExposure"
+         "@id": "BIOLINK:BioticExposure"
       },
       "Book": {
-         "@id": "biolink:Book"
+         "@id": "BIOLINK:Book"
       },
       "BookChapter": {
-         "@id": "biolink:BookChapter"
+         "@id": "BIOLINK:BookChapter"
       },
       "Case": {
-         "@id": "biolink:Case"
+         "@id": "BIOLINK:Case"
       },
       "CaseToEntityAssociationMixin": {
-         "@id": "biolink:CaseToEntityAssociationMixin"
+         "@id": "BIOLINK:CaseToEntityAssociationMixin"
       },
       "CaseToPhenotypicFeatureAssociation": {
-         "@id": "biolink:CaseToPhenotypicFeatureAssociation"
-      },
-      "CausalGeneToDiseaseAssociation": {
-         "@id": "biolink:CausalGeneToDiseaseAssociation"
+         "@id": "BIOLINK:CaseToPhenotypicFeatureAssociation"
       },
       "Cell": {
-         "@id": "biolink:Cell"
+         "@id": "BIOLINK:Cell"
       },
       "CellLine": {
-         "@id": "biolink:CellLine"
+         "@id": "BIOLINK:CellLine"
       },
       "CellLineAsAModelOfDiseaseAssociation": {
-         "@id": "biolink:CellLineAsAModelOfDiseaseAssociation"
+         "@id": "BIOLINK:CellLineAsAModelOfDiseaseAssociation"
       },
       "CellLineToDiseaseOrPhenotypicFeatureAssociation": {
-         "@id": "biolink:CellLineToDiseaseOrPhenotypicFeatureAssociation"
+         "@id": "BIOLINK:CellLineToDiseaseOrPhenotypicFeatureAssociation"
       },
       "CellLineToEntityAssociationMixin": {
-         "@id": "biolink:CellLineToEntityAssociationMixin"
+         "@id": "BIOLINK:CellLineToEntityAssociationMixin"
       },
       "CellularComponent": {
-         "@id": "biolink:CellularComponent"
+         "@id": "BIOLINK:CellularComponent"
       },
       "CellularOrganism": {
-         "@id": "biolink:CellularOrganism"
+         "@id": "BIOLINK:CellularOrganism"
       },
       "ChemicalAffectsGeneAssociation": {
-         "@id": "biolink:ChemicalAffectsGeneAssociation"
+         "@id": "BIOLINK:ChemicalAffectsGeneAssociation"
       },
       "ChemicalEntity": {
-         "@id": "biolink:ChemicalEntity"
+         "@id": "BIOLINK:ChemicalEntity"
       },
       "ChemicalEntityAssessesNamedThingAssociation": {
-         "@id": "biolink:ChemicalEntityAssessesNamedThingAssociation"
+         "@id": "BIOLINK:ChemicalEntityAssessesNamedThingAssociation"
       },
       "ChemicalEntityOrGeneOrGeneProduct": {
-         "@id": "biolink:ChemicalEntityOrGeneOrGeneProduct"
+         "@id": "BIOLINK:ChemicalEntityOrGeneOrGeneProduct"
       },
       "ChemicalEntityOrGeneOrGeneProductRegulatesGeneAssociation": {
-         "@id": "biolink:ChemicalEntityOrGeneOrGeneProductRegulatesGeneAssociation"
+         "@id": "BIOLINK:ChemicalEntityOrGeneOrGeneProductRegulatesGeneAssociation"
       },
       "ChemicalEntityOrProteinOrPolypeptide": {
-         "@id": "biolink:ChemicalEntityOrProteinOrPolypeptide"
+         "@id": "BIOLINK:ChemicalEntityOrProteinOrPolypeptide"
       },
       "ChemicalEntityToEntityAssociationMixin": {
-         "@id": "biolink:ChemicalEntityToEntityAssociationMixin"
+         "@id": "BIOLINK:ChemicalEntityToEntityAssociationMixin"
       },
       "ChemicalExposure": {
-         "@id": "biolink:ChemicalExposure"
+         "@id": "BIOLINK:ChemicalExposure"
       },
       "ChemicalGeneInteractionAssociation": {
-         "@id": "biolink:ChemicalGeneInteractionAssociation"
+         "@id": "BIOLINK:ChemicalGeneInteractionAssociation"
       },
       "ChemicalMixture": {
-         "@id": "biolink:ChemicalMixture"
+         "@id": "BIOLINK:ChemicalMixture"
       },
       "ChemicalOrDrugOrTreatment": {
-         "@id": "biolink:ChemicalOrDrugOrTreatment"
+         "@id": "BIOLINK:ChemicalOrDrugOrTreatment"
       },
       "ChemicalOrDrugOrTreatmentSideEffectDiseaseOrPhenotypicFeatureAssociation": {
-         "@id": "biolink:ChemicalOrDrugOrTreatmentSideEffectDiseaseOrPhenotypicFeatureAssociation"
+         "@id": "BIOLINK:ChemicalOrDrugOrTreatmentSideEffectDiseaseOrPhenotypicFeatureAssociation"
       },
       "ChemicalOrDrugOrTreatmentToDiseaseOrPhenotypicFeatureAssociation": {
-         "@id": "biolink:ChemicalOrDrugOrTreatmentToDiseaseOrPhenotypicFeatureAssociation"
+         "@id": "BIOLINK:ChemicalOrDrugOrTreatmentToDiseaseOrPhenotypicFeatureAssociation"
       },
       "ChemicalRole": {
-         "@id": "biolink:ChemicalRole"
+         "@id": "BIOLINK:ChemicalRole"
       },
       "ChemicalToChemicalAssociation": {
-         "@id": "biolink:ChemicalToChemicalAssociation"
+         "@id": "BIOLINK:ChemicalToChemicalAssociation"
       },
       "ChemicalToChemicalDerivationAssociation": {
-         "@id": "biolink:ChemicalToChemicalDerivationAssociation"
+         "@id": "BIOLINK:ChemicalToChemicalDerivationAssociation"
       },
       "ChemicalToDiseaseOrPhenotypicFeatureAssociation": {
-         "@id": "biolink:ChemicalToDiseaseOrPhenotypicFeatureAssociation"
+         "@id": "BIOLINK:ChemicalToDiseaseOrPhenotypicFeatureAssociation"
       },
       "ChemicalToEntityAssociationMixin": {
-         "@id": "biolink:ChemicalToEntityAssociationMixin"
+         "@id": "BIOLINK:ChemicalToEntityAssociationMixin"
       },
       "ChemicalToPathwayAssociation": {
-         "@id": "biolink:ChemicalToPathwayAssociation"
+         "@id": "BIOLINK:ChemicalToPathwayAssociation"
       },
       "ChiSquaredAnalysisResult": {
-         "@id": "biolink:ChiSquaredAnalysisResult"
+         "@id": "BIOLINK:ChiSquaredAnalysisResult"
       },
       "ClinicalAttribute": {
-         "@id": "biolink:ClinicalAttribute"
+         "@id": "BIOLINK:ClinicalAttribute"
       },
       "ClinicalCourse": {
-         "@id": "biolink:ClinicalCourse"
+         "@id": "BIOLINK:ClinicalCourse"
       },
       "ClinicalEntity": {
-         "@id": "biolink:ClinicalEntity"
+         "@id": "BIOLINK:ClinicalEntity"
       },
       "ClinicalFinding": {
-         "@id": "biolink:ClinicalFinding"
+         "@id": "BIOLINK:ClinicalFinding"
       },
       "ClinicalIntervention": {
-         "@id": "biolink:ClinicalIntervention"
+         "@id": "BIOLINK:ClinicalIntervention"
       },
       "ClinicalMeasurement": {
-         "@id": "biolink:ClinicalMeasurement"
+         "@id": "BIOLINK:ClinicalMeasurement"
       },
       "ClinicalModifier": {
-         "@id": "biolink:ClinicalModifier"
+         "@id": "BIOLINK:ClinicalModifier"
       },
       "ClinicalTrial": {
-         "@id": "biolink:ClinicalTrial"
+         "@id": "BIOLINK:ClinicalTrial"
       },
       "CodingSequence": {
-         "@id": "biolink:CodingSequence"
+         "@id": "BIOLINK:CodingSequence"
       },
       "Cohort": {
-         "@id": "biolink:Cohort"
+         "@id": "BIOLINK:Cohort"
       },
       "CommonDataElement": {
-         "@id": "biolink:CommonDataElement"
+         "@id": "BIOLINK:CommonDataElement"
       },
       "ComplexChemicalExposure": {
-         "@id": "biolink:ComplexChemicalExposure"
+         "@id": "BIOLINK:ComplexChemicalExposure"
       },
       "ComplexMolecularMixture": {
-         "@id": "biolink:ComplexMolecularMixture"
+         "@id": "BIOLINK:ComplexMolecularMixture"
       },
       "ConceptCountAnalysisResult": {
-         "@id": "biolink:ConceptCountAnalysisResult"
+         "@id": "BIOLINK:ConceptCountAnalysisResult"
       },
       "ConfidenceLevel": {
-         "@id": "biolink:ConfidenceLevel"
+         "@id": "BIOLINK:ConfidenceLevel"
       },
       "ContributorAssociation": {
-         "@id": "biolink:ContributorAssociation"
-      },
-      "CorrelatedGeneToDiseaseAssociation": {
-         "@id": "biolink:CorrelatedGeneToDiseaseAssociation"
+         "@id": "BIOLINK:ContributorAssociation"
       },
       "Dataset": {
-         "@id": "biolink:Dataset"
+         "@id": "BIOLINK:Dataset"
       },
       "DatasetDistribution": {
-         "@id": "biolink:DatasetDistribution"
+         "@id": "BIOLINK:DatasetDistribution"
       },
       "DatasetSummary": {
-         "@id": "biolink:DatasetSummary"
+         "@id": "BIOLINK:DatasetSummary"
       },
       "DatasetVersion": {
-         "@id": "biolink:DatasetVersion"
+         "@id": "BIOLINK:DatasetVersion"
       },
       "Device": {
-         "@id": "biolink:Device"
+         "@id": "BIOLINK:Device"
       },
       "DiagnosticAid": {
-         "@id": "biolink:DiagnosticAid"
+         "@id": "BIOLINK:DiagnosticAid"
       },
       "Disease": {
-         "@id": "biolink:Disease"
+         "@id": "BIOLINK:Disease"
       },
       "DiseaseOrPhenotypicFeature": {
-         "@id": "biolink:DiseaseOrPhenotypicFeature"
+         "@id": "BIOLINK:DiseaseOrPhenotypicFeature"
       },
       "DiseaseOrPhenotypicFeatureExposure": {
-         "@id": "biolink:DiseaseOrPhenotypicFeatureExposure"
+         "@id": "BIOLINK:DiseaseOrPhenotypicFeatureExposure"
       },
       "DiseaseOrPhenotypicFeatureOutcome": {
-         "@id": "biolink:DiseaseOrPhenotypicFeatureOutcome"
+         "@id": "BIOLINK:DiseaseOrPhenotypicFeatureOutcome"
       },
       "DiseaseOrPhenotypicFeatureToEntityAssociationMixin": {
-         "@id": "biolink:DiseaseOrPhenotypicFeatureToEntityAssociationMixin"
+         "@id": "BIOLINK:DiseaseOrPhenotypicFeatureToEntityAssociationMixin"
       },
       "DiseaseOrPhenotypicFeatureToGeneticInheritanceAssociation": {
-         "@id": "biolink:DiseaseOrPhenotypicFeatureToGeneticInheritanceAssociation"
+         "@id": "BIOLINK:DiseaseOrPhenotypicFeatureToGeneticInheritanceAssociation"
       },
       "DiseaseOrPhenotypicFeatureToLocationAssociation": {
-         "@id": "biolink:DiseaseOrPhenotypicFeatureToLocationAssociation"
+         "@id": "BIOLINK:DiseaseOrPhenotypicFeatureToLocationAssociation"
       },
       "DiseaseToEntityAssociationMixin": {
-         "@id": "biolink:DiseaseToEntityAssociationMixin"
+         "@id": "BIOLINK:DiseaseToEntityAssociationMixin"
       },
       "DiseaseToExposureEventAssociation": {
-         "@id": "biolink:DiseaseToExposureEventAssociation"
+         "@id": "BIOLINK:DiseaseToExposureEventAssociation"
       },
       "DiseaseToPhenotypicFeatureAssociation": {
-         "@id": "biolink:DiseaseToPhenotypicFeatureAssociation"
+         "@id": "BIOLINK:DiseaseToPhenotypicFeatureAssociation"
       },
       "Drug": {
-         "@id": "biolink:Drug"
+         "@id": "BIOLINK:Drug"
       },
       "DrugExposure": {
-         "@id": "biolink:DrugExposure"
+         "@id": "BIOLINK:DrugExposure"
       },
       "DrugLabel": {
-         "@id": "biolink:DrugLabel"
+         "@id": "BIOLINK:DrugLabel"
       },
       "DrugToEntityAssociationMixin": {
-         "@id": "biolink:DrugToEntityAssociationMixin"
+         "@id": "BIOLINK:DrugToEntityAssociationMixin"
       },
       "DrugToGeneAssociation": {
-         "@id": "biolink:DrugToGeneAssociation"
+         "@id": "BIOLINK:DrugToGeneAssociation"
       },
       "DrugToGeneInteractionExposure": {
-         "@id": "biolink:DrugToGeneInteractionExposure"
+         "@id": "BIOLINK:DrugToGeneInteractionExposure"
       },
       "DruggableGeneToDiseaseAssociation": {
-         "@id": "biolink:DruggableGeneToDiseaseAssociation"
+         "@id": "BIOLINK:DruggableGeneToDiseaseAssociation"
       },
       "Entity": {
-         "@id": "biolink:Entity"
+         "@id": "BIOLINK:Entity"
       },
       "EntityToDiseaseAssociation": {
-         "@id": "biolink:EntityToDiseaseAssociation"
+         "@id": "BIOLINK:EntityToDiseaseAssociation"
       },
       "EntityToDiseaseAssociationMixin": {
-         "@id": "biolink:EntityToDiseaseAssociationMixin"
+         "@id": "BIOLINK:EntityToDiseaseAssociationMixin"
       },
       "EntityToDiseaseOrPhenotypicFeatureAssociationMixin": {
-         "@id": "biolink:EntityToDiseaseOrPhenotypicFeatureAssociationMixin"
+         "@id": "BIOLINK:EntityToDiseaseOrPhenotypicFeatureAssociationMixin"
       },
       "EntityToExposureEventAssociationMixin": {
-         "@id": "biolink:EntityToExposureEventAssociationMixin"
+         "@id": "BIOLINK:EntityToExposureEventAssociationMixin"
       },
       "EntityToFeatureOrDiseaseQualifiersMixin": {
-         "@id": "biolink:EntityToFeatureOrDiseaseQualifiersMixin"
+         "@id": "BIOLINK:EntityToFeatureOrDiseaseQualifiersMixin"
       },
       "EntityToOutcomeAssociationMixin": {
-         "@id": "biolink:EntityToOutcomeAssociationMixin"
+         "@id": "BIOLINK:EntityToOutcomeAssociationMixin"
       },
       "EntityToPhenotypicFeatureAssociation": {
-         "@id": "biolink:EntityToPhenotypicFeatureAssociation"
+         "@id": "BIOLINK:EntityToPhenotypicFeatureAssociation"
       },
       "EntityToPhenotypicFeatureAssociationMixin": {
-         "@id": "biolink:EntityToPhenotypicFeatureAssociationMixin"
+         "@id": "BIOLINK:EntityToPhenotypicFeatureAssociationMixin"
       },
       "EnvironmentalExposure": {
-         "@id": "biolink:EnvironmentalExposure"
+         "@id": "BIOLINK:EnvironmentalExposure"
       },
       "EnvironmentalFeature": {
-         "@id": "biolink:EnvironmentalFeature"
+         "@id": "BIOLINK:EnvironmentalFeature"
       },
       "EnvironmentalFoodContaminant": {
-         "@id": "biolink:EnvironmentalFoodContaminant"
+         "@id": "BIOLINK:EnvironmentalFoodContaminant"
       },
       "EnvironmentalProcess": {
-         "@id": "biolink:EnvironmentalProcess"
+         "@id": "BIOLINK:EnvironmentalProcess"
       },
       "EpidemiologicalOutcome": {
-         "@id": "biolink:EpidemiologicalOutcome"
+         "@id": "BIOLINK:EpidemiologicalOutcome"
       },
       "EpigenomicEntity": {
-         "@id": "biolink:EpigenomicEntity"
+         "@id": "BIOLINK:EpigenomicEntity"
       },
       "Event": {
-         "@id": "biolink:Event"
+         "@id": "BIOLINK:Event"
       },
       "EvidenceType": {
-         "@id": "biolink:EvidenceType"
+         "@id": "BIOLINK:EvidenceType"
       },
       "Exon": {
-         "@id": "biolink:Exon"
+         "@id": "BIOLINK:Exon"
       },
       "ExonToTranscriptRelationship": {
-         "@id": "biolink:ExonToTranscriptRelationship"
+         "@id": "BIOLINK:ExonToTranscriptRelationship"
       },
       "ExposureEvent": {
-         "@id": "biolink:ExposureEvent"
+         "@id": "BIOLINK:ExposureEvent"
       },
       "ExposureEventToOutcomeAssociation": {
-         "@id": "biolink:ExposureEventToOutcomeAssociation"
+         "@id": "BIOLINK:ExposureEventToOutcomeAssociation"
       },
       "ExposureEventToPhenotypicFeatureAssociation": {
-         "@id": "biolink:ExposureEventToPhenotypicFeatureAssociation"
+         "@id": "BIOLINK:ExposureEventToPhenotypicFeatureAssociation"
       },
       "Food": {
-         "@id": "biolink:Food"
+         "@id": "BIOLINK:Food"
       },
       "FoodAdditive": {
-         "@id": "biolink:FoodAdditive"
+         "@id": "BIOLINK:FoodAdditive"
       },
       "FrequencyQualifierMixin": {
-         "@id": "biolink:FrequencyQualifierMixin"
+         "@id": "BIOLINK:FrequencyQualifierMixin"
       },
       "FrequencyQuantifier": {
-         "@id": "biolink:FrequencyQuantifier"
+         "@id": "BIOLINK:FrequencyQuantifier"
       },
       "FunctionalAssociation": {
-         "@id": "biolink:FunctionalAssociation"
+         "@id": "BIOLINK:FunctionalAssociation"
       },
       "Fungus": {
-         "@id": "biolink:Fungus"
+         "@id": "BIOLINK:Fungus"
       },
       "Gene": {
-         "@id": "biolink:Gene"
-      },
-      "GeneAffectsChemicalAssociation": {
-         "@id": "biolink:GeneAffectsChemicalAssociation"
+         "@id": "BIOLINK:Gene"
       },
       "GeneAsAModelOfDiseaseAssociation": {
-         "@id": "biolink:GeneAsAModelOfDiseaseAssociation"
+         "@id": "BIOLINK:GeneAsAModelOfDiseaseAssociation"
       },
       "GeneExpressionMixin": {
-         "@id": "biolink:GeneExpressionMixin"
+         "@id": "BIOLINK:GeneExpressionMixin"
       },
       "GeneFamily": {
-         "@id": "biolink:GeneFamily"
+         "@id": "BIOLINK:GeneFamily"
       },
       "GeneGroupingMixin": {
-         "@id": "biolink:GeneGroupingMixin"
+         "@id": "BIOLINK:GeneGroupingMixin"
       },
       "GeneHasVariantThatContributesToDiseaseAssociation": {
-         "@id": "biolink:GeneHasVariantThatContributesToDiseaseAssociation"
+         "@id": "BIOLINK:GeneHasVariantThatContributesToDiseaseAssociation"
       },
       "GeneOrGeneProduct": {
-         "@id": "biolink:GeneOrGeneProduct"
+         "@id": "BIOLINK:GeneOrGeneProduct"
       },
       "GeneProductIsoformMixin": {
-         "@id": "biolink:GeneProductIsoformMixin"
+         "@id": "BIOLINK:GeneProductIsoformMixin"
       },
       "GeneProductMixin": {
-         "@id": "biolink:GeneProductMixin"
+         "@id": "BIOLINK:GeneProductMixin"
       },
       "GeneToDiseaseAssociation": {
-         "@id": "biolink:GeneToDiseaseAssociation"
+         "@id": "BIOLINK:GeneToDiseaseAssociation"
       },
       "GeneToDiseaseOrPhenotypicFeatureAssociation": {
-         "@id": "biolink:GeneToDiseaseOrPhenotypicFeatureAssociation"
+         "@id": "BIOLINK:GeneToDiseaseOrPhenotypicFeatureAssociation"
       },
       "GeneToEntityAssociationMixin": {
-         "@id": "biolink:GeneToEntityAssociationMixin"
+         "@id": "BIOLINK:GeneToEntityAssociationMixin"
       },
       "GeneToExpressionSiteAssociation": {
-         "@id": "biolink:GeneToExpressionSiteAssociation"
+         "@id": "BIOLINK:GeneToExpressionSiteAssociation"
       },
       "GeneToGeneAssociation": {
-         "@id": "biolink:GeneToGeneAssociation"
+         "@id": "BIOLINK:GeneToGeneAssociation"
       },
       "GeneToGeneCoexpressionAssociation": {
-         "@id": "biolink:GeneToGeneCoexpressionAssociation"
+         "@id": "BIOLINK:GeneToGeneCoexpressionAssociation"
       },
       "GeneToGeneFamilyAssociation": {
-         "@id": "biolink:GeneToGeneFamilyAssociation"
+         "@id": "BIOLINK:GeneToGeneFamilyAssociation"
       },
       "GeneToGeneHomologyAssociation": {
-         "@id": "biolink:GeneToGeneHomologyAssociation"
+         "@id": "BIOLINK:GeneToGeneHomologyAssociation"
       },
       "GeneToGeneProductRelationship": {
-         "@id": "biolink:GeneToGeneProductRelationship"
+         "@id": "BIOLINK:GeneToGeneProductRelationship"
       },
       "GeneToGoTermAssociation": {
-         "@id": "biolink:GeneToGoTermAssociation"
+         "@id": "BIOLINK:GeneToGoTermAssociation"
       },
       "GeneToPathwayAssociation": {
-         "@id": "biolink:GeneToPathwayAssociation"
+         "@id": "BIOLINK:GeneToPathwayAssociation"
       },
-      "GeneToPhenotypicFeatureAssociation": {
-         "@id": "biolink:GeneToPhenotypicFeatureAssociation"
+      "GeneToPhenotypeAssociation": {
+         "@id": "BIOLINK:GeneToPhenotypeAssociation"
       },
       "GeneticInheritance": {
-         "@id": "biolink:GeneticInheritance"
+         "@id": "BIOLINK:GeneticInheritance"
       },
       "Genome": {
-         "@id": "biolink:Genome"
+         "@id": "BIOLINK:Genome"
       },
       "GenomicBackgroundExposure": {
-         "@id": "biolink:GenomicBackgroundExposure"
+         "@id": "BIOLINK:GenomicBackgroundExposure"
       },
       "GenomicEntity": {
-         "@id": "biolink:GenomicEntity"
+         "@id": "BIOLINK:GenomicEntity"
       },
       "GenomicSequenceLocalization": {
-         "@id": "biolink:GenomicSequenceLocalization"
+         "@id": "BIOLINK:GenomicSequenceLocalization"
       },
       "Genotype": {
-         "@id": "biolink:Genotype"
+         "@id": "BIOLINK:Genotype"
       },
       "GenotypeAsAModelOfDiseaseAssociation": {
-         "@id": "biolink:GenotypeAsAModelOfDiseaseAssociation"
+         "@id": "BIOLINK:GenotypeAsAModelOfDiseaseAssociation"
       },
       "GenotypeToDiseaseAssociation": {
-         "@id": "biolink:GenotypeToDiseaseAssociation"
+         "@id": "BIOLINK:GenotypeToDiseaseAssociation"
       },
       "GenotypeToEntityAssociationMixin": {
-         "@id": "biolink:GenotypeToEntityAssociationMixin"
+         "@id": "BIOLINK:GenotypeToEntityAssociationMixin"
       },
       "GenotypeToGeneAssociation": {
-         "@id": "biolink:GenotypeToGeneAssociation"
+         "@id": "BIOLINK:GenotypeToGeneAssociation"
       },
       "GenotypeToGenotypePartAssociation": {
-         "@id": "biolink:GenotypeToGenotypePartAssociation"
+         "@id": "BIOLINK:GenotypeToGenotypePartAssociation"
       },
       "GenotypeToPhenotypicFeatureAssociation": {
-         "@id": "biolink:GenotypeToPhenotypicFeatureAssociation"
+         "@id": "BIOLINK:GenotypeToPhenotypicFeatureAssociation"
       },
       "GenotypeToVariantAssociation": {
-         "@id": "biolink:GenotypeToVariantAssociation"
+         "@id": "BIOLINK:GenotypeToVariantAssociation"
       },
       "GenotypicSex": {
-         "@id": "biolink:GenotypicSex"
+         "@id": "BIOLINK:GenotypicSex"
       },
       "GeographicExposure": {
-         "@id": "biolink:GeographicExposure"
+         "@id": "BIOLINK:GeographicExposure"
       },
       "GeographicLocation": {
-         "@id": "biolink:GeographicLocation"
+         "@id": "BIOLINK:GeographicLocation"
       },
       "GeographicLocationAtTime": {
-         "@id": "biolink:GeographicLocationAtTime"
+         "@id": "BIOLINK:GeographicLocationAtTime"
       },
       "GrossAnatomicalStructure": {
-         "@id": "biolink:GrossAnatomicalStructure"
+         "@id": "BIOLINK:GrossAnatomicalStructure"
       },
       "Haplotype": {
-         "@id": "biolink:Haplotype"
+         "@id": "BIOLINK:Haplotype"
       },
       "Hospitalization": {
-         "@id": "biolink:Hospitalization"
+         "@id": "BIOLINK:Hospitalization"
       },
       "HospitalizationOutcome": {
-         "@id": "biolink:HospitalizationOutcome"
+         "@id": "BIOLINK:HospitalizationOutcome"
       },
       "Human": {
-         "@id": "biolink:Human"
+         "@id": "BIOLINK:Human"
       },
       "IndividualOrganism": {
-         "@id": "biolink:IndividualOrganism"
+         "@id": "BIOLINK:IndividualOrganism"
       },
       "InformationContentEntity": {
-         "@id": "biolink:InformationContentEntity"
+         "@id": "BIOLINK:InformationContentEntity"
       },
       "InformationContentEntityToNamedThingAssociation": {
-         "@id": "biolink:InformationContentEntityToNamedThingAssociation"
+         "@id": "BIOLINK:InformationContentEntityToNamedThingAssociation"
+      },
+      "InformationResource": {
+         "@id": "BIOLINK:InformationResource"
+      },
+      "InformationResourceCollection": {
+         "@id": "BIOLINK:InformationResourceCollection"
       },
       "Invertebrate": {
-         "@id": "biolink:Invertebrate"
+         "@id": "BIOLINK:Invertebrate"
       },
       "JournalArticle": {
-         "@id": "biolink:JournalArticle"
+         "@id": "BIOLINK:JournalArticle"
       },
       "LifeStage": {
-         "@id": "biolink:LifeStage"
-      },
-      "LogOddsAnalysisResult": {
-         "@id": "biolink:LogOddsAnalysisResult"
+         "@id": "BIOLINK:LifeStage"
       },
       "MacromolecularComplex": {
-         "@id": "biolink:MacromolecularComplex"
+         "@id": "BIOLINK:MacromolecularComplex"
       },
       "MacromolecularMachineMixin": {
-         "@id": "biolink:MacromolecularMachineMixin"
+         "@id": "BIOLINK:MacromolecularMachineMixin"
       },
       "MacromolecularMachineToBiologicalProcessAssociation": {
-         "@id": "biolink:MacromolecularMachineToBiologicalProcessAssociation"
+         "@id": "BIOLINK:MacromolecularMachineToBiologicalProcessAssociation"
       },
       "MacromolecularMachineToCellularComponentAssociation": {
-         "@id": "biolink:MacromolecularMachineToCellularComponentAssociation"
+         "@id": "BIOLINK:MacromolecularMachineToCellularComponentAssociation"
       },
       "MacromolecularMachineToEntityAssociationMixin": {
-         "@id": "biolink:MacromolecularMachineToEntityAssociationMixin"
+         "@id": "BIOLINK:MacromolecularMachineToEntityAssociationMixin"
       },
       "MacromolecularMachineToMolecularActivityAssociation": {
-         "@id": "biolink:MacromolecularMachineToMolecularActivityAssociation"
+         "@id": "BIOLINK:MacromolecularMachineToMolecularActivityAssociation"
       },
       "Mammal": {
-         "@id": "biolink:Mammal"
+         "@id": "BIOLINK:Mammal"
       },
       "MappingCollection": {
-         "@id": "biolink:MappingCollection"
+         "@id": "BIOLINK:MappingCollection"
       },
       "MaterialSample": {
-         "@id": "biolink:MaterialSample"
+         "@id": "BIOLINK:MaterialSample"
       },
       "MaterialSampleDerivationAssociation": {
-         "@id": "biolink:MaterialSampleDerivationAssociation"
+         "@id": "BIOLINK:MaterialSampleDerivationAssociation"
       },
       "MaterialSampleToDiseaseOrPhenotypicFeatureAssociation": {
-         "@id": "biolink:MaterialSampleToDiseaseOrPhenotypicFeatureAssociation"
+         "@id": "BIOLINK:MaterialSampleToDiseaseOrPhenotypicFeatureAssociation"
       },
       "MaterialSampleToEntityAssociationMixin": {
-         "@id": "biolink:MaterialSampleToEntityAssociationMixin"
+         "@id": "BIOLINK:MaterialSampleToEntityAssociationMixin"
       },
       "MicroRNA": {
-         "@id": "biolink:MicroRNA"
+         "@id": "BIOLINK:MicroRNA"
       },
       "ModelToDiseaseAssociationMixin": {
-         "@id": "biolink:ModelToDiseaseAssociationMixin"
+         "@id": "BIOLINK:ModelToDiseaseAssociationMixin"
       },
       "MolecularActivity": {
-         "@id": "biolink:MolecularActivity"
+         "@id": "BIOLINK:MolecularActivity"
       },
       "MolecularActivityToChemicalEntityAssociation": {
-         "@id": "biolink:MolecularActivityToChemicalEntityAssociation"
+         "@id": "BIOLINK:MolecularActivityToChemicalEntityAssociation"
       },
       "MolecularActivityToMolecularActivityAssociation": {
-         "@id": "biolink:MolecularActivityToMolecularActivityAssociation"
+         "@id": "BIOLINK:MolecularActivityToMolecularActivityAssociation"
       },
       "MolecularActivityToPathwayAssociation": {
-         "@id": "biolink:MolecularActivityToPathwayAssociation"
+         "@id": "BIOLINK:MolecularActivityToPathwayAssociation"
       },
       "MolecularEntity": {
-         "@id": "biolink:MolecularEntity"
+         "@id": "BIOLINK:MolecularEntity"
       },
       "MolecularMixture": {
-         "@id": "biolink:MolecularMixture"
+         "@id": "BIOLINK:MolecularMixture"
       },
       "MortalityOutcome": {
-         "@id": "biolink:MortalityOutcome"
+         "@id": "BIOLINK:MortalityOutcome"
       },
       "NamedThing": {
-         "@id": "biolink:NamedThing"
+         "@id": "BIOLINK:NamedThing"
       },
       "NamedThingAssociatedWithLikelihoodOfNamedThingAssociation": {
-         "@id": "biolink:NamedThingAssociatedWithLikelihoodOfNamedThingAssociation"
+         "@id": "BIOLINK:NamedThingAssociatedWithLikelihoodOfNamedThingAssociation"
       },
       "NoncodingRNAProduct": {
-         "@id": "biolink:NoncodingRNAProduct"
+         "@id": "BIOLINK:NoncodingRNAProduct"
       },
       "NucleicAcidEntity": {
-         "@id": "biolink:NucleicAcidEntity"
+         "@id": "BIOLINK:NucleicAcidEntity"
       },
       "NucleicAcidSequenceMotif": {
-         "@id": "biolink:NucleicAcidSequenceMotif"
+         "@id": "BIOLINK:NucleicAcidSequenceMotif"
       },
       "NucleosomeModification": {
-         "@id": "biolink:NucleosomeModification"
+         "@id": "BIOLINK:NucleosomeModification"
       },
       "ObservedExpectedFrequencyAnalysisResult": {
-         "@id": "biolink:ObservedExpectedFrequencyAnalysisResult"
+         "@id": "BIOLINK:ObservedExpectedFrequencyAnalysisResult"
       },
       "Occurrent": {
-         "@id": "biolink:Occurrent"
+         "@id": "BIOLINK:Occurrent"
       },
       "Onset": {
-         "@id": "biolink:Onset"
+         "@id": "BIOLINK:Onset"
       },
       "OntologyClass": {
-         "@id": "biolink:OntologyClass"
+         "@id": "BIOLINK:OntologyClass"
       },
       "OrganismAttribute": {
-         "@id": "biolink:OrganismAttribute"
+         "@id": "BIOLINK:OrganismAttribute"
       },
       "OrganismTaxon": {
-         "@id": "biolink:OrganismTaxon"
+         "@id": "BIOLINK:OrganismTaxon"
       },
       "OrganismTaxonToEntityAssociation": {
-         "@id": "biolink:OrganismTaxonToEntityAssociation"
+         "@id": "BIOLINK:OrganismTaxonToEntityAssociation"
       },
       "OrganismTaxonToEnvironmentAssociation": {
-         "@id": "biolink:OrganismTaxonToEnvironmentAssociation"
+         "@id": "BIOLINK:OrganismTaxonToEnvironmentAssociation"
       },
       "OrganismTaxonToOrganismTaxonAssociation": {
-         "@id": "biolink:OrganismTaxonToOrganismTaxonAssociation"
+         "@id": "BIOLINK:OrganismTaxonToOrganismTaxonAssociation"
       },
       "OrganismTaxonToOrganismTaxonInteraction": {
-         "@id": "biolink:OrganismTaxonToOrganismTaxonInteraction"
+         "@id": "BIOLINK:OrganismTaxonToOrganismTaxonInteraction"
       },
       "OrganismTaxonToOrganismTaxonSpecialization": {
-         "@id": "biolink:OrganismTaxonToOrganismTaxonSpecialization"
+         "@id": "BIOLINK:OrganismTaxonToOrganismTaxonSpecialization"
       },
       "OrganismToOrganismAssociation": {
-         "@id": "biolink:OrganismToOrganismAssociation"
+         "@id": "BIOLINK:OrganismToOrganismAssociation"
       },
       "OrganismalEntity": {
-         "@id": "biolink:OrganismalEntity"
+         "@id": "BIOLINK:OrganismalEntity"
       },
       "OrganismalEntityAsAModelOfDiseaseAssociation": {
-         "@id": "biolink:OrganismalEntityAsAModelOfDiseaseAssociation"
+         "@id": "BIOLINK:OrganismalEntityAsAModelOfDiseaseAssociation"
       },
       "Outcome": {
-         "@id": "biolink:Outcome"
+         "@id": "BIOLINK:Outcome"
       },
       "PairwiseGeneToGeneInteraction": {
-         "@id": "biolink:PairwiseGeneToGeneInteraction"
+         "@id": "BIOLINK:PairwiseGeneToGeneInteraction"
       },
       "PairwiseMolecularInteraction": {
-         "@id": "biolink:PairwiseMolecularInteraction"
+         "@id": "BIOLINK:PairwiseMolecularInteraction"
       },
       "Patent": {
-         "@id": "biolink:Patent"
+         "@id": "BIOLINK:Patent"
       },
       "PathognomonicityQuantifier": {
-         "@id": "biolink:PathognomonicityQuantifier"
+         "@id": "BIOLINK:PathognomonicityQuantifier"
       },
       "PathologicalAnatomicalExposure": {
-         "@id": "biolink:PathologicalAnatomicalExposure"
+         "@id": "BIOLINK:PathologicalAnatomicalExposure"
       },
       "PathologicalAnatomicalOutcome": {
-         "@id": "biolink:PathologicalAnatomicalOutcome"
+         "@id": "BIOLINK:PathologicalAnatomicalOutcome"
       },
       "PathologicalAnatomicalStructure": {
-         "@id": "biolink:PathologicalAnatomicalStructure"
+         "@id": "BIOLINK:PathologicalAnatomicalStructure"
       },
       "PathologicalEntityMixin": {
-         "@id": "biolink:PathologicalEntityMixin"
+         "@id": "BIOLINK:PathologicalEntityMixin"
       },
       "PathologicalProcess": {
-         "@id": "biolink:PathologicalProcess"
+         "@id": "BIOLINK:PathologicalProcess"
       },
       "PathologicalProcessExposure": {
-         "@id": "biolink:PathologicalProcessExposure"
+         "@id": "BIOLINK:PathologicalProcessExposure"
       },
       "PathologicalProcessOutcome": {
-         "@id": "biolink:PathologicalProcessOutcome"
+         "@id": "BIOLINK:PathologicalProcessOutcome"
       },
       "Pathway": {
-         "@id": "biolink:Pathway"
+         "@id": "BIOLINK:Pathway"
       },
       "Phenomenon": {
-         "@id": "biolink:Phenomenon"
+         "@id": "BIOLINK:Phenomenon"
       },
       "PhenotypicFeature": {
-         "@id": "biolink:PhenotypicFeature"
+         "@id": "BIOLINK:PhenotypicFeature"
       },
       "PhenotypicQuality": {
-         "@id": "biolink:PhenotypicQuality"
+         "@id": "BIOLINK:PhenotypicQuality"
       },
       "PhenotypicSex": {
-         "@id": "biolink:PhenotypicSex"
+         "@id": "BIOLINK:PhenotypicSex"
       },
       "PhysicalEntity": {
-         "@id": "biolink:PhysicalEntity"
+         "@id": "BIOLINK:PhysicalEntity"
       },
       "PhysicalEssence": {
-         "@id": "biolink:PhysicalEssence"
+         "@id": "BIOLINK:PhysicalEssence"
       },
       "PhysicalEssenceOrOccurrent": {
-         "@id": "biolink:PhysicalEssenceOrOccurrent"
+         "@id": "BIOLINK:PhysicalEssenceOrOccurrent"
       },
       "PhysiologicalProcess": {
-         "@id": "biolink:PhysiologicalProcess"
+         "@id": "BIOLINK:PhysiologicalProcess"
       },
       "PlanetaryEntity": {
-         "@id": "biolink:PlanetaryEntity"
+         "@id": "BIOLINK:PlanetaryEntity"
       },
       "Plant": {
-         "@id": "biolink:Plant"
+         "@id": "BIOLINK:Plant"
       },
       "Polypeptide": {
-         "@id": "biolink:Polypeptide"
+         "@id": "BIOLINK:Polypeptide"
       },
       "PopulationOfIndividualOrganisms": {
-         "@id": "biolink:PopulationOfIndividualOrganisms"
+         "@id": "BIOLINK:PopulationOfIndividualOrganisms"
       },
       "PopulationToPopulationAssociation": {
-         "@id": "biolink:PopulationToPopulationAssociation"
+         "@id": "BIOLINK:PopulationToPopulationAssociation"
       },
       "PosttranslationalModification": {
-         "@id": "biolink:PosttranslationalModification"
+         "@id": "BIOLINK:PosttranslationalModification"
       },
       "PredicateMapping": {
-         "@id": "biolink:PredicateMapping"
+         "@id": "BIOLINK:PredicateMapping"
       },
       "PreprintPublication": {
-         "@id": "biolink:PreprintPublication"
+         "@id": "BIOLINK:PreprintPublication"
       },
       "Procedure": {
-         "@id": "biolink:Procedure"
+         "@id": "BIOLINK:Procedure"
       },
       "ProcessedMaterial": {
-         "@id": "biolink:ProcessedMaterial"
+         "@id": "BIOLINK:ProcessedMaterial"
       },
       "Protein": {
-         "@id": "biolink:Protein"
+         "@id": "BIOLINK:Protein"
       },
       "ProteinDomain": {
-         "@id": "biolink:ProteinDomain"
+         "@id": "BIOLINK:ProteinDomain"
       },
       "ProteinFamily": {
-         "@id": "biolink:ProteinFamily"
+         "@id": "BIOLINK:ProteinFamily"
       },
       "ProteinIsoform": {
-         "@id": "biolink:ProteinIsoform"
+         "@id": "BIOLINK:ProteinIsoform"
       },
       "Publication": {
-         "@id": "biolink:Publication"
+         "@id": "BIOLINK:Publication"
       },
       "QuantityValue": {
-         "@id": "biolink:QuantityValue"
+         "@id": "BIOLINK:QuantityValue"
       },
       "ReactionToCatalystAssociation": {
-         "@id": "biolink:ReactionToCatalystAssociation"
+         "@id": "BIOLINK:ReactionToCatalystAssociation"
       },
       "ReactionToParticipantAssociation": {
-         "@id": "biolink:ReactionToParticipantAssociation"
+         "@id": "BIOLINK:ReactionToParticipantAssociation"
       },
       "ReagentTargetedGene": {
-         "@id": "biolink:ReagentTargetedGene"
+         "@id": "BIOLINK:ReagentTargetedGene"
       },
       "RegulatoryRegion": {
-         "@id": "biolink:RegulatoryRegion"
+         "@id": "BIOLINK:RegulatoryRegion"
       },
       "RelationshipQuantifier": {
-         "@id": "biolink:RelationshipQuantifier"
+         "@id": "BIOLINK:RelationshipQuantifier"
       },
       "RelationshipType": {
-         "@id": "biolink:RelationshipType"
+         "@id": "BIOLINK:RelationshipType"
       },
       "RelativeFrequencyAnalysisResult": {
-         "@id": "biolink:RelativeFrequencyAnalysisResult"
+         "@id": "BIOLINK:RelativeFrequencyAnalysisResult"
       },
       "RetrievalSource": {
-         "@id": "biolink:RetrievalSource"
+         "@id": "BIOLINK:RetrievalSource"
       },
       "RNAProduct": {
-         "@id": "biolink:RNAProduct"
+         "@id": "BIOLINK:RNAProduct"
       },
       "RNAProductIsoform": {
-         "@id": "biolink:RNAProductIsoform"
+         "@id": "BIOLINK:RNAProductIsoform"
       },
       "SensitivityQuantifier": {
-         "@id": "biolink:SensitivityQuantifier"
+         "@id": "BIOLINK:SensitivityQuantifier"
       },
       "SequenceAssociation": {
-         "@id": "biolink:SequenceAssociation"
+         "@id": "BIOLINK:SequenceAssociation"
       },
       "SequenceFeatureRelationship": {
-         "@id": "biolink:SequenceFeatureRelationship"
+         "@id": "BIOLINK:SequenceFeatureRelationship"
       },
       "SequenceVariant": {
-         "@id": "biolink:SequenceVariant"
+         "@id": "BIOLINK:SequenceVariant"
       },
       "SequenceVariantModulatesTreatmentAssociation": {
-         "@id": "biolink:SequenceVariantModulatesTreatmentAssociation"
+         "@id": "BIOLINK:SequenceVariantModulatesTreatmentAssociation"
       },
       "Serial": {
-         "@id": "biolink:Serial"
+         "@id": "BIOLINK:Serial"
       },
       "SeverityValue": {
-         "@id": "biolink:SeverityValue"
+         "@id": "BIOLINK:SeverityValue"
       },
       "SiRNA": {
-         "@id": "biolink:SiRNA"
+         "@id": "BIOLINK:SiRNA"
       },
       "SmallMolecule": {
-         "@id": "biolink:SmallMolecule"
+         "@id": "BIOLINK:SmallMolecule"
       },
       "Snv": {
-         "@id": "biolink:Snv"
+         "@id": "BIOLINK:Snv"
       },
       "SocioeconomicAttribute": {
-         "@id": "biolink:SocioeconomicAttribute"
+         "@id": "BIOLINK:SocioeconomicAttribute"
       },
       "SocioeconomicExposure": {
-         "@id": "biolink:SocioeconomicExposure"
+         "@id": "BIOLINK:SocioeconomicExposure"
       },
       "SocioeconomicOutcome": {
-         "@id": "biolink:SocioeconomicOutcome"
+         "@id": "BIOLINK:SocioeconomicOutcome"
       },
       "SpecificityQuantifier": {
-         "@id": "biolink:SpecificityQuantifier"
+         "@id": "BIOLINK:SpecificityQuantifier"
       },
       "Study": {
-         "@id": "biolink:Study"
+         "@id": "BIOLINK:Study"
       },
       "StudyPopulation": {
-         "@id": "biolink:StudyPopulation"
+         "@id": "BIOLINK:StudyPopulation"
       },
       "StudyResult": {
-         "@id": "biolink:StudyResult"
+         "@id": "BIOLINK:StudyResult"
       },
       "StudyVariable": {
-         "@id": "biolink:StudyVariable"
+         "@id": "BIOLINK:StudyVariable"
       },
       "SubjectOfInvestigation": {
-         "@id": "biolink:SubjectOfInvestigation"
+         "@id": "BIOLINK:SubjectOfInvestigation"
       },
       "TaxonToTaxonAssociation": {
-         "@id": "biolink:TaxonToTaxonAssociation"
+         "@id": "BIOLINK:TaxonToTaxonAssociation"
       },
       "TaxonomicRank": {
-         "@id": "biolink:TaxonomicRank"
+         "@id": "BIOLINK:TaxonomicRank"
       },
       "TextMiningResult": {
-         "@id": "biolink:TextMiningResult"
+         "@id": "BIOLINK:TextMiningResult"
       },
       "ThingWithTaxon": {
-         "@id": "biolink:ThingWithTaxon"
+         "@id": "BIOLINK:ThingWithTaxon"
       },
       "Transcript": {
-         "@id": "biolink:Transcript"
+         "@id": "BIOLINK:Transcript"
       },
       "TranscriptToGeneRelationship": {
-         "@id": "biolink:TranscriptToGeneRelationship"
+         "@id": "BIOLINK:TranscriptToGeneRelationship"
       },
       "TranscriptionFactorBindingSite": {
-         "@id": "biolink:TranscriptionFactorBindingSite"
+         "@id": "BIOLINK:TranscriptionFactorBindingSite"
       },
       "Treatment": {
-         "@id": "biolink:Treatment"
+         "@id": "BIOLINK:Treatment"
       },
       "VariantAsAModelOfDiseaseAssociation": {
-         "@id": "biolink:VariantAsAModelOfDiseaseAssociation"
+         "@id": "BIOLINK:VariantAsAModelOfDiseaseAssociation"
       },
       "VariantToDiseaseAssociation": {
-         "@id": "biolink:VariantToDiseaseAssociation"
+         "@id": "BIOLINK:VariantToDiseaseAssociation"
       },
       "VariantToEntityAssociationMixin": {
-         "@id": "biolink:VariantToEntityAssociationMixin"
+         "@id": "BIOLINK:VariantToEntityAssociationMixin"
       },
       "VariantToGeneAssociation": {
-         "@id": "biolink:VariantToGeneAssociation"
+         "@id": "BIOLINK:VariantToGeneAssociation"
       },
       "VariantToGeneExpressionAssociation": {
-         "@id": "biolink:VariantToGeneExpressionAssociation"
+         "@id": "BIOLINK:VariantToGeneExpressionAssociation"
       },
       "VariantToPhenotypicFeatureAssociation": {
-         "@id": "biolink:VariantToPhenotypicFeatureAssociation"
+         "@id": "BIOLINK:VariantToPhenotypicFeatureAssociation"
       },
       "VariantToPopulationAssociation": {
-         "@id": "biolink:VariantToPopulationAssociation"
+         "@id": "BIOLINK:VariantToPopulationAssociation"
       },
       "Vertebrate": {
-         "@id": "biolink:Vertebrate"
+         "@id": "BIOLINK:Vertebrate"
       },
       "Virus": {
-         "@id": "biolink:Virus"
+         "@id": "BIOLINK:Virus"
       },
       "WebPage": {
-         "@id": "biolink:WebPage"
+         "@id": "BIOLINK:WebPage"
       },
       "Zygosity": {
-         "@id": "biolink:Zygosity"
+         "@id": "BIOLINK:Zygosity"
       }
    }
 }
