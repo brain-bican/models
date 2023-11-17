@@ -4,8 +4,8 @@ on:
   #   branches: [ notebook_additions ]
   workflow_run:
     workflows: [generating other formats]
-    types:
-      - completed
+    types: [completed]
+    branches: [notebook_additions]
 
 
 jobs:
