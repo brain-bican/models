@@ -63,6 +63,7 @@ LibraryPool {
     integer index2_length  
     float PhiX_spike  
     boolean custom_primers  
+    stringList provided_by  
     string id  
     iri_type iri  
     category_typeList category  
@@ -82,6 +83,8 @@ LibraryPooling {
 }
 LibraryAliquot {
     integer input_quantity  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -113,6 +116,8 @@ Library {
     string r1_sequence  
     string r2_index  
     string r2_sequence  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -137,6 +142,8 @@ AmplifiedCdna {
     float quantity_ng  
     integer num_cycles  
     float percent_greater_than_400bp  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -159,6 +166,8 @@ BarcodedCellSample {
     stringList cohort  
     string port_well  
     integer expected_cell_capture  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -180,6 +189,8 @@ EnrichedCellSample {
     string source_barcode_name  
     string histone_modification_marker  
     string population  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -202,6 +213,8 @@ DissociatedCellSample {
     CellPrepType cell_prep_type  
     string facs_population_plan  
     integer num_cells_collected  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -222,6 +235,8 @@ CellDissociation {
 TissueSample {
     string roi_plan  
     string roi_label  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -241,6 +256,8 @@ TissueDissection {
 }
 BrainSection {
     integer ordinal  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -260,6 +277,8 @@ BrainSegmentSectioning {
 }
 BrainSegment {
     string anatomical_division  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -396,6 +415,8 @@ GeneAnnotation {
 Checksum {
     DigestType checksum_algorithm  
     string value  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  

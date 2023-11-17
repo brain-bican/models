@@ -396,6 +396,7 @@
                         "bican:AmplifiedCdna"
                     ],
                     "items": {
+                        "pattern": "^biolink:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
                     "type": "array"
@@ -447,6 +448,13 @@
                     "description": "QC metric to measure mRNA degradation of cDNA. Higher % is higher quality starting material. Over 400bp is used as a universal cutoff for intact (full length) vs degraded cDNA and is a common output from Bioanalyzer and Fragment Analyzer elecropheragrams.",
                     "type": "number"
                 },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "quantity_ng": {
                     "description": "Amount of cDNA produced after cDNA amplification measured in nanograms.",
                     "type": "number"
@@ -481,6 +489,13 @@
                         "$ref": "#/$defs/CdnaAmplification"
                     },
                     "type": "array"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -490,6 +505,7 @@
                 "num_cycles",
                 "percent_greater_than_400bp",
                 "id",
+                "category",
                 "name"
             ],
             "title": "AmplifiedCdna",
@@ -1466,6 +1482,7 @@
                         "bican:BarcodedCellSample"
                     ],
                     "items": {
+                        "pattern": "^biolink:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
                     "type": "array"
@@ -1512,6 +1529,13 @@
                     "description": "Specific position of the loaded port of the 10x chip. An Enriched or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded Cell Sample). Can be left null for non-10x methods.",
                     "type": "string"
                 },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -1542,6 +1566,13 @@
                         "$ref": "#/$defs/CellBarcoding"
                     },
                     "type": "array"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -1550,6 +1581,7 @@
                 "port_well",
                 "expected_cell_capture",
                 "id",
+                "category",
                 "name"
             ],
             "title": "BarcodedCellSample",
@@ -2739,6 +2771,7 @@
                         "bican:BrainSection"
                     ],
                     "items": {
+                        "pattern": "^biolink:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
                     "type": "array"
@@ -2770,6 +2803,13 @@
                     "description": "The ordinal number of the section.",
                     "type": "integer"
                 },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -2800,10 +2840,18 @@
                         "$ref": "#/$defs/BrainSegmentSectioning"
                     },
                     "type": "array"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
-                "id"
+                "id",
+                "category"
             ],
             "title": "BrainSection",
             "type": "object"
@@ -2821,6 +2869,7 @@
                         "bican:BrainSegment"
                     ],
                     "items": {
+                        "pattern": "^biolink:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
                     "type": "array"
@@ -2847,6 +2896,13 @@
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
                     "type": "string"
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "type": {
                     "items": {
@@ -2878,10 +2934,18 @@
                         "$ref": "#/$defs/BrainExtraction"
                     },
                     "type": "array"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
-                "id"
+                "id",
+                "category"
             ],
             "title": "BrainSegment",
             "type": "object"
@@ -4358,6 +4422,7 @@
                         "bican:Checksum"
                     ],
                     "items": {
+                        "pattern": "^biolink:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
                     "type": "array"
@@ -4389,6 +4454,13 @@
                     "description": "A human-readable name for an attribute or entity.",
                     "type": "string"
                 },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -4398,10 +4470,18 @@
                 "value": {
                     "description": "The checksum value obtained from a specific cryotographic hash function.",
                     "type": "string"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
-                "id"
+                "id",
+                "category"
             ],
             "title": "Checksum",
             "type": "object"
@@ -9768,6 +9848,7 @@
                         "bican:DissociatedCellSample"
                     ],
                     "items": {
+                        "pattern": "^biolink:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
                     "type": "array"
@@ -9805,6 +9886,13 @@
                 "num_cells_collected": {
                     "type": "integer"
                 },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "source_barcode_name": {
                     "description": "Name of oligo used in cell plexing. The oligo will tag allow separate dissociated cell samples to be combined downstream in the barcoded cell sample. The oligo name is associated with a sequence in a lookup table.  This sequence will be needed to during analysis, after alignment, to associate reads with parent dissociated cell sample.",
                     "type": "string"
@@ -9839,12 +9927,20 @@
                         "$ref": "#/$defs/CellDissociation"
                     },
                     "type": "array"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
                 "source_barcode_name",
                 "cell_prep_type",
                 "id",
+                "category",
                 "name"
             ],
             "title": "DissociatedCellSample",
@@ -10788,6 +10884,7 @@
                         "bican:EnrichedCellSample"
                     ],
                     "items": {
+                        "pattern": "^biolink:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
                     "type": "array"
@@ -10823,6 +10920,13 @@
                     "description": "Actual percentage of cells as a result of using set of fluorescent marker label(s) to enrich dissociated_cell_sample with desired mix of cell populations.  This plan can also be used to describe 'No FACS' where no enrichment was performed. This is a property of enriched_cell_prep_container.",
                     "type": "string"
                 },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "source_barcode_name": {
                     "description": "Name of molecular barcode used to individual Enriched Cell Source to allow for pooling of Enriched Cell Sources before 10x load (Barcoding Cell step) [aka 1st round barcodes].",
                     "type": "string"
@@ -10857,11 +10961,19 @@
                         "$ref": "#/$defs/CellEnrichment"
                     },
                     "type": "array"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
                 "population",
                 "id",
+                "category",
                 "name"
             ],
             "title": "EnrichedCellSample",
@@ -18733,6 +18845,7 @@
                         "bican:Library"
                     ],
                     "items": {
+                        "pattern": "^biolink:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
                     "type": "array"
@@ -18788,6 +18901,13 @@
                     "$ref": "#/$defs/PassFailResult",
                     "description": "Pass or Fail result based on qualitative assessment of library yield and size."
                 },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "quantity_fmol": {
                     "description": "Amount of library generated in terms of femtomoles",
                     "type": "number"
@@ -18838,6 +18958,13 @@
                         "$ref": "#/$defs/LibraryConstruction"
                     },
                     "type": "array"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -18847,6 +18974,7 @@
                 "input_quantity",
                 "cohort",
                 "id",
+                "category",
                 "name"
             ],
             "title": "Library",
@@ -18862,6 +18990,7 @@
                         "bican:LibraryAliquot"
                     ],
                     "items": {
+                        "pattern": "^biolink:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
                     "type": "array"
@@ -18893,6 +19022,13 @@
                     "description": "One library in the library pool. Each Library_aliquot_name in a library pool will have a unique R1/R2 index to allow for sequencing together then separating the sequencing output by originating library aliquot through the process of demultiplexing.  The resulting demultiplexed fastq files will include the library_aliquot_name.",
                     "type": "string"
                 },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "type": {
                     "items": {
                         "type": "string"
@@ -18923,10 +19059,18 @@
                         "$ref": "#/$defs/LibraryAliquoting"
                     },
                     "type": "array"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
                 "id",
+                "category",
                 "name"
             ],
             "title": "LibraryAliquot",
@@ -19132,6 +19276,7 @@
                         "bican:LibraryPool"
                     ],
                     "items": {
+                        "pattern": "^biolink:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
                     "type": "array"
@@ -19174,6 +19319,13 @@
                 "name": {
                     "description": "Library lab's library pool name. For some labs this may be the same as \"Libray pool tube local name\".  Other labs distinguish between the local tube label of the library pool and the library pool name provided to SeqCore for tracking.  Local Pool Name is used to communicate sequencing status between SeqCore and Library Labs.",
                     "type": "string"
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "quantity_fmol": {
                     "description": "Amount of library pool in the tube as measured in femtamoles (fmol)",
@@ -19250,6 +19402,7 @@
                 "index1_length",
                 "index2_length",
                 "id",
+                "category",
                 "name"
             ],
             "title": "LibraryPool",
@@ -29273,6 +29426,7 @@
                         "bican:TissueSample"
                     ],
                     "items": {
+                        "pattern": "^biolink:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
                     "type": "array"
@@ -29299,6 +29453,13 @@
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
                     "type": "string"
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "roi_label": {
                     "description": "The label of the region of interest.",
@@ -29337,10 +29498,18 @@
                         "$ref": "#/$defs/TissueDissection"
                     },
                     "type": "array"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two  NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or  gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
-                "id"
+                "id",
+                "category"
             ],
             "title": "TissueSample",
             "type": "object"
