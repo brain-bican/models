@@ -1,19 +1,21 @@
 name: push to bkbit
 on:
-  push:
-    branches: [ notebook_additions ]
+  # push:
+  #   branches: [ notebook_additions ]
+  workflow_run:
+    workflows: [generating other formats]
+    types:
+      - completed
 
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    #container: ubuntu
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v3
 
       - name: Pushes to another repository
-        #uses: cpina/github-action-push-to-another-repository@composite-1.5.1
         uses: dmnemec/copy_file_to_another_repo_action@main
 
         env: 
@@ -24,12 +26,4 @@ jobs:
           destination_folder: 'bkbit/models/'
           user_email: 'xspuja@gmail.com'
           user_name: 'puja-trivedi'
-          commit_message: "Updated kbmodel.py from bican/model"
-
-          # source-directory: models_py-autogen/
-          # destination-github-username: 'puja-trivedi'
-          # destination-repository-name: 'bkbit'
-          # target-branch: main
-          # target-directory: bkbit/models/
-          # user-email: xspuja@gmail.com
-          # commit-message: "Updated kbmodel.py"
+          commit_message: "Updated kbmodel.py pushed from brain-bican/model repository"
