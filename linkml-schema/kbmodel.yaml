@@ -134,7 +134,7 @@ classes:
     #       inlined_as_list: true
 
   checksum:
-    is_a: entity
+    is_a: material sample
     description: >-
       Checksum values associated with digital entities.
     in_subset: 
@@ -181,7 +181,7 @@ classes:
   brain extraction:
     description: >-
       A process that takes a brain sample from a donor and produces a brain segment.
-    is_a: activity
+    is_a: procedure
     mixins: 
       - prov activity
     in_subset: 
@@ -196,7 +196,7 @@ classes:
   brain segment sectioning:
     description: >-
       A process that takes a brain segment and produces a brain section.
-    is_a: activity
+    is_a: procedure
     mixins: 
       - prov activity
     in_subset: 
@@ -211,7 +211,7 @@ classes:
   roi delineation:
     description: >-
       A process that takes a brain section and produces a region of interest polygon.
-    is_a: activity
+    is_a: procedure
     mixins: 
       - prov activity
     in_subset: 
@@ -226,7 +226,7 @@ classes:
   tissue dissection:
     description: >-
       A process that takes a brain section and produces a tissue sample.
-    is_a: activity
+    is_a: procedure
     mixins: 
       - prov activity
     in_subset: 
@@ -241,7 +241,7 @@ classes:
   cell dissociation:
     description: >-
       A process that takes a tissue sample and produces a dissociated cell sample.
-    is_a: activity
+    is_a: procedure
     mixins: 
       - prov activity
     in_subset: 
@@ -257,7 +257,7 @@ classes:
   cell enrichment:
     description: >-
       A process that takes a dissociated cell sample and produces an enriched cell sample.
-    is_a: activity
+    is_a: procedure
     mixins: 
       - prov activity
     in_subset: 
@@ -273,7 +273,7 @@ classes:
   split:
     description: >-
       A process that takes an enriched cell sample and produces a split enriched cell sample.
-    is_a: activity
+    is_a: procedure
     mixins: 
       - prov activity
     in_subset: 
@@ -288,7 +288,7 @@ classes:
   cell barcoding:
     description: >-
       A process that takes an enriched cell sample and produces a barcoded cell sample.
-    is_a: activity
+    is_a: procedure
     mixins: 
       - prov activity
     in_subset: 
@@ -304,7 +304,7 @@ classes:
   cdna amplification:
     description: >-
       A process that takes a barcoded cell sample and produces an amplified cDNA sample.
-    is_a: activity
+    is_a: procedure
     mixins: 
       - prov activity
     in_subset: 
@@ -319,7 +319,7 @@ classes:
   library construction:
     description: >-
       A process that takes an amplified cDNA sample and produces a library.
-    is_a: activity
+    is_a: procedure
     mixins: 
       - prov activity
     in_subset: 
@@ -334,7 +334,7 @@ classes:
   library aliquoting:
     description: >-
       A process that takes a library and produces an library aliquot.
-    is_a: activity
+    is_a: procedure
     mixins: 
       - prov activity
     in_subset: 
@@ -349,7 +349,7 @@ classes:
   library pooling:
     description: >-
       A process that takes a library aliquot and produces a library pool.
-    is_a: activity
+    is_a: procedure
     mixins: 
       - prov activity
     in_subset: 
@@ -366,7 +366,7 @@ classes:
     description: >-
       A process that takes a library pool and produces sequenced data (FASTQ files).
       A set of FASTQ files (R1, R2, R3, l1, l2) for each aliquot in a library pool "demultiplexed fastqs".
-    is_a: activity
+    is_a: procedure
     mixins: 
       - prov activity
     in_subset: 
@@ -381,7 +381,7 @@ classes:
   alignment:
     description: >-
       A process that takes sequenced data and produces aligned data (cell x gene matrix).
-    is_a: activity
+    is_a: procedure
     mixins: 
       - prov activity
     in_subset: 
@@ -440,7 +440,7 @@ classes:
   # mappings (notebook -> model): anatomical_division -> anatomical division, barcode -> id, 
   # (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category, label -> name
   brain segment:
-    is_a: entity
+    is_a: material sample
     mixins:    
       - prov entity
     in_subset:
@@ -459,7 +459,7 @@ classes:
   # mappings (notebook -> model): barcode -> id, (created_by_process_id & created_by_process_type) -> wasGeneratedBy, 
   # entity_type -> type/category, label -> name, ordinal -> ordinal
   brain section:
-    is_a: entity
+    is_a: material sample
     mixins:    
       - prov entity
     in_subset:
@@ -480,7 +480,7 @@ classes:
   # mappings (notebook -> model): (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category,
   # label -> name, roi_plan -> roi plan, roi_label -> roi label 
   tissue sample:
-    is_a: entity
+    is_a: material sample
     mixins:    
       - prov entity
     in_subset:
@@ -501,7 +501,7 @@ classes:
   # mappings (notebook -> model): cell_prep_type -> cell prep type, (created_by_process_id & created_by_process_type) -> wasGeneratedBy, 
   # entity_type -> type/category, facs_population_plan -> facs population plan, label -> name, number_of_cells_collected -> num cells collected
   dissociated cell sample:
-    is_a: entity
+    is_a: material sample
     mixins:    
       - prov entity
     in_subset:
@@ -536,7 +536,7 @@ classes:
 
 
   enriched cell sample:
-    is_a: entity
+    is_a: material sample
     mixins:    
       - prov entity
     in_subset:
@@ -573,7 +573,7 @@ classes:
   # mappings (notebook -> model): (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category, 
   # label -> name, port_well -> port well, sample_quality_count -> sample quality count 
   barcoded cell sample:
-    is_a: entity
+    is_a: material sample
     mixins:    
       - prov entity
     in_subset:
@@ -623,7 +623,7 @@ classes:
   # amplified_quantity_ng -> quantity, (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category,
   # label -> name, method -> method, pcr_cycles -> pcr cycles, percent_cdna_longer_than_400bp -> percent cdna longer than 400bp, rna_amplification_pass_fail -> pass fail result  
   amplified cdna:
-    is_a: entity
+    is_a: material sample
     mixins:    
       - prov entity
     in_subset:
@@ -677,7 +677,7 @@ classes:
   # quantification_fmole -> quantification fmol, quantification_ng -> quantification ng, quantification_nm -> quantification nm,
   # r1_index -> r1 index, r1_sequence -> r1 sequence, r2_index -> r2 index, r2_sequence -> r2 sequence
   library:
-    is_a: entity
+    is_a: material sample
     mixins:    
       - prov entity
     in_subset:
@@ -748,7 +748,7 @@ classes:
   # mappings (notebook -> model): label -> name, input_quantity_fmol -> quantity, library_label -> xref,
   # (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category, 
   library aliquot:
-    is_a: entity
+    is_a: material sample
     mixins:    
       - prov entity
     in_subset:
@@ -776,7 +776,7 @@ classes:
   # mappings (notebook -> model): label -> name, tube_avg_size_bp -> avg size bp, tube_contents_nm -> tube contents nm, tube_internal_label -> xref,
   # (created_by_process_id & created_by_process_type) -> wasGeneratedBy, entity_type -> type/category, 
   library pool:
-    is_a: entity
+    is_a: material sample
     mixins:    
       - prov entity
     in_subset:
