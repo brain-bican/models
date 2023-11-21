@@ -5,7 +5,14 @@ on:
     branches:
     - main
     paths:
-      - linkml-schema/kbmodel.yaml
+      - 'linkml-schema/kbmodel.yaml'
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+    paths:
+      - 'linkml-schema/kbmodel.yaml'
 
 permissions:
   contents: write

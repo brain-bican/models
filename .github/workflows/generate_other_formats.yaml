@@ -2,12 +2,22 @@ name: generating other formats
 
 on:
   push:
+    branches:
+      - main
+    paths:
+      - 'linkml-schema/'
   pull_request:
+    types:
+      - closed
+    branches:
+      - main
+    paths:
+      - 'linkml-schema/'
 
 jobs:
-  test:
+  generate:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v3
@@ -44,10 +54,8 @@ jobs:
             fi
           done
           cd ..
+
       - name: Adding other model representations to git
-        # this might fail when running in PR mode because of the git push
-        # but the files should be added since it's also run on push
-        continue-on-error: true
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
@@ -57,3 +65,4 @@ jobs:
           git add erdiagram-autogen/*.md
           git commit -m "generate another formats"
           git push
+

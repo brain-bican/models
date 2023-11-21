@@ -2,7 +2,11 @@ name: testing schemas with linkml-lint
 
 on:
   push:
+    paths:
+      - 'linkml-schema/'
   pull_request:
+    paths:
+      - 'linkml-schema/'
 
 
 jobs:
