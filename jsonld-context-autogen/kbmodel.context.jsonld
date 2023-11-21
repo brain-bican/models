@@ -280,6 +280,7 @@
          "@prefix": true
       },
       "NBO-PROPERTY": "http://purl.obolibrary.org/obo/nbo#",
+      "NCBIAssembly": "https://www.ncbi.nlm.nih.gov/assembly/",
       "NCBIGene": "http://identifiers.org/ncbigene/",
       "NCBITaxon": {
          "@id": "http://purl.obolibrary.org/obo/NCBITaxon_",
@@ -645,6 +646,12 @@
          "@type": "@id",
          "@id": "biolink:amount_or_activity_increased_by"
       },
+      "pcr_cycles": {
+         "@type": "xsd:integer"
+      },
+      "percent_cdna_longer_than_400bp": {
+         "@type": "xsd:float"
+      },
       "anatomical_context_qualifier": {
          "@id": "biolink:anatomical_context_qualifier"
       },
@@ -715,6 +722,9 @@
          },
          "@id": "biolink:available_from"
       },
+      "avg_size_bp": {
+         "@type": "xsd:integer"
+      },
       "base_coordinate": {
          "@type": "xsd:integer",
          "@id": "biolink:base_coordinate"
@@ -730,9 +740,15 @@
          "@type": "@id",
          "@id": "biolink:biomarker_for"
       },
+      "birth_date": {
+         "@type": "xsd:date"
+      },
       "bonferonni_adjusted_p_value": {
          "@type": "xsd:float",
          "@id": "biolink:bonferonni_adjusted_p_value"
+      },
+      "ordinal": {
+         "@type": "xsd:integer"
       },
       "broad_match": {
          "@type": "@id",
@@ -899,6 +915,9 @@
       "dataset_download_url": {
          "@id": "dcat:downloadURL"
       },
+      "death_date": {
+         "@type": "xsd:date"
+      },
       "decreased_amount_in": {
          "@type": "@id",
          "@id": "biolink:decreased_amount_in"
@@ -966,6 +985,9 @@
       "disrupts": {
          "@type": "@id",
          "@id": "biolink:disrupts"
+      },
+      "num_cells_collected": {
+         "@type": "xsd:integer"
       },
       "distribution_download_url": {
          "@id": "biolink:distribution_download_url"
@@ -1080,11 +1102,9 @@
          "@type": "@id",
          "@id": "biolink:gene_fusion_with"
       },
-      "gene_identifier_1": {
-         "@type": "@id"
-      },
-      "gene_identifier_2": {
-         "@type": "@id"
+      "generated": {
+         "@type": "@id",
+         "@id": "prov:generated"
       },
       "genetic_association": {
          "@type": "@id",
@@ -1479,6 +1499,9 @@
       "ingest_date": {
          "@id": "biolink:ingest_date"
       },
+      "input_quantity": {
+         "@type": "xsd:float"
+      },
       "interacting_molecules_category": {
          "@type": "@id",
          "@id": "biolink:interacting_molecules_category"
@@ -1607,6 +1630,18 @@
          "@type": "xsd:float",
          "@id": "biolink:latitude"
       },
+      "quantification_fmol": {
+         "@type": "xsd:float"
+      },
+      "quantification_ng": {
+         "@type": "xsd:float"
+      },
+      "quantification_nm": {
+         "@type": "xsd:float"
+      },
+      "tube_contents": {
+         "@type": "xsd:float"
+      },
       "license": {
          "@id": "biolink:license"
       },
@@ -1684,6 +1719,9 @@
       "mesh_terms": {
          "@type": "@id",
          "@id": "biolink:mesh_terms"
+      },
+      "method": {
+         "@id": "schema:name"
       },
       "missing_from": {
          "@type": "@id",
@@ -1918,6 +1956,9 @@
       "primary_knowledge_source": {
          "@id": "biolink:primary_knowledge_source"
       },
+      "process_pass": {
+         "@type": "xsd:boolean"
+      },
       "produced_by": {
          "@type": "@id",
          "@id": "biolink:produced_by"
@@ -2090,6 +2131,10 @@
          "@type": "@id",
          "@id": "biolink:same_as"
       },
+      "semmed_agreement_count": {
+         "@type": "xsd:integer",
+         "@id": "biolink:semmed_agreement_count"
+      },
       "sensitivity_associated_with": {
          "@type": "@id",
          "@id": "biolink:sensitivity_associated_with"
@@ -2108,6 +2153,14 @@
       "severity_qualifier": {
          "@type": "@id",
          "@id": "biolink:severity_qualifier"
+      },
+      "sex": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
       },
       "sex_qualifier": {
          "@type": "@id",
@@ -2344,6 +2397,10 @@
          "@type": "@id",
          "@id": "biolink:upstream_resource_ids"
       },
+      "used": {
+         "@type": "@id",
+         "@id": "prov:used"
+      },
       "variant_part_of": {
          "@type": "@id",
          "@id": "biolink:variant_part_of"
@@ -2357,6 +2414,22 @@
       },
       "volume": {
          "@id": "biolink:volume"
+      },
+      "wasAssociatedWith": {
+         "@type": "@id",
+         "@id": "prov:wasAssociatedWith"
+      },
+      "wasAttributedTo": {
+         "@type": "@id",
+         "@id": "prov:wasAttributedTo"
+      },
+      "wasDerivedFrom": {
+         "@type": "@id",
+         "@id": "prov:wasDerivedFrom"
+      },
+      "wasGeneratedBy": {
+         "@type": "@id",
+         "@id": "prov:wasGeneratedBy"
       },
       "xenologous_to": {
          "@type": "@id",
@@ -2743,6 +2816,9 @@
       },
       "Gene": {
          "@id": "biolink:Gene"
+      },
+      "GeneAffectsChemicalAssociation": {
+         "@id": "biolink:GeneAffectsChemicalAssociation"
       },
       "GeneAsAModelOfDiseaseAssociation": {
          "@id": "biolink:GeneAsAModelOfDiseaseAssociation"
