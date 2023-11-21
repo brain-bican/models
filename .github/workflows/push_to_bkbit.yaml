@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'linkml-schema/'
+      - 'models_py-autogen/kbmodel.py'
   workflow_run:
     workflows: [generating other formats]
     types: 
