@@ -35,7 +35,7 @@ jobs:
             # generating jsonld context and removing generation_date field to avoid constant updates
             gen-jsonld-context ${file} > ../jsonld-context-autogen/${name}.context.jsonld;
             sed -i "/generation_date/d" ../jsonld-context-autogen/${name}.context.jsonld;
-            gen-pydantic ${file}  --pydantic_version 2 > ../models_py-autogen/${name}.py;
+            gen-pydantic ${file} > ../models_py-autogen/${name}.py;
             if [ ${name} = "kbmodel" ]; then
               echo "Creating and Fixing kbmodel diagram..";
               python ../utils/create_fix_kbmodel_diagram.py

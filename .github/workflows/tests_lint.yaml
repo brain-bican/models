@@ -2,8 +2,8 @@ name: testing schemas with linkml-lint
 
 on:
   push:
-    # branches:
-    #   - main
+    branches:
+      - main
   pull_request:
 
 
