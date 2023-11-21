@@ -13,13 +13,17 @@ else:
 metamodel_version = "None"
 version = "None"
 
-class ConfiguredBaseModel(BaseModel):
-    model_config = ConfigDict(
-        validate_assignment=True,
-        validate_default=True,
-        extra='forbid',
-        arbitrary_types_allowed=True,
-        use_enum_values = True)
+class WeakRefShimBaseModel(BaseModel):
+   __slots__ = '__weakref__'
+
+class ConfiguredBaseModel(WeakRefShimBaseModel,
+                validate_assignment = True,
+                validate_all = True,
+                underscore_attrs_are_private = True,
+                extra = 'forbid',
+                arbitrary_types_allowed = True,
+                use_enum_values = True):
+    pass
 
 
 class CellCategory(str, Enum):
@@ -189,15 +193,15 @@ class Container(ConfiguredBaseModel):
     
 
 
-# Model rebuild
-# see https://pydantic-docs.helpmanual.io/usage/models/#rebuilding-a-model
-NamedThing.model_rebuild()
-CellClass.model_rebuild()
-CellSubclass.model_rebuild()
-Cluster.model_rebuild()
-Cell.model_rebuild()
-Relationship.model_rebuild()
-HierarchicalRelationship.model_rebuild()
-GroupRelationship.model_rebuild()
-Container.model_rebuild()
+# Update forward refs
+# see https://pydantic-docs.helpmanual.io/usage/postponed_annotations/
+NamedThing.update_forward_refs()
+CellClass.update_forward_refs()
+CellSubclass.update_forward_refs()
+Cluster.update_forward_refs()
+Cell.update_forward_refs()
+Relationship.update_forward_refs()
+HierarchicalRelationship.update_forward_refs()
+GroupRelationship.update_forward_refs()
+Container.update_forward_refs()
 
