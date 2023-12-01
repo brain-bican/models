@@ -40,7 +40,7 @@ jobs:
             # generating jsonld context 
             gen-jsonld-context ${file};
             # generating pydantic schema
-            gen-pydantic ${file};
+            gen-pydantic --pydantic_version 2 ${file};
             if [ ${name} != "kbmodel" ]; then
               gen-erdiagram ${file};
             fi
