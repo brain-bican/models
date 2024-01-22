@@ -6,13 +6,6 @@ on:
       - main
     paths:
       - 'linkml-schema/'
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
-    paths:
-      - 'linkml-schema/'
 
 jobs:
   generate:
