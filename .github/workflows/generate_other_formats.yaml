@@ -2,12 +2,15 @@ name: generating other formats
 
 on:
   push:
-  pull_request:
+    branches:
+      - main
+    paths:
+      - 'linkml-schema/'
 
 jobs:
-  test:
+  generate:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v3
@@ -35,7 +38,7 @@ jobs:
             # generating jsonld context and removing generation_date field to avoid constant updates
             gen-jsonld-context ${file} > ../jsonld-context-autogen/${name}.context.jsonld;
             sed -i "/generation_date/d" ../jsonld-context-autogen/${name}.context.jsonld;
-            gen-pydantic ${file} > ../models_py-autogen/${name}.py;
+            gen-pydantic --pydantic_version 2 ${file} > ../models_py-autogen/${name}.py;
             if [ ${name} = "kbmodel" ]; then
               echo "Creating and Fixing kbmodel diagram..";
               python ../utils/create_fix_kbmodel_diagram.py
@@ -44,10 +47,8 @@ jobs:
             fi
           done
           cd ..
+
       - name: Adding other model representations to git
-        # this might fail when running in PR mode because of the git push
-        # but the files should be added since it's also run on push
-        continue-on-error: true
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
@@ -57,3 +58,4 @@ jobs:
           git add erdiagram-autogen/*.md
           git commit -m "generate another formats"
           git push
+

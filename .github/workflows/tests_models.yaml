@@ -2,9 +2,11 @@ name: testing schemas with python api
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - 'linkml-schema/'
   pull_request:
+    paths:
+      - 'linkml-schema/'
 
 
 jobs:
