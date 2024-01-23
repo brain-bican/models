@@ -3,15 +3,16 @@ name: generating documentation
 on:
   push:
     branches:
-    - main
+      - main
     paths:
-      - linkml-schema/kbmodel.yaml
+      - 'linkml-schema/kbmodel.yaml'
 
 permissions:
   contents: write
 
 jobs:
-  test:
+  generate:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
