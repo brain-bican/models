@@ -2,7 +2,8 @@ id: https://identifiers.org/brain-bican/kb-model
 name: kb-model
 prefixes:
   linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/vocab/
+  #biolink: https://w3id.org/biolink/vocab/
+  biolink: https://raw.githubusercontent.com/biolink/biolink-model/latest/
   bican: https://identifiers.org/brain-bican/vocab/
   spdx: http://spdx.org/rdf/terms#
   schema: http://schema.org/
@@ -24,9 +25,16 @@ classes:
       An annotation describing the location, boundaries, and functions of 
       individual genes within a genome annotation.
     slots:
-      - referenced in
       - molecular type
       - source id
+    attributes:
+      referenced in: 
+        description: The genome annotation that this gene annotation was referenced from.
+        required: true
+        inlined: true
+        any_of:
+          - range: genome annotation
+          - range: string
     id_prefixes:
       - ENSEMBL
       - MGI
@@ -38,11 +46,18 @@ classes:
       Location and nomenclature of genes and all of the coding regions in a genome assembly 
       and the classification of genes and transcripts into types.
     slots:
-      - reference assembly
       - version
       - digest
       - content_url
       - authority
+    attributes:
+      reference assembly:
+        description: The reference genome assembly that this genome annotation was created from.
+        required: true
+        inlined: true
+        any_of:
+          - range: genome assembly
+          - range: string
 
   genome assembly:
     is_a: named thing
@@ -55,7 +70,7 @@ classes:
       - strain
 
   checksum:
-    is_a: entity
+    is_a: material sample
     description: >-
       Checksum values associated with digital entities.
     slots:
@@ -63,7 +78,7 @@ classes:
     attributes:
       value: 
         description: The checksum value obtained from a specific cryotographic hash function.
-  
+
   annotation collection:
     tree_root: true
     attributes:
@@ -496,20 +511,18 @@ slots:
     multivalued: true
     inlined_as_list: true
 
-  referenced in:
-    range: genome annotation
-
   molecular type:
-    range: BioType
-
-  reference assembly:
-    range: uriorcurie
+    any_of:
+      - range: BioType
+      - range: string
 
   digest:
     description: Stores checksum information. 
-    range: checksum
     multivalued: true
-    required: true
+    inlined_as_list: true
+    any_of:
+      - range: checksum
+      - range: string
 
   content_url:
     slot_uri: schema:url
@@ -517,6 +530,7 @@ slots:
 
   authority:
     description: The organization responsible for publishing the data. 
+    range: AuthorityType
 
   checksum algorithm:
     description: The type of cryptographic hash function used to calculate the checksum value.
@@ -585,9 +599,7 @@ enums:
       protein_coding:
       noncoding:
 
-  TaxonType:
+  AuthorityType: 
     permissible_values:
-      mouse:
-        meaning: ncbi:10090
-      human:
-        meaning: ncbi:9606
+      ENSEMBL:
+      NCBI:
