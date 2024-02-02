@@ -2,7 +2,7 @@ from __future__ import annotations
 from datetime import datetime, date
 from enum import Enum
 from typing import List, Dict, Optional, Any, Union
-from pydantic import BaseModel as BaseModel, Field
+from pydantic import BaseModel as BaseModel, ConfigDict, Field
 import sys
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -122,7 +122,7 @@ class GroupRelationshipType(str, Enum):
 
 class NamedThing(ConfiguredBaseModel):
     
-    id: Optional[str] = Field(None)
+    id: str = Field(...)
     label: Optional[str] = Field(None)
     
 

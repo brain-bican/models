@@ -1,8 +1,6 @@
 ```mermaid
 erDiagram
-LibraryPool {
-    integer avg_size_bp  
-    float tube_contents  
+AlignedData {
     string id  
     iri_type iri  
     category_typeList category  
@@ -15,8 +13,57 @@ Agent {
     string address  
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+Alignment {
+    stringList provided_by  
+    uriorcurieList xref  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+SequencedData {
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+Sequencing {
+    stringList provided_by  
+    uriorcurieList xref  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+LibraryPool {
+    integer avg_size_bp  
+    float quantity_fmol  
+    float quantity_pM  
+    float concentration_nM  
+    integer volume_ul  
+    uriorcurieList xref  
+    float tube_contents  
+    string tube_barcode  
+    integer read1_length  
+    integer read2_length  
+    integer index1_length  
+    integer index2_length  
+    float PhiX_spike  
+    boolean custom_primers  
+    stringList provided_by  
     string id  
     iri_type iri  
     category_typeList category  
@@ -27,8 +74,6 @@ Agent {
 LibraryPooling {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -38,6 +83,8 @@ LibraryPooling {
 }
 LibraryAliquot {
     integer input_quantity  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -48,8 +95,6 @@ LibraryAliquot {
 LibraryAliquoting {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -60,16 +105,19 @@ LibraryAliquoting {
 Library {
     string method  
     datetime creation_date  
-    float input_quantity  
-    boolean process_pass  
+    PassFailResult pass_fail_result  
     integer avg_size_bp  
-    float quantification_fmol  
-    float quantification_ng  
-    float quantification_nm  
+    float concentration_nM  
+    float quantity_fmol  
+    float quantity_ng  
+    float input_quantity  
+    stringList cohort  
     string r1_index  
     string r1_sequence  
     string r2_index  
     string r2_sequence  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -80,8 +128,6 @@ Library {
 LibraryConstruction {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -90,11 +136,14 @@ LibraryConstruction {
     narrative_text description  
 }
 AmplifiedCdna {
-    string method  
-    float input_quantity  
-    boolean process_pass  
-    integer pcr_cycles  
-    float percent_cdna_longer_than_400bp  
+    PassFailResult pass_fail_result  
+    date creation_date  
+    stringList cohort  
+    float quantity_ng  
+    integer num_cycles  
+    float percent_greater_than_400bp  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -105,8 +154,6 @@ AmplifiedCdna {
 CdnaAmplification {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -115,8 +162,12 @@ CdnaAmplification {
     narrative_text description  
 }
 BarcodedCellSample {
+    integer input_quantity  
+    stringList cohort  
     string port_well  
-    string sample_quality_count  
+    integer expected_cell_capture  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -127,8 +178,6 @@ BarcodedCellSample {
 CellBarcoding {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -137,6 +186,11 @@ CellBarcoding {
     narrative_text description  
 }
 EnrichedCellSample {
+    string source_barcode_name  
+    string histone_modification_marker  
+    string population  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -147,8 +201,6 @@ EnrichedCellSample {
 CellEnrichment {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -157,9 +209,12 @@ CellEnrichment {
     narrative_text description  
 }
 DissociatedCellSample {
-    string cell_prep_type  
+    string source_barcode_name  
+    CellPrepType cell_prep_type  
     string facs_population_plan  
     integer num_cells_collected  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -170,8 +225,6 @@ DissociatedCellSample {
 CellDissociation {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -182,6 +235,8 @@ CellDissociation {
 TissueSample {
     string roi_plan  
     string roi_label  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -189,11 +244,9 @@ TissueSample {
     label_type name  
     narrative_text description  
 }
-TissueDissecting {
+TissueDissection {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -203,6 +256,8 @@ TissueDissecting {
 }
 BrainSection {
     integer ordinal  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -213,8 +268,6 @@ BrainSection {
 BrainSegmentSectioning {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -224,6 +277,8 @@ BrainSegmentSectioning {
 }
 BrainSegment {
     string anatomical_division  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -234,8 +289,6 @@ BrainSegment {
 BrainExtraction {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -249,13 +302,28 @@ Donor {
     date death_date  
     string death_age  
     string full_genotype  
-    label_type in_taxon_label  
     uriorcurieList affiliation  
     string address  
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+RoiPolygon {
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+RoiDelineation {
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -269,8 +337,6 @@ ProvEntity {
 Activity {
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -279,6 +345,16 @@ Activity {
     narrative_text description  
 }
 Entity {
+    string id  
+    iri_type iri  
+    category_typeList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+}
+Split {
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -295,11 +371,8 @@ AnnotationCollection {
 GenomeAssembly {
     string version  
     string strain  
-    label_type in_taxon_label  
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     string id  
     iri_type iri  
     category_typeList category  
@@ -308,17 +381,15 @@ GenomeAssembly {
     narrative_text description  
 }
 GenomeAnnotation {
-    uriorcurie reference_assembly  
     string version  
+    stringList digest  
     stringList content_url  
-    string authority  
+    AuthorityType authority  
+    string reference_assembly  
     biological_sequence has_biological_sequence  
     string id  
-    label_type in_taxon_label  
     stringList provided_by  
     uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
     iri_type iri  
     category_typeList category  
     stringList type  
@@ -328,14 +399,13 @@ GenomeAnnotation {
 GeneAnnotation {
     BioType molecular_type  
     string source_id  
+    string referenced_in  
     string symbol  
+    label_typeList synonym  
     uriorcurieList xref  
     biological_sequence has_biological_sequence  
     string id  
-    label_type in_taxon_label  
     stringList provided_by  
-    label_type full_name  
-    label_typeList synonym  
     iri_type iri  
     category_typeList category  
     stringList type  
@@ -345,6 +415,8 @@ GeneAnnotation {
 Checksum {
     DigestType checksum_algorithm  
     string value  
+    stringList provided_by  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     category_typeList category  
@@ -353,11 +425,27 @@ Checksum {
     narrative_text description  
 }
 
+AlignedData ||--}o SequencedData : "wasDerivedFrom"
+AlignedData ||--}o Alignment : "wasGeneratedBy"
+AlignedData ||--}o Agent : "wasAttributedTo"
+AlignedData ||--}o Attribute : "has attribute"
+Agent ||--}o Attribute : "has attribute"
+Alignment ||--}o SequencedData : "used"
+Alignment ||--}o AlignedData : "generated"
+Alignment ||--}o Agent : "wasAssociatedWith"
+Alignment ||--}o Attribute : "has attribute"
+SequencedData ||--}o LibraryPool : "wasDerivedFrom"
+SequencedData ||--}o Sequencing : "wasGeneratedBy"
+SequencedData ||--}o Agent : "wasAttributedTo"
+SequencedData ||--}o Attribute : "has attribute"
+Sequencing ||--}o LibraryPool : "used"
+Sequencing ||--}o SequencedData : "generated"
+Sequencing ||--}o Agent : "wasAssociatedWith"
+Sequencing ||--}o Attribute : "has attribute"
 LibraryPool ||--}o LibraryAliquot : "wasDerivedFrom"
 LibraryPool ||--}o LibraryPooling : "wasGeneratedBy"
 LibraryPool ||--}o Agent : "wasAttributedTo"
 LibraryPool ||--}o Attribute : "has attribute"
-Agent ||--}o Attribute : "has attribute"
 LibraryPooling ||--}o LibraryAliquot : "used"
 LibraryPooling ||--}o LibraryPool : "generated"
 LibraryPooling ||--}o Agent : "wasAssociatedWith"
@@ -411,13 +499,13 @@ CellDissociation ||--}o DissociatedCellSample : "generated"
 CellDissociation ||--}o Agent : "wasAssociatedWith"
 CellDissociation ||--}o Attribute : "has attribute"
 TissueSample ||--}o BrainSection : "wasDerivedFrom"
-TissueSample ||--}o TissueDissecting : "wasGeneratedBy"
+TissueSample ||--}o TissueDissection : "wasGeneratedBy"
 TissueSample ||--}o Agent : "wasAttributedTo"
 TissueSample ||--}o Attribute : "has attribute"
-TissueDissecting ||--}o BrainSection : "used"
-TissueDissecting ||--}o TissueSample : "generated"
-TissueDissecting ||--}o Agent : "wasAssociatedWith"
-TissueDissecting ||--}o Attribute : "has attribute"
+TissueDissection ||--}o BrainSection : "used"
+TissueDissection ||--}o TissueSample : "generated"
+TissueDissection ||--}o Agent : "wasAssociatedWith"
+TissueDissection ||--}o Attribute : "has attribute"
 BrainSection ||--}o BrainSegment : "wasDerivedFrom"
 BrainSection ||--}o BrainSegmentSectioning : "wasGeneratedBy"
 BrainSection ||--}o Agent : "wasAttributedTo"
@@ -436,11 +524,23 @@ BrainExtraction ||--}o Agent : "wasAssociatedWith"
 BrainExtraction ||--}o Attribute : "has attribute"
 Donor ||--}o OrganismTaxon : "in taxon"
 Donor ||--}o Attribute : "has attribute"
+RoiPolygon ||--}o BrainSection : "wasDerivedFrom"
+RoiPolygon ||--}o RoiDelineation : "wasGeneratedBy"
+RoiPolygon ||--}o Agent : "wasAttributedTo"
+RoiPolygon ||--}o Attribute : "has attribute"
+RoiDelineation ||--}o BrainSection : "used"
+RoiDelineation ||--}o RoiPolygon : "generated"
+RoiDelineation ||--}o Agent : "wasAssociatedWith"
+RoiDelineation ||--}o Attribute : "has attribute"
 ProvEntity ||--}o Entity : "wasDerivedFrom"
 ProvEntity ||--}o Activity : "wasGeneratedBy"
 ProvEntity ||--}o Agent : "wasAttributedTo"
 Activity ||--}o Attribute : "has attribute"
 Entity ||--}o Attribute : "has attribute"
+Split ||--}o EnrichedCellSample : "used"
+Split ||--}o EnrichedCellSample : "generated"
+Split ||--}o Agent : "wasAssociatedWith"
+Split ||--}o Attribute : "has attribute"
 ProvActivity ||--}o Entity : "used"
 ProvActivity ||--}o Entity : "generated"
 ProvActivity ||--}o Agent : "wasAssociatedWith"
@@ -449,10 +549,8 @@ AnnotationCollection ||--}o GenomeAnnotation : "genome_annotations"
 AnnotationCollection ||--}o GenomeAssembly : "genome_assemblies"
 GenomeAssembly ||--}o OrganismTaxon : "in taxon"
 GenomeAssembly ||--}o Attribute : "has attribute"
-GenomeAnnotation ||--}| Checksum : "digest"
 GenomeAnnotation ||--}o OrganismTaxon : "in taxon"
 GenomeAnnotation ||--}o Attribute : "has attribute"
-GeneAnnotation ||--|o GenomeAnnotation : "referenced in"
 GeneAnnotation ||--}o OrganismTaxon : "in taxon"
 GeneAnnotation ||--}o Attribute : "has attribute"
 Checksum ||--}o Attribute : "has attribute"
