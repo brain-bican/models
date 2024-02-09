@@ -70,7 +70,7 @@ classes:
       - strain
 
   checksum:
-    is_a: material sample
+    is_a: entity
     description: >-
       Checksum values associated with digital entities.
     slots:
