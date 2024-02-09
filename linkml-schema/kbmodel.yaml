@@ -582,11 +582,14 @@ slots:
 enums:
   DigestType:
     permissible_values:
-      SHA1:
+      spdx:checksumAlgorithm_sha1:
+        title: SHA1
         meaning: spdx:checksumAlgorithm_sha1
-      MD5:
+      spdx:checksumAlgorithm_md5:
+        title: MD5
         meaning: spdx:checksumAlgorithm_md5
-      SHA256:
+      spdx:checksumAlgorithm_sha256:
+        title: SHA256
         meaning: spdx:checksumAlgorithm_sha256
 
   SexType:
