@@ -40,9 +40,1213 @@ subsets:
   alignment:
     description: A subset of slots/attributes that are required for alignment.
     from_schema: https://identifiers.org/brain-bican/kb-model
-  analysis, tracking: {}
-  bican, tissue_specimen: {}
   bican, library_generation: {}
+  bican, tissue_specimen: {}
+enums:
+  amplified_cdna_rna_amplification_pass_fail:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+    permissible_values:
+      Pass:
+        description: The RNA amplification passed the QA/QC
+      Fail:
+        description: The RNA amplification failed the QA/QC
+      Low QC:
+        description: The RNA amplification low passed the QA/QC
+      Not evaluated:
+        description: Library Prep not evaluated for QA/QC
+  barcoded_cell_sample_technique:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+    permissible_values:
+      Multiome:
+        description: Multiome
+      ATACOnly:
+        description: ATACOnly
+      GEXOnly:
+        description: GEXOnly
+      snm3C-seq:
+        description: snm3C-seq
+  dissociated_cell_sample_cell_prep_type:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+    permissible_values:
+      Nuclei:
+        description: isolated nuclei
+      Cells:
+        description: isolated whole cells
+  dissociated_cell_sample_cell_label_barcode:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+    permissible_values:
+      CMO301:
+        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
+          a single 10x load.
+      CMO302:
+        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
+          a single 10x load.
+      CMO303:
+        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
+          a single 10x load.
+      CMO304:
+        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
+          a single 10x load.
+      CMO305:
+        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
+          a single 10x load.
+      CMO306:
+        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
+          a single 10x load.
+      CMO307:
+        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
+          a single 10x load.
+      CMO308:
+        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
+          a single 10x load.
+      CMO309:
+        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
+          a single 10x load.
+      CMO310:
+        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
+          a single 10x load.
+      CMO311:
+        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
+          a single 10x load.
+      CMO312:
+        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
+          a single 10x load.
+      2nt-001:
+        description: Used in conjunction with Histone antibody to capture and tag
+          separate subcomponents of the epigenome. Allows for pooling of enriched
+          cell samples into a single 10x load.
+      2nt-002:
+        description: Used in conjunction with Histone antibody to capture and tag
+          separate subcomponents of the epigenome. Allows for pooling of enriched
+          cell samples into a single 10x load.
+      2nt-003:
+        description: Used in conjunction with Histone antibody to capture and tag
+          separate subcomponents of the epigenome. Allows for pooling of enriched
+          cell samples into a single 10x load.
+      2nt-004:
+        description: Used in conjunction with Histone antibody to capture and tag
+          separate subcomponents of the epigenome. Allows for pooling of enriched
+          cell samples into a single 10x load.
+      3nt-001:
+        description: Used in conjunction with Histone antibody to capture and tag
+          separate subcomponents of the epigenome. Allows for pooling of enriched
+          cell samples into a single 10x load.
+      3nt-002:
+        description: Used in conjunction with Histone antibody to capture and tag
+          separate subcomponents of the epigenome. Allows for pooling of enriched
+          cell samples into a single 10x load.
+      3nt-003:
+        description: Used in conjunction with Histone antibody to capture and tag
+          separate subcomponents of the epigenome. Allows for pooling of enriched
+          cell samples into a single 10x load.
+      3nt-004:
+        description: Used in conjunction with Histone antibody to capture and tag
+          separate subcomponents of the epigenome. Allows for pooling of enriched
+          cell samples into a single 10x load.
+      3nt-005:
+        description: Used in conjunction with Histone antibody to capture and tag
+          separate subcomponents of the epigenome. Allows for pooling of enriched
+          cell samples into a single 10x load.
+      3nt-006:
+        description: Used in conjunction with Histone antibody to capture and tag
+          separate subcomponents of the epigenome. Allows for pooling of enriched
+          cell samples into a single 10x load.
+  library_technique:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+    permissible_values:
+      SMARTSeqSC:
+        description: SMARTSeqSC
+      SmartSeq3:
+        description: SmartSeq3
+      10xV3.1:
+        description: 10xV3.1
+      10xV3.1_HT:
+        description: 10xV3.1_HT
+      10xMultiome;GEX:
+        description: 10xMultiome;GEX
+      10xMultiome;ATAC:
+        description: 10xMultiome;ATAC
+      10xATAC_V2.0:
+        description: 10xATAC_V2.0
+      10XMultiome-CellHashing;GEX:
+        description: 10XMultiome-CellHashing;GEX
+      10XMultiome-CellHashing;ATAC:
+        description: 10XMultiome-CellHashing;ATAC
+      10XMultiome-Cell Hashing;Barcode:
+        description: 10XMultiome-Cell Hashing;Barcode
+      10xV3.1_CellPlex;GEX:
+        description: 10xV3.1_CellPlex;GEX
+      10xV3.1_CellPlex;Barcode:
+        description: 10xV3.1_CellPlex;Barcode
+      10xV3.1_HT_CellPlex;GEX:
+        description: 10xV3.1_HT_CellPlex;GEX
+      10xV3.1_HT_CellPlex;Barcode:
+        description: 10xV3.1_HT_CellPlex;Barcode
+      MethylC-Seq:
+        description: MethylC-Seq
+      snm3C-seq:
+        description: snm3C-seq
+      snmCT-seq:
+        description: snmCT-seq
+      scATAC-seq:
+        description: scATAC-seq
+      MERFISH:
+        description: MERFISH
+      Slide-seq MERFISH:
+        description: Slide-seq MERFISH
+      whole brain MERFISH:
+        description: whole brain MERFISH
+      DBiT RNA-seq:
+        description: DBiT RNA-seq
+      DBiT ATAC-seq:
+        description: DBiT ATAC-seq
+  library_prep_pass_fail:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+    permissible_values:
+      Pass:
+        description: Library Prep passed the QA/QC
+      Fail:
+        description: Library Prep failed the QA/QC
+      Low QC:
+        description: Library Prep low passed the QA/QC
+      Not evaluated:
+        description: Library Prep not evaluated for QA/QC
+  library_r1_r2_index:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+    permissible_values:
+      SI-TT-A1:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-A2:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-A3:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-A4:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-A5:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-A6:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-A7:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-A8:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-A9:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-A10:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-A11:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-A12:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-B1:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-B2:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-B3:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-B4:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-B5:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-B6:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-B7:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-B8:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-B9:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-B10:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-B11:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-B12:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-C1:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-C2:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-C3:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-C4:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-C5:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-C6:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-C7:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-C8:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-C9:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-C10:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-C11:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-C12:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-D1:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-D2:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-D3:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-D4:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-D5:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-D6:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-D7:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-D8:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-D9:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-D10:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-D11:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-D12:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-E1:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-E2:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-E3:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-E4:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-E5:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-E6:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-E7:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-E8:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-E9:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-E10:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-E11:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-E12:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-F1:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-F2:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-F3:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-F4:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-F5:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-F6:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-F7:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-F8:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-F9:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-F10:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-F11:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-F12:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-G1:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-G2:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-G3:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-G4:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-G5:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-G6:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-G7:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-G8:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-G9:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-G10:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-G11:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-G12:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-H1:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-H2:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-H3:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-H4:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-H5:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-H6:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-H7:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-H8:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-H9:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-H10:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-H11:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-TT-H12:
+        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
+      SI-NN-A1:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-A2:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-A3:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-A4:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-A5:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-A6:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-A7:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-A8:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-A9:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-A10:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-A11:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-A12:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-B1:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-B2:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-B3:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-B4:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-B5:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-B6:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-B7:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-B8:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-B9:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-B10:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-B11:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-B12:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-C1:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-C2:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-C3:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-C4:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-C5:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-C6:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-C7:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-C8:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-C9:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-C10:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-C11:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-C12:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-D1:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-D2:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-D3:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-D4:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-D5:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-D6:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-D7:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-D8:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-D9:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-D10:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-D11:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-D12:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-E1:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-E2:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-E3:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-E4:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-E5:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-E6:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-E7:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-E8:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-E9:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-E10:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-E11:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-E12:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-F1:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-F2:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-F3:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-F4:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-F5:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-F6:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-F7:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-F8:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-F9:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-F10:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-F11:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-F12:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-G1:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-G2:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-G3:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-G4:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-G5:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-G6:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-G7:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-G8:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-G9:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-G10:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-G11:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-G12:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-H1:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-H2:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-H3:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-H4:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-H5:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-H6:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-H7:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-H8:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-H9:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-H10:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-H11:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NN-H12:
+        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
+      SI-NA-A1:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-B1:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-C1:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-D1:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-E1:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-F1:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-G1:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-H1:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-A2:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-B2:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-C2:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-D2:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-E2:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-F2:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-G2:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-H2:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-A3:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-B3:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-C3:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-D3:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-E3:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-F3:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-G3:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-H3:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-A4:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-B4:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-C4:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-D4:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-E4:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-F4:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-G4:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-H4:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-A5:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-B5:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-C5:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-D5:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-E5:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-F5:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-G5:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-H5:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-A6:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-B6:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-C6:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-D6:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-E6:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-F6:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-G6:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-H6:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-A7:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-B7:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-C7:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-D7:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-E7:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-F7:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-G7:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-H7:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-A8:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-B8:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-C8:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-D8:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-E8:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-F8:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-G8:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-H8:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-A9:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-B9:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-C9:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-D9:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-E9:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-F9:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-G9:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-H9:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-A10:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-B10:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-C10:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-D10:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-E10:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-F10:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-G10:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-H10:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-A11:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-B11:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-C11:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-D11:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-E11:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-F11:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-G11:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-H11:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-A12:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-B12:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-C12:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-D12:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-E12:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-F12:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-G12:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SI-NA-H12:
+        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
+      SetB-A1:
+        description: NeryLab 384_SetB
+      SetB-A10:
+        description: NeryLab 384_SetB
+      SetB-A11:
+        description: NeryLab 384_SetB
+      SetB-A12:
+        description: NeryLab 384_SetB
+      SetB-A13:
+        description: NeryLab 384_SetB
+      SetB-A14:
+        description: NeryLab 384_SetB
+      SetB-A15:
+        description: NeryLab 384_SetB
+      SetB-A16:
+        description: NeryLab 384_SetB
+      SetB-A17:
+        description: NeryLab 384_SetB
+      SetB-A18:
+        description: NeryLab 384_SetB
+      SetB-A19:
+        description: NeryLab 384_SetB
+      SetB-A2:
+        description: NeryLab 384_SetB
+      SetB-A20:
+        description: NeryLab 384_SetB
+      SetB-A21:
+        description: NeryLab 384_SetB
+      SetB-A22:
+        description: NeryLab 384_SetB
+      SetB-A23:
+        description: NeryLab 384_SetB
+      SetB-A24:
+        description: NeryLab 384_SetB
+      SetB-A3:
+        description: NeryLab 384_SetB
+      SetB-A4:
+        description: NeryLab 384_SetB
+      SetB-A5:
+        description: NeryLab 384_SetB
+      SetB-A6:
+        description: NeryLab 384_SetB
+      SetB-A7:
+        description: NeryLab 384_SetB
+      SetB-A8:
+        description: NeryLab 384_SetB
+      SetB-A9:
+        description: NeryLab 384_SetB
+      SetB-B1:
+        description: NeryLab 384_SetB
+      SetB-B10:
+        description: NeryLab 384_SetB
+      SetB-B11:
+        description: NeryLab 384_SetB
+      SetB-B12:
+        description: NeryLab 384_SetB
+      SetB-B13:
+        description: NeryLab 384_SetB
+      SetB-B14:
+        description: NeryLab 384_SetB
+      SetB-B15:
+        description: NeryLab 384_SetB
+      SetB-B16:
+        description: NeryLab 384_SetB
+      SetB-B17:
+        description: NeryLab 384_SetB
+      SetB-B18:
+        description: NeryLab 384_SetB
+      SetB-B19:
+        description: NeryLab 384_SetB
+      SetB-B2:
+        description: NeryLab 384_SetB
+      SetB-B20:
+        description: NeryLab 384_SetB
+      SetB-B21:
+        description: NeryLab 384_SetB
+      SetB-B22:
+        description: NeryLab 384_SetB
+      SetB-B23:
+        description: NeryLab 384_SetB
+      SetB-B24:
+        description: NeryLab 384_SetB
+      SetB-B3:
+        description: NeryLab 384_SetB
+      SetB-B4:
+        description: NeryLab 384_SetB
+      SetB-B5:
+        description: NeryLab 384_SetB
+      SetB-B6:
+        description: NeryLab 384_SetB
+      SetB-B7:
+        description: NeryLab 384_SetB
+      SetB-B8:
+        description: NeryLab 384_SetB
+      SetB-B9:
+        description: NeryLab 384_SetB
+      SetB-C1:
+        description: NeryLab 384_SetB
+      SetB-C10:
+        description: NeryLab 384_SetB
+      SetB-C11:
+        description: NeryLab 384_SetB
+      SetB-C12:
+        description: NeryLab 384_SetB
+      SetB-C13:
+        description: NeryLab 384_SetB
+      SetB-C14:
+        description: NeryLab 384_SetB
+      SetB-C15:
+        description: NeryLab 384_SetB
+      SetB-C16:
+        description: NeryLab 384_SetB
+      SetB-C17:
+        description: NeryLab 384_SetB
+      SetB-C18:
+        description: NeryLab 384_SetB
+      SetB-C19:
+        description: NeryLab 384_SetB
+      SetB-C2:
+        description: NeryLab 384_SetB
+      SetB-C20:
+        description: NeryLab 384_SetB
+      SetB-C21:
+        description: NeryLab 384_SetB
+      SetB-C22:
+        description: NeryLab 384_SetB
+      SetB-C23:
+        description: NeryLab 384_SetB
+      SetB-C24:
+        description: NeryLab 384_SetB
+      SetB-C3:
+        description: NeryLab 384_SetB
+      SetB-C4:
+        description: NeryLab 384_SetB
+      SetB-C5:
+        description: NeryLab 384_SetB
+      SetB-C6:
+        description: NeryLab 384_SetB
+      SetB-C7:
+        description: NeryLab 384_SetB
+      SetB-C8:
+        description: NeryLab 384_SetB
+      SetB-C9:
+        description: NeryLab 384_SetB
+      SetB-D1:
+        description: NeryLab 384_SetB
+      SetB-D10:
+        description: NeryLab 384_SetB
+      SetB-D11:
+        description: NeryLab 384_SetB
+      SetB-D12:
+        description: NeryLab 384_SetB
+      SetB-D13:
+        description: NeryLab 384_SetB
+      SetB-D14:
+        description: NeryLab 384_SetB
+      SetB-D15:
+        description: NeryLab 384_SetB
+      SetB-D16:
+        description: NeryLab 384_SetB
+      SetB-D17:
+        description: NeryLab 384_SetB
+      SetB-D18:
+        description: NeryLab 384_SetB
+      SetB-D19:
+        description: NeryLab 384_SetB
+      SetB-D2:
+        description: NeryLab 384_SetB
+      SetB-D20:
+        description: NeryLab 384_SetB
+      SetB-D21:
+        description: NeryLab 384_SetB
+      SetB-D22:
+        description: NeryLab 384_SetB
+      SetB-D23:
+        description: NeryLab 384_SetB
+      SetB-D24:
+        description: NeryLab 384_SetB
+      SetB-D3:
+        description: NeryLab 384_SetB
+      SetB-D4:
+        description: NeryLab 384_SetB
+      SetB-D5:
+        description: NeryLab 384_SetB
+      SetB-D6:
+        description: NeryLab 384_SetB
+      SetB-D7:
+        description: NeryLab 384_SetB
+      SetB-D8:
+        description: NeryLab 384_SetB
+      SetB-D9:
+        description: NeryLab 384_SetB
+      SetB-E1:
+        description: NeryLab 384_SetB
+      SetB-E10:
+        description: NeryLab 384_SetB
+      SetB-E11:
+        description: NeryLab 384_SetB
+      SetB-E12:
+        description: NeryLab 384_SetB
+      SetB-E13:
+        description: NeryLab 384_SetB
+      SetB-E14:
+        description: NeryLab 384_SetB
+      SetB-E15:
+        description: NeryLab 384_SetB
+      SetB-E16:
+        description: NeryLab 384_SetB
+      SetB-E17:
+        description: NeryLab 384_SetB
+      SetB-E18:
+        description: NeryLab 384_SetB
+      SetB-E19:
+        description: NeryLab 384_SetB
+      SetB-E2:
+        description: NeryLab 384_SetB
+      SetB-E20:
+        description: NeryLab 384_SetB
+      SetB-E21:
+        description: NeryLab 384_SetB
+      SetB-E22:
+        description: NeryLab 384_SetB
+      SetB-E23:
+        description: NeryLab 384_SetB
+      SetB-E24:
+        description: NeryLab 384_SetB
+      SetB-E3:
+        description: NeryLab 384_SetB
+      SetB-E4:
+        description: NeryLab 384_SetB
+      SetB-E5:
+        description: NeryLab 384_SetB
+      SetB-E6:
+        description: NeryLab 384_SetB
+      SetB-E7:
+        description: NeryLab 384_SetB
+      SetB-E8:
+        description: NeryLab 384_SetB
+      SetB-E9:
+        description: NeryLab 384_SetB
+      SetB-F1:
+        description: NeryLab 384_SetB
+      SetB-F10:
+        description: NeryLab 384_SetB
+      SetB-F11:
+        description: NeryLab 384_SetB
+      SetB-F12:
+        description: NeryLab 384_SetB
+      SetB-F13:
+        description: NeryLab 384_SetB
+      SetB-F14:
+        description: NeryLab 384_SetB
+      SetB-F15:
+        description: NeryLab 384_SetB
+      SetB-F16:
+        description: NeryLab 384_SetB
+      SetB-F17:
+        description: NeryLab 384_SetB
+      SetB-F18:
+        description: NeryLab 384_SetB
+      SetB-F19:
+        description: NeryLab 384_SetB
+      SetB-F2:
+        description: NeryLab 384_SetB
+      SetB-F20:
+        description: NeryLab 384_SetB
+      SetB-F21:
+        description: NeryLab 384_SetB
+      SetB-F22:
+        description: NeryLab 384_SetB
+      SetB-F23:
+        description: NeryLab 384_SetB
+      SetB-F24:
+        description: NeryLab 384_SetB
+      SetB-F3:
+        description: NeryLab 384_SetB
+      SetB-F4:
+        description: NeryLab 384_SetB
+      SetB-F5:
+        description: NeryLab 384_SetB
+      SetB-F6:
+        description: NeryLab 384_SetB
+      SetB-F7:
+        description: NeryLab 384_SetB
+      SetB-F8:
+        description: NeryLab 384_SetB
+      SetB-F9:
+        description: NeryLab 384_SetB
+      SetB-G1:
+        description: NeryLab 384_SetB
+      SetB-G10:
+        description: NeryLab 384_SetB
+      SetB-G11:
+        description: NeryLab 384_SetB
+      SetB-G12:
+        description: NeryLab 384_SetB
+      SetB-G13:
+        description: NeryLab 384_SetB
+      SetB-G14:
+        description: NeryLab 384_SetB
+      SetB-G15:
+        description: NeryLab 384_SetB
+      SetB-G16:
+        description: NeryLab 384_SetB
+      SetB-G17:
+        description: NeryLab 384_SetB
+      SetB-G18:
+        description: NeryLab 384_SetB
+      SetB-G19:
+        description: NeryLab 384_SetB
+      SetB-G2:
+        description: NeryLab 384_SetB
+      SetB-G20:
+        description: NeryLab 384_SetB
+      SetB-G21:
+        description: NeryLab 384_SetB
+      SetB-G22:
+        description: NeryLab 384_SetB
+      SetB-G23:
+        description: NeryLab 384_SetB
+      SetB-G24:
+        description: NeryLab 384_SetB
+      SetB-G3:
+        description: NeryLab 384_SetB
+      SetB-G4:
+        description: NeryLab 384_SetB
+      SetB-G5:
+        description: NeryLab 384_SetB
+      SetB-G6:
+        description: NeryLab 384_SetB
+      SetB-G7:
+        description: NeryLab 384_SetB
+      SetB-G8:
+        description: NeryLab 384_SetB
+      SetB-G9:
+        description: NeryLab 384_SetB
+      SetB-H1:
+        description: NeryLab 384_SetB
+      SetB-H10:
+        description: NeryLab 384_SetB
+      SetB-H11:
+        description: NeryLab 384_SetB
+      SetB-H12:
+        description: NeryLab 384_SetB
+      SetB-H13:
+        description: NeryLab 384_SetB
+      SetB-H14:
+        description: NeryLab 384_SetB
+      SetB-H15:
+        description: NeryLab 384_SetB
+      SetB-H16:
+        description: NeryLab 384_SetB
+      SetB-H17:
+        description: NeryLab 384_SetB
+      SetB-H18:
+        description: NeryLab 384_SetB
+      SetB-H19:
+        description: NeryLab 384_SetB
+      SetB-H2:
+        description: NeryLab 384_SetB
+      SetB-H20:
+        description: NeryLab 384_SetB
+      SetB-H21:
+        description: NeryLab 384_SetB
+      SetB-H22:
+        description: NeryLab 384_SetB
+      SetB-H23:
+        description: NeryLab 384_SetB
+      SetB-H24:
+        description: NeryLab 384_SetB
+      SetB-H3:
+        description: NeryLab 384_SetB
+      SetB-H4:
+        description: NeryLab 384_SetB
+      SetB-H5:
+        description: NeryLab 384_SetB
+      SetB-H6:
+        description: NeryLab 384_SetB
+      SetB-H7:
+        description: NeryLab 384_SetB
+      SetB-H8:
+        description: NeryLab 384_SetB
+      SetB-H9:
+        description: NeryLab 384_SetB
+      SetB-I1:
+        description: NeryLab 384_SetB
+      SetB-I10:
+        description: NeryLab 384_SetB
+      SetB-I11:
+        description: NeryLab 384_SetB
+      SetB-I12:
+        description: NeryLab 384_SetB
+      SetB-I13:
+        description: NeryLab 384_SetB
+      SetB-I14:
+        description: NeryLab 384_SetB
+      SetB-I15:
+        description: NeryLab 384_SetB
+      SetB-I16:
+        description: NeryLab 384_SetB
+      SetB-I17:
+        description: NeryLab 384_SetB
+      SetB-I18:
+        description: NeryLab 384_SetB
+      SetB-I19:
+        description: NeryLab 384_SetB
+      SetB-I2:
+        description: NeryLab 384_SetB
+      SetB-I20:
+        description: NeryLab 384_SetB
+      SetB-I21:
+        description: NeryLab 384_SetB
+      SetB-I22:
+        description: NeryLab 384_SetB
+      SetB-I23:
+        description: NeryLab 384_SetB
+      SetB-I24:
+        description: NeryLab 384_SetB
+      SetB-I3:
+        description: NeryLab 384_SetB
+      SetB-I4:
+        description: NeryLab 384_SetB
+      SetB-I5:
+        description: NeryLab 384_SetB
+      SetB-I6:
+        description: NeryLab 384_SetB
+      SetB-I7:
+        description: NeryLab 384_SetB
+      SetB-I8:
+        description: NeryLab 384_SetB/#
+  sex:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+    permissible_values:
+      '1':
+        description: Male
+      '2':
+        description: Female
+      '7':
+        description: Other
+      '8':
+        description: Unknown
+      '9':
+        description: Not Reported
+  age_at_death_reference_point:
+    permissible_values:
+      birth:
+        description: birth
+      conception:
+        description: conception
+  age_at_death_unit:
+    permissible_values:
+      days:
+        description: days
+      months:
+        description: months
+      years:
+        description: years
 slots:
   was_derived_from:
     description: A derivation is a transformation of an entity into another, an update
@@ -72,6 +1276,56 @@ slots:
   dissection_was_guided_by:
     description: Tranformation (dissection) of one entity into another entity.
     range: ProvEntity
+  quantity_ng:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  pcr_cycles:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  process_date:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  pass_fail_result:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  percent_cdna_ longer_than_400bp:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  set:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  port_well:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  input_quantity:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  number_of_expected_cells:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  method:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  cell_prep_type:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  cell_source_oligo_name:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  enrichment_population:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  histone_modification_marker:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  average_size_bp:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  concentration_nm:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  input_quantity_ng:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  quantity_fmol:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  r1_r2_index:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  local_tube_id:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  biological_sex:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  age_at_death_description:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  age_at_death_reference_point:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  age_at_death_unit:
+    from_schema: https://identifiers.org/brain-bican/kb-model
+  age_at_death_value:
+    from_schema: https://identifiers.org/brain-bican/kb-model
   name:
     from_schema: https://identifiers.org/brain-bican/kb-model
 classes:
@@ -86,45 +1340,44 @@ classes:
     - thing with taxon
     - ProvEntity
     slots:
+    - biological_sex
+    - age_at_death_description
+    - age_at_death_reference_point
+    - age_at_death_unit
+    - age_at_death_value
     - name
     slot_usage:
-      name:
-        description: Name of person or organism that is the source of a biological
-          sample for scientific study.  Many biological samples are generated from
-          a single donor.
-    attributes:
       biological_sex:
         description: Biological sex of donor at birth
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-LXUBTM45
         slot_uri: 632d3d3f-f85b-4efc-a1ab-010fe417ae81
       age_at_death_description:
         description: 'Text description of the age of death following typical scientific
           convention for the species or developmental stage. For example: P56, E11.5'
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-ZJZJLE33
       age_at_death_reference_point:
         description: The reference point for an age interval; for example, birth or
           conception.
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-RARAGG39
         slot_uri: 3bed1f94-9d82-4ed7-afdf-79d896b24dbb
       age_at_death_unit:
         description: The unit used for representing the donor age from the reference
           point.
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-AVAVEV39
         slot_uri: b5436e99-f0a7-4c30-825d-56b88ee2ac1d
       age_at_death_value:
         description: The value representing the donor age from the reference point.
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-FTFTCP24
         slot_uri: 57e24d3c-c9c7-4ef3-9809-a35802d563ec
+      name:
+        description: Name of person or organism that is the source of a biological
+          sample for scientific study.  Many biological samples are generated from
+          a single donor.
   BrainSlab:
     description: A thick flat piece of brain tissue obtained by slicing a whole brain,
       brain hemisphere or subdivision with a blade at regular interval.  When multiple
@@ -210,6 +1463,8 @@ classes:
     slots:
     - was_generated_by
     - was_derived_from
+    - cell_prep_type
+    - cell_source_oligo_name
     - name
     slot_usage:
       was_generated_by:
@@ -223,24 +1478,16 @@ classes:
         - NIMP:has_parent
         multivalued: true
         range: TissueSample
-      name:
-        description: Name of a collection of dissociated cells or nuclei derived from
-          dissociation of a tissue sample.
-        exact_mappings:
-        - NIMP:PD-RQRWHS40
-        slot_uri: 65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2
-        alias: dissociated cell sample label
-    attributes:
       cell_prep_type:
         description: 'The type of cell preparation. For example: Cells, Nuclei. This
           is a property of dissociated_cell_sample.'
         in_subset:
         - analysis, tracking
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-RELLGO26
         slot_uri: baae4ac3-f959-4594-b943-3a82ec19bd34
         alias: dissociated cell sample cell prep type
+        range: dissociated_cell_sample_cell_prep_type
       cell_source_oligo_name:
         description: Name of cell source oligo used in cell plexing.  The oligo molecularly
           tags all the cells in the dissociated cell sample and allows separate dissociated
@@ -248,12 +1495,18 @@ classes:
           oligo name is associated with a sequence in a lookup table.  This sequence
           will be needed during alignment to associate reads with the parent source
           dissociated cell sample.
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-CFCFPS27
         slot_uri: 184abbaf-baff-4b5f-b51e-dd38de6006af
         alias: dissociated cell oligo tag name
         range: string
+      name:
+        description: Name of a collection of dissociated cells or nuclei derived from
+          dissociation of a tissue sample.
+        exact_mappings:
+        - NIMP:PD-RQRWHS40
+        slot_uri: 65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2
+        alias: dissociated cell sample label
   EnrichedCellSample:
     description: A collection of enriched cells or nuclei after enrichment process,
       usually via fluorescence-activated cell sorting (FACS) using the enrichment
@@ -269,6 +1522,9 @@ classes:
     slots:
     - was_generated_by
     - was_derived_from
+    - enrichment_population
+    - cell_source_oligo_name
+    - histone_modification_marker
     - name
     slot_usage:
       was_generated_by:
@@ -286,14 +1542,6 @@ classes:
         exactly_one_of:
         - range: DissociatedCellSample
         - range: EnrichedCellSample
-      name:
-        description: Name of collection of enriched cells or nuclei after enrichment
-          process (usually via FACS using the Enrichment Plan) applied to dissociated_cell_sample.
-        exact_mappings:
-        - NIMP:PD-BERWTM41
-        slot_uri: bb3fc701-23a7-45c1-890d-7471730e0ec1
-        alias: enriched cell sample name
-    attributes:
       enrichment_population:
         description: Actual percentage of cells as a result of using set of fluorescent
           marker label(s) to enrich dissociated_cell_sample with desired mix of cell
@@ -301,7 +1549,6 @@ classes:
           enrichment was performed.  This is a property of enriched_cell_prep_container.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-TZTZPI37
         slot_uri: 875f1c70-f5aa-45e3-94b9-5e482f6c4830
@@ -314,7 +1561,6 @@ classes:
           oligo name is associated with a sequence in a lookup table.  This sequence
           will be needed during alignment to associate reads with the parent source
           enriched cell sample.
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-CFCFPS27
       histone_modification_marker:
@@ -323,9 +1569,15 @@ classes:
           to combine multiple Enriched Cell Populations before Barcoded Cell Sample
           step for 10xMultiome method. Each of the Histone antibodies captures an
           essential part of the epigenome.
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-ESESLW44
+      name:
+        description: Name of collection of enriched cells or nuclei after enrichment
+          process (usually via FACS using the Enrichment Plan) applied to dissociated_cell_sample.
+        exact_mappings:
+        - NIMP:PD-BERWTM41
+        slot_uri: bb3fc701-23a7-45c1-890d-7471730e0ec1
+        alias: enriched cell sample name
   BarcodedCellSample:
     description: A collection of molecularly barcoded cells. Input will be either
       dissociated cell sample or enriched cell sample. Cell barcodes are only guaranteed
@@ -345,6 +1597,7 @@ classes:
     slots:
     - was_generated_by
     - was_derived_from
+    - number_of_expected_cells
     - name
     slot_usage:
       was_generated_by:
@@ -360,6 +1613,19 @@ classes:
         exactly_one_of:
         - range: DissociatedCellSample
         - range: EnrichedCellSample
+      number_of_expected_cells:
+        description: Expected number of cells/nuclei of a barcoded_cell_sample that
+          will be barcoded and available for sequencing.  This is a derived number
+          from 'Barcoded cell input quantity count' that is dependent on the "capture
+          rate" of the barcoding method.  It is usually a calculated fraction of the
+          'Barcoded cell input quantity count' going into the barcoding method.
+        in_subset:
+        - analysis
+        exact_mappings:
+        - NIMP:PD-ONONEV39
+        slot_uri: f10e928d-5a2b-4943-af18-d8fe5d05528d
+        alias: expected cell capture
+        range: integer
       name:
         description: Name of a collection of barcoded cells.  Input will be either
           dissociated_cell_sample or enriched_cell_sample.  Cell barcodes are only
@@ -369,21 +1635,6 @@ classes:
         - NIMP:PD-XEMDJF38
         slot_uri: 4c0e6380-e53f-4173-a474-d41e836fefe3
         alias: barcoded cell sample label
-    attributes:
-      number_of_expected_cells:
-        description: Expected number of cells/nuclei of a barcoded_cell_sample that
-          will be barcoded and available for sequencing.  This is a derived number
-          from 'Barcoded cell input quantity count' that is dependent on the "capture
-          rate" of the barcoding method.  It is usually a calculated fraction of the
-          'Barcoded cell input quantity count' going into the barcoding method.
-        in_subset:
-        - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
-        exact_mappings:
-        - NIMP:PD-ONONEV39
-        slot_uri: f10e928d-5a2b-4943-af18-d8fe5d05528d
-        alias: expected cell capture
-        range: integer
   AmplifiedCdna:
     description: A collection of cDNA molecules derived and amplified from an input
       barcoded cell sample. These cDNA molecules represent the gene expression of
@@ -401,6 +1652,9 @@ classes:
     slots:
     - was_generated_by
     - was_derived_from
+    - quantity_ng
+    - pass_fail_result
+    - percent_cdna_ longer_than_400bp
     - name
     slot_usage:
       was_generated_by:
@@ -413,23 +1667,11 @@ classes:
         exact_mappings:
         - NIMP:has_parent
         range: BarcodedCellSample
-      name:
-        description: Name of a collection of cDNA molecules derived and amplified
-          from an input barcoded_cell_sample.  These cDNA molecules represent the
-          gene expression of each cell, with all cDNA molecules from a given cell
-          retaining that cell's unique barcode from the cell barcoding step.  This
-          is a necessary step for GEX methods but is not used for ATAC methods.
-        exact_mappings:
-        - NIMP:PD-YAAGGG39
-        slot_uri: e2606a11-114e-472f-9e05-33f9b6fc3089
-        alias: amplified cDNA label
-    attributes:
       quantity_ng:
         description: Amount of cDNA produced after cDNA amplification measured in
           nanograms.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-TITIIC26
         slot_uri: 0db79d05-8612-4896-b9d3-eb1558841449
@@ -440,11 +1682,11 @@ classes:
           and size.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-XXXXFQ31
         slot_uri: bc62bdb2-7dc8-4404-bb84-ce0bbcae59e5
         alias: amplified cDNA RNA amplification pass-fail
+        range: amplified_cdna_rna_amplification_pass_fail
       percent_cdna_ longer_than_400bp:
         description: QC metric to measure mRNA degradation of cDNA.  Higher % is higher
           quality starting material.  Over 400bp is used as a universal cutoff for
@@ -452,12 +1694,21 @@ classes:
           and Fragment Analyzer elecropheragrams.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-JJJJWD35
         slot_uri: 8d150467-f69e-461c-b54c-bcfd22f581e5
         alias: amplified cDNA percent cDNA longer than 400bp
         range: float
+      name:
+        description: Name of a collection of cDNA molecules derived and amplified
+          from an input barcoded_cell_sample.  These cDNA molecules represent the
+          gene expression of each cell, with all cDNA molecules from a given cell
+          retaining that cell's unique barcode from the cell barcoding step.  This
+          is a necessary step for GEX methods but is not used for ATAC methods.
+        exact_mappings:
+        - NIMP:PD-YAAGGG39
+        slot_uri: e2606a11-114e-472f-9e05-33f9b6fc3089
+        alias: amplified cDNA label
   Library:
     description: A collection of fragmented and barcode-indexed DNA molecules for
       sequencing. An index or barcode is typically introduced to enable identification
@@ -473,6 +1724,12 @@ classes:
     slots:
     - was_generated_by
     - was_derived_from
+    - average_size_bp
+    - concentration_nm
+    - pass_fail_result
+    - quantity_fmol
+    - quantity_ng
+    - r1_r2_index
     - name
     slot_usage:
       was_generated_by:
@@ -487,22 +1744,11 @@ classes:
         exactly_one_of:
         - range: BarcodedCellSample
         - range: AmplifiedCdna
-      name:
-        description: Name of a library, which is a collection of fragmented and barcode-indexed
-          DNA molecules for sequencing.  An index or barcode is typically introduced
-          to enable identification of library origin to allow libraries to be pooled
-          together for sequencing.
-        exact_mappings:
-        - NIMP:PD-AJJUCC35
-        slot_uri: f717e254-3630-4342-be7b-4d56376e7afe
-        alias: library label
-    attributes:
       average_size_bp:
         description: Average size of the library in terms of base pairs.  This is
           used to calculate the molarity before pooling and sequencing.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-VJVJLC46
         slot_uri: f851eba9-56d1-4472-9d0c-d7f8bc33000a
@@ -512,7 +1758,6 @@ classes:
         description: Concentration of library in terms of nM (nMol/L).  Number of
           molecules is needed for accurate pooling of the libraries and for generating
           the number of target reads/cell in sequencing.
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-DCDCLD43
         slot_uri: 90805b3f-f380-4f23-b159-e7eaa0c8f052
@@ -523,16 +1768,15 @@ classes:
           yield and size.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-QHQHQB42
         slot_uri: 6817ede2-7ead-402d-9dbc-131aca627c6c
         alias: library prep pass-fail
+        range: library_prep_pass_fail
       quantity_fmol:
         description: Amount of library generated in terms of femtomoles
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-JYJYDK42
         slot_uri: 4c09ada7-c116-48bc-8fb1-0dcf5c4b939a
@@ -540,7 +1784,6 @@ classes:
         range: integer
       quantity_ng:
         description: Amount of library generated in terms of nanograms
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-TNTNXP37
         slot_uri: 318b2d3a-dae7-4c63-bfbb-93862b92f63e
@@ -555,12 +1798,20 @@ classes:
           (sense or antisense) of the index can differ depending on sequencing instruments.
         in_subset:
         - analysis, tracking
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-VLLMWZ60
         slot_uri: c94b5d8a-e92d-47af-8c0e-ea3b58be4d06
         alias: R1/R2 index name
-        range: string
+        range: library_r1_r2_index
+      name:
+        description: Name of a library, which is a collection of fragmented and barcode-indexed
+          DNA molecules for sequencing.  An index or barcode is typically introduced
+          to enable identification of library origin to allow libraries to be pooled
+          together for sequencing.
+        exact_mappings:
+        - NIMP:PD-AJJUCC35
+        slot_uri: f717e254-3630-4342-be7b-4d56376e7afe
+        alias: library label
   LibraryAliquot:
     description: One library in the library pool. Each library aliquot in a library
       pool will have a unique R1/R2 index to allow for sequencing together then separating
@@ -613,6 +1864,7 @@ classes:
     slots:
     - was_generated_by
     - was_derived_from
+    - local_tube_id
     - name
     slot_usage:
       was_generated_by:
@@ -626,6 +1878,18 @@ classes:
         - NIMP:has_parent
         multivalued: true
         range: LibraryAliquot
+      local_tube_id:
+        description: Library Pool Tube local name.  Label of the tube containing the
+          library pool, which is made up of multiple library_aliquots.  This is a
+          Library Lab local tube name, before the pool is aliquoted to the Seq Core
+          provided tube 'Library Pool Tube Name'.
+        in_subset:
+        - analysis, tracking
+        exact_mappings:
+        - NIMP:PD-WNYWPA48
+        slot_uri: f1fdea98-7849-4def-a62f-a04cbbf98922
+        alias: library_pool_tube_internal_label
+        range: string
       name:
         description: Library lab's library pool name.  For some labs this may be the
           same as "Libray pool tube local name".   Other labs distinguish between
@@ -636,20 +1900,6 @@ classes:
         - NIMP:PD-KKIAPA48
         slot_uri: 29e0578b-6427-4c93-b29b-bde27fbadeec
         alias: library pool label
-    attributes:
-      local_tube_id:
-        description: Library Pool Tube local name.  Label of the tube containing the
-          library pool, which is made up of multiple library_aliquots.  This is a
-          Library Lab local tube name, before the pool is aliquoted to the Seq Core
-          provided tube 'Library Pool Tube Name'.
-        in_subset:
-        - analysis, tracking
-        from_schema: https://identifiers.org/brain-bican/kb-model
-        exact_mappings:
-        - NIMP:PD-WNYWPA48
-        slot_uri: f1fdea98-7849-4def-a62f-a04cbbf98922
-        alias: library_pool_tube_internal_label
-        range: string
   DissectionRoiDelineation:
     description: The process of outlining a region of interest on a brain slab image
       to guide the dissection and generation of a tissue sample.
@@ -697,16 +1947,15 @@ classes:
     - ProvActivity
     slots:
     - used
+    - process_date
     slot_usage:
       used:
         description: The input tissue sample(s) from which the dissociated cell sample
           was derived from.
         multivalued: true
         range: TissueSample
-    attributes:
       process_date:
         description: Date of cell dissociation process.
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-BUBUFE27
   CellEnrichment:
@@ -723,16 +1972,15 @@ classes:
     - ProvActivity
     slots:
     - used
+    - process_date
     slot_usage:
       used:
         description: The input dissociated cell sample(s) from which the enriched
           cell sample was derived from.
         multivalued: true
         range: DissociatedCellSample
-    attributes:
       process_date:
         description: Date of cell enrichment process.
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-PFPFFC28
   EnrichedCellSampleSplitting:
@@ -766,6 +2014,10 @@ classes:
     - ProvActivity
     slots:
     - used
+    - port_well
+    - input_quantity
+    - process_date
+    - method
     slot_usage:
       used:
         description: The input dissociated or enriched cell sample(s) from which the
@@ -774,14 +2026,12 @@ classes:
         exactly_one_of:
         - range: DissociatedCellSample
         - range: EnrichedCellSample
-    attributes:
       port_well:
         description: Specific position of the loaded port of the 10x chip.  An Enriched
           or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded
           Cell Sample). Can be left null for non-10x methods.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-KJKJZK32
         slot_uri: aca38100-d245-4be4-9be3-ba27192779fe
@@ -792,7 +2042,6 @@ classes:
           barcoding process.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-ZZZZWQ40
         slot_uri: aa534269-7c9b-4b63-b990-eea8cda56d0e
@@ -800,15 +2049,14 @@ classes:
         range: integer
       process_date:
         description: Date of cell barcoding process.
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-SHSHZS25
       method:
         description: 'Standardized nomenclature to describe the general barcoding
           method used.  For example: Multiome, ATAC Only, GEX Only or snm3C-seq.'
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-TDTDDF25
+        range: barcoded_cell_sample_technique
   CdnaAmplification:
     description: The process of creating a collection of cDNA molecules derived and
       amplified from an input barcoded cell sample.  A large amount of cDNA is needed
@@ -824,18 +2072,19 @@ classes:
     - ProvActivity
     slots:
     - used
+    - pcr_cycles
+    - process_date
+    - set
     slot_usage:
       used:
         description: The input barcoded cell sample from which amplified cDNA was
           derived from.
         range: BarcodedCellSample
-    attributes:
       pcr_cycles:
         description: Number of PCR cycles used during cDNA amplification for this
           cDNA.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-OKOKQD38
         slot_uri: 3827634c-3f8f-4760-b358-86ce4b030238
@@ -843,7 +2092,6 @@ classes:
         range: integer
       process_date:
         description: Date of cDNA amplification.
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-BYBYBY24
         slot_uri: 6cc333e7-9b98-497f-b7b1-eae904db2400
@@ -854,7 +2102,6 @@ classes:
           that were processed at the same time.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-SCSCTM41
         slot_uri: 42e98a88-50b3-4ea2-871b-2142f6a0dfdd
@@ -874,6 +2121,10 @@ classes:
     - ProvActivity
     slots:
     - used
+    - method
+    - process_date
+    - input_quantity_ng
+    - set
     slot_usage:
       used:
         description: The input barcoded cell sample or amplified cDNA from which the
@@ -881,7 +2132,6 @@ classes:
         exactly_one_of:
         - range: BarcodedCellSample
         - range: AmplifiedCdna
-    attributes:
       method:
         description: Standardized nomenclature to describe the specific library method
           used.  This specifies the alignment method required for the library.  For
@@ -889,14 +2139,13 @@ classes:
           assay), and 10xMult-ATAC (for ATACSeq multiome assay).
         in_subset:
         - analysis, tracking, alignment
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-AJAJCN35
         slot_uri: 7b60d59e-fdd7-4b27-a2d4-cae9b69103a6
         alias: library method
+        range: library_technique
       process_date:
         description: Date of library construction.
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-JCJCNM35
         slot_uri: 9c2f575d-1b64-451d-894f-656861afe07a
@@ -906,7 +2155,6 @@ classes:
         description: Amount of cDNA going into library construction in nanograms.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-AFAFXP37
         slot_uri: e4d31d97-722d-4771-a0e4-e6062190f2c1
@@ -917,7 +2165,6 @@ classes:
           at the same time.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-PCPCVR50
         slot_uri: b124ffa9-9134-4a61-a30d-bb191b2fc7fa
@@ -937,16 +2184,15 @@ classes:
     - ProvActivity
     slots:
     - used
+    - process_date
     slot_usage:
       used:
         description: The input aliquot(s) from which the library pool was derived
           from.
         multivalued: true
         range: LibraryAliquot
-    attributes:
       process_date:
         description: Date of library pooling process.
-        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-XUXUNM35
   DissectionRoiPolygon:
