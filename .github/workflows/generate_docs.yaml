@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'linkml-schema/kbmodel.yaml'
+      - 'linkml-schema/purple_boxes.yaml'
 
 permissions:
   contents: write
