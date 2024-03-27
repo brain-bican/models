@@ -1,6 +1,7 @@
 # BICAN Knowledgebase data models
 
-This repo contains data models generated using linkML for BICAN knowledgebase.
+This repo contains data models generated using [LinkML](https://linkml.io/linkml/) for BICAN knowledgebase. LinkML is a linked data modeling language that supports YAML, RDF, and JSON. 
+
 Gene annotation, genome annotation, and genome assembly models are currently represented in kbmodel. 
 The existing models such as biolink and ccn are imported.
 
@@ -23,3 +24,52 @@ Initialize the packages using:
 * `python -m pip install .[test]`
 
 Run `pytest` to run all tests in `/tests`
+
+## Status Board
+
+Here are the BICAN LinkML knowledgebase schemas and their statuses.
+
+| Model | Version | Release | Status |
+|:--|:--|:--|:--|
+| [BICAN BioLink] | [] |  [] | under development |
+| [CCN2] | [] | [] | under development |
+| [KB Model] | [] | [] | under development |
+| [Purple Boxes] | [] | [] | under development |
+| | | | |
+
+[BICAN BioLink]: linkml-schema/bican_biolink.yaml
+
+[CCN2]: linkml-schema/ccn2.yaml
+
+[KB Model]: linkml-schema/kbmodel.yaml
+
+[Purple Boxes]: linkml-schema/purple_boxes.yaml
+
+## Contact
+
+Satra Ghosh (PI -- MIT)
+
+Lydia Ng (PI -- Allen Institute for Brain Science)
+
+Puja Trivedi (MIT)
+
+Dorota Jarecki (MIT)
+
+Prajal Bishkawarma (Allen Institute for Brain Science)
+
+Tim Fliss (Allen Insitute for Brain Science)
+
+Pamela Baker (Allen Institute for Brain Science)
+
+Patrick Ray (Allen Institute for Brain Science)
+
+## Terms of Use
+
+These materials are provided under the Attribution International 4.0 (CC-BY-4.0) license, which is available at https://creativecommons.org/licenses/by/4.0/
+
+## Acknowledgements
+
+An extensible brain knowledge base and toolset spanning modalities for multi-species data-driven cell types
+BICAN Knowledgebase
+National Institute of Mental Health
+Award # 1U24MH130918-01
