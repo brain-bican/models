@@ -35,7 +35,7 @@ jobs:
           touch docs/.nojekyll
           gen-doc -d docs linkml-schema/purple_boxes.yaml
           mv docs/index.md docs/index_purple.md
-          gen-doc -d docs linkml-schema/kbmodel.yaml
+          gen-doc -d docs linkml-schema/gars.yaml
           mv docs/index.md docs/index_gars.md
           mv docs/index_main.md docs/index.md
 
