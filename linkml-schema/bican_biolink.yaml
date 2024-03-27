@@ -530,274 +530,274 @@ types:
     typeof: string
     base: str
     uri: xsd:string
-  string:
-    name: string
-    definition_uri: https://w3id.org/linkml/String
-    description: A character string
-    notes:
-    - In RDF serializations, a slot with range of string is treated as a literal or
-      type xsd:string.   If you are authoring schemas in LinkML YAML, the type is
-      referenced with the lower case "string".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    exact_mappings:
-    - schema:Text
-    base: str
-    uri: xsd:string
-  integer:
-    name: integer
-    definition_uri: https://w3id.org/linkml/Integer
-    description: An integer
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "integer".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    exact_mappings:
-    - schema:Integer
-    base: int
-    uri: xsd:integer
-  boolean:
-    name: boolean
-    definition_uri: https://w3id.org/linkml/Boolean
-    description: A binary (true or false) value
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "boolean".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    exact_mappings:
-    - schema:Boolean
-    base: Bool
-    uri: xsd:boolean
-    repr: bool
-  float:
-    name: float
-    definition_uri: https://w3id.org/linkml/Float
-    description: A real number that conforms to the xsd:float specification
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "float".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    exact_mappings:
-    - schema:Float
-    base: float
-    uri: xsd:float
-  double:
-    name: double
-    definition_uri: https://w3id.org/linkml/Double
-    description: A real number that conforms to the xsd:double specification
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "double".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    close_mappings:
-    - schema:Float
-    base: float
-    uri: xsd:double
-  decimal:
-    name: decimal
-    definition_uri: https://w3id.org/linkml/Decimal
-    description: A real number with arbitrary precision that conforms to the xsd:decimal
-      specification
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "decimal".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    broad_mappings:
-    - schema:Number
-    base: Decimal
-    uri: xsd:decimal
-  time:
-    name: time
-    definition_uri: https://w3id.org/linkml/Time
-    description: A time object represents a (local) time of day, independent of any
-      particular day
-    notes:
-    - URI is dateTime because OWL reasoners do not work with straight date or time
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "time".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    exact_mappings:
-    - schema:Time
-    base: XSDTime
-    uri: xsd:time
-    repr: str
-  date:
-    name: date
-    definition_uri: https://w3id.org/linkml/Date
-    description: a date (year, month and day) in an idealized calendar
-    notes:
-    - URI is dateTime because OWL reasoners don't work with straight date or time
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "date".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    exact_mappings:
-    - schema:Date
-    base: XSDDate
-    uri: xsd:date
-    repr: str
-  datetime:
-    name: datetime
-    definition_uri: https://w3id.org/linkml/Datetime
-    description: The combination of a date and time
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "datetime".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    exact_mappings:
-    - schema:DateTime
-    base: XSDDateTime
-    uri: xsd:dateTime
-    repr: str
-  date_or_datetime:
-    name: date_or_datetime
-    definition_uri: https://w3id.org/linkml/DateOrDatetime
-    description: Either a date or a datetime
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "date_or_datetime".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    base: str
-    uri: linkml:DateOrDatetime
-    repr: str
-  uriorcurie:
-    name: uriorcurie
-    definition_uri: https://w3id.org/linkml/Uriorcurie
-    description: a URI or a CURIE
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "uriorcurie".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    base: URIorCURIE
-    uri: xsd:anyURI
-    repr: str
-  curie:
-    name: curie
-    definition_uri: https://w3id.org/linkml/Curie
-    conforms_to: https://www.w3.org/TR/curie/
-    description: a compact URI
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "curie".
-    comments:
-    - in RDF serializations this MUST be expanded to a URI
-    - in non-RDF serializations MAY be serialized as the compact representation
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    base: Curie
-    uri: xsd:string
-    repr: str
-  uri:
-    name: uri
-    definition_uri: https://w3id.org/linkml/Uri
-    conforms_to: https://www.ietf.org/rfc/rfc3987.txt
-    description: a complete URI
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "uri".
-    comments:
-    - in RDF serializations a slot with range of uri is treated as a literal or type
-      xsd:anyURI unless it is an identifier or a reference to an identifier, in which
-      case it is translated directly to a node
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    close_mappings:
-    - schema:URL
-    base: URI
-    uri: xsd:anyURI
-    repr: str
-  ncname:
-    name: ncname
-    definition_uri: https://w3id.org/linkml/Ncname
-    description: Prefix part of CURIE
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "ncname".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    base: NCName
-    uri: xsd:string
-    repr: str
-  objectidentifier:
-    name: objectidentifier
-    definition_uri: https://w3id.org/linkml/Objectidentifier
-    description: A URI or CURIE that represents an object in the model.
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "objectidentifier".
-    comments:
-    - Used for inheritance and type checking
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    base: ElementIdentifier
-    uri: shex:iri
-    repr: str
-  nodeidentifier:
-    name: nodeidentifier
-    definition_uri: https://w3id.org/linkml/Nodeidentifier
-    description: A URI, CURIE or BNODE that represents a node in a model.
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "nodeidentifier".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    base: NodeIdentifier
-    uri: shex:nonLiteral
-    repr: str
-  jsonpointer:
-    name: jsonpointer
-    definition_uri: https://w3id.org/linkml/Jsonpointer
-    conforms_to: https://datatracker.ietf.org/doc/html/rfc6901
-    description: A string encoding a JSON Pointer. The value of the string MUST conform
-      to JSON Point syntax and SHOULD dereference to a valid object within the current
-      instance document when encoded in tree form.
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "jsonpointer".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    base: str
-    uri: xsd:string
-    repr: str
-  jsonpath:
-    name: jsonpath
-    definition_uri: https://w3id.org/linkml/Jsonpath
-    conforms_to: https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html
-    description: A string encoding a JSON Path. The value of the string MUST conform
-      to JSON Point syntax and SHOULD dereference to zero or more valid objects within
-      the current instance document when encoded in tree form.
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "jsonpath".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    base: str
-    uri: xsd:string
-    repr: str
-  sparqlpath:
-    name: sparqlpath
-    definition_uri: https://w3id.org/linkml/Sparqlpath
-    conforms_to: https://www.w3.org/TR/sparql11-query/#propertypaths
-    description: A string encoding a SPARQL Property Path. The value of the string
-      MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects
-      within the current instance document when encoded as RDF.
-    notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "sparqlpath".
-    from_schema: https://w3id.org/linkml/types
-    imported_from: linkml:types
-    base: str
-    uri: xsd:string
-    repr: str
+  # string:
+  #   name: string
+  #   definition_uri: https://w3id.org/linkml/String
+  #   description: A character string
+  #   notes:
+  #   - In RDF serializations, a slot with range of string is treated as a literal or
+  #     type xsd:string.   If you are authoring schemas in LinkML YAML, the type is
+  #     referenced with the lower case "string".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   exact_mappings:
+  #   - schema:Text
+  #   base: str
+  #   uri: xsd:string
+  # integer:
+  #   name: integer
+  #   definition_uri: https://w3id.org/linkml/Integer
+  #   description: An integer
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "integer".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   exact_mappings:
+  #   - schema:Integer
+  #   base: int
+  #   uri: xsd:integer
+  # boolean:
+  #   name: boolean
+  #   definition_uri: https://w3id.org/linkml/Boolean
+  #   description: A binary (true or false) value
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "boolean".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   exact_mappings:
+  #   - schema:Boolean
+  #   base: Bool
+  #   uri: xsd:boolean
+  #   repr: bool
+  # float:
+  #   name: float
+  #   definition_uri: https://w3id.org/linkml/Float
+  #   description: A real number that conforms to the xsd:float specification
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "float".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   exact_mappings:
+  #   - schema:Float
+  #   base: float
+  #   uri: xsd:float
+  # double:
+  #   name: double
+  #   definition_uri: https://w3id.org/linkml/Double
+  #   description: A real number that conforms to the xsd:double specification
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "double".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   close_mappings:
+  #   - schema:Float
+  #   base: float
+  #   uri: xsd:double
+  # decimal:
+  #   name: decimal
+  #   definition_uri: https://w3id.org/linkml/Decimal
+  #   description: A real number with arbitrary precision that conforms to the xsd:decimal
+  #     specification
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "decimal".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   broad_mappings:
+  #   - schema:Number
+  #   base: Decimal
+  #   uri: xsd:decimal
+  # time:
+  #   name: time
+  #   definition_uri: https://w3id.org/linkml/Time
+  #   description: A time object represents a (local) time of day, independent of any
+  #     particular day
+  #   notes:
+  #   - URI is dateTime because OWL reasoners do not work with straight date or time
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "time".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   exact_mappings:
+  #   - schema:Time
+  #   base: XSDTime
+  #   uri: xsd:time
+  #   repr: str
+  # date:
+  #   name: date
+  #   definition_uri: https://w3id.org/linkml/Date
+  #   description: a date (year, month and day) in an idealized calendar
+  #   notes:
+  #   - URI is dateTime because OWL reasoners don't work with straight date or time
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "date".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   exact_mappings:
+  #   - schema:Date
+  #   base: XSDDate
+  #   uri: xsd:date
+  #   repr: str
+  # datetime:
+  #   name: datetime
+  #   definition_uri: https://w3id.org/linkml/Datetime
+  #   description: The combination of a date and time
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "datetime".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   exact_mappings:
+  #   - schema:DateTime
+  #   base: XSDDateTime
+  #   uri: xsd:dateTime
+  #   repr: str
+  # date_or_datetime:
+  #   name: date_or_datetime
+  #   definition_uri: https://w3id.org/linkml/DateOrDatetime
+  #   description: Either a date or a datetime
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "date_or_datetime".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   base: str
+  #   uri: linkml:DateOrDatetime
+  #   repr: str
+  # uriorcurie:
+  #   name: uriorcurie
+  #   definition_uri: https://w3id.org/linkml/Uriorcurie
+  #   description: a URI or a CURIE
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "uriorcurie".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   base: URIorCURIE
+  #   uri: xsd:anyURI
+  #   repr: str
+  # curie:
+  #   name: curie
+  #   definition_uri: https://w3id.org/linkml/Curie
+  #   conforms_to: https://www.w3.org/TR/curie/
+  #   description: a compact URI
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "curie".
+  #   comments:
+  #   - in RDF serializations this MUST be expanded to a URI
+  #   - in non-RDF serializations MAY be serialized as the compact representation
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   base: Curie
+  #   uri: xsd:string
+  #   repr: str
+  # uri:
+  #   name: uri
+  #   definition_uri: https://w3id.org/linkml/Uri
+  #   conforms_to: https://www.ietf.org/rfc/rfc3987.txt
+  #   description: a complete URI
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "uri".
+  #   comments:
+  #   - in RDF serializations a slot with range of uri is treated as a literal or type
+  #     xsd:anyURI unless it is an identifier or a reference to an identifier, in which
+  #     case it is translated directly to a node
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   close_mappings:
+  #   - schema:URL
+  #   base: URI
+  #   uri: xsd:anyURI
+  #   repr: str
+  # ncname:
+  #   name: ncname
+  #   definition_uri: https://w3id.org/linkml/Ncname
+  #   description: Prefix part of CURIE
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "ncname".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   base: NCName
+  #   uri: xsd:string
+  #   repr: str
+  # objectidentifier:
+  #   name: objectidentifier
+  #   definition_uri: https://w3id.org/linkml/Objectidentifier
+  #   description: A URI or CURIE that represents an object in the model.
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "objectidentifier".
+  #   comments:
+  #   - Used for inheritance and type checking
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   base: ElementIdentifier
+  #   uri: shex:iri
+  #   repr: str
+  # nodeidentifier:
+  #   name: nodeidentifier
+  #   definition_uri: https://w3id.org/linkml/Nodeidentifier
+  #   description: A URI, CURIE or BNODE that represents a node in a model.
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "nodeidentifier".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   base: NodeIdentifier
+  #   uri: shex:nonLiteral
+  #   repr: str
+  # jsonpointer:
+  #   name: jsonpointer
+  #   definition_uri: https://w3id.org/linkml/Jsonpointer
+  #   conforms_to: https://datatracker.ietf.org/doc/html/rfc6901
+  #   description: A string encoding a JSON Pointer. The value of the string MUST conform
+  #     to JSON Point syntax and SHOULD dereference to a valid object within the current
+  #     instance document when encoded in tree form.
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "jsonpointer".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   base: str
+  #   uri: xsd:string
+  #   repr: str
+  # jsonpath:
+  #   name: jsonpath
+  #   definition_uri: https://w3id.org/linkml/Jsonpath
+  #   conforms_to: https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html
+  #   description: A string encoding a JSON Path. The value of the string MUST conform
+  #     to JSON Point syntax and SHOULD dereference to zero or more valid objects within
+  #     the current instance document when encoded in tree form.
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "jsonpath".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   base: str
+  #   uri: xsd:string
+  #   repr: str
+  # sparqlpath:
+  #   name: sparqlpath
+  #   definition_uri: https://w3id.org/linkml/Sparqlpath
+  #   conforms_to: https://www.w3.org/TR/sparql11-query/#propertypaths
+  #   description: A string encoding a SPARQL Property Path. The value of the string
+  #     MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects
+  #     within the current instance document when encoded as RDF.
+  #   notes:
+  #   - If you are authoring schemas in LinkML YAML, the type is referenced with the
+  #     lower case "sparqlpath".
+  #   from_schema: https://w3id.org/linkml/types
+  #   imported_from: linkml:types
+  #   base: str
+  #   uri: xsd:string
+  #   repr: str
 slots:
   has attribute:
     name: has attribute
@@ -1220,6 +1220,24 @@ slots:
     domain_of:
     - entity
     range: narrative text
+  creation date:
+    name: creation date
+    definition_uri: https://w3id.org/biolink/vocab/creation_date
+    description: date on which an entity was created. This can be applied to nodes
+      or edges
+    from_schema: https://w3id.org/biolink/biolink-model
+    aliases:
+    - publication date
+    exact_mappings:
+    - dct:createdOn
+    - WIKIDATA_PROPERTY:P577
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:creation_date
+    owner: information content entity
+    domain_of:
+    - information content entity
+    range: date
   has taxonomic rank:
     name: has taxonomic rank
     definition_uri: https://w3id.org/biolink/vocab/has_taxonomic_rank
@@ -1234,6 +1252,60 @@ slots:
     domain_of:
     - organism taxon
     range: taxonomic rank
+  version:
+    name: version
+    definition_uri: https://w3id.org/biolink/vocab/version
+    from_schema: https://w3id.org/biolink/biolink-model
+    broad_mappings:
+    - pav:version
+    - owl:versionInfo
+    is_a: node property
+    domain: dataset
+    slot_uri: biolink:version
+    owner: version
+    range: string
+  license:
+    name: license
+    definition_uri: https://w3id.org/biolink/vocab/license
+    from_schema: https://w3id.org/biolink/biolink-model
+    exact_mappings:
+    - dct:license
+    narrow_mappings:
+    - WIKIDATA_PROPERTY:P275
+    is_a: node property
+    domain: information content entity
+    slot_uri: biolink:license
+    owner: information content entity
+    domain_of:
+    - information content entity
+    range: string
+  rights:
+    name: rights
+    definition_uri: https://w3id.org/biolink/vocab/rights
+    from_schema: https://w3id.org/biolink/biolink-model
+    exact_mappings:
+    - dct:rights
+    is_a: node property
+    domain: information content entity
+    slot_uri: biolink:rights
+    owner: information content entity
+    domain_of:
+    - information content entity
+    range: string
+  format:
+    name: format
+    definition_uri: https://w3id.org/biolink/vocab/format
+    from_schema: https://w3id.org/biolink/biolink-model
+    exact_mappings:
+    - dct:format
+    - WIKIDATA_PROPERTY:P2701
+    is_a: node property
+    domain: information content entity
+    slot_uri: biolink:format
+    owner: information content entity
+    domain_of:
+    - information content entity
+    range: string
   has biological sequence:
     name: has biological sequence
     definition_uri: https://w3id.org/biolink/vocab/has_biological_sequence
@@ -1687,6 +1759,82 @@ classes:
     - synonym
     - has taxonomic rank
     class_uri: biolink:OrganismTaxon
+  information content entity:
+    name: information content entity
+    id_prefixes:
+    - doi
+    definition_uri: https://w3id.org/biolink/vocab/InformationContentEntity
+    description: a piece of information that typically describes some topic of discourse
+      or is used as support.
+    from_schema: https://w3id.org/biolink/biolink-model
+    aliases:
+    - information
+    - information artefact
+    - information entity
+    exact_mappings:
+    - IAO:0000030
+    narrow_mappings:
+    - UMLSSG:CONC
+    - STY:T077
+    - STY:T078
+    - STY:T079
+    - STY:T080
+    - STY:T081
+    - STY:T082
+    - STY:T089
+    - STY:T102
+    - STY:T169
+    - STY:T171
+    - STY:T185
+    is_a: named thing
+    abstract: true
+    slots:
+    - id
+    - iri
+    - category
+    - type
+    - name
+    - description
+    - has attribute
+    - deprecated
+    - provided by
+    - xref
+    - full name
+    - synonym
+    - license
+    - rights
+    - format
+    - creation date
+    class_uri: biolink:InformationContentEntity
+  dataset:
+    name: dataset
+    definition_uri: https://w3id.org/biolink/vocab/Dataset
+    description: an item that refers to a collection of data from a data source.
+    from_schema: https://w3id.org/biolink/biolink-model
+    exact_mappings:
+    - IAO:0000100
+    - dctypes:Dataset
+    - schema:dataset
+    - dcid:Dataset
+    is_a: information content entity
+    slots:
+    - id
+    - iri
+    - category
+    - type
+    - name
+    - description
+    - has attribute
+    - deprecated
+    - provided by
+    - xref
+    - full name
+    - synonym
+    - license
+    - rights
+    - format
+    - creation date
+    class_uri: biolink:Dataset
   physical essence or occurrent:
     name: physical essence or occurrent
     definition_uri: https://w3id.org/biolink/vocab/PhysicalEssenceOrOccurrent
@@ -2051,6 +2199,6 @@ classes:
     - has biological sequence
     class_uri: biolink:Genome
 metamodel_version: 1.7.0
-source_file_size: 42695
-generation_date: '2024-03-20T11:42:00'
+source_file_size: 44864
+generation_date: '2024-03-27T11:46:24'
 
