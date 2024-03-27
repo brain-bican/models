@@ -31,9 +31,9 @@ jobs:
       - name: Generate other model representations
         run: |
           cd linkml-schema
-          for file in *.yaml;
+          for file in *.yaml; do
             if [ "$file" != "bican_biolink.yaml" ]; then
-              do name=`basename ${file} .yaml`;
+              name=`basename ${file} .yaml`;
               echo "Processing $name file..";
               gen-json-schema  ${file} > ../json-schema-autogen/${name}.json;
               # generating jsonld context and removing generation_date field to avoid constant updates

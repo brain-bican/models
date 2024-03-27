@@ -30,9 +30,9 @@ jobs:
       - name: Generate other model representations
         run: |
           cd linkml-schema
-          for file in *.yaml;
+          for file in *.yaml; do
             if [ "$file" != "bican_biolink.yaml" ]; then
-              do name=`basename ${file} .yaml`;
+              name=`basename ${file} .yaml`;
               echo "Processing $name file..";
               # generating json schema
               gen-json-schema  ${file};
