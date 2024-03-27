@@ -2,11 +2,9 @@ name: test generating other formats
 
 on:
   push:
-    paths:
-      - 'linkml-schema/'
+    branches:
+      - main
   pull_request:
-    paths:
-      - 'linkml-schema/'
 
 jobs:
   test:
@@ -32,17 +30,19 @@ jobs:
       - name: Generate other model representations
         run: |
           cd linkml-schema
-          for file in *.yaml;
-            do name=`basename ${file} .yaml`;
-            echo "Processing $name file..";
-            # generating json schema
-            gen-json-schema  ${file};
-            # generating jsonld context 
-            gen-jsonld-context ${file};
-            # generating pydantic schema
-            gen-pydantic --pydantic_version 2 ${file};
-            if [ ${name} != "gars" ]; then
-              gen-erdiagram ${file};
+          for file in *.yaml; do
+            if [ "$file" != "bican_biolink.yaml" ]; then
+              name=`basename ${file} .yaml`;
+              echo "Processing $name file..";
+              # generating json schema
+              gen-json-schema  ${file};
+              # generating jsonld context
+              gen-jsonld-context ${file};
+              # generating pydantic schema
+              gen-pydantic --pydantic-version 2 ${file};
+              if [ ${name} != "kbmodel" ]; then
+                gen-erdiagram ${file};
+              fi
             fi
           done
           cd ..
