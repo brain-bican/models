@@ -1,0 +1,151 @@
+id: https://identifiers.org/brain-bican/gars-model
+name: gars-model
+prefixes:
+  linkml: https://w3id.org/linkml/
+  bican: https://identifiers.org/brain-bican/vocab/
+  spdx: http://spdx.org/rdf/terms#
+  schema: http://schema.org/
+  ncbi: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=
+  NCBIAssembly: https://www.ncbi.nlm.nih.gov/assembly/
+  prov: http://www.w3.org/ns/prov#
+
+imports:
+  - linkml:types
+  - bican_biolink
+default_range: string
+default_prefix: bican
+
+classes:
+  gene annotation:
+    is_a: gene
+    description: >-
+      An annotation describing the location, boundaries, and functions of 
+      individual genes within a genome annotation.
+    slots:
+      - molecular type
+      - source id
+    attributes:
+      referenced in: 
+        description: The genome annotation that this gene annotation was referenced from.
+        required: true
+        inlined: true
+        any_of:
+          - range: genome annotation
+          - range: string
+    id_prefixes:
+      - ENSEMBL
+      - MGI
+      - NCBIGene
+
+  genome annotation:
+    is_a: genome
+    description: >-
+      Location and nomenclature of genes and all of the coding regions in a genome assembly 
+      and the classification of genes and transcripts into types.
+    slots:
+      - version
+      - digest
+      - content_url
+      - authority
+    attributes:
+      reference assembly:
+        description: The reference genome assembly that this genome annotation was created from.
+        required: true
+        inlined: true
+        any_of:
+          - range: genome assembly
+          - range: string
+
+  genome assembly:
+    is_a: named thing
+    mixins:
+      - thing with taxon
+    description: >-
+      Genome assembly to contain version and label information
+    slots:
+      - version
+      - strain
+
+  checksum:
+    is_a: entity
+    description: >-
+      Checksum values associated with digital entities.
+    slots:
+      - checksum algorithm
+    attributes:
+      value: 
+        description: The checksum value obtained from a specific cryotographic hash function.
+
+  annotation collection:
+    tree_root: true
+    attributes:
+      annotations:
+        multivalued: true
+        inlined_as_list: true
+        range: gene annotation
+      genome_annotations:
+        multivalued: true
+        inlined_as_list: true
+        range: genome annotation
+      genome_assemblies:
+        multivalued: true
+        inlined_as_list: true
+        range: genome assembly
+
+
+slots:
+  molecular type:
+    any_of:
+      - range: BioType
+      - range: string
+
+  digest:
+    description: Stores checksum information. 
+    multivalued: true
+    inlined_as_list: true
+    any_of:
+      - range: checksum
+      - range: string
+
+  content_url:
+    slot_uri: schema:url
+    multivalued: true
+
+  authority:
+    description: The organization responsible for publishing the data. 
+    range: AuthorityType
+
+  checksum algorithm:
+    description: The type of cryptographic hash function used to calculate the checksum value.
+    range: DigestType
+
+  source id:
+    description: The authority specific identifier. 
+    slot_uri: schema:identifier
+  
+  strain:
+    description: The genetic variant or subtype of a species or organism. 
+
+
+enums:
+  DigestType:
+    permissible_values:
+      spdx:checksumAlgorithm_sha1:
+        title: SHA1
+        meaning: spdx:checksumAlgorithm_sha1
+      spdx:checksumAlgorithm_md5:
+        title: MD5
+        meaning: spdx:checksumAlgorithm_md5
+      spdx:checksumAlgorithm_sha256:
+        title: SHA256
+        meaning: spdx:checksumAlgorithm_sha256
+
+  BioType:
+    permissible_values:
+      protein_coding:
+      noncoding:
+
+  AuthorityType: 
+    permissible_values:
+      ENSEMBL:
+      NCBI:
