@@ -5,14 +5,12 @@ on:
     branches:
       - main
 
-
 permissions:
   contents: write
 
 jobs:
   generate:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v3
@@ -33,9 +31,14 @@ jobs:
       - name: Create local docs
         run: |
           mkdir docs
-          touch docs/.nojekyll
           cp -r src/docs/* docs/
+          touch docs/.nojekyll
           gen-doc -d docs linkml-schema/purple_boxes.yaml
+          mv docs/index.md docs/index_purple.md
+          gen-doc -d docs linkml-schema/kbmodel.yaml
+          mv docs/index.md docs/index_gars.md
+          mv docs/index_main.md docs/index.md
+
 
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force
