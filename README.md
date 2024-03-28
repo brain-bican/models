@@ -34,7 +34,7 @@ Here are the BICAN LinkML knowledgebase schemas and their statuses.
 | [BICAN BioLink] | [] |  [] | under development |
 | [CCN2] | [] | [] | under development |
 | [KB Model] | [] | [] | under development |
-| [Purple Boxes] | [] | [] | under development |
+| [Library Generation Model] | [] | [] | under development |
 | | | | |
 
 [BICAN BioLink]: linkml-schema/bican_biolink.yaml
@@ -43,7 +43,7 @@ Here are the BICAN LinkML knowledgebase schemas and their statuses.
 
 [KB Model]: linkml-schema/kbmodel.yaml
 
-[Purple Boxes]: linkml-schema/purple_boxes.yaml
+[Library Generation Model]: linkml-schema/purple_boxes.yaml
 
 ## Contact
 
