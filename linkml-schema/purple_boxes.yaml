@@ -40,1787 +40,1785 @@ subsets:
   alignment:
     description: A subset of slots/attributes that are required for alignment.
     from_schema: https://identifiers.org/brain-bican/kb-model
-  bican, tissue_specimen: {}
-  bican, library_generation: {}
 enums:
   amplified_cdna_rna_amplification_pass_fail:
     from_schema: https://identifiers.org/brain-bican/kb-model
     permissible_values:
       Pass:
-        description: The RNA amplification passed the QA/QC
         meaning: NIMP:PD-XXXXFQ31
+        title: The RNA amplification passed the QA/QC
       Fail:
-        description: The RNA amplification failed the QA/QC
         meaning: NIMP:PD-XXXXFQ31
+        title: The RNA amplification failed the QA/QC
       Low QC:
-        description: The RNA amplification low passed the QA/QC
         meaning: NIMP:PD-XXXXFQ31
+        title: The RNA amplification low passed the QA/QC
       Not evaluated:
-        description: Library Prep not evaluated for QA/QC
         meaning: NIMP:PD-XXXXFQ31
+        title: Library Prep not evaluated for QA/QC
   barcoded_cell_sample_technique:
     from_schema: https://identifiers.org/brain-bican/kb-model
     permissible_values:
       Multiome:
-        description: Multiome
         meaning: NIMP:PD-TDTDDF25
+        title: Multiome
       ATACOnly:
-        description: ATACOnly
         meaning: NIMP:PD-TDTDDF25
+        title: ATACOnly
       GEXOnly:
-        description: GEXOnly
         meaning: NIMP:PD-TDTDDF25
+        title: GEXOnly
       snm3C-seq:
-        description: snm3C-seq
         meaning: NIMP:PD-TDTDDF25
+        title: snm3C-seq
   dissociated_cell_sample_cell_prep_type:
     from_schema: https://identifiers.org/brain-bican/kb-model
     permissible_values:
       Nuclei:
-        description: isolated nuclei
         meaning: NIMP:PD-RELLGO26
+        title: isolated nuclei
       Cells:
-        description: isolated whole cells
         meaning: NIMP:PD-RELLGO26
+        title: isolated whole cells
   dissociated_cell_sample_cell_label_barcode:
     from_schema: https://identifiers.org/brain-bican/kb-model
     permissible_values:
       CMO301:
-        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
-          a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: 10x Cell Plex oligo tag for multiplexing tissue sources into a single
+          10x load.
       CMO302:
-        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
-          a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: 10x Cell Plex oligo tag for multiplexing tissue sources into a single
+          10x load.
       CMO303:
-        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
-          a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: 10x Cell Plex oligo tag for multiplexing tissue sources into a single
+          10x load.
       CMO304:
-        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
-          a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: 10x Cell Plex oligo tag for multiplexing tissue sources into a single
+          10x load.
       CMO305:
-        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
-          a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: 10x Cell Plex oligo tag for multiplexing tissue sources into a single
+          10x load.
       CMO306:
-        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
-          a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: 10x Cell Plex oligo tag for multiplexing tissue sources into a single
+          10x load.
       CMO307:
-        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
-          a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: 10x Cell Plex oligo tag for multiplexing tissue sources into a single
+          10x load.
       CMO308:
-        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
-          a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: 10x Cell Plex oligo tag for multiplexing tissue sources into a single
+          10x load.
       CMO309:
-        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
-          a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: 10x Cell Plex oligo tag for multiplexing tissue sources into a single
+          10x load.
       CMO310:
-        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
-          a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: 10x Cell Plex oligo tag for multiplexing tissue sources into a single
+          10x load.
       CMO311:
-        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
-          a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: 10x Cell Plex oligo tag for multiplexing tissue sources into a single
+          10x load.
       CMO312:
-        description: 10x Cell Plex oligo tag for multiplexing tissue sources into
-          a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: 10x Cell Plex oligo tag for multiplexing tissue sources into a single
+          10x load.
       2nt-001:
-        description: Used in conjunction with Histone antibody to capture and tag
-          separate subcomponents of the epigenome. Allows for pooling of enriched
-          cell samples into a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: Used in conjunction with Histone antibody to capture and tag separate
+          subcomponents of the epigenome. Allows for pooling of enriched cell samples
+          into a single 10x load.
       2nt-002:
-        description: Used in conjunction with Histone antibody to capture and tag
-          separate subcomponents of the epigenome. Allows for pooling of enriched
-          cell samples into a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: Used in conjunction with Histone antibody to capture and tag separate
+          subcomponents of the epigenome. Allows for pooling of enriched cell samples
+          into a single 10x load.
       2nt-003:
-        description: Used in conjunction with Histone antibody to capture and tag
-          separate subcomponents of the epigenome. Allows for pooling of enriched
-          cell samples into a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: Used in conjunction with Histone antibody to capture and tag separate
+          subcomponents of the epigenome. Allows for pooling of enriched cell samples
+          into a single 10x load.
       2nt-004:
-        description: Used in conjunction with Histone antibody to capture and tag
-          separate subcomponents of the epigenome. Allows for pooling of enriched
-          cell samples into a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: Used in conjunction with Histone antibody to capture and tag separate
+          subcomponents of the epigenome. Allows for pooling of enriched cell samples
+          into a single 10x load.
       3nt-001:
-        description: Used in conjunction with Histone antibody to capture and tag
-          separate subcomponents of the epigenome. Allows for pooling of enriched
-          cell samples into a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: Used in conjunction with Histone antibody to capture and tag separate
+          subcomponents of the epigenome. Allows for pooling of enriched cell samples
+          into a single 10x load.
       3nt-002:
-        description: Used in conjunction with Histone antibody to capture and tag
-          separate subcomponents of the epigenome. Allows for pooling of enriched
-          cell samples into a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: Used in conjunction with Histone antibody to capture and tag separate
+          subcomponents of the epigenome. Allows for pooling of enriched cell samples
+          into a single 10x load.
       3nt-003:
-        description: Used in conjunction with Histone antibody to capture and tag
-          separate subcomponents of the epigenome. Allows for pooling of enriched
-          cell samples into a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: Used in conjunction with Histone antibody to capture and tag separate
+          subcomponents of the epigenome. Allows for pooling of enriched cell samples
+          into a single 10x load.
       3nt-004:
-        description: Used in conjunction with Histone antibody to capture and tag
-          separate subcomponents of the epigenome. Allows for pooling of enriched
-          cell samples into a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: Used in conjunction with Histone antibody to capture and tag separate
+          subcomponents of the epigenome. Allows for pooling of enriched cell samples
+          into a single 10x load.
       3nt-005:
-        description: Used in conjunction with Histone antibody to capture and tag
-          separate subcomponents of the epigenome. Allows for pooling of enriched
-          cell samples into a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: Used in conjunction with Histone antibody to capture and tag separate
+          subcomponents of the epigenome. Allows for pooling of enriched cell samples
+          into a single 10x load.
       3nt-006:
-        description: Used in conjunction with Histone antibody to capture and tag
-          separate subcomponents of the epigenome. Allows for pooling of enriched
-          cell samples into a single 10x load.
         meaning: NIMP:PD-CFCFPS27
+        title: Used in conjunction with Histone antibody to capture and tag separate
+          subcomponents of the epigenome. Allows for pooling of enriched cell samples
+          into a single 10x load.
   library_technique:
     from_schema: https://identifiers.org/brain-bican/kb-model
     permissible_values:
       SMARTSeqSC:
-        description: SMARTSeqSC
         meaning: NIMP:PD-AJAJCN35
+        title: SMARTSeqSC
       SmartSeq3:
-        description: SmartSeq3
         meaning: NIMP:PD-AJAJCN35
+        title: SmartSeq3
       10xV3.1:
-        description: 10xV3.1
         meaning: NIMP:PD-AJAJCN35
+        title: 10xV3.1
       10xV3.1_HT:
-        description: 10xV3.1_HT
         meaning: NIMP:PD-AJAJCN35
+        title: 10xV3.1_HT
       10xMultiome;GEX:
-        description: 10xMultiome;GEX
         meaning: NIMP:PD-AJAJCN35
+        title: 10xMultiome;GEX
       10xMultiome;ATAC:
-        description: 10xMultiome;ATAC
         meaning: NIMP:PD-AJAJCN35
+        title: 10xMultiome;ATAC
       10xATAC_V2.0:
-        description: 10xATAC_V2.0
         meaning: NIMP:PD-AJAJCN35
+        title: 10xATAC_V2.0
       10XMultiome-CellHashing;GEX:
-        description: 10XMultiome-CellHashing;GEX
         meaning: NIMP:PD-AJAJCN35
+        title: 10XMultiome-CellHashing;GEX
       10XMultiome-CellHashing;ATAC:
-        description: 10XMultiome-CellHashing;ATAC
         meaning: NIMP:PD-AJAJCN35
+        title: 10XMultiome-CellHashing;ATAC
       10XMultiome-Cell Hashing;Barcode:
-        description: 10XMultiome-Cell Hashing;Barcode
         meaning: NIMP:PD-AJAJCN35
+        title: 10XMultiome-Cell Hashing;Barcode
       10xV3.1_CellPlex;GEX:
-        description: 10xV3.1_CellPlex;GEX
         meaning: NIMP:PD-AJAJCN35
+        title: 10xV3.1_CellPlex;GEX
       10xV3.1_CellPlex;Barcode:
-        description: 10xV3.1_CellPlex;Barcode
         meaning: NIMP:PD-AJAJCN35
+        title: 10xV3.1_CellPlex;Barcode
       10xV3.1_HT_CellPlex;GEX:
-        description: 10xV3.1_HT_CellPlex;GEX
         meaning: NIMP:PD-AJAJCN35
+        title: 10xV3.1_HT_CellPlex;GEX
       10xV3.1_HT_CellPlex;Barcode:
-        description: 10xV3.1_HT_CellPlex;Barcode
         meaning: NIMP:PD-AJAJCN35
+        title: 10xV3.1_HT_CellPlex;Barcode
       MethylC-Seq:
-        description: MethylC-Seq
         meaning: NIMP:PD-AJAJCN35
+        title: MethylC-Seq
       snm3C-seq:
-        description: snm3C-seq
         meaning: NIMP:PD-AJAJCN35
+        title: snm3C-seq
       snmCT-seq:
-        description: snmCT-seq
         meaning: NIMP:PD-AJAJCN35
+        title: snmCT-seq
       scATAC-seq:
-        description: scATAC-seq
         meaning: NIMP:PD-AJAJCN35
+        title: scATAC-seq
       MERFISH:
-        description: MERFISH
         meaning: NIMP:PD-AJAJCN35
+        title: MERFISH
       Slide-seq MERFISH:
-        description: Slide-seq MERFISH
         meaning: NIMP:PD-AJAJCN35
+        title: Slide-seq MERFISH
       whole brain MERFISH:
-        description: whole brain MERFISH
         meaning: NIMP:PD-AJAJCN35
+        title: whole brain MERFISH
       DBiT RNA-seq:
-        description: DBiT RNA-seq
         meaning: NIMP:PD-AJAJCN35
+        title: DBiT RNA-seq
       DBiT ATAC-seq:
-        description: DBiT ATAC-seq
         meaning: NIMP:PD-AJAJCN35
+        title: DBiT ATAC-seq
   library_prep_pass_fail:
     from_schema: https://identifiers.org/brain-bican/kb-model
     permissible_values:
       Pass:
-        description: Library Prep passed the QA/QC
         meaning: NIMP:PD-QHQHQB42
+        title: Library Prep passed the QA/QC
       Fail:
-        description: Library Prep failed the QA/QC
         meaning: NIMP:PD-QHQHQB42
+        title: Library Prep failed the QA/QC
       Low QC:
-        description: Library Prep low passed the QA/QC
         meaning: NIMP:PD-QHQHQB42
+        title: Library Prep low passed the QA/QC
       Not evaluated:
-        description: Library Prep not evaluated for QA/QC
         meaning: NIMP:PD-QHQHQB42
+        title: Library Prep not evaluated for QA/QC
   library_r1_r2_index:
     from_schema: https://identifiers.org/brain-bican/kb-model
     permissible_values:
       SI-TT-A1:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-A2:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-A3:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-A4:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-A5:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-A6:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-A7:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-A8:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-A9:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-A10:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-A11:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-A12:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-B1:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-B2:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-B3:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-B4:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-B5:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-B6:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-B7:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-B8:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-B9:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-B10:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-B11:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-B12:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-C1:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-C2:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-C3:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-C4:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-C5:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-C6:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-C7:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-C8:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-C9:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-C10:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-C11:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-C12:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-D1:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-D2:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-D3:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-D4:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-D5:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-D6:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-D7:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-D8:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-D9:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-D10:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-D11:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-D12:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-E1:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-E2:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-E3:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-E4:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-E5:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-E6:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-E7:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-E8:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-E9:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-E10:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-E11:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-E12:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-F1:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-F2:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-F3:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-F4:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-F5:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-F6:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-F7:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-F8:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-F9:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-F10:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-F11:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-F12:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-G1:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-G2:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-G3:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-G4:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-G5:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-G6:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-G7:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-G8:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-G9:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-G10:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-G11:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-G12:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-H1:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-H2:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-H3:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-H4:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-H5:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-H6:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-H7:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-H8:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-H9:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-H10:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-H11:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-TT-H12:
-        description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
       SI-NN-A1:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-A2:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-A3:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-A4:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-A5:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-A6:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-A7:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-A8:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-A9:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-A10:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-A11:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-A12:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-B1:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-B2:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-B3:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-B4:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-B5:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-B6:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-B7:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-B8:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-B9:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-B10:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-B11:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-B12:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-C1:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-C2:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-C3:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-C4:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-C5:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-C6:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-C7:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-C8:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-C9:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-C10:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-C11:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-C12:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-D1:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-D2:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-D3:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-D4:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-D5:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-D6:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-D7:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-D8:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-D9:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-D10:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-D11:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-D12:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-E1:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-E2:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-E3:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-E4:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-E5:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-E6:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-E7:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-E8:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-E9:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-E10:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-E11:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-E12:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-F1:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-F2:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-F3:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-F4:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-F5:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-F6:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-F7:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-F8:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-F9:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-F10:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-F11:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-F12:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-G1:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-G2:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-G3:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-G4:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-G5:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-G6:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-G7:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-G8:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-G9:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-G10:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-G11:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-G12:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-H1:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-H2:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-H3:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-H4:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-H5:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-H6:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-H7:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-H8:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-H9:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-H10:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-H11:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NN-H12:
-        description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
       SI-NA-A1:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-B1:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-C1:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-D1:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-E1:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-F1:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-G1:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-H1:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-A2:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-B2:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-C2:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-D2:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-E2:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-F2:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-G2:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-H2:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-A3:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-B3:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-C3:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-D3:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-E3:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-F3:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-G3:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-H3:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-A4:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-B4:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-C4:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-D4:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-E4:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-F4:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-G4:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-H4:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-A5:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-B5:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-C5:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-D5:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-E5:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-F5:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-G5:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-H5:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-A6:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-B6:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-C6:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-D6:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-E6:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-F6:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-G6:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-H6:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-A7:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-B7:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-C7:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-D7:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-E7:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-F7:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-G7:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-H7:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-A8:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-B8:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-C8:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-D8:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-E8:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-F8:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-G8:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-H8:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-A9:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-B9:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-C9:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-D9:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-E9:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-F9:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-G9:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-H9:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-A10:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-B10:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-C10:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-D10:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-E10:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-F10:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-G10:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-H10:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-A11:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-B11:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-C11:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-D11:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-E11:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-F11:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-G11:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-H11:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-A12:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-B12:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-C12:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-D12:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-E12:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-F12:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-G12:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SI-NA-H12:
-        description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
         meaning: NIMP:PD-VLLMWZ60
+        title: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
       SetB-A1:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A10:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A11:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A12:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A13:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A14:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A15:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A16:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A17:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A18:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A19:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A2:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A20:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A21:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A22:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A23:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A24:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A3:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A4:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A5:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A6:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A7:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A8:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-A9:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B1:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B10:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B11:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B12:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B13:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B14:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B15:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B16:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B17:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B18:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B19:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B2:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B20:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B21:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B22:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B23:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B24:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B3:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B4:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B5:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B6:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B7:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B8:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-B9:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C1:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C10:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C11:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C12:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C13:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C14:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C15:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C16:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C17:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C18:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C19:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C2:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C20:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C21:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C22:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C23:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C24:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C3:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C4:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C5:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C6:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C7:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C8:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-C9:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D1:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D10:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D11:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D12:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D13:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D14:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D15:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D16:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D17:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D18:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D19:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D2:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D20:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D21:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D22:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D23:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D24:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D3:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D4:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D5:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D6:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D7:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D8:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-D9:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E1:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E10:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E11:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E12:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E13:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E14:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E15:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E16:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E17:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E18:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E19:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E2:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E20:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E21:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E22:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E23:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E24:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E3:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E4:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E5:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E6:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E7:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E8:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-E9:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F1:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F10:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F11:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F12:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F13:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F14:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F15:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F16:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F17:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F18:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F19:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F2:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F20:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F21:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F22:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F23:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F24:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F3:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F4:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F5:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F6:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F7:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F8:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-F9:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G1:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G10:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G11:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G12:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G13:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G14:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G15:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G16:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G17:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G18:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G19:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G2:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G20:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G21:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G22:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G23:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G24:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G3:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G4:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G5:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G6:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G7:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G8:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-G9:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H1:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H10:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H11:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H12:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H13:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H14:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H15:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H16:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H17:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H18:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H19:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H2:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H20:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H21:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H22:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H23:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H24:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H3:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H4:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H5:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H6:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H7:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H8:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-H9:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I1:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I10:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I11:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I12:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I13:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I14:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I15:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I16:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I17:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I18:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I19:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I2:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I20:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I21:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I22:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I23:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I24:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I3:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I4:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I5:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I6:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I7:
-        description: NeryLab 384_SetB
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB
       SetB-I8:
-        description: NeryLab 384_SetB/#
         meaning: NIMP:PD-VLLMWZ60
+        title: NeryLab 384_SetB/#
   sex:
     from_schema: https://identifiers.org/brain-bican/kb-model
     permissible_values:
       '1':
-        description: Male
         meaning: NIMP:PD-LXUBTM45
+        title: Male
       '2':
-        description: Female
         meaning: NIMP:PD-LXUBTM45
+        title: Female
       '7':
-        description: Other
         meaning: NIMP:PD-LXUBTM45
+        title: Other
       '8':
-        description: Unknown
         meaning: NIMP:PD-LXUBTM45
+        title: Unknown
       '9':
-        description: Not Reported
         meaning: NIMP:PD-LXUBTM45
+        title: Not Reported
   age_at_death_reference_point:
     from_schema: https://identifiers.org/brain-bican/kb-model
     permissible_values:
       birth:
-        description: birth
         meaning: NIMP:PD-RARAGG39
+        title: birth
       conception:
-        description: conception
         meaning: NIMP:PD-RARAGG39
+        title: conception
   age_at_death_unit:
     from_schema: https://identifiers.org/brain-bican/kb-model
     permissible_values:
       days:
-        description: days
         meaning: NIMP:PD-AVAVEV39
+        title: days
       months:
-        description: months
         meaning: NIMP:PD-AVAVEV39
+        title: months
       years:
-        description: years
         meaning: NIMP:PD-AVAVEV39
+        title: years
 slots:
   was_derived_from:
     description: A derivation is a transformation of an entity into another, an update
@@ -1924,7 +1922,8 @@ classes:
       brain slabs are obtained from the slicing process, an ordinal is assigned to
       provide information about the relative positioning of the slabs.
     in_subset:
-    - bican, tissue_specimen
+    - bican
+    - tissue_specimen
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Slab
@@ -1955,7 +1954,8 @@ classes:
       piece of tissue will be used in dissociation and has an region of interest polygon
       (ROI) associated with it.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Tissue
@@ -1996,7 +1996,8 @@ classes:
     description: A collection of dissociated cells or nuclei derived from dissociation
       of a tissue sample.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Dissociated%20Cell%20Sample
@@ -2034,6 +2035,9 @@ classes:
           local_name_source: NIMP
         description: 'The type of cell preparation. For example: Cells, Nuclei. This
           is a property of dissociated_cell_sample.'
+        in_subset:
+        - analysis
+        - tracking
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-RELLGO26
@@ -2061,7 +2065,8 @@ classes:
       usually via fluorescence-activated cell sorting (FACS) using the enrichment
       plan, is applied to dissociated cell sample.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Enriched%20Cell%20Sample
@@ -2105,6 +2110,8 @@ classes:
           marker label(s) to enrich dissociated_cell_sample with desired mix of cell
           populations.  This plan can also be used to describe 'No FACS' where no
           enrichment was performed.  This is a property of enriched_cell_prep_container.
+        in_subset:
+        - analysis
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-TZTZPI37
@@ -2145,7 +2152,8 @@ classes:
       for the barcoded cell sample. The barcoded cell sample name and the cell level
       molecular barcode together uniquely identify a single cell.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Barcoded%20Cell%20Sample
@@ -2190,6 +2198,8 @@ classes:
           from 'Barcoded cell input quantity count' that is dependent on the "capture
           rate" of the barcoding method.  It is usually a calculated fraction of the
           'Barcoded cell input quantity count' going into the barcoding method.
+        in_subset:
+        - analysis
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-ONONEV39
@@ -2203,7 +2213,8 @@ classes:
       barcode from the cell barcoding step. This is a necessary step for GEX methods
       but is not used for ATAC methods.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Amplified%20cDNA
@@ -2243,6 +2254,8 @@ classes:
           local_name_source: NIMP
         description: Amount of cDNA produced after cDNA amplification measured in
           nanograms.
+        in_subset:
+        - analysis
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-TITIIC26
@@ -2255,13 +2268,15 @@ classes:
           local_name_source: NIMP
         description: Pass or Fail result based on qualitative assessment of cDNA yield
           and size.
+        in_subset:
+        - analysis
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-XXXXFQ31
         slot_uri: bican:bc62bdb2-7dc8-4404-bb84-ce0bbcae59e5
         alias: amplified cDNA RNA amplification pass-fail
         range: amplified_cdna_rna_amplification_pass_fail
-      percent_cdna_ longer_than_400bp:
+      percent_cdna_longer_than_400bp:
         local_names:
           local_name_value: amplified_cdna_percent_cdna_longer_than_400bp
           local_name_source: NIMP
@@ -2269,6 +2284,8 @@ classes:
           quality starting material.  Over 400bp is used as a universal cutoff for
           intact (full length) vs degraded cDNA and is a common output from Bioanalyzer
           and Fragment Analyzer elecropheragrams.
+        in_subset:
+        - analysis
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-JJJJWD35
@@ -2280,7 +2297,8 @@ classes:
       sequencing. An index or barcode is typically introduced to enable identification
       of library origin to allow libraries to be pooled together for sequencing.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Library
@@ -2321,6 +2339,8 @@ classes:
           local_name_source: NIMP
         description: Average size of the library in terms of base pairs.  This is
           used to calculate the molarity before pooling and sequencing.
+        in_subset:
+        - analysis
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-VJVJLC46
@@ -2346,6 +2366,8 @@ classes:
           local_name_source: NIMP
         description: Pass or Fail result based on qualitative assessment of library
           yield and size.
+        in_subset:
+        - analysis
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-QHQHQB42
@@ -2357,6 +2379,8 @@ classes:
           local_name_value: library_quantification_fmol
           local_name_source: NIMP
         description: Amount of library generated in terms of femtomoles
+        in_subset:
+        - analysis
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-JYJYDK42
@@ -2384,6 +2408,9 @@ classes:
           will be associated with the sequences of i7, i5, and i5as, which are needed
           by SeqCores for demultiplexing.  The required direction of the sequence
           (sense or antisense) of the index can differ depending on sequencing instruments.
+        in_subset:
+        - analysis
+        - tracking
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-VLLMWZ60
@@ -2399,7 +2426,8 @@ classes:
       is done in the case of resequencing.  Each library aliquot will produce a set
       of fastq files.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Library%20Aliquot
@@ -2433,7 +2461,8 @@ classes:
       for sequencing together then separating the sequencing output by originating
       library aliquot through the process of demultiplexing.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Library%20Pool
@@ -2476,6 +2505,9 @@ classes:
           library pool, which is made up of multiple library_aliquots.  This is a
           Library Lab local tube name, before the pool is aliquoted to the Seq Core
           provided tube 'Library Pool Tube Name'.
+        in_subset:
+        - analysis
+        - tracking
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-WNYWPA48
@@ -2486,7 +2518,8 @@ classes:
     description: The process of outlining a region of interest on a brain slab image
       to guide the dissection and generation of a tissue sample.
     in_subset:
-    - bican, tissue_specimen
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
@@ -2503,7 +2536,8 @@ classes:
     description: The process of dissecting a tissue sample from a brain slab guided
       by a dissection region of interest (ROI) delineation.
     in_subset:
-    - bican, tissue_specimen
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
@@ -2526,7 +2560,8 @@ classes:
       sample. This process could also introduce a tissue-source barcode (eg cell hashing),
       allowing mixing of cell dissociation samples at the cell barcoding step.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
@@ -2557,7 +2592,8 @@ classes:
       introduce a tissue-source barcode (eg cell hashing), allowing mixing of cell
       enriched samples at the cell barcoding step.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
@@ -2586,7 +2622,8 @@ classes:
       Each portion may be used by the same or different groups for different scientific
       studies.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
@@ -2607,7 +2644,8 @@ classes:
       One dissociated cell sample or enriched cell sample can lead to multiple barcoded
       cell samples.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
@@ -2632,6 +2670,8 @@ classes:
         description: Specific position of the loaded port of the 10x chip.  An Enriched
           or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded
           Cell Sample). Can be left null for non-10x methods.
+        in_subset:
+        - analysis
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-KJKJZK32
@@ -2644,6 +2684,8 @@ classes:
           local_name_source: NIMP
         description: Number of enriched or dissociated cells/nuclei going into the
           barcoding process.
+        in_subset:
+        - analysis
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-ZZZZWQ40
@@ -2676,7 +2718,8 @@ classes:
       each cell while retaining the cell's unique barcode from the barcoding step.
       This is a necessary step for GEX methods but is not used for ATAC methods.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
@@ -2697,6 +2740,8 @@ classes:
           local_name_source: NIMP
         description: Number of PCR cycles used during cDNA amplification for this
           cDNA.
+        in_subset:
+        - analysis
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-OKOKQD38
@@ -2720,6 +2765,8 @@ classes:
           local_name_source: NIMP
         description: cDNA amplification set, containing multiple amplified_cDNA_names
           that were processed at the same time.
+        in_subset:
+        - analysis
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-SCSCTM41
@@ -2733,7 +2780,8 @@ classes:
       time a library index barcode is incorporated to enable identification of library
       origin, allowing libraries to be pooled together for sequencing.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
@@ -2758,6 +2806,10 @@ classes:
           used.  This specifies the alignment method required for the library.  For
           example, 10xV3.1 (for RNASeq single assay), 10xMult-GEX (for RNASeq multiome
           assay), and 10xMult-ATAC (for ATACSeq multiome assay).
+        in_subset:
+        - analysis
+        - tracking
+        - alignment
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-AJAJCN35
@@ -2780,6 +2832,8 @@ classes:
           local_name_value: library_input_ng
           local_name_source: NIMP
         description: Amount of cDNA going into library construction in nanograms.
+        in_subset:
+        - analysis
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-AFAFXP37
@@ -2792,6 +2846,8 @@ classes:
           local_name_source: NIMP
         description: Library set, containing multiple library_names that were processed
           at the same time.
+        in_subset:
+        - analysis
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-PCPCVR50
@@ -2805,7 +2861,8 @@ classes:
       the sequencing output by originating library aliquot through the process of
       demultiplexing.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
@@ -2833,7 +2890,8 @@ classes:
     description: A polygon annotated on a brain slab image delineating a region of
       interest (ROI) for a tissue sample dissectioning.
     in_subset:
-    - bican, tissue_specimen
+    - bican
+    - tissue_specimen
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Specimen%20Dissected%20ROI
