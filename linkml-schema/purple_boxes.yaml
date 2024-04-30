@@ -1878,6 +1878,7 @@ classes:
         exact_mappings:
         - NIMP:PD-LXUBTM45
         slot_uri: bican:632d3d3f-f85b-4efc-a1ab-010fe417ae81
+        range: sex
       age_at_death_description:
         local_names:
           local_name_value: age_at_death_description
@@ -1887,6 +1888,7 @@ classes:
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-ZJZJLE33
+        slot_uri: bican:0630a265-4a63-48f4-8853-66b929002306
       age_at_death_reference_point:
         local_names:
           local_name_value: age_at_death_reference_point
@@ -1897,6 +1899,7 @@ classes:
         exact_mappings:
         - NIMP:PD-RARAGG39
         slot_uri: bican:3bed1f94-9d82-4ed7-afdf-79d896b24dbb
+        range: age_at_death_reference_point
       age_at_death_unit:
         local_names:
           local_name_value: age_at_death_unit
@@ -1907,6 +1910,7 @@ classes:
         exact_mappings:
         - NIMP:PD-AVAVEV39
         slot_uri: bican:b5436e99-f0a7-4c30-825d-56b88ee2ac1d
+        range: age_at_death_unit
       age_at_death_value:
         local_names:
           local_name_value: age_at_death_value
@@ -1916,6 +1920,13 @@ classes:
         exact_mappings:
         - NIMP:PD-FTFTCP24
         slot_uri: bican:57e24d3c-c9c7-4ef3-9809-a35802d563ec
+      species:
+        local_names:
+          local_name_value: donor_species
+        description: Species of donor.
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        slot_uri: bican:6837cb02-6bd7-4fb8-838c-9062ead96ba4
+        alias: donor_species
   BrainSlab:
     description: A thick flat piece of brain tissue obtained by slicing a whole brain,
       brain hemisphere or subdivision with a blade at regular interval.  When multiple
@@ -1992,6 +2003,13 @@ classes:
         exact_mappings:
         - NIMP:PD-LJCRCC35
         slot_uri: bican:2e4ca2fc-2d77-4d19-af45-d0fb7bbc2269
+    attributes:
+      structure:
+        local_names:
+          local_name_value: tissue_sample_structure
+        description: Strucure of tissue sample.
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        alias: tissue_sample_structure
   DissociatedCellSample:
     description: A collection of dissociated cells or nuclei derived from dissociation
       of a tissue sample.
@@ -2059,7 +2077,7 @@ classes:
         - NIMP:PD-CFCFPS27
         slot_uri: bican:184abbaf-baff-4b5f-b51e-dd38de6006af
         alias: dissociated cell oligo tag name
-        range: string
+        range: dissociated_cell_sample_cell_label_barcode
   EnrichedCellSample:
     description: A collection of enriched cells or nuclei after enrichment process,
       usually via fluorescence-activated cell sorting (FACS) using the enrichment
