@@ -2006,9 +2006,10 @@ classes:
     attributes:
       structure:
         local_names:
-          local_name_value: tissue_sample_structure
+          local_name_value: structure
         description: Strucure of tissue sample.
         from_schema: https://identifiers.org/brain-bican/kb-model
+        multivalued: true
         alias: tissue_sample_structure
   DissociatedCellSample:
     description: A collection of dissociated cells or nuclei derived from dissociation
