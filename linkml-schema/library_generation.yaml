@@ -40,8 +40,6 @@ subsets:
   alignment:
     description: A subset of slots/attributes that are required for alignment.
     from_schema: https://identifiers.org/brain-bican/kb-model
-  bican, library_generation: {}
-  bican, tissue_specimen: {}
 enums:
   amplified_cdna_rna_amplification_pass_fail:
     from_schema: https://identifiers.org/brain-bican/kb-model
@@ -1801,6 +1799,7 @@ enums:
         description: Not Reported
         meaning: NIMP:PD-LXUBTM45
   age_at_death_reference_point:
+    from_schema: https://identifiers.org/brain-bican/kb-model
     permissible_values:
       birth:
         description: birth
@@ -1809,6 +1808,7 @@ enums:
         description: conception
         meaning: NIMP:PD-RARAGG39
   age_at_death_unit:
+    from_schema: https://identifiers.org/brain-bican/kb-model
     permissible_values:
       days:
         description: days
@@ -1848,58 +1848,6 @@ slots:
   dissection_was_guided_by:
     description: Tranformation (dissection) of one entity into another entity.
     range: ProvEntity
-  quantity_ng:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  pcr_cycles:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  process_date:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  pass_fail_result:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  percent_cdna_ longer_than_400bp:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  set:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  port_well:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  input_quantity:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  number_of_expected_cells:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  method:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  cell_prep_type:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  cell_source_oligo_name:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  enrichment_population:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  histone_modification_marker:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  average_size_bp:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  concentration_nm:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  input_quantity_ng:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  quantity_fmol:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  r1_r2_index:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  local_tube_id:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  biological_sex:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  age_at_death_description:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  age_at_death_reference_point:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  age_at_death_unit:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  age_at_death_value:
-    from_schema: https://identifiers.org/brain-bican/kb-model
-  name:
-    from_schema: https://identifiers.org/brain-bican/kb-model
 classes:
   Donor:
     description: A person or organism that is the source of a biological sample for
@@ -1912,68 +1860,81 @@ classes:
     - thing with taxon
     - ProvEntity
     slots:
-    - biological_sex
-    - age_at_death_description
-    - age_at_death_reference_point
-    - age_at_death_unit
-    - age_at_death_value
     - name
     slot_usage:
-      biological_sex:
-        local_names:
-          local_name_value: sex
-          local_name_source: NIMP
-        description: Biological sex of donor at birth
-        exact_mappings:
-        - NIMP:PD-LXUBTM45
-        slot_uri: 632d3d3f-f85b-4efc-a1ab-010fe417ae81
-      age_at_death_description:
-        local_names:
-          local_name_value: age_at_death_description
-          local_name_source: NIMP
-        description: 'Text description of the age of death following typical scientific
-          convention for the species or developmental stage. For example: P56, E11.5'
-        exact_mappings:
-        - NIMP:PD-ZJZJLE33
-      age_at_death_reference_point:
-        local_names:
-          local_name_value: age_at_death_reference_point
-          local_name_source: NIMP
-        description: The reference point for an age interval; for example, birth or
-          conception.
-        exact_mappings:
-        - NIMP:PD-RARAGG39
-        slot_uri: 3bed1f94-9d82-4ed7-afdf-79d896b24dbb
-      age_at_death_unit:
-        local_names:
-          local_name_value: age_at_death_unit
-          local_name_source: NIMP
-        description: The unit used for representing the donor age from the reference
-          point.
-        exact_mappings:
-        - NIMP:PD-AVAVEV39
-        slot_uri: b5436e99-f0a7-4c30-825d-56b88ee2ac1d
-      age_at_death_value:
-        local_names:
-          local_name_value: age_at_death_value
-          local_name_source: NIMP
-        description: The value representing the donor age from the reference point.
-        exact_mappings:
-        - NIMP:PD-FTFTCP24
-        slot_uri: 57e24d3c-c9c7-4ef3-9809-a35802d563ec
       category:
         pattern: ^bican:[A-Z][A-Za-z]+$
       name:
         description: Name of person or organism that is the source of a biological
           sample for scientific study.  Many biological samples are generated from
           a single donor.
+    attributes:
+      biological_sex:
+        local_names:
+          local_name_value: sex
+          local_name_source: NIMP
+        description: Biological sex of donor at birth
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        exact_mappings:
+        - NIMP:PD-LXUBTM45
+        slot_uri: bican:632d3d3f-f85b-4efc-a1ab-010fe417ae81
+        range: sex
+      age_at_death_description:
+        local_names:
+          local_name_value: age_at_death_description
+          local_name_source: NIMP
+        description: 'Text description of the age of death following typical scientific
+          convention for the species or developmental stage. For example: P56, E11.5'
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        exact_mappings:
+        - NIMP:PD-ZJZJLE33
+        slot_uri: bican:0630a265-4a63-48f4-8853-66b929002306
+      age_at_death_reference_point:
+        local_names:
+          local_name_value: age_at_death_reference_point
+          local_name_source: NIMP
+        description: The reference point for an age interval; for example, birth or
+          conception.
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        exact_mappings:
+        - NIMP:PD-RARAGG39
+        slot_uri: bican:3bed1f94-9d82-4ed7-afdf-79d896b24dbb
+        range: age_at_death_reference_point
+      age_at_death_unit:
+        local_names:
+          local_name_value: age_at_death_unit
+          local_name_source: NIMP
+        description: The unit used for representing the donor age from the reference
+          point.
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        exact_mappings:
+        - NIMP:PD-AVAVEV39
+        slot_uri: bican:b5436e99-f0a7-4c30-825d-56b88ee2ac1d
+        range: age_at_death_unit
+      age_at_death_value:
+        local_names:
+          local_name_value: age_at_death_value
+          local_name_source: NIMP
+        description: The value representing the donor age from the reference point.
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        exact_mappings:
+        - NIMP:PD-FTFTCP24
+        slot_uri: bican:57e24d3c-c9c7-4ef3-9809-a35802d563ec
+      species:
+        local_names:
+          local_name_value: donor_species
+        description: Species of donor.
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        slot_uri: bican:6837cb02-6bd7-4fb8-838c-9062ead96ba4
+        alias: donor_species
   BrainSlab:
     description: A thick flat piece of brain tissue obtained by slicing a whole brain,
       brain hemisphere or subdivision with a blade at regular interval.  When multiple
       brain slabs are obtained from the slicing process, an ordinal is assigned to
       provide information about the relative positioning of the slabs.
     in_subset:
-    - bican, tissue_specimen
+    - bican
+    - tissue_specimen
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Slab
@@ -2004,7 +1965,8 @@ classes:
       piece of tissue will be used in dissociation and has an region of interest polygon
       (ROI) associated with it.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Tissue
@@ -2040,13 +2002,21 @@ classes:
           an ROI associated with it.
         exact_mappings:
         - NIMP:PD-LJCRCC35
-        slot_uri: 2e4ca2fc-2d77-4d19-af45-d0fb7bbc2269
-        alias: tissue sample label
+        slot_uri: bican:2e4ca2fc-2d77-4d19-af45-d0fb7bbc2269
+    attributes:
+      structure:
+        local_names:
+          local_name_value: structure
+        description: Strucure of tissue sample.
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        multivalued: true
+        alias: tissue_sample_structure
   DissociatedCellSample:
     description: A collection of dissociated cells or nuclei derived from dissociation
       of a tissue sample.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Dissociated%20Cell%20Sample
@@ -2056,8 +2026,6 @@ classes:
     slots:
     - was_generated_by
     - was_derived_from
-    - cell_prep_type
-    - cell_source_oligo_name
     - name
     slot_usage:
       was_generated_by:
@@ -2071,6 +2039,15 @@ classes:
         - NIMP:has_parent
         multivalued: true
         range: TissueSample
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+      name:
+        description: Name of a collection of dissociated cells or nuclei derived from
+          dissociation of a tissue sample.
+        exact_mappings:
+        - NIMP:PD-RQRWHS40
+        slot_uri: bican:65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2
+    attributes:
       cell_prep_type:
         local_names:
           local_name_value: dissociated_cell_sample_cell_prep_type
@@ -2078,10 +2055,12 @@ classes:
         description: 'The type of cell preparation. For example: Cells, Nuclei. This
           is a property of dissociated_cell_sample.'
         in_subset:
-        - analysis, tracking
+        - analysis
+        - tracking
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-RELLGO26
-        slot_uri: baae4ac3-f959-4594-b943-3a82ec19bd34
+        slot_uri: bican:baae4ac3-f959-4594-b943-3a82ec19bd34
         alias: dissociated cell sample cell prep type
         range: dissociated_cell_sample_cell_prep_type
       cell_source_oligo_name:
@@ -2094,26 +2073,19 @@ classes:
           oligo name is associated with a sequence in a lookup table.  This sequence
           will be needed during alignment to associate reads with the parent source
           dissociated cell sample.
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-CFCFPS27
-        slot_uri: 184abbaf-baff-4b5f-b51e-dd38de6006af
+        slot_uri: bican:184abbaf-baff-4b5f-b51e-dd38de6006af
         alias: dissociated cell oligo tag name
-        range: string
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
-      name:
-        description: Name of a collection of dissociated cells or nuclei derived from
-          dissociation of a tissue sample.
-        exact_mappings:
-        - NIMP:PD-RQRWHS40
-        slot_uri: 65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2
-        alias: dissociated cell sample label
+        range: dissociated_cell_sample_cell_label_barcode
   EnrichedCellSample:
     description: A collection of enriched cells or nuclei after enrichment process,
       usually via fluorescence-activated cell sorting (FACS) using the enrichment
       plan, is applied to dissociated cell sample.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Enriched%20Cell%20Sample
@@ -2123,9 +2095,6 @@ classes:
     slots:
     - was_generated_by
     - was_derived_from
-    - enrichment_population
-    - cell_source_oligo_name
-    - histone_modification_marker
     - name
     slot_usage:
       was_generated_by:
@@ -2143,6 +2112,15 @@ classes:
         exactly_one_of:
         - range: DissociatedCellSample
         - range: EnrichedCellSample
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+      name:
+        description: Name of collection of enriched cells or nuclei after enrichment
+          process (usually via FACS using the Enrichment Plan) applied to dissociated_cell_sample.
+        exact_mappings:
+        - NIMP:PD-BERWTM41
+        slot_uri: bican:bb3fc701-23a7-45c1-890d-7471730e0ec1
+    attributes:
       enrichment_population:
         local_names:
           local_name_value: enrichment_population
@@ -2153,9 +2131,10 @@ classes:
           enrichment was performed.  This is a property of enriched_cell_prep_container.
         in_subset:
         - analysis
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-TZTZPI37
-        slot_uri: 875f1c70-f5aa-45e3-94b9-5e482f6c4830
+        slot_uri: bican:875f1c70-f5aa-45e3-94b9-5e482f6c4830
         alias: enrichment population
         range: string
       cell_source_oligo_name:
@@ -2168,6 +2147,7 @@ classes:
           oligo name is associated with a sequence in a lookup table.  This sequence
           will be needed during alignment to associate reads with the parent source
           enriched cell sample.
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-CFCFPS27
       histone_modification_marker:
@@ -2179,17 +2159,9 @@ classes:
           to combine multiple Enriched Cell Populations before Barcoded Cell Sample
           step for 10xMultiome method. Each of the Histone antibodies captures an
           essential part of the epigenome.
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-ESESLW44
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
-      name:
-        description: Name of collection of enriched cells or nuclei after enrichment
-          process (usually via FACS using the Enrichment Plan) applied to dissociated_cell_sample.
-        exact_mappings:
-        - NIMP:PD-BERWTM41
-        slot_uri: bb3fc701-23a7-45c1-890d-7471730e0ec1
-        alias: enriched cell sample name
   BarcodedCellSample:
     description: A collection of molecularly barcoded cells. Input will be either
       dissociated cell sample or enriched cell sample. Cell barcodes are only guaranteed
@@ -2199,7 +2171,8 @@ classes:
       for the barcoded cell sample. The barcoded cell sample name and the cell level
       molecular barcode together uniquely identify a single cell.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Barcoded%20Cell%20Sample
@@ -2209,7 +2182,6 @@ classes:
     slots:
     - was_generated_by
     - was_derived_from
-    - number_of_expected_cells
     - name
     slot_usage:
       was_generated_by:
@@ -2225,6 +2197,17 @@ classes:
         exactly_one_of:
         - range: DissociatedCellSample
         - range: EnrichedCellSample
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+      name:
+        description: Name of a collection of barcoded cells.  Input will be either
+          dissociated_cell_sample or enriched_cell_sample.  Cell barcodes are only
+          guaranteed to be unique within this one collection. One dissociated_cell_sample
+          or enriched_cell_sample can lead to multiple barcoded_cell_samples.
+        exact_mappings:
+        - NIMP:PD-XEMDJF38
+        slot_uri: bican:4c0e6380-e53f-4173-a474-d41e836fefe3
+    attributes:
       number_of_expected_cells:
         local_names:
           local_name_value: barcoded_cell_sample_number_of_expected_cells
@@ -2236,22 +2219,12 @@ classes:
           'Barcoded cell input quantity count' going into the barcoding method.
         in_subset:
         - analysis
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-ONONEV39
-        slot_uri: f10e928d-5a2b-4943-af18-d8fe5d05528d
+        slot_uri: bican:f10e928d-5a2b-4943-af18-d8fe5d05528d
         alias: expected cell capture
         range: integer
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
-      name:
-        description: Name of a collection of barcoded cells.  Input will be either
-          dissociated_cell_sample or enriched_cell_sample.  Cell barcodes are only
-          guaranteed to be unique within this one collection. One dissociated_cell_sample
-          or enriched_cell_sample can lead to multiple barcoded_cell_samples.
-        exact_mappings:
-        - NIMP:PD-XEMDJF38
-        slot_uri: 4c0e6380-e53f-4173-a474-d41e836fefe3
-        alias: barcoded cell sample label
   AmplifiedCdna:
     description: A collection of cDNA molecules derived and amplified from an input
       barcoded cell sample. These cDNA molecules represent the gene expression of
@@ -2259,7 +2232,8 @@ classes:
       barcode from the cell barcoding step. This is a necessary step for GEX methods
       but is not used for ATAC methods.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Amplified%20cDNA
@@ -2269,9 +2243,6 @@ classes:
     slots:
     - was_generated_by
     - was_derived_from
-    - quantity_ng
-    - pass_fail_result
-    - percent_cdna_ longer_than_400bp
     - name
     slot_usage:
       was_generated_by:
@@ -2284,47 +2255,6 @@ classes:
         exact_mappings:
         - NIMP:has_parent
         range: BarcodedCellSample
-      quantity_ng:
-        local_names:
-          local_name_value: amplified_cdna_amplified_quantity_ng
-          local_name_source: NIMP
-        description: Amount of cDNA produced after cDNA amplification measured in
-          nanograms.
-        in_subset:
-        - analysis
-        exact_mappings:
-        - NIMP:PD-TITIIC26
-        slot_uri: 0db79d05-8612-4896-b9d3-eb1558841449
-        alias: amplified cDNA amplified quantity ng
-        range: float
-      pass_fail_result:
-        local_names:
-          local_name_value: amplified_cdna_rna_amplification_pass_fail
-          local_name_source: NIMP
-        description: Pass or Fail result based on qualitative assessment of cDNA yield
-          and size.
-        in_subset:
-        - analysis
-        exact_mappings:
-        - NIMP:PD-XXXXFQ31
-        slot_uri: bc62bdb2-7dc8-4404-bb84-ce0bbcae59e5
-        alias: amplified cDNA RNA amplification pass-fail
-        range: amplified_cdna_rna_amplification_pass_fail
-      percent_cdna_ longer_than_400bp:
-        local_names:
-          local_name_value: amplified_cdna_percent_cdna_longer_than_400bp
-          local_name_source: NIMP
-        description: QC metric to measure mRNA degradation of cDNA.  Higher % is higher
-          quality starting material.  Over 400bp is used as a universal cutoff for
-          intact (full length) vs degraded cDNA and is a common output from Bioanalyzer
-          and Fragment Analyzer elecropheragrams.
-        in_subset:
-        - analysis
-        exact_mappings:
-        - NIMP:PD-JJJJWD35
-        slot_uri: 8d150467-f69e-461c-b54c-bcfd22f581e5
-        alias: amplified cDNA percent cDNA longer than 400bp
-        range: float
       category:
         pattern: ^bican:[A-Z][A-Za-z]+$
       name:
@@ -2335,14 +2265,59 @@ classes:
           is a necessary step for GEX methods but is not used for ATAC methods.
         exact_mappings:
         - NIMP:PD-YAAGGG39
-        slot_uri: e2606a11-114e-472f-9e05-33f9b6fc3089
-        alias: amplified cDNA label
+        slot_uri: bican:e2606a11-114e-472f-9e05-33f9b6fc3089
+    attributes:
+      quantity_ng:
+        local_names:
+          local_name_value: amplified_cdna_amplified_quantity_ng
+          local_name_source: NIMP
+        description: Amount of cDNA produced after cDNA amplification measured in
+          nanograms.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        exact_mappings:
+        - NIMP:PD-TITIIC26
+        slot_uri: bican:0db79d05-8612-4896-b9d3-eb1558841449
+        alias: amplified cDNA amplified quantity ng
+        range: float
+      pass_fail_result:
+        local_names:
+          local_name_value: amplified_cdna_rna_amplification_pass_fail
+          local_name_source: NIMP
+        description: Pass or Fail result based on qualitative assessment of cDNA yield
+          and size.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        exact_mappings:
+        - NIMP:PD-XXXXFQ31
+        slot_uri: bican:bc62bdb2-7dc8-4404-bb84-ce0bbcae59e5
+        alias: amplified cDNA RNA amplification pass-fail
+        range: amplified_cdna_rna_amplification_pass_fail
+      percent_cdna_longer_than_400bp:
+        local_names:
+          local_name_value: amplified_cdna_percent_cdna_longer_than_400bp
+          local_name_source: NIMP
+        description: QC metric to measure mRNA degradation of cDNA.  Higher % is higher
+          quality starting material.  Over 400bp is used as a universal cutoff for
+          intact (full length) vs degraded cDNA and is a common output from Bioanalyzer
+          and Fragment Analyzer elecropheragrams.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        exact_mappings:
+        - NIMP:PD-JJJJWD35
+        slot_uri: bican:8d150467-f69e-461c-b54c-bcfd22f581e5
+        alias: amplified cDNA percent cDNA longer than 400bp
+        range: float
   Library:
     description: A collection of fragmented and barcode-indexed DNA molecules for
       sequencing. An index or barcode is typically introduced to enable identification
       of library origin to allow libraries to be pooled together for sequencing.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Library
@@ -2352,12 +2327,6 @@ classes:
     slots:
     - was_generated_by
     - was_derived_from
-    - average_size_bp
-    - concentration_nm
-    - pass_fail_result
-    - quantity_fmol
-    - quantity_ng
-    - r1_r2_index
     - name
     slot_usage:
       was_generated_by:
@@ -2372,6 +2341,17 @@ classes:
         exactly_one_of:
         - range: BarcodedCellSample
         - range: AmplifiedCdna
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+      name:
+        description: Name of a library, which is a collection of fragmented and barcode-indexed
+          DNA molecules for sequencing.  An index or barcode is typically introduced
+          to enable identification of library origin to allow libraries to be pooled
+          together for sequencing.
+        exact_mappings:
+        - NIMP:PD-AJJUCC35
+        slot_uri: bican:f717e254-3630-4342-be7b-4d56376e7afe
+    attributes:
       average_size_bp:
         local_names:
           local_name_value: library_avg_size_bp
@@ -2380,9 +2360,10 @@ classes:
           used to calculate the molarity before pooling and sequencing.
         in_subset:
         - analysis
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-VJVJLC46
-        slot_uri: f851eba9-56d1-4472-9d0c-d7f8bc33000a
+        slot_uri: bican:f851eba9-56d1-4472-9d0c-d7f8bc33000a
         alias: library avg size bp
         range: integer
       concentration_nm:
@@ -2392,9 +2373,10 @@ classes:
         description: Concentration of library in terms of nM (nMol/L).  Number of
           molecules is needed for accurate pooling of the libraries and for generating
           the number of target reads/cell in sequencing.
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-DCDCLD43
-        slot_uri: 90805b3f-f380-4f23-b159-e7eaa0c8f052
+        slot_uri: bican:90805b3f-f380-4f23-b159-e7eaa0c8f052
         alias: library concentration nm
         range: float
       pass_fail_result:
@@ -2405,9 +2387,10 @@ classes:
           yield and size.
         in_subset:
         - analysis
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-QHQHQB42
-        slot_uri: 6817ede2-7ead-402d-9dbc-131aca627c6c
+        slot_uri: bican:6817ede2-7ead-402d-9dbc-131aca627c6c
         alias: library prep pass-fail
         range: library_prep_pass_fail
       quantity_fmol:
@@ -2417,9 +2400,10 @@ classes:
         description: Amount of library generated in terms of femtomoles
         in_subset:
         - analysis
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-JYJYDK42
-        slot_uri: 4c09ada7-c116-48bc-8fb1-0dcf5c4b939a
+        slot_uri: bican:4c09ada7-c116-48bc-8fb1-0dcf5c4b939a
         alias: library quantification fmol
         range: integer
       quantity_ng:
@@ -2427,9 +2411,10 @@ classes:
           local_name_value: library_quantification_ng
           local_name_source: NIMP
         description: Amount of library generated in terms of nanograms
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-TNTNXP37
-        slot_uri: 318b2d3a-dae7-4c63-bfbb-93862b92f63e
+        slot_uri: bican:318b2d3a-dae7-4c63-bfbb-93862b92f63e
         alias: library quantification ng
         range: integer
       r1_r2_index:
@@ -2443,23 +2428,14 @@ classes:
           by SeqCores for demultiplexing.  The required direction of the sequence
           (sense or antisense) of the index can differ depending on sequencing instruments.
         in_subset:
-        - analysis, tracking
+        - analysis
+        - tracking
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-VLLMWZ60
-        slot_uri: c94b5d8a-e92d-47af-8c0e-ea3b58be4d06
+        slot_uri: bican:c94b5d8a-e92d-47af-8c0e-ea3b58be4d06
         alias: R1/R2 index name
         range: library_r1_r2_index
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
-      name:
-        description: Name of a library, which is a collection of fragmented and barcode-indexed
-          DNA molecules for sequencing.  An index or barcode is typically introduced
-          to enable identification of library origin to allow libraries to be pooled
-          together for sequencing.
-        exact_mappings:
-        - NIMP:PD-AJJUCC35
-        slot_uri: f717e254-3630-4342-be7b-4d56376e7afe
-        alias: library label
   LibraryAliquot:
     description: One library in the library pool. Each library aliquot in a library
       pool will have a unique R1/R2 index to allow for sequencing together then separating
@@ -2469,7 +2445,8 @@ classes:
       is done in the case of resequencing.  Each library aliquot will produce a set
       of fastq files.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Library%20Aliquot
@@ -2496,15 +2473,15 @@ classes:
           will include the library_aliquot_name.
         exact_mappings:
         - NIMP:PD-XCXCCC35
-        slot_uri: 34191bad-d167-4335-8224-ade897d3728e
-        alias: library aliquot label
+        slot_uri: bican:34191bad-d167-4335-8224-ade897d3728e
   LibraryPool:
     description: A library pool is made up of library aliquots from multiple libraries.
       Each library aliquot in a library pool will have a unique R1/R2 index to allow
       for sequencing together then separating the sequencing output by originating
       library aliquot through the process of demultiplexing.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Library%20Pool
@@ -2514,7 +2491,6 @@ classes:
     slots:
     - was_generated_by
     - was_derived_from
-    - local_tube_id
     - name
     slot_usage:
       was_generated_by:
@@ -2528,21 +2504,6 @@ classes:
         - NIMP:has_parent
         multivalued: true
         range: LibraryAliquot
-      local_tube_id:
-        local_names:
-          local_name_value: library_pool_local_tube_id
-          local_name_source: NIMP
-        description: Library Pool Tube local name.  Label of the tube containing the
-          library pool, which is made up of multiple library_aliquots.  This is a
-          Library Lab local tube name, before the pool is aliquoted to the Seq Core
-          provided tube 'Library Pool Tube Name'.
-        in_subset:
-        - analysis, tracking
-        exact_mappings:
-        - NIMP:PD-WNYWPA48
-        slot_uri: f1fdea98-7849-4def-a62f-a04cbbf98922
-        alias: library_pool_tube_internal_label
-        range: string
       category:
         pattern: ^bican:[A-Z][A-Za-z]+$
       name:
@@ -2553,13 +2514,31 @@ classes:
           status between SeqCore and Library Labs.
         exact_mappings:
         - NIMP:PD-KKIAPA48
-        slot_uri: 29e0578b-6427-4c93-b29b-bde27fbadeec
-        alias: library pool label
+        slot_uri: bican:29e0578b-6427-4c93-b29b-bde27fbadeec
+    attributes:
+      local_tube_id:
+        local_names:
+          local_name_value: library_pool_local_tube_id
+          local_name_source: NIMP
+        description: Library Pool Tube local name.  Label of the tube containing the
+          library pool, which is made up of multiple library_aliquots.  This is a
+          Library Lab local tube name, before the pool is aliquoted to the Seq Core
+          provided tube 'Library Pool Tube Name'.
+        in_subset:
+        - analysis
+        - tracking
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        exact_mappings:
+        - NIMP:PD-WNYWPA48
+        slot_uri: bican:f1fdea98-7849-4def-a62f-a04cbbf98922
+        alias: library_pool_tube_internal_label
+        range: string
   DissectionRoiDelineation:
     description: The process of outlining a region of interest on a brain slab image
       to guide the dissection and generation of a tissue sample.
     in_subset:
-    - bican, tissue_specimen
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
@@ -2576,7 +2555,8 @@ classes:
     description: The process of dissecting a tissue sample from a brain slab guided
       by a dissection region of interest (ROI) delineation.
     in_subset:
-    - bican, tissue_specimen
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
@@ -2599,29 +2579,31 @@ classes:
       sample. This process could also introduce a tissue-source barcode (eg cell hashing),
       allowing mixing of cell dissociation samples at the cell barcoding step.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
     - ProvActivity
     slots:
     - used
-    - process_date
     slot_usage:
       used:
         description: The input tissue sample(s) from which the dissociated cell sample
           was derived from.
         multivalued: true
         range: TissueSample
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    attributes:
       process_date:
         local_names:
           local_name_value: dissociated_cell_sample_preparation_date
           local_name_source: NIMP
         description: Date of cell dissociation process.
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-BUBUFE27
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
   CellEnrichment:
     description: The process of enriching a dissociated cell sample by including or
       excluding cells of different types based on an enrichment plan using techniques
@@ -2629,35 +2611,38 @@ classes:
       introduce a tissue-source barcode (eg cell hashing), allowing mixing of cell
       enriched samples at the cell barcoding step.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
     - ProvActivity
     slots:
     - used
-    - process_date
     slot_usage:
       used:
         description: The input dissociated cell sample(s) from which the enriched
           cell sample was derived from.
         multivalued: true
         range: DissociatedCellSample
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    attributes:
       process_date:
         local_names:
           local_name_value: enriched_cell_sample_preparation_date
           local_name_source: NIMP
         description: Date of cell enrichment process.
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-PFPFFC28
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
   EnrichedCellSampleSplitting:
     description: The process of splitting an enriched cell sample into several portions.
       Each portion may be used by the same or different groups for different scientific
       studies.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
@@ -2678,17 +2663,14 @@ classes:
       One dissociated cell sample or enriched cell sample can lead to multiple barcoded
       cell samples.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
     - ProvActivity
     slots:
     - used
-    - port_well
-    - input_quantity
-    - process_date
-    - method
     slot_usage:
       used:
         description: The input dissociated or enriched cell sample(s) from which the
@@ -2697,6 +2679,9 @@ classes:
         exactly_one_of:
         - range: DissociatedCellSample
         - range: EnrichedCellSample
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    attributes:
       port_well:
         local_names:
           local_name_value: barcoded_cell_sample_port_well
@@ -2706,9 +2691,10 @@ classes:
           Cell Sample). Can be left null for non-10x methods.
         in_subset:
         - analysis
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-KJKJZK32
-        slot_uri: aca38100-d245-4be4-9be3-ba27192779fe
+        slot_uri: bican:aca38100-d245-4be4-9be3-ba27192779fe
         alias: barcoded cell sample port well
         range: string
       input_quantity:
@@ -2719,9 +2705,10 @@ classes:
           barcoding process.
         in_subset:
         - analysis
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-ZZZZWQ40
-        slot_uri: aa534269-7c9b-4b63-b990-eea8cda56d0e
+        slot_uri: bican:aa534269-7c9b-4b63-b990-eea8cda56d0e
         alias: barcoded cell input quantity count
         range: integer
       process_date:
@@ -2729,6 +2716,7 @@ classes:
           local_name_value: barcoded_cell_sample_preparation_date
           local_name_source: NIMP
         description: Date of cell barcoding process.
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-SHSHZS25
       method:
@@ -2737,11 +2725,10 @@ classes:
           local_name_source: NIMP
         description: 'Standardized nomenclature to describe the general barcoding
           method used.  For example: Multiome, ATAC Only, GEX Only or snm3C-seq.'
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-TDTDDF25
         range: barcoded_cell_sample_technique
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
   CdnaAmplification:
     description: The process of creating a collection of cDNA molecules derived and
       amplified from an input barcoded cell sample.  A large amount of cDNA is needed
@@ -2750,21 +2737,22 @@ classes:
       each cell while retaining the cell's unique barcode from the barcoding step.
       This is a necessary step for GEX methods but is not used for ATAC methods.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
     - ProvActivity
     slots:
     - used
-    - pcr_cycles
-    - process_date
-    - set
     slot_usage:
       used:
         description: The input barcoded cell sample from which amplified cDNA was
           derived from.
         range: BarcodedCellSample
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    attributes:
       pcr_cycles:
         local_names:
           local_name_value: amplified_cdna_pcr_cycles
@@ -2773,9 +2761,10 @@ classes:
           cDNA.
         in_subset:
         - analysis
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-OKOKQD38
-        slot_uri: 3827634c-3f8f-4760-b358-86ce4b030238
+        slot_uri: bican:3827634c-3f8f-4760-b358-86ce4b030238
         alias: amplified cDNA PCR cycles
         range: integer
       process_date:
@@ -2783,9 +2772,10 @@ classes:
           local_name_value: amplified_cdna_preparation_date
           local_name_source: NIMP
         description: Date of cDNA amplification.
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-BYBYBY24
-        slot_uri: 6cc333e7-9b98-497f-b7b1-eae904db2400
+        slot_uri: bican:6cc333e7-9b98-497f-b7b1-eae904db2400
         alias: cDNA amplification process date
         range: date
       set:
@@ -2796,13 +2786,12 @@ classes:
           that were processed at the same time.
         in_subset:
         - analysis
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-SCSCTM41
-        slot_uri: 42e98a88-50b3-4ea2-871b-2142f6a0dfdd
+        slot_uri: bican:42e98a88-50b3-4ea2-871b-2142f6a0dfdd
         alias: cDNA amplification set
         range: string
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
   LibraryConstruction:
     description: The process of constructing a library from input material (such as
       amplified cDNA or barcoded cell sample) derived from one or more cell samples.  cDNA
@@ -2810,17 +2799,14 @@ classes:
       time a library index barcode is incorporated to enable identification of library
       origin, allowing libraries to be pooled together for sequencing.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
     - ProvActivity
     slots:
     - used
-    - method
-    - process_date
-    - input_quantity_ng
-    - set
     slot_usage:
       used:
         description: The input barcoded cell sample or amplified cDNA from which the
@@ -2828,6 +2814,9 @@ classes:
         exactly_one_of:
         - range: BarcodedCellSample
         - range: AmplifiedCdna
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    attributes:
       method:
         local_names:
           local_name_value: library_technique
@@ -2837,10 +2826,13 @@ classes:
           example, 10xV3.1 (for RNASeq single assay), 10xMult-GEX (for RNASeq multiome
           assay), and 10xMult-ATAC (for ATACSeq multiome assay).
         in_subset:
-        - analysis, tracking, alignment
+        - analysis
+        - tracking
+        - alignment
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-AJAJCN35
-        slot_uri: 7b60d59e-fdd7-4b27-a2d4-cae9b69103a6
+        slot_uri: bican:7b60d59e-fdd7-4b27-a2d4-cae9b69103a6
         alias: library method
         range: library_technique
       process_date:
@@ -2848,9 +2840,10 @@ classes:
           local_name_value: library_preparation_date
           local_name_source: NIMP
         description: Date of library construction.
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-JCJCNM35
-        slot_uri: 9c2f575d-1b64-451d-894f-656861afe07a
+        slot_uri: bican:9c2f575d-1b64-451d-894f-656861afe07a
         alias: library creation date
         range: date
       input_quantity_ng:
@@ -2860,9 +2853,10 @@ classes:
         description: Amount of cDNA going into library construction in nanograms.
         in_subset:
         - analysis
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-AFAFXP37
-        slot_uri: e4d31d97-722d-4771-a0e4-e6062190f2c1
+        slot_uri: bican:e4d31d97-722d-4771-a0e4-e6062190f2c1
         alias: library input ng
         range: integer
       set:
@@ -2873,13 +2867,12 @@ classes:
           at the same time.
         in_subset:
         - analysis
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-PCPCVR50
-        slot_uri: b124ffa9-9134-4a61-a30d-bb191b2fc7fa
+        slot_uri: bican:b124ffa9-9134-4a61-a30d-bb191b2fc7fa
         alias: library prep set
         range: string
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
   LibraryPooling:
     description: The process of constructing of a libray pool by combining library
       aliquots from a set of input libraries. Each library aliquot in a library pool
@@ -2887,34 +2880,37 @@ classes:
       the sequencing output by originating library aliquot through the process of
       demultiplexing.
     in_subset:
-    - bican, library_generation
+    - bican
+    - library_generation
     from_schema: https://identifiers.org/brain-bican/kb-model
     is_a: procedure
     mixins:
     - ProvActivity
     slots:
     - used
-    - process_date
     slot_usage:
       used:
         description: The input aliquot(s) from which the library pool was derived
           from.
         multivalued: true
         range: LibraryAliquot
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    attributes:
       process_date:
         local_names:
           local_name_value: library_pool_preparation_date
           local_name_source: NIMP
         description: Date of library pooling process.
+        from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-XUXUNM35
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
   DissectionRoiPolygon:
     description: A polygon annotated on a brain slab image delineating a region of
       interest (ROI) for a tissue sample dissectioning.
     in_subset:
-    - bican, tissue_specimen
+    - bican
+    - tissue_specimen
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Specimen%20Dissected%20ROI
