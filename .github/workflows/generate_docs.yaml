@@ -33,8 +33,8 @@ jobs:
           mkdir docs
           cp -r src/docs/* docs/
           touch docs/.nojekyll
-          gen-doc -d docs linkml-schema/purple_boxes.yaml
-          mv docs/index.md docs/index_purple.md
+          gen-doc -d docs linkml-schema/library_generation.yaml
+          mv docs/index.md docs/index_library_generation.md
           gen-doc -d docs linkml-schema/gars.yaml
           mv docs/index.md docs/index_gars.md
           mv docs/index_main.md docs/index.md
