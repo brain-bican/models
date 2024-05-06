@@ -11,16 +11,87 @@
       "linkml": "https://w3id.org/linkml/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "@vocab": "https://github.com/brain-bican/CCN2",
+      "cell_accessions": {
+         "@id": "cell_accessions"
+      },
+      "cell_set_accession": {
+         "@id": "cell_set_accession"
+      },
+      "cell_type_name": {
+         "@id": "cell_type_name"
+      },
+      "classification_comment": {
+         "@id": "classification_comment"
+      },
+      "classification_provenance": {
+         "@id": "classification_provenance"
+      },
+      "classifying_ontology_term_id": {
+         "@id": "classifying_ontology_term_id"
+      },
+      "classifying_ontology_term_name": {
+         "@id": "classifying_ontology_term_name"
+      },
+      "description": {
+         "@id": "description"
+      },
+      "evidence_comment": {
+         "@id": "evidence_comment"
+      },
+      "location_ontology_term_id": {
+         "@id": "location_ontology_term_id"
+      },
+      "location_ontology_term_name": {
+         "@id": "location_ontology_term_name"
+      },
+      "mapped_cell_set_accession": {
+         "@id": "mapped_cell_set_accession"
+      },
+      "mapped_cell_type_name": {
+         "@id": "mapped_cell_type_name"
+      },
+      "parent_cell_set_accession": {
+         "@id": "parent_cell_set_accession"
+      },
+      "provenance": {
+         "@id": "provenance"
+      },
       "rank": {
          "@context": {
             "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
-         }
+         },
+         "@id": "rank"
+      },
+      "sample": {
+         "@id": "sample"
       },
       "similarity_score": {
-         "@type": "xsd:float"
+         "@type": "xsd:float",
+         "@id": "similarity_score"
+      },
+      "supporting_data": {
+         "@id": "supporting_data"
+      },
+      "synonym_provenance": {
+         "@id": "synonym_provenance"
+      },
+      "synonyms": {
+         "@id": "synonyms"
+      },
+      "CellSetAccessionToCellMapping": {
+         "@id": "CellSetAccessionToCellMapping"
+      },
+      "CrossTaxonomyMapping": {
+         "@id": "CrossTaxonomyMapping"
+      },
+      "LocationMapping": {
+         "@id": "LocationMapping"
+      },
+      "Taxonomy": {
+         "@id": "Taxonomy"
       }
    }
 }

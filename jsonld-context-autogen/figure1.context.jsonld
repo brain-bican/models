@@ -15,11 +15,11 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/broad_region"
+         "@id": "broad_region"
       },
       "has_group_relationships": {
          "@type": "@id",
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/has_group_relationships"
+         "@id": "has_group_relationships"
       },
       "category": {
          "@context": {
@@ -28,11 +28,11 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/category"
+         "@id": "category"
       },
       "has_hierarchical_relationships": {
          "@type": "@id",
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/has_hierarchical_relationships"
+         "@id": "has_hierarchical_relationships"
       },
       "division": {
          "@context": {
@@ -41,7 +41,7 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/division"
+         "@id": "division"
       },
       "nt_type": {
          "@context": {
@@ -50,23 +50,23 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/nt_type"
+         "@id": "nt_type"
       },
       "cells": {
          "@type": "@id",
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/cells"
+         "@id": "cells"
       },
       "classes": {
          "@type": "@id",
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/classes"
+         "@id": "classes"
       },
       "clusters": {
          "@type": "@id",
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/clusters"
+         "@id": "clusters"
       },
       "subclasses": {
          "@type": "@id",
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/subclasses"
+         "@id": "subclasses"
       },
       "relationship_type": {
          "@context": {
@@ -75,42 +75,42 @@
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/relationship_type"
+         "@id": "relationship_type"
       },
       "id": "@id",
       "label": {
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/label"
+         "@id": "label"
       },
       "related_to": {
          "@type": "@id",
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/related_to"
+         "@id": "related_to"
       },
       "Cell": {
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/Cell"
+         "@id": "Cell"
       },
       "CellClass": {
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/CellClass"
+         "@id": "CellClass"
       },
       "CellSubclass": {
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/CellSubclass"
+         "@id": "CellSubclass"
       },
       "Cluster": {
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/Cluster"
+         "@id": "Cluster"
       },
       "Container": {
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/Container"
+         "@id": "Container"
       },
       "GroupRelationship": {
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/GroupRelationship"
+         "@id": "GroupRelationship"
       },
       "HierarchicalRelationship": {
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/HierarchicalRelationship"
+         "@id": "HierarchicalRelationship"
       },
       "NamedThing": {
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/NamedThing"
+         "@id": "NamedThing"
       },
       "Relationship": {
-         "@id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/Relationship"
+         "@id": "Relationship"
       }
    }
 }

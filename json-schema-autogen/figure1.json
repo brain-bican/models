@@ -270,7 +270,7 @@
         }
     },
     "$id": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1",
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "",
     "metamodel_version": "1.7.0",

@@ -1,44 +1,58 @@
-from __future__ import annotations
-from datetime import datetime, date
-from enum import Enum
-from typing import List, Dict, Optional, Any, Union
-from pydantic import BaseModel as BaseModel, Field
+from __future__ import annotations 
+from datetime import (
+    datetime,
+    date
+)
+from decimal import Decimal 
+from enum import Enum 
+import re
 import sys
-if sys.version_info >= (3, 8):
-    from typing import Literal
+from typing import (
+    Any,
+    List,
+    Literal,
+    Dict,
+    Optional,
+    Union
+)
+from pydantic.version import VERSION  as PYDANTIC_VERSION 
+if int(PYDANTIC_VERSION[0])>=2:
+    from pydantic import (
+        BaseModel,
+        ConfigDict,
+        Field,
+        field_validator
+    )
 else:
-    from typing_extensions import Literal
-
+    from pydantic import (
+        BaseModel,
+        Field,
+        validator
+    )
 
 metamodel_version = "None"
 version = "None"
 
-class WeakRefShimBaseModel(BaseModel):
-   __slots__ = '__weakref__'
 
-class ConfiguredBaseModel(WeakRefShimBaseModel,
-                validate_assignment = True,
-                validate_all = True,
-                underscore_attrs_are_private = True,
-                extra = 'forbid',
-                arbitrary_types_allowed = True,
-                use_enum_values = True):
+class ConfiguredBaseModel(BaseModel):
+    model_config = ConfigDict(
+        validate_assignment = True,
+        validate_default = True,
+        extra = "forbid",
+        arbitrary_types_allowed = True,
+        use_enum_values = True,
+        strict = False,
+    )
     pass
 
 
 class Rank(str, Enum):
-    
-    
     leaf_node = "leaf_node"
-    
     family = "family"
-    
     gross = "gross"
-    
-    
+
 
 class Taxonomy(ConfiguredBaseModel):
-    
     cell_set_accession: str = Field(..., description="""Primary identifier of the cell set. This field should be programmatically assigned, not edited.""")
     cell_type_name: Optional[str] = Field(None, description="""The primary name/symbol to be used for the (provisional) cell type defined by this cell set. This is left optional, but is strongly encouraged for every node that is linked.""")
     parent_cell_set_accession: str = Field(..., description="""The cell set accession of the parent cell set in the taxonomy. This field should be programmatically assigned, not edited.""")
@@ -50,10 +64,9 @@ class Taxonomy(ConfiguredBaseModel):
     classification_provenance: str = Field(..., description="""Either the DOI(s) of a supporting publication (in the form the form doi:10.1126/journal.abj6641) or the editor's ORCID (in the form: ORCID:01243-234-678). Multiple entries should be separated by a '|'.""")
     classification_comment: Optional[str] = Field(None, description="""A free text comment describing the evidence for this classification.""")
     rank: Optional[Rank] = Field(None, description="""Algorithmically generated hierarchical taxonomies can be complex, with many nodes between root and leaf and branches of variable depth. To simplify this for display and discussion it can be useful to assign nodes to a 3 level hierarchy, with leaf nodes at the bottom.""")
-    
+
 
 class CrossTaxonomyMapping(ConfiguredBaseModel):
-    
     cell_set_accession: str = Field(..., description="""Primary identifier for cell set.""")
     cell_type_name: str = Field(..., description="""The primary name/symbol to be used for the cell type defined by this cell set.""")
     mapped_cell_set_accession: str = Field(..., description="""The accession (ID) of a cell set in a second taxonomy that this cell set maps to.""")
@@ -61,10 +74,9 @@ class CrossTaxonomyMapping(ConfiguredBaseModel):
     evidence_comment: str = Field(..., description="""A free text description of the evidence supporting this mapping. If a similarity_score is include, please also include details of how this was calculated.""")
     similarity_score: Optional[float] = Field(None, description="""A score recording the similarity between mapped nodes.""", ge=0, le=1)
     provenance: Optional[str] = Field(None, description="""ORCID of the person doing the mapping using the syntax ORCID:0123-4567-890. Optionally include supporting publications using DOIs of the form doi:10.1126/journal.abj6641.""")
-    
+
 
 class LocationMapping(ConfiguredBaseModel):
-    
     cell_set_accession: str = Field(..., description="""Primary identifier for cell set.""")
     cell_type_name: str = Field(..., description="""The primary name/symbol to be used for the cell type defined by this cell set.""")
     location_ontology_term_id: str = Field(..., description="""The ID of an ontology term that refers to a brain region that this cell type is located in. Ideally this should be the ID of a term defined as a region in a standard atlas.""")
@@ -72,19 +84,17 @@ class LocationMapping(ConfiguredBaseModel):
     evidence_comment: Optional[str] = Field(None, description="""A comment describing the evidence for this location mapping""")
     supporting_data: Optional[str] = Field(None, description="""A link to data supporting this location mapping.""")
     provenance: str = Field(..., description="""ORCID of the person doing the mapping using the syntax ORCID:0123-4567-890. Optionally include supporting publications using DOIs of the form doi:10.1126/journal.abj6641.""")
-    
+
 
 class CellSetAccessionToCellMapping(ConfiguredBaseModel):
-    
     sample: str = Field(..., description="""Cell sample identifier.""")
     cell_accessions: List[str] = Field(..., description="""List of cell set accession identifiers.""")
-    
 
 
-# Update forward refs
-# see https://pydantic-docs.helpmanual.io/usage/postponed_annotations/
-Taxonomy.update_forward_refs()
-CrossTaxonomyMapping.update_forward_refs()
-LocationMapping.update_forward_refs()
-CellSetAccessionToCellMapping.update_forward_refs()
+# Model rebuild
+# see https://pydantic-docs.helpmanual.io/usage/models/#rebuilding-a-model
+Taxonomy.model_rebuild()
+CrossTaxonomyMapping.model_rebuild()
+LocationMapping.model_rebuild()
+CellSetAccessionToCellMapping.model_rebuild()
 
