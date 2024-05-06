@@ -1,24 +1,13 @@
-name: push to bkbit
-# run when the workflow named 'generating other formats' completes on a branch named main.
+name: push pydantic gars to bkbit
+
 on:
   push:
-    branches:
-      - main
     paths:
-      - 'models_py-autogen/kbmodel.py'
-  workflow_run:
-    workflows: [generating other formats]
-    types: 
-      - completed 
-    branches:
-      - main
-
+      - 'models_py-autogen/gars.py' 
 
 jobs:
-  update:
+  update_gars:
     runs-on: ubuntu-latest
-    # 'update' job will only run if the "generate other formats" workflow succeeded
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v3
@@ -29,9 +18,9 @@ jobs:
         env: 
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'models_py-autogen/kbmodel.py'
+          source_file: 'models_py-autogen/gars.py'
           destination_repo: 'brain-bican/bkbit'
           destination_folder: 'bkbit/models/'
           user_email: 'xspuja@gmail.com' # the GitHub user email associated with the API token secret.
           user_name: 'puja-trivedi' # the GitHub username associated with the API token secret.
-          commit_message: "Updated kbmodel.py. Pushed from brain-bican/model repository"
+          commit_message: "pydantic version of gars model (gars.py) was updated. Pushed from brain-bican/model repository"
