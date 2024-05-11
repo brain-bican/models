@@ -1848,8 +1848,6 @@ slots:
   dissection_was_guided_by:
     description: Tranformation (dissection) of one entity into another entity.
     range: ProvEntity
-  name:
-    from_schema: https://identifiers.org/brain-bican/kb-model
 classes:
   Donor:
     description: A person or organism that is the source of a biological sample for
