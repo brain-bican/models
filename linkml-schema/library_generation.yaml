@@ -1913,13 +1913,14 @@ classes:
         range: age_at_death_unit
       age_at_death_value:
         local_names:
-          local_name_value: age_at_death_value
+          local_name_value: age_at_death
           local_name_source: NIMP
         description: The value representing the donor age from the reference point.
         from_schema: https://identifiers.org/brain-bican/kb-model
         exact_mappings:
         - NIMP:PD-FTFTCP24
         slot_uri: bican:57e24d3c-c9c7-4ef3-9809-a35802d563ec
+        range: float
       species:
         local_names:
           local_name_value: donor_species
@@ -2405,7 +2406,7 @@ classes:
         - NIMP:PD-JYJYDK42
         slot_uri: bican:4c09ada7-c116-48bc-8fb1-0dcf5c4b939a
         alias: library quantification fmol
-        range: integer
+        range: float
       quantity_ng:
         local_names:
           local_name_value: library_quantification_ng
@@ -2416,7 +2417,7 @@ classes:
         - NIMP:PD-TNTNXP37
         slot_uri: bican:318b2d3a-dae7-4c63-bfbb-93862b92f63e
         alias: library quantification ng
-        range: integer
+        range: float
       r1_r2_index:
         local_names:
           local_name_value: library_r1_r2_index
@@ -2858,7 +2859,7 @@ classes:
         - NIMP:PD-AFAFXP37
         slot_uri: bican:e4d31d97-722d-4771-a0e4-e6062190f2c1
         alias: library input ng
-        range: integer
+        range: float
       set:
         local_names:
           local_name_value: library_prep_set
