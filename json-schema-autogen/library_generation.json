@@ -1359,7 +1359,7 @@
                 },
                 "age_at_death_value": {
                     "description": "The value representing the donor age from the reference point.",
-                    "type": "string"
+                    "type": "number"
                 },
                 "annotates": {
                     "$ref": "#/$defs/ProvEntity",
@@ -1947,11 +1947,11 @@
                 },
                 "library_quantification_fmol": {
                     "description": "Amount of library generated in terms of femtomoles",
-                    "type": "integer"
+                    "type": "number"
                 },
                 "library_quantification_ng": {
                     "description": "Amount of library generated in terms of nanograms",
-                    "type": "integer"
+                    "type": "number"
                 },
                 "name": {
                     "description": "Name of a library, which is a collection of fragmented and barcode-indexed DNA molecules for sequencing.  An index or barcode is typically introduced to enable identification of library origin to allow libraries to be pooled together for sequencing.",
@@ -2152,7 +2152,7 @@
                 },
                 "library_input_ng": {
                     "description": "Amount of cDNA going into library construction in nanograms.",
-                    "type": "integer"
+                    "type": "number"
                 },
                 "library_method": {
                     "$ref": "#/$defs/LibraryTechnique",

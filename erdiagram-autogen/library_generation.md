@@ -229,7 +229,7 @@ Donor {
     string age_at_death_description  
     age_at_death_reference_point age_at_death_reference_point  
     age_at_death_unit age_at_death_unit  
-    string age_at_death_value  
+    float age_at_death_value  
     string species  
     label type in_taxon_label  
     string id  
@@ -336,8 +336,8 @@ Library {
     integer average_size_bp  
     float concentration_nm  
     library_prep_pass_fail pass_fail_result  
-    integer quantity_fmol  
-    integer quantity_ng  
+    float quantity_fmol  
+    float quantity_ng  
     library_r1_r2_index r1_r2_index  
     string id  
     iri type iri  
@@ -480,7 +480,7 @@ CdnaAmplification {
 LibraryConstruction {
     library_technique method  
     date process_date  
-    integer input_quantity_ng  
+    float input_quantity_ng  
     string set  
     string id  
     iri type iri  

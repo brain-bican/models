@@ -309,6 +309,7 @@
          "@id": "b5436e99-f0a7-4c30-825d-56b88ee2ac1d"
       },
       "age_at_death_value": {
+         "@type": "xsd:float",
          "@id": "57e24d3c-c9c7-4ef3-9809-a35802d563ec"
       },
       "biological_sex": {
@@ -399,11 +400,11 @@
          "@id": "6817ede2-7ead-402d-9dbc-131aca627c6c"
       },
       "library_quantification_fmol": {
-         "@type": "xsd:integer",
+         "@type": "xsd:float",
          "@id": "4c09ada7-c116-48bc-8fb1-0dcf5c4b939a"
       },
       "library_quantification_ng": {
-         "@type": "xsd:integer",
+         "@type": "xsd:float",
          "@id": "318b2d3a-dae7-4c63-bfbb-93862b92f63e"
       },
       "R1/R2_index_name": {
@@ -416,7 +417,7 @@
          "@id": "c94b5d8a-e92d-47af-8c0e-ea3b58be4d06"
       },
       "library_input_ng": {
-         "@type": "xsd:integer",
+         "@type": "xsd:float",
          "@id": "e4d31d97-722d-4771-a0e4-e6062190f2c1"
       },
       "library_method": {
