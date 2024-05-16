@@ -1,0 +1,48 @@
+id: https://w3id.org/my-org/core
+name: ANSRS-Core
+title: ANSRS schema Core Types
+description: |-
+  Core types for ANSRS schema
+
+prefixes:
+  ansrs_schema: https://w3id.org/my-org/ansrs-schema/
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  example: https://example.org/
+default_prefix: ansrs
+default_range: string
+
+classes:
+    NamedThing:
+        description: >-
+            Core base entity for ANSRS schema representing an entity with an identifier 
+            name and description.
+        abstract: true
+        slots:
+            - id
+            - name
+            - description
+
+    VersionedNamedThing:
+        is_a: NamedThing
+        description: >-
+            Core base entity for ANSRS schema representing an versioned named thing.
+        abstract: true
+        slots:
+            - version
+            - revision_of
+slots:
+    id:
+        range: uriorcurie
+        identifier: true
+        required: true
+    name:
+        required: true
+    description:
+        required: true
+    version:
+        required: true
+    revision_of:
+        range: VersionedNamedThing
