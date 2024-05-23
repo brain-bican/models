@@ -85,7 +85,9 @@ classes:
           resolution values.
     slot_usage:
       revision_of:
-        range: ImageDataset
+        any_of:
+          - range: ImageDataset
+          - range: string
 
   AnatomicalSpace:
     is_a: VersionedNamedThing
@@ -96,13 +98,17 @@ classes:
       derived from a single or multiple specimens (ref: ILX:0777106, RRID:SCR_023499)
     attributes:
       measures:
-        range: ImageDataset
+        any_of:
+          - range: ImageDataset
+          - range: string
         description: >-
           Reference to the specific image dataset used to define the anatomical space.
         required: true
     slot_usage:
       revision_of:
-        range: AnatomicalSpace
+        any_of:
+          - range: AnatomicalSpace
+          - range: string
 
   ParcellationTerminology:
     is_a: VersionedNamedThing
@@ -115,7 +121,9 @@ classes:
       and partonomy, or an ontology (ref: ILX:0777107, RRID:SCR_023499)
     slot_usage:
       revision_of:
-        range: ParcellationTerminology
+        any_of:
+          - range: ParcellationTerminology
+          - range: string
 
   ParcellationTermSet:
     is_a: NamedThing
@@ -128,7 +136,9 @@ classes:
       all terms are grouped into a single parcellation term set.
     attributes:
       part_of_parcellation_terminology:
-        range: ParcellationTerminology
+        any_of:
+          - range: ParcellationTerminology
+          - range: string
         description: >-
           Reference to the parcellation terminology for which the parcellation term set partitions.
         required: true
@@ -139,7 +149,9 @@ classes:
           associated parcellation terminology.
         minimum_value: 0
       has_parent_parcellation_term_set:
-        range: ParcellationTermSet
+        any_of:
+          - range: ParcellationTermSet
+          - range: string
         description: >-
           Reference to the parent parcellation term set for which the parcellation term set is a child 
           (lower taxonomic rank) of.
@@ -157,7 +169,9 @@ classes:
       symbol:
         description: Symbol representing a parcellation term.
       part_of_parcellation_term_set:
-        range: ParcellationTermSet
+        any_of:
+          - range: ParcellationTermSet
+          - range: string
         description: >-
           Reference to the parcellation term set for which the parcellation term is part of.
         required: true
@@ -168,7 +182,9 @@ classes:
           parcellation terminology.
         minimum_value: 0
       has_parent_parcellation_term:
-        range: ParcellationTerm
+        any_of:
+          - range: ParcellationTerm
+          - range: string
         description: >-
           Reference to the parent parcellation term for which the parcellation term is a child (
           spatially part) of
@@ -183,14 +199,18 @@ classes:
       color scheme is defined as a part of one and only one parcellation terminology.
     attributes:
       subject_parcellation_terminology:
-        range: ParcellationTerminology
+        any_of:
+          - range: ParcellationTerminology
+          - range: string
         description: >-
           Reference to the parcellation terminology for which the parcellation color scheme is in 
           context of.
         required: true
     slot_usage:
       revision_of:
-        range: ParcellationColorScheme
+        any_of:
+          - range: ParcellationColorScheme
+          - range: string
 
   ParcellationColorAssignment:
     description: >-
@@ -199,12 +219,16 @@ classes:
       term identifier and the parcellation terminology it belongs to.
     attributes:
       part_of_parcellation_color_scheme:
-        range: ParcellationColorScheme
+        any_of:
+          - range: ParcellationColorScheme
+          - range: string
         description: >-
           Reference to the parcellation color scheme for which the color assignment is part of.
         required: true
       subject_parcellation_term:
-        range: ParcellationTerm
+        any_of:
+          - range: ParcellationTerm
+          - range: string
         description: >-
           Reference to the parcellation term identifier for which the color assignment is about.
         required: true
@@ -224,13 +248,17 @@ classes:
       multi-valued image annotations or as a set of segmentation masks (ref: ILX:0777108, RRID:SCR_023499)
     attributes:
       parameterizes:
-        range: AnatomicalSpace
+        any_of:
+          - range: AnatomicalSpace
+          - range: string
         description: >-
           Reference to the anatomical space for which the anatomical annotation set is anchored
         required: true
     slot_usage:
       revision_of:
-        range: AnatomicalAnnotationSet
+        any_of:
+          - range: AnatomicalAnnotationSet
+          - range: string
 
   ParcellationAnnotation:
     description: >-
@@ -240,7 +268,9 @@ classes:
       a specific annotation corresponds to a specific label index (internal identifier) in the mask.
     attributes:
       part_of_anatomical_annotation_set:
-        range: AnatomicalAnnotationSet
+        any_of:
+          - range: AnatomicalAnnotationSet
+          - range: string
         description:
         required: true
       internal_identifier:
@@ -262,12 +292,16 @@ classes:
       R (R1, R2/3, R4, etc) can be combined to define the parent region R.
     attributes:
       subject_parcellation_annotation:
-        range: ParcellationAnnotation
+        any_of:
+          - range: ParcellationAnnotation
+          - range: string
         description: >-
           Reference to the parcellation annotation that is the subject of the association.
         required: true
       subject_parcellation_term:
-        range: ParcellationTerm
+        any_of:
+          - range: ParcellationTerm
+          - range: string
         description: >-
           Reference to the parcellation term that is the subject of the association.
         required: true
@@ -283,28 +317,38 @@ classes:
       locations (ref: ILX:0777109, RRID:SCR_023499).
     attributes:
       has_anatomical_space:
-        range: AnatomicalSpace
+        any_of:
+          - range: AnatomicalSpace
+          - range: string
         description: >-
           Reference to the anatomical space component of the parcellation atlas
         required: true
       has_anatomical_annotation_set:
-        range: AnatomicalAnnotationSet
+        any_of:
+          - range: AnatomicalAnnotationSet
+          - range: string
         description: >-
           Reference to the anatomical annotation set component of the parcellation atlas
         required: true
       has_parcellation_terminology:
-        range: ParcellationTerminology
+        any_of:
+          - range: ParcellationTerminology
+          - range: string
         description: >-
           Reference to the parcellation terminology component of the parcellation atlas
         required: true
       specialization_of:
-        range: ParcellationAtlas
+        any_of:
+          - range: ParcellationAtlas
+          - range: string
         description: >-
           Reference to the general (non versioned) parcellation atlas for which the parcellation atlas is a specific 
           version release of.
     slot_usage:
       revision_of:
-        range: ParcellationAtlas
+        any_of:
+          - range: ParcellationAtlas
+          - range: string
 
 enums:
   ANATOMICAL_DIRECTION:
@@ -317,6 +361,10 @@ enums:
         title: posterior-to-anterior
       inferior_to_superior:
         title: inferior-to-superior
+      superior_to_inferior: 
+        title: superior-to-inferior
+      anterior_to_posterior: 
+        title: anterior-to-posterior
 
   DISTANCE_UNIT:
     permissible_values:
