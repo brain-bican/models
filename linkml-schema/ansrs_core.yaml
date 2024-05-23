@@ -5,13 +5,13 @@ description: |-
   Core types for ANSRS schema
 
 prefixes:
-  ansrs_schema: https://w3id.org/my-org/ansrs-schema/
+  ANSRS: https://w3id.org/my-org/ansrs-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
   example: https://example.org/
-default_prefix: ansrs
+default_prefix: ANSRS
 default_range: string
 
 classes:
