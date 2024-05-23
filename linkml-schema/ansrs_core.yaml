@@ -27,6 +27,7 @@ classes:
             - id
             - name
             - description
+            - category
 
     VersionedNamedThing:
         is_a: NamedThing
@@ -49,3 +50,8 @@ slots:
         required: true
     revision_of:
         range: VersionedNamedThing
+    category:
+        range: uriorcurie
+        designates_type: true
+        is_class_field: true
+        multivalued: true
