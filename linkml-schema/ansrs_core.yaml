@@ -14,6 +14,9 @@ prefixes:
 default_prefix: ANSRS
 default_range: string
 
+imports:
+  - linkml:types
+
 classes:
     NamedThing:
         description: >-
