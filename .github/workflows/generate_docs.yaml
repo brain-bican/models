@@ -40,7 +40,7 @@ jobs:
           mv docs/index.md docs/index_ansrs.md
           gen-doc -d docs linkml-schema/gars.yaml
           mv docs/index.md docs/index_gars.md
-          mv docs-templates/index_main.md docs/index.md
+          mv doc-templates/index_main.md docs/index.md
 
 
       - name: Deploy to GitHub Pages
