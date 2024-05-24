@@ -1,10 +1,16 @@
-site_name: "model"
+site_name: "Bican Models Documentation"
 theme:
   name: material
+  palette:
+    scheme: black
+    primary: black
+  logo: images/bican_logo.png
+  features:
+    - content.tabs.link
+plugins:
+  - search
+  - mermaid2
 
 nav:
   - Home: index.md
 
-plugins:
-  - search
-  - mermaid2
