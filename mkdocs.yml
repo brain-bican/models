@@ -12,5 +12,8 @@ plugins:
   - mermaid2
 
 nav:
-  - Home: index.md
+  - Overview: index.md
+  - Library Generation: index_library_generation.md
+  - ANSRS: index_ansrs.md
+  - GARS: index_gars.md
 
