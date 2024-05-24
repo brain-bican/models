@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - modify_ghpages_20240524
 
 permissions:
   contents: write
