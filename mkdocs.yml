@@ -13,9 +13,10 @@ plugins:
 
 nav:
   - Overview: index.md
-  - Library Generation: index_library_generation.md
-  - AnSRS: index_ansrs.md
-  - GARS: index_gars.md
+  - Models:
+    - Library Generation: index_library_generation.md
+    - AnSRS: index_ansrs.md
+    - GARS: index_gars.md
   # - Working with the Models: 
     # - Library Generation: 
     # - AnSRS: 
@@ -26,5 +27,5 @@ nav:
     # - GARS: 
   
 repo_url: https://github.com/brain-bican/models
-extra_css:
-  - style.css
+# extra_css:
+#   - style.css
