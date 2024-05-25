@@ -41,7 +41,7 @@ jobs:
           gen-doc -d docs linkml-schema/gars.yaml
           mv docs/index.md docs/index_gars.md
           mv docs/index_main.md docs/index.md
-          cp ../../erdiagram-autogen/ansrs.md docs/ansrs.md
+          cp erdiagram-autogen/ansrs.md docs/ansrs.md
 
 
       - name: Deploy to GitHub Pages
