@@ -16,9 +16,15 @@ nav:
   - Library Generation: index_library_generation.md
   - AnSRS: index_ansrs.md
   - GARS: index_gars.md
+  - Working with the Models: 
+    - Library Generation: 
+    - AnSRS: 
+    - GARS:
   - Visualizations: 
-    # - Library Generation: ../../erdiagram-autogen/library_generation.md
+    - Library Generation: 
     - AnSRS: ansrs.md
-    # - GARS: ../../erdiagram-autogen/gars.md
+    - GARS: 
   
 repo_url: https://github.com/brain-bican/models
+extra_css:
+  -style.css
