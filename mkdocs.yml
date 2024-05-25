@@ -14,11 +14,11 @@ plugins:
 nav:
   - Overview: index.md
   - Library Generation: index_library_generation.md
-  - ANSRS: index_ansrs.md
+  - AnSRS: index_ansrs.md
   - GARS: index_gars.md
   - Visualizations: 
-    - Library Generation: ../../erdiagram-autogen/library_generation.md
-    - ANSRS: ../../erdiagram-autogen/ansrs.md
-    - GARS: ../../erdiagram-autogen/gars.md
+    # - Library Generation: ../../erdiagram-autogen/library_generation.md
+    - AnSRS: ansrs.md
+    # - GARS: ../../erdiagram-autogen/gars.md
   
 repo_url: https://github.com/brain-bican/models
