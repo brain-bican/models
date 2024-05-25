@@ -21,6 +21,4 @@ nav:
     - ANSRS: ../../erdiagram-autogen/ansrs.md
     - GARS: ../../erdiagram-autogen/gars.md
   
-  repo_url: https://github.com/brain-bican/models
-
-
+repo_url: https://github.com/brain-bican/models
