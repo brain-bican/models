@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-
 permissions:
   contents: write
 
@@ -41,8 +40,8 @@ jobs:
               gen-jsonld-context ${file} > ../jsonld-context-autogen/${name}.context.jsonld;
               sed -i "/generation_date/d" ../jsonld-context-autogen/${name}.context.jsonld;
               gen-pydantic --pydantic-version 2 ${file} > ../models_py-autogen/${name}.py;
-              if [${name} = "library_generation" ] || [ ${name} = "gars"]; then
-                echo "Creating and Fixing kbmodel diagram..";
+                if [ ${name} = "library_generation" ] || [ ${name} = "gars" ]; then
+                echo "Creating and Fixing diagrams for $name";
                 python ../utils/fix_and_create_erdiagram.py
               else
                 gen-erdiagram ${file} > ../erdiagram-autogen/${name}.md;
@@ -61,4 +60,3 @@ jobs:
           git add erdiagram-autogen/*.md
           git commit -m "generate another formats"
           git push
-
