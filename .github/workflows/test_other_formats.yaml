@@ -40,7 +40,7 @@ jobs:
               gen-jsonld-context ${file};
               # generating pydantic schema
               gen-pydantic --pydantic-version 2 ${file};
-              if [ ${name} != "kbmodel" ]; then
+              if [ ${name} != "library_generation" ] && [ ${name} != "gars" ]; then
                 gen-erdiagram ${file};
               fi
             fi
