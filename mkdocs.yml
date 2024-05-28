@@ -22,9 +22,9 @@ nav:
     # - AnSRS: 
     # - GARS:
   - Visualizations: 
-    # - Library Generation: 
+    - Library Generation: library_generation.md
     - AnSRS: ansrs.md
-    # - GARS: 
+    - GARS: gars.md
   
 repo_url: https://github.com/brain-bican/models
 # extra_css:

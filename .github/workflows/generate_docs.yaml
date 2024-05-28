@@ -34,6 +34,9 @@ jobs:
           mkdir docs
           cp -r src/docs/* docs/
           touch docs/.nojekyll
+          cp erdiagram-autogen/ansrs.md docs/ansrs.md
+          cp erdiagram-autogen/ansrs.md docs/gars.md
+          cp erdiagram-autogen/ansrs.md docs/library_generation.md
           gen-doc -d docs linkml-schema/library_generation.yaml
           mv docs/index.md docs/index_library_generation.md
           gen-doc -d docs linkml-schema/ansrs.yaml
