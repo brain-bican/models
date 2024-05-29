@@ -1855,7 +1855,7 @@ classes:
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Donor
-    is_a: material sample
+    is_a: physical entity
     mixins:
     - thing with taxon
     - ProvEntity
