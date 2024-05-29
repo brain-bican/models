@@ -1,8 +1,8 @@
 id: https://w3id.org/my-org/ansrs-schema
 name: ansrs-schema
-title: ANSRS schema
+title: Anatomical Structure Reference Service (AnSRS) Schema
 description: |-
-  Schema for ANSRS
+  The AnSRS schema is designed to represent types and relationships of anatomical brain structures. 
 license: MIT
 see_also:
   - https://my-org.github.io/ansrs-schema

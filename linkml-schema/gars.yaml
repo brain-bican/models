@@ -1,5 +1,8 @@
-id: https://identifiers.org/brain-bican/gars-model
-name: gars-model
+id: https://identifiers.org/brain-bican/gars-schema
+name: gars-schema
+title: Genome Annotation Registry Service (GARS) Schema
+description: |-
+  The GARS schema is designed to represent types and relationships of an organism's annotated genome.
 prefixes:
   linkml: https://w3id.org/linkml/
   bican: https://identifiers.org/brain-bican/vocab/

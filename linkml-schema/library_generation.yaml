@@ -1,5 +1,8 @@
-name: kb-model
-id: https://identifiers.org/brain-bican/kb-model
+id: https://identifiers.org/brain-bican/library-generation-schema
+name: library-generation-schema
+title: Library Generation Schema
+description: |-
+  The Library Generation schema is designed to represent types and relationships of samples and digital data assets generated during processes that generate multimodal genomic data.
 imports:
 - linkml:types
 - bican_biolink
