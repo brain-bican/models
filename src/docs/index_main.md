@@ -12,3 +12,6 @@ The AnSRS Model is a data model designed to represent types and relationships of
 
 ### 3. Genome Annotation Registry Service (GARS) Model  
 The GARS Model is a data model designed to represent types and relationships of an organism's annotated genome. The GARS Model can be used to formalize relationships between genes, genome assemblies, and organisms. 
+
+## Using the Data Models 
+Each data model listed above has a respective module in the Brain Knowledge Base Interactice Toolkit ([bkbit](https://pypi.org/project/bkbit/)). 
