@@ -1,25 +1,23 @@
-id: https://w3id.org/my-org/ansrs-schema
-name: ansrs-schema
-title: ANSRS schema
+id: https://w3id.org/my-org/anatomical-structure-schema
+name: anatomical-structure-schema
+title: Anatomical Structure Schema
 description: |-
-  Schema for ANSRS
+  The Anatomical Structure schema is designed to represent types and relationships of anatomical brain structures. 
 license: MIT
-see_also:
-  - https://my-org.github.io/ansrs-schema
 
 prefixes:
-  ANSRS: https://w3id.org/my-org/ansrs-schema/
+  AnS: https://w3id.org/my-org/anatomical-structure-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
   example: https://example.org/
-default_prefix: ANSRS
+default_prefix: AnS
 default_range: string
 
 imports:
   - linkml:types
-  - ansrs_core
+  - anatomical_structure_core
 
 settings:
   PositiveFloat: ^[+]?\d*\.?\d+$
@@ -126,7 +124,7 @@ classes:
           - range: string
 
   ParcellationTermSet:
-    is_a: NamedThing
+    is_a: VersionedNamedThing
     description: >-
       A parcellation term set is the set of parcellation terms within a specific parcellation terminology. 
       A parcellation term set belongs to one and only one parcellation terminology and each parcellation 
@@ -157,7 +155,7 @@ classes:
           (lower taxonomic rank) of.
 
   ParcellationTerm:
-    is_a: NamedThing
+    is_a: VersionedNamedThing
     description: >-
       A parcellation term is an individual term within a specific parcellation terminology describing a 
       single anatomical entity by a persistent identifier, name, symbol and description.  A parcellation 

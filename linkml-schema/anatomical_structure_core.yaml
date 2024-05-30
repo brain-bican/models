@@ -1,8 +1,8 @@
-id: https://w3id.org/my-org/ansrs_core
-name: ANSRS-Core
-title: ANSRS schema Core Types
+id: https://w3id.org/my-org/anatomical-structure-core-schema
+name: anatomical-structure-core-schema
+title: Anatomical Structure Core Schema
 description: |-
-  Core types for ANSRS schema
+  Contains the core types for the Anatomical Structure Schema.
 
 prefixes:
   ANSRS: https://w3id.org/my-org/ansrs-schema/
@@ -37,6 +37,7 @@ classes:
         slots:
             - version
             - revision_of
+
 slots:
     id:
         range: uriorcurie
