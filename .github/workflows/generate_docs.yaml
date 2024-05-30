@@ -1,4 +1,4 @@
-name: Generating Documentation
+name: generating documentation
 
 on:
   push:
@@ -9,30 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  check_generate_other_formats:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check if 'generate_other_formats' workflow is running
-        id: check_status
-        run: |
-          generate_workflow_id=$(gh api -X GET /repos/${{ github.repository }}/actions/workflows/generate_other_formats.yaml/runs \
-          --jq '.workflow_runs[] | select(.status == "in_progress") | .id')
-          echo "workflow_id=$generate_workflow_id" >> $GITHUB_ENV
-
-  wait_for_generate_other_formats:
-    needs: check_generate_other_formats
-    runs-on: ubuntu-latest
-    if: env.workflow_id != ''
-    steps:
-      - name: Wait for 'generate_other_formats' to complete
-        run: |
-          while [[ "$(gh api -X GET /repos/${{ github.repository }}/actions/runs/$generate_workflow_id --jq '.status')" != "completed" ]]; do
-            echo "Waiting for generate_other_formats workflow to complete..."
-            sleep 30
-          done
-
   generate:
-    needs: [check_generate_other_formats, wait_for_generate_other_formats]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repository
@@ -66,59 +43,8 @@ jobs:
           gen-doc -d docs linkml-schema/genome_annotation.yaml
           mv docs/index.md docs/index_genome_annotation.md
           mv docs/index_main.md docs/index.md
-
-      - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force
-
-
-
-# name: generating documentation
-
-# on:
-#   push:
-#     branches:
-#       - main
-
-# permissions:
-#   contents: write
-
-# jobs:
-#   generate:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout this repository
-#         uses: actions/checkout@v3
-
-#       - name: Set up Python
-#         uses: actions/setup-python@v4
-#         with:
-#           python-version: 3.9
-
-#       - name: Install the required python packages
-#         run: python -m pip install .[docs]
-
-#       - name: Other installations
-#         run: |
-#           sudo apt-get update
-#           sudo apt-get install -y build-essential git wget curl
-
-#       - name: Create local docs
-#         run: |
-#           mkdir docs
-#           cp -r src/docs/* docs/
-#           touch docs/.nojekyll
-#           cp erdiagram-autogen/ansrs.md docs/ansrs.md
-#           cp erdiagram-autogen/genome_annotation.md docs/genome_annotation.md
-#           cp erdiagram-autogen/library_generation.md docs/library_generation.md
-#           gen-doc -d docs linkml-schema/library_generation.yaml
-#           mv docs/index.md docs/index_library_generation.md
-#           gen-doc -d docs linkml-schema/ansrs.yaml
-#           mv docs/index.md docs/index_ansrs.md
-#           gen-doc -d docs linkml-schema/genome_annotation.yaml
-#           mv docs/index.md docs/index_genome_annotation.md
-#           mv docs/index_main.md docs/index.md
           
 
 
-#       - name: Deploy to GitHub Pages
-#         run: mkdocs gh-deploy --force
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force
