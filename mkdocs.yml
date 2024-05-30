@@ -15,11 +15,11 @@ nav:
   - Overview: index.md
   - Models:
     - Library Generation: index_library_generation.md
-    - AnSRS: index_ansrs.md
+    - Anatomical Structure: index_anatomical_structure.md
     - Genome Annotation: index_genome_annotation.md
   - Visualizations: 
     - Library Generation: library_generation.md
-    - AnSRS: ansrs.md
+    - Anatomical Structure: anatomical_structure.md
     - Genome Annotation: genome_annotation.md
   
 repo_url: https://github.com/brain-bican/models
