@@ -1,15 +1,15 @@
-name: push pydantic ansrs to bkbit
+name: push pydantic anatomical_structure to bkbit
 
 on:
   push:
-    paths: 'models_py-autogen/ansrs.py'
+    paths: 'models_py-autogen/anatomical_structure.py'
   workflow_run:
     workflows: [generating other formats]
     types:
       - completed
 
 jobs:
-  update_ansrs:
+  update_anatomical_structure:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repository
@@ -21,9 +21,9 @@ jobs:
         env: 
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'models_py-autogen/ansrs.py'
+          source_file: 'models_py-autogen/anatomical_structure.py'
           destination_repo: 'brain-bican/bkbit'
           destination_folder: 'bkbit/models/'
           user_email: 'xspuja@gmail.com' # the GitHub user email associated with the API token secret.
           user_name: 'puja-trivedi' # the GitHub username associated with the API token secret.
-          commit_message: "pydantic version of ansrs model (ansrs.py) was updated. Pushed from brain-bican/model repository"
+          commit_message: "pydantic version of anatomical_structure model (anatomical_structure.py) was updated. Pushed from brain-bican/model repository"
