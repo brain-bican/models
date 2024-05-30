@@ -38,12 +38,12 @@ def fix_diagram(yaml_model: pathlib.Path, diagram: pathlib.Path):
     with diagram.open("w") as f:
         f.write(diagram_txt)
 
-# 1. FIX GARS DIAGRAM
-gars_yaml = pathlib.Path(__file__).parent.resolve() / "../linkml-schema" / "gars.yaml"
-gars_diagram = (
-    pathlib.Path(__file__).parent.resolve() / "../erdiagram-autogen" / "gars.md"
+# 1. FIX GENOME ANNOTATION DIAGRAM
+genome_annotation_yaml = pathlib.Path(__file__).parent.resolve() / "../linkml-schema" / "genome_annotation.yaml"
+genome_annotation_diagram = (
+    pathlib.Path(__file__).parent.resolve() / "../erdiagram-autogen" / "genome_annotation.md"
 )
-fix_diagram(gars_yaml, gars_diagram)
+fix_diagram(genome_annotation_yaml, genome_annotation_diagram)
 
 # 2. FIX LIBRARY GENERATION DIAGRAM
 libgen_yaml = (

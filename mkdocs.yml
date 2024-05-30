@@ -16,10 +16,10 @@ nav:
   - Models:
     - Library Generation: index_library_generation.md
     - AnSRS: index_ansrs.md
-    - GARS: index_gars.md
+    - Genome Annotation: index_genome_annotation.md
   - Visualizations: 
     - Library Generation: library_generation.md
     - AnSRS: ansrs.md
-    - GARS: gars.md
+    - Genome Annotation: genome_annotation.md
   
 repo_url: https://github.com/brain-bican/models
