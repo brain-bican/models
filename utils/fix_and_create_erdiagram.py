@@ -16,7 +16,6 @@ def fix_diagram(yaml_model: pathlib.Path, diagram: pathlib.Path):
         cmd.extend(["-c", f'"{cl}"'])
 
     cmd.extend([str(yaml_model), ">", str(diagram)])
-    # running the command: generating the kbmodel diagram
     sp.run(" ".join(cmd), check=True, shell=True)
 
     # reading the diagram file and fixing the names with spaces
