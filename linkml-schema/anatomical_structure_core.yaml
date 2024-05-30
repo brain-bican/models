@@ -5,13 +5,13 @@ description: |-
   Contains the core types for the Anatomical Structure Schema.
 
 prefixes:
-  ANSRS: https://w3id.org/my-org/ansrs-schema/
+  AnS: https://w3id.org/my-org/anatomical-structure-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
   example: https://example.org/
-default_prefix: ANSRS
+default_prefix: AnS
 default_range: string
 
 imports:
@@ -20,7 +20,7 @@ imports:
 classes:
     NamedThing:
         description: >-
-            Core base entity for ANSRS schema representing an entity with an identifier 
+            Core base entity for Anatomical Structure schema representing an entity with an identifier 
             name and description.
         abstract: true
         slots:
@@ -32,7 +32,7 @@ classes:
     VersionedNamedThing:
         is_a: NamedThing
         description: >-
-            Core base entity for ANSRS schema representing an versioned named thing.
+            Core base entity for Anatomical Structure schema representing an versioned named thing.
         abstract: true
         slots:
             - version
