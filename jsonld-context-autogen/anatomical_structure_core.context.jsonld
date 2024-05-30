@@ -4,7 +4,7 @@
       "source": "anatomical_structure_core.yaml"
    },
    "@context": {
-      "ANSRS": "https://w3id.org/my-org/ansrs-schema/",
+      "AnS": "https://w3id.org/my-org/anatomical-structure-schema/",
       "PATO": {
          "@id": "http://purl.obolibrary.org/obo/PATO_",
          "@prefix": true
@@ -13,7 +13,7 @@
       "example": "https://example.org/",
       "linkml": "https://w3id.org/linkml/",
       "schema": "http://schema.org/",
-      "@vocab": "https://w3id.org/my-org/ansrs-schema/",
+      "@vocab": "https://w3id.org/my-org/anatomical-structure-schema/",
       "category": {
          "@type": "@id",
          "@id": "category"

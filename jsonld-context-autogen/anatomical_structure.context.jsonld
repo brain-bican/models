@@ -4,7 +4,6 @@
       "source": "anatomical_structure.yaml"
    },
    "@context": {
-      "ANSRS": "https://w3id.org/my-org/ansrs-schema/",
       "AnS": "https://w3id.org/my-org/anatomical-structure-schema/",
       "PATO": {
          "@id": "http://purl.obolibrary.org/obo/PATO_",
@@ -26,10 +25,10 @@
       },
       "category": {
          "@type": "@id",
-         "@id": "ANSRS:category"
+         "@id": "category"
       },
       "description": {
-         "@id": "ANSRS:description"
+         "@id": "description"
       },
       "id": "@id",
       "unit": {
@@ -93,7 +92,7 @@
          "@id": "z_size"
       },
       "name": {
-         "@id": "ANSRS:name"
+         "@id": "name"
       },
       "internal_identifier": {
          "@id": "internal_identifier"
@@ -166,10 +165,10 @@
       },
       "revision_of": {
          "@type": "@id",
-         "@id": "ANSRS:revision_of"
+         "@id": "revision_of"
       },
       "version": {
-         "@id": "ANSRS:version"
+         "@id": "version"
       },
       "AnatomicalAnnotationSet": {
          "@id": "AnatomicalAnnotationSet"
@@ -181,7 +180,7 @@
          "@id": "ImageDataset"
       },
       "NamedThing": {
-         "@id": "ANSRS:NamedThing"
+         "@id": "NamedThing"
       },
       "ParcellationAnnotation": {
          "@id": "ParcellationAnnotation"
@@ -208,7 +207,7 @@
          "@id": "ParcellationTermSet"
       },
       "VersionedNamedThing": {
-         "@id": "ANSRS:VersionedNamedThing"
+         "@id": "VersionedNamedThing"
       }
    }
 }

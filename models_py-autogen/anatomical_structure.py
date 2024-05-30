@@ -65,24 +65,24 @@ class DISTANCEUNIT(str, Enum):
 
 class NamedThing(ConfiguredBaseModel):
     """
-    Core base entity for ANSRS schema representing an entity with an identifier  name and description.
+    Core base entity for Anatomical Structure schema representing an entity with an identifier  name and description.
     """
     id: str = Field(...)
     name: str = Field(...)
     description: str = Field(...)
-    category: List[Literal["https://w3id.org/my-org/ansrs-schema/NamedThing","ANSRS:NamedThing"]] = Field(["ANSRS:NamedThing"])
+    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/NamedThing","AnS:NamedThing"]] = Field(["AnS:NamedThing"])
 
 
 class VersionedNamedThing(NamedThing):
     """
-    Core base entity for ANSRS schema representing an versioned named thing.
+    Core base entity for Anatomical Structure schema representing an versioned named thing.
     """
     version: str = Field(...)
     revision_of: Optional[str] = Field(None)
     id: str = Field(...)
     name: str = Field(...)
     description: str = Field(...)
-    category: List[Literal["https://w3id.org/my-org/ansrs-schema/VersionedNamedThing","ANSRS:VersionedNamedThing"]] = Field(["ANSRS:VersionedNamedThing"])
+    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/VersionedNamedThing","AnS:VersionedNamedThing"]] = Field(["AnS:VersionedNamedThing"])
 
 
 class ImageDataset(VersionedNamedThing):
