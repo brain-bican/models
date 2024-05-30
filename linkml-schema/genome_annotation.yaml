@@ -1,5 +1,9 @@
-id: https://identifiers.org/brain-bican/gars-model
-name: gars-model
+id: https://identifiers.org/brain-bican/genome-annotation-schema
+name: genome-annotation-schema
+title: Genome Annotation Schema
+description: |-
+  The Genome Annotation schema is designed to represent types and relationships of an organism's annotated genome.
+  
 prefixes:
   linkml: https://w3id.org/linkml/
   bican: https://identifiers.org/brain-bican/vocab/

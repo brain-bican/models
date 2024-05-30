@@ -1,15 +1,15 @@
-name: push pydantic genome_annotation to bkbit
+name: push pydantic ansrs to bkbit
 
 on:
   push:
-    paths: 'models_py-autogen/genome_annotation.py'
+    paths: 'models_py-autogen/ansrs.py'
   workflow_run:
     workflows: [generating other formats]
     types:
       - completed
 
 jobs:
-  update_genome_annotation:
+  update_ansrs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repository
@@ -21,9 +21,9 @@ jobs:
         env: 
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'models_py-autogen/genome_annotation.py'
+          source_file: 'models_py-autogen/ansrs.py'
           destination_repo: 'brain-bican/bkbit'
           destination_folder: 'bkbit/models/'
           user_email: 'xspuja@gmail.com' # the GitHub user email associated with the API token secret.
           user_name: 'puja-trivedi' # the GitHub username associated with the API token secret.
-          commit_message: "pydantic version of genome_annotation model (genome_annotation.py) was updated. Pushed from brain-bican/model repository"
+          commit_message: "pydantic version of ansrs model (ansrs.py) was updated. Pushed from brain-bican/model repository"

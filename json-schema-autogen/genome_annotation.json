@@ -1363,7 +1363,7 @@
             "type": "object"
         }
     },
-    "$id": "https://identifiers.org/brain-bican/gars-model",
+    "$id": "https://identifiers.org/brain-bican/genome-annotation-schema",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "",
@@ -1388,7 +1388,7 @@
             "type": "array"
         }
     },
-    "title": "gars-model",
+    "title": "genome-annotation-schema",
     "type": "object",
     "version": null
 }
