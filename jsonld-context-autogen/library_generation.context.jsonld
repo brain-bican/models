@@ -212,10 +212,6 @@
          "@type": "xsd:float",
          "@id": "0db79d05-8612-4896-b9d3-eb1558841449"
       },
-      "annotates": {
-         "@type": "@id",
-         "@id": "annotates"
-      },
       "expected_cell_capture": {
          "@type": "xsd:integer",
          "@id": "f10e928d-5a2b-4943-af18-d8fe5d05528d"
@@ -265,9 +261,9 @@
       "description": {
          "@id": "dct:description"
       },
-      "dissection_was_guided_by": {
+      "annotates": {
          "@type": "@id",
-         "@id": "dissection_was_guided_by"
+         "@id": "annotates"
       },
       "dissociated_cell_sample_cell_prep_type": {
          "@context": {
@@ -468,6 +464,14 @@
       "synonym": {
          "@id": "biolink:synonym"
       },
+      "was_guided_by": {
+         "@type": "@id",
+         "@id": "was_guided_by"
+      },
+      "dissection_was_guided_by": {
+         "@type": "@id",
+         "@id": "dissection_was_guided_by"
+      },
       "tissue_sample_structure": {
          "@id": "tissue_sample_structure"
       },
@@ -488,10 +492,6 @@
       "was_generated_by": {
          "@type": "@id",
          "@id": "prov:wasGeneratedBy"
-      },
-      "was_guided_by": {
-         "@type": "@id",
-         "@id": "was_guided_by"
       },
       "xref": {
          "@type": "@id",
