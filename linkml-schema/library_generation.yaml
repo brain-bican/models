@@ -1,4 +1,4 @@
-name: kb-model
+name: library-generation-schema
 description: The Library Generation schema is designed to represent types and relationships
   of samples and digital data assets generated during processes that generate multimodal
   genomic data.
@@ -42,8 +42,8 @@ subsets:
     description: A subset of slots/attributes that are required for alignment.
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
   model_organism_database: {}
-  samples: {}
   translator_minimal: {}
+  samples: {}
 enums:
   amplified_cdna_rna_amplification_pass_fail:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
@@ -1842,8 +1842,6 @@ slots:
       for usage after this generation.
     slot_uri: prov:wasGeneratedBy
     range: ProvActivity
-  name:
-    from_schema: https://identifiers.org/brain-bican/library-generation-schema
 classes:
   Donor:
     description: A person or organism that is the source of a biological sample for
