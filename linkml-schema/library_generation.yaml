@@ -41,9 +41,6 @@ subsets:
   alignment:
     description: A subset of slots/attributes that are required for alignment.
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
-  model_organism_database: {}
-  translator_minimal: {}
-  samples: {}
 enums:
   amplified_cdna_rna_amplification_pass_fail:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
