@@ -16,9 +16,6 @@ subsets:
   bican:
     description: A subset of classes that are associated with BICAN.
     from_schema: https://identifiers.org/brain-bican/kb-model
-  gars:
-    description: A subset of classes that are associated with GARS.
-    from_schema: https://identifiers.org/brain-bican/kb-model
   tissue_specimen:
     description: A subset of classes that are associated with tissue specimens.
     from_schema: https://identifiers.org/brain-bican/kb-model
@@ -1838,16 +1835,6 @@ slots:
       for usage after this generation.
     slot_uri: prov:wasGeneratedBy
     range: ProvActivity
-  annotates:
-    description: Annotation is the addition of metadata to an entity
-    range: ProvEntity
-  was_guided_by:
-    description: Guidance is the influence of an entity on an activity. This entity
-      is known as an influencer, and the activity is influenced by the influencer.
-    range: ProvEntity
-  dissection_was_guided_by:
-    description: Tranformation (dissection) of one entity into another entity.
-    range: ProvEntity
 classes:
   Donor:
     description: A person or organism that is the source of a biological sample for
@@ -1855,19 +1842,19 @@ classes:
     from_schema: https://identifiers.org/brain-bican/kb-model
     exact_mappings:
     - NIMP:Donor
-    is_a: material sample
+    is_a: physical entity
     mixins:
     - thing with taxon
     - ProvEntity
     slots:
     - name
     slot_usage:
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
       name:
         description: Name of person or organism that is the source of a biological
           sample for scientific study.  Many biological samples are generated from
           a single donor.
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       biological_sex:
         local_names:
@@ -1954,13 +1941,13 @@ classes:
         exactly_one_of:
         - range: Donor
         - range: BrainSlab
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
       name:
         description: Name of a thick flat piece of brain tissue obtained by slicing
           a whole brain, brain hemisphere or subdivision with a blade at regular interval.  When
           multiple brain slabs are obtained from the slicing process, an ordinal is
           assigned to provide information about the relative positioning of the slabs.
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
   TissueSample:
     description: The final intact piece of tissue before cell or nuclei prep. This
       piece of tissue will be used in dissociation and has an region of interest polygon
@@ -1977,7 +1964,6 @@ classes:
     slots:
     - was_derived_from
     - was_generated_by
-    - dissection_was_guided_by
     - name
     slot_usage:
       was_derived_from:
@@ -1990,13 +1976,6 @@ classes:
         description: The dissection process from which the tissue sample was generated
           by.
         range: TissueDissection
-      dissection_was_guided_by:
-        description: The dissection ROI polygon that was used to guide the dissection.
-        exact_mappings:
-        - NIMP:has_parent
-        range: DissectionRoiPolygon
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
       name:
         description: Identifier name for final intact piece of tissue before cell
           or nuclei prep.  This piece of tissue will be used in dissociation and has
@@ -2004,7 +1983,15 @@ classes:
         exact_mappings:
         - NIMP:PD-LJCRCC35
         slot_uri: bican:2e4ca2fc-2d77-4d19-af45-d0fb7bbc2269
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
+      dissection_was_guided_by:
+        description: The dissection ROI polygon that was used to guide the dissection.
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        exact_mappings:
+        - NIMP:has_parent
+        range: DissectionRoiPolygon
       structure:
         local_names:
           local_name_value: structure
@@ -2040,14 +2027,14 @@ classes:
         - NIMP:has_parent
         multivalued: true
         range: TissueSample
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
       name:
         description: Name of a collection of dissociated cells or nuclei derived from
           dissociation of a tissue sample.
         exact_mappings:
         - NIMP:PD-RQRWHS40
         slot_uri: bican:65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       cell_prep_type:
         local_names:
@@ -2113,14 +2100,14 @@ classes:
         exactly_one_of:
         - range: DissociatedCellSample
         - range: EnrichedCellSample
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
       name:
         description: Name of collection of enriched cells or nuclei after enrichment
           process (usually via FACS using the Enrichment Plan) applied to dissociated_cell_sample.
         exact_mappings:
         - NIMP:PD-BERWTM41
         slot_uri: bican:bb3fc701-23a7-45c1-890d-7471730e0ec1
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       enrichment_population:
         local_names:
@@ -2198,8 +2185,6 @@ classes:
         exactly_one_of:
         - range: DissociatedCellSample
         - range: EnrichedCellSample
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
       name:
         description: Name of a collection of barcoded cells.  Input will be either
           dissociated_cell_sample or enriched_cell_sample.  Cell barcodes are only
@@ -2208,6 +2193,8 @@ classes:
         exact_mappings:
         - NIMP:PD-XEMDJF38
         slot_uri: bican:4c0e6380-e53f-4173-a474-d41e836fefe3
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       number_of_expected_cells:
         local_names:
@@ -2256,8 +2243,6 @@ classes:
         exact_mappings:
         - NIMP:has_parent
         range: BarcodedCellSample
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
       name:
         description: Name of a collection of cDNA molecules derived and amplified
           from an input barcoded_cell_sample.  These cDNA molecules represent the
@@ -2267,6 +2252,8 @@ classes:
         exact_mappings:
         - NIMP:PD-YAAGGG39
         slot_uri: bican:e2606a11-114e-472f-9e05-33f9b6fc3089
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       quantity_ng:
         local_names:
@@ -2342,8 +2329,6 @@ classes:
         exactly_one_of:
         - range: BarcodedCellSample
         - range: AmplifiedCdna
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
       name:
         description: Name of a library, which is a collection of fragmented and barcode-indexed
           DNA molecules for sequencing.  An index or barcode is typically introduced
@@ -2352,6 +2337,8 @@ classes:
         exact_mappings:
         - NIMP:PD-AJJUCC35
         slot_uri: bican:f717e254-3630-4342-be7b-4d56376e7afe
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       average_size_bp:
         local_names:
@@ -2464,8 +2451,6 @@ classes:
         exact_mappings:
         - NIMP:has_parent
         range: Library
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
       name:
         description: One library in the library pool.  Each Library_aliquot_name in
           a library pool will have a unique R1/R2 index to allow for sequencing together
@@ -2475,6 +2460,8 @@ classes:
         exact_mappings:
         - NIMP:PD-XCXCCC35
         slot_uri: bican:34191bad-d167-4335-8224-ade897d3728e
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
   LibraryPool:
     description: A library pool is made up of library aliquots from multiple libraries.
       Each library aliquot in a library pool will have a unique R1/R2 index to allow
@@ -2505,8 +2492,6 @@ classes:
         - NIMP:has_parent
         multivalued: true
         range: LibraryAliquot
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
       name:
         description: Library lab's library pool name.  For some labs this may be the
           same as "Libray pool tube local name".   Other labs distinguish between
@@ -2516,6 +2501,8 @@ classes:
         exact_mappings:
         - NIMP:PD-KKIAPA48
         slot_uri: bican:29e0578b-6427-4c93-b29b-bde27fbadeec
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       local_tube_id:
         local_names:
@@ -2563,18 +2550,19 @@ classes:
     mixins:
     - ProvActivity
     slots:
-    - was_guided_by
     - used
     slot_usage:
-      was_guided_by:
-        description: The dissection ROI polygon which was used to guide the tissue
-          dissection.
-        range: DissectionRoiPolygon
       used:
         description: The brain slab from which the tissue sample was dissected from.
         range: BrainSlab
       category:
         pattern: ^bican:[A-Z][A-Za-z]+$
+    attributes:
+      was_guided_by:
+        description: The dissection ROI polygon which was used to guide the tissue
+          dissection.
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        range: DissectionRoiPolygon
   CellDissociation:
     description: The process of generating dissociated cells from an input tissue
       sample. This process could also introduce a tissue-source barcode (eg cell hashing),
@@ -2920,23 +2908,24 @@ classes:
     - ProvEntity
     slots:
     - was_generated_by
-    - annotates
     - name
     slot_usage:
       was_generated_by:
         description: The delineation process from which the dissection ROI polygon
           was generated by.
         range: DissectionRoiDelineation
-      annotates:
-        description: The brain slab that was annotated by the delineation process.
-        exact_mappings:
-        - NIMP:has_parent
-        range: BrainSlab
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
       name:
         description: Name of a polygon annotated on a brain slab image delineating
           a region of interest (ROI) for a tissue sample dissectioning.
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    attributes:
+      annotates:
+        description: The brain slab that was annotated by the delineation process.
+        from_schema: https://identifiers.org/brain-bican/kb-model
+        exact_mappings:
+        - NIMP:has_parent
+        range: BrainSlab
   ProvActivity:
     mixin: true
     description: An activity is something that occurs over a period of time and acts
@@ -2946,7 +2935,6 @@ classes:
     - bican
     slots:
     - used
-    - was_guided_by
     class_uri: prov:Activity
   ProvEntity:
     mixin: true
@@ -2957,6 +2945,4 @@ classes:
     slots:
     - was_derived_from
     - was_generated_by
-    - annotates
-    - dissection_was_guided_by
     class_uri: prov:Entity
