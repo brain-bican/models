@@ -1,8 +1,12 @@
 name: kb-model
-id: https://identifiers.org/brain-bican/kb-model
+description: The Library Generation schema is designed to represent types and relationships
+  of samples and digital data assets generated during processes that generate multimodal
+  genomic data.
+title: Library Generation Schema
+id: https://identifiers.org/brain-bican/library-generation-schema
 imports:
-- linkml:types
 - bican_biolink
+- linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
   bican: https://identifiers.org/brain-bican/vocab/
@@ -15,31 +19,34 @@ default_range: string
 subsets:
   bican:
     description: A subset of classes that are associated with BICAN.
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
   tissue_specimen:
     description: A subset of classes that are associated with tissue specimens.
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
   library_generation:
     description: A subset of classes that are associated with library generation.
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
   sequencing_elements:
     description: A subset of classes that are associated with sequencing.
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
   processing_elements:
     description: A subset of classes that are associated with processing.
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
   analysis:
     description: A subset of slots/attributes that are required for analysis.
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
   tracking:
     description: A subset of slots/attributes that are required for tracking.
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
   alignment:
     description: A subset of slots/attributes that are required for alignment.
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
+  model_organism_database: {}
+  samples: {}
+  translator_minimal: {}
 enums:
   amplified_cdna_rna_amplification_pass_fail:
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       Pass:
         description: The RNA amplification passed the QA/QC
@@ -54,7 +61,7 @@ enums:
         description: Library Prep not evaluated for QA/QC
         meaning: NIMP:PD-XXXXFQ31
   barcoded_cell_sample_technique:
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       Multiome:
         description: Multiome
@@ -69,7 +76,7 @@ enums:
         description: snm3C-seq
         meaning: NIMP:PD-TDTDDF25
   dissociated_cell_sample_cell_prep_type:
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       Nuclei:
         description: isolated nuclei
@@ -78,7 +85,7 @@ enums:
         description: isolated whole cells
         meaning: NIMP:PD-RELLGO26
   dissociated_cell_sample_cell_label_barcode:
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       CMO301:
         description: 10x Cell Plex oligo tag for multiplexing tissue sources into
@@ -179,7 +186,7 @@ enums:
           cell samples into a single 10x load.
         meaning: NIMP:PD-CFCFPS27
   library_technique:
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       SMARTSeqSC:
         description: SMARTSeqSC
@@ -251,7 +258,7 @@ enums:
         description: DBiT ATAC-seq
         meaning: NIMP:PD-AJAJCN35
   library_prep_pass_fail:
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       Pass:
         description: Library Prep passed the QA/QC
@@ -266,7 +273,7 @@ enums:
         description: Library Prep not evaluated for QA/QC
         meaning: NIMP:PD-QHQHQB42
   library_r1_r2_index:
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       SI-TT-A1:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
@@ -1778,7 +1785,7 @@ enums:
         description: NeryLab 384_SetB/#
         meaning: NIMP:PD-VLLMWZ60
   sex:
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       '1':
         description: Male
@@ -1796,7 +1803,7 @@ enums:
         description: Not Reported
         meaning: NIMP:PD-LXUBTM45
   age_at_death_reference_point:
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       birth:
         description: birth
@@ -1805,7 +1812,7 @@ enums:
         description: conception
         meaning: NIMP:PD-RARAGG39
   age_at_death_unit:
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       days:
         description: days
@@ -1835,11 +1842,13 @@ slots:
       for usage after this generation.
     slot_uri: prov:wasGeneratedBy
     range: ProvActivity
+  name:
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
 classes:
   Donor:
     description: A person or organism that is the source of a biological sample for
       scientific study.  Many biological samples are generated from a single donor.
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     exact_mappings:
     - NIMP:Donor
     is_a: physical entity
@@ -1861,7 +1870,7 @@ classes:
           local_name_value: sex
           local_name_source: NIMP
         description: Biological sex of donor at birth
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-LXUBTM45
         slot_uri: bican:632d3d3f-f85b-4efc-a1ab-010fe417ae81
@@ -1872,7 +1881,7 @@ classes:
           local_name_source: NIMP
         description: 'Text description of the age of death following typical scientific
           convention for the species or developmental stage. For example: P56, E11.5'
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-ZJZJLE33
         slot_uri: bican:0630a265-4a63-48f4-8853-66b929002306
@@ -1882,7 +1891,7 @@ classes:
           local_name_source: NIMP
         description: The reference point for an age interval; for example, birth or
           conception.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-RARAGG39
         slot_uri: bican:3bed1f94-9d82-4ed7-afdf-79d896b24dbb
@@ -1893,7 +1902,7 @@ classes:
           local_name_source: NIMP
         description: The unit used for representing the donor age from the reference
           point.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-AVAVEV39
         slot_uri: bican:b5436e99-f0a7-4c30-825d-56b88ee2ac1d
@@ -1903,7 +1912,7 @@ classes:
           local_name_value: age_at_death
           local_name_source: NIMP
         description: The value representing the donor age from the reference point.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-FTFTCP24
         slot_uri: bican:57e24d3c-c9c7-4ef3-9809-a35802d563ec
@@ -1912,7 +1921,7 @@ classes:
         local_names:
           local_name_value: donor_species
         description: Species of donor.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         slot_uri: bican:6837cb02-6bd7-4fb8-838c-9062ead96ba4
         alias: donor_species
   BrainSlab:
@@ -1923,7 +1932,7 @@ classes:
     in_subset:
     - bican
     - tissue_specimen
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     exact_mappings:
     - NIMP:Slab
     is_a: material sample
@@ -1955,7 +1964,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     exact_mappings:
     - NIMP:Tissue
     is_a: material sample
@@ -1988,7 +1997,7 @@ classes:
     attributes:
       dissection_was_guided_by:
         description: The dissection ROI polygon that was used to guide the dissection.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:has_parent
         range: DissectionRoiPolygon
@@ -1996,7 +2005,7 @@ classes:
         local_names:
           local_name_value: structure
         description: Strucure of tissue sample.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         multivalued: true
         alias: tissue_sample_structure
   DissociatedCellSample:
@@ -2005,7 +2014,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     exact_mappings:
     - NIMP:Dissociated%20Cell%20Sample
     is_a: material sample
@@ -2045,7 +2054,7 @@ classes:
         in_subset:
         - analysis
         - tracking
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-RELLGO26
         slot_uri: bican:baae4ac3-f959-4594-b943-3a82ec19bd34
@@ -2061,7 +2070,7 @@ classes:
           oligo name is associated with a sequence in a lookup table.  This sequence
           will be needed during alignment to associate reads with the parent source
           dissociated cell sample.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-CFCFPS27
         slot_uri: bican:184abbaf-baff-4b5f-b51e-dd38de6006af
@@ -2074,7 +2083,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     exact_mappings:
     - NIMP:Enriched%20Cell%20Sample
     is_a: material sample
@@ -2119,7 +2128,7 @@ classes:
           enrichment was performed.  This is a property of enriched_cell_prep_container.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-TZTZPI37
         slot_uri: bican:875f1c70-f5aa-45e3-94b9-5e482f6c4830
@@ -2135,7 +2144,7 @@ classes:
           oligo name is associated with a sequence in a lookup table.  This sequence
           will be needed during alignment to associate reads with the parent source
           enriched cell sample.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-CFCFPS27
       histone_modification_marker:
@@ -2147,7 +2156,7 @@ classes:
           to combine multiple Enriched Cell Populations before Barcoded Cell Sample
           step for 10xMultiome method. Each of the Histone antibodies captures an
           essential part of the epigenome.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-ESESLW44
   BarcodedCellSample:
@@ -2161,7 +2170,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     exact_mappings:
     - NIMP:Barcoded%20Cell%20Sample
     is_a: material sample
@@ -2207,7 +2216,7 @@ classes:
           'Barcoded cell input quantity count' going into the barcoding method.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-ONONEV39
         slot_uri: bican:f10e928d-5a2b-4943-af18-d8fe5d05528d
@@ -2222,7 +2231,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     exact_mappings:
     - NIMP:Amplified%20cDNA
     is_a: material sample
@@ -2263,7 +2272,7 @@ classes:
           nanograms.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-TITIIC26
         slot_uri: bican:0db79d05-8612-4896-b9d3-eb1558841449
@@ -2277,7 +2286,7 @@ classes:
           and size.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-XXXXFQ31
         slot_uri: bican:bc62bdb2-7dc8-4404-bb84-ce0bbcae59e5
@@ -2293,7 +2302,7 @@ classes:
           and Fragment Analyzer elecropheragrams.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-JJJJWD35
         slot_uri: bican:8d150467-f69e-461c-b54c-bcfd22f581e5
@@ -2306,7 +2315,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     exact_mappings:
     - NIMP:Library
     is_a: material sample
@@ -2348,7 +2357,7 @@ classes:
           used to calculate the molarity before pooling and sequencing.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-VJVJLC46
         slot_uri: bican:f851eba9-56d1-4472-9d0c-d7f8bc33000a
@@ -2361,7 +2370,7 @@ classes:
         description: Concentration of library in terms of nM (nMol/L).  Number of
           molecules is needed for accurate pooling of the libraries and for generating
           the number of target reads/cell in sequencing.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-DCDCLD43
         slot_uri: bican:90805b3f-f380-4f23-b159-e7eaa0c8f052
@@ -2375,7 +2384,7 @@ classes:
           yield and size.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-QHQHQB42
         slot_uri: bican:6817ede2-7ead-402d-9dbc-131aca627c6c
@@ -2388,7 +2397,7 @@ classes:
         description: Amount of library generated in terms of femtomoles
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-JYJYDK42
         slot_uri: bican:4c09ada7-c116-48bc-8fb1-0dcf5c4b939a
@@ -2399,7 +2408,7 @@ classes:
           local_name_value: library_quantification_ng
           local_name_source: NIMP
         description: Amount of library generated in terms of nanograms
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-TNTNXP37
         slot_uri: bican:318b2d3a-dae7-4c63-bfbb-93862b92f63e
@@ -2418,7 +2427,7 @@ classes:
         in_subset:
         - analysis
         - tracking
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-VLLMWZ60
         slot_uri: bican:c94b5d8a-e92d-47af-8c0e-ea3b58be4d06
@@ -2435,7 +2444,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     exact_mappings:
     - NIMP:Library%20Aliquot
     is_a: material sample
@@ -2470,7 +2479,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     exact_mappings:
     - NIMP:Library%20Pool
     is_a: material sample
@@ -2515,7 +2524,7 @@ classes:
         in_subset:
         - analysis
         - tracking
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-WNYWPA48
         slot_uri: bican:f1fdea98-7849-4def-a62f-a04cbbf98922
@@ -2527,7 +2536,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     is_a: procedure
     mixins:
     - ProvActivity
@@ -2545,7 +2554,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     is_a: procedure
     mixins:
     - ProvActivity
@@ -2561,7 +2570,7 @@ classes:
       was_guided_by:
         description: The dissection ROI polygon which was used to guide the tissue
           dissection.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         range: DissectionRoiPolygon
   CellDissociation:
     description: The process of generating dissociated cells from an input tissue
@@ -2570,7 +2579,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     is_a: procedure
     mixins:
     - ProvActivity
@@ -2590,7 +2599,7 @@ classes:
           local_name_value: dissociated_cell_sample_preparation_date
           local_name_source: NIMP
         description: Date of cell dissociation process.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-BUBUFE27
   CellEnrichment:
@@ -2602,7 +2611,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     is_a: procedure
     mixins:
     - ProvActivity
@@ -2622,7 +2631,7 @@ classes:
           local_name_value: enriched_cell_sample_preparation_date
           local_name_source: NIMP
         description: Date of cell enrichment process.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-PFPFFC28
   EnrichedCellSampleSplitting:
@@ -2632,7 +2641,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     is_a: procedure
     mixins:
     - ProvActivity
@@ -2654,7 +2663,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     is_a: procedure
     mixins:
     - ProvActivity
@@ -2680,7 +2689,7 @@ classes:
           Cell Sample). Can be left null for non-10x methods.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-KJKJZK32
         slot_uri: bican:aca38100-d245-4be4-9be3-ba27192779fe
@@ -2694,7 +2703,7 @@ classes:
           barcoding process.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-ZZZZWQ40
         slot_uri: bican:aa534269-7c9b-4b63-b990-eea8cda56d0e
@@ -2705,7 +2714,7 @@ classes:
           local_name_value: barcoded_cell_sample_preparation_date
           local_name_source: NIMP
         description: Date of cell barcoding process.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-SHSHZS25
       method:
@@ -2714,7 +2723,7 @@ classes:
           local_name_source: NIMP
         description: 'Standardized nomenclature to describe the general barcoding
           method used.  For example: Multiome, ATAC Only, GEX Only or snm3C-seq.'
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-TDTDDF25
         range: barcoded_cell_sample_technique
@@ -2728,7 +2737,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     is_a: procedure
     mixins:
     - ProvActivity
@@ -2750,7 +2759,7 @@ classes:
           cDNA.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-OKOKQD38
         slot_uri: bican:3827634c-3f8f-4760-b358-86ce4b030238
@@ -2761,7 +2770,7 @@ classes:
           local_name_value: amplified_cdna_preparation_date
           local_name_source: NIMP
         description: Date of cDNA amplification.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-BYBYBY24
         slot_uri: bican:6cc333e7-9b98-497f-b7b1-eae904db2400
@@ -2775,7 +2784,7 @@ classes:
           that were processed at the same time.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-SCSCTM41
         slot_uri: bican:42e98a88-50b3-4ea2-871b-2142f6a0dfdd
@@ -2790,7 +2799,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     is_a: procedure
     mixins:
     - ProvActivity
@@ -2818,7 +2827,7 @@ classes:
         - analysis
         - tracking
         - alignment
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-AJAJCN35
         slot_uri: bican:7b60d59e-fdd7-4b27-a2d4-cae9b69103a6
@@ -2829,7 +2838,7 @@ classes:
           local_name_value: library_preparation_date
           local_name_source: NIMP
         description: Date of library construction.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-JCJCNM35
         slot_uri: bican:9c2f575d-1b64-451d-894f-656861afe07a
@@ -2842,7 +2851,7 @@ classes:
         description: Amount of cDNA going into library construction in nanograms.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-AFAFXP37
         slot_uri: bican:e4d31d97-722d-4771-a0e4-e6062190f2c1
@@ -2856,7 +2865,7 @@ classes:
           at the same time.
         in_subset:
         - analysis
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-PCPCVR50
         slot_uri: bican:b124ffa9-9134-4a61-a30d-bb191b2fc7fa
@@ -2871,7 +2880,7 @@ classes:
     in_subset:
     - bican
     - library_generation
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     is_a: procedure
     mixins:
     - ProvActivity
@@ -2891,7 +2900,7 @@ classes:
           local_name_value: library_pool_preparation_date
           local_name_source: NIMP
         description: Date of library pooling process.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-XUXUNM35
   DissectionRoiPolygon:
@@ -2900,7 +2909,7 @@ classes:
     in_subset:
     - bican
     - tissue_specimen
-    from_schema: https://identifiers.org/brain-bican/kb-model
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
     exact_mappings:
     - NIMP:Specimen%20Dissected%20ROI
     is_a: entity
@@ -2922,7 +2931,7 @@ classes:
     attributes:
       annotates:
         description: The brain slab that was annotated by the delineation process.
-        from_schema: https://identifiers.org/brain-bican/kb-model
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:has_parent
         range: BrainSlab
