@@ -132,22 +132,20 @@ class ParcellationTerminology(VersionedNamedThing):
     category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/ParcellationTerminology","AnS:ParcellationTerminology"]] = Field(["AnS:ParcellationTerminology"])
 
 
-class ParcellationTermSet(VersionedNamedThing):
+class ParcellationTermSet(NamedThing):
     """
     A parcellation term set is the set of parcellation terms within a specific parcellation terminology.  A parcellation term set belongs to one and only one parcellation terminology and each parcellation  term in a parcellation terminology belongs to one and only one term set.  If the parcellation terminology is a taxonomy, parcellation term sets can be used to represent  taxonomic ranks. For consistency, if the terminology does not have the notion of taxonomic ranks,  all terms are grouped into a single parcellation term set.
     """
     part_of_parcellation_terminology: str = Field(..., description="""Reference to the parcellation terminology for which the parcellation term set partitions.""")
     ordinal: Optional[int] = Field(None, description="""Ordinal of the parcellation term set among other term sets within the context of the  associated parcellation terminology.""", ge=0)
     has_parent_parcellation_term_set: Optional[str] = Field(None, description="""Reference to the parent parcellation term set for which the parcellation term set is a child  (lower taxonomic rank) of.""")
-    version: str = Field(...)
-    revision_of: Optional[str] = Field(None)
     id: str = Field(...)
     name: str = Field(...)
     description: str = Field(...)
     category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/ParcellationTermSet","AnS:ParcellationTermSet"]] = Field(["AnS:ParcellationTermSet"])
 
 
-class ParcellationTerm(VersionedNamedThing):
+class ParcellationTerm(NamedThing):
     """
     A parcellation term is an individual term within a specific parcellation terminology describing a  single anatomical entity by a persistent identifier, name, symbol and description.  A parcellation  term is a unique and exclusive member of a versioned release parcellation terminology. Although term  identifiers must be unique within the context of one versioned release of a parcellation terminology,  they can be reused in different parcellation terminology versions enabling the representation of  terminology updates and modifications over time.
     """
@@ -155,8 +153,6 @@ class ParcellationTerm(VersionedNamedThing):
     part_of_parcellation_term_set: str = Field(..., description="""Reference to the parcellation term set for which the parcellation term is part of.""")
     ordinal: Optional[int] = Field(None, description="""Ordinal of the parcellation term among other terms within the context of the associated  parcellation terminology.""", ge=0)
     has_parent_parcellation_term: Optional[str] = Field(None, description="""Reference to the parent parcellation term for which the parcellation term is a child ( spatially part) of""")
-    version: str = Field(...)
-    revision_of: Optional[str] = Field(None)
     id: str = Field(...)
     name: str = Field(...)
     description: str = Field(...)

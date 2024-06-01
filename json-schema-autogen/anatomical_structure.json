@@ -544,20 +544,13 @@
                     "description": "Reference to the parcellation term set for which the parcellation term is part of.",
                     "type": "string"
                 },
-                "revision_of": {
-                    "type": "string"
-                },
                 "symbol": {
                     "description": "Symbol representing a parcellation term.",
-                    "type": "string"
-                },
-                "version": {
                     "type": "string"
                 }
             },
             "required": [
                 "part_of_parcellation_term_set",
-                "version",
                 "id",
                 "name",
                 "description"
@@ -615,17 +608,10 @@
                     ],
                     "description": "Reference to the parcellation terminology for which the parcellation term set partitions.",
                     "type": "string"
-                },
-                "revision_of": {
-                    "type": "string"
-                },
-                "version": {
-                    "type": "string"
                 }
             },
             "required": [
                 "part_of_parcellation_terminology",
-                "version",
                 "id",
                 "name",
                 "description"

@@ -49,7 +49,6 @@ ParcellationTermSet {
     string part_of_parcellation_terminology  
     integer ordinal  
     string has_parent_parcellation_term_set  
-    string version  
     uriorcurie id  
     string name  
     string description  
@@ -60,7 +59,6 @@ ParcellationTerm {
     string part_of_parcellation_term_set  
     integer ordinal  
     string has_parent_parcellation_term  
-    string version  
     uriorcurie id  
     string name  
     string description  
@@ -112,8 +110,6 @@ VersionedNamedThing ||--|o VersionedNamedThing : "revision_of"
 ImageDataset ||--|o VersionedNamedThing : "revision_of"
 AnatomicalSpace ||--|o VersionedNamedThing : "revision_of"
 ParcellationTerminology ||--|o VersionedNamedThing : "revision_of"
-ParcellationTermSet ||--|o VersionedNamedThing : "revision_of"
-ParcellationTerm ||--|o VersionedNamedThing : "revision_of"
 ParcellationColorScheme ||--|o VersionedNamedThing : "revision_of"
 AnatomicalAnnotationSet ||--|o VersionedNamedThing : "revision_of"
 ParcellationAtlas ||--|o VersionedNamedThing : "revision_of"

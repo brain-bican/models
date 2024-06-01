@@ -10,7 +10,6 @@
          "@prefix": true
       },
       "biolink": "https://w3id.org/biolink/",
-      "example": "https://example.org/",
       "linkml": "https://w3id.org/linkml/",
       "schema": "http://schema.org/",
       "@vocab": "https://w3id.org/my-org/anatomical-structure-schema/",
