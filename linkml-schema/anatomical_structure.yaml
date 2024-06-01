@@ -11,7 +11,6 @@ prefixes:
   biolink: https://w3id.org/biolink/
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
-  example: https://example.org/
 default_prefix: AnS
 default_range: string
 
@@ -124,7 +123,7 @@ classes:
           - range: string
 
   ParcellationTermSet:
-    is_a: VersionedNamedThing
+    is_a: NamedThing
     description: >-
       A parcellation term set is the set of parcellation terms within a specific parcellation terminology. 
       A parcellation term set belongs to one and only one parcellation terminology and each parcellation 
@@ -155,7 +154,7 @@ classes:
           (lower taxonomic rank) of.
 
   ParcellationTerm:
-    is_a: VersionedNamedThing
+    is_a: NamedThing
     description: >-
       A parcellation term is an individual term within a specific parcellation terminology describing a 
       single anatomical entity by a persistent identifier, name, symbol and description.  A parcellation 
