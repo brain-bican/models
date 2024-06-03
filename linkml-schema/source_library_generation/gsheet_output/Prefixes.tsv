@@ -1,0 +1,8 @@
+prefix	uri	default	schema	imports	title	description	id
+		bican	library-generation-schema	bican_biolink	Library Generation Schema	The Library Generation schema is designed to represent types and relationships of samples and digital data assets generated during processes that generate multimodal genomic data.	https://identifiers.org/brain-bican/library-generation-schema
+> prefix	prefix_reference	default_prefix	schema	imports 	title	description	id
+linkml	https://w3id.org/linkml/						
+bican	https://identifiers.org/brain-bican/vocab/						
+spdx	http://spdx.org/rdf/terms#						
+schema	http://schema.org/						
+ncbi	https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi						

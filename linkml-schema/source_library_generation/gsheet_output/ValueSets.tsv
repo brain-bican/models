@@ -1,0 +1,574 @@
+variable_name	value	description	category	terminology_nhash
+> enum	permissible_value	description	ignore	meaning: {curie_prefix: NIMP}
+amplified_cdna_rna_amplification_pass_fail	Pass	The RNA amplification passed the QA/QC	Amplified cDNA	PD-XXXXFQ31
+amplified_cdna_rna_amplification_pass_fail	Fail	The RNA amplification failed the QA/QC	Amplified cDNA	PD-XXXXFQ31
+amplified_cdna_rna_amplification_pass_fail	Low QC	The RNA amplification low passed the QA/QC	Amplified cDNA	PD-XXXXFQ31
+amplified_cdna_rna_amplification_pass_fail	Not evaluated	Library Prep not evaluated for QA/QC	Amplified cDNA	PD-XXXXFQ31
+barcoded_cell_sample_technique	Multiome	Multiome	Barcoded Cell Sample	PD-TDTDDF25
+barcoded_cell_sample_technique	ATACOnly	ATACOnly	Barcoded Cell Sample	PD-TDTDDF25
+barcoded_cell_sample_technique	GEXOnly	GEXOnly	Barcoded Cell Sample	PD-TDTDDF25
+barcoded_cell_sample_technique	snm3C-seq	snm3C-seq	Barcoded Cell Sample	PD-TDTDDF25
+dissociated_cell_sample_cell_prep_type	Nuclei	isolated nuclei	Dissociated Cell Sample	PD-RELLGO26
+dissociated_cell_sample_cell_prep_type	Cells	isolated whole cells	Dissociated Cell Sample	PD-RELLGO26
+dissociated_cell_sample_cell_label_barcode	CMO301	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	CMO302	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	CMO303	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	CMO304	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	CMO305	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	CMO306	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	CMO307	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	CMO308	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	CMO309	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	CMO310	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	CMO311	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	CMO312	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	2nt-001	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	2nt-002	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	2nt-003	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	2nt-004	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	3nt-001	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	3nt-002	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	3nt-003	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	3nt-004	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	3nt-005	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+dissociated_cell_sample_cell_label_barcode	3nt-006	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+library_technique	SMARTSeqSC	SMARTSeqSC	Library	PD-AJAJCN35
+library_technique	SmartSeq3	SmartSeq3	Library	PD-AJAJCN35
+library_technique	10xV3.1	10xV3.1	Library	PD-AJAJCN35
+library_technique	10xV3.1_HT	10xV3.1_HT	Library	PD-AJAJCN35
+library_technique	10xMultiome;GEX	10xMultiome;GEX	Library	PD-AJAJCN35
+library_technique	10xMultiome;ATAC	10xMultiome;ATAC	Library	PD-AJAJCN35
+library_technique	10xATAC_V2.0	10xATAC_V2.0	Library	PD-AJAJCN35
+library_technique	10XMultiome-CellHashing;GEX	10XMultiome-CellHashing;GEX	Library	PD-AJAJCN35
+library_technique	10XMultiome-CellHashing;ATAC	10XMultiome-CellHashing;ATAC	Library	PD-AJAJCN35
+library_technique	10XMultiome-Cell Hashing;Barcode	10XMultiome-Cell Hashing;Barcode	Library	PD-AJAJCN35
+library_technique	10xV3.1_CellPlex;GEX	10xV3.1_CellPlex;GEX	Library	PD-AJAJCN35
+library_technique	10xV3.1_CellPlex;Barcode	10xV3.1_CellPlex;Barcode	Library	PD-AJAJCN35
+library_technique	10xV3.1_HT_CellPlex;GEX	10xV3.1_HT_CellPlex;GEX	Library	PD-AJAJCN35
+library_technique	10xV3.1_HT_CellPlex;Barcode	10xV3.1_HT_CellPlex;Barcode	Library	PD-AJAJCN35
+library_technique	MethylC-Seq	MethylC-Seq	Library	PD-AJAJCN35
+library_technique	snm3C-seq	snm3C-seq	Library	PD-AJAJCN35
+library_technique	snmCT-seq	snmCT-seq	Library	PD-AJAJCN35
+library_technique	scATAC-seq	scATAC-seq	Library	PD-AJAJCN35
+library_technique	MERFISH	MERFISH	Library	PD-AJAJCN35
+library_technique	Slide-seq MERFISH	Slide-seq MERFISH	Library	PD-AJAJCN35
+library_technique	whole brain MERFISH	whole brain MERFISH	Library	PD-AJAJCN35
+library_technique	DBiT RNA-seq	DBiT RNA-seq	Library	PD-AJAJCN35
+library_technique	DBiT ATAC-seq	DBiT ATAC-seq	Library	PD-AJAJCN35
+library_prep_pass_fail	Pass	Library Prep passed the QA/QC	Library	PD-QHQHQB42
+library_prep_pass_fail	Fail	Library Prep failed the QA/QC	Library	PD-QHQHQB42
+library_prep_pass_fail	Low QC	Library Prep low passed the QA/QC	Library	PD-QHQHQB42
+library_prep_pass_fail	Not evaluated	Library Prep not evaluated for QA/QC	Library	PD-QHQHQB42
+library_r1_r2_index	SI-TT-A1	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-A2	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-A3	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-A4	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-A5	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-A6	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-A7	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-A8	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-A9	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-A10	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-A11	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-A12	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-B1	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-B2	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-B3	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-B4	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-B5	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-B6	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-B7	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-B8	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-B9	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-B10	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-B11	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-B12	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-C1	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-C2	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-C3	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-C4	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-C5	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-C6	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-C7	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-C8	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-C9	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-C10	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-C11	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-C12	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-D1	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-D2	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-D3	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-D4	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-D5	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-D6	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-D7	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-D8	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-D9	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-D10	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-D11	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-D12	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-E1	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-E2	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-E3	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-E4	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-E5	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-E6	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-E7	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-E8	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-E9	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-E10	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-E11	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-E12	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-F1	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-F2	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-F3	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-F4	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-F5	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-F6	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-F7	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-F8	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-F9	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-F10	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-F11	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-F12	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-G1	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-G2	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-G3	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-G4	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-G5	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-G6	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-G7	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-G8	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-G9	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-G10	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-G11	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-G12	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-H1	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-H2	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-H3	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-H4	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-H5	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-H6	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-H7	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-H8	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-H9	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-H10	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-H11	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-TT-H12	10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-A1	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-A2	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-A3	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-A4	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-A5	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-A6	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-A7	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-A8	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-A9	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-A10	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-A11	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-A12	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-B1	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-B2	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-B3	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-B4	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-B5	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-B6	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-B7	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-B8	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-B9	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-B10	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-B11	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-B12	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-C1	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-C2	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-C3	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-C4	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-C5	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-C6	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-C7	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-C8	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-C9	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-C10	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-C11	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-C12	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-D1	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-D2	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-D3	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-D4	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-D5	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-D6	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-D7	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-D8	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-D9	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-D10	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-D11	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-D12	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-E1	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-E2	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-E3	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-E4	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-E5	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-E6	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-E7	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-E8	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-E9	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-E10	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-E11	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-E12	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-F1	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-F2	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-F3	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-F4	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-F5	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-F6	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-F7	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-F8	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-F9	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-F10	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-F11	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-F12	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-G1	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-G2	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-G3	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-G4	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-G5	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-G6	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-G7	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-G8	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-G9	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-G10	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-G11	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-G12	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-H1	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-H2	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-H3	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-H4	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-H5	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-H6	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-H7	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-H8	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-H9	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-H10	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-H11	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NN-H12	10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-A1	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-B1	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-C1	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-D1	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-E1	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-F1	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-G1	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-H1	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-A2	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-B2	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-C2	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-D2	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-E2	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-F2	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-G2	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-H2	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-A3	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-B3	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-C3	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-D3	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-E3	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-F3	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-G3	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-H3	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-A4	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-B4	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-C4	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-D4	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-E4	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-F4	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-G4	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-H4	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-A5	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-B5	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-C5	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-D5	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-E5	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-F5	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-G5	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-H5	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-A6	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-B6	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-C6	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-D6	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-E6	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-F6	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-G6	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-H6	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-A7	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-B7	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-C7	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-D7	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-E7	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-F7	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-G7	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-H7	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-A8	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-B8	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-C8	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-D8	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-E8	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-F8	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-G8	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-H8	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-A9	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-B9	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-C9	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-D9	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-E9	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-F9	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-G9	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-H9	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-A10	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-B10	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-C10	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-D10	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-E10	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-F10	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-G10	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-H10	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-A11	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-B11	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-C11	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-D11	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-E11	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-F11	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-G11	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-H11	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-A12	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-B12	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-C12	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-D12	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-E12	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-F12	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-G12	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SI-NA-H12	10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A1	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A10	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A11	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A12	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A13	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A14	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A15	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A16	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A17	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A18	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A19	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A2	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A20	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A21	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A22	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A23	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A24	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A3	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A4	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A5	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A6	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A7	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A8	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-A9	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B1	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B10	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B11	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B12	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B13	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B14	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B15	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B16	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B17	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B18	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B19	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B2	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B20	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B21	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B22	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B23	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B24	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B3	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B4	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B5	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B6	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B7	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B8	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-B9	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C1	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C10	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C11	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C12	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C13	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C14	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C15	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C16	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C17	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C18	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C19	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C2	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C20	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C21	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C22	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C23	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C24	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C3	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C4	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C5	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C6	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C7	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C8	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-C9	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D1	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D10	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D11	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D12	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D13	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D14	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D15	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D16	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D17	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D18	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D19	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D2	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D20	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D21	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D22	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D23	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D24	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D3	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D4	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D5	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D6	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D7	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D8	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-D9	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E1	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E10	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E11	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E12	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E13	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E14	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E15	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E16	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E17	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E18	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E19	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E2	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E20	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E21	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E22	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E23	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E24	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E3	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E4	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E5	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E6	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E7	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E8	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-E9	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F1	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F10	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F11	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F12	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F13	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F14	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F15	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F16	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F17	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F18	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F19	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F2	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F20	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F21	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F22	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F23	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F24	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F3	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F4	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F5	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F6	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F7	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F8	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-F9	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G1	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G10	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G11	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G12	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G13	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G14	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G15	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G16	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G17	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G18	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G19	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G2	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G20	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G21	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G22	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G23	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G24	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G3	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G4	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G5	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G6	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G7	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G8	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-G9	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H1	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H10	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H11	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H12	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H13	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H14	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H15	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H16	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H17	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H18	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H19	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H2	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H20	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H21	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H22	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H23	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H24	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H3	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H4	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H5	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H6	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H7	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H8	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-H9	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I1	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I10	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I11	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I12	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I13	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I14	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I15	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I16	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I17	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I18	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I19	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I2	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I20	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I21	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I22	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I23	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I24	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I3	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I4	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I5	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I6	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I7	NeryLab 384_SetB	Library	PD-VLLMWZ60
+library_r1_r2_index	SetB-I8	NeryLab 384_SetB/#	Library	PD-VLLMWZ60
+sex	1	Male	Donor	PD-LXUBTM45
+sex	2	Female	Donor	PD-LXUBTM45
+sex	7	Other	Donor	PD-LXUBTM45
+sex	8	Unknown	Donor	PD-LXUBTM45
+sex	9	Not Reported	Donor	PD-LXUBTM45
+age_at_death_reference_point	birth	birth	Donor	PD-RARAGG39
+age_at_death_reference_point	conception	conception	Donor	PD-RARAGG39
+age_at_death_unit	days	days	Donor	PD-AVAVEV39
+age_at_death_unit	months	months	Donor	PD-AVAVEV39
+age_at_death_unit	years	years	Donor	PD-AVAVEV39
