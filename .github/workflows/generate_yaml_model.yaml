@@ -27,7 +27,6 @@ jobs:
         run: |
           python -m pip install .[test]
           pip install git+https://github.com/brain-bican/bkbit.git
-          pip install git+https://github.com/linkml/schemasheets.git
 
       - name: Other installations
         run: |
@@ -44,7 +43,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add library_generation.yaml
+          git add source_library_generation/library_generation.yaml
           git add source_library_generation/gsheet_output
           git commit -m "generate library_generation yaml file"
           git push
