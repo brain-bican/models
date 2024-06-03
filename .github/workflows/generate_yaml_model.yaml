@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - 'linkml-schema/source_library_generation/**'
-  pull_request:
 
 permissions:
   contents: write
