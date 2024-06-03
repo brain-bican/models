@@ -66,5 +66,9 @@ jobs:
           git add jsonld-context-autogen/*.context.jsonld
           git add models_py-autogen/*.py
           git add erdiagram-autogen/*.md
-          git commit -m "generate another formats"
-          git push
+          if ! git diff --quiet; then
+            git commit -m "generate another formats"
+            git push
+          else
+            echo "No changes to commit"
+          fi

@@ -44,5 +44,9 @@ jobs:
           git config --local user.name "GitHub Action"
           git add linkml-schema/library_generation.yaml
           git add linkml-schema/source_library_generation/gsheet_output
-          git commit -m "generate library_generation yaml file"
-          git push
+          if ! git diff --quiet; then
+            git commit -m "generate new yaml file"
+            git push
+          else
+            echo "No changes to commit"
+          fi
