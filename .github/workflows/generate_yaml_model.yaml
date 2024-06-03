@@ -1,4 +1,4 @@
-name: generating other formats
+name: generating yaml file
 
 on:
   push:
