@@ -6,6 +6,11 @@ on:
       - main
     paths:
       - 'linkml-schema/**'
+  workflow_run:
+    workflows: [ generating yaml file ]
+    types:
+      - completed
+
 
 permissions:
   contents: write
