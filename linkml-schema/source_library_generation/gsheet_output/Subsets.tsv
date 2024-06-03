@@ -1,0 +1,10 @@
+Name	Description
+> subset	description
+bican	A subset of classes that are associated with BICAN.
+tissue_specimen	A subset of classes that are associated with tissue specimens.
+library_generation	A subset of classes that are associated with library generation.
+sequencing_elements	A subset of classes that are associated with sequencing.
+processing_elements	A subset of classes that are associated with processing.
+analysis	A subset of slots/attributes that are required for analysis.
+tracking	A subset of slots/attributes that are required for tracking.
+alignment	A subset of slots/attributes that are required for alignment.
