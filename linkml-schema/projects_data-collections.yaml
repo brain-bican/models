@@ -1,0 +1,480 @@
+name: project-datacollection-schema
+description: tbd
+title: Project and Data Collection Schema
+id: https://identifiers.org/brain-bican/project-datacollection-schema
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  bican: https://identifiers.org/brain-bican/vocab/
+  spdx: http://spdx.org/rdf/terms#
+  schema: http://schema.org/
+  ncbi: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi
+default_prefix: bican
+default_range: string
+enums:
+  technique:
+    from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+    permissible_values:
+      10x Chromium 3' v2 sequencing: {}
+      10x Chromium 3' v3 sequencing: {}
+      10X Genomics Multiome: {}
+      anterograde tracing: {}
+      ATAC-seq: {}
+      calcium imaging: {}
+      CISI: {}
+      clinical observation: {}
+      confocal microscopy: {}
+      cre-dependent anterograde tracing: {}
+      DNAseq: {}
+      Drop-seq: {}
+      electron microscopy: {}
+      enhancer virus labeling: {}
+      FISH: {}
+      fMOST: {}
+      histology: {}
+      in situ hybridization: {}
+      laboratory assessment: {}
+      light sheet microscopy: {}
+      m3C-seq: {}
+      mC-seq3: {}
+      mC-seq4: {}
+      MERFISH: {}
+      microarray: {}
+      MORF genetic sparse labeling: {}
+      mouselight: {}
+      MRI: {}
+      multi electrode extracellular electrophysiology technique: {}
+      multiplex immunoassay: {}
+      neuron morphology reconstruction: {}
+      NOV: {}
+      OLST: {}
+      osmFISH: {}
+      Oxford Nanopore long-read sequencing: {}
+      PacBio long-read sequencing: {}
+      Paired-Tag: {}
+      Patch-seq: {}
+      retrograde tracing: {}
+      retrograde transsynaptic tracing: {}
+      RNAseq: {}
+      sci-ATAC-seq4: {}
+      sci-RNA-seq4: {}
+      seqFISH: {}
+      SHARE-seq: {}
+      Slide-seq: {}
+      SMART-seq v5: {}
+      Smart-seq3: {}
+      SNARE-seq3: {}
+      snm3C-seq: {}
+      STPT: {}
+      TempO-seq: {}
+      TRIO tracing: {}
+      VISor: {}
+      whole cell patch clamp: {}
+      whole genome sequencing: {}
+  subprogram:
+    from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+    permissible_values:
+      ACTD: {}
+      ADMBA: {}
+      AHBA: {}
+      AMBA: {}
+      AMBCA: {}
+      ASCA: {}
+      BrainSpan: {}
+      IvyGBM: {}
+      MICrONSEM: {}
+      NHP: {}
+      R24 Ghosh: {}
+      R24 Hertzano: {}
+      R24 Ropelewski: {}
+      R24 White: {}
+      RF1 Adey: {}
+      RF1 Boyden: {}
+      RF1 Cai: {}
+      RF1 Chung: {}
+      RF1 Fan: {}
+      RF1 Hawrylycz: {}
+      RF1 Hillman: {}
+      RF1 Huang: {}
+      RF1 Iglesias Gonzalez: {}
+      RF1 Kim: {}
+      RF1 Laskin: {}
+      RF1 Lee: {}
+      RF1 Macosko: {}
+      RF1 Mitra: {}
+      RF1 Mitra Zhang: {}
+      RF1 Mueller: {}
+      RF1 Mukamel: {}
+      RF1 Nowakowski: {}
+      RF1 Regev: {}
+      RF1 Reid: {}
+      RF1 Ren: {}
+      RF1 Roussos: {}
+      RF1 Shepherd: {}
+      RF1 Shi: {}
+      RF1 Tasic: {}
+      RF1 Tilgner: {}
+      RF1 Vogelstein: {}
+      RF1 Welch: {}
+      RF1 Yang: {}
+      RF1 Yin: {}
+      SEA-AD: {}
+      SynPhys: {}
+      TBI: {}
+      TransChar: {}
+      U01 Chung: {}
+      U01 Dong: {}
+      U01 Ecker: {}
+      U01 Feng: {}
+      U01 Fischl: {}
+      U01 Kriegstein: {}
+      U01 Lein: {}
+      U01 Macosko: {}
+      U01 Osten: {}
+      U01 Sestan: {}
+      U01 Snyder-Mackler: {}
+      U01 Yang: {}
+      U01 ZhangKun: {}
+      U01 ZhangLi: {}
+      U19 Ecker: {}
+      U19 Huang: {}
+      U19 Zeng: {}
+      U24 Hawrylycz: {}
+      UF1 Tasic: {}
+      VisualBehavior: {}
+      VisualCoding: {}
+  species:
+    from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+    permissible_values:
+      Arctic ground squirrel: {}
+      baboon: {}
+      chimpanzee: {}
+      common tree shrew: {}
+      coyote: {}
+      crab-eating macaque: {}
+      domestic cat: {}
+      domestic ferret: {}
+      gray short-tailed opossum: {}
+      green monkey: {}
+      human: {}
+      Ma's night monkey: {}
+      marmoset: {}
+      mouse: {}
+      nine-banded armadillo: {}
+      Norway rat: {}
+      pig: {}
+      pig-tailed macaque: {}
+      rabbit: {}
+      rhesus macaque: {}
+      small-eared galago: {}
+      squirrel monkey: {}
+      western gorilla: {}
+  modality:
+    from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+    permissible_values:
+      anatomy: {}
+      cell morphology: {}
+      connectivity: {}
+      electrophysiology: {}
+      epigenomics: {}
+      genomics: {}
+      histology imaging: {}
+      multimodal: {}
+      optical physiology: {}
+      population imaging: {}
+      protein quantification: {}
+      spatial transcriptomics: {}
+      transcriptomics: {}
+  license:
+    from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+    permissible_values:
+      AIBSTOU: {}
+      CCBY5: {}
+      CZI_TOS: {}
+      NDA_DUC: {}
+      Sage_DUC: {}
+  grant:
+    from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+    permissible_values:
+      Allen Institute funder: {}
+      Autism_EC grant: {}
+      BrainSpan_EL_MH grant: {}
+      BrainSpan_JK grant: {}
+      BrainSpan_NS grant: {}
+      R24 Ghosh grant: {}
+      R24 Ropelewski grant: {}
+      R24 White grant: {}
+      RF1 Chung grant: {}
+      RF1 Kim grant: {}
+      RF1 Macosko grant: {}
+      RF1 Mueller grant: {}
+      RF1 Nowakowski grant: {}
+      RF1 Regev grant: {}
+      RF1 Ren grant: {}
+      RF1 Shepherd grant: {}
+      RF1 Tasic grant: {}
+      RF1 Tilgner grant: {}
+      SFARI_EC grant: {}
+      U01 Chung grant: {}
+      U01 Dong grant: {}
+      U01 Ecker grant: {}
+      U01 Feng grant: {}
+      U01 Fischl grant: {}
+      U01 Kriegstein grant: {}
+      U01 Lein grant: {}
+      U01 Macosko grant: {}
+      U01 Osten grant: {}
+      U01 Sestan grant: {}
+      U01 Snyder-Mackler grant: {}
+      U01 Yang grant: {}
+      U01 ZhangKun grant: {}
+      U01 ZhangLi grant: {}
+      U19 Ecker grant: {}
+      U19 Huang grant: {}
+      U19 SEA-AD grant: {}
+      U19 Zeng grant: {}
+      U24 Hawrylycz grant: {}
+      UF1 Tasic grant: {}
+  completionState:
+    from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+    permissible_values:
+      complete: {}
+      in progress: {}
+  accessControl:
+    from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+    permissible_values:
+      open: {}
+      controlled: {}
+classes:
+  Project:
+    from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+    attributes:
+      title:
+        description: A long form project title.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:34e55bb4-17db-4b7f-bd7d-7272ffe1c9f2
+        alias: project title
+        range: string
+        required: true
+      shortTitle:
+        description: A short form project title.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:216cc403-423a-4b43-b935-b9b61dbb8a26
+        alias: project short title
+        range: string
+        required: true
+      description:
+        description: A long form project description.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:c51e8c8d-d62b-4b79-843b-a3a6810fe709
+        alias: project description
+        range: string
+        required: true
+      subprogram:
+        description: A subprogram to which a project belongs.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:cfd9d928-673a-428a-b5f0-c04e2fdd8ec9
+        multivalued: true
+        alias: project subprogram
+        range: subprogram
+        required: true
+      contact:
+        description: A primary contact for a project. This is typically a person but
+          can also be an institution.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:62381d66-c414-4fe9-8b07-0a00ee855e71
+        alias: project contact
+        range: string
+      creator:
+        description: A creator of a project. This is either a person or institution.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:34c891d4-d721-4023-bbf9-06b84f6a93cc
+        multivalued: true
+        alias: project creator
+        range: string
+        required: true
+      contributor:
+        description: A contributor to a project. This is often given as a list.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:8a1a747c-c24d-451a-9168-ed14d274a97c
+        multivalued: true
+        alias: project contributor
+        required: true
+      fundingSource:
+        description: The funding source for a project.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:3f85bc4b-2e03-426e-b376-4607fc9515e3
+        multivalued: true
+        alias: project funding source
+        range: grant
+        required: true
+      collections:
+        description: The data collections that are part of a project.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:66093eb6-fdaf-4782-8dba-23f6575254d8
+        multivalued: true
+        alias: project collections
+        range: DataCollection
+      highlightedWebResource:
+        description: A link to relevant tools/pages of a project.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:2bb2472b-73b7-426b-adb2-739924a0751b
+        multivalued: true
+        alias: project highlighted web resource
+        range: string
+      protocol:
+        description: A protocol for a project.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:3e80809a-de1a-4333-98a9-f19549fda246
+        multivalued: true
+        alias: project protocol
+        range: string
+      publication:
+        description: A publication associated with a project.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:52d1b518-37e0-4b69-b1d8-36d1ff437376
+        alias: project publication
+        range: string
+  Person:
+    from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+    attributes:
+      givenName:
+        description: A given name of a person.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:2354176f-40f2-4110-98d9-0c203314bfde
+        alias: person given name
+        range: string
+        required: true
+      familyName:
+        description: A family name of a person.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:f5d8f1a3-ce30-45eb-ac26-13a8998c2f5a
+        alias: person family name
+        range: string
+        required: true
+      orcid:
+        description: An ORCID that identifies a person.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:e834467e-a05e-4b9f-8348-5c0079bdaac8
+        alias: person ORCID
+        range: string
+  Organization:
+    from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+    attributes:
+      ror:
+        description: A Research Organization Registry ID that identifies an organization.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:3fd3913c-0e36-4fe0-ac99-073f496c0919
+        alias: organization Research Organization Registry ID
+        range: string
+  DataCollection:
+    from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+    attributes:
+      title:
+        description: A long form title of a data collection.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:62208817-6a7f-4e70-9c4a-d262f43d82cc
+        alias: data collection long form title
+        range: string
+        required: true
+      shortTitle:
+        description: A short form title of a data collection (fewer than 30 characters).
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:f5169355-52cf-4720-904f-946c92489faa
+        alias: data collection short form title
+        range: string
+        required: true
+      description:
+        description: A description of a data collection that includes a specification
+          of the license of the data collection.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:c5188587-2b4f-4889-ae93-224efdb803d2
+        alias: data collection description
+        range: string
+        required: true
+      dataArchive:
+        description: The location (archive) at which the data in a data collection
+          is to be deposited.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:39498a35-3cb5-46ce-9e23-dc5e499b85c4
+        multivalued: true
+        alias: data collection archive
+        range: Organization
+        required: true
+      species:
+        description: The common name of the species of the donor from which data were
+          collected for this data collection.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:7135fb76-5423-44da-ba52-4c33e8626033
+        multivalued: true
+        alias: data collection species
+        range: species
+        required: true
+      accessControl:
+        description: The level of access specified for a data collection.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:3880e926-d2fb-4960-bf61-4b5789e6c027
+        alias: data collection access control
+        range: accessControl
+        required: true
+      accessControlCode:
+        description: The code that denotes the access restrictions specified for a
+          data collection.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:1ff82abd-7ada-48f0-b235-6aa1b7c36f6b
+        alias: data collection access control code
+        range: accessControl
+      accessControlDescription:
+        description: A free text description of the access restrictions specified
+          for a data collection.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:85b8be40-51e1-4357-af33-fa95fe7d7d68
+        alias: data collection access control description
+        range: string
+      completionState:
+        description: A value that specifies whether or not additional data is being
+          generated for a data collection.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:456513f2-0af8-45e1-b8f0-338636ed3f61
+        alias: data collection completion state
+        range: completionState
+        required: true
+      modality:
+        description: The modality of the data in a data collection.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:480af9eb-0128-4602-9c8f-01416820cee3
+        multivalued: true
+        alias: data collection modality
+        range: modality
+        required: true
+      technique:
+        description: The technique that was used to acquire the data in a collection.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:bee3bda8-c103-448f-8557-effcaca176bf
+        multivalued: true
+        alias: data collection technique
+        range: technique
+        required: true
+      license:
+        description: A license that is applied to the data in a data collection.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:b184e037-1b45-4ca6-8651-7044b1a74199
+        multivalued: true
+        alias: data collection license
+        range: license
+        required: true
+      webResource:
+        description: A URL or weblink that provides the location of relevant tools
+          or pages to a data collection.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:ebdc27a1-37ca-46ec-8914-6d3fae85a3d9
+        multivalued: true
+        alias: data collection web resource
+        range: uri
+      citation:
+        description: A data citation for a data collection.
+        from_schema: https://identifiers.org/brain-bican/project-datacollection-schema
+        slot_uri: bican:ea4729c6-df21-40db-8141-5af1d44ba75c
+        alias: data collection citation
+        range: string
