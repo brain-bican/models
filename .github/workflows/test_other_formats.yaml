@@ -39,7 +39,7 @@ jobs:
               # generating jsonld context
               gen-jsonld-context ${file};
               # generating pydantic schema
-              gen-pydantic --pydantic-version 2 ${file};
+              gen-pydantic ${file};
               if [ ${name} != "library_generation" ] && [ ${name} != "genome_annotation" ]; then
                 gen-erdiagram ${file};
               fi
