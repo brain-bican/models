@@ -2,4 +2,8 @@
 
 - Metadata from [Google Sheet](https://docs.google.com/spreadsheets/d/11OcQz1Vk3ofny3Ql7wN-XlHkZwub-hojt-fO094SxiI/edit?usp=sharing)
 - All the sheets will be saved as tsv files in `gsheet_output`
-- Current Google Sheet version: `bk_workshop_mit24`
+- Current Google Sheet version: `aug20_2024`
+- The generated LinkML schema will be saved in `bkbit/models/library_generation_model.yaml`
+- Additional information:
+  - currently using `no-inlined` due to some issues with pydantic generation
+  - currently using an older version of schemasheets due to issues with newer versions
