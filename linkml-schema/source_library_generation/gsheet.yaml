@@ -12,5 +12,7 @@ sheets:
     gid: "1299830797"
   - name: "Prefixes"
     gid: "621222810"
+  - name: "Schema"
+    gid: "1383357145"
   - name: "ValueSets"
     gid: "475538568"

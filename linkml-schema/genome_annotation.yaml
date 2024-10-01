@@ -16,6 +16,7 @@ prefixes:
 imports:
   - linkml:types
   - bican_biolink
+  - bican_core
 default_range: string
 default_prefix: bican
 
@@ -70,16 +71,6 @@ classes:
       - version
       - strain
 
-  checksum:
-    is_a: entity
-    description: >-
-      Checksum values associated with digital entities.
-    slots:
-      - checksum algorithm
-    attributes:
-      value: 
-        description: The checksum value obtained from a specific cryotographic hash function.
-
   annotation collection:
     tree_root: true
     attributes:
@@ -103,14 +94,6 @@ slots:
       - range: BioType
       - range: string
 
-  digest:
-    description: Stores checksum information. 
-    multivalued: true
-    inlined_as_list: true
-    any_of:
-      - range: checksum
-      - range: string
-
   content_url:
     slot_uri: schema:url
     multivalued: true
@@ -118,10 +101,6 @@ slots:
   authority:
     description: The organization responsible for publishing the data. 
     range: AuthorityType
-
-  checksum algorithm:
-    description: The type of cryptographic hash function used to calculate the checksum value.
-    range: DigestType
 
   source id:
     description: The authority specific identifier. 
@@ -132,18 +111,6 @@ slots:
 
 
 enums:
-  DigestType:
-    permissible_values:
-      spdx:checksumAlgorithm_sha1:
-        title: SHA1
-        meaning: spdx:checksumAlgorithm_sha1
-      spdx:checksumAlgorithm_md5:
-        title: MD5
-        meaning: spdx:checksumAlgorithm_md5
-      spdx:checksumAlgorithm_sha256:
-        title: SHA256
-        meaning: spdx:checksumAlgorithm_sha256
-
   BioType:
     permissible_values:
       protein_coding:
