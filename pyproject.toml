@@ -4,12 +4,12 @@ requires = ["setuptools >= 61.0", "setuptools-scm"]
 build-backend = 'setuptools.build_meta'
 
 [project]
-name = "atlaskb-models"
+name = "bican-models"
 version = "0.0.1"
 authors = [
-  { name="atlaskb developers"},
+  { name="bican developers"},
 ]
-description = "A library for atlaskb data models"
+description = "A library for BICAN data models"
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
@@ -31,4 +31,4 @@ docs = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/atlaskb/models"
+"Homepage" = "https://brain-bican.github.io/models/"
