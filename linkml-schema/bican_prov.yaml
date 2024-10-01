@@ -8,7 +8,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
   bican: https://identifiers.org/brain-bican/vocab/
   schema: http://schema.org/
-  prov: https://www.w3.org/TR/prov-dm/#term-
+  prov: http://www.w3.org/ns/prov#
 
 imports:
   - linkml:types
