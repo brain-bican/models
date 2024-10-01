@@ -1,3 +1,21 @@
+id: https://identifiers.org/brain-bican/genome-prov-schema
+name: bican-prov-schema
+title: BICAN Prov Schema
+description: |-
+  The BICAN Prov schema contains a subset of classes from the Prov Data Model (PROV-DM) that are frequently used in BICAN schemas.
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  bican: https://identifiers.org/brain-bican/vocab/
+  schema: http://schema.org/
+  prov: https://www.w3.org/TR/prov-dm/#term-
+
+imports:
+  - linkml:types
+
+default_range: string
+default_prefix: bican
+
 classes:
   ProvActivity:
     mixin: true

@@ -1,8 +1,8 @@
-id: https://identifiers.org/brain-bican/genome-annotation-schema
+id: https://identifiers.org/brain-bican/bican-core-schema
 name: bican-core-schema
 title: BICAN Core Schema
 description: |-
-  The BICAN Core schema is designed to represent frequently used objects among many schemas defined in BICAN.
+  The BICAN Core schema is designed to represent classes, slots, and enums that are frequently used in BICAN schemas.
   
 prefixes:
   linkml: https://w3id.org/linkml/
