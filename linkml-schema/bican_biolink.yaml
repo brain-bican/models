@@ -1,6 +1,8 @@
-name: Biolink-Model
-description: Entity and association taxonomy and datamodel for life-sciences data
-id: https://w3id.org/biolink/biolink-model
+id: https://w3id.org/biolink/bican-biolink-schema
+name: bican-biolink-schema
+title: BICAN Biolink Schema
+description: |-
+  The BICAN Biolink schema contains a subset of classes from the Biolink Model that are frequently used in BICAN schemas. The Biolink model represents life-sciences data and defines entities and association taxonomy classes.
 version: 4.2.0-rc.2
 imports:
 - linkml:types

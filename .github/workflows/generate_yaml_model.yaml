@@ -36,7 +36,7 @@ jobs:
       - name: Generate yaml model
         run: |
           cd linkml-schema
-          bkbit schema2model -o library_generation.yaml --template source_library_generation/classes_base.yaml --gsheet --gsheet-download-dir source_library_generation/gsheet_output  source_library_generation/gsheet.yaml  --no-inlined
+          bkbit schema2model -o library_generation.yaml --gsheet --gsheet-download-dir source_library_generation/gsheet_output  source_library_generation/gsheet.yaml  --no-inlined
           cd ..
 
       - name: Adding other model representations to git
