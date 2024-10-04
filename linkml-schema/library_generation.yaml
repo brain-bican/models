@@ -1823,14 +1823,6 @@ enums:
         description: years
         meaning: NIMP:PD-AVAVEV39
 slots:
-  was_derived_from:
-    from_schema: https://identifiers.org/brain-bican/library-generation-schema
-  used:
-    from_schema: https://identifiers.org/brain-bican/library-generation-schema
-  was_generated_by:
-    from_schema: https://identifiers.org/brain-bican/library-generation-schema
-  digest:
-    from_schema: https://identifiers.org/brain-bican/library-generation-schema
   content_url:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
 classes:
