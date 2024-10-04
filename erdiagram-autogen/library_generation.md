@@ -1,9 +1,29 @@
 ```mermaid
 erDiagram
-ProvEntity {
-
+DigitalAsset {
+    stringList digest  
+    string content_url  
+    string data_type  
+    string id  
+    iri_type iri  
+    uriorcurieList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    string license  
+    string rights  
+    string format  
+    date creation_date  
 }
 ProvActivity {
+
+}
+ProvEntity {
 
 }
 DissectionRoiPolygon {
@@ -301,9 +321,12 @@ Donor {
     label_typeList synonym  
 }
 
+DigitalAsset ||--|o LibraryPool : "was_derived_from"
+DigitalAsset ||--|o ProvActivity : "was_generated_by"
+DigitalAsset ||--}o Attribute : "has attribute"
+ProvActivity ||--|o ProvEntity : "used"
 ProvEntity ||--|o ProvEntity : "was_derived_from"
 ProvEntity ||--|o ProvActivity : "was_generated_by"
-ProvActivity ||--|o ProvEntity : "used"
 DissectionRoiPolygon ||--|o DissectionRoiDelineation : "was_generated_by"
 DissectionRoiPolygon ||--|o BrainSlab : "annotates"
 DissectionRoiPolygon ||--|o ProvEntity : "was_derived_from"
@@ -352,7 +375,7 @@ TissueSample ||--|o Donor : "was_derived_from"
 TissueSample ||--|o TissueDissection : "was_generated_by"
 TissueSample ||--|o DissectionRoiPolygon : "dissection_was_guided_by"
 TissueSample ||--}o Attribute : "has attribute"
-BrainSlab ||--|o Donor : "was_derived_from"
+BrainSlab ||--|o ProvEntity : "was_derived_from"
 BrainSlab ||--|o ProvActivity : "was_generated_by"
 BrainSlab ||--}o Attribute : "has attribute"
 Donor ||--}o OrganismTaxon : "in taxon"

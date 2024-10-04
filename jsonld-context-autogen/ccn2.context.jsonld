@@ -4,6 +4,7 @@
       "source": "ccn2.yaml"
    },
    "@context": {
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "ccn2": {
          "@id": "https://github.com/brain-bican/CCN2",
          "@prefix": true
@@ -58,7 +59,6 @@
       },
       "rank": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"

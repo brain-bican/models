@@ -58,17 +58,6 @@ GeneAnnotation {
     uriorcurieList xref  
     biological_sequence has_biological_sequence  
 }
-Checksum {
-    DigestType checksum_algorithm  
-    string value  
-    string id  
-    iri_type iri  
-    uriorcurieList category  
-    stringList type  
-    label_type name  
-    narrative_text description  
-    boolean deprecated  
-}
 
 AnnotationCollection ||--}o GeneAnnotation : "annotations"
 AnnotationCollection ||--}o GenomeAnnotation : "genome_annotations"
@@ -79,7 +68,6 @@ GenomeAnnotation ||--}o Attribute : "has attribute"
 GenomeAnnotation ||--}o OrganismTaxon : "in taxon"
 GeneAnnotation ||--}o Attribute : "has attribute"
 GeneAnnotation ||--}o OrganismTaxon : "in taxon"
-Checksum ||--}o Attribute : "has attribute"
 
 ```
 

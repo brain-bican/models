@@ -4,6 +4,7 @@
       "source": "library_generation.yaml"
    },
    "@context": {
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "AGRKB": "https://www.alliancegenome.org/",
       "AspGD": {
          "@id": "http://www.aspergillusgenome.org/cgi-bin/locus.pl?dbid=",
@@ -193,11 +194,9 @@
       "schema": "http://schema.org/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "spdx": "http://spdx.org/rdf/terms#",
-      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "@vocab": "https://identifiers.org/brain-bican/vocab/",
       "amplified_cDNA_RNA_amplification_pass_fail": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -217,7 +216,7 @@
          "@id": "f10e928d-5a2b-4943-af18-d8fe5d05528d"
       },
       "category": {
-         "@type": "@id",
+         "@type": "xsd:anyURI",
          "@id": "biolink:category"
       },
       "amplified_cDNA_PCR_cycles": {
@@ -237,7 +236,6 @@
       },
       "method": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -250,6 +248,20 @@
       "process_date": {
          "@id": "process_date"
       },
+      "checksum_algorithm": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "checksum_algorithm"
+      },
+      "value": {
+         "@id": "value"
+      },
+      "content_url": {
+         "@id": "content_url"
+      },
       "creation_date": {
          "@type": "xsd:date",
          "@id": "biolink:creation_date"
@@ -261,13 +273,19 @@
       "description": {
          "@id": "dct:description"
       },
+      "digest": {
+         "@type": "@id",
+         "@id": "digest"
+      },
+      "data_type": {
+         "@id": "data_type"
+      },
       "annotates": {
          "@type": "@id",
          "@id": "annotates"
       },
       "dissociated_cell_sample_cell_prep_type": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -276,7 +294,6 @@
       },
       "dissociated_cell_oligo_tag_name": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -288,7 +305,6 @@
       },
       "age_at_death_reference_point": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -297,7 +313,6 @@
       },
       "age_at_death_unit": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -310,7 +325,6 @@
       },
       "biological_sex": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -375,7 +389,7 @@
          "@id": "biolink:in_taxon_label"
       },
       "iri": {
-         "@type": "@id",
+         "@type": "xsd:anyURI",
          "@id": "biolink:iri"
       },
       "library_avg_size_bp": {
@@ -388,7 +402,6 @@
       },
       "library_prep_pass_fail": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -405,7 +418,6 @@
       },
       "R1/R2_index_name": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -418,7 +430,6 @@
       },
       "library_method": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -494,7 +505,7 @@
          "@id": "prov:wasGeneratedBy"
       },
       "xref": {
-         "@type": "@id",
+         "@type": "xsd:anyURI",
          "@id": "biolink:xref"
       },
       "Activity": {
@@ -533,11 +544,17 @@
       "CellEnrichment": {
          "@id": "CellEnrichment"
       },
+      "Checksum": {
+         "@id": "Checksum"
+      },
       "ChemicalEntityOrGeneOrGeneProduct": {
          "@id": "biolink:ChemicalEntityOrGeneOrGeneProduct"
       },
       "Dataset": {
          "@id": "biolink:Dataset"
+      },
+      "DigitalAsset": {
+         "@id": "DigitalAsset"
       },
       "DissectionRoiDelineation": {
          "@id": "DissectionRoiDelineation"

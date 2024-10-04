@@ -4,13 +4,13 @@
       "source": "figure1.yaml"
    },
    "@context": {
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "figure1": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/",
       "linkml": "https://w3id.org/linkml/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "@vocab": "https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1/",
       "broad_region": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -23,7 +23,6 @@
       },
       "category": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -36,7 +35,6 @@
       },
       "division": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -45,7 +43,6 @@
       },
       "nt_type": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -70,7 +67,6 @@
       },
       "relationship_type": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
