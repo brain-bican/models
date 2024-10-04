@@ -3,10 +3,6 @@ name: push pydantic library_generation to bkbit
 on:
   push:
     paths: 'models_py-autogen/library_generation.py'
-  workflow_run:
-    workflows: [generating other formats]
-    types:
-      - completed
 
 jobs:
   update_library_generation:

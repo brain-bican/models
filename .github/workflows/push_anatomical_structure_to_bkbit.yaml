@@ -3,10 +3,6 @@ name: push pydantic anatomical_structure to bkbit
 on:
   push:
     paths: 'models_py-autogen/anatomical_structure.py'
-  workflow_run:
-    workflows: [generating other formats]
-    types:
-      - completed
 
 jobs:
   update_anatomical_structure:

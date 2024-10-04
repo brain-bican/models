@@ -3,11 +3,7 @@ name: push pydantic genome_annotation to bkbit
 on:
   push:
     paths: 'models_py-autogen/genome_annotation.py'
-  workflow_run:
-    workflows: [generating other formats]
-    types:
-      - completed
-
+    
 jobs:
   update_genome_annotation:
     runs-on: ubuntu-latest
