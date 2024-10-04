@@ -62,11 +62,11 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add json-schema-autogen/*.json
-          git add jsonld-context-autogen/*.context.jsonld
-          git add models_py-autogen/*.py
-          git add erdiagram-autogen/*.md
           if ! git diff --quiet; then
+            git add json-schema-autogen/*.json
+            git add jsonld-context-autogen/*.context.jsonld
+            git add models_py-autogen/*.py
+            git add erdiagram-autogen/*.md
             git commit -m "generate another formats"
             git push
           else
