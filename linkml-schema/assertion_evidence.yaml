@@ -1,0 +1,265 @@
+name: assertion-evidence-schema
+title: Assertion Evidence Schema
+id: https://identifiers.org/brain-bican/assertion-evidence-schema
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  bican: https://identifiers.org/brain-bican/vocab/
+  spdx: http://spdx.org/rdf/terms#
+  schema: http://schema.org/
+  prov: https://brainkb.org/
+  brainkb: http://www.w3.org/ns/prov#
+  eco: http://purl.obolibrary.org/obo/ECO_
+  sepio: http://purl.obolibrary.org/obo/SEPIO_
+default_prefix: brainkb
+default_range: string
+enums:
+  AssertionType:
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    permissible_values:
+      Negative: {}
+      Inconclusive: {}
+  Categories:
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    permissible_values:
+      Behavioral: {}
+      Biomarker: {}
+      DrugTarget: {}
+      Genetic: {}
+      ClinicalTrial: {}
+      Etiologic: {}
+      Neuroimaging: {}
+      Electrophysiological: {}
+      Molecular: {}
+      Pharmacological: {}
+      Neuropsychological: {}
+      Neurogenetic: {}
+      Neurochemical: {}
+      Neuroanatomical: {}
+      Neurodevelopmental: {}
+      Neuroinflammatory: {}
+      Neuroplasticity: {}
+      Neuropathological: {}
+      Neurocomputational: {}
+      Neuroendocrine: {}
+      Neuropharmacogenomic: {}
+      Neuroproteomic: {}
+      Neurogenomic: {}
+      Epigenetic: {}
+      Environmental: {}
+      Translational: {}
+      Therapeutic: {}
+      CognitiveNeuroscience: {}
+  SignificanceLevel:
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    permissible_values:
+      HighlySignificant:
+        description: P value less than 0.01
+      Significant:
+        description: P value less than 0.05
+      MarginallySignificant:
+        description: P value less than 0.10
+      NotSignificant:
+        description: P value greater than or equal to 0.10
+      Unknown:
+        description: Specifies that the significance level is unknown as the information
+          is not present in the study.
+  Significance:
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    permissible_values:
+      Clinical: {}
+      NonClinical: {}
+slots:
+  is_described_by:
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+  uses:
+    description: The eco:uses property is the inverse of the eco:used_in property
+      and defines the relationship between eco:Assertion and eco:Evidence, indicating
+      that an assertion relies on the evidence.
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    range: Evidence
+  used_in:
+    description: The eco:used_in property establishes a relationship between eco:Evidence
+      and eco:Assertion, indicating that the evidence is utilized to support the corresponding
+      assertion.
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    range: Assertion
+  has_assertion_method:
+    description: The brainkb:hasAssertionMethod property relates an eco:Assertion
+      to an brainkb:AssertionMethod that differentiates different types of assertions
+      techniques used while making an assertion.
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    range: AssertionMethod
+  is_associated_with:
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+classes:
+  Assertion:
+    description: A statement made by a particular agent on a particular occasion that
+      a particular proposition is true, based on the evaluation of one or more lines
+      of evidence.
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    slots:
+    - uses
+    - has_assertion_method
+    - is_associated_with
+    slot_usage:
+      uses: {}
+      has_assertion_method:
+        description: The brainkb:hasAssertionMethod property relates an eco:Assertion
+          to an brainkb:AssertionMethod that differentiates different types of assertions
+          techniques used while making an assertion.
+      is_associated_with:
+        description: The brainkb:isAssociatedWith property establishes relationships
+          between different entities:it links sepio:Assertion to brainkb:AssertionSummary,
+          indicating the association between an assertion and its corresponding summary.
+        range: AssertionSummary
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    attributes:
+      has_assertion_category:
+        description: The brainkb:hasAssertionCategory property relates brainkb:Evidence
+          and brainkb:Categories, specifying the classification or category that the
+          assertion belongs to.
+        from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+        slot_uri: brainkb:hasAssertionCategory
+        alias: hasAssertionCategory
+        range: Categories
+      has_assertion_text:
+        description: The brainkb:hasAssertionText property relates an eco:Assertion
+          to an xsd:string, providing a textual excerpt of the assertion being made.
+        from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+        slot_uri: brainkb:hasAssertionText
+        alias: hasAssertionText
+        range: string
+      has_assertion_method:
+        description: The brainkb:hasAssertionMethod property relates an eco:Assertion
+          to an eco:assertion method that differentiates different types of assertions
+          techniques used while making an assertion.
+        from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+        slot_uri: brainkb:hasAssertionMethod
+        alias: hasAssertionMethod
+        range: eco:assertion method
+    class_uri: sepio:Assertion
+  Document:
+    description: A collection of information content entities intended to be understood
+      together as a whole
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    slot_usage:
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    class_uri: sepio:Document
+  Activity:
+    description: An activity is something that occurs over a period of time and acts
+      upon or with entities; it may include consuming, processing, transforming, modifying,
+      relocating, using, or generating entities.
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    slot_usage:
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    attributes:
+      ended_at_time:
+        description: The prov:endedAtTime establishes the relationship between prov:Activity
+          and xsd:DateTime that allows one to specify the time when the activity ended.
+        from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+        alias: endedAtTime
+        range: dateTime
+      started_at_time:
+        description: The prov:startedAtTime establishes the relationship between prov:Activity
+          and xsd:DateTime that allows one to specify the time when the activity started.
+        from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+        alias: startedAtTime
+        range: dateTime
+    class_uri: prov:Activity
+  Agent:
+    description: An agent is something that bears some form of responsibility for
+      an activity taking place, for the existence of an entity, or for another agent's
+      activity.
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    slots:
+    - is_associated_with
+    slot_usage:
+      is_associated_with:
+        description: 'The brainkb:isAssociatedWith property establishes relationships
+          between different entities: it connects prov:Agent to prov:Activity, reflecting
+          the involvement or connection between an agent and an activity.'
+        range: Activity
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    class_uri: prov:Agent
+  AssertionSummary:
+    description: A summary is a brief statement or description of the main points,
+      especially as a conclusion to a work about the assertion.
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    slot_usage:
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    attributes:
+      has_assertion_summary:
+        description: The brainkb:hasAssertionSummary property relates a brainkb:AssertionSummary
+          to an xsd:string, providing a concise overview that differentiates various
+          assertions. This summary encapsulates the core content of the assertion,
+          allowing for easy identification and understanding of its essence.
+        from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+        slot_uri: brainkb:hasAssertionSummary
+        alias: hasAssertionSummary
+        range: string
+    class_uri: brainkb:AssertionSummary
+  EvidenceSummary:
+    description: A summary is a brief statement or description of the main points,
+      especially as a conclusion to a work about the evidence.
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    slot_usage:
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    attributes:
+      has_evidence_summary:
+        description: The brainkb:hasEvidenceSummary property relates a brainkb:EvidenceSummary
+          to an xsd:string, providing a concise overview that differentiates various
+          evidence. This summary encapsulates the core content of the evidence, allowing
+          for easy identification and understanding of its essence.
+        from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+        slot_uri: brainkb:hasEvidenceSummary
+        alias: hasEvidenceSummary
+        range: string
+    class_uri: brainkb:EvidenceSummary
+  AssertionMethod:
+    description: A means by which a statement is made about the entity
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    slot_usage:
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    class_uri: brainkb:AssertionMethod
+  Evidence:
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    slots:
+    - is_described_by
+    - used_in
+    - is_associated_with
+    slot_usage:
+      is_described_by: {}
+      used_in: {}
+      is_associated_with:
+        description: 'The brainkb:isAssociatedWith property establishes relationships
+          between different entities: it associates eco:Evidence with brainkb:EvidenceSummary,
+          signifying the connection between evidence and its summarized representation.'
+        range: EvidenceSummary
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    attributes:
+      has_evidence_category:
+        description: The brainkb:hasEvidenceCategory property relates brainkb:Evidence
+          and brainkb:Categories, specifying the classification or category that the
+          evidence belongs to.
+        from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+        slot_uri: brainkb:hasEvidenceCategory
+        alias: hasEvidenceCategory
+        range: Categories
+      has_evidence_text:
+        description: The brainkb:hasEvidenceText property relates an eco:Evidence
+          to an xsd:string, providing a textual excerpt of the evidence supporting
+          the assertion.
+        from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+        slot_uri: brainkb:hasEvidenceText
+        alias: hasEvidenceText
+        range: string
