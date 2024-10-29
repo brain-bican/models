@@ -55,7 +55,7 @@ jobs:
               fi
             fi
           done
-          ls -l tests_artifacts
+          ls -l tests_artifacts/json-schema-autogen
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
