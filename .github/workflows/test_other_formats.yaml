@@ -60,7 +60,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: artifacts
-          path: tests_artifacts/*
+          path: tests_artifacts/json-schema-autogen/*
 
       - name: Download all artifacts
         uses: actions/download-artifact@v3
