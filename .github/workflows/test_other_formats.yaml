@@ -76,7 +76,7 @@ jobs:
             git add models_py-autogen/*.py
             git add erdiagram-autogen/*.md
             git commit -m "generate another formats and add them to the testing branch"
-            git push origin $branch_name
+            git push
           else
             echo "No changes to commit"
           fi
