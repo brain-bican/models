@@ -55,6 +55,7 @@ jobs:
               fi
             fi
           done
+          ls -l tests_artifacts
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
