@@ -8,8 +8,8 @@ prefixes:
   bican: https://identifiers.org/brain-bican/vocab/
   spdx: http://spdx.org/rdf/terms#
   schema: http://schema.org/
-  prov: https://brainkb.org/
-  brainkb: http://www.w3.org/ns/prov#
+  brainkb: https://brainkb.org/
+  prov: http://www.w3.org/ns/prov#
   eco: http://purl.obolibrary.org/obo/ECO_
   sepio: http://purl.obolibrary.org/obo/SEPIO_
 default_prefix: brainkb
@@ -18,6 +18,7 @@ enums:
   AssertionType:
     from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
     permissible_values:
+      Positive: {}
       Negative: {}
       Inconclusive: {}
   Categories:
@@ -139,7 +140,7 @@ classes:
         from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
         slot_uri: brainkb:hasAssertionMethod
         alias: hasAssertionMethod
-        range: eco:assertion method
+        range: AssertionMethod
     class_uri: sepio:Assertion
   Document:
     description: A collection of information content entities intended to be understood
@@ -229,7 +230,7 @@ classes:
     slot_usage:
       category:
         pattern: ^bican:[A-Z][A-Za-z]+$
-    class_uri: brainkb:AssertionMethod
+    class_uri: eco:0000217
   Evidence:
     from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
     slots:
