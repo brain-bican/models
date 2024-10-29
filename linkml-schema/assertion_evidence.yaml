@@ -164,13 +164,13 @@ classes:
           and xsd:DateTime that allows one to specify the time when the activity ended.
         from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
         alias: endedAtTime
-        range: dateTime
+        range: datetime
       started_at_time:
         description: The prov:startedAtTime establishes the relationship between prov:Activity
           and xsd:DateTime that allows one to specify the time when the activity started.
         from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
         alias: startedAtTime
-        range: dateTime
+        range: datetime
     class_uri: prov:Activity
   Agent:
     description: An agent is something that bears some form of responsibility for
