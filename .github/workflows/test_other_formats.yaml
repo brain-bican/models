@@ -35,6 +35,7 @@ jobs:
           cd linkml-schema
           mkdir tests_artifacts
           mkdir tests_artifacts/json-schema-autogen
+          mkdir tests_artifacts/jsonld-context-autogen
           mkdir tests_artifacts/models_py-autogen
           mkdir tests_artifacts/erdiagram-autogen
           for file in *.yaml; do
