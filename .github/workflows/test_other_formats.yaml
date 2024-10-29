@@ -64,6 +64,7 @@ jobs:
 
       - name: Creating another branch and to check other model representations
         run: |
+          branch_name="testing-autogen-formats"
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           if ! git diff --quiet; then
@@ -72,7 +73,7 @@ jobs:
             git add models_py-autogen/*.py
             git add erdiagram-autogen/*.md
             git commit -m "generate another formats and add them to the testing branch"
-            git push
+            git push --set-upstream origin $branch_name
           else
             echo "No changes to commit"
           fi
