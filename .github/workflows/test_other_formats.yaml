@@ -28,7 +28,7 @@ jobs:
       - name: Other installations
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential git wget curl
+          sudo apt-get install -y build-essential git wget curl colordiff
 
       - name: Generate other model representations
         run: |
@@ -43,10 +43,16 @@ jobs:
               name=`basename ${file} .yaml`;
               echo "Processing $name file..";
               gen-json-schema  ${file} > tests_artifacts/json-schema-autogen/${name}.json;
+              echo "Diff in json schema for $name file (comparing to the current version)"
+              colordiff json-schema-autogen/${name}.json tests_artifacts/json-schema-autogen/${name}.json
               # generating jsonld context and removing generation_date field to avoid constant updates
               gen-jsonld-context ${file} > tests_artifacts/jsonld-context-autogen/${name}.context.jsonld;
               sed -i "/generation_date/d" tests_artifacts/jsonld-context-autogen/${name}.context.jsonld;
+              echo "Diff in jsonld context for $name file (comparing to the current version)"
+              colordiff jsonld-context-autogen/${name}.context.jsonld tests_artifacts/jsonld-context-autogen/${name}.context.jsonld
               gen-pydantic ${file} > tests_artifacts/models_py-autogen/${name}.py;
+              echo "Diff in pydantic model for $name file (comparing to the current version)"
+              colordiff models_py-autogen/${name}.py tests_artifacts/models_py-autogen/${name}.py
               if [ ${name} = "library_generation" ] || [ ${name} = "genome_annotation" ]; then
                 echo "Creating and Fixing diagrams for $name";
                 python ../utils/fix_and_create_erdiagram.py
