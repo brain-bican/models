@@ -70,5 +70,10 @@ jobs:
             git commit -m "generate another formats"
             git push
           else
-            echo "No changes to commit"
+            git add json-schema-autogen/assertion_evidence.json
+            git add jsonld-context-autogen/assertion_evidence.context.jsonld
+            git add models_py-autogen/assertion_evidence.py
+            git add erdiagram-autogen/assertion_evidence.md
+            git commit -m "generate another formats"
+            git push
           fi
