@@ -23,10 +23,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "description": {
                     "type": "string"
@@ -56,9 +53,6 @@
                         },
                         {
                             "type": "string"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "type": "string"
@@ -88,10 +82,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "description": {
                     "type": "string"
@@ -121,9 +112,6 @@
                         },
                         {
                             "type": "string"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "type": "string"
@@ -163,10 +151,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "description": {
                     "type": "string"
@@ -184,9 +169,6 @@
                         },
                         {
                             "type": "string"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "type": "string"
@@ -204,18 +186,12 @@
                 },
                 "x_resolution": {
                     "description": "The resolution (length / pixel) in along the x axis (numerical value part).",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "x_size": {
                     "description": "The number of pixels/voxels (size) along the x axis.",
                     "minimum": 1,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "y_direction": {
                     "$ref": "#/$defs/ANATOMICALDIRECTION",
@@ -223,18 +199,12 @@
                 },
                 "y_resolution": {
                     "description": "The resolution (length / pixel) in along the y axis (numerical value part).",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "y_size": {
                     "description": "The number of pixels/voxels (size) along the y axis.",
                     "minimum": 1,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "z_direction": {
                     "$ref": "#/$defs/ANATOMICALDIRECTION",
@@ -242,18 +212,12 @@
                 },
                 "z_resolution": {
                     "description": "The resolution (length / pixel) in along the z axis (numerical value part).",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "z_size": {
                     "description": "The number of pixels/voxels (size) along the y axis.",
                     "minimum": 1,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 }
             },
             "required": [
@@ -287,10 +251,7 @@
                 "voxel_count": {
                     "description": "The number of voxels (3D pixels) spanned by the parcellation annotation (optional).",
                     "minimum": 0,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 }
             },
             "required": [
@@ -347,10 +308,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "description": {
                     "type": "string"
@@ -404,9 +362,6 @@
                         },
                         {
                             "type": "string"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "type": "string"
@@ -418,9 +373,6 @@
                         },
                         {
                             "type": "string"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "description": "Reference to the general (non versioned) parcellation atlas for which the parcellation atlas is a specific  version release of.",
@@ -448,10 +400,7 @@
             "properties": {
                 "color": {
                     "description": "A string representing to hex triplet code of a color",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "part_of_parcellation_color_scheme": {
                     "anyOf": [
@@ -496,10 +445,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "description": {
                     "type": "string"
@@ -517,9 +463,6 @@
                         },
                         {
                             "type": "string"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "type": "string"
@@ -561,10 +504,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "description": {
                     "type": "string"
@@ -576,9 +516,6 @@
                         },
                         {
                             "type": "string"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "description": "Reference to the parent parcellation term for which the parcellation term is a child ( spatially part) of",
@@ -593,10 +530,7 @@
                 "ordinal": {
                     "description": "Ordinal of the parcellation term among other terms within the context of the associated  parcellation terminology.",
                     "minimum": 0,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "part_of_parcellation_term_set": {
                     "anyOf": [
@@ -612,10 +546,7 @@
                 },
                 "symbol": {
                     "description": "Symbol representing a parcellation term.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -638,10 +569,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "description": {
                     "type": "string"
@@ -653,9 +581,6 @@
                         },
                         {
                             "type": "string"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "description": "Reference to the parent parcellation term set for which the parcellation term set is a child  (lower taxonomic rank) of.",
@@ -670,10 +595,7 @@
                 "ordinal": {
                     "description": "Ordinal of the parcellation term set among other term sets within the context of the  associated parcellation terminology.",
                     "minimum": 0,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "part_of_parcellation_terminology": {
                     "anyOf": [
@@ -708,10 +630,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "description": {
                     "type": "string"
@@ -729,9 +648,6 @@
                         },
                         {
                             "type": "string"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "type": "string"

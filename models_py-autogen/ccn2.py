@@ -1,32 +1,36 @@
 from __future__ import annotations 
-
-import re
-import sys
 from datetime import (
-    date,
     datetime,
-    time
+    date
 )
 from decimal import Decimal 
 from enum import Enum 
+import re
+import sys
 from typing import (
     Any,
     ClassVar,
-    Dict,
     List,
     Literal,
+    Dict,
     Optional,
     Union
 )
-
-from pydantic import (
-    BaseModel,
-    ConfigDict,
-    Field,
-    RootModel,
-    field_validator
-)
-
+from pydantic.version import VERSION  as PYDANTIC_VERSION 
+if int(PYDANTIC_VERSION[0])>=2:
+    from pydantic import (
+        BaseModel,
+        ConfigDict,
+        Field,
+        RootModel,
+        field_validator
+    )
+else:
+    from pydantic import (
+        BaseModel,
+        Field,
+        validator
+    )
 
 metamodel_version = "None"
 version = "None"
@@ -113,7 +117,6 @@ class Taxonomy(ConfiguredBaseModel):
          'domain_of': ['taxonomy', 'cross taxonomy mapping', 'location mapping'],
          'readonly': 'True'} })
     cell_type_name: Optional[str] = Field(None, description="""The primary name/symbol to be used for the (provisional) cell type defined by this cell set. This is left optional, but is strongly encouraged for every node that is linked.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_type_name',
-         'aliases': ['primary_cell_type_alias'],
          'domain_of': ['taxonomy', 'cross taxonomy mapping', 'location mapping']} })
     parent_cell_set_accession: str = Field(..., description="""The cell set accession of the parent cell set in the taxonomy. This field should be programmatically assigned, not edited.""", json_schema_extra = { "linkml_meta": {'alias': 'parent_cell_set_accession', 'domain_of': ['taxonomy']} })
     synonyms: Optional[str] = Field(None, description="""A list of alternative names for this cell type. Separate entries with a '|'. Do not use terms with a scope that is much narrower or broader than the cell type being described.""", json_schema_extra = { "linkml_meta": {'alias': 'synonyms', 'domain_of': ['taxonomy']} })
@@ -149,7 +152,6 @@ class CrossTaxonomyMapping(ConfiguredBaseModel):
     cell_set_accession: str = Field(..., description="""Primary identifier for cell set.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_set_accession',
          'domain_of': ['taxonomy', 'cross taxonomy mapping', 'location mapping']} })
     cell_type_name: str = Field(..., description="""The primary name/symbol to be used for the cell type defined by this cell set.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_type_name',
-         'aliases': ['primary_cell_type_alias'],
          'domain_of': ['taxonomy', 'cross taxonomy mapping', 'location mapping']} })
     mapped_cell_set_accession: str = Field(..., description="""The accession (ID) of a cell set in a second taxonomy that this cell set maps to.""", json_schema_extra = { "linkml_meta": {'alias': 'mapped_cell_set_accession', 'domain_of': ['cross taxonomy mapping']} })
     mapped_cell_type_name: str = Field(..., description="""The name of the cell type corresponding to the mapped_cell_set_accession.""", json_schema_extra = { "linkml_meta": {'alias': 'mapped_cell_type_name', 'domain_of': ['cross taxonomy mapping']} })
@@ -180,7 +182,6 @@ class LocationMapping(ConfiguredBaseModel):
     cell_set_accession: str = Field(..., description="""Primary identifier for cell set.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_set_accession',
          'domain_of': ['taxonomy', 'cross taxonomy mapping', 'location mapping']} })
     cell_type_name: str = Field(..., description="""The primary name/symbol to be used for the cell type defined by this cell set.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_type_name',
-         'aliases': ['primary_cell_type_alias'],
          'domain_of': ['taxonomy', 'cross taxonomy mapping', 'location mapping']} })
     location_ontology_term_id: str = Field(..., description="""The ID of an ontology term that refers to a brain region that this cell type is located in. Ideally this should be the ID of a term defined as a region in a standard atlas.""", json_schema_extra = { "linkml_meta": {'alias': 'location_ontology_term_id', 'domain_of': ['location mapping']} })
     location_ontology_term_name: str = Field(..., description="""Name of the term whose ID is recorded in the ontology_term_id field.""", json_schema_extra = { "linkml_meta": {'alias': 'location_ontology_term_name', 'domain_of': ['location mapping']} })

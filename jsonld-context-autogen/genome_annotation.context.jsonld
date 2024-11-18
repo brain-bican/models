@@ -4,7 +4,6 @@
       "source": "genome_annotation.yaml"
    },
    "@context": {
-      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "AGRKB": "https://www.alliancegenome.org/",
       "AspGD": {
          "@id": "http://www.aspergillusgenome.org/cgi-bin/locus.pl?dbid=",
@@ -193,6 +192,7 @@
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
       "schema": "http://schema.org/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "@vocab": "https://identifiers.org/brain-bican/vocab/",
       "annotations": {
          "@type": "@id",
@@ -208,6 +208,7 @@
       },
       "authority": {
          "@context": {
+            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -215,11 +216,12 @@
          "@id": "authority"
       },
       "category": {
-         "@type": "xsd:anyURI",
+         "@type": "@id",
          "@id": "biolink:category"
       },
       "checksum_algorithm": {
          "@context": {
+            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -301,7 +303,7 @@
          "@id": "biolink:in_taxon_label"
       },
       "iri": {
-         "@type": "xsd:anyURI",
+         "@type": "@id",
          "@id": "biolink:iri"
       },
       "license": {
@@ -349,7 +351,7 @@
          "@id": "biolink:version"
       },
       "xref": {
-         "@type": "xsd:anyURI",
+         "@type": "@id",
          "@id": "biolink:xref"
       },
       "Activity": {

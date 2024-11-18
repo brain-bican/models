@@ -1,32 +1,36 @@
 from __future__ import annotations 
-
-import re
-import sys
 from datetime import (
-    date,
     datetime,
-    time
+    date
 )
 from decimal import Decimal 
 from enum import Enum 
+import re
+import sys
 from typing import (
     Any,
     ClassVar,
-    Dict,
     List,
     Literal,
+    Dict,
     Optional,
     Union
 )
-
-from pydantic import (
-    BaseModel,
-    ConfigDict,
-    Field,
-    RootModel,
-    field_validator
-)
-
+from pydantic.version import VERSION  as PYDANTIC_VERSION 
+if int(PYDANTIC_VERSION[0])>=2:
+    from pydantic import (
+        BaseModel,
+        ConfigDict,
+        Field,
+        RootModel,
+        field_validator
+    )
+else:
+    from pydantic import (
+        BaseModel,
+        Field,
+        validator
+    )
 
 metamodel_version = "None"
 version = "None"
@@ -137,7 +141,7 @@ class CellClass(NamedThing):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1'})
 
     category: CellCategory = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'category', 'domain_of': ['CellClass']} })
-    has_hierarchical_relationships: Optional[List[HierarchicalRelationship]] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_hierarchical_relationships',
+    has_hierarchical_relationships: Optional[List[HierarchicalRelationship]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'has_hierarchical_relationships',
          'domain_of': ['CellClass', 'CellSubclass', 'Cluster']} })
     id: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
     label: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'label', 'domain_of': ['NamedThing']} })
@@ -149,7 +153,7 @@ class CellSubclass(NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1'})
 
-    has_hierarchical_relationships: Optional[List[HierarchicalRelationship]] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_hierarchical_relationships',
+    has_hierarchical_relationships: Optional[List[HierarchicalRelationship]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'has_hierarchical_relationships',
          'domain_of': ['CellClass', 'CellSubclass', 'Cluster']} })
     division: Optional[Division] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'division', 'domain_of': ['CellSubclass']} })
     nt_type: Optional[NTType] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'nt_type', 'domain_of': ['CellSubclass']} })
@@ -163,9 +167,9 @@ class Cluster(NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1'})
 
-    has_hierarchical_relationships: Optional[List[HierarchicalRelationship]] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_hierarchical_relationships',
+    has_hierarchical_relationships: Optional[List[HierarchicalRelationship]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'has_hierarchical_relationships',
          'domain_of': ['CellClass', 'CellSubclass', 'Cluster']} })
-    has_group_relationships: Optional[List[GroupRelationship]] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_group_relationships', 'domain_of': ['Cluster', 'Cell']} })
+    has_group_relationships: Optional[List[GroupRelationship]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'has_group_relationships', 'domain_of': ['Cluster', 'Cell']} })
     id: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
     label: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'label', 'domain_of': ['NamedThing']} })
 
@@ -176,7 +180,7 @@ class Cell(NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1'})
 
-    has_group_relationships: Optional[List[GroupRelationship]] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_group_relationships', 'domain_of': ['Cluster', 'Cell']} })
+    has_group_relationships: Optional[List[GroupRelationship]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'has_group_relationships', 'domain_of': ['Cluster', 'Cell']} })
     broad_region: Optional[BroadRegion] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'broad_region', 'domain_of': ['Cell']} })
     id: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
     label: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'label', 'domain_of': ['NamedThing']} })
@@ -209,10 +213,10 @@ class Container(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://www.biorxiv.org/content/10.1101/2023.01.22.525049v1',
          'tree_root': True})
 
-    subclasses: Optional[List[CellSubclass]] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'subclasses', 'domain_of': ['Container']} })
-    classes: Optional[List[CellClass]] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'classes', 'domain_of': ['Container']} })
-    cells: Optional[List[Cell]] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'cells', 'domain_of': ['Container']} })
-    clusters: Optional[List[Cluster]] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'clusters', 'domain_of': ['Container']} })
+    subclasses: Optional[List[CellSubclass]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'subclasses', 'domain_of': ['Container']} })
+    classes: Optional[List[CellClass]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'classes', 'domain_of': ['Container']} })
+    cells: Optional[List[Cell]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'cells', 'domain_of': ['Container']} })
+    clusters: Optional[List[Cluster]] = Field(default_factory=list, json_schema_extra = { "linkml_meta": {'alias': 'clusters', 'domain_of': ['Container']} })
 
 
 # Model rebuild

@@ -25,19 +25,13 @@
                     "items": {
                         "$ref": "#/$defs/GroupRelationship"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "type": "string"
                 },
                 "label": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -68,19 +62,13 @@
                     "items": {
                         "$ref": "#/$defs/HierarchicalRelationship"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "type": "string"
                 },
                 "label": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -101,19 +89,13 @@
                     "items": {
                         "$ref": "#/$defs/HierarchicalRelationship"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "type": "string"
                 },
                 "label": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "nt_type": {
                     "$ref": "#/$defs/NTType"
@@ -133,28 +115,19 @@
                     "items": {
                         "$ref": "#/$defs/GroupRelationship"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "has_hierarchical_relationships": {
                     "items": {
                         "$ref": "#/$defs/HierarchicalRelationship"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "type": "string"
                 },
                 "label": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -171,37 +144,25 @@
                     "items": {
                         "$ref": "#/$defs/Cell"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "classes": {
                     "items": {
                         "$ref": "#/$defs/CellClass"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "clusters": {
                     "items": {
                         "$ref": "#/$defs/Cluster"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "subclasses": {
                     "items": {
                         "$ref": "#/$defs/CellSubclass"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "title": "Container",
@@ -295,16 +256,10 @@
             "description": "",
             "properties": {
                 "id": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "label": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -324,37 +279,25 @@
             "items": {
                 "$ref": "#/$defs/Cell"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "classes": {
             "items": {
                 "$ref": "#/$defs/CellClass"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "clusters": {
             "items": {
                 "$ref": "#/$defs/Cluster"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "subclasses": {
             "items": {
                 "$ref": "#/$defs/CellSubclass"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         }
     },
     "title": "figure1",

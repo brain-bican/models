@@ -12,41 +12,26 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -54,56 +39,38 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -141,17 +108,11 @@
                 },
                 "amplified_cDNA_amplified_quantity_ng": {
                     "description": "Amount of cDNA produced after cDNA amplification measured in nanograms.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "amplified_cDNA_percent_cDNA_longer_than_400bp": {
                     "description": "QC metric to measure mRNA degradation of cDNA.  Higher % is higher quality starting material.  Over 400bp is used as a universal cutoff for intact (full length) vs degraded cDNA and is a common output from Bioanalyzer and Fragment Analyzer elecropheragrams.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
@@ -162,41 +123,26 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -204,70 +150,46 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "Name of a collection of cDNA molecules derived and amplified from an input barcoded_cell_sample.  These cDNA molecules represent the gene expression of each cell, with all cDNA molecules from a given cell retaining that cell's unique barcode from the cell barcoding step.  This is a necessary step for GEX methods but is not used for ATAC methods.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_derived_from": {
                     "description": "The input barcoded cell sample from which amplified cDNA was derived from.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "was_generated_by": {
                     "description": "The cDNA amplification process from which the amplified cDNA was generated by.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -299,41 +221,26 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "has_attribute_type": {
                     "description": "connects an attribute to a class that describes it",
@@ -341,20 +248,14 @@
                 },
                 "has_qualitative_value": {
                     "description": "connects an attribute to a value",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_quantitative_value": {
                     "description": "connects an attribute to a value",
                     "items": {
                         "$ref": "#/$defs/QuantityValue"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -362,56 +263,38 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "The human-readable 'attribute name' can be set to a string which reflects its context of interpretation, e.g. SEPIO evidence/provenance/confidence annotation or it can default to the name associated with the 'has attribute type' slot ontology term.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -434,48 +317,30 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "expected_cell_capture": {
                     "description": "Expected number of cells/nuclei of a barcoded_cell_sample that will be barcoded and available for sequencing.  This is a derived number from 'Barcoded cell input quantity count' that is dependent on the \"capture rate\" of the barcoding method.  It is usually a calculated fraction of the 'Barcoded cell input quantity count' going into the barcoding method.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -483,46 +348,31 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "Name of a collection of barcoded cells.  Input will be either dissociated_cell_sample or enriched_cell_sample.  Cell barcodes are only guaranteed to be unique within this one collection. One dissociated_cell_sample or enriched_cell_sample can lead to multiple barcoded_cell_samples.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_derived_from": {
                     "description": "The input dissociated or enriched cell sample(s) from which the barcoded cell sample was derived from.",
@@ -537,27 +387,18 @@
                             }
                         ]
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_generated_by": {
                     "description": "The barcoding process from which the barcoded cell sample is generated from.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -590,41 +431,26 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -632,70 +458,46 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "Name of a thick flat piece of brain tissue obtained by slicing a whole brain, brain hemisphere or subdivision with a blade at regular interval.  When multiple brain slabs are obtained from the slicing process, an ordinal is assigned to provide information about the relative positioning of the slabs.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_derived_from": {
+                    "$ref": "#/$defs/ProvEntity",
                     "anyOf": [
                         {
                             "type": "string"
                         },
                         {
                             "type": "string"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "description": "The donor from which the brain slab was derived from."
                 },
                 "was_generated_by": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/ProvActivity"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/ProvActivity",
                     "description": "Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation."
                 },
                 "xref": {
@@ -703,10 +505,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -721,25 +520,16 @@
             "properties": {
                 "amplified_cDNA_PCR_cycles": {
                     "description": "Number of PCR cycles used during cDNA amplification for this cDNA.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "cDNA_amplification_process_date": {
                     "description": "Date of cDNA amplification.",
                     "format": "date",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "cDNA_amplification_set": {
                     "description": "cDNA amplification set, containing multiple amplified_cDNA_names that were processed at the same time.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
@@ -750,41 +540,26 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -792,63 +567,42 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "used": {
                     "description": "The input barcoded cell sample from which amplified cDNA was derived from.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -863,17 +617,11 @@
             "properties": {
                 "barcoded_cell_input_quantity_count": {
                     "description": "Number of enriched or dissociated cells/nuclei going into the barcoding process.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "barcoded_cell_sample_port_well": {
                     "description": "Specific position of the loaded port of the 10x chip.  An Enriched or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded Cell Sample). Can be left null for non-10x methods.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
@@ -884,41 +632,26 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -926,10 +659,7 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "method": {
                     "$ref": "#/$defs/BarcodedCellSampleTechnique",
@@ -937,46 +667,31 @@
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "process_date": {
                     "description": "Date of cell barcoding process.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "used": {
                     "description": "The input dissociated or enriched cell sample(s) from which the barcoded cell sample was derived from.",
@@ -991,20 +706,14 @@
                             }
                         ]
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -1026,41 +735,26 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -1068,73 +762,49 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "process_date": {
                     "description": "Date of cell dissociation process.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "used": {
                     "description": "The input tissue sample(s) from which the dissociated cell sample was derived from.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -1156,41 +826,26 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -1198,73 +853,49 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "process_date": {
                     "description": "Date of cell enrichment process.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "used": {
                     "description": "The input dissociated cell sample(s) from which the enriched cell sample was derived from.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -1285,10 +916,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "checksum_algorithm": {
                     "$ref": "#/$defs/DigestType",
@@ -1296,27 +924,18 @@
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -1324,33 +943,21 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "value": {
                     "description": "The checksum value obtained from a specific cryotographic hash function.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1371,55 +978,34 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "creation_date": {
                     "description": "date on which an entity was created. This can be applied to nodes or edges",
                     "format": "date",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "format": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -1427,68 +1013,44 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "license": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "rights": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -1520,86 +1082,48 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "content_url": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "creation_date": {
                     "description": "date on which an entity was created. This can be applied to nodes or edges",
                     "format": "date",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "data_type": {
                     "description": "The type of data in the file",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "digest": {
                     "description": "Stores checksum information.",
                     "items": {
-                        "anyOf": [
-                            {
-                                "type": "string"
-                            },
-                            {
-                                "type": "string"
-                            }
-                        ],
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "format": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -1607,75 +1131,44 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "license": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "rights": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_derived_from": {
                     "description": "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "was_generated_by": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/ProvActivity"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/ProvActivity",
                     "description": "Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation."
                 },
                 "xref": {
@@ -1683,10 +1176,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -1708,41 +1198,26 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -1750,63 +1225,42 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "used": {
                     "description": "The brain slab that was annotated by the delineation process.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -1821,10 +1275,7 @@
             "properties": {
                 "annotates": {
                     "description": "The brain slab that was annotated by the delineation process.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
@@ -1835,34 +1286,22 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -1870,44 +1309,25 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "Name of a polygon annotated on a brain slab image delineating a region of interest (ROI) for a tissue sample dissectioning.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_derived_from": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/ProvEntity"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/ProvEntity",
                     "description": "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."
                 },
                 "was_generated_by": {
                     "description": "The delineation process from which the dissection ROI polygon was generated by.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1929,24 +1349,15 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "dissociated_cell_oligo_tag_name": {
                     "$ref": "#/$defs/DissociatedCellSampleCellLabelBarcode",
@@ -1958,20 +1369,14 @@
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -1979,73 +1384,49 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "Name of a collection of dissociated cells or nuclei derived from dissociation of a tissue sample.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_derived_from": {
                     "description": "The input tissue sample(s) from which dissociated cell sample was derived from.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_generated_by": {
                     "description": "The cell dissociation process from which the dissociated cell sample was generated by.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -2098,10 +1479,7 @@
             "properties": {
                 "age_at_death_description": {
                     "description": "Text description of the age of death following typical scientific convention for the species or developmental stage. For example: P56, E11.5",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "age_at_death_reference_point": {
                     "$ref": "#/$defs/AgeAtDeathReferencePoint",
@@ -2113,10 +1491,7 @@
                 },
                 "age_at_death_value": {
                     "description": "The value representing the donor age from the reference point.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "biological_sex": {
                     "$ref": "#/$defs/Sex",
@@ -2131,48 +1506,30 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "donor_species": {
                     "description": "Species of donor.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -2183,81 +1540,46 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "in_taxon_label": {
                     "description": "The human readable scientific name for the taxon of the entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "Name of person or organism that is the source of a biological sample for scientific study.  Many biological samples are generated from a single donor.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_derived_from": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/ProvEntity"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/ProvEntity",
                     "description": "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."
                 },
                 "was_generated_by": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/ProvActivity"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/ProvActivity",
                     "description": "Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation."
                 },
                 "xref": {
@@ -2265,10 +1587,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -2290,62 +1609,38 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "cell_source_oligo_name": {
                     "description": "Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the enriched cell sample and allows separate enriched cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source enriched cell sample.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "enrichment_population": {
                     "description": "Actual percentage of cells as a result of using set of fluorescent marker label(s) to enrich dissociated_cell_sample with desired mix of cell populations.  This plan can also be used to describe 'No FACS' where no enrichment was performed.  This is a property of enriched_cell_prep_container.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "histone_modification_marker": {
                     "description": "Histone modification marker antibodies (eg H3K27ac, H3K27me3, H3K9me3) used in conjunction with an Enriched Cell Source Barcode in order to combine multiple Enriched Cell Populations before Barcoded Cell Sample step for 10xMultiome method. Each of the Histone antibodies captures an essential part of the epigenome.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -2353,46 +1648,31 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "Name of collection of enriched cells or nuclei after enrichment process (usually via FACS using the Enrichment Plan) applied to dissociated_cell_sample.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_derived_from": {
                     "description": "The dissociated or enriched cell sample(s) from which the enriched cell sample was derived from.",
@@ -2407,21 +1687,16 @@
                             }
                         ]
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_generated_by": {
+                    "$ref": "#/$defs/ProvActivity",
                     "anyOf": [
                         {
                             "type": "string"
                         },
                         {
                             "type": "string"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "description": "The cell enrichment or sample splitting process from which the enriched cell sample was generated by."
@@ -2431,10 +1706,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -2456,41 +1728,26 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -2498,63 +1755,42 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "used": {
                     "description": "The enrichment cell sample splitting process from which the enriched cell sample was generated by.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -2575,48 +1811,30 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "has_biological_sequence": {
                     "description": "connects a genomic feature to its sequence",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -2627,77 +1845,50 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "in_taxon_label": {
                     "description": "The human readable scientific name for the taxon of the entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "symbol": {
                     "description": "Symbol for a particular thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -2718,48 +1909,30 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "has_biological_sequence": {
                     "description": "connects a genomic feature to its sequence",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -2770,70 +1943,46 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "in_taxon_label": {
                     "description": "The human readable scientific name for the taxon of the entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -2859,41 +2008,26 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -2901,24 +2035,15 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "library_avg_size_bp": {
                     "description": "Average size of the library in terms of base pairs.  This is used to calculate the molarity before pooling and sequencing.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "library_concentration_nm": {
                     "description": "Concentration of library in terms of nM (nMol/L).  Number of molecules is needed for accurate pooling of the libraries and for generating the number of target reads/cell in sequencing.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "library_prep_pass_fail": {
                     "$ref": "#/$defs/LibraryPrepPassFail",
@@ -2926,84 +2051,58 @@
                 },
                 "library_quantification_fmol": {
                     "description": "Amount of library generated in terms of femtomoles",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "library_quantification_ng": {
                     "description": "Amount of library generated in terms of nanograms",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "name": {
                     "description": "Name of a library, which is a collection of fragmented and barcode-indexed DNA molecules for sequencing.  An index or barcode is typically introduced to enable identification of library origin to allow libraries to be pooled together for sequencing.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_derived_from": {
+                    "$ref": "#/$defs/ProvEntity",
                     "anyOf": [
                         {
                             "type": "string"
                         },
                         {
                             "type": "string"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "description": "The input barcoded cell sample or amplified cDNA from which the library was derived from."
                 },
                 "was_generated_by": {
                     "description": "The library construction process from which the library was generated by.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -3025,41 +2124,26 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -3067,63 +2151,38 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "One library in the library pool.  Each Library_aliquot_name in a library pool will have a unique R1/R2 index to allow for sequencing together then separating the sequencing output by originating library aliquot through the process of demultiplexing.  The resulting demultiplexed fastq files will include the library_aliquot_name.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_derived_from": {
                     "description": "The input library from which the library aliquot was derived from.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "was_generated_by": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/ProvActivity"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/ProvActivity",
                     "description": "Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation."
                 },
                 "xref": {
@@ -3131,10 +2190,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -3156,41 +2212,26 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -3198,25 +2239,16 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "library_creation_date": {
                     "description": "Date of library construction.",
                     "format": "date",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "library_input_ng": {
                     "description": "Amount of cDNA going into library construction in nanograms.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "library_method": {
                     "$ref": "#/$defs/LibraryTechnique",
@@ -3224,57 +2256,40 @@
                 },
                 "library_prep_set": {
                     "description": "Library set, containing multiple library_names that were processed at the same time.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "used": {
+                    "$ref": "#/$defs/ProvEntity",
                     "anyOf": [
                         {
                             "type": "string"
                         },
                         {
                             "type": "string"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "description": "The input barcoded cell sample or amplified cDNA from which the library was derived from."
@@ -3284,10 +2299,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -3309,41 +2321,26 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -3351,80 +2348,53 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "library_pool_tube_internal_label": {
                     "description": "Library Pool Tube local name.  Label of the tube containing the library pool, which is made up of multiple library_aliquots.  This is a Library Lab local tube name, before the pool is aliquoted to the Seq Core provided tube 'Library Pool Tube Name'.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "Library lab's library pool name.  For some labs this may be the same as \"Libray pool tube local name\".   Other labs distinguish between the local tube label of the library pool and the library pool name provided to SeqCore for tracking.  Local Pool Name is used to communicate sequencing status between SeqCore and Library Labs.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_derived_from": {
                     "description": "The input aliquot(s) from which the library pool was derived from.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_generated_by": {
                     "description": "The pooling process from which the library pool was generated by.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -3446,41 +2416,26 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -3488,73 +2443,49 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "process_date": {
                     "description": "Date of library pooling process.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "used": {
                     "description": "The input aliquot(s) from which the library pool was derived from.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -4126,41 +3057,26 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -4168,56 +3084,38 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -4238,41 +3136,26 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -4280,56 +3163,38 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -4350,47 +3215,29 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "has_taxonomic_rank": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -4398,56 +3245,38 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -4468,41 +3297,26 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -4510,56 +3324,38 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -4580,41 +3376,26 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -4622,56 +3403,38 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -4686,17 +3449,11 @@
             "properties": {
                 "has_numeric_value": {
                     "description": "connects a quantity value to a number",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "has_unit": {
                     "description": "connects a quantity value to a unit",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "title": "QuantityValue",
@@ -4742,41 +3499,26 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -4784,70 +3526,46 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "used": {
                     "description": "The brain slab from which the tissue sample was dissected from.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "was_guided_by": {
                     "description": "The dissection ROI polygon which was used to guide the tissue dissection.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -4869,48 +3587,30 @@
                         "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
-                    "type": [
-                        "boolean",
-                        "null"
-                    ]
+                    "type": "boolean"
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "dissection_was_guided_by": {
                     "description": "The dissection ROI polygon that was used to guide the dissection.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "id": {
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -4918,80 +3618,53 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "Identifier name for final intact piece of tissue before cell or nuclei prep.  This piece of tissue will be used in dissociation and has an ROI associated with it.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "tissue_sample_structure": {
                     "description": "Strucure of tissue sample.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "type": {
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "was_derived_from": {
                     "description": "The donor or brain slab from which the tissue sample was derived from.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "was_generated_by": {
                     "description": "The dissection process from which the tissue sample was generated by.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
