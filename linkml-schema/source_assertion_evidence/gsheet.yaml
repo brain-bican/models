@@ -1,0 +1,12 @@
+gsheet_id: "1UpjNNJz9o1TXpPS245tbPsVbIx_p5_m2f54KoIwGF8g"
+sheets:
+  - name: "Classes"
+    gid: "1224768617"
+  - name: "Relations"
+    gid: "1748292296"
+  - name: "Slots"
+    gid: "581500779"
+  - name: "Prefixes"
+    gid: "403981074"
+  - name: "ValueSets"
+    gid: "743520255"
