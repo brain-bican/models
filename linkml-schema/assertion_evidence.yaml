@@ -147,18 +147,14 @@ classes:
     description: A collection of information content entities intended to be understood
       together as a whole
     from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
-    slot_usage:
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
+
     class_uri: sepio:Document
   Activity:
     description: An activity is something that occurs over a period of time and acts
       upon or with entities; it may include consuming, processing, transforming, modifying,
       relocating, using, or generating entities.
     from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
-    slot_usage:
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
+
     attributes:
       ended_at_time:
         description: The prov:endedAtTime establishes the relationship between prov:Activity
@@ -193,9 +189,7 @@ classes:
     description: A summary is a brief statement or description of the main points,
       especially as a conclusion to a work about the assertion.
     from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
-    slot_usage:
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
+
     attributes:
       has_assertion_summary:
         description: The brainkb:hasAssertionSummary property relates a brainkb:AssertionSummary
@@ -211,9 +205,7 @@ classes:
     description: A summary is a brief statement or description of the main points,
       especially as a conclusion to a work about the evidence.
     from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
-    slot_usage:
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
+
     attributes:
       has_evidence_summary:
         description: The brainkb:hasEvidenceSummary property relates a brainkb:EvidenceSummary
@@ -228,15 +220,11 @@ classes:
   AssertionMethod:
     description: A means by which a statement is made about the entity
     from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
-    slot_usage:
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
+
     class_uri: eco:0000217
   DataAnnotation:
     from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
-    slot_usage:
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
+
     class_uri: brainkb:DataAnnotation
   Evidence:
     from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
