@@ -10,8 +10,11 @@ The Library Generation Model is a data model designed to represent types and rel
 ### 2. Anatomical Structure Model
 The Anatomical Structure Model is a data model designed to represent types and relationships of anatomical brain structures. The model can be used to formalize relationships between spatial definition, names, and metadata of these structures - and the parcellations they collectively comprise. 
 
-### 3. Genome Annotation  Model  
+### 3. Genome Annotation Model  
 The Genome Annotation Model is a data model designed to represent types and relationships of an organism's annotated genome. The model can be used to formalize relationships between genes, genome assemblies, and organisms. 
+
+### 4. Assertion Evidence Model 
+The Assertion Evidence Model is a data model designed to represent the structure describing the relationship between a conclusion and the evidence that led to this conclusion. An assertion is the conclusion drawn from reasoning about Evidence. 
 
 ## Using the Data Models 
 Each data model listed above has a respective module in the Brain Knowledge Base Interaction Toolkit ([bkbit](https://pypi.org/project/bkbit/)). 
