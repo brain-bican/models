@@ -5,7 +5,7 @@ linkml	https://w3id.org/linkml/
 bican	https://identifiers.org/brain-bican/vocab/						
 spdx	http://spdx.org/rdf/terms#						
 schema	http://schema.org/						
-prov	https://brainkb.org/						
-brainkb	http://www.w3.org/ns/prov#						
+brainkb	https://brainkb.org/						
+prov	http://www.w3.org/ns/prov#						
 eco	http://purl.obolibrary.org/obo/ECO_						
 sepio	http://purl.obolibrary.org/obo/SEPIO_						

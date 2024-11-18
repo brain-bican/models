@@ -1,4 +1,4 @@
-Name	Inheritance: is_a	Inheritance: mixin	Inheritance: slot usage	Subsets	Definition		
+ç	Inheritance: is_a	Inheritance: mixin	Inheritance: slot usage	Subsets	Definition		
 > class	is_a	mixins	ignore	in_subset	description	class_uri	mixin
 >		internal_separator: "|"		internal_separator: "|"			
 Assertion					A statement made by a particular agent on a particular occasion that a particular proposition is true, based on the evaluation of one or more lines of evidence.	sepio:Assertion	
@@ -7,4 +7,5 @@ Activity					An activity is something that occurs over a period of time and acts
 Agent					An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.	prov:Agent	
 AssertionSummary					A summary is a brief statement or description of the main points, especially as a conclusion to a work about the assertion.	brainkb:AssertionSummary	
 EvidenceSummary					A summary is a brief statement or description of the main points, especially as a conclusion to a work about the evidence.	brainkb:EvidenceSummary	
-AssertionMethod					A means by which a statement is made about the entity	brainkb:AssertionMethod	
+AssertionMethod					A means by which a statement is made about the entity	eco:0000217	
+DataAnnotation						brainkb:DataAnnotation	

@@ -72,8 +72,6 @@ enums:
       Clinical: {}
       NonClinical: {}
 slots:
-  is_described_by:
-    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
   uses:
     description: The eco:uses property is the inverse of the eco:used_in property
       and defines the relationship between eco:Assertion and eco:Evidence, indicating
@@ -94,6 +92,8 @@ slots:
     range: AssertionMethod
   is_associated_with:
     from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+  has_data_annotation:
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
 classes:
   Assertion:
     description: A statement made by a particular agent on a particular occasion that
@@ -101,11 +101,10 @@ classes:
       of evidence.
     from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
     slots:
-    - uses
     - has_assertion_method
     - is_associated_with
+    - has_data_annotation
     slot_usage:
-      uses: {}
       has_assertion_method:
         description: The brainkb:hasAssertionMethod property relates an eco:Assertion
           to an brainkb:AssertionMethod that differentiates different types of assertions
@@ -115,6 +114,8 @@ classes:
           between different entities:it links sepio:Assertion to brainkb:AssertionSummary,
           indicating the association between an assertion and its corresponding summary.
         range: AssertionSummary
+      has_data_annotation:
+        range: DataAnnotation
       category:
         pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
@@ -231,14 +232,18 @@ classes:
       category:
         pattern: ^bican:[A-Z][A-Za-z]+$
     class_uri: eco:0000217
+  DataAnnotation:
+    from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
+    slot_usage:
+      category:
+        pattern: ^bican:[A-Z][A-Za-z]+$
+    class_uri: brainkb:DataAnnotation
   Evidence:
     from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
     slots:
-    - is_described_by
     - used_in
     - is_associated_with
     slot_usage:
-      is_described_by: {}
       used_in: {}
       is_associated_with:
         description: 'The brainkb:isAssociatedWith property establishes relationships

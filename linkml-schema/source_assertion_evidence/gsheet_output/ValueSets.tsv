@@ -1,5 +1,6 @@
 variable_name	value	description	category	terminology_nhash
 > enum	permissible_value	description	ignore	ignore
+AssertionType	Positive			
 AssertionType	Negative			
 AssertionType	Inconclusive			
 Categories	Behavioral			
