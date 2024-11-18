@@ -1,1 +1,1 @@
-All `LinkML` schemas
+All `LinkML` schemas in `yaml` format
