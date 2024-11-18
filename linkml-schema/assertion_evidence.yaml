@@ -116,8 +116,7 @@ classes:
         range: AssertionSummary
       has_data_annotation:
         range: DataAnnotation
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
+
     attributes:
       has_assertion_category:
         description: The brainkb:hasAssertionCategory property relates brainkb:Evidence
@@ -182,8 +181,7 @@ classes:
           between different entities: it connects prov:Agent to prov:Activity, reflecting
           the involvement or connection between an agent and an activity.'
         range: Activity
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
+
     class_uri: prov:Agent
   AssertionSummary:
     description: A summary is a brief statement or description of the main points,
@@ -238,8 +236,7 @@ classes:
           between different entities: it associates eco:Evidence with brainkb:EvidenceSummary,
           signifying the connection between evidence and its summarized representation.'
         range: EvidenceSummary
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
+
     attributes:
       has_evidence_category:
         description: The brainkb:hasEvidenceCategory property relates brainkb:Evidence
