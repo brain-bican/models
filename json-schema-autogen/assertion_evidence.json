@@ -1,0 +1,200 @@
+{
+    "$defs": {
+        "Activity": {
+            "additionalProperties": false,
+            "description": "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.",
+            "properties": {
+                "endedAtTime": {
+                    "description": "The prov:endedAtTime establishes the relationship between prov:Activity and xsd:DateTime that allows one to specify the time when the activity ended.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "startedAtTime": {
+                    "description": "The prov:startedAtTime establishes the relationship between prov:Activity and xsd:DateTime that allows one to specify the time when the activity started.",
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "title": "Activity",
+            "type": "object"
+        },
+        "Agent": {
+            "additionalProperties": false,
+            "description": "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.",
+            "properties": {
+                "is_associated_with": {
+                    "$ref": "#/$defs/Activity",
+                    "description": "The brainkb:isAssociatedWith property establishes relationships between different entities: it connects prov:Agent to prov:Activity, reflecting the involvement or connection between an agent and an activity."
+                }
+            },
+            "title": "Agent",
+            "type": "object"
+        },
+        "Assertion": {
+            "additionalProperties": false,
+            "description": "A statement made by a particular agent on a particular occasion that a particular proposition is true, based on the evaluation of one or more lines of evidence.",
+            "properties": {
+                "hasAssertionCategory": {
+                    "$ref": "#/$defs/Categories",
+                    "description": "The brainkb:hasAssertionCategory property relates brainkb:Evidence and brainkb:Categories, specifying the classification or category that the assertion belongs to."
+                },
+                "hasAssertionMethod": {
+                    "$ref": "#/$defs/AssertionMethod",
+                    "description": "The brainkb:hasAssertionMethod property relates an eco:Assertion to an brainkb:AssertionMethod that differentiates different types of assertions techniques used while making an assertion."
+                },
+                "hasAssertionText": {
+                    "description": "The brainkb:hasAssertionText property relates an eco:Assertion to an xsd:string, providing a textual excerpt of the assertion being made.",
+                    "type": "string"
+                },
+                "has_data_annotation": {
+                    "$ref": "#/$defs/DataAnnotation"
+                },
+                "is_associated_with": {
+                    "$ref": "#/$defs/AssertionSummary",
+                    "description": "The brainkb:isAssociatedWith property establishes relationships between different entities:it links sepio:Assertion to brainkb:AssertionSummary, indicating the association between an assertion and its corresponding summary."
+                }
+            },
+            "title": "Assertion",
+            "type": "object"
+        },
+        "AssertionMethod": {
+            "additionalProperties": false,
+            "description": "A means by which a statement is made about the entity",
+            "title": "AssertionMethod",
+            "type": "object"
+        },
+        "AssertionSummary": {
+            "additionalProperties": false,
+            "description": "A summary is a brief statement or description of the main points, especially as a conclusion to a work about the assertion.",
+            "properties": {
+                "hasAssertionSummary": {
+                    "description": "The brainkb:hasAssertionSummary property relates a brainkb:AssertionSummary to an xsd:string, providing a concise overview that differentiates various assertions. This summary encapsulates the core content of the assertion, allowing for easy identification and understanding of its essence.",
+                    "type": "string"
+                }
+            },
+            "title": "AssertionSummary",
+            "type": "object"
+        },
+        "AssertionType": {
+            "description": "",
+            "enum": [
+                "Positive",
+                "Negative",
+                "Inconclusive"
+            ],
+            "title": "AssertionType",
+            "type": "string"
+        },
+        "Categories": {
+            "description": "",
+            "enum": [
+                "Behavioral",
+                "Biomarker",
+                "DrugTarget",
+                "Genetic",
+                "ClinicalTrial",
+                "Etiologic",
+                "Neuroimaging",
+                "Electrophysiological",
+                "Molecular",
+                "Pharmacological",
+                "Neuropsychological",
+                "Neurogenetic",
+                "Neurochemical",
+                "Neuroanatomical",
+                "Neurodevelopmental",
+                "Neuroinflammatory",
+                "Neuroplasticity",
+                "Neuropathological",
+                "Neurocomputational",
+                "Neuroendocrine",
+                "Neuropharmacogenomic",
+                "Neuroproteomic",
+                "Neurogenomic",
+                "Epigenetic",
+                "Environmental",
+                "Translational",
+                "Therapeutic",
+                "CognitiveNeuroscience"
+            ],
+            "title": "Categories",
+            "type": "string"
+        },
+        "DataAnnotation": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "DataAnnotation",
+            "type": "object"
+        },
+        "Document": {
+            "additionalProperties": false,
+            "description": "A collection of information content entities intended to be understood together as a whole",
+            "title": "Document",
+            "type": "object"
+        },
+        "Evidence": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "hasEvidenceCategory": {
+                    "$ref": "#/$defs/Categories",
+                    "description": "The brainkb:hasEvidenceCategory property relates brainkb:Evidence and brainkb:Categories, specifying the classification or category that the evidence belongs to."
+                },
+                "hasEvidenceText": {
+                    "description": "The brainkb:hasEvidenceText property relates an eco:Evidence to an xsd:string, providing a textual excerpt of the evidence supporting the assertion.",
+                    "type": "string"
+                },
+                "is_associated_with": {
+                    "$ref": "#/$defs/EvidenceSummary",
+                    "description": "The brainkb:isAssociatedWith property establishes relationships between different entities: it associates eco:Evidence with brainkb:EvidenceSummary, signifying the connection between evidence and its summarized representation."
+                },
+                "used_in": {
+                    "$ref": "#/$defs/Assertion",
+                    "description": "The eco:used_in property establishes a relationship between eco:Evidence and eco:Assertion, indicating that the evidence is utilized to support the corresponding assertion."
+                }
+            },
+            "title": "Evidence",
+            "type": "object"
+        },
+        "EvidenceSummary": {
+            "additionalProperties": false,
+            "description": "A summary is a brief statement or description of the main points, especially as a conclusion to a work about the evidence.",
+            "properties": {
+                "hasEvidenceSummary": {
+                    "description": "The brainkb:hasEvidenceSummary property relates a brainkb:EvidenceSummary to an xsd:string, providing a concise overview that differentiates various evidence. This summary encapsulates the core content of the evidence, allowing for easy identification and understanding of its essence.",
+                    "type": "string"
+                }
+            },
+            "title": "EvidenceSummary",
+            "type": "object"
+        },
+        "Significance": {
+            "description": "",
+            "enum": [
+                "Clinical",
+                "NonClinical"
+            ],
+            "title": "Significance",
+            "type": "string"
+        },
+        "SignificanceLevel": {
+            "description": "",
+            "enum": [
+                "HighlySignificant",
+                "Significant",
+                "MarginallySignificant",
+                "NotSignificant",
+                "Unknown"
+            ],
+            "title": "SignificanceLevel",
+            "type": "string"
+        }
+    },
+    "$id": "https://identifiers.org/brain-bican/assertion-evidence-schema",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "metamodel_version": "1.7.0",
+    "title": "assertion-evidence-schema",
+    "type": "object",
+    "version": null
+}
