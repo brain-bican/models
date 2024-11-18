@@ -17,9 +17,11 @@ nav:
     - Library Generation: index_library_generation.md
     - Anatomical Structure: index_anatomical_structure.md
     - Genome Annotation: index_genome_annotation.md
+    - Assertion Evidence: index_assertion_evidence.md
   - Visualizations: 
     - Library Generation: library_generation.md
     - Anatomical Structure: anatomical_structure.md
     - Genome Annotation: genome_annotation.md
+    - Assertion Evidence: assertion_evidence.md
   
 repo_url: https://github.com/brain-bican/models
