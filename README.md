@@ -29,6 +29,7 @@ Here are the BICAN LinkML knowledgebase schemas and their statuses.
 
 | Model | Version | Release | Status |
 |:--|:--|:--|:--|
+| [Assertion Evidence Model] | [] | [] | under development |
 | [Library Generation Model] | [] | [] | under development |
 | [Anatomical Structure Model] | [] | [] | under development |
 | [Genome Annotation Model] | [] | [] | under development |
@@ -36,6 +37,8 @@ Here are the BICAN LinkML knowledgebase schemas and their statuses.
 | [CCN2] | [] | [] | deprecated |
 | [Figure1] | [] | [] | deprecated |
 | | | | |
+
+[Assertion Evidence Model]: linkml-schema/assertion_evidence.yaml
 
 [BICAN BioLink]: linkml-schema/bican_biolink.yaml
 
