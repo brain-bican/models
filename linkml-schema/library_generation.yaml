@@ -2445,7 +2445,7 @@ classes:
         exact_mappings:
         - NIMP:PD-VLLMWZ60
         slot_uri: bican:c94b5d8a-e92d-47af-8c0e-ea3b58be4d06
-        alias: R1/R2 index name
+        alias: R1_R2 index name
         range: library_r1_r2_index
   LibraryAliquot:
     description: One library in the library pool. Each library aliquot in a library
