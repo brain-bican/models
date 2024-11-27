@@ -9,4 +9,4 @@ AssertionSummary					A summary is a brief statement or description of the main p
 EvidenceSummary					A summary is a brief statement or description of the main points, especially as a conclusion to a work about the evidence.	brainkb:EvidenceSummary	
 AssertionMethod					A means by which a statement is made about the entity	eco:0000217	
 DataAnnotation						brainkb:DataAnnotation	
-EvidenceLine					An evidence line represents an independent and meaningful argument for or against a particular proposition, that is based on the interpretation of one or more pieces of information as evidence.	SEPIO_0000002	
+EvidenceLine					An evidence line represents an independent and meaningful argument for or against a particular proposition, that is based on the interpretation of one or more pieces of information as evidence.	sepio:0000002	

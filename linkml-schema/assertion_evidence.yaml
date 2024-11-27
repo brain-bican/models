@@ -228,7 +228,7 @@ classes:
       for or against a particular proposition, that is based on the interpretation
       of one or more pieces of information as evidence.
     from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
-    class_uri: SEPIO_0000002
+    class_uri: sepio:0000002
   Evidence:
     from_schema: https://identifiers.org/brain-bican/assertion-evidence-schema
     slots:
