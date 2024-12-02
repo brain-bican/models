@@ -2,11 +2,13 @@ name: push pydantic library_generation to bkbit
 
 on:
   push:
-    paths: 'models_py-autogen/library_generation.py'
-  workflow_run:
-    workflows: [generating other formats]
-    types:
-      - completed
+    branches:
+      - main
+  #   paths: 'models_py-autogen/library_generation.py'
+  # workflow_run:
+  #   workflows: [generating other formats]
+  #   types:
+  #     - completed
 
 jobs:
   create_bkbit_pr_library_generation:
@@ -26,14 +28,13 @@ jobs:
       
       - name: Make changes to target repository
         id: changes
-        run: |
-
+        run: |  
           # copy updated pydantic model from brain-bican/models to brain-bican/bkbit
           cp models_py-autogen/library_generation.py bkbit/bkbit/models/library_generation.py
           cd bkbit
           git checkout -b update_library_generation_model
           git add bkbit/models/library_generation.py
-          git commit -m "Updated version of library_generation model is pushed from brain-bican/models repository"
+          git commit -m "Updated version of library_generation model is being copied and pushed from brain-bican/models repository."
           cd ..
 
       - name: Push changes to bkbit
