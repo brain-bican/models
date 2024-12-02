@@ -2,28 +2,54 @@ name: push pydantic library_generation to bkbit
 
 on:
   push:
-    paths: 'models_py-autogen/library_generation.py'
-  workflow_run:
-    workflows: [generating other formats]
-    types:
-      - completed
+    branches:
+      - main
+  #   paths: 'models_py-autogen/library_generation.py'
+  # workflow_run:
+  #   workflows: [generating other formats]
+  #   types:
+  #     - completed
 
 jobs:
-  update_library_generation:
+  create_bkbit_pr_library_generation:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v3
 
-      - name: Pushes to another repository
-        uses: dmnemec/copy_file_to_another_repo_action@main
+      - name: Set up Git and cloning repository
+        env:
+          TARGET_REPO: brain-bican/bkbit
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          git config --global user.name "puja-trivedi"
+          git config --global user.email "xspuja@gmail.com"
+          git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git
+      
+      - name: Make changes to target repository
+        id: changes
+        run: |  
+          # copy updated pydantic model from brain-bican/models to brain-bican/bkbit
+          cp models_py-autogen/library_generation.py bkbit/bkbit/models/library_generation.py
+          cd bkbit
+          git checkout -b update_library_generation_model
+          git add bkbit/models/library_generation.py
+          git commit -m "Updated version of library_generation model is being copied and pushed from brain-bican/models repository."
+          cd ..
 
-        env: 
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source_file: 'models_py-autogen/library_generation.py'
-          destination_repo: 'brain-bican/bkbit'
-          destination_folder: 'bkbit/models/'
-          user_email: 'xspuja@gmail.com' # the GitHub user email associated with the API token secret.
-          user_name: 'puja-trivedi' # the GitHub username associated with the API token secret.
-          commit_message: "pydantic version of library_generation model (library_generation.py) was updated. Pushed from brain-bican/model repository"
+      - name: Push changes to bkbit
+        env:
+          TARGET_REPO: brain-bican/bkbit
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          cd bkbit
+          git push origin update_library_generation_model
+
+      - name: Create pull request to bkbit
+        env:
+          TARGET_REPO: brain-bican/bkbit
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
+          -d '{"title":"Automated PR: Add new version of the library_generation model.", "head":"update_library_generation_model", "base":"main"}' \
+          https://api.github.com/repos/$TARGET_REPO/pulls
