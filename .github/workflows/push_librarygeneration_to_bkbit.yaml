@@ -47,25 +47,35 @@ jobs:
           done
           cd bkbit
           ls -l bkbit/models
-          git checkout -b new_version_of_model
+
+          # Generate a unique branch name
+          TIMESTAMP=$(date +%Y%m%d%H%M%S)
+          BRANCH_NAME="update_models_${TIMESTAMP}"
+          echo "Generated branch name: $BRANCH_NAME"
+          
+          git checkout -b $BRANCH_NAME
           git branch
           git add bkbit/models/*
-          git commit -m "Updated model(s), ${ALL_CHANGED_FILES}, are being copied and pushed from brain-bican/models repository."
+          git commit -m "The listed model(s) have been modified in the brain-bican/models repo: ${ALL_CHANGED_FILES}. New version of model(s) in pydantic format are being pushed from brain-bican/models to brain-bican/bkbit."
           cd ..
-    
+
+          # Set branch name as output
+          echo "branch_name=${BRANCH_NAME}" >> $GITHUB_ENV
+          
       - name: Push changes to bkbit
         env:
           TARGET_REPO: brain-bican/bkbit
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           cd bkbit
-          git push origin new_version_of_model
+          git push origin ${{ env.branch_name }}
 
       - name: Create pull request to bkbit
         env:
           TARGET_REPO: brain-bican/bkbit
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          ALL_CHANGED_FILES: ${{ steps.changed-files-specific.outputs.all_changed_files }}
         run: |
           curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
-          -d '{"title":"Automated PR: Add new version of the library_generation model.", "head":"update_library_generation_model", "base":"main"}' \
+          -d '{"title":"Automated PR from brain-bican/models: ${ALL_CHANGED_FILES} have been modified.", "head":"${{ env.branch_name }}", "base":"main"}' \
           https://api.github.com/repos/$TARGET_REPO/pulls
