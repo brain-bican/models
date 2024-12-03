@@ -5,76 +5,31 @@ on:
     branches:
       - main
       - push_to_bkbit_workflow_20241202
-    paths:
-        - 'models_py-autogen/*.py'
-
+    
 jobs:
-  create_bkbit_pr:
-    runs-on: ubuntu-latest
+  # ------------------------------------------------------------------------------------------------------------------------------------------------
+  # Event `pull_request`: Compare the last commit of the main branch or last remote commit of the PR branch -> to the current commit of a PR branch.
+  # ------------------------------------------------------------------------------------------------------------------------------------------------
+  changed_files:
+    runs-on: ubuntu-latest  # windows-latest || macos-latest
+    name: Test changed-files
     steps:
-      - name: Checkout this repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      # - name: Set up Git and cloning repository
-      #   env:
-      #     TARGET_REPO: brain-bican/bkbit
-      #     PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-      #   run: |
-      #     git config --global user.name "puja-trivedi"
-      #     git config --global user.email "xspuja@gmail.com"
-      #     git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git
+      # -----------------------------------------------------------------------------------------------------------
+      # Example 1
+      # -----------------------------------------------------------------------------------------------------------
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v45
+        # To compare changes between the current commit and the last pushed remote commit set `since_last_remote_commit: true`. e.g
+        # with:
+        #   since_last_remote_commit: true 
 
-      - name: List changed files
-        id: changed_files
+      - name: List all changed files
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          # Get the list of changed files in the current push
-          CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.event.before }} ${{ github.sha }})
-          echo "$CHANGED_FILES" > changed_files.txt
-
-          # Check which of a.txt, b.txt, c.txt are in the changed files
-          for file in models_py-autogen/library_generation.py; do
-            if echo "$CHANGED_FILES" | grep -q "^$file$"; then
-              echo "$file changed"
-              echo "$file" >> files_that_changed.txt
-            fi
+          for file in ${ALL_CHANGED_FILES}; do
+            echo "$file was changed"
           done
-
-      - name: Output which files changed
-        run: |
-          echo "Files that changed:"
-          cat files_that_changed.txt
-
-      # - name: Process each changed file
-      #   if: steps.files.outputs.changed_files != ''
-      #   env:
-      #     CHANGED_FILES: ${{ steps.files.outputs.changed_files }}
-      #     TARGET_REPO: brain-bican/bkbit
-      #     PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-      #   run: |
-      #     for file in $CHANGED_FILES; do
-      #       # Extract filename without path
-      #       filename=$(basename $file)
-      #       branch_name="update_${filename%.*}_model"
-
-      #       # Copy the file to the target repository
-      #       cp $file bkbit/bkbit/models/$filename
-            
-      #       # Navigate to the target repository and create a branch
-      #       cd bkbit
-      #       git checkout -b $branch_name
-
-      #       # Stage changes and commit
-      #       git add bkbit/models/$filename
-      #       git commit -m "Updated $filename model is being copied and pushed from brain-bican/models repository."
-            
-      #       # Push changes to the new branch
-      #       git push origin $branch_name
-            
-      #       # Create a pull request
-      #       curl -X POST -H "Authorization: token $PERSONAL_ACCESS_TOKEN" \
-      #         -d "{\"title\":\"Automated PR: Update $filename model.\", \"head\":\"$branch_name\", \"base\":\"main\"}" \
-      #         https://api.github.com/repos/$TARGET_REPO/pulls
-            
-      #       # Navigate back to the root directory
-      #       cd ..
-      #     done
