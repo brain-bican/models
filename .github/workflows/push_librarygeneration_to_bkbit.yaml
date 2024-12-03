@@ -27,6 +27,15 @@ jobs:
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files-specific.outputs.all_changed_files }}
+        # run: |
+        #   echo "One or more files in the docs folder has changed."
+        #   echo "List all the files that have changed: $ALL_CHANGED_FILES"
         run: |
-          echo "One or more files in the docs folder has changed."
+          echo "One or more files in the models_py-autogen folder has changed."
           echo "List all the files that have changed: $ALL_CHANGED_FILES"
+          echo "$ALL_CHANGED_FILES" | tr ',' '\n' | while read -r FILE; do
+            echo "Processing file: $FILE"
+            # Add commands to process each file
+            # Example:
+            # python process_file.py "$FILE"
+          done
