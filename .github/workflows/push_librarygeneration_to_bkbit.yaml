@@ -21,15 +21,15 @@ jobs:
           TARGET_REPO: repronim/reproschema-py
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
-          git config --global user.name "djarecka"
-          git config --global user.email "djarecka@gmail.com"
+          git config --global user.name "puja-trivedi"
+          git config --global user.email "xspuja@gmail.com"
           git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git
       
       - name: Get changed files in the models_py-autogen folder
         id: changed-files-specific
         uses: tj-actions/changed-files@v45
         with:
-          files: models_py-autogen/**  # Alternatively using: `docs/**`
+          files: models_py-autogen/**
 
       - name: Run step if any file(s) in the models_py-autogen folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
@@ -43,6 +43,28 @@ jobs:
             echo "Processing file: $FILENAME"
             cp $FILE bkbit/bkbit/models/$FILENAME
           done
+          cd bkbit
+          git checkout -b "new_version_model"
+          git add bkbit/models/*
+          git commit -m "Updated model is being copied and pushed from repronim/reproschema-py repository."
+          cd ..
+    
+    - name: Push changes to the new branch
+        env:
+          TARGET_REPO: brain-bican/bkbit
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          cd bkbit
+          git push origin new_version_model
+
+    - name: Create a pull request
+        env:
+          TARGET_REPO: brain-bican/bkbit
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
+          -d '{"title":"Automated PR: Add new versions of the model(s)", "head":"new_version_model", "base":"main"}' \
+          https://api.github.com/repos/$TARGET_REPO/pulls
 
 
         # # Extract filename without path
