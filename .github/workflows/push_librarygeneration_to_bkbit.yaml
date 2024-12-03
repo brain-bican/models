@@ -19,7 +19,7 @@ jobs:
 
       - name: Set up Git and cloning repository
         env:
-          TARGET_REPO: repronim/reproschema-py
+          TARGET_REPO: brain-bican/bkbit
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           git config --global user.name "puja-trivedi"
@@ -47,7 +47,7 @@ jobs:
           cd bkbit
           git checkout -b "new_version_model"
           git add bkbit/models/*
-          git commit -m "Updated model is being copied and pushed from repronim/reproschema-py repository."
+          git commit -m "Updated model is being copied and pushed from brain-bican/models repository."
           cd ..
     
       - name: Push changes to the new branch
