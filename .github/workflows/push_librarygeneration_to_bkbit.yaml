@@ -1,21 +1,21 @@
-name: push pydantic library_generation to bkbit
+name: push pydantic models to bkbit
 
 on:
   push:
     branches:
       - main
-  #   paths: 'models_py-autogen/library_generation.py'
-  # workflow_run:
-  #   workflows: [generating other formats]
-  #   types:
-  #     - completed
-
+    # paths:
+    #   - 'models_py-autogen/**'    
 jobs:
-  create_bkbit_pr_library_generation:
-    runs-on: ubuntu-latest
+  # ------------------------------------------------------------------------------------------------------------------------------------------------
+  # Event `pull_request`: Compare the last commit of the main branch or last remote commit of the PR branch -> to the current commit of a PR branch.
+  # ------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  changed_files:
+    runs-on: ubuntu-latest  # windows-latest || macos-latest
+    name: Test changed-files
     steps:
-      - name: Checkout this repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Git and cloning repository
         env:
@@ -26,24 +26,37 @@ jobs:
           git config --global user.email "xspuja@gmail.com"
           git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git
       
-      - name: Make changes to target repository
-        id: changes
-        run: |  
-          # copy updated pydantic model from brain-bican/models to brain-bican/bkbit
-          cp models_py-autogen/library_generation.py bkbit/bkbit/models/library_generation.py
-          cd bkbit
-          git checkout -b update_library_generation_model
-          git add bkbit/models/library_generation.py
-          git commit -m "Updated version of library_generation model is being copied and pushed from brain-bican/models repository."
-          cd ..
+      - name: Get changed files in the models_py-autogen folder
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v45
+        with:
+          files: models_py-autogen/**
 
+      - name: Run step if any file(s) in the models_py-autogen folder change
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-files-specific.outputs.all_changed_files }}
+        run: |
+          echo "One or more files in the models_py-autogen folder has changed."
+          echo "List all the files that have changed: $ALL_CHANGED_FILES"
+          echo "$ALL_CHANGED_FILES" | tr ',' '\n' | while read -r FILE; do
+            FILENAME=$(basename "$FILE")
+            echo "Processing file: $FILENAME"
+            cp $FILE bkbit/bkbit/models/$FILENAME
+          done
+          cd bkbit
+          git checkout -b new_version_of_model
+          git add bkbit/models/*
+          git commit -m "Updated model(s), ${ALL_CHANGED_FILES}, are being copied and pushed from brain-bican/models repository."
+          cd ..
+    
       - name: Push changes to bkbit
         env:
           TARGET_REPO: brain-bican/bkbit
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           cd bkbit
-          git push origin update_library_generation_model
+          git push origin new_version_of_model
 
       - name: Create pull request to bkbit
         env:
