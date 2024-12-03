@@ -51,21 +51,21 @@ jobs:
           cd ..
     
       - name: Push changes to the new branch
-          env:
-            TARGET_REPO: brain-bican/bkbit
-            PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          run: |
-            cd bkbit
-            git push origin new_version_model
+        env:
+          TARGET_REPO: brain-bican/bkbit
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          cd bkbit
+          git push origin new_version_model
 
       - name: Create a pull request
-          env:
-            TARGET_REPO: brain-bican/bkbit
-            PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          run: |
-            curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
-            -d '{"title":"Automated PR: Add new versions of the model(s)", "head":"new_version_model", "base":"main"}' \
-            https://api.github.com/repos/$TARGET_REPO/pulls
+        env:
+          TARGET_REPO: brain-bican/bkbit
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
+          -d '{"title":"Automated PR: Add new versions of the model(s)", "head":"new_version_model", "base":"main"}' \
+          https://api.github.com/repos/$TARGET_REPO/pulls
 
 
         # # Extract filename without path
