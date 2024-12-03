@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - push_to_bkbit_workflow_20241202
     paths:
       - 'models_py-autogen/**'   
     workflow_run:
@@ -78,5 +77,5 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files-specific.outputs.all_changed_files }}
         run: |
           curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
-          -d "{\"title\":\"Automated PR from brain-bican/models: new version of pydantic model(s).\", \"body\":\"This PR includes changes to the following models:\\n\\n${ALL_CHANGED_FILES}\", \"head\":\"${{ env.branch_name }}\", \"base\":\"main\"}" \
+          -d "{\"title\":\"Automated PR from brain-bican/models: adding new version of pydantic model(s)\", \"body\":\"This PR includes changes to the following models:\\n\\n${ALL_CHANGED_FILES}\", \"head\":\"${{ env.branch_name }}\", \"base\":\"main\"}" \
           https://api.github.com/repos/$TARGET_REPO/pulls
