@@ -45,52 +45,24 @@ jobs:
             cp $FILE bkbit/bkbit/models/$FILENAME
           done
           cd bkbit
-          git checkout -b "new_version_model"
+          git checkout -b new_version_of_model
           git add bkbit/models/*
-          git commit -m "Updated model is being copied and pushed from brain-bican/models repository."
+          git commit -m "Updated model(s) are being copied and pushed from brain-bican/models repository."
           cd ..
     
-      - name: Push changes to the new branch
+      - name: Push changes to bkbit
         env:
           TARGET_REPO: brain-bican/bkbit
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           cd bkbit
-          git push origin new_version_model
+          git push origin  new_version_of_model
 
-      - name: Create a pull request
+      - name: Create pull request to bkbit
         env:
           TARGET_REPO: brain-bican/bkbit
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
-          -d '{"title":"Automated PR: Add new versions of the model(s)", "head":"new_version_model", "base":"main"}' \
+          -d '{"title":"Automated PR: Add new version of the library_generation model.", "head":"update_library_generation_model", "base":"main"}' \
           https://api.github.com/repos/$TARGET_REPO/pulls
-
-
-        # # Extract filename without path
-        #   filename=$(basename $file)
-        #   branch_name="update_${filename%.*}_model"
-
-        #   # Copy the file to the target repository
-        #   cp $file bkbit/bkbit/models/$filename
-          
-        #   # Navigate to the target repository and create a branch
-        #   cd bkbit
-        #   git checkout -b $branch_name
-
-        #   # Stage changes and commit
-        #   git add bkbit/models/$filename
-        #   git commit -m "Updated $filename model is being copied and pushed from brain-bican/models repository."
-          
-        #   # Push changes to the new branch
-        #   git push origin $branch_name
-          
-        #   # Create a pull request
-        #   curl -X POST -H "Authorization: token $PERSONAL_ACCESS_TOKEN" \
-        #     -d "{\"title\":\"Automated PR: Update $filename model.\", \"head\":\"$branch_name\", \"base\":\"main\"}" \
-        #     https://api.github.com/repos/$TARGET_REPO/pulls
-          
-        #   # Navigate back to the root directory
-        #   cd ..
-        # done
