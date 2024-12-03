@@ -2,8 +2,6 @@ name: generating yaml file
 
 on:
   push:
-    branches:
-      - main
     paths:
       - 'linkml-schema/source_library_generation/**'
 
