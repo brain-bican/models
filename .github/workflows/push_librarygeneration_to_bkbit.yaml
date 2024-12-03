@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - push_to_bkbit_workflow_20241202
     paths:
       - 'models_py-autogen/**'   
     workflow_run:
