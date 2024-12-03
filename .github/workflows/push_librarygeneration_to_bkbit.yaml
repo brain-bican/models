@@ -34,14 +34,11 @@ jobs:
           echo "One or more files in the models_py-autogen folder has changed."
           echo "List all the files that have changed: $ALL_CHANGED_FILES"
           "$ALL_CHANGED_FILES" | tr ',' '\n' | while read -r FILE; do
-            filename=$(basename $file)
+            filename=$(basename $FILE)
             branch_name="update_${filename%.*}_model"
             echo "Processing file: $FILE"
             echo "Filename: $filename"
             echo "Branch name: $branch_name"
-            Add commands to process each file
-            Example:
-            python process_file.py "$FILE"
           done
 
 
