@@ -33,9 +33,41 @@ jobs:
         run: |
           echo "One or more files in the models_py-autogen folder has changed."
           echo "List all the files that have changed: $ALL_CHANGED_FILES"
-          echo "$ALL_CHANGED_FILES" | tr ',' '\n' | while read -r FILE; do
+          "$ALL_CHANGED_FILES" | tr ',' '\n' | while read -r FILE; do
+            filename=$(basename $file)
+            branch_name="update_${filename%.*}_model"
             echo "Processing file: $FILE"
-            # Add commands to process each file
-            # Example:
-            # python process_file.py "$FILE"
+            echo "Filename: $filename"
+            echo "Branch name: $branch_name"
+            Add commands to process each file
+            Example:
+            python process_file.py "$FILE"
           done
+
+
+        # # Extract filename without path
+        #   filename=$(basename $file)
+        #   branch_name="update_${filename%.*}_model"
+
+        #   # Copy the file to the target repository
+        #   cp $file bkbit/bkbit/models/$filename
+          
+        #   # Navigate to the target repository and create a branch
+        #   cd bkbit
+        #   git checkout -b $branch_name
+
+        #   # Stage changes and commit
+        #   git add bkbit/models/$filename
+        #   git commit -m "Updated $filename model is being copied and pushed from brain-bican/models repository."
+          
+        #   # Push changes to the new branch
+        #   git push origin $branch_name
+          
+        #   # Create a pull request
+        #   curl -X POST -H "Authorization: token $PERSONAL_ACCESS_TOKEN" \
+        #     -d "{\"title\":\"Automated PR: Update $filename model.\", \"head\":\"$branch_name\", \"base\":\"main\"}" \
+        #     https://api.github.com/repos/$TARGET_REPO/pulls
+          
+        #   # Navigate back to the root directory
+        #   cd ..
+        # done
