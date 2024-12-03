@@ -4,8 +4,9 @@ on:
   push:
     branches:
       - main
-    # paths:
-    #   - 'models_py-autogen/**'    
+      - push_to_bkbit_workflow_20241202
+    paths:
+      - 'models_py-autogen/**'    
 jobs:
   # ------------------------------------------------------------------------------------------------------------------------------------------------
   # Event `pull_request`: Compare the last commit of the main branch or last remote commit of the PR branch -> to the current commit of a PR branch.
@@ -45,7 +46,9 @@ jobs:
             cp $FILE bkbit/bkbit/models/$FILENAME
           done
           cd bkbit
+          ls -l bkbit/models
           git checkout -b new_version_of_model
+          git branch
           git add bkbit/models/*
           git commit -m "Updated model(s), ${ALL_CHANGED_FILES}, are being copied and pushed from brain-bican/models repository."
           cd ..
