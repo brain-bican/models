@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'models_py-autogen/**'    
+    # paths:
+    #   - 'models_py-autogen/**'    
 jobs:
   # ------------------------------------------------------------------------------------------------------------------------------------------------
   # Event `pull_request`: Compare the last commit of the main branch or last remote commit of the PR branch -> to the current commit of a PR branch.
