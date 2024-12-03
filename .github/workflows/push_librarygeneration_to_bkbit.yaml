@@ -15,22 +15,35 @@ jobs:
       - name: Checkout this repository
         uses: actions/checkout@v3
 
-      - name: Set up Git and cloning repository
-        env:
-          TARGET_REPO: brain-bican/bkbit
-          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-        run: |
-          git config --global user.name "puja-trivedi"
-          git config --global user.email "xspuja@gmail.com"
-          git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git
+      # - name: Set up Git and cloning repository
+      #   env:
+      #     TARGET_REPO: brain-bican/bkbit
+      #     PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      #   run: |
+      #     git config --global user.name "puja-trivedi"
+      #     git config --global user.email "xspuja@gmail.com"
+      #     git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git
 
       - name: List changed files
         id: changed_files
         run: |
           # Get the list of changed files in the current push
           CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.event.before }} ${{ github.sha }})
-          echo "$CHANGED_FILES"
-          
+          echo "$CHANGED_FILES" > changed_files.txt
+
+          # Check which of a.txt, b.txt, c.txt are in the changed files
+          for file in models_py-autogen/library_generation.py; do
+            if echo "$CHANGED_FILES" | grep -q "^$file$"; then
+              echo "$file changed"
+              echo "$file" >> files_that_changed.txt
+            fi
+          done
+
+      - name: Output which files changed
+        run: |
+          echo "Files that changed:"
+          cat files_that_changed.txt
+
       # - name: Process each changed file
       #   if: steps.files.outputs.changed_files != ''
       #   env:
