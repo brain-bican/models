@@ -54,7 +54,8 @@ jobs:
             git add linkml-schema/library_generation.yaml
             git add linkml-schema/source_library_generation/gsheet_output
             git commit -m "generate new version of the linkml model"
-            git push
+            current_branch=$(git branch --show-current)
+            git push origin $current_branch
           else
             echo "No changes to commit"
           fi
