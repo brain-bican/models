@@ -16,29 +16,32 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-
+      - name: Set up Git and cloning repository
+        env:
+          TARGET_REPO: repronim/reproschema-py
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          git config --global user.name "djarecka"
+          git config --global user.email "djarecka@gmail.com"
+          git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git
+      
       - name: Get changed files in the models_py-autogen folder
         id: changed-files-specific
         uses: tj-actions/changed-files@v45
         with:
           files: models_py-autogen/**  # Alternatively using: `docs/**`
 
-      - name: Run step if any file(s) in the docs folder change
+      - name: Run step if any file(s) in the models_py-autogen folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files-specific.outputs.all_changed_files }}
-        # run: |
-        #   echo "One or more files in the docs folder has changed."
-        #   echo "List all the files that have changed: $ALL_CHANGED_FILES"
         run: |
           echo "One or more files in the models_py-autogen folder has changed."
           echo "List all the files that have changed: $ALL_CHANGED_FILES"
-          "$ALL_CHANGED_FILES" | tr ',' '\n' | while read -r FILE; do
-            filename=$(basename $FILE)
-            branch_name="update_${filename%.*}_model"
-            echo "Processing file: $FILE"
-            echo "Filename: $filename"
-            echo "Branch name: $branch_name"
+          echo "$ALL_CHANGED_FILES" | tr ',' '\n' | while read -r FILE; do
+            FILENAME=$(basename "$FILE")
+            echo "Processing file: $FILENAME"
+            cp $FILE bkbit/bkbit/models/$FILENAME
           done
 
 
