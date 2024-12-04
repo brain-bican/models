@@ -22,12 +22,6 @@ jobs:
         with:
           fetch-depth: 0  # Ensure full history is fetched
 
-      - name: Get Current Branch Name
-        run: |
-          echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
-          git branch
-          echo $BRANCH_NAME
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -62,8 +56,7 @@ jobs:
             git add linkml-schema/library_generation.yaml
             git add linkml-schema/source_library_generation/gsheet_output
             git commit -m "generate new version of the linkml model"
-            echo "Branch name: $BRANCH_NAME"
-            git push origin HEAD:${{ env.BRANCH_NAME }}
+            git push
           else
             echo "No changes to commit"
           fi
