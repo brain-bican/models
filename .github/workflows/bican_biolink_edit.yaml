@@ -1,4 +1,4 @@
-name: generating other formats
+name: bican biolink edit
 
 on:
   push:
