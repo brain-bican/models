@@ -1908,6 +1908,10 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         slot_uri: bican:6837cb02-6bd7-4fb8-838c-9062ead96ba4
         alias: donor_species
+      test_slot:
+        description: this is a test slot
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        alias: test_slot
   BrainSlab:
     description: A thick flat piece of brain tissue obtained by slicing a whole brain,
       brain hemisphere or subdivision with a blade at regular interval.  When multiple
