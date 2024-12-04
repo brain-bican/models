@@ -43,6 +43,9 @@ jobs:
           cd ..
 
       - name: Adding other model representations to git
+        # this might fail when running in PR mode because of the git push
+        # but the files should be added since it's also run on push
+        continue-on-error: true
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
