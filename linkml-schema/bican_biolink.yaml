@@ -1,8 +1,9 @@
 id: https://w3id.org/biolink/bican-biolink-schema
 name: bican-biolink-schema
 title: BICAN Biolink Schema
-description: |-
-  The BICAN Biolink schema contains a subset of classes from the Biolink Model that are frequently used in BICAN schemas. The Biolink model represents life-sciences data and defines entities and association taxonomy classes.
+description: The BICAN Biolink schema contains a subset of classes from the Biolink
+  Model that are frequently used in BICAN schemas. The Biolink model represents life-sciences
+  data and defines entities and association taxonomy classes.
 version: 4.2.0-rc.2
 imports:
 - linkml:types
@@ -787,7 +788,7 @@ slots:
   category:
     name: category
     definition_uri: https://w3id.org/biolink/vocab/category
-    description: Name of the high level ontology class in which this entity is categorized.
+    description: 'Name of the high level ontology class in which this entity is categorized.
       Corresponds to the label for the biolink entity type class. In a neo4j database
       this MAY correspond to the neo4j label tag. In an RDF database it should be
       a biolink model class URI. This field is multi-valued. It should include values
@@ -798,7 +799,8 @@ slots:
       than something in biolink. For example, a sequence feature `f` may have a rdf:type
       assertion to a SO class such as TF_binding_site, which is more specific than
       anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity,
-      biolink:NamedThing}
+      biolink:NamedThing}. NOTE: The category slot was modified to have a curie range
+      and a pattern for bican categories.'
     in_subset:
     - translator_minimal
     from_schema: https://w3id.org/biolink/biolink-model
@@ -811,7 +813,8 @@ slots:
     domain_of:
     - entity
     is_class_field: true
-    range: uriorcurie
+    range: curie
+    pattern: ^bican:[A-Z][A-Za-z]+$
   name:
     name: name
     definition_uri: https://w3id.org/biolink/vocab/name
@@ -1935,4 +1938,3 @@ classes:
 metamodel_version: 1.7.0
 source_file_size: 44864
 generation_date: '2024-03-27T11:46:24'
-
