@@ -165,6 +165,10 @@
       },
       "ZFIN": "http://identifiers.org/zfin/",
       "bican": "https://identifiers.org/brain-bican/vocab/",
+      "bican_prov": {
+         "@id": "https://github.com/brain-bican/models/blob/main/linkml-schema/bican_prov.yaml",
+         "@prefix": true
+      },
       "biolink": "https://w3id.org/biolink/vocab/",
       "bioschemas": "https://bioschemas.org/",
       "dcid": "https://datacommons.org/browser/",
@@ -217,7 +221,6 @@
          "@id": "f10e928d-5a2b-4943-af18-d8fe5d05528d"
       },
       "category": {
-         "@type": "@id",
          "@id": "biolink:category"
       },
       "amplified_cDNA_PCR_cycles": {
@@ -425,7 +428,7 @@
          "@type": "xsd:float",
          "@id": "318b2d3a-dae7-4c63-bfbb-93862b92f63e"
       },
-      "R1/R2_index_name": {
+      "R1_R2_index_name": {
          "@context": {
             "@vocab": "@null",
             "text": "skos:notation",

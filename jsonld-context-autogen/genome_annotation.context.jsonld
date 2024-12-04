@@ -216,7 +216,6 @@
          "@id": "authority"
       },
       "category": {
-         "@type": "@id",
          "@id": "biolink:category"
       },
       "checksum_algorithm": {
