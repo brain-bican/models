@@ -4,14 +4,15 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'linkml-schema/source_library_generation/**'
+      - update_generate_yaml_wf
+    # paths:
+    #   - 'linkml-schema/source_library_generation/**'
 
 permissions:
   contents: write
 
 jobs:
-  generate:
+  generate_libgen_yaml:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repository
@@ -35,23 +36,35 @@ jobs:
 
       - name: Generate yaml model
         run: |
-          cd linkml-schema
-          bkbit schema2model -o library_generation.yaml --gsheet --gsheet-download-dir source_library_generation/gsheet_output  source_library_generation/gsheet.yaml  --no-inlined
-          cd ..
+          git branch
+          pwd
+          # cd linkml-schema
+          # bkbit schema2model -o library_generation.yaml --gsheet --gsheet-download-dir source_library_generation/gsheet_output  source_library_generation/gsheet.yaml  --no-inlined
+          # cd ..
+      
+      # - name: Set up Git and cloning repository
+      #   env:
+      #     TARGET_REPO: brain-bican/bkbit
+      #     PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      #   run: |
+      #     git config --global user.name "puja-trivedi"
+      #     git config --global user.email "xspuja@gmail.com"
+      #     git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git
+      
+      # - name: Adding other model representations to git
+      #   run: |
 
-      - name: Adding other model representations to git
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          if ! git ls-files --error-unmatch linkml-schema/library_generation.yaml; then
-            git add linkml-schema/library_generation.yaml
-            git add linkml-schema/source_library_generation/gsheet_output
-            git commit -m "adding a new linkml model"
-          elif ! git diff --quiet; then
-            git add linkml-schema/library_generation.yaml
-            git add linkml-schema/source_library_generation/gsheet_output
-            git commit -m "generate new version of the linkml model"
-            git push
-          else
-            echo "No changes to commit"
-          fi
+      #     git config --local user.email "action@github.com"
+      #     git config --local user.name "GitHub Action"
+      #     if ! git ls-files --error-unmatch linkml-schema/library_generation.yaml; then
+      #       git add linkml-schema/library_generation.yaml
+      #       git add linkml-schema/source_library_generation/gsheet_output
+      #       git commit -m "adding a new linkml model"
+      #     elif ! git diff --quiet; then
+      #       git add linkml-schema/library_generation.yaml
+      #       git add linkml-schema/source_library_generation/gsheet_output
+      #       git commit -m "generate new version of the linkml model"
+      #       git push
+      #     else
+      #       echo "No changes to commit"
+      #     fi
