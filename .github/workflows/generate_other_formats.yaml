@@ -7,7 +7,7 @@ on:
     paths:
       - 'linkml-schema/**'
   workflow_run:
-    workflows: [ "generating yaml file", "bican biolink edit" ]
+    workflows: [ generating yaml file ]
     types:
       - completed
 
