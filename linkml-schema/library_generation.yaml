@@ -16,6 +16,7 @@ prefixes:
   schema: http://schema.org/
   ncbi: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi
   NIMP: http://example.org/NIMP/
+  bican_prov: https://github.com/brain-bican/models/blob/main/linkml-schema/bican_prov.yaml
 default_prefix: bican
 default_range: string
 subsets:
@@ -1846,8 +1847,6 @@ classes:
         description: Name of person or organism that is the source of a biological
           sample for scientific study.  Many biological samples are generated from
           a single donor.
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       biological_sex:
         local_names:
@@ -1942,8 +1941,6 @@ classes:
           a whole brain, brain hemisphere or subdivision with a blade at regular interval.  When
           multiple brain slabs are obtained from the slicing process, an ordinal is
           assigned to provide information about the relative positioning of the slabs.
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
   TissueSample:
     description: The final intact piece of tissue before cell or nuclei prep. This
       piece of tissue will be used in dissociation and has an region of interest polygon
@@ -1982,8 +1979,6 @@ classes:
         exact_mappings:
         - NIMP:PD-LJCRCC35
         slot_uri: bican:2e4ca2fc-2d77-4d19-af45-d0fb7bbc2269
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       dissection_was_guided_by:
         description: The dissection ROI polygon that was used to guide the dissection.
@@ -2036,8 +2031,6 @@ classes:
         exact_mappings:
         - NIMP:PD-RQRWHS40
         slot_uri: bican:65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       cell_prep_type:
         local_names:
@@ -2112,8 +2105,6 @@ classes:
         exact_mappings:
         - NIMP:PD-BERWTM41
         slot_uri: bican:bb3fc701-23a7-45c1-890d-7471730e0ec1
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       enrichment_population:
         local_names:
@@ -2202,8 +2193,6 @@ classes:
         exact_mappings:
         - NIMP:PD-XEMDJF38
         slot_uri: bican:4c0e6380-e53f-4173-a474-d41e836fefe3
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       number_of_expected_cells:
         local_names:
@@ -2264,8 +2253,6 @@ classes:
         exact_mappings:
         - NIMP:PD-YAAGGG39
         slot_uri: bican:e2606a11-114e-472f-9e05-33f9b6fc3089
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       quantity_ng:
         local_names:
@@ -2352,8 +2339,6 @@ classes:
         exact_mappings:
         - NIMP:PD-AJJUCC35
         slot_uri: bican:f717e254-3630-4342-be7b-4d56376e7afe
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       average_size_bp:
         local_names:
@@ -2437,7 +2422,7 @@ classes:
         exact_mappings:
         - NIMP:PD-VLLMWZ60
         slot_uri: bican:c94b5d8a-e92d-47af-8c0e-ea3b58be4d06
-        alias: R1/R2 index name
+        alias: R1_R2 index name
         range: library_r1_r2_index
   LibraryAliquot:
     description: One library in the library pool. Each library aliquot in a library
@@ -2478,8 +2463,6 @@ classes:
         exact_mappings:
         - NIMP:PD-XCXCCC35
         slot_uri: bican:34191bad-d167-4335-8224-ade897d3728e
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
   LibraryPool:
     description: A library pool is made up of library aliquots from multiple libraries.
       Each library aliquot in a library pool will have a unique R1/R2 index to allow
@@ -2522,8 +2505,6 @@ classes:
         exact_mappings:
         - NIMP:PD-KKIAPA48
         slot_uri: bican:29e0578b-6427-4c93-b29b-bde27fbadeec
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       local_tube_id:
         local_names:
@@ -2557,9 +2538,8 @@ classes:
     slot_usage:
       used:
         description: The brain slab that was annotated by the delineation process.
+        from_schema: bican_prov
         range: BrainSlab
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
   TissueDissection:
     description: The process of dissecting a tissue sample from a brain slab guided
       by a dissection region of interest (ROI) delineation.
@@ -2576,8 +2556,6 @@ classes:
       used:
         description: The brain slab from which the tissue sample was dissected from.
         range: BrainSlab
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       was_guided_by:
         description: The dissection ROI polygon which was used to guide the tissue
@@ -2603,8 +2581,6 @@ classes:
           was derived from.
         range: TissueSample
         multivalued: true
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       process_date:
         local_names:
@@ -2635,8 +2611,6 @@ classes:
           cell sample was derived from.
         range: DissociatedCellSample
         multivalued: true
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       process_date:
         local_names:
@@ -2664,8 +2638,6 @@ classes:
         description: The enrichment cell sample splitting process from which the enriched
           cell sample was generated by.
         range: EnrichedCellSample
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
   CellBarcoding:
     description: The process of adding a molecular barcode to individual cells in
       a sample. The input will be either dissociated cell sample or enriched cell
@@ -2689,8 +2661,6 @@ classes:
         exactly_one_of:
         - range: DissociatedCellSample
         - range: EnrichedCellSample
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       port_well:
         local_names:
@@ -2760,8 +2730,6 @@ classes:
         description: The input barcoded cell sample from which amplified cDNA was
           derived from.
         range: BarcodedCellSample
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       pcr_cycles:
         local_names:
@@ -2824,8 +2792,6 @@ classes:
         any_of:
         - range: BarcodedCellSample
         - range: AmplifiedCdna
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       method:
         local_names:
@@ -2904,8 +2870,6 @@ classes:
           from.
         range: LibraryAliquot
         multivalued: true
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       process_date:
         local_names:
@@ -2941,8 +2905,6 @@ classes:
           local_name_source: NIMP
         description: Name of a polygon annotated on a brain slab image delineating
           a region of interest (ROI) for a tissue sample dissectioning.
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       annotates:
         description: The brain slab that was annotated by the delineation process.
@@ -2964,8 +2926,6 @@ classes:
         range: LibraryPool
       digest: {}
       content_url: {}
-      category:
-        pattern: ^bican:[A-Z][A-Za-z]+$
     attributes:
       data_type:
         description: The type of data in the file
