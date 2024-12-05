@@ -1,15 +1,13 @@
 name: push pydantic models to brain-bican/bkbit
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'models_py-autogen/**'   
-    workflow_run:
-      workflows: [generating other formats]
-      types:
-        - completed 
+  workflow_dispatch:
+    inputs:
+      model:
+        description: 'model name'
+        required: true
+        type: string
+
 
 jobs:
   changed_files:
@@ -17,7 +15,6 @@ jobs:
     name: Test changed-files
     steps:
       - uses: actions/checkout@v4
-
       - name: Set up Git and cloning repository
         env:
           TARGET_REPO: brain-bican/bkbit
@@ -26,43 +23,52 @@ jobs:
           git config --global user.name "puja-trivedi"
           git config --global user.email "xspuja@gmail.com"
           git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git
-      
-      - name: Get changed files in the models_py-autogen folder
-        id: changed-files-specific
-        uses: tj-actions/changed-files@v45
-        with:
-          files: models_py-autogen/**
 
-      - name: Run step if any file(s) in the models_py-autogen folder change
-        if: steps.changed-files-specific.outputs.any_changed == 'true'
-        env:
-          ALL_CHANGED_FILES: ${{ steps.changed-files-specific.outputs.all_changed_files }}
+      - name: Check if the model exists
         run: |
-          echo "One or more files in the models_py-autogen folder has changed."
-          echo "List all the files that have changed: $ALL_CHANGED_FILES"
-          echo "$ALL_CHANGED_FILES" | tr ',' '\n' | while read -r FILE; do
-            FILENAME=$(basename "$FILE")
-            echo "Processing file: $FILENAME"
-            cp $FILE bkbit/bkbit/models/$FILENAME
-          done
-          cd bkbit
-          ls -l bkbit/models
+          if [ ! -f models_py-autogen/${{ inputs.model }}.py ]; then
+            echo "Incorrect model name"
+            exit 1
+          fi
+      - name: Compare pydantic files
+        id: compare
+        run: |
+          if [ ! -f models_py-autogen/${{ inputs.model }}.py ]; then
+            echo "This is new model for bkbit"
+            cho "changed=new" >> "$GITHUB_OUTPUT"
+          if diff models_py-autogen/${{ inputs.model }}.py bkbit/models/${{ inputs.model }}.py > /dev/null; then
+            echo "No changes in the pydantic model"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Changes found in the pydantic model"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Copy the pydantic model to bkbit and commit the changes
+        if: ${{ steps.compare.outputs.changed  == 'true' || steps.compare.outputs.changed == 'new' }}
+        run: |
+          echo "Copying the pydantic model ${{ inputs.model }} to bkbit"
+          cp models_py-autogen/${{ inputs.model }}.py bkbit/models/
 
           # Generate a unique branch name
           TIMESTAMP=$(date +%Y%m%d%H%M%S)
-          BRANCH_NAME="update_models_${TIMESTAMP}"
+          BRANCH_NAME="update_${{ inputs.model }}_${TIMESTAMP}"
           echo "Generated branch name: $BRANCH_NAME"
+          # Set branch name as output
+          echo "branch_name=${BRANCH_NAME}" >> $GITHUB_ENV
           
           git checkout -b $BRANCH_NAME
           git branch
           git add bkbit/models/*
-          git commit -m "The listed model(s) have been modified in the brain-bican/models repo: ${ALL_CHANGED_FILES}. New version of model(s) in pydantic format are being pushed from brain-bican/models to brain-bican/bkbit."
+          if [ ${{ steps.compare.outputs.changed }} == 'new' ]; then
+            git commit -m "The model ${{ inputs.model }}.py has been added to the brain-bican/models repo. The model in pydantic format is being automatically pushed from brain-bican/models to brain-bican/bkbit."
+          else
+            git commit -m "The model ${{ inputs.model }}.py has been modified in the brain-bican/models repo. New version of the model in pydantic format is being automatically pushed from brain-bican/models to brain-bican/bkbit."
+          fi
           cd ..
 
-          # Set branch name as output
-          echo "branch_name=${BRANCH_NAME}" >> $GITHUB_ENV
-          
       - name: Push changes to bkbit
+        if: ${{ steps.compare.outputs.changed  == 'true' || steps.compare.outputs.changed == 'new' }}
         env:
           TARGET_REPO: brain-bican/bkbit
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
@@ -71,11 +77,11 @@ jobs:
           git push origin ${{ env.branch_name }}
 
       - name: Create pull request to bkbit
+        if: ${{ steps.compare.outputs.changed  == 'true' || steps.compare.outputs.changed == 'new' }}
         env:
           TARGET_REPO: brain-bican/bkbit
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          ALL_CHANGED_FILES: ${{ steps.changed-files-specific.outputs.all_changed_files }}
         run: |
           curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
-          -d "{\"title\":\"Automated PR from brain-bican/models: adding new version of pydantic model(s)\", \"body\":\"This PR includes changes to the following models:\\n\\n${ALL_CHANGED_FILES}\", \"head\":\"${{ env.branch_name }}\", \"base\":\"main\"}" \
+          -d "{\"title\":\"Automated PR from brain-bican/models: adding new version of pydantic model(s)\", \"body\":\"This PR include changes to the models:${{ inputs.model }}", \"head\":\"${{ env.branch_name }}\", \"base\":\"main\"}" \
           https://api.github.com/repos/$TARGET_REPO/pulls
