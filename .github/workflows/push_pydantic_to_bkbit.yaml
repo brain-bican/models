@@ -84,5 +84,5 @@ jobs:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
-          -d "{\"title\":\"Automated PR from brain-bican/models: adding new version of pydantic model(s)\", \"body\":\"This PR include changes to the models:${{ inputs.model }}", \"head\":\"${{ env.branch_name }}\", \"base\":\"main\"}" \
+          -d "{\"title\":\"Automated PR from brain-bican/models: adding new version of pydantic model\", \"body\":\"This PR include changes to the models:${{ inputs.model }}\", \"head\":\"${{ env.branch_name }}\", \"base\":\"main\"}" \
           https://api.github.com/repos/$TARGET_REPO/pulls
