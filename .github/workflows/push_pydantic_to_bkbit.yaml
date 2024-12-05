@@ -36,7 +36,7 @@ jobs:
           if [ ! -f models_py-autogen/${{ inputs.model }}.py ]; then
             echo "This is new model for bkbit"
             echo "changed=new" >> "$GITHUB_OUTPUT"
-          if diff models_py-autogen/${{ inputs.model }}.py bkbit/models/${{ inputs.model }}.py > /dev/null; then
+          elif diff models_py-autogen/${{ inputs.model }}.py bkbit/models/${{ inputs.model }}.py > /dev/null; then
             echo "No changes in the pydantic model"
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
