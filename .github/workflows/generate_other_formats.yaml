@@ -48,11 +48,11 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          if ! git diff --quiet; then
-            git add json-schema-autogen/test_model.json
-            git add jsonld-context-autogen/test_model.context.jsonld
-            git add models_py-autogen/test_model.py
-            git add erdiagram-autogen/test_model.md
+          git add json-schema-autogen/test_model.json
+          git add jsonld-context-autogen/test_model.context.jsonld
+          git add models_py-autogen/test_model.py
+          git add erdiagram-autogen/test_model.md
+          if ! git diff --quiet HEAD; then
             git commit -m "generate another formats"
             git push
           else
