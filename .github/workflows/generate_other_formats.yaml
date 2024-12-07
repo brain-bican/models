@@ -3,9 +3,10 @@ name: generating other formats
 on:
   push:
     branches:
-#      - main
-    paths:
-      - 'linkml-schema/test_model.yaml'
+      - main
+  pull_request:
+#    paths:
+#      - 'linkml-schema/test_model.yaml'
 
 permissions:
   contents: write
