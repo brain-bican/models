@@ -3,18 +3,12 @@ name: generating other formats
 on:
   push:
     branches:
-      - main
+#      - main
     paths:
-      - 'linkml-schema/**'
-  workflow_run:
-    workflows: [ generating yaml file ]
-    types:
-      - completed
-
+      - 'linkml-schema/test_model.yaml'
 
 permissions:
   contents: write
-
 
 jobs:
   generate:
@@ -39,23 +33,14 @@ jobs:
       - name: Generate other model representations
         run: |
           cd linkml-schema
-          for file in *.yaml; do
-            if [[ "$file" != *bican* && "$file" != *core* ]]; then
-              name=`basename ${file} .yaml`;
-              echo "Processing $name file..";
-              gen-json-schema  ${file} > ../json-schema-autogen/${name}.json;
-              # generating jsonld context and removing generation_date field to avoid constant updates
-              gen-jsonld-context ${file} > ../jsonld-context-autogen/${name}.context.jsonld;
-              sed -i "/generation_date/d" ../jsonld-context-autogen/${name}.context.jsonld;
-              gen-pydantic ${file} > ../models_py-autogen/${name}.py;
-              if [ ${name} = "library_generation" ] || [ ${name} = "genome_annotation" ]; then
-                echo "Creating and Fixing diagrams for $name";
-                python ../utils/fix_and_create_erdiagram.py
-              else
-                gen-erdiagram ${file} > ../erdiagram-autogen/${name}.md;
-              fi
-            fi
-          done
+          name="test_model.yaml";
+          echo "Processing $name file..";
+          gen-json-schema  ${name} > ../json-schema-autogen/${name}.json;
+          # generating jsonld context and removing generation_date field to avoid constant updates
+          gen-jsonld-context ${name} > ../jsonld-context-autogen/${name}.context.jsonld;
+          sed -i "/generation_date/d" ../jsonld-context-autogen/${name}.context.jsonld;
+          gen-pydantic ${name} > ../models_py-autogen/${name}.py;
+          gen-erdiagram ${name} > ../erdiagram-autogen/${name}.md;
           cd ..
 
       - name: Adding other model representations to git
@@ -63,10 +48,10 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           if ! git diff --quiet; then
-            git add json-schema-autogen/*.json
-            git add jsonld-context-autogen/*.context.jsonld
-            git add models_py-autogen/*.py
-            git add erdiagram-autogen/*.md
+            git add json-schema-autogen/test_model.json
+            git add jsonld-context-autogen/test_model.context.jsonld
+            git add models_py-autogen/test_model.py
+            git add erdiagram-autogen/test_model.md
             git commit -m "generate another formats"
             git push
           else
