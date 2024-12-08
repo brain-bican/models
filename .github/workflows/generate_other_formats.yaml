@@ -20,8 +20,9 @@ jobs:
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v4
-#        with:
-#          ref: ${{ github.head_ref }}
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
