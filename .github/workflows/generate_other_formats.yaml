@@ -27,6 +27,14 @@ jobs:
 
       - name: Debug Secrets
         run: |
+          echo "Checking if PERSONAL_ACCESS_TOKEN is set..."
+          if [ -z "${{ secrets.PERSONAL_ACCESS_TOKEN }}" ]; then
+            echo "PERSONAL_ACCESS_TOKEN is not set!"
+            exit 1
+          else
+            echo "PERSONAL_ACCESS_TOKEN is available."
+          fi
+
           echo "Checking if PAT_TOKEN is set..."
           if [ -z "${{ secrets.PAT_GA_DJ }}" ]; then
             echo "PAT_GA_DJ is not set!"
