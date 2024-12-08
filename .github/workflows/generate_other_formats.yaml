@@ -82,10 +82,11 @@ jobs:
           git add erdiagram-autogen/test_model.md
           if ! git diff --quiet HEAD; then
             git commit -m "generate another formats"
-            git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${{ github.event.pull_request.head.repo.full_name }}.git
-            git remote -v
-            echo "Branch: ${{ github.event.pull_request.head.ref }}"
-            git push origin ${{ github.event.pull_request.head.ref }}
+            #git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${{ github.event.pull_request.head.repo.full_name }}.git
+            #git remote -v
+            #echo "Branch: ${{ github.event.pull_request.head.ref }}"
+            #git push origin ${{ github.event.pull_request.head.ref }}
+            git push
           else
             echo "No changes to commit"
           fi
