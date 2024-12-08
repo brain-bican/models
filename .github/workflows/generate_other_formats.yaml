@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -55,7 +57,7 @@ jobs:
           git add erdiagram-autogen/test_model.md
           if ! git diff --quiet HEAD; then
             git commit -m "generate another formats"
-            git push
+            git push origin HEAD:${{ github.head_ref }}
           else
             echo "No changes to commit"
           fi
