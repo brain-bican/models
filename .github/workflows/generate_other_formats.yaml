@@ -87,7 +87,6 @@ jobs:
             git commit -m "generate another formats"
             git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${{ github.event.pull_request.head.repo.full_name }}.git
             git remote -v
-            echo "Using token for: https://x-access-token:${PAT_TOKEN}@github.com/${{ github.event.pull_request.head.repo.full_name }}.git"
             echo "Branch: ${{ github.event.pull_request.head.ref }}"
             git push origin ${{ github.event.pull_request.head.ref }}
           else
