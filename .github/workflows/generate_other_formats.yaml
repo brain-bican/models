@@ -7,7 +7,7 @@ on:
 #  pull_request:
 #    paths:
 #      - 'linkml-schema/test_model.yaml'
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize]
 
 
