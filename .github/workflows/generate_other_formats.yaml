@@ -19,9 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: ${{ github.head_ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -60,7 +60,7 @@ jobs:
           git add erdiagram-autogen/test_model.md
           if ! git diff --quiet HEAD; then
             git commit -m "generate another formats"
-            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+            git push
           else
             echo "No changes to commit"
           fi
