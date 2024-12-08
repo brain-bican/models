@@ -84,7 +84,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'bican',
                   'schema': {'prefix_prefix': 'schema',
                              'prefix_reference': 'http://schema.org/'}},
      'source_file': 'test_model.yaml',
-     'title': 'Test Schema updated 6'} )
+     'title': 'Test Schema updated 7'} )
 
 
 class ProvActivity(ConfiguredBaseModel):
