@@ -62,7 +62,7 @@ jobs:
           git add erdiagram-autogen/test_model.md
           if ! git diff --quiet HEAD; then
             git commit -m "generate another formats"
-            git push
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
           else
             echo "No changes to commit"
           fi
