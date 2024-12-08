@@ -1,6 +1,6 @@
 id: https://identifiers.org/brain-bican/test-schema
 name: test-schema
-title: Test Schema updated 6
+title: Test Schema updated 7
 description: |-
   The BICAN Prov schema contains a subset of classes from the Prov Data Model (PROV-DM) that are frequently used in BICAN schemas.
 
