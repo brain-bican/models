@@ -25,24 +25,6 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
 
-      - name: Debug Secrets
-        run: |
-          echo "Checking if PERSONAL_ACCESS_TOKEN is set..."
-          if [ -z "${{ secrets.PERSONAL_ACCESS_TOKEN }}" ]; then
-            echo "PERSONAL_ACCESS_TOKEN is not set!"
-            exit 1
-          else
-            echo "PERSONAL_ACCESS_TOKEN is available."
-          fi
-
-          echo "Checking if PAT_TOKEN is set..."
-          if [ -z "${{ secrets.PAT_GA_DJ }}" ]; then
-            echo "PAT_GA_DJ is not set!"
-            exit 1
-          else
-            echo "PAT_GA_DJ is available."
-          fi
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -71,11 +53,9 @@ jobs:
           cd ..
 
       - name: Adding other model representations to git
-        env:
-          PAT_TOKEN: ${{ secrets.PAT_GA_DJ }}
         run: |
-          git config --global user.name "djarecka"
-          git config --global user.email "djarecka@gmail.com"
+          git config --global user.name "action@github.com"
+          git config --global user.email "Github Actions"
           git branch
           git diff
           git add json-schema-autogen/test_model.json
