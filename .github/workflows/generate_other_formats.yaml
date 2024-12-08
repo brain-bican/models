@@ -53,15 +53,18 @@ jobs:
           cd ..
 
       - name: Adding other model representations to git
+        env:
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --global user.name "puja-trivedi"
+          git config --global user.email "xspuja@gmail.com"
           git add json-schema-autogen/test_model.json
           git add jsonld-context-autogen/test_model.context.jsonld
           git add models_py-autogen/test_model.py
           git add erdiagram-autogen/test_model.md
           if ! git diff --quiet HEAD; then
             git commit -m "generate another formats"
+            git remote set-url origin https://x-access-token:${PERSONAL_ACCESS_TOKEN}@github.com/${{ github.event.pull_request.head.repo.full_name }}.git
             git push origin HEAD:${{ github.event.pull_request.head.ref }}
           else
             echo "No changes to commit"
