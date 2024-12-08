@@ -1,20 +1,18 @@
 name: generating other formats
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'linkml-schema/**'
-  workflow_run:
-    workflows: [ generating yaml file ]
-    types:
-      - completed
+#  push:
+#    branches:
+#      - main
+#  pull_request:
+#    paths:
+#      - 'linkml-schema/test_model.yaml'
+  pull_request:
+    types: [opened, synchronize]
 
 
 permissions:
   contents: write
-
 
 jobs:
   generate:
@@ -22,6 +20,34 @@ jobs:
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: "check is PERSONAL_ACCESS_TOKEN exists"
+        env:
+            super_secret: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        if: ${{ env.super_secret == '' }}
+        run: echo "the secret PERSONAL_ACCESS_TOKEN has not been made"
+
+      - name: Debug Secrets
+        run: |
+          echo "Checking if PERSONAL_ACCESS_TOKEN is set..."
+          if [ -z "${{ secrets.PERSONAL_ACCESS_TOKEN }}" ]; then
+            echo "PERSONAL_ACCESS_TOKEN is not set!"
+            exit 1
+          else
+            echo "PERSONAL_ACCESS_TOKEN is available."
+          fi
+
+          echo "Checking if PAT_TOKEN is set..."
+          if [ -z "${{ secrets.PAT_GA_DJ }}" ]; then
+            echo "PAT_GA_DJ is not set!"
+            exit 1
+          else
+            echo "PAT_GA_DJ is available."
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -39,36 +65,37 @@ jobs:
       - name: Generate other model representations
         run: |
           cd linkml-schema
-          for file in *.yaml; do
-            if [[ "$file" != *bican* && "$file" != *core* ]]; then
-              name=`basename ${file} .yaml`;
-              echo "Processing $name file..";
-              gen-json-schema  ${file} > ../json-schema-autogen/${name}.json;
-              # generating jsonld context and removing generation_date field to avoid constant updates
-              gen-jsonld-context ${file} > ../jsonld-context-autogen/${name}.context.jsonld;
-              sed -i "/generation_date/d" ../jsonld-context-autogen/${name}.context.jsonld;
-              gen-pydantic ${file} > ../models_py-autogen/${name}.py;
-              if [ ${name} = "library_generation" ] || [ ${name} = "genome_annotation" ]; then
-                echo "Creating and Fixing diagrams for $name";
-                python ../utils/fix_and_create_erdiagram.py
-              else
-                gen-erdiagram ${file} > ../erdiagram-autogen/${name}.md;
-              fi
-            fi
-          done
+          file=test_model.yaml;
+          name=`basename $file .yaml`;
+          echo "Processing $name file..";
+          gen-json-schema  ${file} > ../json-schema-autogen/${name}.json;
+          # generating jsonld context and removing generation_date field to avoid constant updates
+          gen-jsonld-context ${file} > ../jsonld-context-autogen/${name}.context.jsonld;
+          sed -i "/generation_date/d" ../jsonld-context-autogen/${name}.context.jsonld;
+          gen-pydantic ${file} > ../models_py-autogen/${name}.py;
+          gen-erdiagram ${file} > ../erdiagram-autogen/${name}.md;
           cd ..
 
       - name: Adding other model representations to git
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_GA_DJ }}
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          if ! git diff --quiet; then
-            git add json-schema-autogen/*.json
-            git add jsonld-context-autogen/*.context.jsonld
-            git add models_py-autogen/*.py
-            git add erdiagram-autogen/*.md
-            git commit -m "generate another formats"
-            git push
-          else
-            echo "No changes to commit"
-          fi
+          git config --global user.name "djarecka"
+          git config --global user.email "djarecka@gmail.com"
+          curl -H "Authorization: token ${{ secrets.PAT_GA_DJ }}" \
+               -H "Accept: application/vnd.github.v3+json" \
+               https://api.github.com/repos/djarecka/models
+#          git add json-schema-autogen/test_model.json
+#          git add jsonld-context-autogen/test_model.context.jsonld
+#          git add models_py-autogen/test_model.py
+#          git add erdiagram-autogen/test_model.md
+#          if ! git diff --quiet HEAD; then
+#            git commit -m "generate another formats"
+#            git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${{ github.event.pull_request.head.repo.full_name }}.git
+#            git remote -v
+#            echo "Using token for: https://x-access-token:${PAT_TOKEN}@github.com/${{ github.event.pull_request.head.repo.full_name }}.git"
+#            echo "Branch: ${{ github.event.pull_request.head.ref }}"
+#            git push origin ${{ github.event.pull_request.head.ref }}
+#          else
+#            echo "No changes to commit"
+#          fi
