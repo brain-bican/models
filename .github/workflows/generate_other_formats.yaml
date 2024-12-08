@@ -25,6 +25,16 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
 
+      - name: Debug Secrets
+        run: |
+          echo "Checking if PAT_TOKEN is set..."
+          if [ -z "${{ secrets.PAT_GA_DJ }}" ]; then
+            echo "PAT_GA_DJ is not set!"
+            exit 1
+          else
+            echo "PAT_GA_DJ is available."
+          fi
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
