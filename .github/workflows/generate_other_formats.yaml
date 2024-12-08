@@ -1,12 +1,15 @@
 name: generating other formats
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
+#  push:
+#    branches:
+#      - main
+#  pull_request:
 #    paths:
 #      - 'linkml-schema/test_model.yaml'
+  pull_request:
+    types: [opened, synchronize]
+
 
 permissions:
   contents: write
@@ -18,7 +21,7 @@ jobs:
       - name: Checkout this repository
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -57,7 +60,7 @@ jobs:
           git add erdiagram-autogen/test_model.md
           if ! git diff --quiet HEAD; then
             git commit -m "generate another formats"
-            git push origin HEAD:${{ github.head_ref }}
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
           else
             echo "No changes to commit"
           fi
