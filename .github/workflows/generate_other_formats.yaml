@@ -25,6 +25,12 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
 
+      - name: "check is PERSONAL_ACCESS_TOKEN exists"
+        env:
+            super_secret: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        if: ${{ env.super_secret == '' }}
+        run: 'echo "echo the secret \"PERSONAL_ACCESS_TOKEN\" has not been made; echo please go to \"settings \> secrets \> actions\" to create it"
+
       - name: Debug Secrets
         run: |
           echo "Checking if PERSONAL_ACCESS_TOKEN is set..."
