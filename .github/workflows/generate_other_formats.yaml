@@ -29,7 +29,7 @@ jobs:
         env:
             super_secret: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         if: ${{ env.super_secret == '' }}
-        run: 'echo "echo the secret \"PERSONAL_ACCESS_TOKEN\" has not been made; echo please go to \"settings \> secrets \> actions\" to create it"
+        run: echo "the secret PERSONAL_ACCESS_TOKEN has not been made"
 
       - name: Debug Secrets
         run: |
