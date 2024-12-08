@@ -1,0 +1,9 @@
+{
+    "$id": "https://identifiers.org/brain-bican/test-schema",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "metamodel_version": "1.7.0",
+    "title": "test-schema",
+    "type": "object",
+    "version": null
+}
