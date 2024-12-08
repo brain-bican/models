@@ -60,7 +60,7 @@ jobs:
           git config --global user.email "djarecka@gmail.com"
           curl -H "Authorization: token ${PAT_TOKEN}" \
                -H "Accept: application/vnd.github.v3+json" \
-               https://api.github.com/repos/djarecka/models>
+               https://api.github.com/repos/djarecka/models
 #          git add json-schema-autogen/test_model.json
 #          git add jsonld-context-autogen/test_model.context.jsonld
 #          git add models_py-autogen/test_model.py
