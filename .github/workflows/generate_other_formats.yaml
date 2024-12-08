@@ -74,6 +74,8 @@ jobs:
         run: |
           git config --global user.name "djarecka"
           git config --global user.email "djarecka@gmail.com"
+          git branch
+          git diff
           git add json-schema-autogen/test_model.json
           git add jsonld-context-autogen/test_model.context.jsonld
           git add models_py-autogen/test_model.py
