@@ -58,17 +58,20 @@ jobs:
         run: |
           git config --global user.name "djarecka"
           git config --global user.email "djarecka@gmail.com"
-          git add json-schema-autogen/test_model.json
-          git add jsonld-context-autogen/test_model.context.jsonld
-          git add models_py-autogen/test_model.py
-          git add erdiagram-autogen/test_model.md
-          if ! git diff --quiet HEAD; then
-            git commit -m "generate another formats"
-            git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${{ github.event.pull_request.head.repo.full_name }}.git
-            git remote -v
-            echo "Using token for: https://x-access-token:${PAT_TOKEN}@github.com/${{ github.event.pull_request.head.repo.full_name }}.git"
-            echo "Branch: ${{ github.event.pull_request.head.ref }}"
-            git push origin ${{ github.event.pull_request.head.ref }}
-          else
-            echo "No changes to commit"
-          fi
+          curl -H "Authorization: token ${PAT_TOKEN}" \
+               -H "Accept: application/vnd.github.v3+json" \
+               https://api.github.com/repos/djarecka/models>
+#          git add json-schema-autogen/test_model.json
+#          git add jsonld-context-autogen/test_model.context.jsonld
+#          git add models_py-autogen/test_model.py
+#          git add erdiagram-autogen/test_model.md
+#          if ! git diff --quiet HEAD; then
+#            git commit -m "generate another formats"
+#            git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${{ github.event.pull_request.head.repo.full_name }}.git
+#            git remote -v
+#            echo "Using token for: https://x-access-token:${PAT_TOKEN}@github.com/${{ github.event.pull_request.head.repo.full_name }}.git"
+#            echo "Branch: ${{ github.event.pull_request.head.ref }}"
+#            git push origin ${{ github.event.pull_request.head.ref }}
+#          else
+#            echo "No changes to commit"
+#          fi
