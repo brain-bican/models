@@ -50,6 +50,7 @@ jobs:
             python ../utils/fix_and_create_erdiagram.py;
           else
             gen-erdiagram ${name}.yaml > ../erdiagram-autogen/${name}.md;
+          fi
           cd ..
 
       - name: Adding other model representations to git
