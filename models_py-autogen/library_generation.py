@@ -127,7 +127,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'bican',
                                              'are required for tracking.',
                               'from_schema': 'https://identifiers.org/brain-bican/library-generation-schema',
                               'name': 'tracking'}},
-     'title': 'Library Generation Schema'} )
+     'title': 'Library Generation Schema test 1'} )
 
 class DigestType(str, Enum):
     SHA1 = "spdx:checksumAlgorithm_sha1"
