@@ -4,6 +4,7 @@ on:
   workflow_call:
     inputs:
       model_name:
+        description: 'A name of the model, without the .yaml extension'
         required: true
         type: string
 
@@ -44,7 +45,11 @@ jobs:
           gen-jsonld-context ${name}.yaml > ../jsonld-context-autogen/${name}.context.jsonld;
           sed -i "/generation_date/d" ../jsonld-context-autogen/${name}.context.jsonld;
           gen-pydantic ${name}.yaml > ../models_py-autogen/${name}.py;
-          gen-erdiagram ${name}.yaml > ../erdiagram-autogen/${name}.md;
+          if [ ${{ inputs.name }} = "library_generation" ] || [ ${{ inputs.name }} = "genome_annotation" ]; then
+            echo "Fixing erdiagrams for $name";
+            python ../utils/fix_and_create_erdiagram.py
+          else
+            gen-erdiagram ${name}.yaml > ../erdiagram-autogen/${name}.md;
           cd ..
 
       - name: Adding other model representations to git
