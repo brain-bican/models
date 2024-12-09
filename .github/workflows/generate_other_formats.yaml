@@ -37,7 +37,7 @@ jobs:
       - name: Generate other model representations
         run: |
           cd linkml-schema
-          file=test_model.yaml;
+          file=test_model1.yaml;
           name=`basename $file .yaml`;
           echo "Processing $name file..";
           gen-json-schema  ${file} > ../json-schema-autogen/${name}.json;
@@ -54,10 +54,10 @@ jobs:
           git config --global user.email "Github Actions"
           git branch
           git diff
-          git add json-schema-autogen/test_model.json
-          git add jsonld-context-autogen/test_model.context.jsonld
-          git add models_py-autogen/test_model.py
-          git add erdiagram-autogen/test_model.md
+          git add json-schema-autogen/test_model1.json
+          git add jsonld-context-autogen/test_model1.context.jsonld
+          git add models_py-autogen/test_model1.py
+          git add erdiagram-autogen/test_model1.md
           if ! git diff --quiet HEAD; then
             git commit -m "generate another formats"
             git push
