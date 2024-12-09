@@ -1,0 +1,17 @@
+name: generating other formats for assertion_evidence
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+    paths:
+      - 'linkml-schema/assertion_evidence.yaml'
+
+
+permissions:
+  contents: write
+
+jobs:
+  generate_from_reusable:
+    uses: brain-bican/models/.github/workflows/reusable-generate_other_formats.yaml@main
+    with:
+      model_name: assertion_evidence

@@ -1,0 +1,17 @@
+name: generating other formats for anatomical_structure
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+    paths:
+      - 'linkml-schema/anatomical_structure.yaml'
+
+
+permissions:
+  contents: write
+
+jobs:
+  generate_from_reusable:
+    uses: brain-bican/models/.github/workflows/reusable-generate_other_formats.yaml@main
+    with:
+      model_name: anatomical_structure
