@@ -2,7 +2,7 @@ name: library-generation-schema
 description: The Library Generation schema is designed to represent types and relationships
   of samples and digital data assets generated during processes that generate multimodal
   genomic data.
-title: Library Generation Schema
+title: Library Generation Schema test
 id: https://identifiers.org/brain-bican/library-generation-schema
 imports:
 - bican_biolink
