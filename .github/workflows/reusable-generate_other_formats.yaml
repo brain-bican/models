@@ -66,6 +66,7 @@ jobs:
           git add erdiagram-autogen/${name}.md
           if ! git diff --quiet HEAD; then
             git commit -m "generate another formats for ${name} model"
+            git pull # to avoid conflicts with different wf runs
             git push
           else
             echo "No changes to commit"
