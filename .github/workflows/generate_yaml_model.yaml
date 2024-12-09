@@ -1,7 +1,13 @@
 # Generates linkml yaml schema from metadata in googlesheets using schemasheets
 name: generating yaml file
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: 'model name'
+        required: true
+        type: string
 
 jobs:
   generate_libgen_yaml:
@@ -30,7 +36,7 @@ jobs:
       - name: Generate yaml model
         run: |
           cd linkml-schema
-          bkbit schema2model -o library_generation.yaml --gsheet --gsheet-download-dir source_library_generation/gsheet_output  source_library_generation/gsheet.yaml  --no-inlined
+          bkbit schema2model -o ${{ inputs.model }}.yaml --gsheet --gsheet-download-dir source_${{ inputs.model }}/gsheet_output  source_${{ inputs.model }}/gsheet.yaml  --no-inlined
           cd ..
 
       # Generate unique branch name 
