@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  genrate_from_reusable:
+  generate_from_reusable:
     uses: brain-bican/models/.github/workflows/reusable-generate_other_formats.yaml@test/ga_generate
     with:
       model_name: test_model

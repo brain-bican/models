@@ -55,7 +55,7 @@ jobs:
           git branch
           git diff
           git add json-schema-autogen/${name}.json
-          git add jsonld-context-autogen/${name}.jsonld
+          git add jsonld-context-autogen/${name}.context.jsonld
           git add models_py-autogen/${name}.py
           git add erdiagram-autogen/${name}.md
           if ! git diff --quiet HEAD; then
