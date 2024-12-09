@@ -1,6 +1,6 @@
 id: https://identifiers.org/brain-bican/genome-prov-schema
 name: bican-prov-schema
-title: BICAN Prov Schema
+title: BICAN Prov Schema upd
 description: |-
   The BICAN Prov schema contains a subset of classes from the Prov Data Model (PROV-DM) that are frequently used in BICAN schemas.
 
