@@ -45,9 +45,9 @@ jobs:
           gen-jsonld-context ${name}.yaml > ../jsonld-context-autogen/${name}.context.jsonld;
           sed -i "/generation_date/d" ../jsonld-context-autogen/${name}.context.jsonld;
           gen-pydantic ${name}.yaml > ../models_py-autogen/${name}.py;
-          if [ ${{ inputs.name }} = "library_generation" ] || [ ${{ inputs.name }} = "genome_annotation" ]; then
+          if [ ${name} = "library_generation" ] || [ ${name} = "genome_annotation" ]; then
             echo "Fixing erdiagrams for $name";
-            python ../utils/fix_and_create_erdiagram.py
+            python ../utils/fix_and_create_erdiagram.py;
           else
             gen-erdiagram ${name}.yaml > ../erdiagram-autogen/${name}.md;
           cd ..
