@@ -2930,3 +2930,6 @@ classes:
       data_type:
         description: The type of data in the file
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
+      test_slot:
+        description: Test
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
