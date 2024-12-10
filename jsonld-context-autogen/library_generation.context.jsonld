@@ -286,6 +286,9 @@
       "data_type": {
          "@id": "data_type"
       },
+      "test_slot": {
+         "@id": "test_slot"
+      },
       "annotates": {
          "@type": "@id",
          "@id": "annotates"

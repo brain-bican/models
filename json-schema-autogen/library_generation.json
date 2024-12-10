@@ -1161,6 +1161,10 @@
                     },
                     "type": "array"
                 },
+                "test_slot": {
+                    "description": "Test",
+                    "type": "string"
+                },
                 "type": {
                     "items": {
                         "type": "string"
