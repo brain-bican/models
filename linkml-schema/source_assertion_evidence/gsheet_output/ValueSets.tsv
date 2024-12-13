@@ -1,40 +1,63 @@
-variable_name	value	description	category	terminology_nhash
-> enum	permissible_value	description	ignore	ignore
-AssertionType	Positive			
-AssertionType	Negative			
-AssertionType	Inconclusive			
-Categories	Behavioral			
-Categories	Biomarker			
-Categories	DrugTarget			
-Categories	Genetic			
-Categories	ClinicalTrial			
-Categories	Etiologic			
-Categories	Neuroimaging			
-Categories	Electrophysiological			
-Categories	Molecular			
-Categories	Pharmacological			
-Categories	Neuropsychological			
-Categories	Neurogenetic			
-Categories	Neurochemical			
-Categories	Neuroanatomical			
-Categories	Neurodevelopmental			
-Categories	Neuroinflammatory			
-Categories	Neuroplasticity			
-Categories	Neuropathological			
-Categories	Neurocomputational			
-Categories	Neuroendocrine			
-Categories	Neuropharmacogenomic			
-Categories	Neuroproteomic			
-Categories	Neurogenomic			
-Categories	Epigenetic			
-Categories	Environmental			
-Categories	Translational			
-Categories	Therapeutic			
-Categories	CognitiveNeuroscience			
-SignificanceLevel	HighlySignificant	P value less than 0.01		
-SignificanceLevel	Significant	P value less than 0.05		
-SignificanceLevel	MarginallySignificant	P value less than 0.10		
-SignificanceLevel	NotSignificant	P value greater than or equal to 0.10		
-SignificanceLevel	Unknown	Specifies that the significance level is unknown as the information is not present in the study.		
-Significance	Clinical			
-Significance	NonClinical			
+variable_name	value	title	description	category	terminology_nhash	meaning
+> enum	permissible_value	title	description	ignore	ignore	ignore
+AssertionType	Positive					
+AssertionType	Negative					
+AssertionType	Inconclusive					
+Categories	Behavioral					
+Categories	Biomarker					
+Categories	DrugTarget					
+Categories	Genetic					
+Categories	ClinicalTrial					
+Categories	Etiologic					
+Categories	Neuroimaging					
+Categories	Electrophysiological					
+Categories	Molecular					
+Categories	Pharmacological					
+Categories	Neuropsychological					
+Categories	Neurogenetic					
+Categories	Neurochemical					
+Categories	Neuroanatomical					
+Categories	Neurodevelopmental					
+Categories	Neuroinflammatory					
+Categories	Neuroplasticity					
+Categories	Neuropathological					
+Categories	Neurocomputational					
+Categories	Neuroendocrine					
+Categories	Neuropharmacogenomic					
+Categories	Neuroproteomic					
+Categories	Neurogenomic					
+Categories	Epigenetic					
+Categories	Environmental					
+Categories	Translational					
+Categories	Therapeutic					
+Categories	CognitiveNeuroscience					
+SignificanceLevel	HighlySignificant		P value less than 0.01			
+SignificanceLevel	Significant		P value less than 0.05			
+SignificanceLevel	MarginallySignificant		P value less than 0.10			
+SignificanceLevel	NotSignificant		P value greater than or equal to 0.10			
+SignificanceLevel	Unknown		Specifies that the significance level is unknown as the information is not present in the study.			
+Significance	Clinical					
+Significance	NonClinical					
+EvidenceType	SupportingEvidence					
+EvidenceType	DisputingEvidence					
+EvidenceType	InconclusiveEvidence					
+ContributorType	datacite:ContactPerson	ContactPerson	The main individual to contact regarding the resource			datacite:ContactPerson
+ContributorType	datacite:DataCollector	DataCollector	Person responsible for collecting data.			datacite:DataCollector
+ContributorType	datacite:DataCurator	DataCurator	Person responsible for managing and curating the data.			datacite:DataCurator
+ContributorType	datacite:DataManager	DataManager	Person responsible for maintaining the data.			datacite:DataManager
+ContributorType	datacite:Distributor	Distributor	Entity that distributes the data.			datacite:Distributor
+ContributorType	datacite:Editor	Editor	Person responsible for overseeing the content's editorial aspects.			datacite:Editor
+ContributorType	datacite:HostingInstitution	HostingInstitution	The institution hosting the data.			datacite:HostingInstitution
+ContributorType	datacite:Producer	Producer	Person or organization responsible for producing the data.			datacite:Producer
+ContributorType	datacite:ProjectLeader	ProjectLeader	Person who leads the project or study.			datacite:ProjectLeader
+ContributorType	datacite:ProjectManager	ProjectManager	Person responsible for managing the project's administrative aspects.			datacite:ProjectManager
+ContributorType	datacite:ProjectMember	ProjectMember	Member of the project team.			datacite:ProjectMember
+ContributorType	datacite:RegistrationAgency	RegistrationAgency	Agency responsible for registering the data.			datacite:RegistrationAgency
+ContributorType	datacite:RegistrationAuthority	RegistrationAuthority	Authority that oversees the registration process.			datacite:RegistrationAuthority
+ContributorType	datacite:RelatedPerson	RelatedPerson	Person related to the data or study, but not directly contributing.			datacite:RelatedPerson
+ContributorType	datacite:Researcher	Researcher	Person who conducts the research.			datacite:Researcher
+ContributorType	datacite:ResearchGroup	ResearchGroup	A group of researchers working on the data or study.			datacite:ResearchGroup
+ContributorType	datacite:RightsHolder	RightsHolder	Entity holding the rights to the data.			datacite:RightsHolder
+ContributorType	datacite:Sponsor	Sponsor	Entity sponsoring the data or research.			datacite:Sponsor
+ContributorType	datacite:Supervisor	Supervisor	Person supervising the research or project.			datacite:Supervisor
+ContributorType	datacite:WorkPackageLeader	WorkPackageLeader	Leader responsible for a specific work package in a project.			datacite:WorkPackageLeader
