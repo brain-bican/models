@@ -6,15 +6,32 @@
    "@context": {
       "bican": "https://identifiers.org/brain-bican/vocab/",
       "brainkb": "https://brainkb.org/",
+      "datacite": "http://purl.org/spar/datacite/",
+      "dcterms": "http://purl.org/dc/terms/",
       "eco": {
          "@id": "http://purl.obolibrary.org/obo/ECO_",
          "@prefix": true
       },
+      "edam": "http://edamontology.org/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "iao": {
+         "@id": "http://purl.obolibrary.org/obo/IAO_",
+         "@prefix": true
+      },
       "linkml": "https://w3id.org/linkml/",
+      "oa": "http://www.w3.org/ns/oa#",
       "prov": "http://www.w3.org/ns/prov#",
+      "ro": {
+         "@id": "http://purl.obolibrary.org/obo/RO_",
+         "@prefix": true
+      },
       "schema": "http://schema.org/",
       "sepio": {
          "@id": "http://purl.obolibrary.org/obo/SEPIO_",
+         "@prefix": true
+      },
+      "sio": {
+         "@id": "http://semanticscience.org/resource/SIO_",
          "@prefix": true
       },
       "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -28,6 +45,12 @@
          "@type": "xsd:dateTime",
          "@id": "startedAtTime"
       },
+      "cellAnnotation": {
+         "@id": "cellAnnotation"
+      },
+      "description": {
+         "@id": "description"
+      },
       "hasAssertionCategory": {
          "@context": {
             "@vocab": "@null",
@@ -37,15 +60,24 @@
          },
          "@id": "hasAssertionCategory"
       },
-      "hasAssertionMethod": {
-         "@type": "@id",
-         "@id": "hasAssertionMethod"
-      },
       "hasAssertionText": {
          "@id": "hasAssertionText"
       },
+      "has_assertion_type": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "has_assertion_type"
+      },
       "hasAssertionSummary": {
          "@id": "hasAssertionSummary"
+      },
+      "id": {
+         "@type": "@id",
+         "@id": "datacite:identifier"
       },
       "hasEvidenceCategory": {
          "@context": {
@@ -59,26 +91,59 @@
       "hasEvidenceText": {
          "@id": "hasEvidenceText"
       },
+      "hasEvidenceType": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "hasEvidenceType"
+      },
       "hasEvidenceSummary": {
          "@id": "hasEvidenceSummary"
       },
-      "has_assertion_method": {
-         "@type": "@id",
-         "@id": "has_assertion_method"
+      "has_cell_annotation": {
+         "@id": "has_cell_annotation"
       },
-      "has_data_annotation": {
-         "@id": "has_data_annotation"
+      "has_contributer": {
+         "@id": "has_contributer"
+      },
+      "has_description": {
+         "@id": "has_description"
+      },
+      "has_evidence_line": {
+         "@id": "has_evidence_line"
+      },
+      "has_identifier": {
+         "@id": "has_identifier"
+      },
+      "has_summary": {
+         "@id": "has_summary"
       },
       "is_associated_with": {
          "@id": "is_associated_with"
       },
-      "used_in": {
-         "@type": "@id",
-         "@id": "used_in"
+      "is_described_by": {
+         "@id": "is_described_by"
       },
-      "uses": {
-         "@type": "@id",
-         "@id": "uses"
+      "is_expressed_in": {
+         "@id": "is_expressed_in"
+      },
+      "output_of": {
+         "@id": "output_of"
+      },
+      "contributorType": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "datacite:contributorType"
+      },
+      "was_associate_with": {
+         "@id": "was_associate_with"
       },
       "Activity": {
          "@id": "prov:Activity"
@@ -86,26 +151,56 @@
       "Agent": {
          "@id": "prov:Agent"
       },
-      "Assertion": {
-         "@id": "sepio:Assertion"
+      "Annotation": {
+         "@id": "oa:Annotation"
       },
-      "AssertionMethod": {
-         "@id": "eco:0000217"
+      "Assertion": {
+         "@id": "sepio:0000001"
       },
       "AssertionSummary": {
          "@id": "AssertionSummary"
       },
-      "DataAnnotation": {
-         "@id": "DataAnnotation"
+      "CellAnnotation": {
+         "@id": "CellAnnotation"
+      },
+      "Description": {
+         "@id": "Description"
       },
       "Document": {
-         "@id": "sepio:Document"
+         "@id": "iao:0000310"
       },
-      "Evidence": {
-         "@id": "Evidence"
+      "EvidenceLine": {
+         "@id": "sepio:0000002"
       },
       "EvidenceSummary": {
          "@id": "EvidenceSummary"
+      },
+      "Group": {
+         "@id": "foaf:Group"
+      },
+      "Identifier": {
+         "@id": "edam:data_0842"
+      },
+      "OrcidIdentifier": {
+         "@id": "edam:data_4022"
+      },
+      "Organization": {
+         "@id": "prov:Organization"
+      },
+      "Person": {
+         "@id": "prov:Person"
+      },
+      "PersonIdentifier": {
+         "@id": "edam:data_2118"
+      },
+      "Platform": {
+         "@id": "Platform"
+      },
+      "SoftwareAgent": {
+         "@id": "prov:SoftwareAgent"
+      },
+      "Source": {
+         "@id": "dcterms:source"
       }
    }
 }
