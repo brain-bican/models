@@ -1,12 +1,5 @@
 ```mermaid
 erDiagram
-Assertion {
-    Categories has_assertion_category  
-    string has_assertion_text  
-}
-Document {
-
-}
 Activity {
     datetime ended_at_time  
     datetime started_at_time  
@@ -14,29 +7,68 @@ Activity {
 Agent {
 
 }
-AssertionSummary {
-    string has_assertion_summary  
-}
-EvidenceSummary {
-    string has_evidence_summary  
-}
-AssertionMethod {
+Annotation {
 
 }
-DataAnnotation {
+Assertion {
+    string is_expressed_in  
+    Categories has_assertion_category  
+    string has_assertion_text  
+    AssertionType has_assertion_type  
+    SignificanceLevel significance_level  
+    Significance significance_type  
+}
+CellAnnotation {
 
 }
-Evidence {
+Document {
+    uri identifier  
+}
+EvidenceLine {
+    string description  
     Categories has_evidence_category  
-    string has_evidence_text  
+    EvidenceType has_evidence_type  
+}
+Group {
+
+}
+Identifier {
+
+}
+OrcidIdentifier {
+
+}
+Organization {
+
+}
+Person {
+    ContributorType contributor_type  
+}
+PersonIdentifier {
+
+}
+Platform {
+
+}
+SoftwareAgent {
+
+}
+Source {
+
 }
 
-Assertion ||--|o AssertionMethod : "has_assertion_method"
-Assertion ||--|o AssertionSummary : "is_associated_with"
-Assertion ||--|o DataAnnotation : "has_data_annotation"
-Agent ||--|o Activity : "is_associated_with"
-Evidence ||--|o Assertion : "used_in"
-Evidence ||--|o EvidenceSummary : "is_associated_with"
+Activity ||--|o Agent : "was_associate_with"
+Agent ||--|o Identifier : "has_identifier"
+Assertion ||--|o Annotation : "has_annotation"
+Assertion ||--|o Agent : "has_contributer"
+Assertion ||--|o EvidenceLine : "has_evidence_line"
+EvidenceLine ||--|o Agent : "has_contributer"
+EvidenceLine ||--|o Activity : "output_of"
+EvidenceLine ||--|o Document : "has_supporting_reference"
+Group ||--|o Identifier : "has_identifier"
+Organization ||--|o Identifier : "has_identifier"
+Person ||--|o Identifier : "has_identifier"
+SoftwareAgent ||--|o Identifier : "has_identifier"
 
 ```
 

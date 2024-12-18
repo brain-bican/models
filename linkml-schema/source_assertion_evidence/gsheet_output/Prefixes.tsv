@@ -1,11 +1,19 @@
 prefix	uri	default	schema	imports	title	description	id
 		brainkb	assertion-evidence-schema		Assertion Evidence Schema		https://identifiers.org/brain-bican/assertion-evidence-schema
 > prefix	prefix_reference	default_prefix	schema	imports 	title	description	id
-linkml	https://w3id.org/linkml/						
 bican	https://identifiers.org/brain-bican/vocab/						
-spdx	http://spdx.org/rdf/terms#						
-schema	http://schema.org/						
 brainkb	https://brainkb.org/						
-prov	http://www.w3.org/ns/prov#						
+datacite	http://purl.org/spar/datacite/						
+dcterms	http://purl.org/dc/terms/						
 eco	http://purl.obolibrary.org/obo/ECO_						
+edam	http://edamontology.org/						
+foaf	http://xmlns.com/foaf/0.1/						
+iao	http://purl.obolibrary.org/obo/IAO_						
+linkml	https://w3id.org/linkml/						
+oa	http://www.w3.org/ns/oa#						
+prov	http://www.w3.org/ns/prov#						
+ro	http://purl.obolibrary.org/obo/RO_						
+schema	http://schema.org/						
 sepio	http://purl.obolibrary.org/obo/SEPIO_						
+sio	http://semanticscience.org/resource/SIO_						
+spdx	http://spdx.org/rdf/terms#						
