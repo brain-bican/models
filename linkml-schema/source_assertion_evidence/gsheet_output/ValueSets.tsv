@@ -1,40 +1,38 @@
-variable_name	value	description	category	terminology_nhash
-> enum	permissible_value	description	ignore	ignore
-AssertionType	Positive			
-AssertionType	Negative			
-AssertionType	Inconclusive			
-Categories	Behavioral			
-Categories	Biomarker			
-Categories	DrugTarget			
-Categories	Genetic			
-Categories	ClinicalTrial			
-Categories	Etiologic			
-Categories	Neuroimaging			
-Categories	Electrophysiological			
-Categories	Molecular			
-Categories	Pharmacological			
-Categories	Neuropsychological			
-Categories	Neurogenetic			
-Categories	Neurochemical			
-Categories	Neuroanatomical			
-Categories	Neurodevelopmental			
-Categories	Neuroinflammatory			
-Categories	Neuroplasticity			
-Categories	Neuropathological			
-Categories	Neurocomputational			
-Categories	Neuroendocrine			
-Categories	Neuropharmacogenomic			
-Categories	Neuroproteomic			
-Categories	Neurogenomic			
-Categories	Epigenetic			
-Categories	Environmental			
-Categories	Translational			
-Categories	Therapeutic			
-Categories	CognitiveNeuroscience			
-SignificanceLevel	HighlySignificant	P value less than 0.01		
-SignificanceLevel	Significant	P value less than 0.05		
-SignificanceLevel	MarginallySignificant	P value less than 0.10		
-SignificanceLevel	NotSignificant	P value greater than or equal to 0.10		
-SignificanceLevel	Unknown	Specifies that the significance level is unknown as the information is not present in the study.		
-Significance	Clinical			
-Significance	NonClinical			
+variable_name	value	title	description	category	terminology_nhash	meaning
+> enum	permissible_value	title	description	ignore	ignore	ignore
+Categories	Behavioral					
+Categories	Biomarker					
+Categories	DrugTarget					
+Categories	Genetic					
+Categories	ClinicalTrial					
+Categories	Etiologic					
+Categories	Neuroimaging					
+Categories	Electrophysiological					
+Categories	Molecular					
+Categories	Pharmacological					
+Categories	Neuropsychological					
+Categories	Neurogenetic					
+Categories	Neurochemical					
+Categories	Neuroanatomical					
+Categories	Neurodevelopmental					
+Categories	Neuroinflammatory					
+Categories	Neuroplasticity					
+Categories	Neuropathological					
+Categories	Neurocomputational					
+Categories	Neuroendocrine					
+Categories	Neuropharmacogenomic					
+Categories	Neuroproteomic					
+Categories	Neurogenomic					
+Categories	Epigenetic					
+Categories	Environmental					
+Categories	Translational					
+Categories	Therapeutic					
+Categories	CognitiveNeuroscience					
+EvidenceStrength	HighlySignificant		P value less than 0.01			
+EvidenceStrength	Significant		P value less than 0.05			
+EvidenceStrength	MarginallySignificant		P value less than 0.10			
+EvidenceStrength	NotSignificant		P value greater than or equal to 0.10			
+EvidenceStrength	Unknown		Specifies that the significance level is unknown as the information is not present in the study.			
+EvidenceDirection	supporting					sepio:0000403
+EvidenceDirection	disputing					sepio:0000404
+EvidenceDirection	inconclusive					sepio:0000405
