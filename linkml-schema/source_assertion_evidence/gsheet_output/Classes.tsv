@@ -1,11 +1,18 @@
-ç	Inheritance: is_a	Inheritance: mixin	Inheritance: slot usage	Subsets	Definition		
-> class	is_a	mixins	ignore	in_subset	description	class_uri	mixin
->		internal_separator: "|"		internal_separator: "|"			
-Assertion					A statement made by a particular agent on a particular occasion that a particular proposition is true, based on the evaluation of one or more lines of evidence.	sepio:Assertion	
-Document					A collection of information content entities intended to be understood together as a whole	sepio:Document	
-Activity					An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.	prov:Activity	
-Agent					An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.	prov:Agent	
-AssertionSummary					A summary is a brief statement or description of the main points, especially as a conclusion to a work about the assertion.	brainkb:AssertionSummary	
-EvidenceSummary					A summary is a brief statement or description of the main points, especially as a conclusion to a work about the evidence.	brainkb:EvidenceSummary	
-AssertionMethod					A means by which a statement is made about the entity	eco:0000217	
-DataAnnotation						brainkb:DataAnnotation	
+class	Inheritance: is_a	Inheritance: mixin	Subsets	Definition		
+> class	is_a	mixins	in_subset	description	class_uri	mixin
+>		internal_separator: "|"	internal_separator: "|"			
+Activity				An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.	prov:Activity	
+Agent				An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.	prov:Agent	
+Annotation				An annotation is a written explanatory or critical description, or other in-context information (e.g., pattern, motif, link), that has been associated with data or other types of information.	oa:Annotation	
+Assertion				A statement made by a particular agent on a particular occasion that a particular proposition is true, based on the evaluation of one or more lines of evidence.	sepio:0000001	
+CellAnnotation	Annotation				brainkb:CellAnnotation	
+Document	EvidenceItem			A collection of information content entities intended to be understood together as a whole	iao:0000310	
+EvidenceItem					sepio:0000149	
+EvidenceLine				An evidence line represents an independent and meaningful argument for or against a particular proposition, that is based on the interpretation of one or more pieces of information as evidence.	sepio:0000002	
+Group	Agent				foaf:Group	
+Identifier					edam:data_0842	
+OrcidIdentifier	PersonIdentifier				edam:data_4022	
+Organization	Group				prov:Organization	
+Person	Agent				prov:Person	
+PersonIdentifier	Identifier				edam:data_2118	
+SoftwareAgent	Agent				prov:SoftwareAgent 	
