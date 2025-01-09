@@ -1,42 +1,21 @@
 # BICAN Knowledgebase Data Models
 
-This repo contains data models generated using [LinkML](https://linkml.io/linkml/) for BICAN knowledgebase. LinkML is a linked data modeling language that supports YAML, RDF, and JSON. 
+This repo contains data models generated using [LinkML](https://linkml.io/linkml/) for the [BICAN knowledgebase project](https://www.portal.brain-bican.org/teams/bican-knowledgebase) founded by the National Institute of Mental Health.
 
-In `/linkml-schema`, there are linkML `yaml` schema files that adhere to the linkML version of `1.5.0`.
-* The __Library Generation Model__ is designed to represent types and relationships of samples and digital data assets generated during processes that generate multimodal genomic data.
-* The __Genome Annotation Model__ is designed to represent types and relationships of an organism's annotated genome i.e. gene annotations, genome annotations, genome assemblies, organisms.
-* The __Anatomical Strucutre Model__ is designed to represent types and relationships of anatomical brain structures.
-* The existing models such as __Biolink__  and __CCN__ are imported.
-
-In `/json-schema` and `/models_py`, there are `json` and `py` files generated using linkML schema for e.g.:
-* `gen-json-schema linkml-schema/genome_annotation.yaml > json-schema/genome_annotation.json`
-* `gen-pydantic linkml-schema/genome_annotation.yaml > models_py/genome_annotation.py`
-
-In `/data-examples`, there are source data files:
-* `figure1exampledata.yaml` is representing relational data in figure 1 of `A high-resolution transcriptomic and spatial atlas of cell types in the whole mouse brain`
-* https://www.biorxiv.org/content/10.1101/2023.03.06.531121v1.full.pdf 
-
-Notes:
-Initialize the packages using:
-* `python -m pip install .`
-* `python -m pip install .[test]`
-
-Run `pytest` to run all tests in `/tests`
 
 ## Status Board
 
 Here are the BICAN LinkML knowledgebase schemas and their statuses.
 
-| Model | Version | Release | Status |
-|:--|:--|:--|:--|
-| [Assertion Evidence Model] | [] | [] | under development |
-| [Library Generation Model] | [] | [] | under development |
-| [Anatomical Structure Model] | [] | [] | under development |
-| [Genome Annotation Model] | [] | [] | under development |
-| [BICAN BioLink] | [] |  [] | under development |
-| [CCN2] | [] | [] | deprecated |
-| [Figure1] | [] | [] | deprecated |
-| | | | |
+| Model                                                                                                                      | Short Description                                                                                                          | Release with Latest Updates | Status |
+|:---------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------|:----------------------------|:--|
+| [Assertion Evidence Model]                                                                                                 | Types and relationships of assertions and evidences/                                                                       | 0.2.0                       | under development |
+| [Library Generation Model]                                                                                                 | Types and relationships of samples and digital data assets generated during processes that generate multimodal genomic data. | 0.2.0                       | under development |
+| [Anatomical Structure Model]                                                                                               | Types and relationships of anatomical brain structures.                                                                    | 0.1.0                       | under development |
+| [Genome Annotation Model]                                                                                                  | Types and relationships of an organism's annotated genome.                                                                 | 0.2.0                       | under development |
+| [BICAN BioLink]                                                                                                            | BICAN subset of classes from the Biolink model.                                                                            | 0.2.0                       | under development |
+| [CCN2]                                                                                                                     |                                                                                                                            | 0.1.0                       | deprecated |
+| [Figure1]                                                                                                                  |                                                                                                                            | 0.1.0                       | deprecated | |                | |
 
 [Assertion Evidence Model]: linkml-schema/assertion_evidence.yaml
 
@@ -52,23 +31,43 @@ Here are the BICAN LinkML knowledgebase schemas and their statuses.
 
 [Figure1]: linkml-schema/figure1.yaml
 
-## Contact
+## Structure of the Repository
 
-Satra Ghosh (PI -- MIT)
+### LinkML Schema
 
-Lydia Ng (PI -- Allen Institute for Brain Science)
+In this project we use the [LinkML](https://linkml.io/linkml/), the Linked Data Modeling Language, to define the data models.
+LinkML is a flexible modeling language that allows you to author schemas in YAML format, and it is designed to be both human-readable and machine-readable.
+LinkML framework provides also a set of tools to generate code in different languages, such as Python, JSON, and RDF, from the schema files.
 
-Puja Trivedi (MIT)
+All the LinkML schema files are stored in the `linkml-schema` directory. 
+Some of the models are written directly in the YAML format, while others automatically generated from Google sheets using the LinkML tool [schemasheets](https://linkml.io/schemasheets/),
+ and the `schema2model` tool from the [`bkbit` package](https://github.com/brain-bican/bkbit).
+You can find the specific information in [linkml-schema/README.md](linkml-schema/README.md).
 
-Dorota Jarecki (MIT)
+### Additional Formats
 
-Prajal Bishkawarma (Allen Institute for Brain Science)
+The LinkML schema files are used to generate additional formats, such as JSON Schema and Pydantic models.
+All files are generated automatically using GitHub Actions workflow whenever the LinkML schema files are updated.
+You can see the specific workflow in the [reusable workflow](.github/workflows/reusable-generate_other_formats.yaml) that is reused for all models.
 
-Tim Fliss (Allen Insitute for Brain Science)
+Currently, we are supporting the following formats:
+- [Pydantic models](models_py-autogen): these models are used in the [Brain Knowledge Base Interaction Toolkit (bkbit)](https://github.com/brain-bican/bkbit)
+- [JSON Schema](json-schema-autogen)
+- [JSON-LD Context](jsonld-context-autogen)
+- [ER Diagrams](erdiagram-autogen)
 
-Pamela Baker (Allen Institute for Brain Science)
 
-Patrick Ray (Allen Institute for Brain Science)
+
+### Validation
+All the schemas are automatically tested in the GitHub Actions workflow 
+using LinkML validation tools ([see test_lint.yaml for details](.github/workflows/tests_lint.yaml)) 
+and Python API and pytest ([see test_models.yaml for details](.github/workflows/tests_models.yaml)).
+
+In order to run the pytest test locally, you can use the following commands:
+```python
+pip install -e .[test]
+pytest -vs
+```
 
 ## Terms of Use
 
