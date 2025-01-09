@@ -28,6 +28,10 @@ The model has been created from the Google sheet, all information of the Google 
 The [source_assertion_evidence/gsheet_output](source_assertion_evidence/gsheet_output) folder contains the _cvs_ files generated from the Google sheet 
 at the time of the model creation.
 
+In order to update the model, the Google sheet has to be edited, 
+and the [generate_yaml_model workflow](../.github/workflows/generate_yaml_model.yaml) has to be triggered manually.
+
+
 ### [genome_annotation](genome_annotation.yaml)
 The Genome Annotation schema is designed to represent types and relationships of an organism's annotated genome.
 
@@ -43,6 +47,9 @@ The model has been created from the Google sheet, all information of the Google 
  are in the [setting file](source_library_generation/gsheet.yaml). 
 The [source_library_generation/gsheet_output](source_library_generation/gsheet_output) folder contains the _cvs_ files generated from the Google sheet 
 at the time of the model creation.
+
+In order to update the model, the Google sheet has to be edited, 
+and the [generate_yaml_model workflow](../.github/workflows/generate_yaml_model.yaml) has to be triggered manually.
 
 
 ## Auxiliary models
