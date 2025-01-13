@@ -33,7 +33,7 @@ and the [generate_yaml_model workflow](../.github/workflows/generate_yaml_model.
 
 
 ### [genome_annotation](genome_annotation.yaml)
-The Genome Annotation schema is designed to represent types and relationships of an organism's annotated genome.
+The Genome Annotation schema is designed to represent types and relationships between entities that constitute an organism's annotated genome.
 
 ##### Updates
 The model has been created directly in the YAML format, and all the updates can be done by editing the file directly.
