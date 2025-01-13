@@ -20,7 +20,7 @@ The model has been created directly in the YAML format and all the updates can b
 
 
 ### [assertion_evidence](assertion_evidence.yaml)
-The Assertion Evidence schema is designed to represent types and relationships of assertions and evidences.
+The Assertion Evidence schema is designed to represent types and relationships between assertions and evidence items.
 
 ##### Updates
 The model has been created from a Google sheet and all information of the Google sheet id and id of the specific tabs
