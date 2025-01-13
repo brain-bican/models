@@ -39,7 +39,7 @@ The Genome Annotation schema is designed to represent types and relationships of
 The model has been created directly in the YAML format, and all the updates can be done by editing the file directly.
 
 ### [library_generation](library_generation.yaml)
-The Library Generation schema is designed to represent types and relationships of samples and 
+The Library Generation schema is designed to represent types and relationships between samples and 
 digital data assets generated during processes that generate multimodal genomic data.
 
 ##### Updates
