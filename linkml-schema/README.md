@@ -13,7 +13,7 @@ The list below contains the main models that are exported to different formats, 
 We also have some additional auxiliary models that are used to extract the core types and used by the main models.
 
 ### [anatomical_structure](anatomical_structure.yaml)
-The Anatomical Structure schema is designed to represent types and relationships of anatomical brain structures. 
+The Anatomical Structure schema is designed to represent types and relationships between anatomical brain structures. 
 
 ##### Updates
 The model has been created directly in the YAML format, and all the updates can be done by editing the file directly.
