@@ -16,7 +16,7 @@ We also have some additional auxiliary models that are used to extract the core 
 The Anatomical Structure schema is designed to represent types and relationships between anatomical brain structures. 
 
 ##### Updates
-The model has been created directly in the YAML format, and all the updates can be done by editing the file directly.
+The model has been created directly in the YAML format and all the updates can be done by editing the file directly.
 
 
 ### [assertion_evidence](assertion_evidence.yaml)
