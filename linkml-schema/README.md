@@ -23,7 +23,7 @@ The model has been created directly in the YAML format, and all the updates can 
 The Assertion Evidence schema is designed to represent types and relationships of assertions and evidences.
 
 ##### Updates
-The model has been created from the Google sheet, all information of the Google sheet id and id of the specifics tabs
+The model has been created from a Google sheet and all information of the Google sheet id and id of the specific tabs
  are in the [setting file](source_assertion_evidence/gsheet.yaml). 
 The [source_assertion_evidence/gsheet_output](source_assertion_evidence/gsheet_output) folder contains the _cvs_ files generated from the Google sheet 
 at the time of the model creation.
