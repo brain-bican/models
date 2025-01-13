@@ -9,7 +9,7 @@ Some of the models are written directly in the YAML format, while others automat
 
 ## Main models
 
-The list below contains the main models, that are exported to different formats, such as JSON Schema, Pydantic models, and JSON-LD context.
+The list below contains the main models that are exported to different formats, such as JSON Schema, Pydantic models, and JSON-LD context.
 We also have some additional auxiliary models that are used to extract the core types and used by the main models.
 
 ### [anatomical_structure](anatomical_structure.yaml)
