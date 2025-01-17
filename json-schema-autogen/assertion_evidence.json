@@ -7,15 +7,28 @@
                 "endedAtTime": {
                     "description": "The prov:endedAtTime establishes the relationship between prov:Activity and xsd:DateTime that allows one to specify the time when the activity ended.",
                     "format": "date-time",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "startedAtTime": {
                     "description": "The prov:startedAtTime establishes the relationship between prov:Activity and xsd:DateTime that allows one to specify the time when the activity started.",
                     "format": "date-time",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "was_associate_with": {
-                    "$ref": "#/$defs/Agent"
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Agent"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 }
             },
             "title": "Activity",
@@ -26,7 +39,14 @@
             "description": "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.",
             "properties": {
                 "has_identifier": {
-                    "$ref": "#/$defs/Identifier"
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 }
             },
             "title": "Agent",
@@ -43,25 +63,52 @@
             "description": "A statement made by a particular agent on a particular occasion that a particular proposition is true, based on the evaluation of one or more lines of evidence.",
             "properties": {
                 "has_annotation": {
-                    "$ref": "#/$defs/Annotation"
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Annotation"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "has_assertion_category": {
                     "$ref": "#/$defs/Categories",
                     "description": "The brainkb:hasAssertionCategory property relates brainkb:Evidence and brainkb:Categories, specifying the classification or category that the assertion belongs to."
                 },
                 "has_assertion_description": {
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "has_assertion_summary": {
                     "description": "The brainkb:has_assertion_text property relates an eco:Assertion to an xsd:string, providing a textual excerpt of the assertion being made.",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "has_evidence_line": {
-                    "$ref": "#/$defs/EvidenceLine",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/EvidenceLine"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "A relationship between an assertion or proposition and an evidence line used in evaluating its validity."
                 },
                 "was_generated_by": {
-                    "$ref": "#/$defs/Activity"
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Activity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 }
             },
             "title": "Assertion",
@@ -113,10 +160,20 @@
             "description": "A collection of information content entities intended to be understood together as a whole",
             "properties": {
                 "identifier": {
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "reference": {
-                    "$ref": "#/$defs/Document"
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Document"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 }
             },
             "title": "Document",
@@ -137,7 +194,14 @@
             "description": "",
             "properties": {
                 "reference": {
-                    "$ref": "#/$defs/Document"
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Document"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 }
             },
             "title": "EvidenceItem",
@@ -159,14 +223,31 @@
                     "$ref": "#/$defs/Categories"
                 },
                 "has_evidence_item": {
-                    "$ref": "#/$defs/EvidenceItem",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/EvidenceItem"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "A relation holding between an evidence line and an individual information entity that contributes to the argument it represents."
                 },
                 "has_evidenceline_description": {
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "was_generated_by": {
-                    "$ref": "#/$defs/Activity"
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Activity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 }
             },
             "title": "EvidenceLine",
@@ -189,7 +270,14 @@
             "description": "",
             "properties": {
                 "has_identifier": {
-                    "$ref": "#/$defs/Identifier"
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 }
             },
             "title": "Group",
@@ -212,7 +300,14 @@
             "description": "",
             "properties": {
                 "has_identifier": {
-                    "$ref": "#/$defs/Identifier"
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 }
             },
             "title": "Organization",
@@ -223,10 +318,24 @@
             "description": "",
             "properties": {
                 "has_identifier": {
-                    "$ref": "#/$defs/Identifier"
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "member": {
-                    "$ref": "#/$defs/Organization"
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Organization"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 }
             },
             "title": "Person",
@@ -243,7 +352,14 @@
             "description": "",
             "properties": {
                 "has_identifier": {
-                    "$ref": "#/$defs/Identifier"
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 }
             },
             "title": "SoftwareAgent",

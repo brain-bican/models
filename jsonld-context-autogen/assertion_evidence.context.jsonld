@@ -4,6 +4,7 @@
       "source": "assertion_evidence.yaml"
    },
    "@context": {
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "bican": "https://identifiers.org/brain-bican/vocab/",
       "braiankb": "http://example.org/braiankb/",
       "brainkb": "https://brainkb.org/",
@@ -48,7 +49,6 @@
       },
       "has_assertion_category": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -62,12 +62,11 @@
          "@id": "has_assertion_summary"
       },
       "identifier": {
-         "@type": "@id",
+         "@type": "xsd:anyURI",
          "@id": "datacite:identifier"
       },
       "evidence_direction": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -76,7 +75,6 @@
       },
       "evidence_line_strength": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -85,7 +83,6 @@
       },
       "has_evidence_category": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
