@@ -76,13 +76,11 @@ jobs:
           git config --global user.name "action@github.com"
           git config --global user.email "Github Actions"
           git branch
-          git diff
           models_list="${{ inputs.model_name }}"
           echo "Model list: $models_list"
           for name in $(echo "$models_list" | tr ',' '\n'); do
             echo "Processing: $name"
             git add json-schema-autogen/${name}.json
-            git add owl-autogen/${name}.owl
             git add jsonld-context-autogen/${name}.context.jsonld
             git add models_py-autogen/${name}.py
             git add erdiagram-autogen/${name}.md
