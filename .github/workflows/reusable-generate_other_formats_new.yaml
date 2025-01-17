@@ -52,23 +52,23 @@ jobs:
     needs: [setup-environment]
     strategy:
       matrix:
-        name: ${{ fromJson('["' + replace(inputs.model_name, ',', '","') + '"]') }}
+        name: ${{ fromJson(format('["{0}"]', replace(inputs.model_name, ',', '","'))) }}
     steps:
       - name: Generate other model representations
         run: |
           cd linkml-schema
-          echo "Processing $name model...";
-          linkml generate json-schema ${name}.yaml > ../json-schema-autogen/${name}.json;
+          echo "Processing ${{ matrix.name }} model...";
+          linkml generate json-schema ${{ matrix.name }}.yaml > ../json-schema-autogen/${{ matrix.name }}.json;
           # generating jsonld context and removing generation_date field to avoid constant updates
-          linkml generate jsonld-context ${name}.yaml > ../jsonld-context-autogen/${name}.context.jsonld;
-          sed -i "/generation_date/d" ../jsonld-context-autogen/${name}.context.jsonld;
-          linkml generate pydantic ${name}.yaml > ../models_py-autogen/${name}.py;
-          linkml generate owl ${name}.yaml > ../owl-autogen/${name}.owl;
-          if [ ${name} = "library_generation" ] || [ ${name} = "genome_annotation" ]; then
-            echo "Fixing erdiagrams for $name";
+          linkml generate jsonld-context ${{ matrix.name }}.yaml > ../jsonld-context-autogen/${{ matrix.name }}.context.jsonld;
+          sed -i "/generation_date/d" ../jsonld-context-autogen/${{ matrix.name }}.context.jsonld;
+          linkml generate pydantic ${{ matrix.name }}.yaml > ../models_py-autogen/${{ matrix.name }}.py;
+          linkml generate owl ${{ matrix.name }}.yaml > ../owl-autogen/${{ matrix.name }}.owl;
+          if [ ${{ matrix.name }} = "library_generation" ] || [ ${{ matrix.name }} = "genome_annotation" ]; then
+            echo "Fixing erdiagrams for ${{ matrix.name }}";
             python ../utils/fix_and_create_erdiagram.py;
           else
-            linkml generate erdiagram ${name}.yaml > ../erdiagram-autogen/${name}.md;
+            linkml generate erdiagram ${{ matrix.name }}.yaml > ../erdiagram-autogen/${{ matrix.name }}.md;
           fi
           cd ..
   push-changes:
