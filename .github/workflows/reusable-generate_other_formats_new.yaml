@@ -49,8 +49,8 @@ jobs:
         run: |
           cd linkml-schema
           models_list="${{ inputs.model_name }}"
-          echo "Model list: $model_list"
-          for name in $(echo "$model_list" | tr ',' '\n'); do
+          echo "Model list: $models_list"
+          for name in $(echo "$models_list" | tr ',' '\n'); do
             echo "Processing $name model...";
             linkml generate json-schema ${name}.yaml > ../json-schema-autogen/${name}.json;
             # generating jsonld context and removing generation_date field to avoid constant updates
@@ -74,8 +74,8 @@ jobs:
           git branch
           git diff
           models_list="${{ inputs.model_name }}"
-          echo "Model list: $model_list"
-          for name in $(echo "$model_list" | tr ',' '\n'); do
+          echo "Model list: $models_list"
+          for name in $(echo "$models_list" | tr ',' '\n'); do
             echo "Processing: $name"
             git add json-schema-autogen/${name}.json
             git add owl-autogen/${name}.owl
@@ -84,7 +84,7 @@ jobs:
             git add erdiagram-autogen/${name}.md
           done
           if ! git diff --quiet HEAD; then
-            git commit -m "generate another formats for ${model_list} model(s)"
+            git commit -m "generate another formats for ${models_list} model(s)"
             git pull --rebase # to avoid conflicts with different wf runs
             git push
           else
