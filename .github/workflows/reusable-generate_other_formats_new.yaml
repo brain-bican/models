@@ -16,8 +16,7 @@ permissions:
   contents: write
 
 jobs:
-  # This job is used to set up the environment for the workflow
-  setup-environment:
+  generate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repository
@@ -46,11 +45,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y build-essential git wget curl
 
-  # This job is used to generate other formats for the model(s)
-  generate:
-    runs-on: ubuntu-latest
-    needs: [setup-environment]
-    steps:
       - name: Generate other model representations
         run: |
           cd linkml-schema
@@ -72,10 +66,7 @@ jobs:
             fi
           done
           cd ..
-  push-changes:
-    runs-on: ubuntu-latest
-    needs: [generate]
-    steps:
+
       - name: Adding other model representations to git
         run: |
           git config --global user.name "action@github.com"
