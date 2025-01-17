@@ -1,4 +1,4 @@
-name: generating other formats for multiple models for the specific linkml version
+name: testing a linkml version, generating other formats for multiple models
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   generate_from_reusable:
-    uses: brain-bican/models/.github/workflows/reusable-generate_other_formats.yaml@main
+    uses: brain-bican/models/.github/workflows/reusable-generate_other_formats_new.yaml@main
     with:
       model_name: genome_annotation,library_generation,anatomical_structure,assertion_evidence
       linkml_version: ${{ github.event.inputs.linkml_version }}
