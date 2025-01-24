@@ -1,3 +1,4 @@
-Schema	uri	Description	Schema Prefix
-> schema	id	description	default_prefix
-BKETaxonomy	https:/w3id.org/brain-bican/bke-taxonomy	TODO	bican
+Schema	uri	Description	Schema Prefix	Imports	Title
+> schema	id	description	default_prefix	imports	title
+>				internal_separator: "|"	
+BKETaxonomy	https:/w3id.org/brain-bican/bke-taxonomy	TODO	bican	bican_biolink|bican_prov|genome_annotation	

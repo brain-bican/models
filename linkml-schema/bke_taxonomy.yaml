@@ -2,6 +2,9 @@ name: BKETaxonomy
 description: TODO
 id: https:/w3id.org/brain-bican/bke-taxonomy
 imports:
+- bican_biolink
+- bican_prov
+- genome_annotation
 - linkml:types
 prefixes:
   bican: https://identifiers.org/brain-bican/vocab/
@@ -9,12 +12,6 @@ prefixes:
 default_prefix: bican
 default_range: string
 slots:
-  used:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  was_generated_by:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  was_derived_from:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   is_revision_of:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   part_of_taxonomy:
@@ -49,15 +46,9 @@ slots:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   is_color_for:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  id:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   created_at:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   accession_id:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  description:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  type:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   order:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
