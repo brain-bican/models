@@ -113,8 +113,6 @@ classes:
       id:
         description: ( database GUID)
         range: string
-        exactly_one_of: 'inner_key: range'
-        any_of: 'inner_key: range'
       created_at:
         description: The creation date of the cell type taxonomy.
         range: datetime
@@ -353,7 +351,7 @@ classes:
         multivalued: true
       id:
         description: ( database GUID)
-        range: guid
+        range: string
       accession_id:
         description: A provider assigned accession identifier for the cluster which
           is unique amongs all clusters in cluster set.

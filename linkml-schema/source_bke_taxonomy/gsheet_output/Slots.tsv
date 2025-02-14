@@ -1,5 +1,6 @@
 LinkML Class Name	LinkML Slot or Attribute Name	example	Definition	Nullable	Permissible Values	Data Type	Integer MIN Value
 > class	slot	examples             	description	ignore	ignore	range	minimum_value
+>							
 CellTypeTaxonomy	id		( database GUID)	FALSE		string	
 CellTypeTaxonomy	created_at		The creation date of the cell type taxonomy.	FALSE		datetime	
 CellTypeTaxonomy	accession_id	CCN20230722	A provider assigned accession identifier for the taxonomy.	FALSE		string	
@@ -22,7 +23,7 @@ ClusterSet	created_at		The creation date of the cluster set.	FALSE		datetime
 ClusterSet	accession_id		A provider assigned accession identifier for the cluster set.	FALSE		string	
 ClusterSet	name		Name of the cluster set.	TRUE		string	
 ClusterSet	description		Description of the cluster set.	TRUE		string	
-Cluster	id		( database GUID)	FALSE		guid	
+Cluster	id		( database GUID)	FALSE		string	
 Cluster	accession_id	CS20230722_1019	A provider assigned accession identifier for the cluster which is unique amongs all clusters in cluster set.	FALSE		string	
 Cluster	name	1019	Name of the cluster.	FALSE		string	
 Cluster	number_of_observations	448	The number of observations in the cluster.	TRUE		integer	0
