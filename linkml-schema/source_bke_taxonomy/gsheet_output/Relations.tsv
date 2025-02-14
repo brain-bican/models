@@ -22,14 +22,14 @@ ObservationMatrix	was_generated_by	ObservationMatrixCreationProcess	FALSE	TRUE	T
 ObservationMatrix	represented_by	MatrixFile	TRUE	FALSE	One of potentially matrix files which together represents the entire observation matrix.	MF concretizes some OM
 ObservationRow	part_of_matrix	ObservationMatrix	FALSE	TRUE	The observation matrix for which is observation row is part of.	OR part_of_matrix some OM if and only if OR part_of some OM
 ObservationRow	represented_in	MatrixFile	FALSE	TRUE	The specific file where this observation row is represented.	OR represented in MF if and only if OR is part_of some OM and OM is_concretized_in some MF
-ObservationMatrix	has_variable	GeneAnnotation	TRUE	FALSE	One of set of genes which together forms the variable set of an observation matrix.	
+ObservationMatrix	has_variable	gene annotation	TRUE	FALSE	One of set of genes which together forms the variable set of an observation matrix.	
 ObservationRow	was_derived_from	CellSpecimen	FALSE	FALSE	The cell specimen from which the observation was derived from.	OR was_derived_from some CSp if and only if OR has_input some CSp
 ObservationMatrix	was_derived_from	CellSpecimen	TRUE	FALSE	One of many cell specimens from which observations in the matrix was derived from.	OM was_derived_from some CSp if and only if OM has_input some CSp
 CellTypeTaxon	has_abbreviation	Abbreviation	TRUE	FALSE	One of many abbreviation that are part of the cell type taxon name.	CTT has_abbreviation some A if and only if CTT has_name some CTTN and A is part of CTTN
 CellTypeSet	has_abbreviation	Abbreviation	TRUE	FALSE	One of many abbreviation that are part of the cell type set name.	CTT has_abbreviation some A if and only if CTT has_name some CTTN and A is part of CTTN
-Abbreviation	denotes	GeneAnnotation	TRUE	FALSE	One of potentially many gene annotation terms to which the abbreviation denotes.	Some abbreviation (a) denotes some GeneAnnotation (G) if and only if a refers to G.
+Abbreviation	denotes	gene annotation	TRUE	FALSE	One of potentially many gene annotation terms to which the abbreviation denotes.	Some abbreviation (a) denotes some GeneAnnotation (G) if and only if a refers to G.
 Abbreviation	denotes	ParcellationTerm	TRUE	FALSE	One of potentially many parcellation terms (anatomical structures) which the abbreviation denotes.	A denotes some PT
-ColorPalette	is_palette_for	CellTypesTaxonmy	FALSE	TRUE	The cell types taxonomy for which the palette provides display color properties for.	CP is_palette_for some CTT
+ColorPalette	is_palette_for	CellTypeTaxonomy	FALSE	TRUE	The cell types taxonomy for which the palette provides display color properties for.	CP is_palette_for some CTT
 DisplayColor	part_of_palette	ColorPalette	FALSE	TRUE	The color palette for which the display color map is part of.	DC part_of_palette CP if and only if DC is part_of CP
 DisplayColor	is_color_for	CellTypeTaxon	FALSE	TRUE	The associated cell type taxon for the specified display color.	DC is_color_for CTT if DC is associated with CTT
 DisplayColor	is_color_for	CellTypeSet	FALSE	TRUE	The associated cell type set of the specified display color.	DC is_color_for CTS if DC is associated with CTS

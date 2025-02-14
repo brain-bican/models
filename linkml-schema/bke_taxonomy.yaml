@@ -403,7 +403,7 @@ classes:
       has_variable:
         description: One of set of genes which together forms the variable set of
           an observation matrix.
-        range: GeneAnnotation
+        range: gene annotation
         multivalued: true
       was_derived_from:
         description: One of many cell specimens from which observations in the matrix
@@ -497,7 +497,7 @@ classes:
       is_palette_for:
         description: The cell types taxonomy for which the palette provides display
           color properties for.
-        range: CellTypesTaxonmy
+        range: CellTypeTaxonomy
       id:
         description: ( database GUID)
         range: string
