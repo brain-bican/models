@@ -112,18 +112,25 @@ classes:
         range: CellTypeTaxonomy
       id:
         description: ( database GUID)
+        range: string
+        exactly_one_of: 'inner_key: range'
+        any_of: 'inner_key: range'
       created_at:
         description: The creation date of the cell type taxonomy.
+        range: datetime
       accession_id:
         description: A provider assigned accession identifier for the taxonomy.
         examples:
         - value: CCN20230722
+        range: string
       name:
         description: Name of the cell type taxonomy.
         examples:
         - value: AIT21.0
+        range: string
       description:
         description: Description of the cell type taxonomy.
+        range: string
   CellTypeSet:
     description: A grouping of cell type taxons. The grouping may represent a specific
       taxonomic level (rank) or cell type neighborhood.
@@ -160,14 +167,17 @@ classes:
         multivalued: true
       id:
         description: ( database GUID)
+        range: string
       accession_id:
         description: A provider assigned accession identifier for the cell type set.
         examples:
         - value: CCN20230722_CLAS
+        range: string
       name:
         description: Name of the cell type set taxonomy.
         examples:
         - value: class
+        range: string
       description:
         description: Description of the cell type set.
         examples:
@@ -175,15 +185,19 @@ classes:
             It is primarily determined by broad brain region and neurotransmitter
             type. All cells within a subclass belong to the same class. Class provides
             a broader categorization of cell types.
+        range: string
       type:
         description: A tag denoting the type or purpose of the cell type set.
         examples:
         - value: taxonomic_level
+        range: string
       order:
         description: The priority or display order of the cell type set among all
           other sets of the same type.
         examples:
         - value: '1'
+        range: integer
+        minimum_value: '0.0'
   CellTypeTaxon:
     description: A cell type taxon is a node in a taxonomy. Taxons represents a unit
       of cell type classification and is defined by a set of clusters. Taxons may
@@ -226,23 +240,31 @@ classes:
         multivalued: true
       id:
         description: ( database GUID)
+        range: string
       accession_id:
         description: A provider assigned accession identifier for the cell type taxon.
         examples:
         - value: CS20230722_CLAS_11
+        range: string
       name:
         description: Name of the cell type taxon.
         examples:
         - value: 11 CNU-HYa GABA
+        range: string
       order:
         description: The priority or display order of the cell type taxon among all
           other taxons in the taxonomy.
         examples:
         - value: '11'
+        range: integer
+        minimum_value: '0.0'
       description:
         description: Description of the cell type taxon (optional).
+        range: string
       number_of_cells:
         description: The aggregated number of cells that defines the cell type taxon.
+        range: integer
+        minimum_value: '0.0'
   ClusteringProcess:
     description: The process of organizing and classifying observations into groups
       or clusters based on similarities or patterns.
@@ -288,14 +310,19 @@ classes:
         range: ClusterSet
       id:
         description: ( database GUID)
+        range: string
       created_at:
         description: The creation date of the cluster set.
+        range: datetime
       accession_id:
         description: A provider assigned accession identifier for the cluster set.
+        range: string
       name:
         description: Name of the cluster set.
+        range: string
       description:
         description: Description of the cluster set.
+        range: string
   Cluster:
     description: One specific cluster from the set of clusters determined by a clustering
       process. A cluster is defined by set of observations which has been grouped
@@ -318,7 +345,7 @@ classes:
       contains_observation:
         description: One of potentially many input observations which together define
           the cluster.
-        range: Observation
+        range: ObservationRow
         multivalued: true
       contains_sample:
         description: One of potentially many sample which together define the cluster.
@@ -326,19 +353,24 @@ classes:
         multivalued: true
       id:
         description: ( database GUID)
+        range: guid
       accession_id:
         description: A provider assigned accession identifier for the cluster which
           is unique amongs all clusters in cluster set.
         examples:
         - value: CS20230722_1019
+        range: string
       name:
         description: Name of the cluster.
         examples:
         - value: '1019'
+        range: string
       number_of_observations:
         description: The number of observations in the cluster.
         examples:
         - value: '448'
+        range: integer
+        minimum_value: '0.0'
   ObservationMatrixCreationProcess:
     description: The process of aggregating data to create an observation matrix (potentially
       virtual) for the purpose of dissemination or performing an analysis (such as
@@ -400,6 +432,16 @@ classes:
       was_derived_from:
         description: The cell specimen from which the observation was derived from.
         range: CellSpecimen
+  CellSpecimen:
+    description: ( defined as in BERS)
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    mixins:
+    - ProvEntity
+  ParcellationTerm:
+    description: ( defined in AnSRS )
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    mixins:
+    - ProvEntity
   Abbreviation:
     description: Maps an abbreviation string to its decoded meaning. Optionally the
       abbreviation can be link to one or more entities it denotes.
@@ -420,18 +462,22 @@ classes:
         multivalued: true
       id:
         description: ( database GUID)
+        range: string
       term:
         description: An abbreviation term.
         examples:
         - value: IT
+        range: string
       meaning:
         description: The meaning of an abbreviation term.
         examples:
         - value: intratelencephalic-projecting glutamatergic cortical neuron
+        range: string
       entity_type:
         description: The entity type which the abbreviation term denotes.
         examples:
         - value: cell type
+        range: string
   MatrixFile:
     description: A digital file containing the representation of full or partial data
       matrix.
@@ -456,10 +502,13 @@ classes:
         range: CellTypesTaxonmy
       id:
         description: ( database GUID)
+        range: string
       name:
         description: Name of the color palette.
+        range: string
       description:
         description: Description of the color palette.
+        range: string
   DisplayColor:
     description: One element of a color palette representing the association between
       a color and entity,
@@ -480,8 +529,10 @@ classes:
         range: CellTypeSet
       id:
         description: ( database GUID)
+        range: string
       color_hex_triplet:
         description: A hex string representing the display color for an associated
           entity.
         examples:
         - value: '#450099'
+        range: string

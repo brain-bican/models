@@ -1,4 +1,4 @@
-class	Inheritance: is_a	Inheritance: mixin	Subsets	Definition	
+class	Inheritance: is_a	Inheritance: mixin	Subsets	Definition	Class URI
 > class	is_a	mixins	in_subset	description	class_uri
 >		internal_separator: "|"	internal_separator: "|"		
 CellTypeTaxonomyCreationProcess	procedure	ProvActivity		The process of organizing cells or clusters into a systematic classification of cell types and their heirarchical relationships and groupings. 	
@@ -11,6 +11,8 @@ Cluster		ProvEntity		One specific cluster from the set of clusters determined by
 ObservationMatrixCreationProcess	procedure	ProvActivity		The process of aggregating data to create an observation matrix (potentially virtual) for the purpose of dissemination or performing an analysis (such as clustering).	
 ObservationMatrix		ProvEntity		A matrix (potentially virtual) of observations. Each row represents a specific observation or measurements on specific sample (such as a cell) over a set of variables or features. Each column represents the set of measurements (such as gene expression) of a specific variable (such as gene) over all samples.	
 ObservationRow		ProvEntity		One specific row of the observation matrix representing a set of measurements preformed on a sample over a set of variables or features.	
+CellSpecimen		ProvEntity		( defined as in BERS)	
+ParcellationTerm		ProvEntity		( defined in AnSRS )	
 Abbreviation		ProvEntity		Maps an abbreviation string to its decoded meaning. Optionally the abbreviation can be link to one or more entities it denotes.	
 MatrixFile		ProvEntity		A digital file containing the representation of full or partial data matrix.	
 ColorPalette		ProvEntity		A schematic set of display colors that can be applied to individual components of the associated entity set (for example, a taxonomy).	
