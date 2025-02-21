@@ -19,28 +19,24 @@ default_range: string
 default_prefix: bican
 
 classes:
-  gene annotation:
+  GeneAnnotation:
     is_a: gene
     description: >-
       An annotation describing the location, boundaries, and functions of 
       individual genes within a genome annotation.
     slots:
-      - molecular type
-      - source id
+      - molecular_type
+      - source_id
     attributes:
-      referenced in: 
+      referenced_in: 
         description: The genome annotation that this gene annotation was referenced from.
         required: true
         inlined: true
         any_of:
-          - range: genome annotation
+          - range: GenomeAnnotation
           - range: string
-    id_prefixes:
-      - ENSEMBL
-      - MGI
-      - NCBIGene
 
-  genome annotation:
+  GenomeAnnotation:
     is_a: genome
     description: >-
       Location and nomenclature of genes and all of the coding regions in a genome assembly 
@@ -51,15 +47,15 @@ classes:
       - content_url
       - authority
     attributes:
-      reference assembly:
+      reference_assembly:
         description: The reference genome assembly that this genome annotation was created from.
         required: true
         inlined: true
         any_of:
-          - range: genome assembly
+          - range: GenomeAssembly
           - range: string
 
-  genome assembly:
+  GenomeAssembly:
     is_a: named thing
     mixins:
       - thing with taxon
@@ -69,25 +65,24 @@ classes:
       - version
       - strain
 
-  annotation collection:
+  AnnotationCollection:
     tree_root: true
     attributes:
       annotations:
         multivalued: true
         inlined_as_list: true
-        range: gene annotation
+        range: GeneAnnotation
       genome_annotations:
         multivalued: true
         inlined_as_list: true
-        range: genome annotation
+        range: GenomeAnnotation
       genome_assemblies:
         multivalued: true
         inlined_as_list: true
-        range: genome assembly
-
+        range: GenomeAssembly
 
 slots:
-  molecular type:
+  molecular_type:
     any_of:
       - range: BioType
       - range: string
@@ -100,13 +95,12 @@ slots:
     description: The organization responsible for publishing the data. 
     range: AuthorityType
 
-  source id:
+  source_id:
     description: The authority specific identifier. 
     slot_uri: schema:identifier
   
   strain:
     description: The genetic variant or subtype of a species or organism. 
-
 
 enums:
   BioType:
