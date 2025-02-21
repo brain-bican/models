@@ -4,7 +4,6 @@
       "source": "genome_annotation.yaml"
    },
    "@context": {
-      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "AGRKB": "https://www.alliancegenome.org/",
       "AspGD": {
          "@id": "http://www.aspergillusgenome.org/cgi-bin/locus.pl?dbid=",
@@ -193,21 +192,23 @@
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
       "schema": "http://schema.org/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "@vocab": "https://identifiers.org/brain-bican/vocab/",
       "annotations": {
-         "@type": "bican:GeneAnnotation",
+         "@type": "@id",
          "@id": "annotations"
       },
       "genome_annotations": {
-         "@type": "bican:GenomeAnnotation",
+         "@type": "@id",
          "@id": "genome_annotations"
       },
       "genome_assemblies": {
-         "@type": "bican:GenomeAssembly",
+         "@type": "@id",
          "@id": "genome_assemblies"
       },
       "authority": {
          "@context": {
+            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -219,6 +220,7 @@
       },
       "checksum_algorithm": {
          "@context": {
+            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -280,7 +282,7 @@
          "@id": "biolink:has_qualitative_value"
       },
       "has_quantitative_value": {
-         "@type": "biolink:QuantityValue",
+         "@type": "@id",
          "@id": "biolink:has_quantitative_value"
       },
       "has_taxonomic_rank": {
@@ -300,7 +302,7 @@
          "@id": "biolink:in_taxon_label"
       },
       "iri": {
-         "@type": "xsd:anyURI",
+         "@type": "@id",
          "@id": "biolink:iri"
       },
       "license": {
@@ -348,7 +350,7 @@
          "@id": "biolink:version"
       },
       "xref": {
-         "@type": "xsd:anyURI",
+         "@type": "@id",
          "@id": "biolink:xref"
       },
       "Activity": {
@@ -384,11 +386,11 @@
       "Gene": {
          "@id": "biolink:Gene"
       },
-      "GeneAnnotation": {
-         "@id": "GeneAnnotation"
-      },
       "GeneOrGeneProduct": {
          "@id": "biolink:GeneOrGeneProduct"
+      },
+      "GeneAnnotation": {
+         "@id": "GeneAnnotation"
       },
       "Genome": {
          "@id": "biolink:Genome"
