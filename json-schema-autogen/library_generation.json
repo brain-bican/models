@@ -1655,6 +1655,12 @@
                         "null"
                     ]
                 },
+                "test": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "type": {
                     "items": {
                         "type": "string"

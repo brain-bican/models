@@ -4,6 +4,7 @@ DigitalAsset {
     stringList digest  
     string content_url  
     string data_type  
+    string test  
     string id  
     iri_type iri  
     curieList category  

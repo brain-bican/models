@@ -14589,6 +14589,7 @@ class DigitalAsset(ProvEntity, Dataset):
          'domain_of': ['DigitalAsset']} })
     content_url: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'content_url', 'domain_of': ['DigitalAsset']} })
     data_type: Optional[str] = Field(default=None, description="""The type of data in the file""", json_schema_extra = { "linkml_meta": {'alias': 'data_type', 'domain_of': ['DigitalAsset']} })
+    test: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'test', 'domain_of': ['DigitalAsset']} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
          'domain_of': ['ProvEntity',
                        'TissueSample',

@@ -283,6 +283,9 @@
       "data_type": {
          "@id": "data_type"
       },
+      "test": {
+         "@id": "test"
+      },
       "annotates": {
          "@type": "@id",
          "@id": "annotates"
