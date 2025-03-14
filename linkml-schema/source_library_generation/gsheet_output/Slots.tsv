@@ -39,3 +39,4 @@ Donor		age_at_death_value	57e24d3c-c9c7-4ef3-9809-a35802d563ec		The value repres
 Donor	donor_species	species	6837cb02-6bd7-4fb8-838c-9062ead96ba4		Species of donor.		FALSE										Donor		donor_species	NIMP
 TissueSample	tissue_sample_structure	structure			Strucure of tissue sample.		TRUE												structure	NIMP
 DigitalAsset		data_type			The type of data in the file 															
+DigitalAsset		test																		
