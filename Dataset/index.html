@@ -1,0 +1,1179 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.8" name="generator"/>
+<title>Class: Dataset - BICAN Knowledge Graph Models Documentation</title>
+<link href="../assets/stylesheets/main.8608ea7d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#class-dataset">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="BICAN Knowledge Graph Models Documentation" class="md-header__button md-logo" data-md-component="logo" href=".." title="BICAN Knowledge Graph Models Documentation">
+<img alt="logo" src="../images/bican_logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            BICAN Knowledge Graph Models Documentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Class: Dataset
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/brain-bican/models" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="BICAN Knowledge Graph Models Documentation" class="md-nav__button md-logo" data-md-component="logo" href=".." title="BICAN Knowledge Graph Models Documentation">
+<img alt="logo" src="../images/bican_logo.png"/>
+</a>
+    BICAN Knowledge Graph Models Documentation
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/brain-bican/models" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    Overview
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Models
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Models
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../index_library_generation/">
+<span class="md-ellipsis">
+    Library Generation
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../index_anatomical_structure/">
+<span class="md-ellipsis">
+    Anatomical Structure
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../index_genome_annotation/">
+<span class="md-ellipsis">
+    Genome Annotation
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../index_assertion_evidence/">
+<span class="md-ellipsis">
+    Assertion Evidence
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Visualizations
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Visualizations
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../library_generation/">
+<span class="md-ellipsis">
+    Library Generation
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../anatomical_structure/">
+<span class="md-ellipsis">
+    Anatomical Structure
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../genome_annotation/">
+<span class="md-ellipsis">
+    Genome Annotation
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../assertion_evidence/">
+<span class="md-ellipsis">
+    Assertion Evidence
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inheritance">
+<span class="md-ellipsis">
+      Inheritance
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#slots">
+<span class="md-ellipsis">
+      Slots
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usages">
+<span class="md-ellipsis">
+      Usages
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#identifier-and-mapping-information">
+<span class="md-ellipsis">
+      Identifier and Mapping Information
+    </span>
+</a>
+<nav aria-label="Identifier and Mapping Information" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#schema-source">
+<span class="md-ellipsis">
+      Schema Source
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mappings">
+<span class="md-ellipsis">
+      Mappings
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linkml-source">
+<span class="md-ellipsis">
+      LinkML Source
+    </span>
+</a>
+<nav aria-label="LinkML Source" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#direct">
+<span class="md-ellipsis">
+      Direct
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#induced">
+<span class="md-ellipsis">
+      Induced
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="class-dataset">Class: Dataset</h1>
+<p><em>an item that refers to a collection of data from a data source.</em></p>
+<p>URI: <a href="https://w3id.org/biolink/vocab/Dataset">biolink:Dataset</a></p>
+<div class="mermaid"> classDiagram
+    class Dataset
+    click Dataset href "../Dataset"
+      InformationContentEntity &lt;|-- Dataset
+        click InformationContentEntity href "../InformationContentEntity"
+
+      Dataset : category
+
+      Dataset : creation_date
+
+      Dataset : deprecated
+
+      Dataset : description
+
+      Dataset : format
+
+      Dataset : full_name
+
+      Dataset : has_attribute
+
+
+
+
+    Dataset --&gt; "*" Attribute : has_attribute
+    click Attribute href "../Attribute"
+
+
+      Dataset : id
+
+      Dataset : iri
+
+      Dataset : license
+
+      Dataset : name
+
+      Dataset : provided_by
+
+      Dataset : rights
+
+      Dataset : synonym
+
+      Dataset : type
+
+      Dataset : xref
+
+
+</div>
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="../Entity/">Entity</a><ul>
+<li><a href="../NamedThing/">NamedThing</a><ul>
+<li><a href="../InformationContentEntity/">InformationContentEntity</a><ul>
+<li><strong>Dataset</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../id/">id</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>A unique identifier for an entity</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../iri/">iri</a></td>
+<td>0..1 <br/> <a href="../IriType/">IriType</a></td>
+<td>An IRI for an entity</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../category/">category</a></td>
+<td>* <br/> <a href="../Curie/">Curie</a></td>
+<td>Name of the high level ontology class in which this entity is categorized</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../type/">type</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> <a href="../LabelType/">LabelType</a></td>
+<td>A human-readable name for an attribute or entity</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> <a href="../NarrativeText/">NarrativeText</a></td>
+<td>a human-readable description of an entity</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../has_attribute/">has_attribute</a></td>
+<td>* <br/> <a href="../Attribute/">Attribute</a></td>
+<td>connects any entity to an attribute</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../deprecated/">deprecated</a></td>
+<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>A boolean flag indicating that an entity is no longer considered current or v...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../provided_by/">provided_by</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>The value in this node property represents the knowledge provider that create...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../xref/">xref</a></td>
+<td>* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>A database cross reference or alternative identifier for a NamedThing or edge...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../full_name/">full_name</a></td>
+<td>0..1 <br/> <a href="../LabelType/">LabelType</a></td>
+<td>a long-form human readable name for a thing</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../synonym/">synonym</a></td>
+<td>* <br/> <a href="../LabelType/">LabelType</a></td>
+<td>Alternate human-readable names for a thing</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../license/">license</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../rights/">rights</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../format/">format</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../creation_date/">creation_date</a></td>
+<td>0..1 <br/> <a href="../Date/">Date</a></td>
+<td>date on which an entity was created</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../GenomeAnnotation/">GenomeAnnotation</a></td>
+<td><a href="../version/">version</a></td>
+<td>domain</td>
+<td><a href="./">Dataset</a></td>
+</tr>
+<tr>
+<td><a href="../GenomeAssembly/">GenomeAssembly</a></td>
+<td><a href="../version/">version</a></td>
+<td>domain</td>
+<td><a href="./">Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://identifiers.org/brain-bican/genome-annotation-schema</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>biolink:Dataset</td>
+</tr>
+<tr>
+<td>native</td>
+<td>bican:Dataset</td>
+</tr>
+<tr>
+<td>exact</td>
+<td>IAO:0000100, dctypes:Dataset, schema:dataset, dcid:Dataset</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+<h3 id="direct">Direct</h3>
+<details>
+<pre><code class="language-yaml">name: dataset
+definition_uri: https://w3id.org/biolink/vocab/Dataset
+description: an item that refers to a collection of data from a data source.
+from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+exact_mappings:
+- IAO:0000100
+- dctypes:Dataset
+- schema:dataset
+- dcid:Dataset
+is_a: information content entity
+slots:
+- id
+- iri
+- category
+- type
+- name
+- description
+- has attribute
+- deprecated
+- provided by
+- xref
+- full name
+- synonym
+- license
+- rights
+- format
+- creation date
+class_uri: biolink:Dataset
+
+</code></pre>
+</details>
+<h3 id="induced">Induced</h3>
+<details>
+<pre><code class="language-yaml">name: dataset
+definition_uri: https://w3id.org/biolink/vocab/Dataset
+description: an item that refers to a collection of data from a data source.
+from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+exact_mappings:
+- IAO:0000100
+- dctypes:Dataset
+- schema:dataset
+- dcid:Dataset
+is_a: information content entity
+attributes:
+  id:
+    name: id
+    definition_uri: https://w3id.org/biolink/vocab/id
+    description: A unique identifier for an entity. Must be either a CURIE shorthand
+      for a URI or a complete URI
+    in_subset:
+    - translator_minimal
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    exact_mappings:
+    - AGRKB:primaryId
+    - gff3:ID
+    - gpi:DB_Object_ID
+    rank: 1000
+    domain: entity
+    slot_uri: biolink:id
+    identifier: true
+    alias: id
+    owner: dataset
+    domain_of:
+    - ontology class
+    - entity
+    - attribute
+    - named thing
+    - taxonomic rank
+    - organism taxon
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: string
+    required: true
+  iri:
+    name: iri
+    definition_uri: https://w3id.org/biolink/vocab/iri
+    description: An IRI for an entity. This is determined by the id using expansion
+      rules.
+    in_subset:
+    - translator_minimal
+    - samples
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    exact_mappings:
+    - WIKIDATA_PROPERTY:P854
+    rank: 1000
+    slot_uri: biolink:iri
+    alias: iri
+    owner: dataset
+    domain_of:
+    - attribute
+    - entity
+    - named thing
+    - organism taxon
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: iri type
+  category:
+    name: category
+    definition_uri: https://w3id.org/biolink/vocab/category
+    description: 'Name of the high level ontology class in which this entity is categorized.
+      Corresponds to the label for the biolink entity type class. In a neo4j database
+      this MAY correspond to the neo4j label tag. In an RDF database it should be
+      a biolink model class URI. This field is multi-valued. It should include values
+      for ancestors of the biolink class; for example, a protein such as Shh would
+      have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`.
+      In an RDF database, nodes will typically have an rdf:type triples. This can
+      be to the most specific biolink class, or potentially to a class more specific
+      than something in biolink. For example, a sequence feature `f` may have a rdf:type
+      assertion to a SO class such as TF_binding_site, which is more specific than
+      anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity,
+      biolink:NamedThing}. NOTE: The category slot was modified to have a curie range
+      and a pattern for bican categories.'
+    in_subset:
+    - translator_minimal
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    rank: 1000
+    is_a: type
+    domain: entity
+    slot_uri: biolink:category
+    designates_type: true
+    alias: category
+    owner: dataset
+    domain_of:
+    - entity
+    - attribute
+    - named thing
+    - organism taxon
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    is_class_field: true
+    range: curie
+    multivalued: true
+    pattern: ^bican:[A-Z][A-Za-z]+$
+  type:
+    name: type
+    definition_uri: https://w3id.org/biolink/vocab/type
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    mappings:
+    - rdf:type
+    exact_mappings:
+    - gff3:type
+    - gpi:DB_Object_Type
+    rank: 1000
+    domain: entity
+    slot_uri: rdf:type
+    alias: type
+    owner: dataset
+    domain_of:
+    - entity
+    - attribute
+    - named thing
+    - organism taxon
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: string
+    multivalued: true
+  name:
+    name: name
+    definition_uri: https://w3id.org/biolink/vocab/name
+    description: A human-readable name for an attribute or entity.
+    in_subset:
+    - translator_minimal
+    - samples
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    aliases:
+    - label
+    - display name
+    - title
+    mappings:
+    - rdfs:label
+    exact_mappings:
+    - gff3:Name
+    - gpi:DB_Object_Name
+    narrow_mappings:
+    - dct:title
+    - WIKIDATA_PROPERTY:P1476
+    rank: 1000
+    domain: entity
+    slot_uri: rdfs:label
+    alias: name
+    owner: dataset
+    domain_of:
+    - attribute
+    - entity
+    - macromolecular machine mixin
+    - named thing
+    - organism taxon
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene or gene product
+    - gene
+    - genome
+    range: label type
+  description:
+    name: description
+    definition_uri: https://w3id.org/biolink/vocab/description
+    description: a human-readable description of an entity
+    in_subset:
+    - translator_minimal
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    aliases:
+    - definition
+    mappings:
+    - dct:description
+    exact_mappings:
+    - IAO:0000115
+    - skos:definitions
+    narrow_mappings:
+    - gff3:Description
+    rank: 1000
+    slot_uri: dct:description
+    alias: description
+    owner: dataset
+    domain_of:
+    - entity
+    - attribute
+    - named thing
+    - organism taxon
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: narrative text
+  has attribute:
+    name: has attribute
+    definition_uri: https://w3id.org/biolink/vocab/has_attribute
+    description: connects any entity to an attribute
+    in_subset:
+    - samples
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    exact_mappings:
+    - SIO:000008
+    close_mappings:
+    - OBI:0001927
+    narrow_mappings:
+    - OBAN:association_has_subject_property
+    - OBAN:association_has_object_property
+    - CPT:has_possibly_included_panel_element
+    - DRUGBANK:category
+    - EFO:is_executed_in
+    - HANCESTRO:0301
+    - LOINC:has_action_guidance
+    - LOINC:has_adjustment
+    - LOINC:has_aggregation_view
+    - LOINC:has_approach_guidance
+    - LOINC:has_divisor
+    - LOINC:has_exam
+    - LOINC:has_method
+    - LOINC:has_modality_subtype
+    - LOINC:has_object_guidance
+    - LOINC:has_scale
+    - LOINC:has_suffix
+    - LOINC:has_time_aspect
+    - LOINC:has_time_modifier
+    - LOINC:has_timing_of
+    - NCIT:R88
+    - NCIT:eo_disease_has_property_or_attribute
+    - NCIT:has_data_element
+    - NCIT:has_pharmaceutical_administration_method
+    - NCIT:has_pharmaceutical_basic_dose_form
+    - NCIT:has_pharmaceutical_intended_site
+    - NCIT:has_pharmaceutical_release_characteristics
+    - NCIT:has_pharmaceutical_state_of_matter
+    - NCIT:has_pharmaceutical_transformation
+    - NCIT:is_qualified_by
+    - NCIT:qualifier_applies_to
+    - NCIT:role_has_domain
+    - NCIT:role_has_range
+    - INO:0000154
+    - HANCESTRO:0308
+    - OMIM:has_inheritance_type
+    - orphanet:C016
+    - orphanet:C017
+    - RO:0000053
+    - RO:0000086
+    - RO:0000087
+    - SNOMED:has_access
+    - SNOMED:has_clinical_course
+    - SNOMED:has_count_of_base_of_active_ingredient
+    - SNOMED:has_dose_form_administration_method
+    - SNOMED:has_dose_form_release_characteristic
+    - SNOMED:has_dose_form_transformation
+    - SNOMED:has_finding_context
+    - SNOMED:has_finding_informer
+    - SNOMED:has_inherent_attribute
+    - SNOMED:has_intent
+    - SNOMED:has_interpretation
+    - SNOMED:has_laterality
+    - SNOMED:has_measurement_method
+    - SNOMED:has_method
+    - SNOMED:has_priority
+    - SNOMED:has_procedure_context
+    - SNOMED:has_process_duration
+    - SNOMED:has_property
+    - SNOMED:has_revision_status
+    - SNOMED:has_scale_type
+    - SNOMED:has_severity
+    - SNOMED:has_specimen
+    - SNOMED:has_state_of_matter
+    - SNOMED:has_subject_relationship_context
+    - SNOMED:has_surgical_approach
+    - SNOMED:has_technique
+    - SNOMED:has_temporal_context
+    - SNOMED:has_time_aspect
+    - SNOMED:has_units
+    - UMLS:has_structural_class
+    - UMLS:has_supported_concept_property
+    - UMLS:has_supported_concept_relationship
+    - UMLS:may_be_qualified_by
+    rank: 1000
+    domain: entity
+    slot_uri: biolink:has_attribute
+    alias: has_attribute
+    owner: dataset
+    domain_of:
+    - entity
+    - attribute
+    - named thing
+    - organism taxon
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: attribute
+    multivalued: true
+  deprecated:
+    name: deprecated
+    definition_uri: https://w3id.org/biolink/vocab/deprecated
+    description: A boolean flag indicating that an entity is no longer considered
+      current or valid.
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    exact_mappings:
+    - oboInOwl:ObsoleteClass
+    rank: 1000
+    slot_uri: biolink:deprecated
+    alias: deprecated
+    owner: dataset
+    domain_of:
+    - entity
+    - attribute
+    - named thing
+    - organism taxon
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: boolean
+  provided by:
+    name: provided by
+    definition_uri: https://w3id.org/biolink/vocab/provided_by
+    description: The value in this node property represents the knowledge provider
+      that created or assembled the node and all of its attributes.  Used internally
+      to represent how a particular node made its way into a knowledge provider or
+      graph.
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    rank: 1000
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:provided_by
+    alias: provided_by
+    owner: dataset
+    domain_of:
+    - named thing
+    - attribute
+    - organism taxon
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: string
+    multivalued: true
+  xref:
+    name: xref
+    definition_uri: https://w3id.org/biolink/vocab/xref
+    description: A database cross reference or alternative identifier for a NamedThing
+      or edge between two NamedThings.  This property should point to a database record
+      or webpage that supports the existence of the edge, or gives more detail about
+      the edge. This property can be used on a node or edge to provide multiple URIs
+      or CURIE cross references.
+    in_subset:
+    - translator_minimal
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    aliases:
+    - dbxref
+    - Dbxref
+    - DbXref
+    - record_url
+    - source_record_urls
+    narrow_mappings:
+    - gff3:Dbxref
+    - gpi:DB_Xrefs
+    rank: 1000
+    domain: named thing
+    slot_uri: biolink:xref
+    alias: xref
+    owner: dataset
+    domain_of:
+    - named thing
+    - gene
+    - attribute
+    - organism taxon
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - genome
+    range: uriorcurie
+    multivalued: true
+  full name:
+    name: full name
+    definition_uri: https://w3id.org/biolink/vocab/full_name
+    description: a long-form human readable name for a thing
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    rank: 1000
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:full_name
+    alias: full_name
+    owner: dataset
+    domain_of:
+    - named thing
+    - attribute
+    - organism taxon
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: label type
+  synonym:
+    name: synonym
+    definition_uri: https://w3id.org/biolink/vocab/synonym
+    description: Alternate human-readable names for a thing
+    in_subset:
+    - translator_minimal
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    aliases:
+    - alias
+    narrow_mappings:
+    - skos:altLabel
+    - gff3:Alias
+    - AGRKB:synonyms
+    - gpi:DB_Object_Synonyms
+    - HANCESTRO:0330
+    - IAO:0000136
+    - RXNORM:has_tradename
+    rank: 1000
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:synonym
+    alias: synonym
+    owner: dataset
+    domain_of:
+    - named thing
+    - attribute
+    - organism taxon
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: label type
+    multivalued: true
+  license:
+    name: license
+    definition_uri: https://w3id.org/biolink/vocab/license
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    exact_mappings:
+    - dct:license
+    narrow_mappings:
+    - WIKIDATA_PROPERTY:P275
+    rank: 1000
+    is_a: node property
+    domain: information content entity
+    slot_uri: biolink:license
+    alias: license
+    owner: dataset
+    domain_of:
+    - information content entity
+    - dataset
+    range: string
+  rights:
+    name: rights
+    definition_uri: https://w3id.org/biolink/vocab/rights
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    exact_mappings:
+    - dct:rights
+    rank: 1000
+    is_a: node property
+    domain: information content entity
+    slot_uri: biolink:rights
+    alias: rights
+    owner: dataset
+    domain_of:
+    - information content entity
+    - dataset
+    range: string
+  format:
+    name: format
+    definition_uri: https://w3id.org/biolink/vocab/format
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    exact_mappings:
+    - dct:format
+    - WIKIDATA_PROPERTY:P2701
+    rank: 1000
+    is_a: node property
+    domain: information content entity
+    slot_uri: biolink:format
+    alias: format
+    owner: dataset
+    domain_of:
+    - information content entity
+    - dataset
+    range: string
+  creation date:
+    name: creation date
+    definition_uri: https://w3id.org/biolink/vocab/creation_date
+    description: date on which an entity was created. This can be applied to nodes
+      or edges
+    from_schema: https://identifiers.org/brain-bican/genome-annotation-schema
+    aliases:
+    - publication date
+    exact_mappings:
+    - dct:createdOn
+    - WIKIDATA_PROPERTY:P577
+    rank: 1000
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:creation_date
+    alias: creation_date
+    owner: dataset
+    domain_of:
+    - information content entity
+    - dataset
+    range: date
+class_uri: biolink:Dataset
+
+</code></pre>
+</details>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>
