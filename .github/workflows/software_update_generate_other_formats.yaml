@@ -10,10 +10,11 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   generate_from_reusable:
-    uses: brain-bican/models/.github/workflows/reusable-generate_other_formats_new.yaml@main
+    uses: djarecka/models/.github/workflows/reusable-generate_other_formats_new.yaml@main
     with:
       model_name: genome_annotation,library_generation,anatomical_structure,assertion_evidence
       linkml_version: ${{ github.event.inputs.linkml_version }}
