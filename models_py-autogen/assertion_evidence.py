@@ -166,11 +166,11 @@ class Activity(ConfiguredBaseModel):
                                                'range': 'Agent',
                                                'slot_uri': 'prov:wasAssociatedWith'}}})
 
-    was_associate_with: Optional[Agent] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'was_associate_with',
+    was_associate_with: Optional[Agent] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'was_associate_with',
          'domain_of': ['Activity'],
          'slot_uri': 'prov:wasAssociatedWith'} })
-    endedAtTime: Optional[datetime ] = Field(default=None, description="""The prov:endedAtTime establishes the relationship between prov:Activity and xsd:DateTime that allows one to specify the time when the activity ended.""", json_schema_extra = { "linkml_meta": {'alias': 'endedAtTime', 'domain_of': ['Activity']} })
-    startedAtTime: Optional[datetime ] = Field(default=None, description="""The prov:startedAtTime establishes the relationship between prov:Activity and xsd:DateTime that allows one to specify the time when the activity started.""", json_schema_extra = { "linkml_meta": {'alias': 'startedAtTime', 'domain_of': ['Activity']} })
+    endedAtTime: Optional[datetime ] = Field(None, description="""The prov:endedAtTime establishes the relationship between prov:Activity and xsd:DateTime that allows one to specify the time when the activity ended.""", json_schema_extra = { "linkml_meta": {'alias': 'endedAtTime', 'domain_of': ['Activity']} })
+    startedAtTime: Optional[datetime ] = Field(None, description="""The prov:startedAtTime establishes the relationship between prov:Activity and xsd:DateTime that allows one to specify the time when the activity started.""", json_schema_extra = { "linkml_meta": {'alias': 'startedAtTime', 'domain_of': ['Activity']} })
 
 
 class Agent(ConfiguredBaseModel):
@@ -183,7 +183,7 @@ class Agent(ConfiguredBaseModel):
                                            'range': 'Identifier',
                                            'slot_uri': 'edam:has_identifier'}}})
 
-    has_identifier: Optional[Identifier] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
+    has_identifier: Optional[Identifier] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
          'domain_of': ['Agent'],
          'slot_uri': 'edam:has_identifier'} })
 
@@ -219,22 +219,22 @@ class Assertion(ConfiguredBaseModel):
                                              'range': 'Activity',
                                              'slot_uri': 'prov:wasGeneratedBy'}}})
 
-    has_annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_annotation',
+    has_annotation: Optional[Annotation] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_annotation',
          'domain_of': ['Assertion'],
          'slot_uri': 'sio:000255'} })
-    was_generated_by: Optional[Activity] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
+    was_generated_by: Optional[Activity] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
          'domain_of': ['Assertion', 'EvidenceLine'],
          'slot_uri': 'prov:wasGeneratedBy'} })
-    has_evidence_line: Optional[EvidenceLine] = Field(default=None, description="""A relationship between an assertion or proposition and an evidence line used in evaluating its validity.""", json_schema_extra = { "linkml_meta": {'alias': 'has_evidence_line',
+    has_evidence_line: Optional[EvidenceLine] = Field(None, description="""A relationship between an assertion or proposition and an evidence line used in evaluating its validity.""", json_schema_extra = { "linkml_meta": {'alias': 'has_evidence_line',
          'domain_of': ['Assertion'],
          'slot_uri': 'sepio:0000006'} })
-    has_assertion_category: Optional[Categories] = Field(default=None, description="""The brainkb:hasAssertionCategory property relates brainkb:Evidence and brainkb:Categories, specifying the classification or category that the assertion belongs to.""", json_schema_extra = { "linkml_meta": {'alias': 'has_assertion_category',
+    has_assertion_category: Optional[Categories] = Field(None, description="""The brainkb:hasAssertionCategory property relates brainkb:Evidence and brainkb:Categories, specifying the classification or category that the assertion belongs to.""", json_schema_extra = { "linkml_meta": {'alias': 'has_assertion_category',
          'domain_of': ['Assertion'],
          'slot_uri': 'brainkb:has_assertion_category'} })
-    has_assertion_description: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_assertion_description',
+    has_assertion_description: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_assertion_description',
          'domain_of': ['Assertion'],
          'slot_uri': 'brainkb:has_assertion_description'} })
-    has_assertion_summary: Optional[str] = Field(default=None, description="""The brainkb:has_assertion_text property relates an eco:Assertion to an xsd:string, providing a textual excerpt of the assertion being made.""", json_schema_extra = { "linkml_meta": {'alias': 'has_assertion_summary',
+    has_assertion_summary: Optional[str] = Field(None, description="""The brainkb:has_assertion_text property relates an eco:Assertion to an xsd:string, providing a textual excerpt of the assertion being made.""", json_schema_extra = { "linkml_meta": {'alias': 'has_assertion_summary',
          'domain_of': ['Assertion'],
          'slot_uri': 'brainkb:has_assertion_summary'} })
 
@@ -253,7 +253,7 @@ class EvidenceItem(ConfiguredBaseModel):
                                       'range': 'Document',
                                       'slot_uri': 'sepio:0000442'}}})
 
-    reference: Optional[Document] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'reference',
+    reference: Optional[Document] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'reference',
          'domain_of': ['EvidenceItem'],
          'slot_uri': 'sepio:0000442'} })
 
@@ -265,10 +265,10 @@ class Document(EvidenceItem):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'iao:0000310',
          'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
 
-    identifier: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'identifier',
+    identifier: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'identifier',
          'domain_of': ['Document'],
          'slot_uri': 'datacite:identifier'} })
-    reference: Optional[Document] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'reference',
+    reference: Optional[Document] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'reference',
          'domain_of': ['EvidenceItem'],
          'slot_uri': 'sepio:0000442'} })
 
@@ -292,22 +292,22 @@ class EvidenceLine(ConfiguredBaseModel):
                                              'range': 'Activity',
                                              'slot_uri': 'prov:wasGeneratedBy'}}})
 
-    has_evidence_item: Optional[EvidenceItem] = Field(default=None, description="""A relation holding between an evidence line and an individual information entity that contributes to the argument it represents.""", json_schema_extra = { "linkml_meta": {'alias': 'has_evidence_item',
+    has_evidence_item: Optional[EvidenceItem] = Field(None, description="""A relation holding between an evidence line and an individual information entity that contributes to the argument it represents.""", json_schema_extra = { "linkml_meta": {'alias': 'has_evidence_item',
          'domain_of': ['EvidenceLine'],
          'slot_uri': 'sepio:0000084'} })
-    was_generated_by: Optional[Activity] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
+    was_generated_by: Optional[Activity] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
          'domain_of': ['Assertion', 'EvidenceLine'],
          'slot_uri': 'prov:wasGeneratedBy'} })
-    evidence_direction: Optional[EvidenceDirection] = Field(default=None, description="""A relation indicating whether an evidence line supports or disputes a target proposition (or represents inconclusive evidence that is not sufficient for either).""", json_schema_extra = { "linkml_meta": {'alias': 'evidence_direction',
+    evidence_direction: Optional[EvidenceDirection] = Field(None, description="""A relation indicating whether an evidence line supports or disputes a target proposition (or represents inconclusive evidence that is not sufficient for either).""", json_schema_extra = { "linkml_meta": {'alias': 'evidence_direction',
          'domain_of': ['EvidenceLine'],
          'slot_uri': 'sepio:0000183'} })
-    evidence_line_strength: Optional[EvidenceStrength] = Field(default=None, description="""A relation describing the degree of support provided by an evidence line for a target assertion or proposition.""", json_schema_extra = { "linkml_meta": {'alias': 'evidence_line_strength',
+    evidence_line_strength: Optional[EvidenceStrength] = Field(None, description="""A relation describing the degree of support provided by an evidence line for a target assertion or proposition.""", json_schema_extra = { "linkml_meta": {'alias': 'evidence_line_strength',
          'domain_of': ['EvidenceLine'],
          'slot_uri': 'sepio:0000132'} })
-    has_evidence_category: Optional[Categories] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_evidence_category',
+    has_evidence_category: Optional[Categories] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_evidence_category',
          'domain_of': ['EvidenceLine'],
          'slot_uri': 'brainkb:has_evidence_category'} })
-    has_evidenceline_description: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_evidenceline_description',
+    has_evidenceline_description: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_evidenceline_description',
          'domain_of': ['EvidenceLine'],
          'slot_uri': 'braiankb:has_evidenceline_description'} })
 
@@ -316,7 +316,7 @@ class Group(Agent):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'foaf:Group',
          'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
 
-    has_identifier: Optional[Identifier] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
+    has_identifier: Optional[Identifier] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
          'domain_of': ['Agent'],
          'slot_uri': 'edam:has_identifier'} })
 
@@ -332,7 +332,7 @@ class Organization(Group):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:Organization',
          'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
 
-    has_identifier: Optional[Identifier] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
+    has_identifier: Optional[Identifier] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
          'domain_of': ['Agent'],
          'slot_uri': 'edam:has_identifier'} })
 
@@ -344,8 +344,8 @@ class Person(Agent):
                                    'range': 'Organization',
                                    'slot_uri': 'foaf:member'}}})
 
-    member: Optional[Organization] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'member', 'domain_of': ['Person'], 'slot_uri': 'foaf:member'} })
-    has_identifier: Optional[Identifier] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
+    member: Optional[Organization] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'member', 'domain_of': ['Person'], 'slot_uri': 'foaf:member'} })
+    has_identifier: Optional[Identifier] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
          'domain_of': ['Agent'],
          'slot_uri': 'edam:has_identifier'} })
 
@@ -368,7 +368,7 @@ class SoftwareAgent(Agent):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:SoftwareAgent',
          'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
 
-    has_identifier: Optional[Identifier] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
+    has_identifier: Optional[Identifier] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
          'domain_of': ['Agent'],
          'slot_uri': 'edam:has_identifier'} })
 

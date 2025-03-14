@@ -113,10 +113,10 @@ class NamedThing(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'from_schema': 'https://w3id.org/my-org/anatomical-structure-core-schema'})
 
-    id: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
-    name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
-    description: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
-    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/NamedThing","AnS:NamedThing"]] = Field(default=["AnS:NamedThing"], json_schema_extra = { "linkml_meta": {'alias': 'category',
+    id: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
+    name: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
+    description: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
+    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/NamedThing","AnS:NamedThing"]] = Field(["AnS:NamedThing"], json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['NamedThing'],
          'is_class_field': True} })
@@ -129,12 +129,12 @@ class VersionedNamedThing(NamedThing):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'from_schema': 'https://w3id.org/my-org/anatomical-structure-core-schema'})
 
-    version: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['VersionedNamedThing']} })
-    revision_of: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of', 'domain_of': ['VersionedNamedThing']} })
-    id: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
-    name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
-    description: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
-    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/VersionedNamedThing","AnS:VersionedNamedThing"]] = Field(default=["AnS:VersionedNamedThing"], json_schema_extra = { "linkml_meta": {'alias': 'category',
+    version: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['VersionedNamedThing']} })
+    revision_of: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of', 'domain_of': ['VersionedNamedThing']} })
+    id: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
+    name: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
+    description: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
+    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/VersionedNamedThing","AnS:VersionedNamedThing"]] = Field(["AnS:VersionedNamedThing"], json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['NamedThing'],
          'is_class_field': True} })
@@ -149,30 +149,30 @@ class ImageDataset(VersionedNamedThing):
                                                    {'range': 'string'}],
                                         'name': 'revision_of'}}})
 
-    x_direction: Optional[ANATOMICALDIRECTION] = Field(default=None, description="""A controlled vocabulary attribute defining the x axis direction in terms of anatomical  direction.""", json_schema_extra = { "linkml_meta": {'alias': 'x_direction', 'domain_of': ['ImageDataset']} })
-    y_direction: Optional[ANATOMICALDIRECTION] = Field(default=None, description="""A controlled vocabulary attribute defining the y axis direction in terms of anatomical  direction.""", json_schema_extra = { "linkml_meta": {'alias': 'y_direction', 'domain_of': ['ImageDataset']} })
-    z_direction: Optional[ANATOMICALDIRECTION] = Field(default=None, description="""A controlled vocabulary attribute defining the z axis direction in terms of anatomical  direction.""", json_schema_extra = { "linkml_meta": {'alias': 'z_direction', 'domain_of': ['ImageDataset']} })
-    x_size: Optional[int] = Field(default=None, description="""The number of pixels/voxels (size) along the x axis.""", ge=1, json_schema_extra = { "linkml_meta": {'alias': 'x_size', 'domain_of': ['ImageDataset']} })
-    y_size: Optional[int] = Field(default=None, description="""The number of pixels/voxels (size) along the y axis.""", ge=1, json_schema_extra = { "linkml_meta": {'alias': 'y_size', 'domain_of': ['ImageDataset']} })
-    z_size: Optional[int] = Field(default=None, description="""The number of pixels/voxels (size) along the y axis.""", ge=1, json_schema_extra = { "linkml_meta": {'alias': 'z_size', 'domain_of': ['ImageDataset']} })
-    x_resolution: Optional[float] = Field(default=None, description="""The resolution (length / pixel) in along the x axis (numerical value part).""", json_schema_extra = { "linkml_meta": {'alias': 'x_resolution',
+    x_direction: Optional[ANATOMICALDIRECTION] = Field(None, description="""A controlled vocabulary attribute defining the x axis direction in terms of anatomical  direction.""", json_schema_extra = { "linkml_meta": {'alias': 'x_direction', 'domain_of': ['ImageDataset']} })
+    y_direction: Optional[ANATOMICALDIRECTION] = Field(None, description="""A controlled vocabulary attribute defining the y axis direction in terms of anatomical  direction.""", json_schema_extra = { "linkml_meta": {'alias': 'y_direction', 'domain_of': ['ImageDataset']} })
+    z_direction: Optional[ANATOMICALDIRECTION] = Field(None, description="""A controlled vocabulary attribute defining the z axis direction in terms of anatomical  direction.""", json_schema_extra = { "linkml_meta": {'alias': 'z_direction', 'domain_of': ['ImageDataset']} })
+    x_size: Optional[int] = Field(None, description="""The number of pixels/voxels (size) along the x axis.""", ge=1, json_schema_extra = { "linkml_meta": {'alias': 'x_size', 'domain_of': ['ImageDataset']} })
+    y_size: Optional[int] = Field(None, description="""The number of pixels/voxels (size) along the y axis.""", ge=1, json_schema_extra = { "linkml_meta": {'alias': 'y_size', 'domain_of': ['ImageDataset']} })
+    z_size: Optional[int] = Field(None, description="""The number of pixels/voxels (size) along the y axis.""", ge=1, json_schema_extra = { "linkml_meta": {'alias': 'z_size', 'domain_of': ['ImageDataset']} })
+    x_resolution: Optional[float] = Field(None, description="""The resolution (length / pixel) in along the x axis (numerical value part).""", json_schema_extra = { "linkml_meta": {'alias': 'x_resolution',
          'domain_of': ['ImageDataset'],
          'structured_pattern': {'syntax': '{PositiveFloat}'}} })
-    y_resolution: Optional[float] = Field(default=None, description="""The resolution (length / pixel) in along the y axis (numerical value part).""", json_schema_extra = { "linkml_meta": {'alias': 'y_resolution',
+    y_resolution: Optional[float] = Field(None, description="""The resolution (length / pixel) in along the y axis (numerical value part).""", json_schema_extra = { "linkml_meta": {'alias': 'y_resolution',
          'domain_of': ['ImageDataset'],
          'structured_pattern': {'syntax': '{PositiveFloat}'}} })
-    z_resolution: Optional[float] = Field(default=None, description="""The resolution (length / pixel) in along the z axis (numerical value part).""", json_schema_extra = { "linkml_meta": {'alias': 'z_resolution',
+    z_resolution: Optional[float] = Field(None, description="""The resolution (length / pixel) in along the z axis (numerical value part).""", json_schema_extra = { "linkml_meta": {'alias': 'z_resolution',
          'domain_of': ['ImageDataset'],
          'structured_pattern': {'syntax': '{PositiveFloat}'}} })
-    unit: Optional[DISTANCEUNIT] = Field(default=None, description="""A controlled vocabulary attribute defining the length unit of the x, y, and z  resolution values.""", json_schema_extra = { "linkml_meta": {'alias': 'unit', 'domain_of': ['ImageDataset']} })
-    version: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['VersionedNamedThing']} })
-    revision_of: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of',
+    unit: Optional[DISTANCEUNIT] = Field(None, description="""A controlled vocabulary attribute defining the length unit of the x, y, and z  resolution values.""", json_schema_extra = { "linkml_meta": {'alias': 'unit', 'domain_of': ['ImageDataset']} })
+    version: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['VersionedNamedThing']} })
+    revision_of: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of',
          'any_of': [{'range': 'ImageDataset'}, {'range': 'string'}],
          'domain_of': ['VersionedNamedThing']} })
-    id: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
-    name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
-    description: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
-    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/ImageDataset","AnS:ImageDataset"]] = Field(default=["AnS:ImageDataset"], json_schema_extra = { "linkml_meta": {'alias': 'category',
+    id: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
+    name: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
+    description: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
+    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/ImageDataset","AnS:ImageDataset"]] = Field(["AnS:ImageDataset"], json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['NamedThing'],
          'is_class_field': True} })
@@ -187,17 +187,17 @@ class AnatomicalSpace(VersionedNamedThing):
                                                    {'range': 'string'}],
                                         'name': 'revision_of'}}})
 
-    measures: str = Field(default=..., description="""Reference to the specific image dataset used to define the anatomical space.""", json_schema_extra = { "linkml_meta": {'alias': 'measures',
+    measures: str = Field(..., description="""Reference to the specific image dataset used to define the anatomical space.""", json_schema_extra = { "linkml_meta": {'alias': 'measures',
          'any_of': [{'range': 'ImageDataset'}, {'range': 'string'}],
          'domain_of': ['AnatomicalSpace']} })
-    version: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['VersionedNamedThing']} })
-    revision_of: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of',
+    version: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['VersionedNamedThing']} })
+    revision_of: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of',
          'any_of': [{'range': 'AnatomicalSpace'}, {'range': 'string'}],
          'domain_of': ['VersionedNamedThing']} })
-    id: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
-    name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
-    description: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
-    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/AnatomicalSpace","AnS:AnatomicalSpace"]] = Field(default=["AnS:AnatomicalSpace"], json_schema_extra = { "linkml_meta": {'alias': 'category',
+    id: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
+    name: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
+    description: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
+    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/AnatomicalSpace","AnS:AnatomicalSpace"]] = Field(["AnS:AnatomicalSpace"], json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['NamedThing'],
          'is_class_field': True} })
@@ -212,14 +212,14 @@ class ParcellationTerminology(VersionedNamedThing):
                                                    {'range': 'string'}],
                                         'name': 'revision_of'}}})
 
-    version: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['VersionedNamedThing']} })
-    revision_of: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of',
+    version: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['VersionedNamedThing']} })
+    revision_of: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of',
          'any_of': [{'range': 'ParcellationTerminology'}, {'range': 'string'}],
          'domain_of': ['VersionedNamedThing']} })
-    id: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
-    name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
-    description: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
-    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/ParcellationTerminology","AnS:ParcellationTerminology"]] = Field(default=["AnS:ParcellationTerminology"], json_schema_extra = { "linkml_meta": {'alias': 'category',
+    id: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
+    name: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
+    description: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
+    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/ParcellationTerminology","AnS:ParcellationTerminology"]] = Field(["AnS:ParcellationTerminology"], json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['NamedThing'],
          'is_class_field': True} })
@@ -231,17 +231,17 @@ class ParcellationTermSet(NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/my-org/anatomical-structure-schema'})
 
-    part_of_parcellation_terminology: str = Field(default=..., description="""Reference to the parcellation terminology for which the parcellation term set partitions.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_parcellation_terminology',
+    part_of_parcellation_terminology: str = Field(..., description="""Reference to the parcellation terminology for which the parcellation term set partitions.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_parcellation_terminology',
          'any_of': [{'range': 'ParcellationTerminology'}, {'range': 'string'}],
          'domain_of': ['ParcellationTermSet']} })
-    ordinal: Optional[int] = Field(default=None, description="""Ordinal of the parcellation term set among other term sets within the context of the  associated parcellation terminology.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'ordinal', 'domain_of': ['ParcellationTermSet', 'ParcellationTerm']} })
-    has_parent_parcellation_term_set: Optional[str] = Field(default=None, description="""Reference to the parent parcellation term set for which the parcellation term set is a child  (lower taxonomic rank) of.""", json_schema_extra = { "linkml_meta": {'alias': 'has_parent_parcellation_term_set',
+    ordinal: Optional[int] = Field(None, description="""Ordinal of the parcellation term set among other term sets within the context of the  associated parcellation terminology.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'ordinal', 'domain_of': ['ParcellationTermSet', 'ParcellationTerm']} })
+    has_parent_parcellation_term_set: Optional[str] = Field(None, description="""Reference to the parent parcellation term set for which the parcellation term set is a child  (lower taxonomic rank) of.""", json_schema_extra = { "linkml_meta": {'alias': 'has_parent_parcellation_term_set',
          'any_of': [{'range': 'ParcellationTermSet'}, {'range': 'string'}],
          'domain_of': ['ParcellationTermSet']} })
-    id: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
-    name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
-    description: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
-    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/ParcellationTermSet","AnS:ParcellationTermSet"]] = Field(default=["AnS:ParcellationTermSet"], json_schema_extra = { "linkml_meta": {'alias': 'category',
+    id: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
+    name: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
+    description: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
+    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/ParcellationTermSet","AnS:ParcellationTermSet"]] = Field(["AnS:ParcellationTermSet"], json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['NamedThing'],
          'is_class_field': True} })
@@ -253,18 +253,18 @@ class ParcellationTerm(NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/my-org/anatomical-structure-schema'})
 
-    symbol: Optional[str] = Field(default=None, description="""Symbol representing a parcellation term.""", json_schema_extra = { "linkml_meta": {'alias': 'symbol', 'domain_of': ['ParcellationTerm']} })
-    part_of_parcellation_term_set: str = Field(default=..., description="""Reference to the parcellation term set for which the parcellation term is part of.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_parcellation_term_set',
+    symbol: Optional[str] = Field(None, description="""Symbol representing a parcellation term.""", json_schema_extra = { "linkml_meta": {'alias': 'symbol', 'domain_of': ['ParcellationTerm']} })
+    part_of_parcellation_term_set: str = Field(..., description="""Reference to the parcellation term set for which the parcellation term is part of.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_parcellation_term_set',
          'any_of': [{'range': 'ParcellationTermSet'}, {'range': 'string'}],
          'domain_of': ['ParcellationTerm']} })
-    ordinal: Optional[int] = Field(default=None, description="""Ordinal of the parcellation term among other terms within the context of the associated  parcellation terminology.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'ordinal', 'domain_of': ['ParcellationTermSet', 'ParcellationTerm']} })
-    has_parent_parcellation_term: Optional[str] = Field(default=None, description="""Reference to the parent parcellation term for which the parcellation term is a child ( spatially part) of""", json_schema_extra = { "linkml_meta": {'alias': 'has_parent_parcellation_term',
+    ordinal: Optional[int] = Field(None, description="""Ordinal of the parcellation term among other terms within the context of the associated  parcellation terminology.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'ordinal', 'domain_of': ['ParcellationTermSet', 'ParcellationTerm']} })
+    has_parent_parcellation_term: Optional[str] = Field(None, description="""Reference to the parent parcellation term for which the parcellation term is a child ( spatially part) of""", json_schema_extra = { "linkml_meta": {'alias': 'has_parent_parcellation_term',
          'any_of': [{'range': 'ParcellationTerm'}, {'range': 'string'}],
          'domain_of': ['ParcellationTerm']} })
-    id: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
-    name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
-    description: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
-    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/ParcellationTerm","AnS:ParcellationTerm"]] = Field(default=["AnS:ParcellationTerm"], json_schema_extra = { "linkml_meta": {'alias': 'category',
+    id: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
+    name: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
+    description: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
+    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/ParcellationTerm","AnS:ParcellationTerm"]] = Field(["AnS:ParcellationTerm"], json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['NamedThing'],
          'is_class_field': True} })
@@ -279,17 +279,17 @@ class ParcellationColorScheme(VersionedNamedThing):
                                                    {'range': 'string'}],
                                         'name': 'revision_of'}}})
 
-    subject_parcellation_terminology: str = Field(default=..., description="""Reference to the parcellation terminology for which the parcellation color scheme is in  context of.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_terminology',
+    subject_parcellation_terminology: str = Field(..., description="""Reference to the parcellation terminology for which the parcellation color scheme is in  context of.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_terminology',
          'any_of': [{'range': 'ParcellationTerminology'}, {'range': 'string'}],
          'domain_of': ['ParcellationColorScheme']} })
-    version: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['VersionedNamedThing']} })
-    revision_of: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of',
+    version: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['VersionedNamedThing']} })
+    revision_of: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of',
          'any_of': [{'range': 'ParcellationColorScheme'}, {'range': 'string'}],
          'domain_of': ['VersionedNamedThing']} })
-    id: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
-    name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
-    description: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
-    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/ParcellationColorScheme","AnS:ParcellationColorScheme"]] = Field(default=["AnS:ParcellationColorScheme"], json_schema_extra = { "linkml_meta": {'alias': 'category',
+    id: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
+    name: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
+    description: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
+    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/ParcellationColorScheme","AnS:ParcellationColorScheme"]] = Field(["AnS:ParcellationColorScheme"], json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['NamedThing'],
          'is_class_field': True} })
@@ -301,13 +301,13 @@ class ParcellationColorAssignment(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/my-org/anatomical-structure-schema'})
 
-    part_of_parcellation_color_scheme: str = Field(default=..., description="""Reference to the parcellation color scheme for which the color assignment is part of.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_parcellation_color_scheme',
+    part_of_parcellation_color_scheme: str = Field(..., description="""Reference to the parcellation color scheme for which the color assignment is part of.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_parcellation_color_scheme',
          'any_of': [{'range': 'ParcellationColorScheme'}, {'range': 'string'}],
          'domain_of': ['ParcellationColorAssignment']} })
-    subject_parcellation_term: str = Field(default=..., description="""Reference to the parcellation term identifier for which the color assignment is about.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_term',
+    subject_parcellation_term: str = Field(..., description="""Reference to the parcellation term identifier for which the color assignment is about.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_term',
          'any_of': [{'range': 'ParcellationTerm'}, {'range': 'string'}],
          'domain_of': ['ParcellationColorAssignment', 'ParcellationAnnotationTermMap']} })
-    color: Optional[str] = Field(default=None, description="""A string representing to hex triplet code of a color""", json_schema_extra = { "linkml_meta": {'alias': 'color',
+    color: Optional[str] = Field(None, description="""A string representing to hex triplet code of a color""", json_schema_extra = { "linkml_meta": {'alias': 'color',
          'domain_of': ['ParcellationColorAssignment'],
          'structured_pattern': {'syntax': '{ColorHexTriplet}'}} })
 
@@ -321,17 +321,17 @@ class AnatomicalAnnotationSet(VersionedNamedThing):
                                                    {'range': 'string'}],
                                         'name': 'revision_of'}}})
 
-    parameterizes: str = Field(default=..., description="""Reference to the anatomical space for which the anatomical annotation set is anchored""", json_schema_extra = { "linkml_meta": {'alias': 'parameterizes',
+    parameterizes: str = Field(..., description="""Reference to the anatomical space for which the anatomical annotation set is anchored""", json_schema_extra = { "linkml_meta": {'alias': 'parameterizes',
          'any_of': [{'range': 'AnatomicalSpace'}, {'range': 'string'}],
          'domain_of': ['AnatomicalAnnotationSet']} })
-    version: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['VersionedNamedThing']} })
-    revision_of: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of',
+    version: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['VersionedNamedThing']} })
+    revision_of: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of',
          'any_of': [{'range': 'AnatomicalAnnotationSet'}, {'range': 'string'}],
          'domain_of': ['VersionedNamedThing']} })
-    id: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
-    name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
-    description: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
-    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/AnatomicalAnnotationSet","AnS:AnatomicalAnnotationSet"]] = Field(default=["AnS:AnatomicalAnnotationSet"], json_schema_extra = { "linkml_meta": {'alias': 'category',
+    id: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
+    name: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
+    description: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
+    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/AnatomicalAnnotationSet","AnS:AnatomicalAnnotationSet"]] = Field(["AnS:AnatomicalAnnotationSet"], json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['NamedThing'],
          'is_class_field': True} })
@@ -343,11 +343,11 @@ class ParcellationAnnotation(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/my-org/anatomical-structure-schema'})
 
-    part_of_anatomical_annotation_set: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'part_of_anatomical_annotation_set',
+    part_of_anatomical_annotation_set: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'part_of_anatomical_annotation_set',
          'any_of': [{'range': 'AnatomicalAnnotationSet'}, {'range': 'string'}],
          'domain_of': ['ParcellationAnnotation']} })
-    internal_identifier: str = Field(default=..., description="""An identifier that uniquely denotes a specific parcellation annotation within the context of an anatomical annotation set""", json_schema_extra = { "linkml_meta": {'alias': 'internal_identifier', 'domain_of': ['ParcellationAnnotation']} })
-    voxel_count: Optional[int] = Field(default=None, description="""The number of voxels (3D pixels) spanned by the parcellation annotation (optional).""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'voxel_count', 'domain_of': ['ParcellationAnnotation']} })
+    internal_identifier: str = Field(..., description="""An identifier that uniquely denotes a specific parcellation annotation within the context of an anatomical annotation set""", json_schema_extra = { "linkml_meta": {'alias': 'internal_identifier', 'domain_of': ['ParcellationAnnotation']} })
+    voxel_count: Optional[int] = Field(None, description="""The number of voxels (3D pixels) spanned by the parcellation annotation (optional).""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'voxel_count', 'domain_of': ['ParcellationAnnotation']} })
 
 
 class ParcellationAnnotationTermMap(ConfiguredBaseModel):
@@ -356,10 +356,10 @@ class ParcellationAnnotationTermMap(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/my-org/anatomical-structure-schema'})
 
-    subject_parcellation_annotation: Union[ParcellationAnnotation, str] = Field(default=..., description="""Reference to the parcellation annotation that is the subject of the association.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_annotation',
+    subject_parcellation_annotation: Union[ParcellationAnnotation, str] = Field(..., description="""Reference to the parcellation annotation that is the subject of the association.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_annotation',
          'any_of': [{'range': 'ParcellationAnnotation'}, {'range': 'string'}],
          'domain_of': ['ParcellationAnnotationTermMap']} })
-    subject_parcellation_term: str = Field(default=..., description="""Reference to the parcellation term that is the subject of the association.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_term',
+    subject_parcellation_term: str = Field(..., description="""Reference to the parcellation term that is the subject of the association.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_term',
          'any_of': [{'range': 'ParcellationTerm'}, {'range': 'string'}],
          'domain_of': ['ParcellationColorAssignment', 'ParcellationAnnotationTermMap']} })
 
@@ -373,26 +373,26 @@ class ParcellationAtlas(VersionedNamedThing):
                                                    {'range': 'string'}],
                                         'name': 'revision_of'}}})
 
-    has_anatomical_space: str = Field(default=..., description="""Reference to the anatomical space component of the parcellation atlas""", json_schema_extra = { "linkml_meta": {'alias': 'has_anatomical_space',
+    has_anatomical_space: str = Field(..., description="""Reference to the anatomical space component of the parcellation atlas""", json_schema_extra = { "linkml_meta": {'alias': 'has_anatomical_space',
          'any_of': [{'range': 'AnatomicalSpace'}, {'range': 'string'}],
          'domain_of': ['ParcellationAtlas']} })
-    has_anatomical_annotation_set: str = Field(default=..., description="""Reference to the anatomical annotation set component of the parcellation atlas""", json_schema_extra = { "linkml_meta": {'alias': 'has_anatomical_annotation_set',
+    has_anatomical_annotation_set: str = Field(..., description="""Reference to the anatomical annotation set component of the parcellation atlas""", json_schema_extra = { "linkml_meta": {'alias': 'has_anatomical_annotation_set',
          'any_of': [{'range': 'AnatomicalAnnotationSet'}, {'range': 'string'}],
          'domain_of': ['ParcellationAtlas']} })
-    has_parcellation_terminology: str = Field(default=..., description="""Reference to the parcellation terminology component of the parcellation atlas""", json_schema_extra = { "linkml_meta": {'alias': 'has_parcellation_terminology',
+    has_parcellation_terminology: str = Field(..., description="""Reference to the parcellation terminology component of the parcellation atlas""", json_schema_extra = { "linkml_meta": {'alias': 'has_parcellation_terminology',
          'any_of': [{'range': 'ParcellationTerminology'}, {'range': 'string'}],
          'domain_of': ['ParcellationAtlas']} })
-    specialization_of: Optional[str] = Field(default=None, description="""Reference to the general (non versioned) parcellation atlas for which the parcellation atlas is a specific  version release of.""", json_schema_extra = { "linkml_meta": {'alias': 'specialization_of',
+    specialization_of: Optional[str] = Field(None, description="""Reference to the general (non versioned) parcellation atlas for which the parcellation atlas is a specific  version release of.""", json_schema_extra = { "linkml_meta": {'alias': 'specialization_of',
          'any_of': [{'range': 'ParcellationAtlas'}, {'range': 'string'}],
          'domain_of': ['ParcellationAtlas']} })
-    version: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['VersionedNamedThing']} })
-    revision_of: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of',
+    version: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['VersionedNamedThing']} })
+    revision_of: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of',
          'any_of': [{'range': 'ParcellationAtlas'}, {'range': 'string'}],
          'domain_of': ['VersionedNamedThing']} })
-    id: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
-    name: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
-    description: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
-    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/ParcellationAtlas","AnS:ParcellationAtlas"]] = Field(default=["AnS:ParcellationAtlas"], json_schema_extra = { "linkml_meta": {'alias': 'category',
+    id: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing']} })
+    name: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing']} })
+    description: str = Field(..., json_schema_extra = { "linkml_meta": {'alias': 'description', 'domain_of': ['NamedThing']} })
+    category: List[Literal["https://w3id.org/my-org/anatomical-structure-schema/ParcellationAtlas","AnS:ParcellationAtlas"]] = Field(["AnS:ParcellationAtlas"], json_schema_extra = { "linkml_meta": {'alias': 'category',
          'designates_type': True,
          'domain_of': ['NamedThing'],
          'is_class_field': True} })

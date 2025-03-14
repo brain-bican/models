@@ -372,7 +372,7 @@
          "@id": "biolink:has_qualitative_value"
       },
       "has_quantitative_value": {
-         "@type": "biolink:QuantityValue",
+         "@type": "@id",
          "@id": "biolink:has_quantitative_value"
       },
       "has_taxonomic_rank": {
@@ -493,18 +493,18 @@
          "@id": "rdf:type"
       },
       "used": {
-         "@type": "prov:Entity",
+         "@type": "@id",
          "@id": "prov:used"
       },
       "version": {
          "@id": "biolink:version"
       },
       "was_derived_from": {
-         "@type": "prov:Entity",
+         "@type": "@id",
          "@id": "prov:wasDerivedFrom"
       },
       "was_generated_by": {
-         "@type": "prov:Activity",
+         "@type": "@id",
          "@id": "prov:wasGeneratedBy"
       },
       "xref": {
