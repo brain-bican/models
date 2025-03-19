@@ -16,4 +16,3 @@ jobs:
     uses: brain-bican/models/.github/workflows/reusable-generate_other_formats.yaml@main
     with:
       model_name: anatomical_structure
-      open_pr: false
