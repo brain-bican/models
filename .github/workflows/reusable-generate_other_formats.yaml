@@ -102,7 +102,6 @@ jobs:
           if ! git diff --quiet HEAD; then
             git commit -m "generate another formats for ${models_list} model(s)"
             if git pull --rebase; then
-              git pull --rebase # to avoid conflicts with different wf runs
               git push
             else
               echo "Failed to pull --rebase, setting upstream"
