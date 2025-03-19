@@ -219,9 +219,7 @@
          "@type": "xsd:integer",
          "@id": "f10e928d-5a2b-4943-af18-d8fe5d05528d"
       },
-      "category": {
-         "@id": "biolink:category"
-      },
+      "category": "@type",
       "amplified_cDNA_PCR_cycles": {
          "@type": "xsd:integer",
          "@id": "3827634c-3f8f-4760-b358-86ce4b030238"
@@ -282,6 +280,9 @@
       },
       "data_type": {
          "@id": "data_type"
+      },
+      "test": {
+         "@id": "test"
       },
       "annotates": {
          "@type": "@id",
@@ -666,4 +667,3 @@
       }
    }
 }
-
