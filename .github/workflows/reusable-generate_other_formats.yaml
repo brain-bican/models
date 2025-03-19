@@ -113,7 +113,7 @@ jobs:
 
       # Create a pull request if requested
       - name: Create a Pull Request
-        if: github.event.inputs.open_pr == 'true'
+        if: inputs.open_pr == 'true'
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
