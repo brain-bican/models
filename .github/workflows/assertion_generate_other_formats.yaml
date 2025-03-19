@@ -16,4 +16,3 @@ jobs:
     uses: brain-bican/models/.github/workflows/reusable-generate_other_formats.yaml@main
     with:
       model_name: assertion_evidence
-      open_pr: false

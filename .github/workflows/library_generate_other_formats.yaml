@@ -17,4 +17,3 @@ jobs:
     uses: brain-bican/models/.github/workflows/reusable-generate_other_formats.yaml@main
     with:
       model_name: library_generation
-      open_pr: false 
