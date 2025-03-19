@@ -114,7 +114,7 @@ jobs:
       # Create a pull request if requested
       - name: Create a Pull Request
         uses: peter-evans/create-pull-request@v4
-        if: inputs.model_name == 'true' && env.CHANGES_DETECTED == 'true'
+        if: inputs.open_pr == 'true' && env.CHANGES_DETECTED == 'true'
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           branch: ${{ env.BRANCH_NAME }}
