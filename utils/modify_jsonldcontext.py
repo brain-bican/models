@@ -13,7 +13,6 @@ def modify_jsonld_category(input_file: str):
             jsonld_data["@context"]["category"] = "@type"
         else:
             print("Error: 'category' field not found in JSON-LD context.")
-            sys.exit(1)
         
         # Write the modified JSON-LD back to the same file
         with open(input_file, "w", encoding="utf-8") as f:
