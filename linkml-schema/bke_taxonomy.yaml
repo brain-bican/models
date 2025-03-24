@@ -250,6 +250,9 @@ classes:
         - value: 11 CNU-HYa GABA
         range: string
       order:
+        local_names:
+          local_name_value: order_idx
+          local_name_source: BKE
         description: The priority or display order of the cell type taxon among all
           other taxons in the taxonomy.
         examples:
