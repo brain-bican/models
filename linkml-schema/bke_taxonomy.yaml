@@ -12,7 +12,7 @@ prefixes:
 default_prefix: bican
 default_range: string
 slots:
-  is_revision_of:
+  denotes:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   part_of_taxonomy:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
@@ -20,7 +20,11 @@ slots:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   has_parent:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  has_abbreviation:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   contains_cluster:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  is_revision_of:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   part_of_set:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
@@ -28,23 +32,19 @@ slots:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   contains_sample:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  represented_by:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  part_of_matrix:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  represented_in:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  has_variable:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  has_abbreviation:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  denotes:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   is_palette_for:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   part_of_palette:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   is_color_for:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  represented_by:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  has_variable:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  part_of_matrix:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  represented_in:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   created_at:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
@@ -85,6 +85,7 @@ classes:
       and their heirarchical relationships and groupings. A taxonomy may include concepts
       such as heirarchical taxonomic levels or (potentially overlapping) neighborhoods.
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: entity
     mixins:
     - ProvEntity
     slots:
@@ -133,6 +134,7 @@ classes:
     description: A grouping of cell type taxons. The grouping may represent a specific
       taxonomic level (rank) or cell type neighborhood.
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: entity
     mixins:
     - ProvEntity
     slots:
@@ -204,6 +206,7 @@ classes:
       levels. Additionally, taxons may be organized into neighborhoods or related
       groups.
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: entity
     mixins:
     - ProvEntity
     slots:
@@ -285,6 +288,7 @@ classes:
     description: The output of a clustering process where input observations are organized
       or classified into a set of clusters based on similarities or patterns.
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: entity
     mixins:
     - ProvEntity
     slots:
@@ -329,6 +333,7 @@ classes:
       process. A cluster is defined by set of observations which has been grouped
       together based on similarities or patterns.
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: entity
     mixins:
     - ProvEntity
     slots:
@@ -386,6 +391,7 @@ classes:
       a set of variables or features. Each column represents the set of measurements
       (such as gene expression) of a specific variable (such as gene) over all samples.
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: entity
     mixins:
     - ProvEntity
     slots:
@@ -417,6 +423,7 @@ classes:
     description: One specific row of the observation matrix representing a set of
       measurements preformed on a sample over a set of variables or features.
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: entity
     mixins:
     - ProvEntity
     slots:
@@ -436,17 +443,20 @@ classes:
   CellSpecimen:
     description: ( defined as in BERS)
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: entity
     mixins:
     - ProvEntity
   ParcellationTerm:
     description: ( defined in AnSRS )
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: entity
     mixins:
     - ProvEntity
   Abbreviation:
     description: Maps an abbreviation string to its decoded meaning. Optionally the
       abbreviation can be link to one or more entities it denotes.
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: entity
     mixins:
     - ProvEntity
     slots:
@@ -483,12 +493,14 @@ classes:
     description: A digital file containing the representation of full or partial data
       matrix.
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: entity
     mixins:
     - ProvEntity
   ColorPalette:
     description: A schematic set of display colors that can be applied to individual
       components of the associated entity set (for example, a taxonomy).
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: entity
     mixins:
     - ProvEntity
     slots:
@@ -514,6 +526,7 @@ classes:
     description: One element of a color palette representing the association between
       a color and entity,
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: entity
     mixins:
     - ProvEntity
     slots:
