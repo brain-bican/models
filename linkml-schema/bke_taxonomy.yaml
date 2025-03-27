@@ -139,7 +139,7 @@ classes:
         range: string
       xref:
         local_names:
-          local_name_value: source_id
+          local_name_value: unique_id
           local_name_source: allen
   CellTypeSet:
     description: A grouping of cell type taxons. The grouping may represent a specific
@@ -218,7 +218,7 @@ classes:
         minimum_value: '0.0'
       xref:
         local_names:
-          local_name_value: source_id
+          local_name_value: unique_id
           local_name_source: allen
   CellTypeTaxon:
     description: A cell type taxon is a node in a taxonomy. Taxons represents a unit
@@ -294,7 +294,7 @@ classes:
         minimum_value: '0.0'
       xref:
         local_names:
-          local_name_value: source_id
+          local_name_value: unique_id
           local_name_source: allen
   ClusteringProcess:
     description: The process of organizing and classifying observations into groups
@@ -358,7 +358,7 @@ classes:
         range: string
       xref:
         local_names:
-          local_name_value: source_id
+          local_name_value: unique_id
           local_name_source: allen
   Cluster:
     description: One specific cluster from the set of clusters determined by a clustering
@@ -412,7 +412,7 @@ classes:
         minimum_value: '0.0'
       xref:
         local_names:
-          local_name_value: source_id
+          local_name_value: unique_id
           local_name_source: allen
   ObservationMatrixCreationProcess:
     description: The process of aggregating data to create an observation matrix (potentially
@@ -541,7 +541,7 @@ classes:
         range: string
       xref:
         local_names:
-          local_name_value: source_id
+          local_name_value: unique_id
           local_name_source: allen
   MatrixFile:
     description: A digital file containing the representation of full or partial data
@@ -579,7 +579,7 @@ classes:
         range: string
       xref:
         local_names:
-          local_name_value: source_id
+          local_name_value: unique_id
           local_name_source: allen
   DisplayColor:
     description: One element of a color palette representing the association between
@@ -622,5 +622,5 @@ classes:
         range: string
       xref:
         local_names:
-          local_name_value: source_id
+          local_name_value: unique_id
           local_name_source: allen
