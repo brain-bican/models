@@ -12,7 +12,9 @@ prefixes:
 default_prefix: bican
 default_range: string
 slots:
-  denotes:
+  denotes_gene_annotation:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  denotes_parcellation_term:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   part_of_taxonomy:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
@@ -36,7 +38,9 @@ slots:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   part_of_palette:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  is_color_for:
+  is_color_for_taxon:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  is_color_for_set:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   represented_by:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
@@ -255,7 +259,7 @@ classes:
       order:
         local_names:
           local_name_value: order_idx
-          local_name_source: BKE
+          local_name_source: allen
         description: The priority or display order of the cell type taxon among all
           other taxons in the taxonomy.
         examples:
@@ -460,13 +464,25 @@ classes:
     mixins:
     - ProvEntity
     slots:
-    - denotes
+    - denotes_gene_annotation
+    - denotes_parcellation_term
     - id
     - term
     - meaning
     - entity_type
     slot_usage:
-      denotes:
+      denotes_gene_annotation:
+        local_names:
+          local_name_value: denotes
+          local_name_source: allen
+        description: One of potentially many gene annotation terms to which the abbreviation
+          denotes.
+        range: gene annotation
+        multivalued: true
+      denotes_parcellation_term:
+        local_names:
+          local_name_value: denotes
+          local_name_source: allen
         description: One of potentially many parcellation terms (anatomical structures)
           which the abbreviation denotes.
         range: ParcellationTerm
@@ -531,14 +547,24 @@ classes:
     - ProvEntity
     slots:
     - part_of_palette
-    - is_color_for
+    - is_color_for_taxon
+    - is_color_for_set
     - id
     - color_hex_triplet
     slot_usage:
       part_of_palette:
         description: The color palette for which the display color map is part of.
         range: ColorPalette
-      is_color_for:
+      is_color_for_taxon:
+        local_names:
+          local_name_value: is_color_for
+          local_name_source: allen
+        description: The associated cell type taxon for the specified display color.
+        range: CellTypeTaxon
+      is_color_for_set:
+        local_names:
+          local_name_value: is_color_for
+          local_name_source: allen
         description: The associated cell type set of the specified display color.
         range: CellTypeSet
       id:

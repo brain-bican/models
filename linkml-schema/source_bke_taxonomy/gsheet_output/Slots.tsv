@@ -15,7 +15,7 @@ CellTypeSet	order	1	The priority or display order of the cell type set among all
 CellTypeTaxon	id		( database GUID)	FALSE		string			
 CellTypeTaxon	accession_id	CS20230722_CLAS_11	A provider assigned accession identifier for the cell type taxon.	FALSE		string			
 CellTypeTaxon	name	11 CNU-HYa GABA	Name of the cell type taxon.	FALSE		string			
-CellTypeTaxon	order	11	The priority or display order of the cell type taxon among all other taxons in the taxonomy.	TRUE		integer	0	order_idx	BKE
+CellTypeTaxon	order	11	The priority or display order of the cell type taxon among all other taxons in the taxonomy.	TRUE		integer	0	order_idx	allen
 CellTypeTaxon	description		Description of the cell type taxon (optional).	TRUE		string			
 CellTypeTaxon	number_of_cells		The aggregated number of cells that defines the cell type taxon.	FALSE		integer	0		
 ClusterSet	id		( database GUID)	FALSE		string			
