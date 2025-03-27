@@ -13,7 +13,7 @@ CellTypeSet	name	class	Name of the cell type set taxonomy.	FALSE		string
 CellTypeSet	description	The top level of cell type definition in the mouse whole brain taxonomy. It is primarily determined by broad brain region and neurotransmitter type. All cells within a subclass belong to the same class. Class provides a broader categorization of cell types.	Description of the cell type set.	FALSE		string			
 CellTypeSet	cell_type_set_type	taxonomic_level	A tag denoting the type or purpose of the cell type set.	FALSE	taxonomic level, neighborhood	string		type	allen
 CellTypeSet	order	1	The priority or display order of the cell type set among all other sets of the same type.	TRUE		integer	0	order_idx	allen
-CellTypeSet	xref							source_ids	allen
+CellTypeSet	xref							source_id	allen
 CellTypeTaxon	id		( database GUID)	FALSE		string			
 CellTypeTaxon	accession_id	CS20230722_CLAS_11	A provider assigned accession identifier for the cell type taxon.	FALSE		string			
 CellTypeTaxon	name	11 CNU-HYa GABA	Name of the cell type taxon.	FALSE		string			

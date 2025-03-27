@@ -218,7 +218,7 @@ classes:
         minimum_value: '0.0'
       xref:
         local_names:
-          local_name_value: source_ids
+          local_name_value: source_id
           local_name_source: allen
   CellTypeTaxon:
     description: A cell type taxon is a node in a taxonomy. Taxons represents a unit
