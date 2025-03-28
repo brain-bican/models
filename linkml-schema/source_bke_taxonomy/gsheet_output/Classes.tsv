@@ -1,0 +1,19 @@
+class	Inheritance: is_a	Inheritance: mixin	Subsets	Definition	Class URI
+> class	is_a	mixins	in_subset	description	class_uri
+>		internal_separator: "|"	internal_separator: "|"		
+CellTypeTaxonomyCreationProcess	procedure	ProvActivity		The process of organizing cells or clusters into a systematic classification of cell types and their heirarchical relationships and groupings. 	
+CellTypeTaxonomy	named thing	ProvEntity		A cell type taxonomy is a systematic classification of cell types and their heirarchical relationships and groupings. A taxonomy may include concepts such as heirarchical taxonomic levels or (potentially overlapping) neighborhoods.	
+CellTypeSet	named thing	ProvEntity		A grouping of cell type taxons. The grouping may represent a specific taxonomic level (rank) or cell type neighborhood.	
+CellTypeTaxon	named thing	ProvEntity		A cell type taxon is a node in a taxonomy. Taxons represents a unit of cell type classification and is defined by a set of clusters. Taxons may be organized into a heirarchy and levels. Taxons at higher levels represents broader cell type classes and partitioned into more specific types at lower levels. Additionally, taxons may be organized into neighborhoods or related groups.	
+ClusteringProcess	procedure	ProvActivity		The process of organizing and classifying observations into groups or clusters based on similarities or patterns.	
+ClusterSet	named thing	ProvEntity		The output of a clustering process where input observations are organized or classified into a set of clusters based on similarities or patterns.	
+Cluster	named thing	ProvEntity		One specific cluster from the set of clusters determined by a clustering process. A cluster is defined by set of observations which has been grouped together based on similarities or patterns.	
+ObservationMatrixCreationProcess	procedure	ProvActivity		The process of aggregating data to create an observation matrix (potentially virtual) for the purpose of dissemination or performing an analysis (such as clustering).	
+ObservationMatrix	named thing	ProvEntity		A matrix (potentially virtual) of observations. Each row represents a specific observation or measurements on specific sample (such as a cell) over a set of variables or features. Each column represents the set of measurements (such as gene expression) of a specific variable (such as gene) over all samples.	
+ObservationRow	named thing	ProvEntity		One specific row of the observation matrix representing a set of measurements preformed on a sample over a set of variables or features.	
+CellSpecimen	named thing	ProvEntity		( defined as in BERS)	
+ParcellationTerm	named thing	ProvEntity		( defined in AnSRS )	
+Abbreviation	named thing	ProvEntity		Maps an abbreviation string to its decoded meaning. Optionally the abbreviation can be link to one or more entities it denotes.	
+MatrixFile	named thing	ProvEntity		A digital file containing the representation of full or partial data matrix.	
+ColorPalette	named thing	ProvEntity		A schematic set of display colors that can be applied to individual components of the associated entity set (for example, a taxonomy).	
+DisplayColor	named thing	ProvEntity		One element of a color palette representing the association between a color and entity,	
