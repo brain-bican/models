@@ -50,7 +50,11 @@ slots:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   represented_in:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  created_at:
+  term:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  meaning:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  entity_type:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   accession_id:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
@@ -60,15 +64,13 @@ slots:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   number_of_cells:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  created_at:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   number_of_observations:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  term:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  meaning:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  entity_type:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   color_hex_triplet:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  label:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
 classes:
   CellTypeTaxonomyCreationProcess:
@@ -436,6 +438,7 @@ classes:
     - represented_by
     - has_variable
     - was_derived_from
+    - content_url
     slot_usage:
       was_generated_by:
         description: The aggregation process from which a observation matrix was generated
@@ -456,6 +459,10 @@ classes:
           was derived from.
         range: CellSpecimen
         multivalued: true
+      content_url:
+        local_names:
+          local_name_value: url
+          local_name_source: allen
   ObservationRow:
     description: One specific row of the observation matrix representing a set of
       measurements preformed on a sample over a set of variables or features.
@@ -467,6 +474,7 @@ classes:
     - part_of_matrix
     - represented_in
     - was_derived_from
+    - label
     slot_usage:
       part_of_matrix:
         description: The observation matrix for which is observation row is part of.
@@ -477,6 +485,7 @@ classes:
       was_derived_from:
         description: The cell specimen from which the observation was derived from.
         range: CellSpecimen
+      label: {}
   CellSpecimen:
     description: ( defined as in BERS)
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
@@ -550,6 +559,13 @@ classes:
     is_a: named thing
     mixins:
     - ProvEntity
+    slots:
+    - content_url
+    slot_usage:
+      content_url:
+        local_names:
+          local_name_value: url
+          local_name_source: allen
   ColorPalette:
     description: A schematic set of display colors that can be applied to individual
       components of the associated entity set (for example, a taxonomy).
