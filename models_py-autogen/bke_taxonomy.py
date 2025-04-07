@@ -65,7 +65,9 @@ class LinkMLMeta(RootModel):
 
 linkml_meta = LinkMLMeta({'default_prefix': 'bican',
      'default_range': 'string',
-     'description': 'TODO',
+     'description': 'The BKE Taxonomy Schema represents the structure of '
+                    'classifications of cell types and their hierarchical '
+                    'relationships in the mammalian brain.',
      'id': 'https:/w3id.org/brain-bican/bke-taxonomy',
      'imports': ['bican_biolink',
                  'bican_prov',
