@@ -68,7 +68,7 @@ jobs:
             echo "jsonld-context generated";
             linkml generate pydantic ${name}.yaml > ../models_py-autogen/${name}.py;
             echo "pydantic model generated";
-            if [ ${name} = "library_generation" ] || [ ${name} = "genome_annotation" ]; then
+            if [ ${name} = "library_generation" ] || [ ${name} = "genome_annotation" ] || [ ${name} = "bke_taxonomy" ]; then
               echo "Fixing erdiagrams for $name";
               python ../utils/fix_and_create_erdiagram.py;
             else
