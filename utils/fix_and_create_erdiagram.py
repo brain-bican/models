@@ -38,10 +38,17 @@ def fix_diagram(yaml_model: pathlib.Path, diagram: pathlib.Path):
     with diagram.open("w") as f:
         f.write(diagram_txt)
 
+
 # 1. FIX GENOME ANNOTATION DIAGRAM
-genome_annotation_yaml = pathlib.Path(__file__).parent.resolve() / "../linkml-schema" / "genome_annotation.yaml"
+genome_annotation_yaml = (
+    pathlib.Path(__file__).parent.resolve()
+    / "../linkml-schema"
+    / "genome_annotation.yaml"
+)
 genome_annotation_diagram = (
-    pathlib.Path(__file__).parent.resolve() / "../erdiagram-autogen" / "genome_annotation.md"
+    pathlib.Path(__file__).parent.resolve()
+    / "../erdiagram-autogen"
+    / "genome_annotation.md"
 )
 fix_diagram(genome_annotation_yaml, genome_annotation_diagram)
 
@@ -57,3 +64,16 @@ libgen_diagram = (
     / "library_generation.md"
 )
 fix_diagram(libgen_yaml, libgen_diagram)
+
+# 3. FIX BKE TAXONOMY DIAGRAM
+bke_taxonomy_yaml = (
+    pathlib.Path(__file__).parent.resolve()
+    / "../linkml-schema"
+    / "bke_taxonomy.yaml"
+)
+bke_taxonomy_diagram = (
+    pathlib.Path(__file__).parent.resolve()
+    / "../erdiagram-autogen"
+    / "bke_taxonomy.md"
+)
+fix_diagram(bke_taxonomy_yaml, bke_taxonomy_diagram)
