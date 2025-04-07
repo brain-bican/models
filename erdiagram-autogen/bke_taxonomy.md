@@ -1,130 +1,310 @@
 ```mermaid
 erDiagram
-AnnotationCollection {
+DisplayColor {
+    string id  
+    string color_hex_triplet  
+    uriorcurieList xref  
+    iri_type iri  
+    curieList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+    boolean deprecated  
+    stringList provided_by  
+    label_type full_name  
+    label_typeList synonym  
+}
+ProvActivity {
 
 }
-GenomeAssembly {
-    string version  
-    string strain  
-    label type in_taxon_label  
+ProvEntity {
+
+}
+ColorPalette {
     string id  
-    iri type iri  
+    string name  
+    string description  
+    uriorcurieList xref  
+    iri_type iri  
     curieList category  
     stringList type  
-    label type name  
-    narrative text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
-    label type full_name  
-    label typeList synonym  
+    label_type full_name  
+    label_typeList synonym  
 }
-Attribute {
-    string id  
-    curieList category  
-    stringList type  
-    narrative text description  
-    boolean deprecated  
-    stringList provided_by  
-    uriorcurieList xref  
-    label type full_name  
-    label typeList synonym  
-    label type attribute_name  
-    iri type iri  
-    label type name  
-}
-NamedThing {
-    string id  
-    iri type iri  
-    curieList category  
-    stringList type  
-    label type name  
-    narrative text description  
-    boolean deprecated  
-    stringList provided_by  
-    uriorcurieList xref  
-    label type full_name  
-    label typeList synonym  
-}
-QuantityValue {
-    unit has_unit  
-    double has_numeric_value  
-}
-OntologyClass {
-    string id  
-}
-OrganismTaxon {
-    string id  
-    iri type iri  
-    curieList category  
-    stringList type  
-    label type name  
-    narrative text description  
-    boolean deprecated  
-    stringList provided_by  
-    uriorcurieList xref  
-    label type full_name  
-    label typeList synonym  
-}
-TaxonomicRank {
-    string id  
-}
-GenomeAnnotation {
-    string version  
-    stringList digest  
+MatrixFile {
     stringList content_url  
-    AuthorityType authority  
-    string reference_assembly  
     string id  
-    iri type iri  
+    iri_type iri  
     curieList category  
     stringList type  
-    label type name  
-    narrative text description  
+    label_type name  
+    narrative_text description  
     boolean deprecated  
     stringList provided_by  
     uriorcurieList xref  
-    label type full_name  
-    label typeList synonym  
-    label type in_taxon_label  
-    biological sequence has_biological_sequence  
+    label_type full_name  
+    label_typeList synonym  
 }
-GeneAnnotation {
-    string molecular_type  
-    string source_id  
-    string referenced_in  
+Abbreviation {
     string id  
-    iri type iri  
+    string term  
+    string meaning  
+    string entity_type  
+    uriorcurieList xref  
+    iri_type iri  
     curieList category  
     stringList type  
-    label type name  
-    narrative text description  
+    label_type name  
+    narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    label type full_name  
-    label typeList synonym  
-    label type in_taxon_label  
-    string symbol  
+    label_type full_name  
+    label_typeList synonym  
+}
+ParcellationTerm {
+    string id  
+    iri_type iri  
+    curieList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+    boolean deprecated  
+    stringList provided_by  
     uriorcurieList xref  
-    biological sequence has_biological_sequence  
+    label_type full_name  
+    label_typeList synonym  
+}
+CellSpecimen {
+    string id  
+    iri_type iri  
+    curieList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+}
+ObservationRow {
+    string label  
+    string id  
+    iri_type iri  
+    curieList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+}
+ObservationMatrix {
+    stringList content_url  
+    string id  
+    iri_type iri  
+    curieList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+}
+ObservationMatrixCreationProcess {
+    string id  
+    iri_type iri  
+    curieList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+}
+Cluster {
+    string id  
+    string accession_id  
+    string name  
+    integer number_of_observations  
+    uriorcurieList xref  
+    iri_type iri  
+    curieList category  
+    stringList type  
+    narrative_text description  
+    boolean deprecated  
+    stringList provided_by  
+    label_type full_name  
+    label_typeList synonym  
+}
+ClusterSet {
+    string id  
+    datetime created_at  
+    string accession_id  
+    string name  
+    string description  
+    uriorcurieList xref  
+    iri_type iri  
+    curieList category  
+    stringList type  
+    boolean deprecated  
+    stringList provided_by  
+    label_type full_name  
+    label_typeList synonym  
+}
+ClusteringProcess {
+    string id  
+    iri_type iri  
+    curieList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+}
+CellTypeTaxon {
+    string id  
+    string accession_id  
+    string name  
+    integer order  
+    string description  
+    integer number_of_cells  
+    uriorcurieList xref  
+    iri_type iri  
+    curieList category  
+    stringList type  
+    boolean deprecated  
+    stringList provided_by  
+    label_type full_name  
+    label_typeList synonym  
+}
+CellTypeSet {
+    string id  
+    string accession_id  
+    string name  
+    string description  
+    string cell_type_set_type  
+    integer order  
+    uriorcurieList xref  
+    iri_type iri  
+    curieList category  
+    stringList type  
+    boolean deprecated  
+    stringList provided_by  
+    label_type full_name  
+    label_typeList synonym  
+}
+CellTypeTaxonomy {
+    string id  
+    datetime created_at  
+    string accession_id  
+    string name  
+    string description  
+    uriorcurieList xref  
+    iri_type iri  
+    curieList category  
+    stringList type  
+    boolean deprecated  
+    stringList provided_by  
+    label_type full_name  
+    label_typeList synonym  
+}
+CellTypeTaxonomyCreationProcess {
+    string id  
+    iri_type iri  
+    curieList category  
+    stringList type  
+    label_type name  
+    narrative_text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
 }
 
-AnnotationCollection ||--}o GeneAnnotation : "annotations"
-AnnotationCollection ||--}o GenomeAnnotation : "genome_annotations"
-AnnotationCollection ||--}o GenomeAssembly : "genome_assemblies"
-GenomeAssembly ||--}o OrganismTaxon : "in taxon"
-GenomeAssembly ||--}o Attribute : "has attribute"
-Attribute ||--}o Attribute : "has attribute"
-Attribute ||--|| OntologyClass : "has attribute type"
-Attribute ||--}o QuantityValue : "has quantitative value"
-Attribute ||--|o NamedThing : "has qualitative value"
-NamedThing ||--}o Attribute : "has attribute"
-OrganismTaxon ||--}o Attribute : "has attribute"
-OrganismTaxon ||--|o TaxonomicRank : "has taxonomic rank"
-GenomeAnnotation ||--}o Attribute : "has attribute"
-GenomeAnnotation ||--}o OrganismTaxon : "in taxon"
-GeneAnnotation ||--}o Attribute : "has attribute"
-GeneAnnotation ||--}o OrganismTaxon : "in taxon"
+DisplayColor ||--|o ColorPalette : "part_of_palette"
+DisplayColor ||--|o CellTypeTaxon : "is_color_for_taxon"
+DisplayColor ||--|o CellTypeSet : "is_color_for_set"
+DisplayColor ||--|o ProvEntity : "was_derived_from"
+DisplayColor ||--|o ProvActivity : "was_generated_by"
+DisplayColor ||--}o Attribute : "has attribute"
+ProvActivity ||--|o ProvEntity : "used"
+ProvEntity ||--|o ProvEntity : "was_derived_from"
+ProvEntity ||--|o ProvActivity : "was_generated_by"
+ColorPalette ||--|o CellTypeTaxonomy : "is_palette_for"
+ColorPalette ||--|o ProvEntity : "was_derived_from"
+ColorPalette ||--|o ProvActivity : "was_generated_by"
+ColorPalette ||--}o Attribute : "has attribute"
+MatrixFile ||--|o ProvEntity : "was_derived_from"
+MatrixFile ||--|o ProvActivity : "was_generated_by"
+MatrixFile ||--}o Attribute : "has attribute"
+Abbreviation ||--}o GeneAnnotation : "denotes_gene_annotation"
+Abbreviation ||--}o ParcellationTerm : "denotes_parcellation_term"
+Abbreviation ||--|o ProvEntity : "was_derived_from"
+Abbreviation ||--|o ProvActivity : "was_generated_by"
+Abbreviation ||--}o Attribute : "has attribute"
+ParcellationTerm ||--|o ProvEntity : "was_derived_from"
+ParcellationTerm ||--|o ProvActivity : "was_generated_by"
+ParcellationTerm ||--}o Attribute : "has attribute"
+CellSpecimen ||--|o ProvEntity : "was_derived_from"
+CellSpecimen ||--|o ProvActivity : "was_generated_by"
+CellSpecimen ||--}o Attribute : "has attribute"
+ObservationRow ||--|o ObservationMatrix : "part_of_matrix"
+ObservationRow ||--|o MatrixFile : "represented_in"
+ObservationRow ||--|o CellSpecimen : "was_derived_from"
+ObservationRow ||--|o ProvActivity : "was_generated_by"
+ObservationRow ||--}o Attribute : "has attribute"
+ObservationMatrix ||--|o ObservationMatrixCreationProcess : "was_generated_by"
+ObservationMatrix ||--}o MatrixFile : "represented_by"
+ObservationMatrix ||--}o GeneAnnotation : "has_variable"
+ObservationMatrix ||--}o CellSpecimen : "was_derived_from"
+ObservationMatrix ||--}o Attribute : "has attribute"
+ObservationMatrixCreationProcess ||--|o ProvEntity : "used"
+ObservationMatrixCreationProcess ||--}o Attribute : "has attribute"
+Cluster ||--|o ClusterSet : "part_of_set"
+Cluster ||--}o ObservationRow : "contains_observation"
+Cluster ||--}o CellSpecimen : "contains_sample"
+Cluster ||--|o ProvEntity : "was_derived_from"
+Cluster ||--|o ProvActivity : "was_generated_by"
+Cluster ||--}o Attribute : "has attribute"
+ClusterSet ||--|o ClusteringProcess : "was_generated_by"
+ClusterSet ||--}o ObservationMatrix : "was_derived_from"
+ClusterSet ||--|o ClusterSet : "is_revision_of"
+ClusterSet ||--}o Attribute : "has attribute"
+ClusteringProcess ||--}o ObservationMatrix : "used"
+ClusteringProcess ||--}o Attribute : "has attribute"
+CellTypeTaxon ||--|o CellTypeTaxonomy : "part_of_taxonomy"
+CellTypeTaxon ||--}o Cluster : "contains_cluster"
+CellTypeTaxon ||--|o CellTypeTaxon : "has_parent"
+CellTypeTaxon ||--}o Abbreviation : "has_abbreviation"
+CellTypeTaxon ||--|o ProvEntity : "was_derived_from"
+CellTypeTaxon ||--|o ProvActivity : "was_generated_by"
+CellTypeTaxon ||--}o Attribute : "has attribute"
+CellTypeSet ||--|o CellTypeTaxonomy : "part_of_taxonomy"
+CellTypeSet ||--}o CellTypeTaxon : "contains_taxon"
+CellTypeSet ||--|o CellTypeSet : "has_parent"
+CellTypeSet ||--}o Abbreviation : "has_abbreviation"
+CellTypeSet ||--|o ProvEntity : "was_derived_from"
+CellTypeSet ||--|o ProvActivity : "was_generated_by"
+CellTypeSet ||--}o Attribute : "has attribute"
+CellTypeTaxonomy ||--|o CellTypeTaxonomyCreationProcess : "was_generated_by"
+CellTypeTaxonomy ||--}o ClusterSet : "was_derived_from"
+CellTypeTaxonomy ||--|o CellTypeTaxonomy : "is_revision_of"
+CellTypeTaxonomy ||--}o Attribute : "has attribute"
+CellTypeTaxonomyCreationProcess ||--}o ClusterSet : "used"
+CellTypeTaxonomyCreationProcess ||--}o Attribute : "has attribute"
 
 ```
 
