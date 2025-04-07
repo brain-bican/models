@@ -9,7 +9,8 @@ Here are the BICAN LinkML knowledgebase schemas and their statuses.
 
 | Model                                                                                                                      | Short Description                                                                                                          | Release with Latest Updates | Status |
 |:---------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------|:----------------------------|:--|
-| [Assertion Evidence Model]                                                                                                 | Types and relationships of assertions and evidences/                                                                       | 0.2.0                       | under development |
+| [BKE Taxonomy Model]                                                                                                       | Types and relationships of the BKE Taxonomy.                                                                               | 0.1.0                       | under development |
+| [Assertion Evidence Model]                                                                                                 | Types and relationships of assertions and evidences.                                                                       | 0.2.0                       | under development |
 | [Library Generation Model]                                                                                                 | Types and relationships of samples and digital data assets generated during processes that generate multimodal genomic data. | 0.2.0                       | under development |
 | [Anatomical Structure Model]                                                                                               | Types and relationships of anatomical brain structures.                                                                    | 0.1.0                       | under development |
 | [Genome Annotation Model]                                                                                                  | Types and relationships of an organism's annotated genome.                                                                 | 0.2.0                       | under development |
@@ -17,6 +18,7 @@ Here are the BICAN LinkML knowledgebase schemas and their statuses.
 | [CCN2]                                                                                                                     |                                                                                                                            | 0.1.0                       | deprecated |
 | [Figure1]                                                                                                                  |                                                                                                                            | 0.1.0                       | deprecated | |                | |
 
+[BKE Taxonomy Model]: linkml-schema/bke_taxonomy.yaml
 [Assertion Evidence Model]: linkml-schema/assertion_evidence.yaml
 
 [BICAN BioLink]: linkml-schema/bican_biolink.yaml
