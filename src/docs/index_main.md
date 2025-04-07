@@ -16,5 +16,8 @@ The Genome Annotation Model is a data model designed to represent types and rela
 ### 4. Assertion Evidence Model 
 The Assertion Evidence Model is a data model designed to represent the structure describing the relationship between a conclusion and the evidence that led to this conclusion. An assertion is the conclusion drawn from reasoning about Evidence. 
 
+### 5. BKE Taxonomy Model
+The BKE Taxonomy Model is a data model designed to represent the structure of the BKE Taxonomy. The BKE Taxonomy is a classifications of cell types and their hierarchical relationships in the mammalian brain.
+
 ## Using the Data Models 
 Each data model listed above has a respective module in the Brain Knowledge Base Interaction Toolkit ([bkbit](https://pypi.org/project/bkbit/)). 
