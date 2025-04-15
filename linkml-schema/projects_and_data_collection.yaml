@@ -30,14 +30,6 @@ enums:
     permissible_values:
       COMPLETE: {}
       IN_PROGRESS: {}
-  License:
-    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
-    permissible_values:
-      AIBSTOU: {}
-      CCBY4: {}
-      CZI_TOS: {}
-      NDA_DUC: {}
-      SAGE_DUC: {}
   Modality:
     from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
     permissible_values:
@@ -463,6 +455,7 @@ classes:
         - bican
         range: string
   License:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
     slots:
     - information_web_resource
     - name

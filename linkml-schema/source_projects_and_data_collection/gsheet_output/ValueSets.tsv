@@ -4,11 +4,6 @@ AccessControl	OPEN		open
 AccessControl	CONTROLLED		controlled
 CompletionState	COMPLETE		complete
 CompletionState	IN_PROGRESS		in progress
-License	AIBSTOU		AIBSTOU
-License	CCBY4		CCBY4
-License	CZI_TOS		CZI_TOS
-License	NDA_DUC		NDA_DUC
-License	SAGE_DUC		Sage_DUC
 Modality	ANATOMY		anatomy
 Modality	CELL_MORPHOLOGY		cell morphology
 Modality	CONNECTIVITY		connectivity
