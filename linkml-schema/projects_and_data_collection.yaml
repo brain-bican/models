@@ -278,6 +278,8 @@ slots:
     from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
   subprogram:
     from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  web_resource_type:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
   url:
     from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
 classes:
@@ -659,12 +661,12 @@ classes:
   WebResource:
     from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
     slots:
-    - type
+    - web_resource_type
     - title
     - short_title
     - url
     slot_usage:
-      type:
+      web_resource_type:
         description: Denotes the type of web resource - whether the resource routes
           to a download link, an informational resource or an interactive tool.
         in_subset:
