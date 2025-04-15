@@ -1,3 +1,4 @@
 prefix	URI
 > prefix	prefix_reference
 bican	https://identifiers.org/brain-bican/vocab/
+sdo	http://schema.org/

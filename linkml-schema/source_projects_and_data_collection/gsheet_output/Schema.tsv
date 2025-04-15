@@ -1,4 +1,4 @@
 Schema	uri	Description	Schema Prefix	Imports	Title
 > schema	id	description	default_prefix	imports	title
 >				internal_separator: "|"	
-ProjectsAndDataCollectionTaxonomy	https:/w3id.org/brain-bican/projects-and-data-collection	The BICAN Projects and Data Collections Metadata schema specifies the minimum metadata required to register a project and data collection with BCDC. 	bican		
+ProjectsAndDataCollectionTaxonomy	https:/w3id.org/brain-bican/projects-and-data-collection	The BICAN Projects and Data Collections Metadata schema specifies the minimum metadata required to register a project and data collection with BCDC. 	bican	bican_biolink	

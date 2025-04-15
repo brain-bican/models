@@ -3,9 +3,11 @@ description: The BICAN Projects and Data Collections Metadata schema specifies t
   minimum metadata required to register a project and data collection with BCDC.
 id: https:/w3id.org/brain-bican/projects-and-data-collection
 imports:
+- bican_biolink
 - linkml:types
 prefixes:
   bican: https://identifiers.org/brain-bican/vocab/
+  sdo: http://schema.org/
   linkml: https://w3id.org/linkml/
 default_prefix: bican
 default_range: string
@@ -228,8 +230,6 @@ slots:
     from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
   web_resource:
     from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
-  license:
-    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
   funding_agency:
     from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
   awardee:
@@ -251,8 +251,6 @@ slots:
   title:
     from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
   short_title:
-    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
-  description:
     from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
   species:
     from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
@@ -279,8 +277,6 @@ slots:
   orcid:
     from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
   subprogram:
-    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
-  type:
     from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
   url:
     from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
@@ -361,6 +357,8 @@ classes:
       species:
         description: The common name of the species of the donor from which data were
           collected for this data collection.
+        examples:
+        - value: Arctic ground squirrel
         in_subset:
         - projects_and_data_collections
         - bican
@@ -384,6 +382,8 @@ classes:
         range: CompletionState
       modality:
         description: The modality of the data in a data collection.
+        examples:
+        - value: protein quantification
         in_subset:
         - projects_and_data_collections
         - bican
@@ -392,6 +392,8 @@ classes:
         multivalued: true
       technique:
         description: The technique that was used to acquire the data in a collection.
+        examples:
+        - value: 10x Chromium 3' v2 sequencing
         in_subset:
         - projects_and_data_collections
         - bican
@@ -452,6 +454,8 @@ classes:
       report_symbol:
         description: Resource location component in NIH RePorter URL. Symbol in RePorter
           URL that redirects to project details page in RePorter.
+        examples:
+        - value: '10521124'
         in_subset:
         - projects_and_data_collections
         - bican
@@ -546,6 +550,8 @@ classes:
         range: string
       orcid:
         description: An ORCID that identifies a person.
+        examples:
+        - value: 0000-0002-9802-0493
         in_subset:
         - projects_and_data_collections
         - bican
