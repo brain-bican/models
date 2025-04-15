@@ -1,0 +1,176 @@
+variable_name	value	description	given value from spreadsheet (pre-formatting)
+> enum	permissible_value	description	ignore
+AccessControl	OPEN		open
+AccessControl	CONTROLLED		controlled
+CompletionState	COMPLETE		complete
+CompletionState	IN_PROGRESS		in progress
+License	AIBSTOU		AIBSTOU
+License	CCBY4		CCBY4
+License	CZI_TOS		CZI_TOS
+License	NDA_DUC		NDA_DUC
+License	SAGE_DUC		Sage_DUC
+Modality	ANATOMY		anatomy
+Modality	CELL_MORPHOLOGY		cell morphology
+Modality	CONNECTIVITY		connectivity
+Modality	ELECTROPHYSIOLOGY		electrophysiology
+Modality	EPIGENOMICS		epigenomics
+Modality	GENOMICS		genomics
+Modality	HISTOLOGY_IMAGING		histology imaging
+Modality	MULTIMODAL		multimodal
+Modality	OPTICAL_PHYSIOLOGY		optical physiology
+Modality	POPULATION_IMAGING		population imaging
+Modality	PROTEIN_QUANTIFICATION		protein quantification
+Modality	SPATIAL_TRANSCRIPTOMICS		spatial transcriptomics
+Modality	TRANSCRIPTOMICS		transcriptomics
+Species	ARCTIC_GROUND_SQUIRREL		Arctic ground squirrel
+Species	BABOON		baboon
+Species	CHIMPANZEE		chimpanzee
+Species	COMMON_TREE_SHREW		common tree shrew
+Species	COYOTE		coyote
+Species	CRAB-EATING_MACAQUE		crab-eating macaque
+Species	DOMESTIC_CAT		domestic cat
+Species	DOMESTIC_FERRET		domestic ferret
+Species	GRAY_SHORT-TAILED_OPOSSUM		gray short-tailed opossum
+Species	GREEN_MONKEY		green monkey
+Species	HUMAN		human
+Species	MA'S_NIGHT_MONKEY		Ma's night monkey
+Species	MARMOSET		marmoset
+Species	MOUSE		mouse
+Species	NINE-BANDED_ARMADILLO		nine-banded armadillo
+Species	NORWAY_RAT		Norway rat
+Species	PIG		pig
+Species	PIG-TAILED_MACAQUE		pig-tailed macaque
+Species	RABBIT		rabbit
+Species	RHESUS_MACAQUE		rhesus macaque
+Species	SMALL-EARED_GALAGO		small-eared galago
+Species	SQUIRREL_MONKEY		squirrel monkey
+Species	WESTERN_GORILLA		western gorilla
+Subprogram	ACTD		ACTD
+Subprogram	ADMBA		ADMBA
+Subprogram	AHBA		AHBA
+Subprogram	AMBA		AMBA
+Subprogram	AMBCA		AMBCA
+Subprogram	ASCA		ASCA
+Subprogram	BRAINSPAN		BrainSpan
+Subprogram	IVYGBM		IvyGBM
+Subprogram	MICRONSEM		MICrONSEM
+Subprogram	NHP		NHP
+Subprogram	R24_GHOSH		R24 Ghosh
+Subprogram	R24_HERTZANO		R24 Hertzano
+Subprogram	R24_ROPELEWSKI		R24 Ropelewski
+Subprogram	R24_WHITE		R24 White
+Subprogram	RF1_ADEY		RF1 Adey
+Subprogram	RF1_BOYDEN		RF1 Boyden
+Subprogram	RF1_CAI		RF1 Cai
+Subprogram	RF1_CHUNG		RF1 Chung
+Subprogram	RF1_FAN		RF1 Fan
+Subprogram	RF1_HAWRYLYCZ		RF1 Hawrylycz
+Subprogram	RF1_HILLMAN		RF1 Hillman
+Subprogram	RF1_HUANG		RF1 Huang
+Subprogram	RF1_IGLESIAS_GONZALEZ		RF1 Iglesias Gonzalez
+Subprogram	RF1_KIM		RF1 Kim
+Subprogram	RF1_LASKIN		RF1 Laskin
+Subprogram	RF1_LEE		RF1 Lee
+Subprogram	RF1_MACOSKO		RF1 Macosko
+Subprogram	RF1_MITRA		RF1 Mitra
+Subprogram	RF1_MITRA_ZHANG		RF1 Mitra Zhang
+Subprogram	RF1_MUELLER		RF1 Mueller
+Subprogram	RF1_MUKAMEL		RF1 Mukamel
+Subprogram	RF1_NOWAKOWSKI		RF1 Nowakowski
+Subprogram	RF1_REGEV		RF1 Regev
+Subprogram	RF1_REID		RF1 Reid
+Subprogram	RF1_REN		RF1 Ren
+Subprogram	RF1_ROUSSOS		RF1 Roussos
+Subprogram	RF1_SHEPHERD		RF1 Shepherd
+Subprogram	RF1_SHI		RF1 Shi
+Subprogram	RF1_TASIC		RF1 Tasic
+Subprogram	RF1_TILGNER		RF1 Tilgner
+Subprogram	RF1_VOGELSTEIN		RF1 Vogelstein
+Subprogram	RF1_WELCH		RF1 Welch
+Subprogram	RF1_YANG		RF1 Yang
+Subprogram	RF1_YIN		RF1 Yin
+Subprogram	SEA-AD		SEA-AD
+Subprogram	SYNPHYS		SynPhys
+Subprogram	TBI		TBI
+Subprogram	TRANSCHAR		TransChar
+Subprogram	U01_CHUNG		U01 Chung
+Subprogram	U01_DONG		U01 Dong
+Subprogram	U01_ECKER		U01 Ecker
+Subprogram	U01_FENG		U01 Feng
+Subprogram	U01_FISCHL		U01 Fischl
+Subprogram	U01_KRIEGSTEIN		U01 Kriegstein
+Subprogram	U01_LEIN		U01 Lein
+Subprogram	U01_MACOSKO		U01 Macosko
+Subprogram	U01_OSTEN		U01 Osten
+Subprogram	U01_SESTAN		U01 Sestan
+Subprogram	U01_SNYDER-MACKLER		U01 Snyder-Mackler
+Subprogram	U01_YANG		U01 Yang
+Subprogram	U01_ZHANGKUN		U01 ZhangKun
+Subprogram	U01_ZHANGLI		U01 ZhangLi
+Subprogram	U19_ECKER		U19 Ecker
+Subprogram	U19_HUANG		U19 Huang
+Subprogram	U19_ZENG		U19 Zeng
+Subprogram	U24_HAWRYLYCZ		U24 Hawrylycz
+Subprogram	UF1_TASIC		UF1 Tasic
+Subprogram	VISUALBEHAVIOR		VisualBehavior
+Subprogram	VISUALCODING		VisualCoding
+Technique	10X_CHROMIUM_3'_V2_SEQUENCING		10x Chromium 3' v2 sequencing
+Technique	10X_CHROMIUM_3'_V3_SEQUENCING		10x Chromium 3' v3 sequencing
+Technique	10X_GENOMICS_MULTIOME		10X Genomics Multiome
+Technique	ANTEROGRADE_TRACING		anterograde tracing
+Technique	ATAC-SEQ		ATAC-seq
+Technique	CALCIUM_IMAGING		calcium imaging
+Technique	CISI		CISI
+Technique	CLINICAL_OBSERVATION		clinical observation
+Technique	CONFOCAL_MICROSCOPY		confocal microscopy
+Technique	CRE-DEPENDENT_ANTEROGRADE_TRACING		cre-dependent anterograde tracing
+Technique	DNASEQ		DNAseq
+Technique	DROP-SEQ		Drop-seq
+Technique	ELECTRON_MICROSCOPY		electron microscopy
+Technique	ENHANCER_VIRUS_LABELING		enhancer virus labeling
+Technique	FISH		FISH
+Technique	FMOST		fMOST
+Technique	HISTOLOGY		histology
+Technique	IN_SITU_HYBRIDIZATION		in situ hybridization
+Technique	LABORATORY_ASSESSMENT		laboratory assessment
+Technique	LIGHT_SHEET_MICROSCOPY		light sheet microscopy
+Technique	M3C-SEQ		m3C-seq
+Technique	MC-SEQ2		mC-seq2
+Technique	MC-SEQ3		mC-seq3
+Technique	MERFISH		MERFISH
+Technique	MICROARRAY		microarray
+Technique	MORF_GENETIC_SPARSE_LABELING		MORF genetic sparse labeling
+Technique	MOUSELIGHT		mouselight
+Technique	MRI		MRI
+Technique	MULTI_ELECTRODE_EXTRACELLULAR_ELECTROPHYSIOLOGY_TECHNIQUE		multi electrode extracellular electrophysiology technique
+Technique	MULTIPLEX_IMMUNOASSAY		multiplex immunoassay
+Technique	NEURON_MORPHOLOGY_RECONSTRUCTION		neuron morphology reconstruction
+Technique	OCT		OCT
+Technique	OLST		OLST
+Technique	OSMFISH		osmFISH
+Technique	OXFORD_NANOPORE_LONG-READ_SEQUENCING		Oxford Nanopore long-read sequencing
+Technique	PACBIO_LONG-READ_SEQUENCING		PacBio long-read sequencing
+Technique	PAIRED-TAG		Paired-Tag
+Technique	PATCH-SEQ		Patch-seq
+Technique	RETROGRADE_TRACING		retrograde tracing
+Technique	RETROGRADE_TRANSYNAPTIC_TRACING		retrograde transsynaptic tracing
+Technique	RNASEQ		RNAseq
+Technique	SCI-ATAC-SEQ3		sci-ATAC-seq3
+Technique	SCI-RNA-SEQ3		sci-RNA-seq3
+Technique	SEQFISH		seqFISH
+Technique	SHARE-SEQ		SHARE-seq
+Technique	SLIDE-SEQ		Slide-seq
+Technique	SMART-SEQ_V4		SMART-seq v4
+Technique	SMART-SEQ2		Smart-seq2
+Technique	SNARE-SEQ2		SNARE-seq2
+Technique	SNM3C-SEQ		snm3C-seq
+Technique	STPT		STPT
+Technique	TEMPO-SEQ		TempO-seq
+Technique	TRIO_TRACING		TRIO tracing
+Technique	VISOR		VISor
+Technique	WHOLE_CELL_PATCH_CLAMP		whole cell patch clamp
+Technique	WHOLE_GENOME_SEQUENCING		whole genome sequencing
+WebResourceType	INFORMATION	Resource containing additional information about a project or collection, for example an about page on a website.	information
+WebResourceType	VIEW	Resource that typically contains more technical information about the data in a collection, for example a protocol document or a paper.	view
+WebResourceType	EXPLORE	Resource that points to a tool to visualize or explore data in a collection.	explore
+WebResourceType	DOWNLOAD	Resource that points to a location to download data in a collection.	download

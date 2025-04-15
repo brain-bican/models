@@ -1,0 +1,689 @@
+name: ProjectsAndDataCollectionTaxonomy
+description: The BICAN Projects and Data Collections Metadata schema specifies the
+  minimum metadata required to register a project and data collection with BCDC.
+id: https:/w3id.org/brain-bican/projects-and-data-collection
+imports:
+- linkml:types
+prefixes:
+  bican: https://identifiers.org/brain-bican/vocab/
+  linkml: https://w3id.org/linkml/
+default_prefix: bican
+default_range: string
+subsets:
+  projects_and_data_collections:
+    description: A subset of classes that are associated with the projects and data
+      collection schema.
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  bican:
+    description: A subset of classes that are associated with BICAN.
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+enums:
+  AccessControl:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+    permissible_values:
+      OPEN: {}
+      CONTROLLED: {}
+  CompletionState:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+    permissible_values:
+      COMPLETE: {}
+      IN_PROGRESS: {}
+  License:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+    permissible_values:
+      AIBSTOU: {}
+      CCBY4: {}
+      CZI_TOS: {}
+      NDA_DUC: {}
+      SAGE_DUC: {}
+  Modality:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+    permissible_values:
+      ANATOMY: {}
+      CELL_MORPHOLOGY: {}
+      CONNECTIVITY: {}
+      ELECTROPHYSIOLOGY: {}
+      EPIGENOMICS: {}
+      GENOMICS: {}
+      HISTOLOGY_IMAGING: {}
+      MULTIMODAL: {}
+      OPTICAL_PHYSIOLOGY: {}
+      POPULATION_IMAGING: {}
+      PROTEIN_QUANTIFICATION: {}
+      SPATIAL_TRANSCRIPTOMICS: {}
+      TRANSCRIPTOMICS: {}
+  Species:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+    permissible_values:
+      ARCTIC_GROUND_SQUIRREL: {}
+      BABOON: {}
+      CHIMPANZEE: {}
+      COMMON_TREE_SHREW: {}
+      COYOTE: {}
+      CRAB-EATING_MACAQUE: {}
+      DOMESTIC_CAT: {}
+      DOMESTIC_FERRET: {}
+      GRAY_SHORT-TAILED_OPOSSUM: {}
+      GREEN_MONKEY: {}
+      HUMAN: {}
+      MA'S_NIGHT_MONKEY: {}
+      MARMOSET: {}
+      MOUSE: {}
+      NINE-BANDED_ARMADILLO: {}
+      NORWAY_RAT: {}
+      PIG: {}
+      PIG-TAILED_MACAQUE: {}
+      RABBIT: {}
+      RHESUS_MACAQUE: {}
+      SMALL-EARED_GALAGO: {}
+      SQUIRREL_MONKEY: {}
+      WESTERN_GORILLA: {}
+  Subprogram:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+    permissible_values:
+      ACTD: {}
+      ADMBA: {}
+      AHBA: {}
+      AMBA: {}
+      AMBCA: {}
+      ASCA: {}
+      BRAINSPAN: {}
+      IVYGBM: {}
+      MICRONSEM: {}
+      NHP: {}
+      R24_GHOSH: {}
+      R24_HERTZANO: {}
+      R24_ROPELEWSKI: {}
+      R24_WHITE: {}
+      RF1_ADEY: {}
+      RF1_BOYDEN: {}
+      RF1_CAI: {}
+      RF1_CHUNG: {}
+      RF1_FAN: {}
+      RF1_HAWRYLYCZ: {}
+      RF1_HILLMAN: {}
+      RF1_HUANG: {}
+      RF1_IGLESIAS_GONZALEZ: {}
+      RF1_KIM: {}
+      RF1_LASKIN: {}
+      RF1_LEE: {}
+      RF1_MACOSKO: {}
+      RF1_MITRA: {}
+      RF1_MITRA_ZHANG: {}
+      RF1_MUELLER: {}
+      RF1_MUKAMEL: {}
+      RF1_NOWAKOWSKI: {}
+      RF1_REGEV: {}
+      RF1_REID: {}
+      RF1_REN: {}
+      RF1_ROUSSOS: {}
+      RF1_SHEPHERD: {}
+      RF1_SHI: {}
+      RF1_TASIC: {}
+      RF1_TILGNER: {}
+      RF1_VOGELSTEIN: {}
+      RF1_WELCH: {}
+      RF1_YANG: {}
+      RF1_YIN: {}
+      SEA-AD: {}
+      SYNPHYS: {}
+      TBI: {}
+      TRANSCHAR: {}
+      U01_CHUNG: {}
+      U01_DONG: {}
+      U01_ECKER: {}
+      U01_FENG: {}
+      U01_FISCHL: {}
+      U01_KRIEGSTEIN: {}
+      U01_LEIN: {}
+      U01_MACOSKO: {}
+      U01_OSTEN: {}
+      U01_SESTAN: {}
+      U01_SNYDER-MACKLER: {}
+      U01_YANG: {}
+      U01_ZHANGKUN: {}
+      U01_ZHANGLI: {}
+      U19_ECKER: {}
+      U19_HUANG: {}
+      U19_ZENG: {}
+      U24_HAWRYLYCZ: {}
+      UF1_TASIC: {}
+      VISUALBEHAVIOR: {}
+      VISUALCODING: {}
+  Technique:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+    permissible_values:
+      10X_CHROMIUM_3'_V2_SEQUENCING: {}
+      10X_CHROMIUM_3'_V3_SEQUENCING: {}
+      10X_GENOMICS_MULTIOME: {}
+      ANTEROGRADE_TRACING: {}
+      ATAC-SEQ: {}
+      CALCIUM_IMAGING: {}
+      CISI: {}
+      CLINICAL_OBSERVATION: {}
+      CONFOCAL_MICROSCOPY: {}
+      CRE-DEPENDENT_ANTEROGRADE_TRACING: {}
+      DNASEQ: {}
+      DROP-SEQ: {}
+      ELECTRON_MICROSCOPY: {}
+      ENHANCER_VIRUS_LABELING: {}
+      FISH: {}
+      FMOST: {}
+      HISTOLOGY: {}
+      IN_SITU_HYBRIDIZATION: {}
+      LABORATORY_ASSESSMENT: {}
+      LIGHT_SHEET_MICROSCOPY: {}
+      M3C-SEQ: {}
+      MC-SEQ2: {}
+      MC-SEQ3: {}
+      MERFISH: {}
+      MICROARRAY: {}
+      MORF_GENETIC_SPARSE_LABELING: {}
+      MOUSELIGHT: {}
+      MRI: {}
+      MULTI_ELECTRODE_EXTRACELLULAR_ELECTROPHYSIOLOGY_TECHNIQUE: {}
+      MULTIPLEX_IMMUNOASSAY: {}
+      NEURON_MORPHOLOGY_RECONSTRUCTION: {}
+      OCT: {}
+      OLST: {}
+      OSMFISH: {}
+      OXFORD_NANOPORE_LONG-READ_SEQUENCING: {}
+      PACBIO_LONG-READ_SEQUENCING: {}
+      PAIRED-TAG: {}
+      PATCH-SEQ: {}
+      RETROGRADE_TRACING: {}
+      RETROGRADE_TRANSYNAPTIC_TRACING: {}
+      RNASEQ: {}
+      SCI-ATAC-SEQ3: {}
+      SCI-RNA-SEQ3: {}
+      SEQFISH: {}
+      SHARE-SEQ: {}
+      SLIDE-SEQ: {}
+      SMART-SEQ_V4: {}
+      SMART-SEQ2: {}
+      SNARE-SEQ2: {}
+      SNM3C-SEQ: {}
+      STPT: {}
+      TEMPO-SEQ: {}
+      TRIO_TRACING: {}
+      VISOR: {}
+      WHOLE_CELL_PATCH_CLAMP: {}
+      WHOLE_GENOME_SEQUENCING: {}
+  WebResourceType:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+    permissible_values:
+      INFORMATION:
+        description: Resource containing additional information about a project or
+          collection, for example an about page on a website.
+      VIEW:
+        description: Resource that typically contains more technical information about
+          the data in a collection, for example a protocol document or a paper.
+      EXPLORE:
+        description: Resource that points to a tool to visualize or explore data in
+          a collection.
+      DOWNLOAD:
+        description: Resource that points to a location to download data in a collection.
+slots:
+  data_archive:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  web_resource:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  license:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  funding_agency:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  awardee:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  information_web_resource:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  contributor:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  funding_source:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  highlighted_web_resource:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  protocol:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  publication:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  collections:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  title:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  short_title:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  description:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  species:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  access_control:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  completion_state:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  modality:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  technique:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  citation:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  grant_identifier:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  report_symbol:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  ror:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  given_name:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  family_name:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  orcid:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  subprogram:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  type:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+  url:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+classes:
+  DataCollection:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+    slots:
+    - data_archive
+    - web_resource
+    - license
+    - name
+    - title
+    - short_title
+    - description
+    - species
+    - access_control
+    - completion_state
+    - modality
+    - technique
+    - citation
+    slot_usage:
+      data_archive:
+        description: The location (archive) at which the data in a data collection
+          is to be deposited.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:39498a35-3cb5-46ce-9e23-dc5e499b85c4
+        range: Organization
+        multivalued: true
+      web_resource:
+        description: A URL or weblink that provides the location of relevant tools
+          or pages to a data collection. Commonly used to link to landing page that
+          allows for downloading data contained in collection.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:ebdc27a1-37ca-46ec-8914-6d3fae85a3d9
+        range: WebResource
+        multivalued: true
+      license:
+        description: A license that is applied to the data in a data collection.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:b184e037-1b45-4ca6-8651-7044b1a74199
+        range: License
+      name:
+        description: A human-readable, locally unique label that identifies a data
+          collection.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:f7b04e21-c12d-4b3d-ba0e-b1de6ac92dca
+        range: string
+      title:
+        description: A long form title of a data collection.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:62208817-6a7f-4e70-9c4a-d262f43d82cc
+        range: string
+      short_title:
+        description: A short form title of a data collection (fewer than 30 characters).
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:f5169355-52cf-4720-904f-946c92489faa
+        range: string
+      description:
+        description: A description of a data collection that includes a specification
+          of the license of the data collection.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:c5188587-2b4f-4889-ae93-224efdb803d2
+        range: string
+      species:
+        description: The common name of the species of the donor from which data were
+          collected for this data collection.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:7135fb76-5423-44da-ba52-4c33e8626033
+        range: Species
+        multivalued: true
+      access_control:
+        description: The level of access specified for a data collection.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:3880e926-d2fb-4960-bf61-4b5789e6c027
+        range: AccessControl
+      completion_state:
+        description: A value that specifies whether or not additional data is being
+          generated for a data collection.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:456513f2-0af8-45e1-b8f0-338636ed3f61
+        range: CompletionState
+      modality:
+        description: The modality of the data in a data collection.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:480af9eb-0128-4602-9c8f-01416820cee3
+        range: Modality
+        multivalued: true
+      technique:
+        description: The technique that was used to acquire the data in a collection.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:bee3bda8-c103-448f-8557-effcaca176bf
+        range: Technique
+        multivalued: true
+      citation:
+        description: A data citation for a data collection.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:ea4729c6-df21-40db-8141-5af1d44ba75c
+        range: string
+  Grant:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+    slots:
+    - funding_agency
+    - awardee
+    - name
+    - title
+    - grant_identifier
+    - report_symbol
+    slot_usage:
+      funding_agency:
+        description: Organization that is funding the grant
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        range: Organization
+      awardee:
+        description: Organization that is receiving funding from the grant
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        range: Organization
+      name:
+        description: 'Human readable locally unique identifier for a grant. Typically
+          this a concatenation of the activity code and contact PI for NIH grants.
+          Example: U24 Hawrylycz grant'
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        range: string
+      title:
+        description: Long form title for a grant. Typically this is the project title
+          from NIH grants.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        range: string
+      grant_identifier:
+        description: Unique identifier for a grant resolvable by external authority.
+          Typically this is the project number from NIH grants.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        range: string
+      report_symbol:
+        description: Resource location component in NIH RePorter URL. Symbol in RePorter
+          URL that redirects to project details page in RePorter.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        range: string
+  License:
+    slots:
+    - information_web_resource
+    - name
+    - title
+    - short_title
+    slot_usage:
+      information_web_resource:
+        description: A URL or weblink that contains the text for a license.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:387b892c-884d-4fbd-a0d2-eeeb3fed5881
+        range: WebResource
+      name:
+        description: A human-readable, locally unique label that identifies a license.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:ddd0c288-b565-4b2d-a3a9-2b46b1a4a2c3
+        range: string
+      title:
+        description: Long title for a license.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:d0183b7b-fb54-455c-92a2-5b126d87d9f1
+        range: string
+      short_title:
+        description: Short title for a license.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:3707b072-3846-4113-8f0d-ab8127035f52
+        range: string
+  Organization:
+    description: Respresents an organization. This is primarily used in reference
+      to a project creator or funding source/awardee.
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+    slots:
+    - name
+    - ror
+    slot_usage:
+      name:
+        description: A human-readable, locally unique label that identifies a organization.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:3788d44f-8383-4707-845d-bb8289815b32
+        range: string
+      ror:
+        description: A Research Organization Registry ID that identifies an organization.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:3fd3913c-0e36-4fe0-ac99-073f496c0919
+        range: string
+  Person:
+    description: Represents a person. This is primarily used in reference to a project
+      creator or contributor.
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+    slots:
+    - name
+    - given_name
+    - family_name
+    - orcid
+    slot_usage:
+      name:
+        description: A full name of a person in [given name],[family name] format.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:da5203bf-0202-4cd0-b0c2-5cc05806e2e4
+        range: string
+      given_name:
+        description: A given name of a person.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:2354176f-40f2-4110-98d9-0c203314bfde
+        range: string
+      family_name:
+        description: A family name of a person.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:f5d8f1a3-ce30-45eb-ac26-13a8998c2f5a
+        range: string
+      orcid:
+        description: An ORCID that identifies a person.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:e834467e-a05e-4b9f-8348-5c0079bdaac8
+        range: string
+  Project:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+    slots:
+    - contributor
+    - funding_source
+    - highlighted_web_resource
+    - protocol
+    - publication
+    - collections
+    - name
+    - title
+    - short_title
+    - description
+    - subprogram
+    slot_usage:
+      contributor:
+        description: A contributor to a project. This is often given as a list.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:8a1a747c-c24d-451a-9168-ed14d274a97c
+        range: Person
+        multivalued: true
+      funding_source:
+        description: The funding source for a project.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:3f85bc4b-2e03-426e-b376-4607fc9515e3
+        range: Grant
+        multivalued: true
+      highlighted_web_resource:
+        description: A link to relevant tools/pages of a project.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:2bb2472b-73b7-426b-adb2-739924a0751b
+        range: WebResource
+        multivalued: true
+      protocol:
+        description: A protocol for a project.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:3e80809a-de1a-4333-98a9-f19549fda246
+        range: WebResource
+        multivalued: true
+      publication:
+        description: A publication associated with a project.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:52d1b518-37e0-4b69-b1d8-36d1ff437376
+        range: WebResource
+      collections:
+        description: The data collections that are part of a project.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:66093eb6-fdaf-4782-8dba-23f6575254d8
+        range: DataCollection
+        multivalued: true
+      name:
+        description: A human readable, locally unique identifier that denotes a project.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:a0d7797f-aaf1-4d3e-8289-51a94237b9c8
+        range: string
+      title:
+        description: A long form project title.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:34e55bb4-17db-4b7f-bd7d-7272ffe1c9f2
+        range: string
+      short_title:
+        description: A short form project title.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:216cc403-423a-4b43-b935-b9b61dbb8a26
+        range: string
+      description:
+        description: A long form project description.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:c51e8c8d-d62b-4b79-843b-a3a6810fe709
+        range: string
+      subprogram:
+        description: A subprogram to which a project belongs. See subprogram controlled
+          vocabulary.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:cfd9d928-673a-428a-b5f0-c04e2fdd8ec9
+        range: Subprogram
+        multivalued: true
+  WebResource:
+    from_schema: https:/w3id.org/brain-bican/projects-and-data-collection
+    slots:
+    - type
+    - title
+    - short_title
+    - url
+    slot_usage:
+      type:
+        description: Denotes the type of web resource - whether the resource routes
+          to a download link, an informational resource or an interactive tool.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:a0f60904-2e0e-4864-9921-b6eb340aef74
+        range: WebResourceType
+      title:
+        description: A long form title for a web resource.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:5638df22-4eec-48d6-9e71-c644b8429c5c
+        range: string
+      short_title:
+        description: A short title for a web resource.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:364ff486-8038-4e10-90a0-dda63b804eb7
+        range: string
+      url:
+        description: Path to a resource.
+        in_subset:
+        - projects_and_data_collections
+        - bican
+        slot_uri: bican:7bc3c2c7-a15c-4f47-bb6e-4423953c0ad2
+        range: string

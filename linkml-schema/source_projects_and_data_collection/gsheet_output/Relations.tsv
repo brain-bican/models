@@ -1,0 +1,15 @@
+Subject (Class Name)	Predicate (Slot Name)	Object (Data Type)	Mulltivalued	Definition	Subsets	Proposed BICAN Field Name	BICAN UUID	Nullable	Permissible Values	Data Example	Min Value	Max Value	Unit	Statistical Variable Type 	Version Number	Version Date
+> class	slot	range	multivalued	description	in_subset	ignore	slot_uri: {curie_prefix: bican}	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore
+>		internal_separator: "|"			internal_separator: "|"											
+DataCollection	data_archive	Organization	TRUE	The location (archive) at which the data in a data collection is to be deposited. 	projects_and_data_collections|bican	data collection archive	39498a35-3cb5-46ce-9e23-dc5e499b85c4	FALSE							1	10/9/24
+DataCollection	web_resource	WebResource	TRUE	A URL or weblink that provides the location of relevant tools or pages to a data collection. Commonly used to link to landing page that allows for downloading data contained in collection.	projects_and_data_collections|bican	data collection web resource	ebdc27a1-37ca-46ec-8914-6d3fae85a3d9	TRUE							1	10/9/24
+DataCollection	license	License	FALSE	A license that is applied to the data in a data collection. 	projects_and_data_collections|bican	data collection license	b184e037-1b45-4ca6-8651-7044b1a74199	FALSE							1	10/9/24
+Grant	funding_agency	Organization	FALSE	Organization that is funding the grant	projects_and_data_collections|bican	grant funding agency		FALSE		National Institute of Mental Health					1	10/9/24
+Grant	awardee	Organization	FALSE	Organization that is receiving funding from the grant	projects_and_data_collections|bican	grant awardee		FALSE		Allen Institute for Brain Science					1	10/9/24
+License	information_web_resource	WebResource	FALSE	A URL or weblink that contains the text for a license.	projects_and_data_collections|bican	license information web resource	387b892c-884d-4fbd-a0d2-eeeb3fed5881	FALSE		https://creativecommons.org/licenses/by/4.0/					1	10/9/24
+Project	contributor	Person	TRUE	A contributor to a project. This is often given as a list.	projects_and_data_collections|bican	project contributor	8a1a747c-c24d-451a-9168-ed14d274a97c	FALSE							1	10/9/24
+Project	funding_source	Grant	TRUE	The funding source for a project.	projects_and_data_collections|bican	project funding source	3f85bc4b-2e03-426e-b376-4607fc9515e3	FALSE							1	10/9/24
+Project	highlighted_web_resource	WebResource	TRUE	A link to relevant tools/pages of a project.	projects_and_data_collections|bican	project highlighted web resource	2bb2472b-73b7-426b-adb2-739924a0751b	TRUE							1	10/9/24
+Project	protocol	WebResource	TRUE	A protocol for a project. 	projects_and_data_collections|bican	project protocol	3e80809a-de1a-4333-98a9-f19549fda246	TRUE							1	10/9/24
+Project	publication	WebResource	FALSE	A publication associated with a project.	projects_and_data_collections|bican	project publication	52d1b518-37e0-4b69-b1d8-36d1ff437376	TRUE							1	10/9/24
+Project	collections	DataCollection	TRUE	The data collections that are part of a project.	projects_and_data_collections|bican	project collections	66093eb6-fdaf-4782-8dba-23f6575254d8	TRUE	[Data Collection CV]						1	10/9/24
