@@ -5258,18 +5258,17 @@ class GeneAnnotation(Gene):
     """
     An annotation describing the location, boundaries, and functions of  individual genes within a genome annotation.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/genome-annotation-schema',
-         'id_prefixes': ['ENSEMBL', 'MGI', 'NCBIGene']})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/genome-annotation-schema'})
 
     molecular_type: Optional[Union[BioType, str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'molecular_type',
          'any_of': [{'range': 'BioType'}, {'range': 'string'}],
-         'domain_of': ['gene annotation']} })
+         'domain_of': ['GeneAnnotation']} })
     source_id: Optional[str] = Field(default=None, description="""The authority specific identifier.""", json_schema_extra = { "linkml_meta": {'alias': 'source_id',
-         'domain_of': ['gene annotation'],
+         'domain_of': ['GeneAnnotation'],
          'slot_uri': 'schema:identifier'} })
     referenced_in: Union[GenomeAnnotation, str] = Field(default=..., description="""The genome annotation that this gene annotation was referenced from.""", json_schema_extra = { "linkml_meta": {'alias': 'referenced_in',
-         'any_of': [{'range': 'genome annotation'}, {'range': 'string'}],
-         'domain_of': ['gene annotation']} })
+         'any_of': [{'range': 'GenomeAnnotation'}, {'range': 'string'}],
+         'domain_of': ['GeneAnnotation']} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -5647,19 +5646,19 @@ class GenomeAnnotation(Genome):
          'broad_mappings': ['pav:version', 'owl:versionInfo'],
          'definition_uri': 'https://w3id.org/biolink/vocab/version',
          'domain': 'dataset',
-         'domain_of': ['genome annotation', 'genome assembly'],
+         'domain_of': ['GenomeAnnotation', 'GenomeAssembly'],
          'is_a': 'node property',
          'slot_uri': 'biolink:version'} })
     digest: Optional[List[Union[Checksum, str]]] = Field(default=None, description="""Stores checksum information.""", json_schema_extra = { "linkml_meta": {'alias': 'digest',
          'any_of': [{'range': 'checksum'}, {'range': 'string'}],
-         'domain_of': ['genome annotation']} })
+         'domain_of': ['GenomeAnnotation']} })
     content_url: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'content_url',
-         'domain_of': ['genome annotation'],
+         'domain_of': ['GenomeAnnotation'],
          'slot_uri': 'schema:url'} })
-    authority: Optional[AuthorityType] = Field(default=None, description="""The organization responsible for publishing the data.""", json_schema_extra = { "linkml_meta": {'alias': 'authority', 'domain_of': ['genome annotation']} })
+    authority: Optional[AuthorityType] = Field(default=None, description="""The organization responsible for publishing the data.""", json_schema_extra = { "linkml_meta": {'alias': 'authority', 'domain_of': ['GenomeAnnotation']} })
     reference_assembly: Union[GenomeAssembly, str] = Field(default=..., description="""The reference genome assembly that this genome annotation was created from.""", json_schema_extra = { "linkml_meta": {'alias': 'reference_assembly',
-         'any_of': [{'range': 'genome assembly'}, {'range': 'string'}],
-         'domain_of': ['genome annotation']} })
+         'any_of': [{'range': 'GenomeAssembly'}, {'range': 'string'}],
+         'domain_of': ['GenomeAnnotation']} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -6031,10 +6030,10 @@ class GenomeAssembly(ThingWithTaxon, NamedThing):
          'broad_mappings': ['pav:version', 'owl:versionInfo'],
          'definition_uri': 'https://w3id.org/biolink/vocab/version',
          'domain': 'dataset',
-         'domain_of': ['genome annotation', 'genome assembly'],
+         'domain_of': ['GenomeAnnotation', 'GenomeAssembly'],
          'is_a': 'node property',
          'slot_uri': 'biolink:version'} })
-    strain: Optional[str] = Field(default=None, description="""The genetic variant or subtype of a species or organism.""", json_schema_extra = { "linkml_meta": {'alias': 'strain', 'domain_of': ['genome assembly']} })
+    strain: Optional[str] = Field(default=None, description="""The genetic variant or subtype of a species or organism.""", json_schema_extra = { "linkml_meta": {'alias': 'strain', 'domain_of': ['GenomeAssembly']} })
     in_taxon: Optional[List[str]] = Field(default=None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""", json_schema_extra = { "linkml_meta": {'alias': 'in_taxon',
          'aliases': ['instance of',
                      'is organism source of gene product',
@@ -6393,9 +6392,9 @@ class AnnotationCollection(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/genome-annotation-schema',
          'tree_root': True})
 
-    annotations: Optional[List[GeneAnnotation]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'annotations', 'domain_of': ['annotation collection']} })
-    genome_annotations: Optional[List[GenomeAnnotation]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'genome_annotations', 'domain_of': ['annotation collection']} })
-    genome_assemblies: Optional[List[GenomeAssembly]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'genome_assemblies', 'domain_of': ['annotation collection']} })
+    annotations: Optional[List[GeneAnnotation]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'annotations', 'domain_of': ['AnnotationCollection']} })
+    genome_annotations: Optional[List[GenomeAnnotation]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'genome_annotations', 'domain_of': ['AnnotationCollection']} })
+    genome_assemblies: Optional[List[GenomeAssembly]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'genome_assemblies', 'domain_of': ['AnnotationCollection']} })
 
 
 # Model rebuild

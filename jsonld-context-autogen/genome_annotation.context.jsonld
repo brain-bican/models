@@ -214,9 +214,7 @@
          },
          "@id": "authority"
       },
-      "category": {
-         "@id": "biolink:category"
-      },
+      "category": "@type",
       "checksum_algorithm": {
          "@context": {
             "text": "skos:notation",
@@ -384,11 +382,11 @@
       "Gene": {
          "@id": "biolink:Gene"
       },
-      "GeneAnnotation": {
-         "@id": "GeneAnnotation"
-      },
       "GeneOrGeneProduct": {
          "@id": "biolink:GeneOrGeneProduct"
+      },
+      "GeneAnnotation": {
+         "@id": "GeneAnnotation"
       },
       "Genome": {
          "@id": "biolink:Genome"
@@ -449,4 +447,3 @@
       }
    }
 }
-
