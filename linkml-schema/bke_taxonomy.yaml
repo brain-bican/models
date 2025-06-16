@@ -1,0 +1,643 @@
+name: BKETaxonomy
+description: The BKE Taxonomy Schema represents the structure of classifications of
+  cell types and their hierarchical relationships in the mammalian brain.
+id: https:/w3id.org/brain-bican/bke-taxonomy
+imports:
+- bican_biolink
+- bican_prov
+- genome_annotation
+- linkml:types
+prefixes:
+  bican: https://identifiers.org/brain-bican/vocab/
+  linkml: https://w3id.org/linkml/
+default_prefix: bican
+default_range: string
+slots:
+  denotes_gene_annotation:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  denotes_parcellation_term:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  part_of_taxonomy:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  contains_taxon:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  has_parent:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  has_abbreviation:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  contains_cluster:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  is_revision_of:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  part_of_set:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  contains_observation:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  contains_sample:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  is_palette_for:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  part_of_palette:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  is_color_for_taxon:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  is_color_for_set:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  represented_by:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  has_variable:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  part_of_matrix:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  represented_in:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  term:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  meaning:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  entity_type:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  accession_id:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  cell_type_set_type:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  order:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  number_of_cells:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  created_at:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  number_of_observations:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  color_hex_triplet:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  label:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+classes:
+  CellTypeTaxonomyCreationProcess:
+    description: The process of organizing cells or clusters into a systematic classification
+      of cell types and their heirarchical relationships and groupings.
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: procedure
+    mixins:
+    - ProvActivity
+    slots:
+    - used
+    slot_usage:
+      used:
+        description: One of potentially many input cluster sets from which the cell
+          type taxonomy is derived.
+        range: ClusterSet
+        multivalued: true
+  CellTypeTaxonomy:
+    description: A cell type taxonomy is a systematic classification of cell types
+      and their heirarchical relationships and groupings. A taxonomy may include concepts
+      such as heirarchical taxonomic levels or (potentially overlapping) neighborhoods.
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - was_generated_by
+    - was_derived_from
+    - is_revision_of
+    - id
+    - created_at
+    - accession_id
+    - name
+    - description
+    - xref
+    slot_usage:
+      was_generated_by:
+        description: The analysis process from which the cell types taxonomy was generated
+          by.
+        range: CellTypeTaxonomyCreationProcess
+      was_derived_from:
+        description: One of potentially many input clusters set from which the cell
+          type taxonomy is derived.
+        range: ClusterSet
+        multivalued: true
+      is_revision_of:
+        description: The previous version for which this cell type taxonomy is a revision
+          of.
+        range: CellTypeTaxonomy
+      id:
+        description: ( database GUID)
+        range: string
+      created_at:
+        description: The creation date of the cell type taxonomy.
+        range: datetime
+      accession_id:
+        description: A provider assigned accession identifier for the taxonomy.
+        examples:
+        - value: CCN20230722
+        range: string
+      name:
+        description: Name of the cell type taxonomy.
+        examples:
+        - value: AIT21.0
+        range: string
+      description:
+        description: Description of the cell type taxonomy.
+        range: string
+      xref:
+        local_names:
+          local_name_value: unique_id
+          local_name_source: allen
+  CellTypeSet:
+    description: A grouping of cell type taxons. The grouping may represent a specific
+      taxonomic level (rank) or cell type neighborhood.
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - part_of_taxonomy
+    - contains_taxon
+    - has_parent
+    - has_abbreviation
+    - id
+    - accession_id
+    - name
+    - description
+    - cell_type_set_type
+    - order
+    - xref
+    slot_usage:
+      part_of_taxonomy:
+        description: The cell types taxonomy for which the cell type set is part of.
+        range: CellTypeTaxonomy
+      contains_taxon:
+        description: One of potentially many cell types taxons which together defines
+          the cell type set.
+        range: CellTypeTaxon
+        multivalued: true
+      has_parent:
+        description: When the cell type set represents a taxonomic level, the parent
+          is the next higher level in the heirarchy.
+        range: CellTypeSet
+      has_abbreviation:
+        description: One of many abbreviation that are part of the cell type set name.
+        range: Abbreviation
+        multivalued: true
+      id:
+        description: ( database GUID)
+        range: string
+      accession_id:
+        description: A provider assigned accession identifier for the cell type set.
+        examples:
+        - value: CCN20230722_CLAS
+        range: string
+      name:
+        description: Name of the cell type set taxonomy.
+        examples:
+        - value: class
+        range: string
+      description:
+        description: Description of the cell type set.
+        examples:
+        - value: The top level of cell type definition in the mouse whole brain taxonomy.
+            It is primarily determined by broad brain region and neurotransmitter
+            type. All cells within a subclass belong to the same class. Class provides
+            a broader categorization of cell types.
+        range: string
+      cell_type_set_type:
+        local_names:
+          local_name_value: type
+          local_name_source: allen
+        description: A tag denoting the type or purpose of the cell type set.
+        examples:
+        - value: taxonomic_level
+        range: string
+      order:
+        local_names:
+          local_name_value: order_idx
+          local_name_source: allen
+        description: The priority or display order of the cell type set among all
+          other sets of the same type.
+        examples:
+        - value: '1'
+        range: integer
+        minimum_value: '0.0'
+      xref:
+        local_names:
+          local_name_value: unique_id
+          local_name_source: allen
+  CellTypeTaxon:
+    description: A cell type taxon is a node in a taxonomy. Taxons represents a unit
+      of cell type classification and is defined by a set of clusters. Taxons may
+      be organized into a heirarchy and levels. Taxons at higher levels represents
+      broader cell type classes and partitioned into more specific types at lower
+      levels. Additionally, taxons may be organized into neighborhoods or related
+      groups.
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - part_of_taxonomy
+    - contains_cluster
+    - has_parent
+    - has_abbreviation
+    - id
+    - accession_id
+    - name
+    - order
+    - description
+    - number_of_cells
+    - xref
+    slot_usage:
+      part_of_taxonomy:
+        description: The cell types taxonomy for which the cell type taxon is part
+          of.
+        range: CellTypeTaxonomy
+      contains_cluster:
+        description: One of potentially cell clusters which together defines the cell
+          type taxon.
+        range: Cluster
+        multivalued: true
+      has_parent:
+        description: When the taxonomy is a single inheritance tree, the parent represents
+          the superclass for which the cell type taxon is a member of.
+        range: CellTypeTaxon
+      has_abbreviation:
+        description: One of many abbreviation that are part of the cell type taxon
+          name.
+        range: Abbreviation
+        multivalued: true
+      id:
+        description: ( database GUID)
+        range: string
+      accession_id:
+        description: A provider assigned accession identifier for the cell type taxon.
+        examples:
+        - value: CS20230722_CLAS_11
+        range: string
+      name:
+        description: Name of the cell type taxon.
+        examples:
+        - value: 11 CNU-HYa GABA
+        range: string
+      order:
+        local_names:
+          local_name_value: order_idx
+          local_name_source: allen
+        description: The priority or display order of the cell type taxon among all
+          other taxons in the taxonomy.
+        examples:
+        - value: '11'
+        range: integer
+        minimum_value: '0.0'
+      description:
+        description: Description of the cell type taxon (optional).
+        range: string
+      number_of_cells:
+        description: The aggregated number of cells that defines the cell type taxon.
+        range: integer
+        minimum_value: '0.0'
+      xref:
+        local_names:
+          local_name_value: unique_id
+          local_name_source: allen
+  ClusteringProcess:
+    description: The process of organizing and classifying observations into groups
+      or clusters based on similarities or patterns.
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: procedure
+    mixins:
+    - ProvActivity
+    slots:
+    - used
+    slot_usage:
+      used:
+        description: One of potentially many input observation matrices from which
+          clusters are derived.
+        range: ObservationMatrix
+        multivalued: true
+  ClusterSet:
+    description: The output of a clustering process where input observations are organized
+      or classified into a set of clusters based on similarities or patterns.
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - was_generated_by
+    - was_derived_from
+    - is_revision_of
+    - id
+    - created_at
+    - accession_id
+    - name
+    - description
+    - xref
+    slot_usage:
+      was_generated_by:
+        description: The analysis process from which clusters was generated by.
+        range: ClusteringProcess
+      was_derived_from:
+        description: One of potentially many input observation matrices from which
+          clusters are derived.
+        range: ObservationMatrix
+        multivalued: true
+      is_revision_of:
+        description: The previous version for which this clustering output is a revision
+          of.
+        range: ClusterSet
+      id:
+        description: ( database GUID)
+        range: string
+      created_at:
+        description: The creation date of the cluster set.
+        range: datetime
+      accession_id:
+        description: A provider assigned accession identifier for the cluster set.
+        range: string
+      name:
+        description: Name of the cluster set.
+        range: string
+      description:
+        description: Description of the cluster set.
+        range: string
+      xref:
+        local_names:
+          local_name_value: unique_id
+          local_name_source: allen
+  Cluster:
+    description: One specific cluster from the set of clusters determined by a clustering
+      process. A cluster is defined by set of observations which has been grouped
+      together based on similarities or patterns.
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - part_of_set
+    - contains_observation
+    - contains_sample
+    - id
+    - accession_id
+    - name
+    - number_of_observations
+    - xref
+    slot_usage:
+      part_of_set:
+        description: The cluster set from which the cluster is part of.
+        range: ClusterSet
+      contains_observation:
+        description: One of potentially many input observations which together define
+          the cluster.
+        range: ObservationRow
+        multivalued: true
+      contains_sample:
+        description: One of potentially many sample which together define the cluster.
+        range: CellSpecimen
+        multivalued: true
+      id:
+        description: ( database GUID)
+        range: string
+      accession_id:
+        description: A provider assigned accession identifier for the cluster which
+          is unique amongs all clusters in cluster set.
+        examples:
+        - value: CS20230722_1019
+        range: string
+      name:
+        description: Name of the cluster.
+        examples:
+        - value: '1019'
+        range: string
+      number_of_observations:
+        description: The number of observations in the cluster.
+        examples:
+        - value: '448'
+        range: integer
+        minimum_value: '0.0'
+      xref:
+        local_names:
+          local_name_value: unique_id
+          local_name_source: allen
+  ObservationMatrixCreationProcess:
+    description: The process of aggregating data to create an observation matrix (potentially
+      virtual) for the purpose of dissemination or performing an analysis (such as
+      clustering).
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: procedure
+    mixins:
+    - ProvActivity
+  ObservationMatrix:
+    description: A matrix (potentially virtual) of observations. Each row represents
+      a specific observation or measurements on specific sample (such as a cell) over
+      a set of variables or features. Each column represents the set of measurements
+      (such as gene expression) of a specific variable (such as gene) over all samples.
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - was_generated_by
+    - represented_by
+    - has_variable
+    - was_derived_from
+    - content_url
+    slot_usage:
+      was_generated_by:
+        description: The aggregation process from which a observation matrix was generated
+          by.
+        range: ObservationMatrixCreationProcess
+      represented_by:
+        description: One of potentially matrix files which together represents the
+          entire observation matrix.
+        range: MatrixFile
+        multivalued: true
+      has_variable:
+        description: One of set of genes which together forms the variable set of
+          an observation matrix.
+        range: gene annotation
+        multivalued: true
+      was_derived_from:
+        description: One of many cell specimens from which observations in the matrix
+          was derived from.
+        range: CellSpecimen
+        multivalued: true
+      content_url:
+        local_names:
+          local_name_value: url
+          local_name_source: allen
+  ObservationRow:
+    description: One specific row of the observation matrix representing a set of
+      measurements preformed on a sample over a set of variables or features.
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - part_of_matrix
+    - represented_in
+    - was_derived_from
+    - label
+    slot_usage:
+      part_of_matrix:
+        description: The observation matrix for which is observation row is part of.
+        range: ObservationMatrix
+      represented_in:
+        description: The specific file where this observation row is represented.
+        range: MatrixFile
+      was_derived_from:
+        description: The cell specimen from which the observation was derived from.
+        range: CellSpecimen
+      label: {}
+  CellSpecimen:
+    description: ( defined as in BERS)
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+  ParcellationTerm:
+    description: ( defined in AnSRS )
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+  Abbreviation:
+    description: Maps an abbreviation string to its decoded meaning. Optionally the
+      abbreviation can be link to one or more entities it denotes.
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - denotes_gene_annotation
+    - denotes_parcellation_term
+    - id
+    - term
+    - meaning
+    - entity_type
+    - xref
+    slot_usage:
+      denotes_gene_annotation:
+        local_names:
+          local_name_value: denotes
+          local_name_source: allen
+        description: One of potentially many gene annotation terms to which the abbreviation
+          denotes.
+        range: gene annotation
+        multivalued: true
+      denotes_parcellation_term:
+        local_names:
+          local_name_value: denotes
+          local_name_source: allen
+        description: One of potentially many parcellation terms (anatomical structures)
+          which the abbreviation denotes.
+        range: ParcellationTerm
+        multivalued: true
+      id:
+        description: ( database GUID)
+        range: string
+      term:
+        description: An abbreviation term.
+        examples:
+        - value: IT
+        range: string
+      meaning:
+        description: The meaning of an abbreviation term.
+        examples:
+        - value: intratelencephalic-projecting glutamatergic cortical neuron
+        range: string
+      entity_type:
+        description: The entity type which the abbreviation term denotes.
+        examples:
+        - value: cell type
+        range: string
+      xref:
+        local_names:
+          local_name_value: unique_id
+          local_name_source: allen
+  MatrixFile:
+    description: A digital file containing the representation of full or partial data
+      matrix.
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - content_url
+    slot_usage:
+      content_url:
+        local_names:
+          local_name_value: url
+          local_name_source: allen
+  ColorPalette:
+    description: A schematic set of display colors that can be applied to individual
+      components of the associated entity set (for example, a taxonomy).
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - is_palette_for
+    - id
+    - name
+    - description
+    - xref
+    slot_usage:
+      is_palette_for:
+        description: The cell types taxonomy for which the palette provides display
+          color properties for.
+        range: CellTypeTaxonomy
+      id:
+        description: ( database GUID)
+        range: string
+      name:
+        description: Name of the color palette.
+        range: string
+      description:
+        description: Description of the color palette.
+        range: string
+      xref:
+        local_names:
+          local_name_value: unique_id
+          local_name_source: allen
+  DisplayColor:
+    description: One element of a color palette representing the association between
+      a color and entity,
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - part_of_palette
+    - is_color_for_taxon
+    - is_color_for_set
+    - id
+    - color_hex_triplet
+    - xref
+    slot_usage:
+      part_of_palette:
+        description: The color palette for which the display color map is part of.
+        range: ColorPalette
+      is_color_for_taxon:
+        local_names:
+          local_name_value: is_color_for
+          local_name_source: allen
+        description: The associated cell type taxon for the specified display color.
+        range: CellTypeTaxon
+      is_color_for_set:
+        local_names:
+          local_name_value: is_color_for
+          local_name_source: allen
+        description: The associated cell type set of the specified display color.
+        range: CellTypeSet
+      id:
+        description: ( database GUID)
+        range: string
+      color_hex_triplet:
+        description: A hex string representing the display color for an associated
+          entity.
+        examples:
+        - value: '#450099'
+        range: string
+      xref:
+        local_names:
+          local_name_value: unique_id
+          local_name_source: allen
