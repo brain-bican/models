@@ -18,7 +18,7 @@ classifiers = [
 ]
 license = {text = "Apache 2.0"}
 dependencies = [
-    "linkml==1.8.1",
+    "linkml==1.8.6",
 ]
 
 [project.optional-dependencies]

@@ -1,0 +1,4 @@
+Schema	uri	Description	Schema Prefix	Imports	Title
+> schema	id	description	default_prefix	imports	title
+>				internal_separator: "|"	
+BKETaxonomy	https:/w3id.org/brain-bican/bke-taxonomy	The BKE Taxonomy Schema represents the structure of classifications of cell types and their hierarchical relationships in the mammalian brain.	bican	bican_biolink|bican_prov|genome_annotation	

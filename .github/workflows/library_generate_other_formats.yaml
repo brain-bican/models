@@ -9,6 +9,8 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
+
 
 jobs:
   generate_from_reusable:
