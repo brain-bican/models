@@ -65,8 +65,8 @@ class LinkMLMeta(RootModel):
 
 linkml_meta = LinkMLMeta({'default_prefix': 'bican',
      'default_range': 'string',
-     'description': 'The Genome Annotation schema is designed to represent types '
-                    "and relationships of an organism's annotated genome.",
+     'description': 'The Genome Annotation Schema is designed to respresent all '
+                    'the genes from a given genome annotation.',
      'id': 'https://identifiers.org/brain-bican/genome-annotation-schema',
      'imports': ['linkml:types', 'bican_biolink', 'bican_core'],
      'name': 'genome-annotation-schema',
@@ -5256,7 +5256,7 @@ class Checksum(Entity):
 
 class GeneAnnotation(Gene):
     """
-    An annotation describing the location, boundaries, and functions of  individual genes within a genome annotation.
+    Represents a single gene. Includes metadata about the gene, such as its molecular type and the genome annotation it was referenced from.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/genome-annotation-schema'})
 
@@ -5266,7 +5266,7 @@ class GeneAnnotation(Gene):
     source_id: Optional[str] = Field(default=None, description="""The authority specific identifier.""", json_schema_extra = { "linkml_meta": {'alias': 'source_id',
          'domain_of': ['GeneAnnotation'],
          'slot_uri': 'schema:identifier'} })
-    referenced_in: Union[GenomeAnnotation, str] = Field(default=..., description="""The genome annotation that this gene annotation was referenced from.""", json_schema_extra = { "linkml_meta": {'alias': 'referenced_in',
+    referenced_in: Union[GenomeAnnotation, str] = Field(default=..., description="""The genome annotation that this gene was referenced from.""", json_schema_extra = { "linkml_meta": {'alias': 'referenced_in',
          'any_of': [{'range': 'GenomeAnnotation'}, {'range': 'string'}],
          'domain_of': ['GeneAnnotation']} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
@@ -5638,7 +5638,7 @@ class GeneAnnotation(Gene):
 
 class GenomeAnnotation(Genome):
     """
-    Location and nomenclature of genes and all of the coding regions in a genome assembly  and the classification of genes and transcripts into types.
+    Represents a genome annotation. Includes metadata about the genome, such as its version and reference assembly.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/genome-annotation-schema'})
 
@@ -6021,7 +6021,7 @@ class GenomeAnnotation(Genome):
 
 class GenomeAssembly(ThingWithTaxon, NamedThing):
     """
-    Genome assembly to contain version and label information
+    Represents a genome assembly. A genome assembly is a computational representation of a genome sequence.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/genome-annotation-schema',
          'mixins': ['thing with taxon']})
