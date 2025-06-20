@@ -1,4 +1,4 @@
-name: push pydantic models to brain-bican/bkbit
+name: push pydantic models and jsonld-context files to brain-bican/bkbit
 
 on:
   workflow_dispatch:
@@ -30,25 +30,49 @@ jobs:
             echo "Incorrect model name"
             exit 1
           fi
-      - name: Compare pydantic files
-        id: compare
+          
+      - name: Check if the jsonld-context file exists
         run: |
-          if [ ! -f models_py-autogen/${{ inputs.model }}.py ]; then
+          if [ ! -f jsonld-context-autogen/${{ inputs.model }}.context.jsonld ]; then
+            echo "jsonld-context file does not exist"
+            exit 1
+          fi
+      - name: Compare pydantic files
+        id: compare_pydantic
+        run: |
+          if [ ! -f bkbit/bkbit/models/${{ inputs.model }}.py ]; then
             echo "This is new model for bkbit"
             echo "changed=new" >> "$GITHUB_OUTPUT"
-          elif diff models_py-autogen/${{ inputs.model }}.py bkbit/models/${{ inputs.model }}.py > /dev/null; then
+          elif diff models_py-autogen/${{ inputs.model }}.py bkbit/bkbit/models/${{ inputs.model }}.py > /dev/null; then
             echo "No changes in the pydantic model"
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "Changes found in the pydantic model"
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+          
+      - name: Compare jsonld-context files
+        id: compare_jsonld
+        run: |
+          if [ ! -f bkbit/bkbit/models/${{ inputs.model }}.context.jsonld ]; then
+            echo "This is new jsonld-context file for bkbit"
+            echo "changed=new" >> "$GITHUB_OUTPUT"
+          elif diff jsonld-context-autogen/${{ inputs.model }}.context.jsonld bkbit/bkbit/models/${{ inputs.model }}.context.jsonld > /dev/null; then
+            echo "No changes in the jsonld-context file"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Changes found in the jsonld-context file"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
 
-      - name: Copy the pydantic model to bkbit and commit the changes
-        if: ${{ steps.compare.outputs.changed  == 'true' || steps.compare.outputs.changed == 'new' }}
+      - name: Copy the pydantic model and jsonld-context file to bkbit and commit the changes
+        if: ${{ steps.compare_pydantic.outputs.changed  == 'true' || steps.compare_pydantic.outputs.changed == 'new' || steps.compare_jsonld.outputs.changed  == 'true' || steps.compare_jsonld.outputs.changed == 'new' }}
         run: |
           echo "Copying the pydantic model ${{ inputs.model }} to bkbit"
           cp models_py-autogen/${{ inputs.model }}.py bkbit/bkbit/models/
+          
+          echo "Copying the jsonld-context file ${{ inputs.model }}.context.jsonld to bkbit"
+          cp jsonld-context-autogen/${{ inputs.model }}.context.jsonld bkbit/bkbit/models/
 
           # Generate a unique branch name
           TIMESTAMP=$(date +%Y%m%d%H%M%S)
@@ -61,15 +85,20 @@ jobs:
           git checkout -b $BRANCH_NAME
           git branch
           git add bkbit/models/*
-          if [ ${{ steps.compare.outputs.changed }} == 'new' ]; then
-            git commit -m "The model ${{ inputs.model }}.py has been added to the brain-bican/models repo. The model in pydantic format is being automatically pushed from brain-bican/models to brain-bican/bkbit."
+          # Prepare commit message based on what changed
+          if [ "${{ steps.compare_pydantic.outputs.changed }}" == "new" ] && [ "${{ steps.compare_jsonld.outputs.changed }}" == "new" ]; then
+            git commit -m "The model ${{ inputs.model }} has been added to the brain-bican/models repo. The model in pydantic format and jsonld-context file are being automatically pushed from brain-bican/models to brain-bican/bkbit."
+          elif [ "${{ steps.compare_pydantic.outputs.changed }}" == "new" ]; then
+            git commit -m "The model ${{ inputs.model }} has been added to the brain-bican/models repo. The model in pydantic format is being automatically pushed from brain-bican/models to brain-bican/bkbit."
+          elif [ "${{ steps.compare_jsonld.outputs.changed }}" == "new" ]; then
+            git commit -m "The jsonld-context file for model ${{ inputs.model }} has been added to the brain-bican/models repo. The jsonld-context file is being automatically pushed from brain-bican/models to brain-bican/bkbit."
           else
-            git commit -m "The model ${{ inputs.model }}.py has been modified in the brain-bican/models repo. New version of the model in pydantic format is being automatically pushed from brain-bican/models to brain-bican/bkbit."
+            git commit -m "The model ${{ inputs.model }} has been modified in the brain-bican/models repo. Updated files are being automatically pushed from brain-bican/models to brain-bican/bkbit."
           fi
           cd ..
 
       - name: Push changes to bkbit
-        if: ${{ steps.compare.outputs.changed  == 'true' || steps.compare.outputs.changed == 'new' }}
+        if: ${{ steps.compare_pydantic.outputs.changed  == 'true' || steps.compare_pydantic.outputs.changed == 'new' || steps.compare_jsonld.outputs.changed  == 'true' || steps.compare_jsonld.outputs.changed == 'new' }}
         env:
           TARGET_REPO: brain-bican/bkbit
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
@@ -78,11 +107,27 @@ jobs:
           git push origin ${{ env.branch_name }}
 
       - name: Create pull request to bkbit
-        if: ${{ steps.compare.outputs.changed  == 'true' || steps.compare.outputs.changed == 'new' }}
+        if: ${{ steps.compare_pydantic.outputs.changed  == 'true' || steps.compare_pydantic.outputs.changed == 'new' || steps.compare_jsonld.outputs.changed  == 'true' || steps.compare_jsonld.outputs.changed == 'new' }}
         env:
           TARGET_REPO: brain-bican/bkbit
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
+          # Prepare PR title and body based on what changed
+          PR_TITLE="Automated PR from brain-bican/models: updates for model ${{ inputs.model }}"
+          PR_BODY="This PR includes changes to the model ${{ inputs.model }}:"
+          
+          if [ "${{ steps.compare_pydantic.outputs.changed }}" == "new" ]; then
+            PR_BODY="$PR_BODY\n- Added new pydantic model"
+          elif [ "${{ steps.compare_pydantic.outputs.changed }}" == "true" ]; then
+            PR_BODY="$PR_BODY\n- Updated pydantic model"
+          fi
+          
+          if [ "${{ steps.compare_jsonld.outputs.changed }}" == "new" ]; then
+            PR_BODY="$PR_BODY\n- Added new jsonld-context file"
+          elif [ "${{ steps.compare_jsonld.outputs.changed }}" == "true" ]; then
+            PR_BODY="$PR_BODY\n- Updated jsonld-context file"
+          fi
+          
           curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
-          -d "{\"title\":\"Automated PR from brain-bican/models: adding new version of pydantic model\", \"body\":\"This PR include changes to the models:${{ inputs.model }}\", \"head\":\"${{ env.branch_name }}\", \"base\":\"main\"}" \
+          -d "{\"title\":\"$PR_TITLE\", \"body\":\"$PR_BODY\", \"head\":\"${{ env.branch_name }}\", \"base\":\"main\"}" \
           https://api.github.com/repos/$TARGET_REPO/pulls
