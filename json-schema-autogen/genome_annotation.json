@@ -683,7 +683,7 @@
         },
         "GeneAnnotation": {
             "additionalProperties": false,
-            "description": "An annotation describing the location, boundaries, and functions of  individual genes within a genome annotation.",
+            "description": "Represents a single gene. Includes metadata about the gene, such as its molecular type and the genome annotation it was referenced from.",
             "properties": {
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
@@ -805,7 +805,7 @@
                             "type": "string"
                         }
                     ],
-                    "description": "The genome annotation that this gene annotation was referenced from.",
+                    "description": "The genome annotation that this gene was referenced from.",
                     "type": "string"
                 },
                 "source_id": {
@@ -998,7 +998,7 @@
         },
         "GenomeAnnotation": {
             "additionalProperties": false,
-            "description": "Location and nomenclature of genes and all of the coding regions in a genome assembly  and the classification of genes and transcripts into types.",
+            "description": "Represents a genome annotation. Includes metadata about the genome, such as its version and reference assembly.",
             "properties": {
                 "authority": {
                     "$ref": "#/$defs/AuthorityType",
@@ -1185,7 +1185,7 @@
         },
         "GenomeAssembly": {
             "additionalProperties": false,
-            "description": "Genome assembly to contain version and label information",
+            "description": "Represents a genome assembly. A genome assembly is a computational representation of a genome sequence.",
             "properties": {
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
