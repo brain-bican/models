@@ -440,6 +440,7 @@ classes:
     - has_variable
     - was_derived_from
     - content_url
+    - xref
     slot_usage:
       was_generated_by:
         description: The aggregation process from which a observation matrix was generated
@@ -453,7 +454,7 @@ classes:
       has_variable:
         description: One of set of genes which together forms the variable set of
           an observation matrix.
-        range: gene annotation
+        range: GeneAnnotation
         multivalued: true
       was_derived_from:
         description: One of many cell specimens from which observations in the matrix
@@ -463,6 +464,10 @@ classes:
       content_url:
         local_names:
           local_name_value: url
+          local_name_source: allen
+      xref:
+        local_names:
+          local_name_value: unique_id
           local_name_source: allen
   ObservationRow:
     description: One specific row of the observation matrix representing a set of
@@ -476,6 +481,7 @@ classes:
     - represented_in
     - was_derived_from
     - label
+    - xref
     slot_usage:
       part_of_matrix:
         description: The observation matrix for which is observation row is part of.
@@ -487,6 +493,10 @@ classes:
         description: The cell specimen from which the observation was derived from.
         range: CellSpecimen
       label: {}
+      xref:
+        local_names:
+          local_name_value: unique_id
+          local_name_source: allen
   CellSpecimen:
     description: ( defined as in BERS)
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
@@ -521,7 +531,7 @@ classes:
           local_name_source: allen
         description: One of potentially many gene annotation terms to which the abbreviation
           denotes.
-        range: gene annotation
+        range: GeneAnnotation
         multivalued: true
       denotes_parcellation_term:
         local_names:
@@ -562,10 +572,15 @@ classes:
     - ProvEntity
     slots:
     - content_url
+    - xref
     slot_usage:
       content_url:
         local_names:
           local_name_value: url
+          local_name_source: allen
+      xref:
+        local_names:
+          local_name_value: unique_id
           local_name_source: allen
   ColorPalette:
     description: A schematic set of display colors that can be applied to individual

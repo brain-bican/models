@@ -45,5 +45,8 @@ DisplayColor	id		( database GUID)	FALSE		string
 DisplayColor	color_hex_triplet	#450099	A hex string representing the display color for an associated entity.	FALSE		string			
 DisplayColor	xref							unique_id	allen
 MatrixFile	content_url							url	allen
+MatrixFile	xref							unique_id	allen
 ObservationMatrix	content_url							url	allen
+ObservationMatrix	xref							unique_id	allen
 ObservationRow	label								
+ObservationRow	xref							unique_id	allen
