@@ -512,11 +512,11 @@
       "Gene": {
          "@id": "biolink:Gene"
       },
-      "GeneAnnotation": {
-         "@id": "GeneAnnotation"
-      },
       "GeneOrGeneProduct": {
          "@id": "biolink:GeneOrGeneProduct"
+      },
+      "GeneAnnotation": {
+         "@id": "GeneAnnotation"
       },
       "Genome": {
          "@id": "biolink:Genome"

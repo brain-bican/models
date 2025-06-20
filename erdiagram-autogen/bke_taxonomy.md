@@ -35,6 +35,7 @@ ColorPalette {
 }
 MatrixFile {
     stringList content_url  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     curieList category  
@@ -43,7 +44,6 @@ MatrixFile {
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
 }
@@ -91,6 +91,7 @@ CellSpecimen {
 }
 ObservationRow {
     string label  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     curieList category  
@@ -99,12 +100,12 @@ ObservationRow {
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
 }
 ObservationMatrix {
     stringList content_url  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     curieList category  
@@ -113,7 +114,6 @@ ObservationMatrix {
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
 }
