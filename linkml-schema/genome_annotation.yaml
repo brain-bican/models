@@ -2,7 +2,7 @@ id: https://identifiers.org/brain-bican/genome-annotation-schema
 name: genome-annotation-schema
 title: Genome Annotation Schema
 description: |-
-  The Genome Annotation schema is designed to represent types and relationships of an organism's annotated genome.
+  The Genome Annotation Schema is designed to respresent all the genes from a given genome annotation.
   
 prefixes:
   linkml: https://w3id.org/linkml/
@@ -22,14 +22,13 @@ classes:
   GeneAnnotation:
     is_a: gene
     description: >-
-      An annotation describing the location, boundaries, and functions of 
-      individual genes within a genome annotation.
+      Represents a single gene. Includes metadata about the gene, such as its molecular type and the genome annotation it was referenced from.
     slots:
       - molecular_type
       - source_id
     attributes:
       referenced_in: 
-        description: The genome annotation that this gene annotation was referenced from.
+        description: The genome annotation that this gene was referenced from.
         required: true
         inlined: true
         any_of:
@@ -39,8 +38,7 @@ classes:
   GenomeAnnotation:
     is_a: genome
     description: >-
-      Location and nomenclature of genes and all of the coding regions in a genome assembly 
-      and the classification of genes and transcripts into types.
+      Represents a genome annotation. Includes metadata about the genome, such as its version and reference assembly.
     slots:
       - version
       - digest
@@ -60,7 +58,7 @@ classes:
     mixins:
       - thing with taxon
     description: >-
-      Genome assembly to contain version and label information
+      Represents a genome assembly. A genome assembly is a computational representation of a genome sequence.
     slots:
       - version
       - strain
