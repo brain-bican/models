@@ -6,8 +6,8 @@ title: Library Generation Schema
 id: https://identifiers.org/brain-bican/library-generation-schema
 imports:
 - bican_biolink
-- bican_prov
 - bican_core
+- bican_prov
 - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
@@ -2960,8 +2960,7 @@ classes:
       was_derived_from:
         from_schema: bican_prov
         range: LibraryPool
-      digest:
-        from_schema: bican_core
+      digest: {}
       content_url: {}
     attributes:
       data_type:

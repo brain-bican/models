@@ -1,4 +1,4 @@
 schema	uri	description	schema prefix	imports	title
 > schema	id	description	default_prefix	imports	title
 >				internal_separator: "|"	
-library-generation-schema	https://identifiers.org/brain-bican/library-generation-schema	The Library Generation schema is designed to represent types and relationships of samples and digital data assets generated during processes that generate multimodal genomic data.	bican	bican_biolink|bican_prov|bican_core	Library Generation Schema
+library-generation-schema	https://identifiers.org/brain-bican/library-generation-schema	The Library Generation schema is designed to represent types and relationships of samples and digital data assets generated during processes that generate multimodal genomic data.	bican	bican_biolink|bican_core|bican_prov	Library Generation Schema
