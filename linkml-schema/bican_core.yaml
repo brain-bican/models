@@ -31,6 +31,7 @@ classes:
 slots:
   digest:
     description: Stores checksum information. 
+    slot_uri: bican:digest
     multivalued: true
     inlined_as_list: true
     any_of:

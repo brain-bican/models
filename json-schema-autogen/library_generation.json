@@ -1544,7 +1544,7 @@
                     ]
                 },
                 "data_type": {
-                    "description": "The type of data in the file",
+                    "description": "The type of data in the file.",
                     "type": [
                         "string",
                         "null"
@@ -4962,7 +4962,7 @@
                     ]
                 },
                 "tissue_sample_structure": {
-                    "description": "Strucure of tissue sample.",
+                    "description": "Structure of tissue sample.",
                     "items": {
                         "type": "string"
                     },

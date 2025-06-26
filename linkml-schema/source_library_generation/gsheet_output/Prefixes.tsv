@@ -6,4 +6,3 @@ spdx	http://spdx.org/rdf/terms#
 schema	http://schema.org/
 ncbi	https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi
 NIMP	http://example.org/NIMP/
-bican_prov	https://github.com/brain-bican/models/blob/main/linkml-schema/bican_prov.yaml

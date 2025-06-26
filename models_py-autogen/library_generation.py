@@ -70,14 +70,12 @@ linkml_meta = LinkMLMeta({'default_prefix': 'bican',
                     'generated during processes that generate multimodal genomic '
                     'data.',
      'id': 'https://identifiers.org/brain-bican/library-generation-schema',
-     'imports': ['bican_biolink', 'bican_prov', 'bican_core', 'linkml:types'],
+     'imports': ['bican_biolink', 'bican_core', 'bican_prov', 'linkml:types'],
      'name': 'library-generation-schema',
      'prefixes': {'NIMP': {'prefix_prefix': 'NIMP',
                            'prefix_reference': 'http://example.org/NIMP/'},
                   'bican': {'prefix_prefix': 'bican',
                             'prefix_reference': 'https://identifiers.org/brain-bican/vocab/'},
-                  'bican_prov': {'prefix_prefix': 'bican_prov',
-                                 'prefix_reference': 'https://github.com/brain-bican/models/blob/main/linkml-schema/bican_prov.yaml'},
                   'linkml': {'prefix_prefix': 'linkml',
                              'prefix_reference': 'https://w3id.org/linkml/'},
                   'ncbi': {'prefix_prefix': 'ncbi',
@@ -6368,62 +6366,6 @@ class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
         return v
 
 
-class ProvActivity(ConfiguredBaseModel):
-    """
-    An activity is something that occurs over a period of time and acts upon or with entities;  it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:Activity',
-         'from_schema': 'https://identifiers.org/brain-bican/genome-prov-schema',
-         'mixin': True})
-
-    used: Optional[str] = Field(default=None, description="""Usage is the beginning of utilizing an entity by an activity. Before usage, the activity had not begun to utilize this entity and could not have been affected by the entity.""", json_schema_extra = { "linkml_meta": {'alias': 'used',
-         'domain_of': ['ProvActivity',
-                       'DissectionRoiDelineation',
-                       'TissueDissection',
-                       'CellDissociation',
-                       'CellEnrichment',
-                       'EnrichedCellSampleSplitting',
-                       'CellBarcoding',
-                       'CdnaAmplification',
-                       'LibraryConstruction',
-                       'LibraryPooling'],
-         'slot_uri': 'prov:used'} })
-
-
-class ProvEntity(ConfiguredBaseModel):
-    """
-    An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects;  entities may be real or imaginary.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:Entity',
-         'from_schema': 'https://identifiers.org/brain-bican/genome-prov-schema',
-         'mixin': True})
-
-    was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
-         'domain_of': ['ProvEntity',
-                       'BrainSlab',
-                       'TissueSample',
-                       'DissociatedCellSample',
-                       'EnrichedCellSample',
-                       'BarcodedCellSample',
-                       'AmplifiedCdna',
-                       'Library',
-                       'LibraryAliquot',
-                       'LibraryPool',
-                       'DigitalAsset'],
-         'slot_uri': 'prov:wasDerivedFrom'} })
-    was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
-         'domain_of': ['ProvEntity',
-                       'TissueSample',
-                       'DissociatedCellSample',
-                       'EnrichedCellSample',
-                       'BarcodedCellSample',
-                       'AmplifiedCdna',
-                       'Library',
-                       'LibraryPool',
-                       'DissectionRoiPolygon'],
-         'slot_uri': 'prov:wasGeneratedBy'} })
-
-
 class Checksum(Entity):
     """
     Checksum values associated with digital entities.
@@ -6692,6 +6634,62 @@ class Checksum(Entity):
         return v
 
 
+class ProvActivity(ConfiguredBaseModel):
+    """
+    An activity is something that occurs over a period of time and acts upon or with entities;  it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:Activity',
+         'from_schema': 'https://identifiers.org/brain-bican/bican-prov-schema',
+         'mixin': True})
+
+    used: Optional[str] = Field(default=None, description="""Usage is the beginning of utilizing an entity by an activity. Before usage, the activity had not begun to utilize this entity and could not have been affected by the entity.""", json_schema_extra = { "linkml_meta": {'alias': 'used',
+         'domain_of': ['ProvActivity',
+                       'DissectionRoiDelineation',
+                       'TissueDissection',
+                       'CellDissociation',
+                       'CellEnrichment',
+                       'EnrichedCellSampleSplitting',
+                       'CellBarcoding',
+                       'CdnaAmplification',
+                       'LibraryConstruction',
+                       'LibraryPooling'],
+         'slot_uri': 'prov:used'} })
+
+
+class ProvEntity(ConfiguredBaseModel):
+    """
+    An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects;  entities may be real or imaginary.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:Entity',
+         'from_schema': 'https://identifiers.org/brain-bican/bican-prov-schema',
+         'mixin': True})
+
+    was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
+         'domain_of': ['ProvEntity',
+                       'BrainSlab',
+                       'TissueSample',
+                       'DissociatedCellSample',
+                       'EnrichedCellSample',
+                       'BarcodedCellSample',
+                       'AmplifiedCdna',
+                       'Library',
+                       'LibraryAliquot',
+                       'LibraryPool',
+                       'DigitalAsset'],
+         'slot_uri': 'prov:wasDerivedFrom'} })
+    was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
+         'domain_of': ['ProvEntity',
+                       'TissueSample',
+                       'DissociatedCellSample',
+                       'EnrichedCellSample',
+                       'BarcodedCellSample',
+                       'AmplifiedCdna',
+                       'Library',
+                       'LibraryPool',
+                       'DissectionRoiPolygon'],
+         'slot_uri': 'prov:wasGeneratedBy'} })
+
+
 class Donor(ProvEntity, ThingWithTaxon, PhysicalEntity):
     """
     A person or organism that is the source of a biological sample for scientific study.  Many biological samples are generated from a single donor.
@@ -6704,6 +6702,7 @@ class Donor(ProvEntity, ThingWithTaxon, PhysicalEntity):
                                                 'scientific study.  Many biological '
                                                 'samples are generated from a single '
                                                 'donor.',
+                                 'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'donor_local_id'}},
                                  'name': 'name'}}})
@@ -7151,6 +7150,7 @@ class BrainSlab(ProvEntity, MaterialSample):
                                                 'process, an ordinal is assigned to '
                                                 'provide information about the '
                                                 'relative positioning of the slabs.',
+                                 'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'local_name'}},
                                  'name': 'name'},
@@ -7160,6 +7160,7 @@ class BrainSlab(ProvEntity, MaterialSample):
                                                             'brain slab was derived '
                                                             'from.',
                                              'exact_mappings': ['NIMP:has_parent'],
+                                             'from_schema': 'bican_prov',
                                              'name': 'was_derived_from'}}})
 
     was_derived_from: Optional[str] = Field(default=None, description="""The donor from which the brain slab was derived from.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
@@ -7543,6 +7544,7 @@ class TissueSample(ProvEntity, MaterialSample):
                                                 'used in dissociation and has an ROI '
                                                 'associated with it.',
                                  'exact_mappings': ['NIMP:PD-LJCRCC35'],
+                                 'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'tissue_sample_local_name'}},
                                  'name': 'name',
@@ -7551,11 +7553,13 @@ class TissueSample(ProvEntity, MaterialSample):
                                                             'from which the tissue '
                                                             'sample was derived from.',
                                              'exact_mappings': ['NIMP:has_parent'],
+                                             'from_schema': 'bican_prov',
                                              'name': 'was_derived_from',
                                              'range': 'Donor'},
                         'was_generated_by': {'description': 'The dissection process '
                                                             'from which the tissue '
                                                             'sample was generated by.',
+                                             'from_schema': 'bican_prov',
                                              'name': 'was_generated_by',
                                              'range': 'TissueDissection'}}})
 
@@ -7624,7 +7628,7 @@ class TissueSample(ProvEntity, MaterialSample):
     dissection_was_guided_by: Optional[str] = Field(default=None, description="""The dissection ROI polygon that was used to guide the dissection.""", json_schema_extra = { "linkml_meta": {'alias': 'dissection_was_guided_by',
          'domain_of': ['TissueSample'],
          'exact_mappings': ['NIMP:has_parent']} })
-    tissue_sample_structure: Optional[List[str]] = Field(default=None, description="""Strucure of tissue sample.""", json_schema_extra = { "linkml_meta": {'alias': 'tissue_sample_structure',
+    tissue_sample_structure: Optional[List[str]] = Field(default=None, description="""Structure of tissue sample.""", json_schema_extra = { "linkml_meta": {'alias': 'tissue_sample_structure',
          'domain_of': ['TissueSample'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'structure'}}} })
@@ -7944,6 +7948,7 @@ class DissociatedCellSample(ProvEntity, MaterialSample):
                                                 'cells or nuclei derived from '
                                                 'dissociation of a tissue sample.',
                                  'exact_mappings': ['NIMP:PD-RQRWHS40'],
+                                 'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'dissociated_cell_sample_local_name'}},
                                  'name': 'name',
@@ -7953,6 +7958,7 @@ class DissociatedCellSample(ProvEntity, MaterialSample):
                                                             'dissociated cell sample '
                                                             'was derived from.',
                                              'exact_mappings': ['NIMP:has_parent'],
+                                             'from_schema': 'bican_prov',
                                              'multivalued': True,
                                              'name': 'was_derived_from',
                                              'range': 'TissueSample'},
@@ -7960,6 +7966,7 @@ class DissociatedCellSample(ProvEntity, MaterialSample):
                                                             'process from which the '
                                                             'dissociated cell sample '
                                                             'was generated by.',
+                                             'from_schema': 'bican_prov',
                                              'name': 'was_generated_by',
                                              'range': 'CellDissociation'}}})
 
@@ -8356,6 +8363,7 @@ class EnrichedCellSample(ProvEntity, MaterialSample):
                                                 'Enrichment Plan) applied to '
                                                 'dissociated_cell_sample.',
                                  'exact_mappings': ['NIMP:PD-BERWTM41'],
+                                 'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'enriched_cell_sample_local_name'}},
                                  'name': 'name',
@@ -8368,6 +8376,7 @@ class EnrichedCellSample(ProvEntity, MaterialSample):
                                              'exact_mappings': ['NIMP:has_parent'],
                                              'exactly_one_of': [{'range': 'DissociatedCellSample'},
                                                                 {'range': 'EnrichedCellSample'}],
+                                             'from_schema': 'bican_prov',
                                              'multivalued': True,
                                              'name': 'was_derived_from'},
                         'was_generated_by': {'any_of': [{'range': 'CellEnrichment'},
@@ -8377,6 +8386,7 @@ class EnrichedCellSample(ProvEntity, MaterialSample):
                                                             'from which the enriched '
                                                             'cell sample was generated '
                                                             'by.',
+                                             'from_schema': 'bican_prov',
                                              'name': 'was_generated_by'}}})
 
     was_generated_by: Optional[str] = Field(default=None, description="""The cell enrichment or sample splitting process from which the enriched cell sample was generated by.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
@@ -8784,6 +8794,7 @@ class BarcodedCellSample(ProvEntity, MaterialSample):
                                                 'enriched_cell_sample can lead to '
                                                 'multiple barcoded_cell_samples.',
                                  'exact_mappings': ['NIMP:PD-XEMDJF38'],
+                                 'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'barcoded_cell_sample_local_name'}},
                                  'name': 'name',
@@ -8796,12 +8807,14 @@ class BarcodedCellSample(ProvEntity, MaterialSample):
                                              'exact_mappings': ['NIMP:has_parent'],
                                              'exactly_one_of': [{'range': 'DissociatedCellSample'},
                                                                 {'range': 'EnrichedCellSample'}],
+                                             'from_schema': 'bican_prov',
                                              'multivalued': True,
                                              'name': 'was_derived_from'},
                         'was_generated_by': {'description': 'The barcoding process '
                                                             'from which the barcoded '
                                                             'cell sample is generated '
                                                             'from.',
+                                             'from_schema': 'bican_prov',
                                              'name': 'was_generated_by',
                                              'range': 'CellBarcoding'}}})
 
@@ -9199,6 +9212,7 @@ class AmplifiedCdna(ProvEntity, MaterialSample):
                                                 'is a necessary step for GEX methods '
                                                 'but is not used for ATAC methods.',
                                  'exact_mappings': ['NIMP:PD-YAAGGG39'],
+                                 'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'amplified_cdna_local_name'}},
                                  'name': 'name',
@@ -9208,12 +9222,14 @@ class AmplifiedCdna(ProvEntity, MaterialSample):
                                                             'amplified cDNA was '
                                                             'derived from.',
                                              'exact_mappings': ['NIMP:has_parent'],
+                                             'from_schema': 'bican_prov',
                                              'name': 'was_derived_from',
                                              'range': 'BarcodedCellSample'},
                         'was_generated_by': {'description': 'The cDNA amplification '
                                                             'process from which the '
                                                             'amplified cDNA was '
                                                             'generated by.',
+                                             'from_schema': 'bican_prov',
                                              'name': 'was_generated_by',
                                              'range': 'CdnaAmplification'}}})
 
@@ -9621,6 +9637,7 @@ class Library(ProvEntity, MaterialSample):
                                                 'allow libraries to be pooled together '
                                                 'for sequencing.',
                                  'exact_mappings': ['NIMP:PD-AJJUCC35'],
+                                 'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'library_local_name'}},
                                  'name': 'name',
@@ -9632,10 +9649,12 @@ class Library(ProvEntity, MaterialSample):
                                                             'from which the library '
                                                             'was derived from.',
                                              'exact_mappings': ['NIMP:has_parent'],
+                                             'from_schema': 'bican_prov',
                                              'name': 'was_derived_from'},
                         'was_generated_by': {'description': 'The library construction '
                                                             'process from which the '
                                                             'library was generated by.',
+                                             'from_schema': 'bican_prov',
                                              'name': 'was_generated_by',
                                              'range': 'LibraryConstruction'}}})
 
@@ -10065,6 +10084,7 @@ class LibraryAliquot(ProvEntity, MaterialSample):
                                                 'demultiplexed fastq files will '
                                                 'include the library_aliquot_name.',
                                  'exact_mappings': ['NIMP:PD-XCXCCC35'],
+                                 'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'library_aliquot_local_name'}},
                                  'name': 'name',
@@ -10073,6 +10093,7 @@ class LibraryAliquot(ProvEntity, MaterialSample):
                                                             'which the library aliquot '
                                                             'was derived from.',
                                              'exact_mappings': ['NIMP:has_parent'],
+                                             'from_schema': 'bican_prov',
                                              'name': 'was_derived_from',
                                              'range': 'Library'}}})
 
@@ -10461,6 +10482,7 @@ class LibraryPool(ProvEntity, MaterialSample):
                                                 'sequencing status between SeqCore and '
                                                 'Library Labs.',
                                  'exact_mappings': ['NIMP:PD-KKIAPA48'],
+                                 'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'library_pool_local_name'}},
                                  'name': 'name',
@@ -10469,12 +10491,14 @@ class LibraryPool(ProvEntity, MaterialSample):
                                                             'which the library pool '
                                                             'was derived from.',
                                              'exact_mappings': ['NIMP:has_parent'],
+                                             'from_schema': 'bican_prov',
                                              'multivalued': True,
                                              'name': 'was_derived_from',
                                              'range': 'LibraryAliquot'},
                         'was_generated_by': {'description': 'The pooling process from '
                                                             'which the library pool '
                                                             'was generated by.',
+                                             'from_schema': 'bican_prov',
                                              'name': 'was_generated_by',
                                              'range': 'LibraryPooling'}}})
 
@@ -11224,6 +11248,7 @@ class TissueDissection(ProvActivity, Procedure):
          'mixins': ['ProvActivity'],
          'slot_usage': {'used': {'description': 'The brain slab from which the tissue '
                                                 'sample was dissected from.',
+                                 'from_schema': 'bican_prov',
                                  'name': 'used',
                                  'range': 'BrainSlab'}}})
 
@@ -11589,6 +11614,7 @@ class CellDissociation(ProvActivity, Procedure):
          'slot_usage': {'used': {'description': 'The input tissue sample(s) from which '
                                                 'the dissociated cell sample was '
                                                 'derived from.',
+                                 'from_schema': 'bican_prov',
                                  'multivalued': True,
                                  'name': 'used',
                                  'range': 'TissueSample'}}})
@@ -11964,6 +11990,7 @@ class CellEnrichment(ProvActivity, Procedure):
          'slot_usage': {'used': {'description': 'The input dissociated cell sample(s) '
                                                 'from which the enriched cell sample '
                                                 'was derived from.',
+                                 'from_schema': 'bican_prov',
                                  'multivalued': True,
                                  'name': 'used',
                                  'range': 'DissociatedCellSample'}}})
@@ -12339,6 +12366,7 @@ class EnrichedCellSampleSplitting(ProvActivity, Procedure):
          'slot_usage': {'used': {'description': 'The enrichment cell sample splitting '
                                                 'process from which the enriched cell '
                                                 'sample was generated by.',
+                                 'from_schema': 'bican_prov',
                                  'name': 'used',
                                  'range': 'EnrichedCellSample'}}})
 
@@ -12706,6 +12734,7 @@ class CellBarcoding(ProvActivity, Procedure):
                                                 'from.',
                                  'exactly_one_of': [{'range': 'DissociatedCellSample'},
                                                     {'range': 'EnrichedCellSample'}],
+                                 'from_schema': 'bican_prov',
                                  'multivalued': True,
                                  'name': 'used'}}})
 
@@ -13101,6 +13130,7 @@ class CdnaAmplification(ProvActivity, Procedure):
          'slot_usage': {'used': {'description': 'The input barcoded cell sample from '
                                                 'which amplified cDNA was derived '
                                                 'from.',
+                                 'from_schema': 'bican_prov',
                                  'name': 'used',
                                  'range': 'BarcodedCellSample'}}})
 
@@ -13492,6 +13522,7 @@ class LibraryConstruction(ProvActivity, Procedure):
                                  'description': 'The input barcoded cell sample or '
                                                 'amplified cDNA from which the library '
                                                 'was derived from.',
+                                 'from_schema': 'bican_prov',
                                  'name': 'used'}}})
 
     used: Optional[str] = Field(default=None, description="""The input barcoded cell sample or amplified cDNA from which the library was derived from.""", json_schema_extra = { "linkml_meta": {'alias': 'used',
@@ -13887,6 +13918,7 @@ class LibraryPooling(ProvActivity, Procedure):
          'mixins': ['ProvActivity'],
          'slot_usage': {'used': {'description': 'The input aliquot(s) from which the '
                                                 'library pool was derived from.',
+                                 'from_schema': 'bican_prov',
                                  'multivalued': True,
                                  'name': 'used',
                                  'range': 'LibraryAliquot'}}})
@@ -14264,6 +14296,7 @@ class DissectionRoiPolygon(ProvEntity, Entity):
                                                 'brain slab image delineating a region '
                                                 'of interest (ROI) for a tissue sample '
                                                 'dissectioning.',
+                                 'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'local_name'}},
                                  'name': 'name'},
@@ -14271,6 +14304,7 @@ class DissectionRoiPolygon(ProvEntity, Entity):
                                                             'from which the dissection '
                                                             'ROI polygon was generated '
                                                             'by.',
+                                             'from_schema': 'bican_prov',
                                              'name': 'was_generated_by',
                                              'range': 'DissectionRoiDelineation'}}})
 
@@ -14567,8 +14601,9 @@ class DigitalAsset(ProvEntity, Dataset):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/library-generation-schema',
          'mixins': ['ProvEntity'],
          'slot_usage': {'content_url': {'name': 'content_url'},
-                        'digest': {'name': 'digest'},
-                        'was_derived_from': {'name': 'was_derived_from',
+                        'digest': {'from_schema': 'bican_core', 'name': 'digest'},
+                        'was_derived_from': {'from_schema': 'bican_prov',
+                                             'name': 'was_derived_from',
                                              'range': 'LibraryPool'}}})
 
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
@@ -14586,9 +14621,10 @@ class DigitalAsset(ProvEntity, Dataset):
          'slot_uri': 'prov:wasDerivedFrom'} })
     digest: Optional[List[Union[Checksum, str]]] = Field(default=None, description="""Stores checksum information.""", json_schema_extra = { "linkml_meta": {'alias': 'digest',
          'any_of': [{'range': 'checksum'}, {'range': 'string'}],
-         'domain_of': ['DigitalAsset']} })
+         'domain_of': ['DigitalAsset'],
+         'slot_uri': 'bican:digest'} })
     content_url: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'content_url', 'domain_of': ['DigitalAsset']} })
-    data_type: Optional[str] = Field(default=None, description="""The type of data in the file""", json_schema_extra = { "linkml_meta": {'alias': 'data_type', 'domain_of': ['DigitalAsset']} })
+    data_type: Optional[str] = Field(default=None, description="""The type of data in the file.""", json_schema_extra = { "linkml_meta": {'alias': 'data_type', 'domain_of': ['DigitalAsset']} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
          'domain_of': ['ProvEntity',
                        'TissueSample',
@@ -14998,9 +15034,9 @@ MacromolecularMachineMixin.model_rebuild()
 GeneOrGeneProduct.model_rebuild()
 Gene.model_rebuild()
 Genome.model_rebuild()
+Checksum.model_rebuild()
 ProvActivity.model_rebuild()
 ProvEntity.model_rebuild()
-Checksum.model_rebuild()
 Donor.model_rebuild()
 BrainSlab.model_rebuild()
 TissueSample.model_rebuild()
