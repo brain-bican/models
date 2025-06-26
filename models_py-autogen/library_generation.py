@@ -14601,7 +14601,7 @@ class DigitalAsset(ProvEntity, Dataset):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/library-generation-schema',
          'mixins': ['ProvEntity'],
          'slot_usage': {'content_url': {'name': 'content_url'},
-                        'digest': {'name': 'digest'},
+                        'digest': {'from_schema': 'bican_core', 'name': 'digest'},
                         'was_derived_from': {'from_schema': 'bican_prov',
                                              'name': 'was_derived_from',
                                              'range': 'LibraryPool'}}})
@@ -14621,7 +14621,8 @@ class DigitalAsset(ProvEntity, Dataset):
          'slot_uri': 'prov:wasDerivedFrom'} })
     digest: Optional[List[Union[Checksum, str]]] = Field(default=None, description="""Stores checksum information.""", json_schema_extra = { "linkml_meta": {'alias': 'digest',
          'any_of': [{'range': 'checksum'}, {'range': 'string'}],
-         'domain_of': ['DigitalAsset']} })
+         'domain_of': ['DigitalAsset'],
+         'slot_uri': 'bican:digest'} })
     content_url: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'content_url', 'domain_of': ['DigitalAsset']} })
     data_type: Optional[str] = Field(default=None, description="""The type of data in the file.""", json_schema_extra = { "linkml_meta": {'alias': 'data_type', 'domain_of': ['DigitalAsset']} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
