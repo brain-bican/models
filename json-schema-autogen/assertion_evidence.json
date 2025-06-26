@@ -7,12 +7,28 @@
                 "endedAtTime": {
                     "description": "The prov:endedAtTime establishes the relationship between prov:Activity and xsd:DateTime that allows one to specify the time when the activity ended.",
                     "format": "date-time",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "startedAtTime": {
                     "description": "The prov:startedAtTime establishes the relationship between prov:Activity and xsd:DateTime that allows one to specify the time when the activity started.",
                     "format": "date-time",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "was_associate_with": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Agent"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 }
             },
             "title": "Activity",
@@ -22,68 +38,81 @@
             "additionalProperties": false,
             "description": "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.",
             "properties": {
-                "is_associated_with": {
-                    "$ref": "#/$defs/Activity",
-                    "description": "The brainkb:isAssociatedWith property establishes relationships between different entities: it connects prov:Agent to prov:Activity, reflecting the involvement or connection between an agent and an activity."
+                "has_identifier": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 }
             },
             "title": "Agent",
+            "type": "object"
+        },
+        "Annotation": {
+            "additionalProperties": false,
+            "description": "An annotation is a written explanatory or critical description, or other in-context information (e.g., pattern, motif, link), that has been associated with data or other types of information.",
+            "title": "Annotation",
             "type": "object"
         },
         "Assertion": {
             "additionalProperties": false,
             "description": "A statement made by a particular agent on a particular occasion that a particular proposition is true, based on the evaluation of one or more lines of evidence.",
             "properties": {
-                "hasAssertionCategory": {
+                "has_annotation": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Annotation"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "has_assertion_category": {
                     "$ref": "#/$defs/Categories",
                     "description": "The brainkb:hasAssertionCategory property relates brainkb:Evidence and brainkb:Categories, specifying the classification or category that the assertion belongs to."
                 },
-                "hasAssertionMethod": {
-                    "$ref": "#/$defs/AssertionMethod",
-                    "description": "The brainkb:hasAssertionMethod property relates an eco:Assertion to an brainkb:AssertionMethod that differentiates different types of assertions techniques used while making an assertion."
+                "has_assertion_description": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
-                "hasAssertionText": {
-                    "description": "The brainkb:hasAssertionText property relates an eco:Assertion to an xsd:string, providing a textual excerpt of the assertion being made.",
-                    "type": "string"
+                "has_assertion_summary": {
+                    "description": "The brainkb:has_assertion_text property relates an eco:Assertion to an xsd:string, providing a textual excerpt of the assertion being made.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
-                "has_data_annotation": {
-                    "$ref": "#/$defs/DataAnnotation"
+                "has_evidence_line": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/EvidenceLine"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A relationship between an assertion or proposition and an evidence line used in evaluating its validity."
                 },
-                "is_associated_with": {
-                    "$ref": "#/$defs/AssertionSummary",
-                    "description": "The brainkb:isAssociatedWith property establishes relationships between different entities:it links sepio:Assertion to brainkb:AssertionSummary, indicating the association between an assertion and its corresponding summary."
+                "was_generated_by": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Activity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 }
             },
             "title": "Assertion",
             "type": "object"
-        },
-        "AssertionMethod": {
-            "additionalProperties": false,
-            "description": "A means by which a statement is made about the entity",
-            "title": "AssertionMethod",
-            "type": "object"
-        },
-        "AssertionSummary": {
-            "additionalProperties": false,
-            "description": "A summary is a brief statement or description of the main points, especially as a conclusion to a work about the assertion.",
-            "properties": {
-                "hasAssertionSummary": {
-                    "description": "The brainkb:hasAssertionSummary property relates a brainkb:AssertionSummary to an xsd:string, providing a concise overview that differentiates various assertions. This summary encapsulates the core content of the assertion, allowing for easy identification and understanding of its essence.",
-                    "type": "string"
-                }
-            },
-            "title": "AssertionSummary",
-            "type": "object"
-        },
-        "AssertionType": {
-            "description": "",
-            "enum": [
-                "Positive",
-                "Negative",
-                "Inconclusive"
-            ],
-            "title": "AssertionType",
-            "type": "string"
         },
         "Categories": {
             "description": "",
@@ -120,64 +149,111 @@
             "title": "Categories",
             "type": "string"
         },
-        "DataAnnotation": {
+        "CellAnnotation": {
             "additionalProperties": false,
             "description": "",
-            "title": "DataAnnotation",
+            "title": "CellAnnotation",
             "type": "object"
         },
         "Document": {
             "additionalProperties": false,
             "description": "A collection of information content entities intended to be understood together as a whole",
+            "properties": {
+                "identifier": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "reference": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Document"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
             "title": "Document",
             "type": "object"
         },
-        "Evidence": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "hasEvidenceCategory": {
-                    "$ref": "#/$defs/Categories",
-                    "description": "The brainkb:hasEvidenceCategory property relates brainkb:Evidence and brainkb:Categories, specifying the classification or category that the evidence belongs to."
-                },
-                "hasEvidenceText": {
-                    "description": "The brainkb:hasEvidenceText property relates an eco:Evidence to an xsd:string, providing a textual excerpt of the evidence supporting the assertion.",
-                    "type": "string"
-                },
-                "is_associated_with": {
-                    "$ref": "#/$defs/EvidenceSummary",
-                    "description": "The brainkb:isAssociatedWith property establishes relationships between different entities: it associates eco:Evidence with brainkb:EvidenceSummary, signifying the connection between evidence and its summarized representation."
-                },
-                "used_in": {
-                    "$ref": "#/$defs/Assertion",
-                    "description": "The eco:used_in property establishes a relationship between eco:Evidence and eco:Assertion, indicating that the evidence is utilized to support the corresponding assertion."
-                }
-            },
-            "title": "Evidence",
-            "type": "object"
-        },
-        "EvidenceSummary": {
-            "additionalProperties": false,
-            "description": "A summary is a brief statement or description of the main points, especially as a conclusion to a work about the evidence.",
-            "properties": {
-                "hasEvidenceSummary": {
-                    "description": "The brainkb:hasEvidenceSummary property relates a brainkb:EvidenceSummary to an xsd:string, providing a concise overview that differentiates various evidence. This summary encapsulates the core content of the evidence, allowing for easy identification and understanding of its essence.",
-                    "type": "string"
-                }
-            },
-            "title": "EvidenceSummary",
-            "type": "object"
-        },
-        "Significance": {
+        "EvidenceDirection": {
             "description": "",
             "enum": [
-                "Clinical",
-                "NonClinical"
+                "supporting",
+                "disputing",
+                "inconclusive"
             ],
-            "title": "Significance",
+            "title": "EvidenceDirection",
             "type": "string"
         },
-        "SignificanceLevel": {
+        "EvidenceItem": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "reference": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Document"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "title": "EvidenceItem",
+            "type": "object"
+        },
+        "EvidenceLine": {
+            "additionalProperties": false,
+            "description": "An evidence line represents an independent and meaningful argument for or against a particular proposition, that is based on the interpretation of one or more pieces of information as evidence.",
+            "properties": {
+                "evidence_direction": {
+                    "$ref": "#/$defs/EvidenceDirection",
+                    "description": "A relation indicating whether an evidence line supports or disputes a target proposition (or represents inconclusive evidence that is not sufficient for either)."
+                },
+                "evidence_line_strength": {
+                    "$ref": "#/$defs/EvidenceStrength",
+                    "description": "A relation describing the degree of support provided by an evidence line for a target assertion or proposition."
+                },
+                "has_evidence_category": {
+                    "$ref": "#/$defs/Categories"
+                },
+                "has_evidence_item": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/EvidenceItem"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A relation holding between an evidence line and an individual information entity that contributes to the argument it represents."
+                },
+                "has_evidenceline_description": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "was_generated_by": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Activity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "title": "EvidenceLine",
+            "type": "object"
+        },
+        "EvidenceStrength": {
             "description": "",
             "enum": [
                 "HighlySignificant",
@@ -186,8 +262,108 @@
                 "NotSignificant",
                 "Unknown"
             ],
-            "title": "SignificanceLevel",
+            "title": "EvidenceStrength",
             "type": "string"
+        },
+        "Group": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "has_identifier": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "title": "Group",
+            "type": "object"
+        },
+        "Identifier": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "Identifier",
+            "type": "object"
+        },
+        "OrcidIdentifier": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "OrcidIdentifier",
+            "type": "object"
+        },
+        "Organization": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "has_identifier": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "title": "Organization",
+            "type": "object"
+        },
+        "Person": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "has_identifier": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "member": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Organization"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "title": "Person",
+            "type": "object"
+        },
+        "PersonIdentifier": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "PersonIdentifier",
+            "type": "object"
+        },
+        "SoftwareAgent": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "has_identifier": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "title": "SoftwareAgent",
+            "type": "object"
         }
     },
     "$id": "https://identifiers.org/brain-bican/assertion-evidence-schema",

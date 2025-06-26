@@ -1,0 +1,19 @@
+name: generating other formats for bke_taxonomy
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+    paths:
+      - 'linkml-schema/bke_taxonomy.yaml'
+
+
+permissions:
+  contents: write
+  pull-requests: write
+
+
+jobs:
+  generate_from_reusable:
+    uses: brain-bican/models/.github/workflows/reusable-generate_other_formats.yaml@main
+    with:
+      model_name: bke_taxonomy

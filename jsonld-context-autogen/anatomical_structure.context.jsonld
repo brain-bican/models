@@ -4,6 +4,7 @@
       "source": "anatomical_structure.yaml"
    },
    "@context": {
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "AnS": "https://w3id.org/my-org/anatomical-structure-schema/",
       "PATO": {
          "@id": "http://purl.obolibrary.org/obo/PATO_",
@@ -23,7 +24,7 @@
          "@id": "measures"
       },
       "category": {
-         "@type": "@id",
+         "@type": "xsd:anyURI",
          "@id": "category"
       },
       "description": {
@@ -32,7 +33,6 @@
       "id": "@id",
       "unit": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -41,7 +41,6 @@
       },
       "x_direction": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -58,7 +57,6 @@
       },
       "y_direction": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
@@ -75,7 +73,6 @@
       },
       "z_direction": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"

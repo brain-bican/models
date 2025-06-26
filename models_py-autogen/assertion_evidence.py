@@ -1,36 +1,32 @@
 from __future__ import annotations 
+
+import re
+import sys
 from datetime import (
+    date,
     datetime,
-    date
+    time
 )
 from decimal import Decimal 
 from enum import Enum 
-import re
-import sys
 from typing import (
     Any,
     ClassVar,
+    Dict,
     List,
     Literal,
-    Dict,
     Optional,
     Union
 )
-from pydantic.version import VERSION  as PYDANTIC_VERSION 
-if int(PYDANTIC_VERSION[0])>=2:
-    from pydantic import (
-        BaseModel,
-        ConfigDict,
-        Field,
-        RootModel,
-        field_validator
-    )
-else:
-    from pydantic import (
-        BaseModel,
-        Field,
-        validator
-    )
+
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    RootModel,
+    field_validator
+)
+
 
 metamodel_version = "None"
 version = "None"
@@ -74,28 +70,40 @@ linkml_meta = LinkMLMeta({'default_prefix': 'brainkb',
      'name': 'assertion-evidence-schema',
      'prefixes': {'bican': {'prefix_prefix': 'bican',
                             'prefix_reference': 'https://identifiers.org/brain-bican/vocab/'},
+                  'braiankb': {'prefix_prefix': 'braiankb',
+                               'prefix_reference': 'http://example.org/braiankb/'},
                   'brainkb': {'prefix_prefix': 'brainkb',
                               'prefix_reference': 'https://brainkb.org/'},
+                  'datacite': {'prefix_prefix': 'datacite',
+                               'prefix_reference': 'http://purl.org/spar/datacite/'},
+                  'dcterms': {'prefix_prefix': 'dcterms',
+                              'prefix_reference': 'http://purl.org/dc/terms/'},
                   'eco': {'prefix_prefix': 'eco',
                           'prefix_reference': 'http://purl.obolibrary.org/obo/ECO_'},
+                  'edam': {'prefix_prefix': 'edam',
+                           'prefix_reference': 'http://edamontology.org/'},
+                  'foaf': {'prefix_prefix': 'foaf',
+                           'prefix_reference': 'http://xmlns.com/foaf/0.1/'},
+                  'iao': {'prefix_prefix': 'iao',
+                          'prefix_reference': 'http://purl.obolibrary.org/obo/IAO_'},
                   'linkml': {'prefix_prefix': 'linkml',
                              'prefix_reference': 'https://w3id.org/linkml/'},
+                  'oa': {'prefix_prefix': 'oa',
+                         'prefix_reference': 'http://www.w3.org/ns/oa#'},
                   'prov': {'prefix_prefix': 'prov',
                            'prefix_reference': 'http://www.w3.org/ns/prov#'},
+                  'ro': {'prefix_prefix': 'ro',
+                         'prefix_reference': 'http://purl.obolibrary.org/obo/RO_'},
                   'schema': {'prefix_prefix': 'schema',
                              'prefix_reference': 'http://schema.org/'},
                   'sepio': {'prefix_prefix': 'sepio',
                             'prefix_reference': 'http://purl.obolibrary.org/obo/SEPIO_'},
+                  'sio': {'prefix_prefix': 'sio',
+                          'prefix_reference': 'http://semanticscience.org/resource/SIO_'},
                   'spdx': {'prefix_prefix': 'spdx',
                            'prefix_reference': 'http://spdx.org/rdf/terms#'}},
      'source_file': 'assertion_evidence.yaml',
      'title': 'Assertion Evidence Schema'} )
-
-class AssertionType(str, Enum):
-    Positive = "Positive"
-    Negative = "Negative"
-    Inconclusive = "Inconclusive"
-
 
 class Categories(str, Enum):
     Behavioral = "Behavioral"
@@ -128,7 +136,7 @@ class Categories(str, Enum):
     CognitiveNeuroscience = "CognitiveNeuroscience"
 
 
-class SignificanceLevel(str, Enum):
+class EvidenceStrength(str, Enum):
     # P value less than 0.01
     HighlySignificant = "HighlySignificant"
     # P value less than 0.05
@@ -141,67 +149,11 @@ class SignificanceLevel(str, Enum):
     Unknown = "Unknown"
 
 
-class Significance(str, Enum):
-    Clinical = "Clinical"
-    NonClinical = "NonClinical"
+class EvidenceDirection(str, Enum):
+    supporting = "supporting"
+    disputing = "disputing"
+    inconclusive = "inconclusive"
 
-
-
-class Assertion(ConfiguredBaseModel):
-    """
-    A statement made by a particular agent on a particular occasion that a particular proposition is true, based on the evaluation of one or more lines of evidence.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'sepio:Assertion',
-         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema',
-         'slot_usage': {'has_assertion_method': {'description': 'The '
-                                                                'brainkb:hasAssertionMethod '
-                                                                'property relates an '
-                                                                'eco:Assertion to an '
-                                                                'brainkb:AssertionMethod '
-                                                                'that differentiates '
-                                                                'different types of '
-                                                                'assertions techniques '
-                                                                'used while making an '
-                                                                'assertion.',
-                                                 'name': 'has_assertion_method'},
-                        'has_data_annotation': {'name': 'has_data_annotation',
-                                                'range': 'DataAnnotation'},
-                        'is_associated_with': {'description': 'The '
-                                                              'brainkb:isAssociatedWith '
-                                                              'property establishes '
-                                                              'relationships between '
-                                                              'different entities:it '
-                                                              'links sepio:Assertion '
-                                                              'to '
-                                                              'brainkb:AssertionSummary, '
-                                                              'indicating the '
-                                                              'association between an '
-                                                              'assertion and its '
-                                                              'corresponding summary.',
-                                               'name': 'is_associated_with',
-                                               'range': 'AssertionSummary'}}})
-
-    has_assertion_method: Optional[AssertionMethod] = Field(None, description="""The brainkb:hasAssertionMethod property relates an eco:Assertion to an brainkb:AssertionMethod that differentiates different types of assertions techniques used while making an assertion.""", json_schema_extra = { "linkml_meta": {'alias': 'hasAssertionMethod',
-         'domain_of': ['Assertion'],
-         'slot_uri': 'brainkb:hasAssertionMethod'} })
-    is_associated_with: Optional[AssertionSummary] = Field(None, description="""The brainkb:isAssociatedWith property establishes relationships between different entities:it links sepio:Assertion to brainkb:AssertionSummary, indicating the association between an assertion and its corresponding summary.""", json_schema_extra = { "linkml_meta": {'alias': 'is_associated_with', 'domain_of': ['Assertion', 'Agent', 'Evidence']} })
-    has_data_annotation: Optional[DataAnnotation] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'has_data_annotation', 'domain_of': ['Assertion']} })
-    has_assertion_category: Optional[Categories] = Field(None, description="""The brainkb:hasAssertionCategory property relates brainkb:Evidence and brainkb:Categories, specifying the classification or category that the assertion belongs to.""", json_schema_extra = { "linkml_meta": {'alias': 'hasAssertionCategory',
-         'domain_of': ['Assertion'],
-         'slot_uri': 'brainkb:hasAssertionCategory'} })
-    has_assertion_text: Optional[str] = Field(None, description="""The brainkb:hasAssertionText property relates an eco:Assertion to an xsd:string, providing a textual excerpt of the assertion being made.""", json_schema_extra = { "linkml_meta": {'alias': 'hasAssertionText',
-         'domain_of': ['Assertion'],
-         'slot_uri': 'brainkb:hasAssertionText'} })
-
-
-class Document(ConfiguredBaseModel):
-    """
-    A collection of information content entities intended to be understood together as a whole
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'sepio:Document',
-         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
-
-    pass
 
 
 class Activity(ConfiguredBaseModel):
@@ -209,10 +161,16 @@ class Activity(ConfiguredBaseModel):
     An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:Activity',
-         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
+         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema',
+         'slot_usage': {'was_associate_with': {'name': 'was_associate_with',
+                                               'range': 'Agent',
+                                               'slot_uri': 'prov:wasAssociatedWith'}}})
 
-    ended_at_time: Optional[datetime ] = Field(None, description="""The prov:endedAtTime establishes the relationship between prov:Activity and xsd:DateTime that allows one to specify the time when the activity ended.""", json_schema_extra = { "linkml_meta": {'alias': 'endedAtTime', 'domain_of': ['Activity']} })
-    started_at_time: Optional[datetime ] = Field(None, description="""The prov:startedAtTime establishes the relationship between prov:Activity and xsd:DateTime that allows one to specify the time when the activity started.""", json_schema_extra = { "linkml_meta": {'alias': 'startedAtTime', 'domain_of': ['Activity']} })
+    was_associate_with: Optional[Agent] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'was_associate_with',
+         'domain_of': ['Activity'],
+         'slot_uri': 'prov:wasAssociatedWith'} })
+    endedAtTime: Optional[datetime ] = Field(default=None, description="""The prov:endedAtTime establishes the relationship between prov:Activity and xsd:DateTime that allows one to specify the time when the activity ended.""", json_schema_extra = { "linkml_meta": {'alias': 'endedAtTime', 'domain_of': ['Activity']} })
+    startedAtTime: Optional[datetime ] = Field(default=None, description="""The prov:startedAtTime establishes the relationship between prov:Activity and xsd:DateTime that allows one to specify the time when the activity started.""", json_schema_extra = { "linkml_meta": {'alias': 'startedAtTime', 'domain_of': ['Activity']} })
 
 
 class Agent(ConfiguredBaseModel):
@@ -221,102 +179,215 @@ class Agent(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:Agent',
          'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema',
-         'slot_usage': {'is_associated_with': {'description': 'The '
-                                                              'brainkb:isAssociatedWith '
-                                                              'property establishes '
-                                                              'relationships between '
-                                                              'different entities: it '
-                                                              'connects prov:Agent to '
-                                                              'prov:Activity, '
-                                                              'reflecting the '
-                                                              'involvement or '
-                                                              'connection between an '
-                                                              'agent and an activity.',
-                                               'name': 'is_associated_with',
-                                               'range': 'Activity'}}})
+         'slot_usage': {'has_identifier': {'name': 'has_identifier',
+                                           'range': 'Identifier',
+                                           'slot_uri': 'edam:has_identifier'}}})
 
-    is_associated_with: Optional[Activity] = Field(None, description="""The brainkb:isAssociatedWith property establishes relationships between different entities: it connects prov:Agent to prov:Activity, reflecting the involvement or connection between an agent and an activity.""", json_schema_extra = { "linkml_meta": {'alias': 'is_associated_with', 'domain_of': ['Assertion', 'Agent', 'Evidence']} })
+    has_identifier: Optional[Identifier] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
+         'domain_of': ['Agent'],
+         'slot_uri': 'edam:has_identifier'} })
 
 
-class AssertionSummary(ConfiguredBaseModel):
+class Annotation(ConfiguredBaseModel):
     """
-    A summary is a brief statement or description of the main points, especially as a conclusion to a work about the assertion.
+    An annotation is a written explanatory or critical description, or other in-context information (e.g., pattern, motif, link), that has been associated with data or other types of information.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'brainkb:AssertionSummary',
-         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
-
-    has_assertion_summary: Optional[str] = Field(None, description="""The brainkb:hasAssertionSummary property relates a brainkb:AssertionSummary to an xsd:string, providing a concise overview that differentiates various assertions. This summary encapsulates the core content of the assertion, allowing for easy identification and understanding of its essence.""", json_schema_extra = { "linkml_meta": {'alias': 'hasAssertionSummary',
-         'domain_of': ['AssertionSummary'],
-         'slot_uri': 'brainkb:hasAssertionSummary'} })
-
-
-class EvidenceSummary(ConfiguredBaseModel):
-    """
-    A summary is a brief statement or description of the main points, especially as a conclusion to a work about the evidence.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'brainkb:EvidenceSummary',
-         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
-
-    has_evidence_summary: Optional[str] = Field(None, description="""The brainkb:hasEvidenceSummary property relates a brainkb:EvidenceSummary to an xsd:string, providing a concise overview that differentiates various evidence. This summary encapsulates the core content of the evidence, allowing for easy identification and understanding of its essence.""", json_schema_extra = { "linkml_meta": {'alias': 'hasEvidenceSummary',
-         'domain_of': ['EvidenceSummary'],
-         'slot_uri': 'brainkb:hasEvidenceSummary'} })
-
-
-class AssertionMethod(ConfiguredBaseModel):
-    """
-    A means by which a statement is made about the entity
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'eco:0000217',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'oa:Annotation',
          'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
 
     pass
 
 
-class DataAnnotation(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'brainkb:DataAnnotation',
+class Assertion(ConfiguredBaseModel):
+    """
+    A statement made by a particular agent on a particular occasion that a particular proposition is true, based on the evaluation of one or more lines of evidence.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'sepio:0000001',
+         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema',
+         'slot_usage': {'has_annotation': {'name': 'has_annotation',
+                                           'range': 'Annotation',
+                                           'slot_uri': 'sio:000255'},
+                        'has_evidence_line': {'description': 'A relationship between '
+                                                             'an assertion or '
+                                                             'proposition and an '
+                                                             'evidence line used in '
+                                                             'evaluating its validity.',
+                                              'name': 'has_evidence_line',
+                                              'range': 'EvidenceLine',
+                                              'slot_uri': 'sepio:0000006'},
+                        'was_generated_by': {'name': 'was_generated_by',
+                                             'range': 'Activity',
+                                             'slot_uri': 'prov:wasGeneratedBy'}}})
+
+    has_annotation: Optional[Annotation] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_annotation',
+         'domain_of': ['Assertion'],
+         'slot_uri': 'sio:000255'} })
+    was_generated_by: Optional[Activity] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
+         'domain_of': ['Assertion', 'EvidenceLine'],
+         'slot_uri': 'prov:wasGeneratedBy'} })
+    has_evidence_line: Optional[EvidenceLine] = Field(default=None, description="""A relationship between an assertion or proposition and an evidence line used in evaluating its validity.""", json_schema_extra = { "linkml_meta": {'alias': 'has_evidence_line',
+         'domain_of': ['Assertion'],
+         'slot_uri': 'sepio:0000006'} })
+    has_assertion_category: Optional[Categories] = Field(default=None, description="""The brainkb:hasAssertionCategory property relates brainkb:Evidence and brainkb:Categories, specifying the classification or category that the assertion belongs to.""", json_schema_extra = { "linkml_meta": {'alias': 'has_assertion_category',
+         'domain_of': ['Assertion'],
+         'slot_uri': 'brainkb:has_assertion_category'} })
+    has_assertion_description: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_assertion_description',
+         'domain_of': ['Assertion'],
+         'slot_uri': 'brainkb:has_assertion_description'} })
+    has_assertion_summary: Optional[str] = Field(default=None, description="""The brainkb:has_assertion_text property relates an eco:Assertion to an xsd:string, providing a textual excerpt of the assertion being made.""", json_schema_extra = { "linkml_meta": {'alias': 'has_assertion_summary',
+         'domain_of': ['Assertion'],
+         'slot_uri': 'brainkb:has_assertion_summary'} })
+
+
+class CellAnnotation(Annotation):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'brainkb:CellAnnotation',
          'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
 
     pass
 
 
-class Evidence(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema',
-         'slot_usage': {'is_associated_with': {'description': 'The '
-                                                              'brainkb:isAssociatedWith '
-                                                              'property establishes '
-                                                              'relationships between '
-                                                              'different entities: it '
-                                                              'associates eco:Evidence '
-                                                              'with '
-                                                              'brainkb:EvidenceSummary, '
-                                                              'signifying the '
-                                                              'connection between '
-                                                              'evidence and its '
-                                                              'summarized '
-                                                              'representation.',
-                                               'name': 'is_associated_with',
-                                               'range': 'EvidenceSummary'},
-                        'used_in': {'name': 'used_in'}}})
+class EvidenceItem(ConfiguredBaseModel):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'sepio:0000149',
+         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema',
+         'slot_usage': {'reference': {'name': 'reference',
+                                      'range': 'Document',
+                                      'slot_uri': 'sepio:0000442'}}})
 
-    used_in: Optional[Assertion] = Field(None, description="""The eco:used_in property establishes a relationship between eco:Evidence and eco:Assertion, indicating that the evidence is utilized to support the corresponding assertion.""", json_schema_extra = { "linkml_meta": {'alias': 'used_in', 'domain_of': ['Evidence']} })
-    is_associated_with: Optional[EvidenceSummary] = Field(None, description="""The brainkb:isAssociatedWith property establishes relationships between different entities: it associates eco:Evidence with brainkb:EvidenceSummary, signifying the connection between evidence and its summarized representation.""", json_schema_extra = { "linkml_meta": {'alias': 'is_associated_with', 'domain_of': ['Assertion', 'Agent', 'Evidence']} })
-    has_evidence_category: Optional[Categories] = Field(None, description="""The brainkb:hasEvidenceCategory property relates brainkb:Evidence and brainkb:Categories, specifying the classification or category that the evidence belongs to.""", json_schema_extra = { "linkml_meta": {'alias': 'hasEvidenceCategory',
-         'domain_of': ['Evidence'],
-         'slot_uri': 'brainkb:hasEvidenceCategory'} })
-    has_evidence_text: Optional[str] = Field(None, description="""The brainkb:hasEvidenceText property relates an eco:Evidence to an xsd:string, providing a textual excerpt of the evidence supporting the assertion.""", json_schema_extra = { "linkml_meta": {'alias': 'hasEvidenceText',
-         'domain_of': ['Evidence'],
-         'slot_uri': 'brainkb:hasEvidenceText'} })
+    reference: Optional[Document] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'reference',
+         'domain_of': ['EvidenceItem'],
+         'slot_uri': 'sepio:0000442'} })
+
+
+class Document(EvidenceItem):
+    """
+    A collection of information content entities intended to be understood together as a whole
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'iao:0000310',
+         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
+
+    identifier: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'identifier',
+         'domain_of': ['Document'],
+         'slot_uri': 'datacite:identifier'} })
+    reference: Optional[Document] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'reference',
+         'domain_of': ['EvidenceItem'],
+         'slot_uri': 'sepio:0000442'} })
+
+
+class EvidenceLine(ConfiguredBaseModel):
+    """
+    An evidence line represents an independent and meaningful argument for or against a particular proposition, that is based on the interpretation of one or more pieces of information as evidence.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'sepio:0000002',
+         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema',
+         'slot_usage': {'has_evidence_item': {'description': 'A relation holding '
+                                                             'between an evidence line '
+                                                             'and an individual '
+                                                             'information entity that '
+                                                             'contributes to the '
+                                                             'argument it represents.',
+                                              'name': 'has_evidence_item',
+                                              'range': 'EvidenceItem',
+                                              'slot_uri': 'sepio:0000084'},
+                        'was_generated_by': {'name': 'was_generated_by',
+                                             'range': 'Activity',
+                                             'slot_uri': 'prov:wasGeneratedBy'}}})
+
+    has_evidence_item: Optional[EvidenceItem] = Field(default=None, description="""A relation holding between an evidence line and an individual information entity that contributes to the argument it represents.""", json_schema_extra = { "linkml_meta": {'alias': 'has_evidence_item',
+         'domain_of': ['EvidenceLine'],
+         'slot_uri': 'sepio:0000084'} })
+    was_generated_by: Optional[Activity] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
+         'domain_of': ['Assertion', 'EvidenceLine'],
+         'slot_uri': 'prov:wasGeneratedBy'} })
+    evidence_direction: Optional[EvidenceDirection] = Field(default=None, description="""A relation indicating whether an evidence line supports or disputes a target proposition (or represents inconclusive evidence that is not sufficient for either).""", json_schema_extra = { "linkml_meta": {'alias': 'evidence_direction',
+         'domain_of': ['EvidenceLine'],
+         'slot_uri': 'sepio:0000183'} })
+    evidence_line_strength: Optional[EvidenceStrength] = Field(default=None, description="""A relation describing the degree of support provided by an evidence line for a target assertion or proposition.""", json_schema_extra = { "linkml_meta": {'alias': 'evidence_line_strength',
+         'domain_of': ['EvidenceLine'],
+         'slot_uri': 'sepio:0000132'} })
+    has_evidence_category: Optional[Categories] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_evidence_category',
+         'domain_of': ['EvidenceLine'],
+         'slot_uri': 'brainkb:has_evidence_category'} })
+    has_evidenceline_description: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_evidenceline_description',
+         'domain_of': ['EvidenceLine'],
+         'slot_uri': 'braiankb:has_evidenceline_description'} })
+
+
+class Group(Agent):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'foaf:Group',
+         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
+
+    has_identifier: Optional[Identifier] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
+         'domain_of': ['Agent'],
+         'slot_uri': 'edam:has_identifier'} })
+
+
+class Identifier(ConfiguredBaseModel):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'edam:data_0842',
+         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
+
+    pass
+
+
+class Organization(Group):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:Organization',
+         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
+
+    has_identifier: Optional[Identifier] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
+         'domain_of': ['Agent'],
+         'slot_uri': 'edam:has_identifier'} })
+
+
+class Person(Agent):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:Person',
+         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema',
+         'slot_usage': {'member': {'name': 'member',
+                                   'range': 'Organization',
+                                   'slot_uri': 'foaf:member'}}})
+
+    member: Optional[Organization] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'member', 'domain_of': ['Person'], 'slot_uri': 'foaf:member'} })
+    has_identifier: Optional[Identifier] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
+         'domain_of': ['Agent'],
+         'slot_uri': 'edam:has_identifier'} })
+
+
+class PersonIdentifier(Identifier):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'edam:data_2118',
+         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
+
+    pass
+
+
+class OrcidIdentifier(PersonIdentifier):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'edam:data_4022',
+         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
+
+    pass
+
+
+class SoftwareAgent(Agent):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:SoftwareAgent',
+         'from_schema': 'https://identifiers.org/brain-bican/assertion-evidence-schema'})
+
+    has_identifier: Optional[Identifier] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'has_identifier',
+         'domain_of': ['Agent'],
+         'slot_uri': 'edam:has_identifier'} })
 
 
 # Model rebuild
 # see https://pydantic-docs.helpmanual.io/usage/models/#rebuilding-a-model
-Assertion.model_rebuild()
-Document.model_rebuild()
 Activity.model_rebuild()
 Agent.model_rebuild()
-AssertionSummary.model_rebuild()
-EvidenceSummary.model_rebuild()
-AssertionMethod.model_rebuild()
-DataAnnotation.model_rebuild()
-Evidence.model_rebuild()
+Annotation.model_rebuild()
+Assertion.model_rebuild()
+CellAnnotation.model_rebuild()
+EvidenceItem.model_rebuild()
+Document.model_rebuild()
+EvidenceLine.model_rebuild()
+Group.model_rebuild()
+Identifier.model_rebuild()
+Organization.model_rebuild()
+Person.model_rebuild()
+PersonIdentifier.model_rebuild()
+OrcidIdentifier.model_rebuild()
+SoftwareAgent.model_rebuild()
 

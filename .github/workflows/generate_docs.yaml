@@ -37,6 +37,7 @@ jobs:
           cp erdiagram-autogen/genome_annotation.md docs/genome_annotation.md
           cp erdiagram-autogen/library_generation.md docs/library_generation.md
           cp erdiagram-autogen/assertion_evidence.md docs/assertion_evidence.md
+          cp erdiagram-autogen/bke_taxonomy.md docs/bke_taxonomy.md
           gen-doc -d docs linkml-schema/library_generation.yaml
           mv docs/index.md docs/index_library_generation.md
           gen-doc -d docs linkml-schema/anatomical_structure.yaml
@@ -45,6 +46,8 @@ jobs:
           mv docs/index.md docs/index_genome_annotation.md
           gen-doc -d docs linkml-schema/assertion_evidence.yaml
           mv docs/index.md docs/index_assertion_evidence.md
+          gen-doc -d docs linkml-schema/bke_taxonomy.yaml
+          mv docs/index.md docs/index_bke_taxonomy.md
           mv docs/index_main.md docs/index.md
           
 

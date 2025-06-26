@@ -1,12 +1,12 @@
 Object	Predicate (more general)	Subject		Multivalued	ExactlyOneOf (True/False, default=False)	Required (True/False)	Slot Definition	Property Type	Characteristics	Addition information	Suggestions/Comments	Suggested/Commented by
 > class	slot	range	slot_uri	multivalued	ignore	required	description	ignore	ignore	ignore	ignore	ignore
->												
-	uses	Evidence					The eco:uses property is the inverse of the eco:used_in property and defines the relationship between eco:Assertion and eco:Evidence, indicating that an assertion relies on the evidence.  	Object Property	Functional	inverse of eco:used_in		
-	used_in	Assertion					The eco:used_in property establishes a relationship between eco:Evidence and eco:Assertion, indicating that the evidence is utilized to support the corresponding assertion.	Object Property	Functional	inverse of eco:uses		
-	has_assertion_method	AssertionMethod					The brainkb:hasAssertionMethod property relates an eco:Assertion to an brainkb:AssertionMethod that differentiates different types of assertions techniques used while making an assertion. 	Object Property	Functional			
-Evidence	used_in							Object Property	Functional	inverse of eco:uses		
-Assertion	has_assertion_method						The brainkb:hasAssertionMethod property relates an eco:Assertion to an brainkb:AssertionMethod that differentiates different types of assertions techniques used while making an assertion. 	Object Property	Functional			
-Agent	is_associated_with	Activity					The brainkb:isAssociatedWith property establishes relationships between different entities: it connects prov:Agent to prov:Activity, reflecting the involvement or connection between an agent and an activity.	Object Property				
-Assertion	is_associated_with	AssertionSummary					The brainkb:isAssociatedWith property establishes relationships between different entities:it links sepio:Assertion to brainkb:AssertionSummary, indicating the association between an assertion and its corresponding summary.	Object Property				
-Assertion	has_data_annotation	DataAnnotation										
-Evidence	is_associated_with	EvidenceSummary					The brainkb:isAssociatedWith property establishes relationships between different entities: it associates eco:Evidence with brainkb:EvidenceSummary, signifying the connection between evidence and its summarized representation.	Object Property				
+>		internal_separator: "|"										
+Activity	was_associate_with	Agent	prov:wasAssociatedWith									
+Agent	has_identifier	Identifier	edam:has_identifier									
+Assertion	has_annotation	Annotation	sio:000255									
+Assertion	was_generated_by	Activity	prov:wasGeneratedBy									
+Assertion 	has_evidence_line	EvidenceLine	sepio:0000006				A relationship between an assertion or proposition and an evidence line used in evaluating its validity.	Object Property	Functional			
+EvidenceItem	reference	Document	sepio:0000442									
+EvidenceLine	has_evidence_item	EvidenceItem	sepio:0000084				A relation holding between an evidence line and an individual information entity that contributes to the argument it represents.					
+EvidenceLine	was_generated_by	Activity	prov:wasGeneratedBy									
+Person	member	Organization	foaf:member									

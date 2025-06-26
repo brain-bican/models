@@ -4,17 +4,36 @@
       "source": "assertion_evidence.yaml"
    },
    "@context": {
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "bican": "https://identifiers.org/brain-bican/vocab/",
+      "braiankb": "http://example.org/braiankb/",
       "brainkb": "https://brainkb.org/",
+      "datacite": "http://purl.org/spar/datacite/",
+      "dcterms": "http://purl.org/dc/terms/",
       "eco": {
          "@id": "http://purl.obolibrary.org/obo/ECO_",
          "@prefix": true
       },
+      "edam": "http://edamontology.org/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "iao": {
+         "@id": "http://purl.obolibrary.org/obo/IAO_",
+         "@prefix": true
+      },
       "linkml": "https://w3id.org/linkml/",
+      "oa": "http://www.w3.org/ns/oa#",
       "prov": "http://www.w3.org/ns/prov#",
+      "ro": {
+         "@id": "http://purl.obolibrary.org/obo/RO_",
+         "@prefix": true
+      },
       "schema": "http://schema.org/",
       "sepio": {
          "@id": "http://purl.obolibrary.org/obo/SEPIO_",
+         "@prefix": true
+      },
+      "sio": {
+         "@id": "http://semanticscience.org/resource/SIO_",
          "@prefix": true
       },
       "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -28,57 +47,74 @@
          "@type": "xsd:dateTime",
          "@id": "startedAtTime"
       },
-      "hasAssertionCategory": {
+      "has_assertion_category": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "hasAssertionCategory"
+         "@id": "has_assertion_category"
       },
-      "hasAssertionMethod": {
-         "@type": "@id",
-         "@id": "hasAssertionMethod"
+      "has_assertion_description": {
+         "@id": "has_assertion_description"
       },
-      "hasAssertionText": {
-         "@id": "hasAssertionText"
+      "has_assertion_summary": {
+         "@id": "has_assertion_summary"
       },
-      "hasAssertionSummary": {
-         "@id": "hasAssertionSummary"
+      "identifier": {
+         "@type": "xsd:anyURI",
+         "@id": "datacite:identifier"
       },
-      "hasEvidenceCategory": {
+      "evidence_direction": {
          "@context": {
-            "@vocab": "@null",
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "hasEvidenceCategory"
+         "@id": "sepio:0000183"
       },
-      "hasEvidenceText": {
-         "@id": "hasEvidenceText"
+      "evidence_line_strength": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "sepio:0000132"
       },
-      "hasEvidenceSummary": {
-         "@id": "hasEvidenceSummary"
+      "has_evidence_category": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "has_evidence_category"
       },
-      "has_assertion_method": {
-         "@type": "@id",
-         "@id": "has_assertion_method"
+      "has_evidenceline_description": {
+         "@id": "braiankb:has_evidenceline_description"
       },
-      "has_data_annotation": {
-         "@id": "has_data_annotation"
+      "has_annotation": {
+         "@id": "has_annotation"
       },
-      "is_associated_with": {
-         "@id": "is_associated_with"
+      "has_evidence_item": {
+         "@id": "has_evidence_item"
       },
-      "used_in": {
-         "@type": "@id",
-         "@id": "used_in"
+      "has_evidence_line": {
+         "@id": "has_evidence_line"
       },
-      "uses": {
-         "@type": "@id",
-         "@id": "uses"
+      "has_identifier": {
+         "@id": "has_identifier"
+      },
+      "member": {
+         "@id": "member"
+      },
+      "reference": {
+         "@id": "reference"
+      },
+      "was_associate_with": {
+         "@id": "was_associate_with"
+      },
+      "was_generated_by": {
+         "@id": "was_generated_by"
       },
       "Activity": {
          "@id": "prov:Activity"
@@ -86,26 +122,44 @@
       "Agent": {
          "@id": "prov:Agent"
       },
+      "Annotation": {
+         "@id": "oa:Annotation"
+      },
       "Assertion": {
-         "@id": "sepio:Assertion"
+         "@id": "sepio:0000001"
       },
-      "AssertionMethod": {
-         "@id": "eco:0000217"
-      },
-      "AssertionSummary": {
-         "@id": "AssertionSummary"
-      },
-      "DataAnnotation": {
-         "@id": "DataAnnotation"
+      "CellAnnotation": {
+         "@id": "CellAnnotation"
       },
       "Document": {
-         "@id": "sepio:Document"
+         "@id": "iao:0000310"
       },
-      "Evidence": {
-         "@id": "Evidence"
+      "EvidenceItem": {
+         "@id": "sepio:0000149"
       },
-      "EvidenceSummary": {
-         "@id": "EvidenceSummary"
+      "EvidenceLine": {
+         "@id": "sepio:0000002"
+      },
+      "Group": {
+         "@id": "foaf:Group"
+      },
+      "Identifier": {
+         "@id": "edam:data_0842"
+      },
+      "OrcidIdentifier": {
+         "@id": "edam:data_4022"
+      },
+      "Organization": {
+         "@id": "prov:Organization"
+      },
+      "Person": {
+         "@id": "prov:Person"
+      },
+      "PersonIdentifier": {
+         "@id": "edam:data_2118"
+      },
+      "SoftwareAgent": {
+         "@id": "prov:SoftwareAgent"
       }
    }
 }
