@@ -12,5 +12,5 @@ LibraryPool	library pool label	29e0578b-6427-4c93-b29b-bde27fbadeec	name	bican_b
 Donor			name	bican_biolink		Name of person or organism that is the source of a biological sample for scientific study.  Many biological samples are generated from a single donor.											Donor		donor_local_id	NIMP
 BrainSlab			name	bican_biolink		Name of a thick flat piece of brain tissue obtained by slicing a whole brain, brain hemisphere or subdivision with a blade at regular interval.  When multiple brain slabs are obtained from the slicing process, an ordinal is assigned to provide information about the relative positioning of the slabs.											Slab		local_name	NIMP
 DissectionRoiPolygon			name	bican_biolink		Name of a polygon annotated on a brain slab image delineating a region of interest (ROI) for a tissue sample dissectioning.											Specimen Dissected ROI		local_name	NIMP
-DigitalAsset			digest																	
+DigitalAsset			digest	bican_core																
 DigitalAsset			content_url																	

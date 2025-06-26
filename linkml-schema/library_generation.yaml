@@ -2960,7 +2960,8 @@ classes:
       was_derived_from:
         from_schema: bican_prov
         range: LibraryPool
-      digest: {}
+      digest:
+        from_schema: bican_core
       content_url: {}
     attributes:
       data_type:
