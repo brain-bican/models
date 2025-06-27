@@ -1,16 +1,16 @@
-id: https://w3id.org/my-org/anatomical-structure-core-schema
+id: https://identifiers.org/brain-bican/anatomical-structure-core-schema
 name: anatomical-structure-core-schema
 title: Anatomical Structure Core Schema
 description: |-
   Contains the core types for the Anatomical Structure Schema.
 
 prefixes:
-  AnS: https://w3id.org/my-org/anatomical-structure-schema/
+#   AnS: https://w3id.org/my-org/anatomical-structure-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/
   schema: http://schema.org/
-  PATO: http://purl.obolibrary.org/obo/PATO_
-default_prefix: AnS
+#   PATO: http://purl.obolibrary.org/obo/PATO_
+default_prefix: bican
 default_range: string
 
 imports:

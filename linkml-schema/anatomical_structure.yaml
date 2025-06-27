@@ -1,4 +1,4 @@
-id: https://w3id.org/my-org/anatomical-structure-schema
+id: https://identifiers.org/brain-bican/anatomical-structure-schema
 name: anatomical-structure-schema
 title: Anatomical Structure Schema
 description: |-
@@ -6,17 +6,17 @@ description: |-
 license: MIT
 
 prefixes:
-  AnS: https://w3id.org/my-org/anatomical-structure-schema/
+  # AnS: https://w3id.org/my-org/anatomical-structure-schema/
   linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/
   schema: http://schema.org/
-  PATO: http://purl.obolibrary.org/obo/PATO_
-default_prefix: AnS
+  # PATO: http://purl.obolibrary.org/obo/PATO_
+default_prefix: bican
 default_range: string
 
 imports:
   - linkml:types
   - anatomical_structure_core
+  - bican_biolink
 
 settings:
   PositiveFloat: ^[+]?\d*\.?\d+$
