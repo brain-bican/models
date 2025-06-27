@@ -350,8 +350,8 @@ ParcellationColorScheme {
     label typeList synonym  
 }
 ParcellationColorAssignment {
-    string part_of_parcellation_color_scheme  
     string subject_parcellation_term  
+    string part_of_parcellation_color_scheme  
     string color  
 }
 AnatomicalAnnotationSet {
@@ -375,8 +375,8 @@ ParcellationAnnotation {
     integer voxel_count  
 }
 ParcellationAnnotationTermMap {
-    string subject_parcellation_annotation  
     string subject_parcellation_term  
+    string subject_parcellation_annotation  
 }
 ParcellationAtlas {
     string has_anatomical_space  

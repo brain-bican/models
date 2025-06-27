@@ -1677,8 +1677,8 @@
                 }
             },
             "required": [
-                "subject_parcellation_annotation",
-                "subject_parcellation_term"
+                "subject_parcellation_term",
+                "subject_parcellation_annotation"
             ],
             "title": "ParcellationAnnotationTermMap",
             "type": "object"
@@ -1900,13 +1900,13 @@
                             "type": "string"
                         }
                     ],
-                    "description": "Reference to the parcellation term identifier for which the color assignment is about.",
+                    "description": "Reference to the parcellation term that is the subject of the association.",
                     "type": "string"
                 }
             },
             "required": [
-                "part_of_parcellation_color_scheme",
-                "subject_parcellation_term"
+                "subject_parcellation_term",
+                "part_of_parcellation_color_scheme"
             ],
             "title": "ParcellationColorAssignment",
             "type": "object"
