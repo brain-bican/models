@@ -32,9 +32,10 @@ classes:
         slots:
             - version
             - revision_of
+        slot_usage:
+            version:
+                required: true
 
 slots:
-    version:
-        required: true
     revision_of:
         range: VersionedNamedThing
