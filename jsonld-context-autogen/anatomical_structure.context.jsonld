@@ -404,7 +404,7 @@
          "@id": "biolink:related_to_at_instance_level"
       },
       "revision_of": {
-         "@type": "bican:VersionedNamedThing",
+         "@type": "@id",
          "@id": "revision_of"
       },
       "rights": {
@@ -478,7 +478,7 @@
          "@id": "biolink:MaterialSample"
       },
       "NamedThing": {
-         "@id": "NamedThing"
+         "@id": "biolink:NamedThing"
       },
       "Occurrent": {
          "@id": "biolink:Occurrent"
