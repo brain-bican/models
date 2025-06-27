@@ -223,11 +223,19 @@ Genome {
     label type in_taxon_label  
     biological sequence has_biological_sequence  
 }
-NamedThing {
-
-}
 VersionedNamedThing {
     string version  
+    string id  
+    iri type iri  
+    curieList category  
+    stringList type  
+    label type name  
+    narrative text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label type full_name  
+    label typeList synonym  
 }
 ImageDataset {
     ANATOMICAL_DIRECTION x_direction  
@@ -241,28 +249,94 @@ ImageDataset {
     float z_resolution  
     DISTANCE_UNIT unit  
     string version  
+    string id  
+    iri type iri  
+    curieList category  
+    stringList type  
+    label type name  
+    narrative text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label type full_name  
+    label typeList synonym  
 }
 AnatomicalSpace {
     string measures  
     string version  
+    string id  
+    iri type iri  
+    curieList category  
+    stringList type  
+    label type name  
+    narrative text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label type full_name  
+    label typeList synonym  
 }
 ParcellationTerminology {
     string version  
+    string id  
+    iri type iri  
+    curieList category  
+    stringList type  
+    label type name  
+    narrative text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label type full_name  
+    label typeList synonym  
 }
 ParcellationTermSet {
     string part_of_parcellation_terminology  
     integer ordinal  
     string has_parent_parcellation_term_set  
+    string id  
+    iri type iri  
+    curieList category  
+    stringList type  
+    label type name  
+    narrative text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label type full_name  
+    label typeList synonym  
 }
 ParcellationTerm {
     string symbol  
     string part_of_parcellation_term_set  
     integer ordinal  
     string has_parent_parcellation_term  
+    string id  
+    iri type iri  
+    curieList category  
+    stringList type  
+    label type name  
+    narrative text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label type full_name  
+    label typeList synonym  
 }
 ParcellationColorScheme {
     string subject_parcellation_terminology  
     string version  
+    string id  
+    iri type iri  
+    curieList category  
+    stringList type  
+    label type name  
+    narrative text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label type full_name  
+    label typeList synonym  
 }
 ParcellationColorAssignment {
     string part_of_parcellation_color_scheme  
@@ -272,6 +346,17 @@ ParcellationColorAssignment {
 AnatomicalAnnotationSet {
     string parameterizes  
     string version  
+    string id  
+    iri type iri  
+    curieList category  
+    stringList type  
+    label type name  
+    narrative text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label type full_name  
+    label typeList synonym  
 }
 ParcellationAnnotation {
     string part_of_anatomical_annotation_set  
@@ -288,6 +373,17 @@ ParcellationAtlas {
     string has_parcellation_terminology  
     string specialization_of  
     string version  
+    string id  
+    iri type iri  
+    curieList category  
+    stringList type  
+    label type name  
+    narrative text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label type full_name  
+    label typeList synonym  
 }
 
 Attribute ||--}o Attribute : "has attribute"
@@ -312,12 +408,21 @@ Gene ||--}o OrganismTaxon : "in taxon"
 Genome ||--}o Attribute : "has attribute"
 Genome ||--}o OrganismTaxon : "in taxon"
 VersionedNamedThing ||--|o VersionedNamedThing : "revision_of"
+VersionedNamedThing ||--}o Attribute : "has attribute"
 ImageDataset ||--|o VersionedNamedThing : "revision_of"
+ImageDataset ||--}o Attribute : "has attribute"
 AnatomicalSpace ||--|o VersionedNamedThing : "revision_of"
+AnatomicalSpace ||--}o Attribute : "has attribute"
 ParcellationTerminology ||--|o VersionedNamedThing : "revision_of"
+ParcellationTerminology ||--}o Attribute : "has attribute"
+ParcellationTermSet ||--}o Attribute : "has attribute"
+ParcellationTerm ||--}o Attribute : "has attribute"
 ParcellationColorScheme ||--|o VersionedNamedThing : "revision_of"
+ParcellationColorScheme ||--}o Attribute : "has attribute"
 AnatomicalAnnotationSet ||--|o VersionedNamedThing : "revision_of"
+AnatomicalAnnotationSet ||--}o Attribute : "has attribute"
 ParcellationAtlas ||--|o VersionedNamedThing : "revision_of"
+ParcellationAtlas ||--}o Attribute : "has attribute"
 
 ```
 
