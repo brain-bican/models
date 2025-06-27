@@ -8,6 +8,7 @@ license: MIT
 imports:
   - linkml:types
   - bican_biolink
+  - bican_core
 
 prefixes:
   bican: https://identifiers.org/brain-bican/vocab/
@@ -17,24 +18,11 @@ prefixes:
 default_prefix: bican
 default_range: string
 
-
-
 settings:
   PositiveFloat: ^[+]?\d*\.?\d+$
   ColorHexTriplet: "#[0-9a-fA-F]{6}"
 
 classes:
-  VersionedNamedThing:
-      is_a: named thing
-      description: >-
-          Core base entity for Anatomical Structure schema representing an versioned named thing.
-      abstract: true
-      slots:
-          - version
-          - revision_of
-      slot_usage:
-          version:
-              required: true
   ImageDataset:
     is_a: VersionedNamedThing
     description: >-
@@ -358,10 +346,6 @@ classes:
         any_of:
           - range: ParcellationAtlas
           - range: string
-
-slots:
-    revision_of:
-        range: VersionedNamedThing
 
 enums:
   ANATOMICAL_DIRECTION:
