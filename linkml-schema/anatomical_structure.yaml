@@ -214,6 +214,8 @@ classes:
       The parcellation color assignment associates hex color value to a parcellation term within a 
       versioned release of a color scheme. A parcellation term is uniquely denoted by a parcellation 
       term identifier and the parcellation terminology it belongs to.
+    slots:
+      - subject_parcellation_term
     attributes:
       part_of_parcellation_color_scheme:
         any_of:
@@ -221,13 +223,6 @@ classes:
           - range: string
         description: >-
           Reference to the parcellation color scheme for which the color assignment is part of.
-        required: true
-      subject_parcellation_term:
-        any_of:
-          - range: ParcellationTerm
-          - range: string
-        description: >-
-          Reference to the parcellation term identifier for which the color assignment is about.
         required: true
       color:
         range: string
@@ -287,6 +282,8 @@ classes:
       A parcellation term can be spatially parameterized by the union of one or more parcellation annotations within a versioned 
       release of an anatomical annotation set. For example, annotations defining individual cortical layers in cortical region 
       R (R1, R2/3, R4, etc) can be combined to define the parent region R.
+    slots:
+      - subject_parcellation_term
     attributes:
       subject_parcellation_annotation:
         any_of:
@@ -294,13 +291,6 @@ classes:
           - range: string
         description: >-
           Reference to the parcellation annotation that is the subject of the association.
-        required: true
-      subject_parcellation_term:
-        any_of:
-          - range: ParcellationTerm
-          - range: string
-        description: >-
-          Reference to the parcellation term that is the subject of the association.
         required: true
 
   ParcellationAtlas:
@@ -346,7 +336,14 @@ classes:
         any_of:
           - range: ParcellationAtlas
           - range: string
-
+slots:
+  subject_parcellation_term:
+    any_of:
+    - range: ParcellationTerm
+    - range: string
+    description: >-
+      Reference to the parcellation term that is the subject of the association.
+    required: true
 enums:
   ANATOMICAL_DIRECTION:
     description: >-

@@ -1,11 +1,13 @@
 name: BKETaxonomy
 description: The BKE Taxonomy Schema represents the structure of classifications of
   cell types and their hierarchical relationships in the mammalian brain.
+title: BKE Taxonomy Schema
 id: https:/w3id.org/brain-bican/bke-taxonomy
 imports:
 - bican_biolink
 - bican_prov
 - genome_annotation
+- anatomical_structure
 - linkml:types
 prefixes:
   bican: https://identifiers.org/brain-bican/vocab/
