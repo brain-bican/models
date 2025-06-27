@@ -12,7 +12,7 @@ ObservationMatrixCreationProcess	procedure	ProvActivity		The process of aggregat
 ObservationMatrix	named thing	ProvEntity		A matrix (potentially virtual) of observations. Each row represents a specific observation or measurements on specific sample (such as a cell) over a set of variables or features. Each column represents the set of measurements (such as gene expression) of a specific variable (such as gene) over all samples.		
 ObservationRow	named thing	ProvEntity		One specific row of the observation matrix representing a set of measurements preformed on a sample over a set of variables or features.		
 CellSpecimen	named thing	ProvEntity		( defined as in BERS)		
-ParcellationTerm	named thing	ProvEntity		( defined in AnSRS )	anatomical_structure	
+ParcellationTerm	named thing	ProvEntity		( defined in AnSRS )	anatomical_structure	bican:ParcellationTerm
 Abbreviation	named thing	ProvEntity		Maps an abbreviation string to its decoded meaning. Optionally the abbreviation can be link to one or more entities it denotes.		
 MatrixFile	named thing	ProvEntity		A digital file containing the representation of full or partial data matrix.		
 ColorPalette	named thing	ProvEntity		A schematic set of display colors that can be applied to individual components of the associated entity set (for example, a taxonomy).		

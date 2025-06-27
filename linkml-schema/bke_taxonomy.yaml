@@ -511,6 +511,7 @@ classes:
     is_a: named thing
     mixins:
     - ProvEntity
+    class_uri: bican:ParcellationTerm
   Abbreviation:
     description: Maps an abbreviation string to its decoded meaning. Optionally the
       abbreviation can be link to one or more entities it denotes.
