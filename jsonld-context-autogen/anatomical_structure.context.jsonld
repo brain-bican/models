@@ -353,10 +353,6 @@
          "@type": "@id",
          "@id": "subject_parcellation_annotation"
       },
-      "subject_parcellation_term": {
-         "@type": "@id",
-         "@id": "subject_parcellation_term"
-      },
       "has_anatomical_annotation_set": {
          "@type": "@id",
          "@id": "has_anatomical_annotation_set"
@@ -424,6 +420,10 @@
       },
       "rights": {
          "@id": "biolink:rights"
+      },
+      "subject_parcellation_term": {
+         "@type": "@id",
+         "@id": "subject_parcellation_term"
       },
       "synonym": {
          "@id": "biolink:synonym"

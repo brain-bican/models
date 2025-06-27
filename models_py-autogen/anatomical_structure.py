@@ -7705,12 +7705,12 @@ class ParcellationColorAssignment(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/anatomical-structure-schema'})
 
+    subject_parcellation_term: str = Field(default=..., description="""Reference to the parcellation term that is the subject of the association.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_term',
+         'any_of': [{'range': 'ParcellationTerm'}, {'range': 'string'}],
+         'domain_of': ['ParcellationColorAssignment', 'ParcellationAnnotationTermMap']} })
     part_of_parcellation_color_scheme: str = Field(default=..., description="""Reference to the parcellation color scheme for which the color assignment is part of.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_parcellation_color_scheme',
          'any_of': [{'range': 'ParcellationColorScheme'}, {'range': 'string'}],
          'domain_of': ['ParcellationColorAssignment']} })
-    subject_parcellation_term: str = Field(default=..., description="""Reference to the parcellation term identifier for which the color assignment is about.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_term',
-         'any_of': [{'range': 'ParcellationTerm'}, {'range': 'string'}],
-         'domain_of': ['ParcellationColorAssignment', 'ParcellationAnnotationTermMap']} })
     color: Optional[str] = Field(default=None, description="""A string representing to hex triplet code of a color""", json_schema_extra = { "linkml_meta": {'alias': 'color',
          'domain_of': ['ParcellationColorAssignment'],
          'structured_pattern': {'syntax': '{ColorHexTriplet}'}} })
@@ -8085,12 +8085,12 @@ class ParcellationAnnotationTermMap(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/anatomical-structure-schema'})
 
-    subject_parcellation_annotation: Union[ParcellationAnnotation, str] = Field(default=..., description="""Reference to the parcellation annotation that is the subject of the association.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_annotation',
-         'any_of': [{'range': 'ParcellationAnnotation'}, {'range': 'string'}],
-         'domain_of': ['ParcellationAnnotationTermMap']} })
     subject_parcellation_term: str = Field(default=..., description="""Reference to the parcellation term that is the subject of the association.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_term',
          'any_of': [{'range': 'ParcellationTerm'}, {'range': 'string'}],
          'domain_of': ['ParcellationColorAssignment', 'ParcellationAnnotationTermMap']} })
+    subject_parcellation_annotation: Union[ParcellationAnnotation, str] = Field(default=..., description="""Reference to the parcellation annotation that is the subject of the association.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_annotation',
+         'any_of': [{'range': 'ParcellationAnnotation'}, {'range': 'string'}],
+         'domain_of': ['ParcellationAnnotationTermMap']} })
 
 
 class ParcellationAtlas(VersionedNamedThing):
