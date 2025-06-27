@@ -6,7 +6,6 @@ description: |-
 license: MIT
 
 imports:
-  - anatomical_structure_core
   - linkml:types
   - bican_biolink
 
@@ -25,6 +24,17 @@ settings:
   ColorHexTriplet: "#[0-9a-fA-F]{6}"
 
 classes:
+  VersionedNamedThing:
+      is_a: named thing
+      description: >-
+          Core base entity for Anatomical Structure schema representing an versioned named thing.
+      abstract: true
+      slots:
+          - version
+          - revision_of
+      slot_usage:
+          version:
+              required: true
   ImageDataset:
     is_a: VersionedNamedThing
     description: >-
@@ -125,7 +135,7 @@ classes:
           - range: string
 
   ParcellationTermSet:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       A parcellation term set is the set of parcellation terms within a specific parcellation terminology. 
       A parcellation term set belongs to one and only one parcellation terminology and each parcellation 
@@ -156,7 +166,7 @@ classes:
           (lower taxonomic rank) of.
 
   ParcellationTerm:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       A parcellation term is an individual term within a specific parcellation terminology describing a 
       single anatomical entity by a persistent identifier, name, symbol and description.  A parcellation 
@@ -348,6 +358,10 @@ classes:
         any_of:
           - range: ParcellationAtlas
           - range: string
+
+slots:
+    revision_of:
+        range: VersionedNamedThing
 
 enums:
   ANATOMICAL_DIRECTION:

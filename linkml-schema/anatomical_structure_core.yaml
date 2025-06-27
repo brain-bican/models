@@ -19,7 +19,7 @@ default_range: string
 
 classes:
     VersionedNamedThing:
-        is_a: NamedThing
+        is_a: named thing
         description: >-
             Core base entity for Anatomical Structure schema representing an versioned named thing.
         abstract: true
