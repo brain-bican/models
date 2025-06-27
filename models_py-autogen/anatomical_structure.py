@@ -68,7 +68,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'bican',
      'description': 'The Anatomical Structure schema is designed to represent '
                     'types and relationships of anatomical brain structures. ',
      'id': 'https://identifiers.org/brain-bican/anatomical-structure-schema',
-     'imports': ['linkml:types', 'bican_biolink'],
+     'imports': ['linkml:types', 'bican_biolink', 'bican_core'],
      'license': 'MIT',
      'name': 'anatomical-structure-schema',
      'prefixes': {'bican': {'prefix_prefix': 'bican',
@@ -83,6 +83,12 @@ linkml_meta = LinkMLMeta({'default_prefix': 'bican',
                                     'setting_value': '^[+]?\\d*\\.?\\d+$'}},
      'source_file': 'anatomical_structure.yaml',
      'title': 'Anatomical Structure Schema'} )
+
+class DigestType(str, Enum):
+    SHA1 = "spdx:checksumAlgorithm_sha1"
+    MD5 = "spdx:checksumAlgorithm_md5"
+    SHA256 = "spdx:checksumAlgorithm_sha256"
+
 
 class ANATOMICALDIRECTION(str, Enum):
     """
@@ -5001,10 +5007,10 @@ class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
 
 class VersionedNamedThing(NamedThing):
     """
-    Core base entity for Anatomical Structure schema representing an versioned named thing.
+    An iteration of the biolink:NamedThing class that stores metadata about the object's version.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
-         'from_schema': 'https://identifiers.org/brain-bican/anatomical-structure-schema',
+         'from_schema': 'https://identifiers.org/brain-bican/bican-core-schema',
          'slot_usage': {'version': {'name': 'version', 'required': True}}})
 
     version: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'version',
@@ -5329,6 +5335,263 @@ class VersionedNamedThing(NamedThing):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
+
+    @field_validator('category')
+    def pattern_category(cls, v):
+        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
+        if isinstance(v,list):
+            for element in v:
+                if isinstance(v, str) and not pattern.match(element):
+                    raise ValueError(f"Invalid category format: {element}")
+        elif isinstance(v,str):
+            if not pattern.match(v):
+                raise ValueError(f"Invalid category format: {v}")
+        return v
+
+
+class Checksum(Entity):
+    """
+    Checksum values associated with digital entities.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/bican-core-schema'})
+
+    checksum_algorithm: Optional[DigestType] = Field(default=None, description="""The type of cryptographic hash function used to calculate the checksum value.""", json_schema_extra = { "linkml_meta": {'alias': 'checksum_algorithm', 'domain_of': ['checksum']} })
+    value: Optional[str] = Field(default=None, description="""The checksum value obtained from a specific cryotographic hash function.""", json_schema_extra = { "linkml_meta": {'alias': 'value', 'domain_of': ['checksum']} })
+    id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
+         'definition_uri': 'https://w3id.org/biolink/vocab/id',
+         'domain': 'entity',
+         'domain_of': ['ontology class',
+                       'entity',
+                       'attribute',
+                       'named thing',
+                       'taxonomic rank',
+                       'organism taxon',
+                       'information content entity',
+                       'dataset',
+                       'physical entity',
+                       'activity',
+                       'procedure',
+                       'material sample',
+                       'biological entity',
+                       'gene',
+                       'genome'],
+         'exact_mappings': ['AGRKB:primaryId', 'gff3:ID', 'gpi:DB_Object_ID'],
+         'in_subset': ['translator_minimal'],
+         'slot_uri': 'biolink:id'} })
+    iri: Optional[str] = Field(default=None, description="""An IRI for an entity. This is determined by the id using expansion rules.""", json_schema_extra = { "linkml_meta": {'alias': 'iri',
+         'definition_uri': 'https://w3id.org/biolink/vocab/iri',
+         'domain_of': ['attribute',
+                       'entity',
+                       'named thing',
+                       'organism taxon',
+                       'information content entity',
+                       'dataset',
+                       'physical entity',
+                       'activity',
+                       'procedure',
+                       'material sample',
+                       'biological entity',
+                       'gene',
+                       'genome'],
+         'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
+         'in_subset': ['translator_minimal', 'samples'],
+         'slot_uri': 'biolink:iri'} })
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/Checksum","bican:Checksum"]] = Field(default=["bican:Checksum"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+         'definition_uri': 'https://w3id.org/biolink/vocab/category',
+         'designates_type': True,
+         'domain': 'entity',
+         'domain_of': ['entity',
+                       'attribute',
+                       'named thing',
+                       'organism taxon',
+                       'information content entity',
+                       'dataset',
+                       'physical entity',
+                       'activity',
+                       'procedure',
+                       'material sample',
+                       'biological entity',
+                       'gene',
+                       'genome'],
+         'in_subset': ['translator_minimal'],
+         'is_a': 'type',
+         'is_class_field': True,
+         'slot_uri': 'biolink:category'} })
+    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+         'definition_uri': 'https://w3id.org/biolink/vocab/type',
+         'domain': 'entity',
+         'domain_of': ['entity',
+                       'attribute',
+                       'named thing',
+                       'organism taxon',
+                       'information content entity',
+                       'dataset',
+                       'physical entity',
+                       'activity',
+                       'procedure',
+                       'material sample',
+                       'biological entity',
+                       'gene',
+                       'genome'],
+         'exact_mappings': ['gff3:type', 'gpi:DB_Object_Type'],
+         'mappings': ['rdf:type'],
+         'slot_uri': 'rdf:type'} })
+    name: Optional[str] = Field(default=None, description="""A human-readable name for an attribute or entity.""", json_schema_extra = { "linkml_meta": {'alias': 'name',
+         'aliases': ['label', 'display name', 'title'],
+         'definition_uri': 'https://w3id.org/biolink/vocab/name',
+         'domain': 'entity',
+         'domain_of': ['attribute',
+                       'entity',
+                       'macromolecular machine mixin',
+                       'named thing',
+                       'organism taxon',
+                       'information content entity',
+                       'dataset',
+                       'physical entity',
+                       'activity',
+                       'procedure',
+                       'material sample',
+                       'biological entity',
+                       'gene or gene product',
+                       'gene',
+                       'genome'],
+         'exact_mappings': ['gff3:Name', 'gpi:DB_Object_Name'],
+         'in_subset': ['translator_minimal', 'samples'],
+         'mappings': ['rdfs:label'],
+         'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
+         'slot_uri': 'rdfs:label'} })
+    description: Optional[str] = Field(default=None, description="""a human-readable description of an entity""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+         'aliases': ['definition'],
+         'definition_uri': 'https://w3id.org/biolink/vocab/description',
+         'domain_of': ['entity',
+                       'attribute',
+                       'named thing',
+                       'organism taxon',
+                       'information content entity',
+                       'dataset',
+                       'physical entity',
+                       'activity',
+                       'procedure',
+                       'material sample',
+                       'biological entity',
+                       'gene',
+                       'genome'],
+         'exact_mappings': ['IAO:0000115', 'skos:definitions'],
+         'in_subset': ['translator_minimal'],
+         'mappings': ['dct:description'],
+         'narrow_mappings': ['gff3:Description'],
+         'slot_uri': 'dct:description'} })
+    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+         'close_mappings': ['OBI:0001927'],
+         'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
+         'domain': 'entity',
+         'domain_of': ['entity',
+                       'attribute',
+                       'named thing',
+                       'organism taxon',
+                       'information content entity',
+                       'dataset',
+                       'physical entity',
+                       'activity',
+                       'procedure',
+                       'material sample',
+                       'biological entity',
+                       'gene',
+                       'genome'],
+         'exact_mappings': ['SIO:000008'],
+         'in_subset': ['samples'],
+         'narrow_mappings': ['OBAN:association_has_subject_property',
+                             'OBAN:association_has_object_property',
+                             'CPT:has_possibly_included_panel_element',
+                             'DRUGBANK:category',
+                             'EFO:is_executed_in',
+                             'HANCESTRO:0301',
+                             'LOINC:has_action_guidance',
+                             'LOINC:has_adjustment',
+                             'LOINC:has_aggregation_view',
+                             'LOINC:has_approach_guidance',
+                             'LOINC:has_divisor',
+                             'LOINC:has_exam',
+                             'LOINC:has_method',
+                             'LOINC:has_modality_subtype',
+                             'LOINC:has_object_guidance',
+                             'LOINC:has_scale',
+                             'LOINC:has_suffix',
+                             'LOINC:has_time_aspect',
+                             'LOINC:has_time_modifier',
+                             'LOINC:has_timing_of',
+                             'NCIT:R88',
+                             'NCIT:eo_disease_has_property_or_attribute',
+                             'NCIT:has_data_element',
+                             'NCIT:has_pharmaceutical_administration_method',
+                             'NCIT:has_pharmaceutical_basic_dose_form',
+                             'NCIT:has_pharmaceutical_intended_site',
+                             'NCIT:has_pharmaceutical_release_characteristics',
+                             'NCIT:has_pharmaceutical_state_of_matter',
+                             'NCIT:has_pharmaceutical_transformation',
+                             'NCIT:is_qualified_by',
+                             'NCIT:qualifier_applies_to',
+                             'NCIT:role_has_domain',
+                             'NCIT:role_has_range',
+                             'INO:0000154',
+                             'HANCESTRO:0308',
+                             'OMIM:has_inheritance_type',
+                             'orphanet:C016',
+                             'orphanet:C017',
+                             'RO:0000053',
+                             'RO:0000086',
+                             'RO:0000087',
+                             'SNOMED:has_access',
+                             'SNOMED:has_clinical_course',
+                             'SNOMED:has_count_of_base_of_active_ingredient',
+                             'SNOMED:has_dose_form_administration_method',
+                             'SNOMED:has_dose_form_release_characteristic',
+                             'SNOMED:has_dose_form_transformation',
+                             'SNOMED:has_finding_context',
+                             'SNOMED:has_finding_informer',
+                             'SNOMED:has_inherent_attribute',
+                             'SNOMED:has_intent',
+                             'SNOMED:has_interpretation',
+                             'SNOMED:has_laterality',
+                             'SNOMED:has_measurement_method',
+                             'SNOMED:has_method',
+                             'SNOMED:has_priority',
+                             'SNOMED:has_procedure_context',
+                             'SNOMED:has_process_duration',
+                             'SNOMED:has_property',
+                             'SNOMED:has_revision_status',
+                             'SNOMED:has_scale_type',
+                             'SNOMED:has_severity',
+                             'SNOMED:has_specimen',
+                             'SNOMED:has_state_of_matter',
+                             'SNOMED:has_subject_relationship_context',
+                             'SNOMED:has_surgical_approach',
+                             'SNOMED:has_technique',
+                             'SNOMED:has_temporal_context',
+                             'SNOMED:has_time_aspect',
+                             'SNOMED:has_units',
+                             'UMLS:has_structural_class',
+                             'UMLS:has_supported_concept_property',
+                             'UMLS:has_supported_concept_relationship',
+                             'UMLS:may_be_qualified_by'],
+         'slot_uri': 'biolink:has_attribute'} })
+    deprecated: Optional[bool] = Field(default=None, description="""A boolean flag indicating that an entity is no longer considered current or valid.""", json_schema_extra = { "linkml_meta": {'alias': 'deprecated',
+         'definition_uri': 'https://w3id.org/biolink/vocab/deprecated',
+         'domain_of': ['entity',
+                       'attribute',
+                       'named thing',
+                       'organism taxon',
+                       'information content entity',
+                       'dataset',
+                       'physical entity',
+                       'activity',
+                       'procedure',
+                       'material sample',
+                       'biological entity',
+                       'gene',
+                       'genome'],
+         'exact_mappings': ['oboInOwl:ObsoleteClass'],
+         'slot_uri': 'biolink:deprecated'} })
 
     @field_validator('category')
     def pattern_category(cls, v):
@@ -8219,6 +8482,7 @@ GeneOrGeneProduct.model_rebuild()
 Gene.model_rebuild()
 Genome.model_rebuild()
 VersionedNamedThing.model_rebuild()
+Checksum.model_rebuild()
 ImageDataset.model_rebuild()
 AnatomicalSpace.model_rebuild()
 ParcellationTerminology.model_rebuild()

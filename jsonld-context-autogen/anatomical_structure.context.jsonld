@@ -198,6 +198,17 @@
          "@id": "measures"
       },
       "category": "@type",
+      "checksum_algorithm": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "checksum_algorithm"
+      },
+      "value": {
+         "@id": "value"
+      },
       "creation_date": {
          "@type": "xsd:date",
          "@id": "biolink:creation_date"
@@ -208,6 +219,10 @@
       },
       "description": {
          "@id": "dct:description"
+      },
+      "digest": {
+         "@type": "@id",
+         "@id": "digest"
       },
       "format": {
          "@id": "biolink:format"
@@ -443,6 +458,9 @@
       },
       "BiologicalEntity": {
          "@id": "biolink:BiologicalEntity"
+      },
+      "Checksum": {
+         "@id": "Checksum"
       },
       "ChemicalEntityOrGeneOrGeneProduct": {
          "@id": "biolink:ChemicalEntityOrGeneOrGeneProduct"

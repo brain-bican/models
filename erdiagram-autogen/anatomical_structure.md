@@ -237,6 +237,17 @@ VersionedNamedThing {
     label type full_name  
     label typeList synonym  
 }
+Checksum {
+    DigestType checksum_algorithm  
+    string value  
+    string id  
+    iri type iri  
+    curieList category  
+    stringList type  
+    label type name  
+    narrative text description  
+    boolean deprecated  
+}
 ImageDataset {
     ANATOMICAL_DIRECTION x_direction  
     ANATOMICAL_DIRECTION y_direction  
@@ -409,6 +420,7 @@ Genome ||--}o Attribute : "has attribute"
 Genome ||--}o OrganismTaxon : "in taxon"
 VersionedNamedThing ||--|o VersionedNamedThing : "revision_of"
 VersionedNamedThing ||--}o Attribute : "has attribute"
+Checksum ||--}o Attribute : "has attribute"
 ImageDataset ||--|o VersionedNamedThing : "revision_of"
 ImageDataset ||--}o Attribute : "has attribute"
 AnatomicalSpace ||--|o VersionedNamedThing : "revision_of"
