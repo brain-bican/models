@@ -5,18 +5,20 @@ description: |-
   The Anatomical Structure schema is designed to represent types and relationships of anatomical brain structures. 
 license: MIT
 
+imports:
+  - anatomical_structure_core
+  - linkml:types
+  - bican_biolink
+
 prefixes:
-  # AnS: https://w3id.org/my-org/anatomical-structure-schema/
+  bican: https://identifiers.org/brain-bican/vocab/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
-  # PATO: http://purl.obolibrary.org/obo/PATO_
+
 default_prefix: bican
 default_range: string
 
-imports:
-  - linkml:types
-  - anatomical_structure_core
-  - bican_biolink
+
 
 settings:
   PositiveFloat: ^[+]?\d*\.?\d+$
