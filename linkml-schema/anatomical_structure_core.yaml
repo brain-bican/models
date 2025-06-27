@@ -18,12 +18,6 @@ default_range: string
 
 
 classes:
-    NamedThing:
-        description: >-
-            Core base entity for Anatomical Structure schema representing an entity with an identifier 
-            name and description.
-        abstract: true
-
     VersionedNamedThing:
         is_a: NamedThing
         description: >-
