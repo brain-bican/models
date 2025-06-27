@@ -56,10 +56,6 @@ and the [generate_yaml_model workflow](../.github/workflows/generate_yaml_model.
 
 These models are used to extract the core types and used by the main models, you can see it in the `imports` sections.
 
-### [anatomical_structure_core](anatomical_structure_core.yaml)
-
-Contains the core types used in the [Anatomical Structure Schema](anatomical_structure.yaml).
-
 ##### Updates
 The model has been created directly in the YAML format, and all the updates can be done by editing the file directly.
 

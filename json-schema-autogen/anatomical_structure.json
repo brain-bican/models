@@ -12,14 +12,47 @@
             "title": "ANATOMICALDIRECTION",
             "type": "string"
         },
-        "AnatomicalAnnotationSet": {
+        "Activity": {
             "additionalProperties": false,
-            "description": "An anatomical annotation set is a versioned release of a set of anatomical annotations anchored  in the same anatomical space that divides the space into distinct segments following some annotation  criteria or parcellation scheme. For example, the anatomical annotation set of 3D image based  reference atlases (e.g. Allen Mouse CCF) can be expressed as a set of label indices of single  multi-valued image annotations or as a set of segmentation masks (ref: ILX:0777108, RRID:SCR_023499)",
+            "description": "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.",
             "properties": {
                 "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
                     "enum": [
-                        "AnS:AnatomicalAnnotationSet"
+                        "biolink:Activity"
                     ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
@@ -28,14 +61,136 @@
                         "null"
                     ]
                 },
-                "description": {
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
                     "type": "string"
                 },
-                "id": {
-                    "type": "string"
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Activity",
+            "type": "object"
+        },
+        "AnatomicalAnnotationSet": {
+            "additionalProperties": false,
+            "description": "An anatomical annotation set is a versioned release of a set of anatomical annotations anchored  in the same anatomical space that divides the space into distinct segments following some annotation  criteria or parcellation scheme. For example, the anatomical annotation set of 3D image based  reference atlases (e.g. Allen Mouse CCF) can be expressed as a set of label indices of single  multi-valued image annotations or as a set of segmentation masks (ref: ILX:0777108, RRID:SCR_023499)",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
+                    "enum": [
+                        "bican:AnatomicalAnnotationSet"
+                    ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
                     "type": "string"
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "parameterizes": {
                     "anyOf": [
@@ -48,6 +203,16 @@
                     ],
                     "description": "Reference to the anatomical space for which the anatomical annotation set is anchored",
                     "type": "string"
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "revision_of": {
                     "anyOf": [
@@ -63,16 +228,43 @@
                     ],
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "version": {
                     "type": "string"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
                 "parameterizes",
                 "version",
-                "id",
-                "name",
-                "description"
+                "id"
             ],
             "title": "AnatomicalAnnotationSet",
             "type": "object"
@@ -82,9 +274,42 @@
             "description": "An anatomical space is versioned release of a mathematical space with a defined mapping  between the anatomical axes and the mathematical axes. An anatomical space may be defined by  a reference image chosen as the biological reference for an anatomical structure of interest  derived from a single or multiple specimens (ref: ILX:0777106, RRID:SCR_023499)",
             "properties": {
                 "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
                     "enum": [
-                        "AnS:AnatomicalSpace"
+                        "bican:AnatomicalSpace"
                     ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
@@ -93,11 +318,16 @@
                         "null"
                     ]
                 },
-                "description": {
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
                     "type": "string"
                 },
-                "id": {
-                    "type": "string"
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "measures": {
                     "anyOf": [
@@ -112,7 +342,21 @@
                     "type": "string"
                 },
                 "name": {
-                    "type": "string"
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "revision_of": {
                     "anyOf": [
@@ -128,18 +372,267 @@
                     ],
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "version": {
                     "type": "string"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
                 "measures",
                 "version",
-                "id",
-                "name",
-                "description"
+                "id"
             ],
             "title": "AnatomicalSpace",
+            "type": "object"
+        },
+        "Attribute": {
+            "additionalProperties": false,
+            "description": "A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
+                    "enum": [
+                        "biolink:Attribute"
+                    ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_attribute_type": {
+                    "description": "connects an attribute to a class that describes it",
+                    "type": "string"
+                },
+                "has_qualitative_value": {
+                    "description": "connects an attribute to a value",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_quantitative_value": {
+                    "description": "connects an attribute to a value",
+                    "items": {
+                        "$ref": "#/$defs/QuantityValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The human-readable 'attribute name' can be set to a string which reflects its context of interpretation, e.g. SEPIO evidence/provenance/confidence annotation or it can default to the name associated with the 'has attribute type' slot ontology term.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "has_attribute_type"
+            ],
+            "title": "Attribute",
+            "type": "object"
+        },
+        "Checksum": {
+            "additionalProperties": false,
+            "description": "Checksum values associated with digital entities.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
+                    "enum": [
+                        "bican:Checksum"
+                    ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "checksum_algorithm": {
+                    "$ref": "#/$defs/DigestType",
+                    "description": "The type of cryptographic hash function used to calculate the checksum value."
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "value": {
+                    "description": "The checksum value obtained from a specific cryotographic hash function.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Checksum",
             "type": "object"
         },
         "DISTANCEUNIT": {
@@ -152,14 +645,61 @@
             "title": "DISTANCEUNIT",
             "type": "string"
         },
-        "ImageDataset": {
+        "Dataset": {
             "additionalProperties": false,
-            "description": "An image dataset is versioned release of a multidimensional regular grid of measurements  and metadata required for a morphological representation of an entity such as an anatomical  structure (ref: OBI_0003327, RRID:SCR_006266)",
+            "description": "an item that refers to a collection of data from a data source.",
             "properties": {
                 "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
                     "enum": [
-                        "AnS:ImageDataset"
+                        "biolink:Dataset"
                     ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "creation_date": {
+                    "description": "date on which an entity was created. This can be applied to nodes or edges",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "format": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
@@ -168,14 +708,449 @@
                         "null"
                     ]
                 },
-                "description": {
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
                     "type": "string"
                 },
-                "id": {
-                    "type": "string"
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "license": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rights": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Dataset",
+            "type": "object"
+        },
+        "DigestType": {
+            "description": "",
+            "enum": [
+                "spdx:checksumAlgorithm_sha1",
+                "spdx:checksumAlgorithm_md5",
+                "spdx:checksumAlgorithm_sha256"
+            ],
+            "title": "DigestType",
+            "type": "string"
+        },
+        "Gene": {
+            "additionalProperties": false,
+            "description": "A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene locus may include regulatory regions, transcribed regions and/or other functional sequence regions.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
+                    "enum": [
+                        "biolink:Gene"
+                    ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_biological_sequence": {
+                    "description": "connects a genomic feature to its sequence",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
                     "type": "string"
+                },
+                "in_taxon": {
+                    "description": "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "in_taxon_label": {
+                    "description": "The human readable scientific name for the taxon of the entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "symbol": {
+                    "description": "Symbol for a particular thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Gene",
+            "type": "object"
+        },
+        "Genome": {
+            "additionalProperties": false,
+            "description": "A genome is the sum of genetic material within a cell or virion.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
+                    "enum": [
+                        "biolink:Genome"
+                    ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_biological_sequence": {
+                    "description": "connects a genomic feature to its sequence",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "in_taxon": {
+                    "description": "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "in_taxon_label": {
+                    "description": "The human readable scientific name for the taxon of the entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Genome",
+            "type": "object"
+        },
+        "ImageDataset": {
+            "additionalProperties": false,
+            "description": "An image dataset is versioned release of a multidimensional regular grid of measurements  and metadata required for a morphological representation of an entity such as an anatomical  structure (ref: OBI_0003327, RRID:SCR_006266)",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
+                    "enum": [
+                        "bican:ImageDataset"
+                    ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "revision_of": {
                     "anyOf": [
@@ -190,6 +1165,25 @@
                         }
                     ],
                     "type": "string"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "unit": {
                     "$ref": "#/$defs/DISTANCEUNIT",
@@ -214,6 +1208,16 @@
                     "minimum": 1,
                     "type": [
                         "integer",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },
@@ -258,11 +1262,354 @@
             },
             "required": [
                 "version",
-                "id",
-                "name",
-                "description"
+                "id"
             ],
             "title": "ImageDataset",
+            "type": "object"
+        },
+        "MaterialSample": {
+            "additionalProperties": false,
+            "description": "A sample is a limited quantity of something (e.g. an individual or set of individuals from a population, or a portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use. [SIO]",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
+                    "enum": [
+                        "biolink:MaterialSample"
+                    ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "MaterialSample",
+            "type": "object"
+        },
+        "NamedThing": {
+            "additionalProperties": false,
+            "description": "a databased entity or concept/class",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
+                    "enum": [
+                        "biolink:NamedThing"
+                    ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "NamedThing",
+            "type": "object"
+        },
+        "OrganismTaxon": {
+            "additionalProperties": false,
+            "description": "A classification of a set of organisms. Example instances: NCBITaxon:9606 (Homo sapiens), NCBITaxon:2 (Bacteria). Can also be used to represent strains or subspecies.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
+                    "enum": [
+                        "biolink:OrganismTaxon"
+                    ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_taxonomic_rank": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "OrganismTaxon",
             "type": "object"
         },
         "ParcellationAnnotation": {
@@ -341,10 +1688,12 @@
             "description": "A parcellation atlas is a versioned release reference used to guide experiments or deal with the spatial relationship between  objects or the location of objects within the context of some anatomical structure. An atlas is minimally defined by a notion  of space (either implicit or explicit) and an annotation set. Reference atlases usually have additional parts that make them  more useful in certain situations, such as a well defined coordinate system, delineations indicating the boundaries of various  regions or cell populations, landmarks, and labels and names to make it easier to communicate about well known and useful  locations (ref: ILX:0777109, RRID:SCR_023499).",
             "properties": {
                 "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
                     "enum": [
-                        "AnS:ParcellationAtlas"
+                        "bican:ParcellationAtlas"
                     ],
                     "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
                     "type": [
@@ -352,8 +1701,26 @@
                         "null"
                     ]
                 },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
                 "description": {
-                    "type": "string"
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "has_anatomical_annotation_set": {
                     "anyOf": [
@@ -379,6 +1746,16 @@
                     "description": "Reference to the anatomical space component of the parcellation atlas",
                     "type": "string"
                 },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "has_parcellation_terminology": {
                     "anyOf": [
                         {
@@ -392,10 +1769,32 @@
                     "type": "string"
                 },
                 "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
                     "type": "string"
                 },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "name": {
-                    "type": "string"
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "revision_of": {
                     "anyOf": [
@@ -426,8 +1825,37 @@
                     "description": "Reference to the general (non versioned) parcellation atlas for which the parcellation atlas is a specific  version release of.",
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "version": {
                     "type": "string"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -435,9 +1863,7 @@
                 "has_anatomical_annotation_set",
                 "has_parcellation_terminology",
                 "version",
-                "id",
-                "name",
-                "description"
+                "id"
             ],
             "title": "ParcellationAtlas",
             "type": "object"
@@ -490,9 +1916,42 @@
             "description": "A parcellation color scheme is a versioned release color palette that can be used to visualize a  parcellation terminology or its related parcellation annotation. A parcellation terminology may  have zero or more parcellation color schemes and each color scheme is in context of a specific  parcellation terminology, where each parcellation term is assigned a hex color value. A parcellation  color scheme is defined as a part of one and only one parcellation terminology.",
             "properties": {
                 "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
                     "enum": [
-                        "AnS:ParcellationColorScheme"
+                        "bican:ParcellationColorScheme"
                     ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
@@ -501,14 +1960,33 @@
                         "null"
                     ]
                 },
-                "description": {
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
                     "type": "string"
                 },
-                "id": {
-                    "type": "string"
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "name": {
-                    "type": "string"
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "revision_of": {
                     "anyOf": [
@@ -536,16 +2014,43 @@
                     "description": "Reference to the parcellation terminology for which the parcellation color scheme is in  context of.",
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "version": {
                     "type": "string"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
                 "subject_parcellation_terminology",
                 "version",
-                "id",
-                "name",
-                "description"
+                "id"
             ],
             "title": "ParcellationColorScheme",
             "type": "object"
@@ -555,10 +2060,12 @@
             "description": "A parcellation term is an individual term within a specific parcellation terminology describing a  single anatomical entity by a persistent identifier, name, symbol and description.  A parcellation  term is a unique and exclusive member of a versioned release parcellation terminology. Although term  identifiers must be unique within the context of one versioned release of a parcellation terminology,  they can be reused in different parcellation terminology versions enabling the representation of  terminology updates and modifications over time.",
             "properties": {
                 "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
                     "enum": [
-                        "AnS:ParcellationTerm"
+                        "bican:ParcellationTerm"
                     ],
                     "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
                     "type": [
@@ -566,8 +2073,36 @@
                         "null"
                     ]
                 },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
                 "description": {
-                    "type": "string"
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "has_parent_parcellation_term": {
                     "anyOf": [
@@ -585,10 +2120,22 @@
                     "type": "string"
                 },
                 "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
                     "type": "string"
                 },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "name": {
-                    "type": "string"
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "ordinal": {
                     "description": "Ordinal of the parcellation term among other terms within the context of the associated  parcellation terminology.",
@@ -610,19 +2157,56 @@
                     "description": "Reference to the parcellation term set for which the parcellation term is part of.",
                     "type": "string"
                 },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "symbol": {
                     "description": "Symbol representing a parcellation term.",
                     "type": [
                         "string",
                         "null"
                     ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
                 "part_of_parcellation_term_set",
-                "id",
-                "name",
-                "description"
+                "id"
             ],
             "title": "ParcellationTerm",
             "type": "object"
@@ -632,10 +2216,12 @@
             "description": "A parcellation term set is the set of parcellation terms within a specific parcellation terminology.  A parcellation term set belongs to one and only one parcellation terminology and each parcellation  term in a parcellation terminology belongs to one and only one term set.  If the parcellation terminology is a taxonomy, parcellation term sets can be used to represent  taxonomic ranks. For consistency, if the terminology does not have the notion of taxonomic ranks,  all terms are grouped into a single parcellation term set.",
             "properties": {
                 "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
                     "enum": [
-                        "AnS:ParcellationTermSet"
+                        "bican:ParcellationTermSet"
                     ],
                     "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
                         "type": "string"
                     },
                     "type": [
@@ -643,8 +2229,36 @@
                         "null"
                     ]
                 },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
                 "description": {
-                    "type": "string"
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "has_parent_parcellation_term_set": {
                     "anyOf": [
@@ -662,10 +2276,22 @@
                     "type": "string"
                 },
                 "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
                     "type": "string"
                 },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "name": {
-                    "type": "string"
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "ordinal": {
                     "description": "Ordinal of the parcellation term set among other term sets within the context of the  associated parcellation terminology.",
@@ -686,13 +2312,50 @@
                     ],
                     "description": "Reference to the parcellation terminology for which the parcellation term set partitions.",
                     "type": "string"
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
                 "part_of_parcellation_terminology",
-                "id",
-                "name",
-                "description"
+                "id"
             ],
             "title": "ParcellationTermSet",
             "type": "object"
@@ -702,9 +2365,42 @@
             "description": "A parcellation terminology is a versioned release set of terms that can be used to label  annotations in an atlas, providing human readability and context and allowing communication  about brain locations and structural properties. Typically, a terminology is a set of  descriptive anatomical terms following a specific naming convention and/or approach to  organization scheme. The terminology may be a flat list of controlled vocabulary, a taxonomy  and partonomy, or an ontology (ref: ILX:0777107, RRID:SCR_023499)",
             "properties": {
                 "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
                     "enum": [
-                        "AnS:ParcellationTerminology"
+                        "bican:ParcellationTerminology"
                     ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
                     "items": {
                         "type": "string"
                     },
@@ -713,14 +2409,33 @@
                         "null"
                     ]
                 },
-                "description": {
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
                     "type": "string"
                 },
-                "id": {
-                    "type": "string"
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "name": {
-                    "type": "string"
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "revision_of": {
                     "anyOf": [
@@ -736,21 +2451,311 @@
                     ],
                     "type": "string"
                 },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "version": {
                     "type": "string"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
                 "version",
-                "id",
-                "name",
-                "description"
+                "id"
             ],
             "title": "ParcellationTerminology",
             "type": "object"
+        },
+        "PhysicalEntity": {
+            "additionalProperties": false,
+            "description": "An entity that has material reality (a.k.a. physical essence).",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
+                    "enum": [
+                        "biolink:PhysicalEntity"
+                    ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "PhysicalEntity",
+            "type": "object"
+        },
+        "Procedure": {
+            "additionalProperties": false,
+            "description": "A series of actions conducted in a certain order or manner",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.",
+                    "enum": [
+                        "biolink:Procedure"
+                    ],
+                    "items": {
+                        "pattern": "^bican:[A-Z][A-Za-z]+$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Procedure",
+            "type": "object"
+        },
+        "QuantityValue": {
+            "additionalProperties": false,
+            "description": "A value of an attribute that is quantitative and measurable, expressed as a combination of a unit and a numeric value",
+            "properties": {
+                "has_numeric_value": {
+                    "description": "connects a quantity value to a number",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "has_unit": {
+                    "description": "connects a quantity value to a unit",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "QuantityValue",
+            "type": "object"
+        },
+        "TaxonomicRank": {
+            "additionalProperties": false,
+            "description": "A descriptor for the rank within a taxonomic classification. Example instance: TAXRANK:0000017 (kingdom)",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "TaxonomicRank",
+            "type": "object"
         }
     },
-    "$id": "https://w3id.org/my-org/anatomical-structure-schema",
+    "$id": "https://identifiers.org/brain-bican/anatomical-structure-schema",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "metamodel_version": "1.7.0",

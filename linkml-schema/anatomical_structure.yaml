@@ -1,22 +1,22 @@
-id: https://w3id.org/my-org/anatomical-structure-schema
+id: https://identifiers.org/brain-bican/anatomical-structure-schema
 name: anatomical-structure-schema
 title: Anatomical Structure Schema
 description: |-
   The Anatomical Structure schema is designed to represent types and relationships of anatomical brain structures. 
 license: MIT
 
-prefixes:
-  AnS: https://w3id.org/my-org/anatomical-structure-schema/
-  linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/
-  schema: http://schema.org/
-  PATO: http://purl.obolibrary.org/obo/PATO_
-default_prefix: AnS
-default_range: string
-
 imports:
   - linkml:types
-  - anatomical_structure_core
+  - bican_biolink
+  - bican_core
+
+prefixes:
+  bican: https://identifiers.org/brain-bican/vocab/
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+
+default_prefix: bican
+default_range: string
 
 settings:
   PositiveFloat: ^[+]?\d*\.?\d+$
@@ -123,7 +123,7 @@ classes:
           - range: string
 
   ParcellationTermSet:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       A parcellation term set is the set of parcellation terms within a specific parcellation terminology. 
       A parcellation term set belongs to one and only one parcellation terminology and each parcellation 
@@ -154,7 +154,7 @@ classes:
           (lower taxonomic rank) of.
 
   ParcellationTerm:
-    is_a: NamedThing
+    is_a: named thing
     description: >-
       A parcellation term is an individual term within a specific parcellation terminology describing a 
       single anatomical entity by a persistent identifier, name, symbol and description.  A parcellation 
