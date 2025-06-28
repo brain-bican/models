@@ -7011,7 +7011,8 @@ class ParcellationTerm(NamedThing):
     """
     A parcellation term is an individual term within a specific parcellation terminology describing a  single anatomical entity by a persistent identifier, name, symbol and description.  A parcellation  term is a unique and exclusive member of a versioned release parcellation terminology. Although term  identifiers must be unique within the context of one versioned release of a parcellation terminology,  they can be reused in different parcellation terminology versions enabling the representation of  terminology updates and modifications over time.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/anatomical-structure-schema'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'bican:ParcellationTerm',
+         'from_schema': 'https://identifiers.org/brain-bican/anatomical-structure-schema'})
 
     symbol: Optional[str] = Field(default=None, description="""Symbol representing a parcellation term.""", json_schema_extra = { "linkml_meta": {'alias': 'symbol', 'domain_of': ['gene', 'ParcellationTerm']} })
     part_of_parcellation_term_set: str = Field(default=..., description="""Reference to the parcellation term set for which the parcellation term is part of.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_parcellation_term_set',
