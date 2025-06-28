@@ -338,6 +338,10 @@
       "node_property": {
          "@id": "biolink:node_property"
       },
+      "ordinal": {
+         "@type": "xsd:integer",
+         "@id": "ordinal"
+      },
       "internal_identifier": {
          "@id": "internal_identifier"
       },
@@ -383,10 +387,6 @@
       "has_parent_parcellation_term": {
          "@type": "@id",
          "@id": "has_parent_parcellation_term"
-      },
-      "ordinal": {
-         "@type": "xsd:integer",
-         "@id": "ordinal"
       },
       "part_of_parcellation_term_set": {
          "@type": "@id",
