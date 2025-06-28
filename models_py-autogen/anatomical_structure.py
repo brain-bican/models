@@ -6677,7 +6677,7 @@ class ParcellationTermSet(NamedThing):
                                                    'parcellation terminology.',
                                     'name': 'ordinal'}}})
 
-    ordinal: Optional[int] = Field(default=None, description="""Ordinal of the parcellation term set among other term sets within the context of the  associated parcellation terminology.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'ordinal', 'domain_of': ['ParcellationTermSet']} })
+    ordinal: Optional[int] = Field(default=None, description="""Ordinal of the parcellation term set among other term sets within the context of the  associated parcellation terminology.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'ordinal', 'domain_of': ['ParcellationTermSet', 'ParcellationTerm']} })
     part_of_parcellation_terminology: str = Field(default=..., description="""Reference to the parcellation terminology for which the parcellation term set partitions.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_parcellation_terminology',
          'any_of': [{'range': 'ParcellationTerminology'}, {'range': 'string'}],
          'domain_of': ['ParcellationTermSet']} })
@@ -7023,6 +7023,7 @@ class ParcellationTerm(NamedThing):
                                                    'parcellation terminology.',
                                     'name': 'ordinal'}}})
 
+    ordinal: Optional[int] = Field(default=None, description="""Ordinal of the parcellation term among other terms within the context of the associated  parcellation terminology.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'ordinal', 'domain_of': ['ParcellationTermSet', 'ParcellationTerm']} })
     symbol: Optional[str] = Field(default=None, description="""Symbol representing a parcellation term.""", json_schema_extra = { "linkml_meta": {'alias': 'symbol', 'domain_of': ['gene', 'ParcellationTerm']} })
     part_of_parcellation_term_set: str = Field(default=..., description="""Reference to the parcellation term set for which the parcellation term is part of.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_parcellation_term_set',
          'any_of': [{'range': 'ParcellationTermSet'}, {'range': 'string'}],

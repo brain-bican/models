@@ -2137,6 +2137,14 @@
                         "null"
                     ]
                 },
+                "ordinal": {
+                    "description": "Ordinal of the parcellation term among other terms within the context of the associated  parcellation terminology.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
                 "part_of_parcellation_term_set": {
                     "anyOf": [
                         {

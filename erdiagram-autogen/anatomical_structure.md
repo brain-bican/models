@@ -318,6 +318,7 @@ ParcellationTermSet {
     label typeList synonym  
 }
 ParcellationTerm {
+    integer ordinal  
     string symbol  
     string part_of_parcellation_term_set  
     string has_parent_parcellation_term  
