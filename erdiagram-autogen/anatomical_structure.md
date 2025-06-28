@@ -302,8 +302,8 @@ ParcellationTerminology {
     label typeList synonym  
 }
 ParcellationTermSet {
-    string part_of_parcellation_terminology  
     integer ordinal  
+    string part_of_parcellation_terminology  
     string has_parent_parcellation_term_set  
     string id  
     iri type iri  
@@ -320,7 +320,6 @@ ParcellationTermSet {
 ParcellationTerm {
     string symbol  
     string part_of_parcellation_term_set  
-    integer ordinal  
     string has_parent_parcellation_term  
     string id  
     iri type iri  
