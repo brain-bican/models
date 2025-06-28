@@ -163,6 +163,8 @@ classes:
       identifiers must be unique within the context of one versioned release of a parcellation terminology, 
       they can be reused in different parcellation terminology versions enabling the representation of 
       terminology updates and modifications over time.
+    slots:
+      - ordinal
     attributes:
       symbol:
         description: Symbol representing a parcellation term.
@@ -336,7 +338,7 @@ classes:
         any_of:
           - range: ParcellationAtlas
           - range: string
-          
+
 slots:
   subject_parcellation_term:
     any_of:
