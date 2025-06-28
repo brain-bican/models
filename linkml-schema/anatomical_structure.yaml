@@ -131,6 +131,8 @@ classes:
       If the parcellation terminology is a taxonomy, parcellation term sets can be used to represent 
       taxonomic ranks. For consistency, if the terminology does not have the notion of taxonomic ranks, 
       all terms are grouped into a single parcellation term set.
+    slots:
+      - ordinal
     attributes:
       part_of_parcellation_terminology:
         any_of:
@@ -139,12 +141,6 @@ classes:
         description: >-
           Reference to the parcellation terminology for which the parcellation term set partitions.
         required: true
-      ordinal:
-        range: integer
-        description: >-
-          Ordinal of the parcellation term set among other term sets within the context of the 
-          associated parcellation terminology.
-        minimum_value: 0
       has_parent_parcellation_term_set:
         any_of:
           - range: ParcellationTermSet
@@ -152,6 +148,11 @@ classes:
         description: >-
           Reference to the parent parcellation term set for which the parcellation term set is a child 
           (lower taxonomic rank) of.
+    slot_usage:
+      ordinal:
+        description: >-
+          Ordinal of the parcellation term set among other term sets within the context of the 
+          associated parcellation terminology.
 
   ParcellationTerm:
     is_a: named thing
@@ -162,6 +163,8 @@ classes:
       identifiers must be unique within the context of one versioned release of a parcellation terminology, 
       they can be reused in different parcellation terminology versions enabling the representation of 
       terminology updates and modifications over time.
+    slots:
+      - ordinal
     attributes:
       symbol:
         description: Symbol representing a parcellation term.
@@ -172,12 +175,6 @@ classes:
         description: >-
           Reference to the parcellation term set for which the parcellation term is part of.
         required: true
-      ordinal:
-        range: integer
-        description: >-
-          Ordinal of the parcellation term among other terms within the context of the associated 
-          parcellation terminology.
-        minimum_value: 0
       has_parent_parcellation_term:
         any_of:
           - range: ParcellationTerm
@@ -185,6 +182,11 @@ classes:
         description: >-
           Reference to the parent parcellation term for which the parcellation term is a child (
           spatially part) of
+    slot_usage:
+      ordinal:
+        description: >-
+          Ordinal of the parcellation term among other terms within the context of the associated 
+          parcellation terminology.
 
   ParcellationColorScheme:
     is_a: VersionedNamedThing
@@ -214,6 +216,8 @@ classes:
       The parcellation color assignment associates hex color value to a parcellation term within a 
       versioned release of a color scheme. A parcellation term is uniquely denoted by a parcellation 
       term identifier and the parcellation terminology it belongs to.
+    slots:
+      - subject_parcellation_term
     attributes:
       part_of_parcellation_color_scheme:
         any_of:
@@ -221,13 +225,6 @@ classes:
           - range: string
         description: >-
           Reference to the parcellation color scheme for which the color assignment is part of.
-        required: true
-      subject_parcellation_term:
-        any_of:
-          - range: ParcellationTerm
-          - range: string
-        description: >-
-          Reference to the parcellation term identifier for which the color assignment is about.
         required: true
       color:
         range: string
@@ -287,6 +284,8 @@ classes:
       A parcellation term can be spatially parameterized by the union of one or more parcellation annotations within a versioned 
       release of an anatomical annotation set. For example, annotations defining individual cortical layers in cortical region 
       R (R1, R2/3, R4, etc) can be combined to define the parent region R.
+    slots:
+      - subject_parcellation_term
     attributes:
       subject_parcellation_annotation:
         any_of:
@@ -294,13 +293,6 @@ classes:
           - range: string
         description: >-
           Reference to the parcellation annotation that is the subject of the association.
-        required: true
-      subject_parcellation_term:
-        any_of:
-          - range: ParcellationTerm
-          - range: string
-        description: >-
-          Reference to the parcellation term that is the subject of the association.
         required: true
 
   ParcellationAtlas:
@@ -346,6 +338,18 @@ classes:
         any_of:
           - range: ParcellationAtlas
           - range: string
+
+slots:
+  subject_parcellation_term:
+    any_of:
+    - range: ParcellationTerm
+    - range: string
+    description: >-
+      Reference to the parcellation term that is the subject of the association.
+    required: true
+  ordinal:
+    range: integer
+    minimum_value: 0
 
 enums:
   ANATOMICAL_DIRECTION:

@@ -6670,12 +6670,17 @@ class ParcellationTermSet(NamedThing):
     """
     A parcellation term set is the set of parcellation terms within a specific parcellation terminology.  A parcellation term set belongs to one and only one parcellation terminology and each parcellation  term in a parcellation terminology belongs to one and only one term set.  If the parcellation terminology is a taxonomy, parcellation term sets can be used to represent  taxonomic ranks. For consistency, if the terminology does not have the notion of taxonomic ranks,  all terms are grouped into a single parcellation term set.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/anatomical-structure-schema'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/anatomical-structure-schema',
+         'slot_usage': {'ordinal': {'description': 'Ordinal of the parcellation term '
+                                                   'set among other term sets within '
+                                                   'the context of the  associated '
+                                                   'parcellation terminology.',
+                                    'name': 'ordinal'}}})
 
+    ordinal: Optional[int] = Field(default=None, description="""Ordinal of the parcellation term set among other term sets within the context of the  associated parcellation terminology.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'ordinal', 'domain_of': ['ParcellationTermSet', 'ParcellationTerm']} })
     part_of_parcellation_terminology: str = Field(default=..., description="""Reference to the parcellation terminology for which the parcellation term set partitions.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_parcellation_terminology',
          'any_of': [{'range': 'ParcellationTerminology'}, {'range': 'string'}],
          'domain_of': ['ParcellationTermSet']} })
-    ordinal: Optional[int] = Field(default=None, description="""Ordinal of the parcellation term set among other term sets within the context of the  associated parcellation terminology.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'ordinal', 'domain_of': ['ParcellationTermSet', 'ParcellationTerm']} })
     has_parent_parcellation_term_set: Optional[str] = Field(default=None, description="""Reference to the parent parcellation term set for which the parcellation term set is a child  (lower taxonomic rank) of.""", json_schema_extra = { "linkml_meta": {'alias': 'has_parent_parcellation_term_set',
          'any_of': [{'range': 'ParcellationTermSet'}, {'range': 'string'}],
          'domain_of': ['ParcellationTermSet']} })
@@ -7011,13 +7016,18 @@ class ParcellationTerm(NamedThing):
     """
     A parcellation term is an individual term within a specific parcellation terminology describing a  single anatomical entity by a persistent identifier, name, symbol and description.  A parcellation  term is a unique and exclusive member of a versioned release parcellation terminology. Although term  identifiers must be unique within the context of one versioned release of a parcellation terminology,  they can be reused in different parcellation terminology versions enabling the representation of  terminology updates and modifications over time.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/anatomical-structure-schema'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/anatomical-structure-schema',
+         'slot_usage': {'ordinal': {'description': 'Ordinal of the parcellation term '
+                                                   'among other terms within the '
+                                                   'context of the associated  '
+                                                   'parcellation terminology.',
+                                    'name': 'ordinal'}}})
 
+    ordinal: Optional[int] = Field(default=None, description="""Ordinal of the parcellation term among other terms within the context of the associated  parcellation terminology.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'ordinal', 'domain_of': ['ParcellationTermSet', 'ParcellationTerm']} })
     symbol: Optional[str] = Field(default=None, description="""Symbol representing a parcellation term.""", json_schema_extra = { "linkml_meta": {'alias': 'symbol', 'domain_of': ['gene', 'ParcellationTerm']} })
     part_of_parcellation_term_set: str = Field(default=..., description="""Reference to the parcellation term set for which the parcellation term is part of.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_parcellation_term_set',
          'any_of': [{'range': 'ParcellationTermSet'}, {'range': 'string'}],
          'domain_of': ['ParcellationTerm']} })
-    ordinal: Optional[int] = Field(default=None, description="""Ordinal of the parcellation term among other terms within the context of the associated  parcellation terminology.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'ordinal', 'domain_of': ['ParcellationTermSet', 'ParcellationTerm']} })
     has_parent_parcellation_term: Optional[str] = Field(default=None, description="""Reference to the parent parcellation term for which the parcellation term is a child ( spatially part) of""", json_schema_extra = { "linkml_meta": {'alias': 'has_parent_parcellation_term',
          'any_of': [{'range': 'ParcellationTerm'}, {'range': 'string'}],
          'domain_of': ['ParcellationTerm']} })
@@ -7705,12 +7715,12 @@ class ParcellationColorAssignment(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/anatomical-structure-schema'})
 
+    subject_parcellation_term: str = Field(default=..., description="""Reference to the parcellation term that is the subject of the association.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_term',
+         'any_of': [{'range': 'ParcellationTerm'}, {'range': 'string'}],
+         'domain_of': ['ParcellationColorAssignment', 'ParcellationAnnotationTermMap']} })
     part_of_parcellation_color_scheme: str = Field(default=..., description="""Reference to the parcellation color scheme for which the color assignment is part of.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_parcellation_color_scheme',
          'any_of': [{'range': 'ParcellationColorScheme'}, {'range': 'string'}],
          'domain_of': ['ParcellationColorAssignment']} })
-    subject_parcellation_term: str = Field(default=..., description="""Reference to the parcellation term identifier for which the color assignment is about.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_term',
-         'any_of': [{'range': 'ParcellationTerm'}, {'range': 'string'}],
-         'domain_of': ['ParcellationColorAssignment', 'ParcellationAnnotationTermMap']} })
     color: Optional[str] = Field(default=None, description="""A string representing to hex triplet code of a color""", json_schema_extra = { "linkml_meta": {'alias': 'color',
          'domain_of': ['ParcellationColorAssignment'],
          'structured_pattern': {'syntax': '{ColorHexTriplet}'}} })
@@ -8085,12 +8095,12 @@ class ParcellationAnnotationTermMap(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/anatomical-structure-schema'})
 
-    subject_parcellation_annotation: Union[ParcellationAnnotation, str] = Field(default=..., description="""Reference to the parcellation annotation that is the subject of the association.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_annotation',
-         'any_of': [{'range': 'ParcellationAnnotation'}, {'range': 'string'}],
-         'domain_of': ['ParcellationAnnotationTermMap']} })
     subject_parcellation_term: str = Field(default=..., description="""Reference to the parcellation term that is the subject of the association.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_term',
          'any_of': [{'range': 'ParcellationTerm'}, {'range': 'string'}],
          'domain_of': ['ParcellationColorAssignment', 'ParcellationAnnotationTermMap']} })
+    subject_parcellation_annotation: Union[ParcellationAnnotation, str] = Field(default=..., description="""Reference to the parcellation annotation that is the subject of the association.""", json_schema_extra = { "linkml_meta": {'alias': 'subject_parcellation_annotation',
+         'any_of': [{'range': 'ParcellationAnnotation'}, {'range': 'string'}],
+         'domain_of': ['ParcellationAnnotationTermMap']} })
 
 
 class ParcellationAtlas(VersionedNamedThing):

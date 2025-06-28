@@ -302,8 +302,8 @@ ParcellationTerminology {
     label typeList synonym  
 }
 ParcellationTermSet {
-    string part_of_parcellation_terminology  
     integer ordinal  
+    string part_of_parcellation_terminology  
     string has_parent_parcellation_term_set  
     string id  
     iri type iri  
@@ -318,9 +318,9 @@ ParcellationTermSet {
     label typeList synonym  
 }
 ParcellationTerm {
+    integer ordinal  
     string symbol  
     string part_of_parcellation_term_set  
-    integer ordinal  
     string has_parent_parcellation_term  
     string id  
     iri type iri  
@@ -350,8 +350,8 @@ ParcellationColorScheme {
     label typeList synonym  
 }
 ParcellationColorAssignment {
-    string part_of_parcellation_color_scheme  
     string subject_parcellation_term  
+    string part_of_parcellation_color_scheme  
     string color  
 }
 AnatomicalAnnotationSet {
@@ -375,8 +375,8 @@ ParcellationAnnotation {
     integer voxel_count  
 }
 ParcellationAnnotationTermMap {
-    string subject_parcellation_annotation  
     string subject_parcellation_term  
+    string subject_parcellation_annotation  
 }
 ParcellationAtlas {
     string has_anatomical_space  
