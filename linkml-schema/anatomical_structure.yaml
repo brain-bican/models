@@ -186,156 +186,157 @@ classes:
           Ordinal of the parcellation term among other terms within the context of the associated 
           parcellation terminology.
 
-#   ParcellationColorScheme:
-#     is_a: VersionedNamedThing
-#     description: >-
-#       A parcellation color scheme is a versioned release color palette that can be used to visualize a 
-#       parcellation terminology or its related parcellation annotation. A parcellation terminology may 
-#       have zero or more parcellation color schemes and each color scheme is in context of a specific 
-#       parcellation terminology, where each parcellation term is assigned a hex color value. A parcellation 
-#       color scheme is defined as a part of one and only one parcellation terminology.
-#     attributes:
-#       subject_parcellation_terminology:
-#         any_of:
-#           - range: ParcellationTerminology
-#           - range: string
-#         description: >-
-#           Reference to the parcellation terminology for which the parcellation color scheme is in 
-#           context of.
-#         required: true
-#     slot_usage:
-#       revision_of:
-#         any_of:
-#           - range: ParcellationColorScheme
-#           - range: string
+  ParcellationColorScheme:
+    is_a: VersionedNamedThing
+    description: >-
+      A parcellation color scheme is a versioned release color palette that can be used to visualize a 
+      parcellation terminology or its related parcellation annotation. A parcellation terminology may 
+      have zero or more parcellation color schemes and each color scheme is in context of a specific 
+      parcellation terminology, where each parcellation term is assigned a hex color value. A parcellation 
+      color scheme is defined as a part of one and only one parcellation terminology.
+    attributes:
+      subject_parcellation_terminology:
+        any_of:
+          - range: ParcellationTerminology
+          - range: string
+        description: >-
+          Reference to the parcellation terminology for which the parcellation color scheme is in 
+          context of.
+        required: true
+    slot_usage:
+      revision_of:
+        any_of:
+          - range: ParcellationColorScheme
+          - range: string
 
-#   ParcellationColorAssignment:
-#     description: >-
-#       The parcellation color assignment associates hex color value to a parcellation term within a 
-#       versioned release of a color scheme. A parcellation term is uniquely denoted by a parcellation 
-#       term identifier and the parcellation terminology it belongs to.
-#     slots:
-#       - subject_parcellation_term
-#     attributes:
-#       part_of_parcellation_color_scheme:
-#         any_of:
-#           - range: ParcellationColorScheme
-#           - range: string
-#         description: >-
-#           Reference to the parcellation color scheme for which the color assignment is part of.
-#         required: true
-#       color:
-#         range: string
-#         description: A string representing to hex triplet code of a color
-#         structured_pattern:
-#           syntax: "{ColorHexTriplet}"
+  ParcellationColorAssignment:
+    description: >-
+      The parcellation color assignment associates hex color value to a parcellation term within a 
+      versioned release of a color scheme. A parcellation term is uniquely denoted by a parcellation 
+      term identifier and the parcellation terminology it belongs to.
+    slots:
+      - subject_parcellation_term
+    attributes:
+      part_of_parcellation_color_scheme:
+        any_of:
+          - range: ParcellationColorScheme
+          - range: string
+        description: >-
+          Reference to the parcellation color scheme for which the color assignment is part of.
+        required: true
+      color:
+        range: string
+        description: A string representing to hex triplet code of a color
+        structured_pattern:
+          syntax: "{ColorHexTriplet}"
 
-#   AnatomicalAnnotationSet:
-#     is_a: VersionedNamedThing
-#     description: >-
-#       An anatomical annotation set is a versioned release of a set of anatomical annotations anchored 
-#       in the same anatomical space that divides the space into distinct segments following some annotation 
-#       criteria or parcellation scheme. For example, the anatomical annotation set of 3D image based 
-#       reference atlases (e.g. Allen Mouse CCF) can be expressed as a set of label indices of single 
-#       multi-valued image annotations or as a set of segmentation masks (ref: ILX:0777108, RRID:SCR_023499)
-#     attributes:
-#       parameterizes:
-#         any_of:
-#           - range: AnatomicalSpace
-#           - range: string
-#         description: >-
-#           Reference to the anatomical space for which the anatomical annotation set is anchored
-#         required: true
-#     slot_usage:
-#       revision_of:
-#         any_of:
-#           - range: AnatomicalAnnotationSet
-#           - range: string
+  AnatomicalAnnotationSet:
+    is_a: VersionedNamedThing
+    description: >-
+      An anatomical annotation set is a versioned release of a set of anatomical annotations anchored 
+      in the same anatomical space that divides the space into distinct segments following some annotation 
+      criteria or parcellation scheme. For example, the anatomical annotation set of 3D image based 
+      reference atlases (e.g. Allen Mouse CCF) can be expressed as a set of label indices of single 
+      multi-valued image annotations or as a set of segmentation masks (ref: ILX:0777108, RRID:SCR_023499)
+    attributes:
+      parameterizes:
+        any_of:
+          - range: AnatomicalSpace
+          - range: string
+        description: >-
+          Reference to the anatomical space for which the anatomical annotation set is anchored
+        required: true
+    slot_usage:
+      revision_of:
+        any_of:
+          - range: AnatomicalAnnotationSet
+          - range: string
 
-#   ParcellationAnnotation:
-#     description: >-
-#       A parcellation annotation defines a specific segment of an anatomical space denoted by an internal 
-#       identifier and is a unique and exclusive member of a versioned release anatomical annotation set. 
-#       For example, in the case where the anatomical annotation set is a single multi-value image mask (e.g. Allen Mouse CCF),
-#       a specific annotation corresponds to a specific label index (internal identifier) in the mask.
-#     attributes:
-#       part_of_anatomical_annotation_set:
-#         any_of:
-#           - range: AnatomicalAnnotationSet
-#           - range: string
-#         description:
-#         required: true
-#       internal_identifier:
-#         description: >-
-#           An identifier that uniquely denotes a specific parcellation annotation within the context of an anatomical annotation set
-#         required: true
-#       voxel_count:
-#         range: integer
-#         description: >-
-#           The number of voxels (3D pixels) spanned by the parcellation annotation (optional).
-#         minimum_value: 0
+  ParcellationAnnotation:
+    description: >-
+      A parcellation annotation defines a specific segment of an anatomical space denoted by an internal 
+      identifier and is a unique and exclusive member of a versioned release anatomical annotation set. 
+      For example, in the case where the anatomical annotation set is a single multi-value image mask (e.g. Allen Mouse CCF),
+      a specific annotation corresponds to a specific label index (internal identifier) in the mask.
+    attributes:
+      part_of_anatomical_annotation_set:
+        any_of:
+          - range: AnatomicalAnnotationSet
+          - range: string
+        description:
+        required: true
+      internal_identifier:
+        description: >-
+          An identifier that uniquely denotes a specific parcellation annotation within the context of an anatomical annotation set
+        required: true
+      voxel_count:
+        range: integer
+        description: >-
+          The number of voxels (3D pixels) spanned by the parcellation annotation (optional).
+        minimum_value: 0
 
-#   ParcellationAnnotationTermMap:
-#     description: >-
-#       The parcellation annotation term map table defines the relationship between parcellation annotations and parcellation terms. 
-#       A parcellation term is uniquely denoted by a parcellation term identifier and the parcellation terminology it belongs to. 
-#       A parcellation term can be spatially parameterized by the union of one or more parcellation annotations within a versioned 
-#       release of an anatomical annotation set. For example, annotations defining individual cortical layers in cortical region 
-#       R (R1, R2/3, R4, etc) can be combined to define the parent region R.
-#     slots:
-#       - subject_parcellation_term
-#     attributes:
-#       subject_parcellation_annotation:
-#         any_of:
-#           - range: ParcellationAnnotation
-#           - range: string
-#         description: >-
-#           Reference to the parcellation annotation that is the subject of the association.
-#         required: true
+  ParcellationAnnotationTermMap:
+    description: >-
+      The parcellation annotation term map table defines the relationship between parcellation annotations and parcellation terms. 
+      A parcellation term is uniquely denoted by a parcellation term identifier and the parcellation terminology it belongs to. 
+      A parcellation term can be spatially parameterized by the union of one or more parcellation annotations within a versioned 
+      release of an anatomical annotation set. For example, annotations defining individual cortical layers in cortical region 
+      R (R1, R2/3, R4, etc) can be combined to define the parent region R.
+    slots:
+      - subject_parcellation_term
+    attributes:
+      subject_parcellation_annotation:
+        any_of:
+          - range: ParcellationAnnotation
+          - range: string
+        description: >-
+          Reference to the parcellation annotation that is the subject of the association.
+        required: true
 
-#   ParcellationAtlas:
-#     is_a: VersionedNamedThing
-#     description: >-
-#       A parcellation atlas is a versioned release reference used to guide experiments or deal with the spatial relationship between 
-#       objects or the location of objects within the context of some anatomical structure. An atlas is minimally defined by a notion 
-#       of space (either implicit or explicit) and an annotation set. Reference atlases usually have additional parts that make them 
-#       more useful in certain situations, such as a well defined coordinate system, delineations indicating the boundaries of various 
-#       regions or cell populations, landmarks, and labels and names to make it easier to communicate about well known and useful 
-#       locations (ref: ILX:0777109, RRID:SCR_023499).
-#     attributes:
-#       has_anatomical_space:
-#         any_of:
-#           - range: AnatomicalSpace
-#           - range: string
-#         description: >-
-#           Reference to the anatomical space component of the parcellation atlas
-#         required: true
-#       has_anatomical_annotation_set:
-#         any_of:
-#           - range: AnatomicalAnnotationSet
-#           - range: string
-#         description: >-
-#           Reference to the anatomical annotation set component of the parcellation atlas
-#         required: true
-#       has_parcellation_terminology:
-#         any_of:
-#           - range: ParcellationTerminology
-#           - range: string
-#         description: >-
-#           Reference to the parcellation terminology component of the parcellation atlas
-#         required: true
-#       specialization_of:
-#         any_of:
-#           - range: ParcellationAtlas
-#           - range: string
-#         description: >-
-#           Reference to the general (non versioned) parcellation atlas for which the parcellation atlas is a specific 
-#           version release of.
-#     slot_usage:
-#       revision_of:
-#         any_of:
-#           - range: ParcellationAtlas
-#           - range: string
+  ParcellationAtlas:
+    is_a: VersionedNamedThing
+    description: >-
+      A parcellation atlas is a versioned release reference used to guide experiments or deal with the spatial relationship between 
+      objects or the location of objects within the context of some anatomical structure. An atlas is minimally defined by a notion 
+      of space (either implicit or explicit) and an annotation set. Reference atlases usually have additional parts that make them 
+      more useful in certain situations, such as a well defined coordinate system, delineations indicating the boundaries of various 
+      regions or cell populations, landmarks, and labels and names to make it easier to communicate about well known and useful 
+      locations (ref: ILX:0777109, RRID:SCR_023499).
+    attributes:
+      has_anatomical_space:
+        any_of:
+          - range: AnatomicalSpace
+          - range: string
+        description: >-
+          Reference to the anatomical space component of the parcellation atlas
+        required: true
+      has_anatomical_annotation_set:
+        any_of:
+          - range: AnatomicalAnnotationSet
+          - range: string
+        description: >-
+          Reference to the anatomical annotation set component of the parcellation atlas
+        required: true
+      has_parcellation_terminology:
+        any_of:
+          - range: ParcellationTerminology
+          - range: string
+        description: >-
+          Reference to the parcellation terminology component of the parcellation atlas
+        required: true
+      specialization_of:
+        any_of:
+          - range: ParcellationAtlas
+          - range: string
+        description: >-
+          Reference to the general (non versioned) parcellation atlas for which the parcellation atlas is a specific 
+          version release of.
+    slot_usage:
+      revision_of:
+        any_of:
+          - range: ParcellationAtlas
+          - range: string
+          
 slots:
   subject_parcellation_term:
     any_of:
@@ -347,27 +348,28 @@ slots:
   ordinal:
     range: integer
     minimum_value: 0
-# enums:
-#   ANATOMICAL_DIRECTION:
-#     description: >-
-#       A controlled vocabulary term defining axis direction in terms of anatomical direction.
-#     permissible_values:
-#       left_to_right:
-#         title: left-to-right
-#       posterior_to_anterior:
-#         title: posterior-to-anterior
-#       inferior_to_superior:
-#         title: inferior-to-superior
-#       superior_to_inferior: 
-#         title: superior-to-inferior
-#       anterior_to_posterior: 
-#         title: anterior-to-posterior
 
-#   DISTANCE_UNIT:
-#     permissible_values:
-#       mm:
-#         title: millimeter
-#       um:
-#         title: micrometer
-#       m:
-#         title: meter
+enums:
+  ANATOMICAL_DIRECTION:
+    description: >-
+      A controlled vocabulary term defining axis direction in terms of anatomical direction.
+    permissible_values:
+      left_to_right:
+        title: left-to-right
+      posterior_to_anterior:
+        title: posterior-to-anterior
+      inferior_to_superior:
+        title: inferior-to-superior
+      superior_to_inferior: 
+        title: superior-to-inferior
+      anterior_to_posterior: 
+        title: anterior-to-posterior
+
+  DISTANCE_UNIT:
+    permissible_values:
+      mm:
+        title: millimeter
+      um:
+        title: micrometer
+      m:
+        title: meter
