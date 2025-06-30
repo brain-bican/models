@@ -45,6 +45,7 @@ slots:
   content_url:
     slot_uri: schema:url
     multivalued: true
+    from_schema: https://identifiers.org/brain-bican/bican-core-schema
 
 enums:
   DigestType:
