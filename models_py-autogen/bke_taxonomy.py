@@ -5406,7 +5406,7 @@ class ProvActivity(ConfiguredBaseModel):
     An activity is something that occurs over a period of time and acts upon or with entities;  it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:Activity',
-         'from_schema': 'https://identifiers.org/brain-bican/genome-prov-schema',
+         'from_schema': 'https://identifiers.org/brain-bican/bican-prov-schema',
          'mixin': True})
 
     used: Optional[str] = Field(default=None, description="""Usage is the beginning of utilizing an entity by an activity. Before usage, the activity had not begun to utilize this entity and could not have been affected by the entity.""", json_schema_extra = { "linkml_meta": {'alias': 'used',
@@ -5421,7 +5421,7 @@ class ProvEntity(ConfiguredBaseModel):
     An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects;  entities may be real or imaginary.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:Entity',
-         'from_schema': 'https://identifiers.org/brain-bican/genome-prov-schema',
+         'from_schema': 'https://identifiers.org/brain-bican/bican-prov-schema',
          'mixin': True})
 
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
@@ -6142,7 +6142,8 @@ class GenomeAnnotation(Genome):
          'slot_uri': 'biolink:version'} })
     digest: Optional[List[Union[Checksum, str]]] = Field(default=None, description="""Stores checksum information.""", json_schema_extra = { "linkml_meta": {'alias': 'digest',
          'any_of': [{'range': 'checksum'}, {'range': 'string'}],
-         'domain_of': ['GenomeAnnotation']} })
+         'domain_of': ['GenomeAnnotation'],
+         'slot_uri': 'bican:digest'} })
     content_url: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'content_url',
          'domain_of': ['GenomeAnnotation', 'ObservationMatrix', 'MatrixFile'],
          'slot_uri': 'schema:url'} })
