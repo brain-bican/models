@@ -5,6 +5,9 @@ on:
     types: [opened, synchronize]
     paths:
       - 'linkml-schema/library_generation.yaml'
+      - 'linkml-schema/bican_biolink.yaml'
+      - 'linkml-schema/bican_core.yaml'
+      - 'linkml-schema/bican_prov.yaml'
 
 
 permissions:

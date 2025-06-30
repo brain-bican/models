@@ -1,19 +1,20 @@
-name: generating other formats for bke_taxonomy
+name: generating other formats for anatomical_structure
 
 on:
   pull_request_target:
     types: [opened, synchronize]
     paths:
-      - 'linkml-schema/bke_taxonomy.yaml'
+      - 'linkml-schema/anatomical_structure.yaml'
+      - 'linkml-schema/bican_biolink.yaml'
+      - 'linkml-schema/bican_core.yaml'
 
 
 permissions:
   contents: write
   pull-requests: write
 
-
 jobs:
   generate_from_reusable:
     uses: brain-bican/models/.github/workflows/reusable-generate_other_formats.yaml@main
     with:
-      model_name: bke_taxonomy
+      model_name: anatomical_structure

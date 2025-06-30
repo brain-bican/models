@@ -5,6 +5,8 @@ on:
     types: [opened, synchronize]
     paths:
       - 'linkml-schema/genome_annotation.yaml'
+      - 'linkml-schema/bican_biolink.yaml'
+      - 'linkml-schema/bican_core.yaml'
 
 
 permissions:
