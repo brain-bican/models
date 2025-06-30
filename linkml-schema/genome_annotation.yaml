@@ -85,10 +85,6 @@ slots:
       - range: BioType
       - range: string
 
-  content_url:
-    slot_uri: schema:url
-    multivalued: true
-
   authority:
     description: The organization responsible for publishing the data. 
     range: AuthorityType
