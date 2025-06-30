@@ -5651,7 +5651,8 @@ class GenomeAnnotation(Genome):
          'slot_uri': 'biolink:version'} })
     digest: Optional[List[Union[Checksum, str]]] = Field(default=None, description="""Stores checksum information.""", json_schema_extra = { "linkml_meta": {'alias': 'digest',
          'any_of': [{'range': 'checksum'}, {'range': 'string'}],
-         'domain_of': ['GenomeAnnotation']} })
+         'domain_of': ['GenomeAnnotation'],
+         'slot_uri': 'bican:digest'} })
     content_url: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'content_url',
          'domain_of': ['GenomeAnnotation'],
          'slot_uri': 'schema:url'} })
