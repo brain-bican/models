@@ -1530,8 +1530,11 @@
                     ]
                 },
                 "content_url": {
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 },
