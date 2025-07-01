@@ -2,7 +2,7 @@
 erDiagram
 DigitalAsset {
     stringList digest  
-    string content_url  
+    stringList content_url  
     string data_type  
     string id  
     iri_type iri  

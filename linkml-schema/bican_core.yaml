@@ -53,6 +53,10 @@ slots:
   checksum algorithm:
     description: The type of cryptographic hash function used to calculate the checksum value.
     range: DigestType
+  
+  content_url:
+    slot_uri: schema:url
+    multivalued: true
 
 enums:
   DigestType:

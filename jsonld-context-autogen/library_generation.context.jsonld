@@ -257,7 +257,7 @@
          "@id": "value"
       },
       "content_url": {
-         "@id": "content_url"
+         "@id": "schema:url"
       },
       "creation_date": {
          "@type": "xsd:date",
@@ -463,6 +463,10 @@
          "@type": "@id",
          "@id": "biolink:related_to_at_instance_level"
       },
+      "revision_of": {
+         "@type": "@id",
+         "@id": "revision_of"
+      },
       "rights": {
          "@id": "biolink:rights"
       },
@@ -657,6 +661,9 @@
       },
       "TissueSample": {
          "@id": "TissueSample"
+      },
+      "VersionedNamedThing": {
+         "@id": "VersionedNamedThing"
       }
    }
 }
