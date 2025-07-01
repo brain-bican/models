@@ -71,6 +71,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'bican',
      'id': 'https:/w3id.org/brain-bican/bke-taxonomy',
      'imports': ['bican_biolink',
                  'bican_prov',
+                 'bican_core',
                  'genome_annotation',
                  'anatomical_structure',
                  'linkml:types'],
@@ -13800,7 +13801,8 @@ class ObservationMatrix(ProvEntity, NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
-         'slot_usage': {'content_url': {'local_names': {'allen': {'local_name_source': 'allen',
+         'slot_usage': {'content_url': {'from_schema': 'bican_core',
+                                        'local_names': {'allen': {'local_name_source': 'allen',
                                                                   'local_name_value': 'url'}},
                                         'name': 'content_url'},
                         'has_variable': {'description': 'One of set of genes which '
@@ -15441,7 +15443,8 @@ class MatrixFile(ProvEntity, NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
-         'slot_usage': {'content_url': {'local_names': {'allen': {'local_name_source': 'allen',
+         'slot_usage': {'content_url': {'from_schema': 'bican_core',
+                                        'local_names': {'allen': {'local_name_source': 'allen',
                                                                   'local_name_value': 'url'}},
                                         'name': 'content_url'},
                         'xref': {'local_names': {'allen': {'local_name_source': 'allen',
