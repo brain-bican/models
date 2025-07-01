@@ -9,7 +9,6 @@ prefixes:
   bican: https://identifiers.org/brain-bican/vocab/
   spdx: http://spdx.org/rdf/terms#
 
-
 imports:
   - linkml:types
   - bican_biolink
@@ -18,6 +17,17 @@ default_range: string
 default_prefix: bican
 
 classes:
+  VersionedNamedThing:
+      is_a: named thing
+      description: >-
+          An iteration of the biolink:NamedThing class that stores metadata about the object's version.
+      abstract: true
+      slots:
+          - version
+          - revision_of
+      slot_usage:
+          version:
+              required: true
   checksum:
     is_a: entity
     description: >-
@@ -29,6 +39,8 @@ classes:
         description: The checksum value obtained from a specific cryotographic hash function.
 
 slots:
+  revision_of:
+    range: VersionedNamedThing
   digest:
     description: Stores checksum information. 
     slot_uri: bican:digest

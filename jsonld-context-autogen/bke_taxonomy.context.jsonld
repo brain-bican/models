@@ -193,6 +193,14 @@
       "accession_id": {
          "@id": "accession_id"
       },
+      "parameterizes": {
+         "@type": "@id",
+         "@id": "parameterizes"
+      },
+      "measures": {
+         "@type": "@id",
+         "@id": "measures"
+      },
       "annotations": {
          "@type": "bican:GeneAnnotation",
          "@id": "annotations"
@@ -327,6 +335,62 @@
       "has_variable": {
          "@id": "has_variable"
       },
+      "unit": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "unit"
+      },
+      "x_direction": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "x_direction"
+      },
+      "x_resolution": {
+         "@type": "xsd:float",
+         "@id": "x_resolution"
+      },
+      "x_size": {
+         "@type": "xsd:integer",
+         "@id": "x_size"
+      },
+      "y_direction": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "y_direction"
+      },
+      "y_resolution": {
+         "@type": "xsd:float",
+         "@id": "y_resolution"
+      },
+      "y_size": {
+         "@type": "xsd:integer",
+         "@id": "y_size"
+      },
+      "z_direction": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "z_direction"
+      },
+      "z_resolution": {
+         "@type": "xsd:float",
+         "@id": "z_resolution"
+      },
+      "z_size": {
+         "@type": "xsd:integer",
+         "@id": "z_size"
+      },
       "in_taxon": {
          "@type": "@id",
          "@id": "biolink:in_taxon"
@@ -377,6 +441,71 @@
       "order": {
          "@id": "order"
       },
+      "ordinal": {
+         "@type": "xsd:integer",
+         "@id": "ordinal"
+      },
+      "internal_identifier": {
+         "@id": "internal_identifier"
+      },
+      "part_of_anatomical_annotation_set": {
+         "@type": "@id",
+         "@id": "part_of_anatomical_annotation_set"
+      },
+      "voxel_count": {
+         "@type": "xsd:integer",
+         "@id": "voxel_count"
+      },
+      "subject_parcellation_annotation": {
+         "@type": "@id",
+         "@id": "subject_parcellation_annotation"
+      },
+      "has_anatomical_annotation_set": {
+         "@type": "@id",
+         "@id": "has_anatomical_annotation_set"
+      },
+      "has_anatomical_space": {
+         "@type": "@id",
+         "@id": "has_anatomical_space"
+      },
+      "has_parcellation_terminology": {
+         "@type": "@id",
+         "@id": "has_parcellation_terminology"
+      },
+      "specialization_of": {
+         "@type": "@id",
+         "@id": "specialization_of"
+      },
+      "color": {
+         "@id": "color"
+      },
+      "part_of_parcellation_color_scheme": {
+         "@type": "@id",
+         "@id": "part_of_parcellation_color_scheme"
+      },
+      "subject_parcellation_terminology": {
+         "@type": "@id",
+         "@id": "subject_parcellation_terminology"
+      },
+      "has_parent_parcellation_term": {
+         "@type": "@id",
+         "@id": "has_parent_parcellation_term"
+      },
+      "part_of_parcellation_term_set": {
+         "@type": "@id",
+         "@id": "part_of_parcellation_term_set"
+      },
+      "symbol": {
+         "@id": "biolink:symbol"
+      },
+      "has_parent_parcellation_term_set": {
+         "@type": "@id",
+         "@id": "has_parent_parcellation_term_set"
+      },
+      "part_of_parcellation_terminology": {
+         "@type": "@id",
+         "@id": "part_of_parcellation_terminology"
+      },
       "part_of_matrix": {
          "@id": "part_of_matrix"
       },
@@ -406,6 +535,10 @@
       "represented_in": {
          "@id": "represented_in"
       },
+      "revision_of": {
+         "@type": "@id",
+         "@id": "revision_of"
+      },
       "rights": {
          "@id": "biolink:rights"
       },
@@ -415,8 +548,9 @@
       "strain": {
          "@id": "strain"
       },
-      "symbol": {
-         "@id": "biolink:symbol"
+      "subject_parcellation_term": {
+         "@type": "@id",
+         "@id": "subject_parcellation_term"
       },
       "synonym": {
          "@id": "biolink:synonym"
@@ -454,6 +588,12 @@
       },
       "ActivityAndBehavior": {
          "@id": "biolink:ActivityAndBehavior"
+      },
+      "AnatomicalAnnotationSet": {
+         "@id": "AnatomicalAnnotationSet"
+      },
+      "AnatomicalSpace": {
+         "@id": "AnatomicalSpace"
       },
       "Annotation": {
          "@id": "biolink:Annotation"
@@ -530,6 +670,9 @@
       "GenomicEntity": {
          "@id": "biolink:GenomicEntity"
       },
+      "ImageDataset": {
+         "@id": "ImageDataset"
+      },
       "InformationContentEntity": {
          "@id": "biolink:InformationContentEntity"
       },
@@ -563,8 +706,29 @@
       "OrganismTaxon": {
          "@id": "biolink:OrganismTaxon"
       },
+      "ParcellationAnnotation": {
+         "@id": "ParcellationAnnotation"
+      },
+      "ParcellationAnnotationTermMap": {
+         "@id": "ParcellationAnnotationTermMap"
+      },
+      "ParcellationAtlas": {
+         "@id": "ParcellationAtlas"
+      },
+      "ParcellationColorAssignment": {
+         "@id": "ParcellationColorAssignment"
+      },
+      "ParcellationColorScheme": {
+         "@id": "ParcellationColorScheme"
+      },
       "ParcellationTerm": {
          "@id": "ParcellationTerm"
+      },
+      "ParcellationTerminology": {
+         "@id": "ParcellationTerminology"
+      },
+      "ParcellationTermSet": {
+         "@id": "ParcellationTermSet"
       },
       "PhysicalEntity": {
          "@id": "biolink:PhysicalEntity"
@@ -595,6 +759,9 @@
       },
       "ThingWithTaxon": {
          "@id": "biolink:ThingWithTaxon"
+      },
+      "VersionedNamedThing": {
+         "@id": "VersionedNamedThing"
       }
    }
 }

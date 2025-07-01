@@ -63,19 +63,6 @@ Abbreviation {
     label_type full_name  
     label_typeList synonym  
 }
-ParcellationTerm {
-    string id  
-    iri_type iri  
-    curieList category  
-    stringList type  
-    label_type name  
-    narrative_text description  
-    boolean deprecated  
-    stringList provided_by  
-    uriorcurieList xref  
-    label_type full_name  
-    label_typeList synonym  
-}
 CellSpecimen {
     string id  
     iri_type iri  
@@ -255,9 +242,6 @@ Abbreviation ||--}o ParcellationTerm : "denotes_parcellation_term"
 Abbreviation ||--|o ProvEntity : "was_derived_from"
 Abbreviation ||--|o ProvActivity : "was_generated_by"
 Abbreviation ||--}o Attribute : "has attribute"
-ParcellationTerm ||--|o ProvEntity : "was_derived_from"
-ParcellationTerm ||--|o ProvActivity : "was_generated_by"
-ParcellationTerm ||--}o Attribute : "has attribute"
 CellSpecimen ||--|o ProvEntity : "was_derived_from"
 CellSpecimen ||--|o ProvActivity : "was_generated_by"
 CellSpecimen ||--}o Attribute : "has attribute"
