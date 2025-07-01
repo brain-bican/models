@@ -99,7 +99,7 @@ jobs:
             git add models_py-autogen/${name}.py
             git add erdiagram-autogen/${name}.md
           done
-          if ! git diff --quiet HEAD; then
+          if ! git diff --cached --quiet; then
             git commit -m "generate another formats for ${models_list} model(s)"
             if git pull --rebase; then
               git push
