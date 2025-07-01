@@ -1822,9 +1822,6 @@ enums:
       years:
         description: years
         meaning: NIMP:PD-AVAVEV39
-slots:
-  content_url:
-    from_schema: https://identifiers.org/brain-bican/library-generation-schema
 classes:
   Donor:
     description: A person or organism that is the source of a biological sample for
@@ -2962,7 +2959,8 @@ classes:
         range: LibraryPool
       digest:
         from_schema: bican_core
-      content_url: {}
+      content_url:
+        from_schema: bican_core
     attributes:
       data_type:
         description: The type of data in the file.
