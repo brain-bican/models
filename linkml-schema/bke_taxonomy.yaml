@@ -6,6 +6,7 @@ id: https:/w3id.org/brain-bican/bke-taxonomy
 imports:
 - bican_biolink
 - bican_prov
+- bican_core
 - genome_annotation
 - anatomical_structure
 - linkml:types
@@ -467,6 +468,7 @@ classes:
         local_names:
           local_name_value: url
           local_name_source: allen
+        from_schema: bican_core
       xref:
         local_names:
           local_name_value: unique_id
@@ -574,6 +576,7 @@ classes:
         local_names:
           local_name_value: url
           local_name_source: allen
+        from_schema: bican_core
       xref:
         local_names:
           local_name_value: unique_id
