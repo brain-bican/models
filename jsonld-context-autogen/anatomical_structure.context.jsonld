@@ -209,6 +209,9 @@
       "value": {
          "@id": "value"
       },
+      "content_url": {
+         "@id": "schema:url"
+      },
       "creation_date": {
          "@type": "xsd:date",
          "@id": "biolink:creation_date"
