@@ -8493,7 +8493,7 @@ class ParcellationTerminology(VersionedNamedThing):
         return v
 
 
-class ParcellationTermSet(NamedThing):
+class ParcellationTermSet(VersionedNamedThing):
     """
     A parcellation term set is the set of parcellation terms within a specific parcellation terminology.  A parcellation term set belongs to one and only one parcellation terminology and each parcellation  term in a parcellation terminology belongs to one and only one term set.  If the parcellation terminology is a taxonomy, parcellation term sets can be used to represent  taxonomic ranks. For consistency, if the terminology does not have the notion of taxonomic ranks,  all terms are grouped into a single parcellation term set.
     """
@@ -8511,6 +8511,14 @@ class ParcellationTermSet(NamedThing):
     has_parent_parcellation_term_set: Optional[str] = Field(default=None, description="""Reference to the parent parcellation term set for which the parcellation term set is a child  (lower taxonomic rank) of.""", json_schema_extra = { "linkml_meta": {'alias': 'has_parent_parcellation_term_set',
          'any_of': [{'range': 'ParcellationTermSet'}, {'range': 'string'}],
          'domain_of': ['ParcellationTermSet']} })
+    version: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'version',
+         'broad_mappings': ['pav:version', 'owl:versionInfo'],
+         'definition_uri': 'https://w3id.org/biolink/vocab/version',
+         'domain': 'dataset',
+         'domain_of': ['VersionedNamedThing', 'GenomeAnnotation', 'GenomeAssembly'],
+         'is_a': 'node property',
+         'slot_uri': 'biolink:version'} })
+    revision_of: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of', 'domain_of': ['VersionedNamedThing']} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -8869,7 +8877,7 @@ class ParcellationTermSet(NamedThing):
         return v
 
 
-class ParcellationTerm(NamedThing):
+class ParcellationTerm(VersionedNamedThing):
     """
     A parcellation term is an individual term within a specific parcellation terminology describing a  single anatomical entity by a persistent identifier, name, symbol and description.  A parcellation  term is a unique and exclusive member of a versioned release parcellation terminology. Although term  identifiers must be unique within the context of one versioned release of a parcellation terminology,  they can be reused in different parcellation terminology versions enabling the representation of  terminology updates and modifications over time.
     """
@@ -8888,6 +8896,14 @@ class ParcellationTerm(NamedThing):
     has_parent_parcellation_term: Optional[str] = Field(default=None, description="""Reference to the parent parcellation term for which the parcellation term is a child ( spatially part) of""", json_schema_extra = { "linkml_meta": {'alias': 'has_parent_parcellation_term',
          'any_of': [{'range': 'ParcellationTerm'}, {'range': 'string'}],
          'domain_of': ['ParcellationTerm']} })
+    version: str = Field(default=..., json_schema_extra = { "linkml_meta": {'alias': 'version',
+         'broad_mappings': ['pav:version', 'owl:versionInfo'],
+         'definition_uri': 'https://w3id.org/biolink/vocab/version',
+         'domain': 'dataset',
+         'domain_of': ['VersionedNamedThing', 'GenomeAnnotation', 'GenomeAssembly'],
+         'is_a': 'node property',
+         'slot_uri': 'biolink:version'} })
+    revision_of: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'revision_of', 'domain_of': ['VersionedNamedThing']} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',

@@ -123,7 +123,7 @@ classes:
           - range: string
 
   ParcellationTermSet:
-    is_a: named thing
+    is_a: VersionedNamedThing
     description: >-
       A parcellation term set is the set of parcellation terms within a specific parcellation terminology. 
       A parcellation term set belongs to one and only one parcellation terminology and each parcellation 
@@ -155,7 +155,7 @@ classes:
           associated parcellation terminology.
 
   ParcellationTerm:
-    is_a: named thing
+    is_a: VersionedNamedThing
     description: >-
       A parcellation term is an individual term within a specific parcellation terminology describing a 
       single anatomical entity by a persistent identifier, name, symbol and description.  A parcellation 
