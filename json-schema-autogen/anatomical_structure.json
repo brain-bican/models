@@ -1198,6 +1198,7 @@
                 },
                 "x_resolution": {
                     "description": "The resolution (length / pixel) in along the x axis (numerical value part).",
+                    "pattern": "^[+]?\\d*\\.?\\d+$",
                     "type": [
                         "number",
                         "null"
@@ -1227,6 +1228,7 @@
                 },
                 "y_resolution": {
                     "description": "The resolution (length / pixel) in along the y axis (numerical value part).",
+                    "pattern": "^[+]?\\d*\\.?\\d+$",
                     "type": [
                         "number",
                         "null"
@@ -1246,6 +1248,7 @@
                 },
                 "z_resolution": {
                     "description": "The resolution (length / pixel) in along the z axis (numerical value part).",
+                    "pattern": "^[+]?\\d*\\.?\\d+$",
                     "type": [
                         "number",
                         "null"
@@ -1874,6 +1877,7 @@
             "properties": {
                 "color": {
                     "description": "A string representing to hex triplet code of a color",
+                    "pattern": "#[0-9a-fA-F]{6}",
                     "type": [
                         "string",
                         "null"
