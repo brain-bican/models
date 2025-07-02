@@ -77,3 +77,16 @@ bke_taxonomy_diagram = (
     / "bke_taxonomy.md"
 )
 fix_diagram(bke_taxonomy_yaml, bke_taxonomy_diagram)
+
+# 4. FIX ANATOMICAL STRUCTURE DIAGRAM
+anatomical_structure_yaml = (
+    pathlib.Path(__file__).parent.resolve()
+    / "../linkml-schema"
+    / "anatomical_structure.yaml"
+)
+anatomical_structure_diagram = (
+    pathlib.Path(__file__).parent.resolve()
+    / "../erdiagram-autogen"
+    / "anatomical_structure.md"
+)
+fix_diagram(anatomical_structure_yaml, anatomical_structure_diagram)
