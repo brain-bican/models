@@ -9,7 +9,7 @@ GenomeAssembly {
     label_type in_taxon_label  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -27,7 +27,7 @@ GenomeAnnotation {
     string reference_assembly  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -45,7 +45,7 @@ GeneAnnotation {
     string referenced_in  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
