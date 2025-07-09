@@ -8,7 +8,7 @@ ParcellationAtlas {
     string version  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -32,7 +32,7 @@ AnatomicalAnnotationSet {
     string version  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -52,7 +52,7 @@ ParcellationColorScheme {
     string version  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -70,7 +70,7 @@ ParcellationTerm {
     string version  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -87,7 +87,7 @@ ParcellationTermSet {
     string version  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -101,7 +101,7 @@ ParcellationTerminology {
     string version  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -116,7 +116,7 @@ AnatomicalSpace {
     string version  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -140,7 +140,7 @@ ImageDataset {
     string version  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
