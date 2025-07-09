@@ -1,0 +1,15 @@
+name: manual-generate-yaml-model
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: 'model name'
+        required: true
+        type: string
+
+jobs:
+  call-reusable:
+    uses: brain-bican/models/.github/workflows/reusable-generate_yaml_model.yaml@main
+    with:
+      model: ${{ github.event.inputs.model }}
