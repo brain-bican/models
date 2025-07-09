@@ -12,8 +12,6 @@ from enum import Enum
 from typing import (
     Any,
     ClassVar,
-    Dict,
-    List,
     Literal,
     Optional,
     Union
@@ -47,7 +45,7 @@ class ConfiguredBaseModel(BaseModel):
 
 
 class LinkMLMeta(RootModel):
-    root: Dict[str, Any] = {}
+    root: dict[str, Any] = {}
     model_config = ConfigDict(frozen=True)
 
     def __getattr__(self, key:str):
@@ -137,16 +135,26 @@ class Categories(str, Enum):
 
 
 class EvidenceStrength(str, Enum):
-    # P value less than 0.01
     HighlySignificant = "HighlySignificant"
-    # P value less than 0.05
+    """
+    P value less than 0.01
+    """
     Significant = "Significant"
-    # P value less than 0.10
+    """
+    P value less than 0.05
+    """
     MarginallySignificant = "MarginallySignificant"
-    # P value greater than or equal to 0.10
+    """
+    P value less than 0.10
+    """
     NotSignificant = "NotSignificant"
-    # Specifies that the significance level is unknown as the information is not present in the study.
+    """
+    P value greater than or equal to 0.10
+    """
     Unknown = "Unknown"
+    """
+    Specifies that the significance level is unknown as the information is not present in the study.
+    """
 
 
 class EvidenceDirection(str, Enum):
