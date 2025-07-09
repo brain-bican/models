@@ -5032,6 +5032,12 @@
                         "null"
                     ]
                 },
+                "revision_of": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "symbol": {
                     "description": "Symbol representing a parcellation term.",
                     "type": [
@@ -5058,6 +5064,9 @@
                         "null"
                     ]
                 },
+                "version": {
+                    "type": "string"
+                },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
@@ -5071,6 +5080,7 @@
             },
             "required": [
                 "part_of_parcellation_term_set",
+                "version",
                 "id"
             ],
             "title": "ParcellationTerm",
@@ -5188,6 +5198,12 @@
                         "null"
                     ]
                 },
+                "revision_of": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
                     "items": {
@@ -5207,6 +5223,9 @@
                         "null"
                     ]
                 },
+                "version": {
+                    "type": "string"
+                },
                 "xref": {
                     "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
                     "items": {
@@ -5220,6 +5239,7 @@
             },
             "required": [
                 "part_of_parcellation_terminology",
+                "version",
                 "id"
             ],
             "title": "ParcellationTermSet",
