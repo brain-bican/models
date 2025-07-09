@@ -104,12 +104,16 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "generate another formats for ${models_list} model(s)"
             git status
+            # Stash any remaining local changes (including untracked files) before pulling
+            git stash --include-untracked
             if git pull --rebase; then
               git push
             else
               echo "Failed to pull --rebase, setting upstream"
               git push --set-upstream origin $BRANCH_NAME
             fi
+            # Unstash the changes so they're available for the next workflow step
+            git stash pop || echo "No stashed changes to apply"
           else
             echo "No changes to commit"
           fi
