@@ -6,7 +6,7 @@ DigitalAsset {
     string data_type  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -30,7 +30,7 @@ DissectionRoiPolygon {
     label_type name  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -39,7 +39,7 @@ LibraryPooling {
     string process_date  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -56,7 +56,7 @@ LibraryConstruction {
     string set  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -72,7 +72,7 @@ CdnaAmplification {
     string set  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -89,7 +89,7 @@ CellBarcoding {
     barcoded_cell_sample_technique method  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -102,7 +102,7 @@ CellBarcoding {
 EnrichedCellSampleSplitting {
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -116,7 +116,7 @@ CellEnrichment {
     string process_date  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -130,7 +130,7 @@ CellDissociation {
     string process_date  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -143,7 +143,7 @@ CellDissociation {
 TissueDissection {
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -156,7 +156,7 @@ TissueDissection {
 DissectionRoiDelineation {
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -171,7 +171,7 @@ LibraryPool {
     string local_tube_id  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -184,7 +184,7 @@ LibraryAliquot {
     label_type name  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -203,7 +203,7 @@ Library {
     library_r1_r2_index r1_r2_index  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -219,7 +219,7 @@ AmplifiedCdna {
     float percent_cdna_longer_than_400bp  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -233,7 +233,7 @@ BarcodedCellSample {
     integer number_of_expected_cells  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -249,7 +249,7 @@ EnrichedCellSample {
     string histone_modification_marker  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -264,7 +264,7 @@ DissociatedCellSample {
     dissociated_cell_sample_cell_label_barcode cell_source_oligo_name  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -278,7 +278,7 @@ TissueSample {
     stringList structure  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -291,7 +291,7 @@ BrainSlab {
     label_type name  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -311,7 +311,7 @@ Donor {
     label_type in_taxon_label  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
