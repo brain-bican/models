@@ -88,11 +88,8 @@
          "@prefix": true
       },
       "NBO-PROPERTY": "http://purl.obolibrary.org/obo/nbo#",
-      "NCBIGene": "http://identifiers.org/ncbigene/",
-      "NCBITaxon": {
-         "@id": "http://purl.obolibrary.org/obo/NCBITaxon_",
-         "@prefix": true
-      },
+      "NCBIGene": "https://www.ncbi.nlm.nih.gov/gene/",
+      "NCBITaxon": "https://www.ncbi.nlm.nih.gov/taxonomy/",
       "NCIT": {
          "@id": "http://purl.obolibrary.org/obo/NCIT_",
          "@prefix": true
@@ -398,10 +395,7 @@
       "in_taxon_label": {
          "@id": "biolink:in_taxon_label"
       },
-      "iri": {
-         "@type": "xsd:anyURI",
-         "@id": "biolink:iri"
-      },
+      "iri": "@type",
       "is_color_for_set": {
          "@id": "is_color_for_set"
       },
@@ -576,10 +570,7 @@
          "@type": "prov:Activity",
          "@id": "prov:wasGeneratedBy"
       },
-      "xref": {
-         "@type": "xsd:anyURI",
-         "@id": "biolink:xref"
-      },
+      "xref": "@type",
       "Abbreviation": {
          "@id": "Abbreviation"
       },
