@@ -1443,7 +1443,7 @@ class Entity(ConfiguredBaseModel):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/Entity","biolink:Entity"]] = Field(default=["biolink:Entity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://w3id.org/biolink/vocab/Entity","biolink:Entity"]] = Field(default=["biolink:Entity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -1651,18 +1651,6 @@ class Entity(ConfiguredBaseModel):
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
 
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
-
 
 class NamedThing(Entity):
     """
@@ -1716,7 +1704,7 @@ class NamedThing(Entity):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/NamedThing","biolink:NamedThing"]] = Field(default=["biolink:NamedThing"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://w3id.org/biolink/vocab/NamedThing","biolink:NamedThing"]] = Field(default=["biolink:NamedThing"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -2003,18 +1991,6 @@ class NamedThing(Entity):
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
 
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
-
 
 class Attribute(NamedThing, OntologyClass):
     """
@@ -2057,7 +2033,7 @@ class Attribute(NamedThing, OntologyClass):
          'exact_mappings': ['AGRKB:primaryId', 'gff3:ID', 'gpi:DB_Object_ID'],
          'in_subset': ['translator_minimal'],
          'slot_uri': 'biolink:id'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/Attribute","biolink:Attribute"]] = Field(default=["biolink:Attribute"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://w3id.org/biolink/vocab/Attribute","biolink:Attribute"]] = Field(default=["biolink:Attribute"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -2385,18 +2361,6 @@ class Attribute(NamedThing, OntologyClass):
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
 
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
-
 
 class TaxonomicRank(OntologyClass):
     """
@@ -2484,7 +2448,7 @@ class OrganismTaxon(NamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/OrganismTaxon","biolink:OrganismTaxon"]] = Field(default=["biolink:OrganismTaxon"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://w3id.org/biolink/vocab/OrganismTaxon","biolink:OrganismTaxon"]] = Field(default=["biolink:OrganismTaxon"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -2778,18 +2742,6 @@ class OrganismTaxon(NamedThing):
          'mappings': ['WIKIDATA:P105'],
          'slot_uri': 'biolink:has_taxonomic_rank'} })
 
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
-
 
 class InformationContentEntity(NamedThing):
     """
@@ -2854,7 +2806,7 @@ class InformationContentEntity(NamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/InformationContentEntity","biolink:InformationContentEntity"]] = Field(default=["biolink:InformationContentEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://w3id.org/biolink/vocab/InformationContentEntity","biolink:InformationContentEntity"]] = Field(default=["biolink:InformationContentEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -3170,18 +3122,6 @@ class InformationContentEntity(NamedThing):
          'exact_mappings': ['dct:createdOn', 'WIKIDATA_PROPERTY:P577'],
          'is_a': 'node property',
          'slot_uri': 'biolink:creation_date'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class Dataset(InformationContentEntity):
@@ -3235,7 +3175,7 @@ class Dataset(InformationContentEntity):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/Dataset","biolink:Dataset"]] = Field(default=["biolink:Dataset"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://w3id.org/biolink/vocab/Dataset","biolink:Dataset"]] = Field(default=["biolink:Dataset"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -3551,18 +3491,6 @@ class Dataset(InformationContentEntity):
          'exact_mappings': ['dct:createdOn', 'WIKIDATA_PROPERTY:P577'],
          'is_a': 'node property',
          'slot_uri': 'biolink:creation_date'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class PhysicalEssenceOrOccurrent(ConfiguredBaseModel):
@@ -3639,7 +3567,7 @@ class PhysicalEntity(PhysicalEssence, NamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/PhysicalEntity","biolink:PhysicalEntity"]] = Field(default=["biolink:PhysicalEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://w3id.org/biolink/vocab/PhysicalEntity","biolink:PhysicalEntity"]] = Field(default=["biolink:PhysicalEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -3925,18 +3853,6 @@ class PhysicalEntity(PhysicalEssence, NamedThing):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class Occurrent(PhysicalEssenceOrOccurrent):
@@ -4021,7 +3937,7 @@ class Activity(ActivityAndBehavior, NamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/Activity","biolink:Activity"]] = Field(default=["biolink:Activity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://w3id.org/biolink/vocab/Activity","biolink:Activity"]] = Field(default=["biolink:Activity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -4307,18 +4223,6 @@ class Activity(ActivityAndBehavior, NamedThing):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class Procedure(ActivityAndBehavior, NamedThing):
@@ -4372,7 +4276,7 @@ class Procedure(ActivityAndBehavior, NamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/Procedure","biolink:Procedure"]] = Field(default=["biolink:Procedure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://w3id.org/biolink/vocab/Procedure","biolink:Procedure"]] = Field(default=["biolink:Procedure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -4658,18 +4562,6 @@ class Procedure(ActivityAndBehavior, NamedThing):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class SubjectOfInvestigation(ConfiguredBaseModel):
@@ -4735,7 +4627,7 @@ class MaterialSample(SubjectOfInvestigation, PhysicalEntity):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/MaterialSample","biolink:MaterialSample"]] = Field(default=["biolink:MaterialSample"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://w3id.org/biolink/vocab/MaterialSample","biolink:MaterialSample"]] = Field(default=["biolink:MaterialSample"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -5021,18 +4913,6 @@ class MaterialSample(SubjectOfInvestigation, PhysicalEntity):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class ThingWithTaxon(ConfiguredBaseModel):
@@ -5123,7 +5003,7 @@ class BiologicalEntity(ThingWithTaxon, NamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/BiologicalEntity","biolink:BiologicalEntity"]] = Field(default=["biolink:BiologicalEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://w3id.org/biolink/vocab/BiologicalEntity","biolink:BiologicalEntity"]] = Field(default=["biolink:BiologicalEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -5435,18 +5315,6 @@ class BiologicalEntity(ThingWithTaxon, NamedThing):
          'in_subset': ['translator_minimal'],
          'is_a': 'node property',
          'slot_uri': 'biolink:in_taxon_label'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class GenomicEntity(ConfiguredBaseModel):
@@ -5644,7 +5512,7 @@ class Gene(GeneOrGeneProduct, ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, 
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/Gene","biolink:Gene"]] = Field(default=["biolink:Gene"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://w3id.org/biolink/vocab/Gene","biolink:Gene"]] = Field(default=["biolink:Gene"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -5970,18 +5838,6 @@ class Gene(GeneOrGeneProduct, ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, 
          'is_a': 'node property',
          'slot_uri': 'biolink:has_biological_sequence'} })
 
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
-
 
 class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
     """
@@ -6034,7 +5890,7 @@ class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/Genome","biolink:Genome"]] = Field(default=["biolink:Genome"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://w3id.org/biolink/vocab/Genome","biolink:Genome"]] = Field(default=["biolink:Genome"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -6353,18 +6209,6 @@ class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
          'is_a': 'node property',
          'slot_uri': 'biolink:has_biological_sequence'} })
 
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
-
 
 class VersionedNamedThing(NamedThing):
     """
@@ -6421,7 +6265,7 @@ class VersionedNamedThing(NamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/VersionedNamedThing","bican:VersionedNamedThing"]] = Field(default=["bican:VersionedNamedThing"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/VersionedNamedThing","bican:VersionedNamedThing"]] = Field(default=["bican:VersionedNamedThing"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -6708,18 +6552,6 @@ class VersionedNamedThing(NamedThing):
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
 
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
-
 
 class Checksum(Entity):
     """
@@ -6768,7 +6600,7 @@ class Checksum(Entity):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/Checksum","bican:Checksum"]] = Field(default=["bican:Checksum"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/Checksum","bican:Checksum"]] = Field(default=["bican:Checksum"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -6975,18 +6807,6 @@ class Checksum(Entity):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class ProvActivity(ConfiguredBaseModel):
@@ -7223,7 +7043,7 @@ class Donor(ProvEntity, ThingWithTaxon, PhysicalEntity):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/Donor","bican:Donor"]] = Field(default=["bican:Donor"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/Donor","bican:Donor"]] = Field(default=["bican:Donor"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -7474,18 +7294,6 @@ class Donor(ProvEntity, ThingWithTaxon, PhysicalEntity):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class BrainSlab(ProvEntity, MaterialSample):
@@ -7620,7 +7428,7 @@ class BrainSlab(ProvEntity, MaterialSample):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/BrainSlab","bican:BrainSlab"]] = Field(default=["bican:BrainSlab"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/BrainSlab","bican:BrainSlab"]] = Field(default=["bican:BrainSlab"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -7871,18 +7679,6 @@ class BrainSlab(ProvEntity, MaterialSample):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class TissueSample(ProvEntity, MaterialSample):
@@ -8026,7 +7822,7 @@ class TissueSample(ProvEntity, MaterialSample):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/TissueSample","bican:TissueSample"]] = Field(default=["bican:TissueSample"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/TissueSample","bican:TissueSample"]] = Field(default=["bican:TissueSample"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -8277,18 +8073,6 @@ class TissueSample(ProvEntity, MaterialSample):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class DissociatedCellSample(ProvEntity, MaterialSample):
@@ -8439,7 +8223,7 @@ class DissociatedCellSample(ProvEntity, MaterialSample):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/DissociatedCellSample","bican:DissociatedCellSample"]] = Field(default=["bican:DissociatedCellSample"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/DissociatedCellSample","bican:DissociatedCellSample"]] = Field(default=["bican:DissociatedCellSample"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -8690,18 +8474,6 @@ class DissociatedCellSample(ProvEntity, MaterialSample):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class EnrichedCellSample(ProvEntity, MaterialSample):
@@ -8866,7 +8638,7 @@ class EnrichedCellSample(ProvEntity, MaterialSample):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/EnrichedCellSample","bican:EnrichedCellSample"]] = Field(default=["bican:EnrichedCellSample"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/EnrichedCellSample","bican:EnrichedCellSample"]] = Field(default=["bican:EnrichedCellSample"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -9117,18 +8889,6 @@ class EnrichedCellSample(ProvEntity, MaterialSample):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class BarcodedCellSample(ProvEntity, MaterialSample):
@@ -9283,7 +9043,7 @@ class BarcodedCellSample(ProvEntity, MaterialSample):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/BarcodedCellSample","bican:BarcodedCellSample"]] = Field(default=["bican:BarcodedCellSample"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/BarcodedCellSample","bican:BarcodedCellSample"]] = Field(default=["bican:BarcodedCellSample"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -9534,18 +9294,6 @@ class BarcodedCellSample(ProvEntity, MaterialSample):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class AmplifiedCdna(ProvEntity, MaterialSample):
@@ -9710,7 +9458,7 @@ class AmplifiedCdna(ProvEntity, MaterialSample):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/AmplifiedCdna","bican:AmplifiedCdna"]] = Field(default=["bican:AmplifiedCdna"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/AmplifiedCdna","bican:AmplifiedCdna"]] = Field(default=["bican:AmplifiedCdna"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -9961,18 +9709,6 @@ class AmplifiedCdna(ProvEntity, MaterialSample):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class Library(ProvEntity, MaterialSample):
@@ -10155,7 +9891,7 @@ class Library(ProvEntity, MaterialSample):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/Library","bican:Library"]] = Field(default=["bican:Library"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/Library","bican:Library"]] = Field(default=["bican:Library"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -10406,18 +10142,6 @@ class Library(ProvEntity, MaterialSample):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class LibraryAliquot(ProvEntity, MaterialSample):
@@ -10553,7 +10277,7 @@ class LibraryAliquot(ProvEntity, MaterialSample):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/LibraryAliquot","bican:LibraryAliquot"]] = Field(default=["bican:LibraryAliquot"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/LibraryAliquot","bican:LibraryAliquot"]] = Field(default=["bican:LibraryAliquot"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -10804,18 +10528,6 @@ class LibraryAliquot(ProvEntity, MaterialSample):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class LibraryPool(ProvEntity, MaterialSample):
@@ -10965,7 +10677,7 @@ class LibraryPool(ProvEntity, MaterialSample):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/LibraryPool","bican:LibraryPool"]] = Field(default=["bican:LibraryPool"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/LibraryPool","bican:LibraryPool"]] = Field(default=["bican:LibraryPool"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -11217,18 +10929,6 @@ class LibraryPool(ProvEntity, MaterialSample):
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
 
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
-
 
 class DissectionRoiDelineation(ProvActivity, Procedure):
     """
@@ -11294,7 +10994,7 @@ class DissectionRoiDelineation(ProvActivity, Procedure):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/DissectionRoiDelineation","bican:DissectionRoiDelineation"]] = Field(default=["bican:DissectionRoiDelineation"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/DissectionRoiDelineation","bican:DissectionRoiDelineation"]] = Field(default=["bican:DissectionRoiDelineation"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -11580,18 +11280,6 @@ class DissectionRoiDelineation(ProvActivity, Procedure):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class TissueDissection(ProvActivity, Procedure):
@@ -11659,7 +11347,7 @@ class TissueDissection(ProvActivity, Procedure):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/TissueDissection","bican:TissueDissection"]] = Field(default=["bican:TissueDissection"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/TissueDissection","bican:TissueDissection"]] = Field(default=["bican:TissueDissection"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -11945,18 +11633,6 @@ class TissueDissection(ProvActivity, Procedure):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class CellDissociation(ProvActivity, Procedure):
@@ -12035,7 +11711,7 @@ class CellDissociation(ProvActivity, Procedure):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/CellDissociation","bican:CellDissociation"]] = Field(default=["bican:CellDissociation"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/CellDissociation","bican:CellDissociation"]] = Field(default=["bican:CellDissociation"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -12321,18 +11997,6 @@ class CellDissociation(ProvActivity, Procedure):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class CellEnrichment(ProvActivity, Procedure):
@@ -12411,7 +12075,7 @@ class CellEnrichment(ProvActivity, Procedure):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/CellEnrichment","bican:CellEnrichment"]] = Field(default=["bican:CellEnrichment"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/CellEnrichment","bican:CellEnrichment"]] = Field(default=["bican:CellEnrichment"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -12697,18 +12361,6 @@ class CellEnrichment(ProvActivity, Procedure):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class EnrichedCellSampleSplitting(ProvActivity, Procedure):
@@ -12776,7 +12428,7 @@ class EnrichedCellSampleSplitting(ProvActivity, Procedure):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/EnrichedCellSampleSplitting","bican:EnrichedCellSampleSplitting"]] = Field(default=["bican:EnrichedCellSampleSplitting"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/EnrichedCellSampleSplitting","bican:EnrichedCellSampleSplitting"]] = Field(default=["bican:EnrichedCellSampleSplitting"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -13062,18 +12714,6 @@ class EnrichedCellSampleSplitting(ProvActivity, Procedure):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class CellBarcoding(ProvActivity, Procedure):
@@ -13175,7 +12815,7 @@ class CellBarcoding(ProvActivity, Procedure):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/CellBarcoding","bican:CellBarcoding"]] = Field(default=["bican:CellBarcoding"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/CellBarcoding","bican:CellBarcoding"]] = Field(default=["bican:CellBarcoding"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -13461,18 +13101,6 @@ class CellBarcoding(ProvActivity, Procedure):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class CdnaAmplification(ProvActivity, Procedure):
@@ -13565,7 +13193,7 @@ class CdnaAmplification(ProvActivity, Procedure):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/CdnaAmplification","bican:CdnaAmplification"]] = Field(default=["bican:CdnaAmplification"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/CdnaAmplification","bican:CdnaAmplification"]] = Field(default=["bican:CdnaAmplification"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -13851,18 +13479,6 @@ class CdnaAmplification(ProvActivity, Procedure):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class LibraryConstruction(ProvActivity, Procedure):
@@ -13964,7 +13580,7 @@ class LibraryConstruction(ProvActivity, Procedure):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/LibraryConstruction","bican:LibraryConstruction"]] = Field(default=["bican:LibraryConstruction"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/LibraryConstruction","bican:LibraryConstruction"]] = Field(default=["bican:LibraryConstruction"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -14250,18 +13866,6 @@ class LibraryConstruction(ProvActivity, Procedure):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class LibraryPooling(ProvActivity, Procedure):
@@ -14339,7 +13943,7 @@ class LibraryPooling(ProvActivity, Procedure):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/LibraryPooling","bican:LibraryPooling"]] = Field(default=["bican:LibraryPooling"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/LibraryPooling","bican:LibraryPooling"]] = Field(default=["bican:LibraryPooling"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -14625,18 +14229,6 @@ class LibraryPooling(ProvActivity, Procedure):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 class DissectionRoiPolygon(ProvEntity, Entity):
@@ -14766,7 +14358,7 @@ class DissectionRoiPolygon(ProvEntity, Entity):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/DissectionRoiPolygon","bican:DissectionRoiPolygon"]] = Field(default=["bican:DissectionRoiPolygon"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/DissectionRoiPolygon","bican:DissectionRoiPolygon"]] = Field(default=["bican:DissectionRoiPolygon"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -14939,18 +14531,6 @@ class DissectionRoiPolygon(ProvEntity, Entity):
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
 
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
-
 
 class DigitalAsset(ProvEntity, Dataset):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/library-generation-schema',
@@ -15033,7 +14613,7 @@ class DigitalAsset(ProvEntity, Dataset):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/DigitalAsset","bican:DigitalAsset"]] = Field(default=["bican:DigitalAsset"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}. NOTE: The category slot was modified to have a curie range and a pattern for bican categories.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: List[Literal["https://identifiers.org/brain-bican/vocab/DigitalAsset","bican:DigitalAsset"]] = Field(default=["bican:DigitalAsset"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -15349,18 +14929,6 @@ class DigitalAsset(ProvEntity, Dataset):
          'exact_mappings': ['dct:createdOn', 'WIKIDATA_PROPERTY:P577'],
          'is_a': 'node property',
          'slot_uri': 'biolink:creation_date'} })
-
-    @field_validator('category')
-    def pattern_category(cls, v):
-        pattern=re.compile(r"^bican:[A-Z][A-Za-z]+$")
-        if isinstance(v,list):
-            for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid category format: {element}")
-        elif isinstance(v,str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid category format: {v}")
-        return v
 
 
 # Model rebuild

@@ -5,7 +5,7 @@ DisplayColor {
     string color_hex_triplet  
     uriorcurieList xref  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -26,7 +26,7 @@ ColorPalette {
     string description  
     uriorcurieList xref  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     boolean deprecated  
     stringList provided_by  
@@ -38,7 +38,7 @@ MatrixFile {
     uriorcurieList xref  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -54,7 +54,7 @@ Abbreviation {
     string entity_type  
     uriorcurieList xref  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -66,7 +66,7 @@ Abbreviation {
 CellSpecimen {
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -81,7 +81,7 @@ ObservationRow {
     uriorcurieList xref  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -95,7 +95,7 @@ ObservationMatrix {
     uriorcurieList xref  
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -107,7 +107,7 @@ ObservationMatrix {
 ObservationMatrixCreationProcess {
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -124,7 +124,7 @@ Cluster {
     integer number_of_observations  
     uriorcurieList xref  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -140,7 +140,7 @@ ClusterSet {
     string description  
     uriorcurieList xref  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     boolean deprecated  
     stringList provided_by  
@@ -150,7 +150,7 @@ ClusterSet {
 ClusteringProcess {
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -169,7 +169,7 @@ CellTypeTaxon {
     integer number_of_cells  
     uriorcurieList xref  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     boolean deprecated  
     stringList provided_by  
@@ -185,7 +185,7 @@ CellTypeSet {
     integer order  
     uriorcurieList xref  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     boolean deprecated  
     stringList provided_by  
@@ -200,7 +200,7 @@ CellTypeTaxonomy {
     string description  
     uriorcurieList xref  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     boolean deprecated  
     stringList provided_by  
@@ -210,7 +210,7 @@ CellTypeTaxonomy {
 CellTypeTaxonomyCreationProcess {
     string id  
     iri_type iri  
-    curieList category  
+    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
