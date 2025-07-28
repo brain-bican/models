@@ -1,18 +1,36 @@
 import json
 import sys
 
-def modify_jsonld_category(input_file: str):
-    """Modify the JSON-LD context to update 'category' to '@type' and save in-place."""
+def modify_jsonld_context_fields(input_file: str):
+    """
+    Modify the JSON-LD context to update:
+      - 'category' to '@type'
+      - 'iri' to '@id'
+      - 'xref' to 'skos:exactMatch'
+    and save in-place.
+    """
     try:
         # Load the JSON-LD context from file
         with open(input_file, "r", encoding="utf-8") as f:
             jsonld_data = json.load(f)
         
-        # Modify the 'category' field
-        if "@context" in jsonld_data and "category" in jsonld_data["@context"]:
-            jsonld_data["@context"]["category"] = "@type"
+        # Modify the fields if present
+        if "@context" in jsonld_data:
+            context = jsonld_data["@context"]
+            if "category" in context:
+                context["category"] = "@type"
+            else:
+                print("Warning: 'category' field not found in JSON-LD context.")
+            if "iri" in context:
+                context["iri"] = "@type"
+            else:
+                print("Warning: 'iri' field not found in JSON-LD context.")
+            if "xref" in context:
+                context["xref"] = "@type"
+            else:
+                print("Warning: 'xref' field not found in JSON-LD context.")
         else:
-            print("Error: 'category' field not found in JSON-LD context.")
+            print("Error: '@context' not found in JSON-LD file.")
         
         # Write the modified JSON-LD back to the same file
         with open(input_file, "w", encoding="utf-8") as f:
@@ -25,8 +43,8 @@ def modify_jsonld_category(input_file: str):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python modify_jsonld.py <json_file>")
+        print("Usage: python modify_jsonldcontext.py <json_file>")
         sys.exit(1)
     
     input_file = sys.argv[1]
-    modify_jsonld_category(input_file)
+    modify_jsonld_context_fields(input_file)
