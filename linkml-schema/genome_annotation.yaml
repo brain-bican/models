@@ -8,9 +8,9 @@ prefixes:
   linkml: https://w3id.org/linkml/
   bican: https://identifiers.org/brain-bican/vocab/
   schema: http://schema.org/
-  NCBIAssembly: https://www.ncbi.nlm.nih.gov/assembly/
-  #NCBIGene: https://www.ncbi.nlm.nih.gov/gene/ (already defined in bican_biolink)
-  NCBITaxon: https://www.ncbi.nlm.nih.gov/taxonomy/
+  NCBIAssembly: http://identifiers.org/assembly/
+  NCBIGene: http://identifiers.org/ncbigene/ 
+  NCBITaxon: http://identifiers.org/taxonomy/
 
 imports:
   - linkml:types
