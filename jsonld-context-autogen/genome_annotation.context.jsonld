@@ -88,9 +88,9 @@
          "@prefix": true
       },
       "NBO-PROPERTY": "http://purl.obolibrary.org/obo/nbo#",
-      "NCBIAssembly": "https://www.ncbi.nlm.nih.gov/assembly/",
+      "NCBIAssembly": "http://identifiers.org/assembly/",
       "NCBIGene": "http://identifiers.org/ncbigene/",
-      "NCBITaxon": "https://www.ncbi.nlm.nih.gov/taxonomy/",
+      "NCBITaxon": "http://identifiers.org/taxonomy/",
       "NCIT": {
          "@id": "http://purl.obolibrary.org/obo/NCIT_",
          "@prefix": true
