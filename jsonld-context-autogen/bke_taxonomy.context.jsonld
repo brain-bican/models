@@ -395,7 +395,10 @@
       "in_taxon_label": {
          "@id": "biolink:in_taxon_label"
       },
-      "iri": "@type",
+      "iri": {
+         "@type": "xsd:anyURI",
+         "@id": "biolink:iri"
+      },
       "is_color_for_set": {
          "@id": "is_color_for_set"
       },
@@ -570,7 +573,10 @@
          "@type": "prov:Activity",
          "@id": "prov:wasGeneratedBy"
       },
-      "xref": "@type",
+      "xref": {
+         "@type": "xsd:anyURI",
+         "@id": "biolink:xref"
+      },
       "Abbreviation": {
          "@id": "Abbreviation"
       },
