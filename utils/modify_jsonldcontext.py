@@ -5,8 +5,6 @@ def modify_jsonld_context_fields(input_file: str):
     """
     Modify the JSON-LD context to update:
       - 'category' to '@type'
-      - 'iri' to '@type'
-      - 'xref' to '@type'
     and save in-place.
     """
     try:
@@ -21,14 +19,6 @@ def modify_jsonld_context_fields(input_file: str):
                 context["category"] = "@type"
             else:
                 print("Warning: 'category' field not found in JSON-LD context.")
-            if "iri" in context:
-                context["iri"] = "@type"
-            else:
-                print("Warning: 'iri' field not found in JSON-LD context.")
-            if "xref" in context:
-                context["xref"] = "@type"
-            else:
-                print("Warning: 'xref' field not found in JSON-LD context.")
         else:
             print("Error: '@context' not found in JSON-LD file.")
         
