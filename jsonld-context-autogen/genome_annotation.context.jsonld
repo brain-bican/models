@@ -290,7 +290,10 @@
       "in_taxon_label": {
          "@id": "biolink:in_taxon_label"
       },
-      "iri": "@type",
+      "iri": {
+         "@type": "xsd:anyURI",
+         "@id": "biolink:iri"
+      },
       "license": {
          "@id": "biolink:license"
       },
@@ -339,7 +342,10 @@
       "version": {
          "@id": "biolink:version"
       },
-      "xref": "@type",
+      "xref": {
+         "@type": "xsd:anyURI",
+         "@id": "biolink:xref"
+      },
       "Activity": {
          "@id": "biolink:Activity"
       },
