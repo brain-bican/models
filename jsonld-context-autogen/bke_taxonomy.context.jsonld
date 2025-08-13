@@ -218,7 +218,10 @@
          },
          "@id": "authority"
       },
-      "category": "@type",
+      "category": {
+         "@type": "xsd:anyURI",
+         "@id": "biolink:category"
+      },
       "cell_type_set_type": {
          "@id": "cell_type_set_type"
       },
@@ -762,3 +765,4 @@
       }
    }
 }
+

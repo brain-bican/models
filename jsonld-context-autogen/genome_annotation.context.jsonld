@@ -207,7 +207,10 @@
          },
          "@id": "authority"
       },
-      "category": "@type",
+      "category": {
+         "@type": "xsd:anyURI",
+         "@id": "biolink:category"
+      },
       "checksum_algorithm": {
          "@context": {
             "text": "skos:notation",
@@ -447,3 +450,4 @@
       }
    }
 }
+
