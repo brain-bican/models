@@ -88,12 +88,9 @@
          "@prefix": true
       },
       "NBO-PROPERTY": "http://purl.obolibrary.org/obo/nbo#",
-      "NCBIAssembly": "https://www.ncbi.nlm.nih.gov/assembly/",
+      "NCBIAssembly": "http://identifiers.org/assembly/",
       "NCBIGene": "http://identifiers.org/ncbigene/",
-      "NCBITaxon": {
-         "@id": "http://purl.obolibrary.org/obo/NCBITaxon_",
-         "@prefix": true
-      },
+      "NCBITaxon": "http://identifiers.org/taxonomy/",
       "NCIT": {
          "@id": "http://purl.obolibrary.org/obo/NCIT_",
          "@prefix": true
@@ -176,10 +173,6 @@
       "gff3": "https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md#",
       "gpi": "https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md#",
       "linkml": "https://w3id.org/linkml/",
-      "ncbi": {
-         "@id": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=",
-         "@prefix": true
-      },
       "oboInOwl": "http://www.geneontology.org/formats/oboInOwl#",
       "orphanet": {
          "@id": "http://www.orpha.net/ORDO/Orphanet_",
@@ -214,7 +207,10 @@
          },
          "@id": "authority"
       },
-      "category": "@type",
+      "category": {
+         "@type": "xsd:anyURI",
+         "@id": "biolink:category"
+      },
       "checksum_algorithm": {
          "@context": {
             "text": "skos:notation",
@@ -454,3 +450,4 @@
       }
    }
 }
+

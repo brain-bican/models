@@ -89,10 +89,7 @@
       },
       "NBO-PROPERTY": "http://purl.obolibrary.org/obo/nbo#",
       "NCBIGene": "http://identifiers.org/ncbigene/",
-      "NCBITaxon": {
-         "@id": "http://purl.obolibrary.org/obo/NCBITaxon_",
-         "@prefix": true
-      },
+      "NCBITaxon": "http://identifiers.org/taxonomy/",
       "NCIT": {
          "@id": "http://purl.obolibrary.org/obo/NCIT_",
          "@prefix": true
@@ -221,7 +218,10 @@
          },
          "@id": "authority"
       },
-      "category": "@type",
+      "category": {
+         "@type": "xsd:anyURI",
+         "@id": "biolink:category"
+      },
       "cell_type_set_type": {
          "@id": "cell_type_set_type"
       },
@@ -765,3 +765,4 @@
       }
    }
 }
+
