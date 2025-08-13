@@ -12,8 +12,6 @@ from enum import Enum
 from typing import (
     Any,
     ClassVar,
-    Dict,
-    List,
     Literal,
     Optional,
     Union
@@ -47,7 +45,7 @@ class ConfiguredBaseModel(BaseModel):
 
 
 class LinkMLMeta(RootModel):
-    root: Dict[str, Any] = {}
+    root: dict[str, Any] = {}
     model_config = ConfigDict(frozen=True)
 
     def __getattr__(self, key:str):
@@ -247,7 +245,7 @@ class Entity(ConfiguredBaseModel):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/Entity","biolink:Entity"]] = Field(default=["biolink:Entity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://w3id.org/biolink/vocab/Entity","biolink:Entity"]] = Field(default=["biolink:Entity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -268,7 +266,7 @@ class Entity(ConfiguredBaseModel):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -332,7 +330,7 @@ class Entity(ConfiguredBaseModel):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -497,7 +495,7 @@ class NamedThing(Entity):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/NamedThing","biolink:NamedThing"]] = Field(default=["biolink:NamedThing"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://w3id.org/biolink/vocab/NamedThing","biolink:NamedThing"]] = Field(default=["biolink:NamedThing"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -518,7 +516,7 @@ class NamedThing(Entity):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -582,7 +580,7 @@ class NamedThing(Entity):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -693,7 +691,7 @@ class NamedThing(Entity):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -710,7 +708,7 @@ class NamedThing(Entity):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -746,7 +744,7 @@ class NamedThing(Entity):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -815,7 +813,7 @@ class Attribute(NamedThing, OntologyClass):
          'exact_mappings': ['AGRKB:primaryId', 'gff3:ID', 'gpi:DB_Object_ID'],
          'in_subset': ['translator_minimal'],
          'slot_uri': 'biolink:id'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/Attribute","biolink:Attribute"]] = Field(default=["biolink:Attribute"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://w3id.org/biolink/vocab/Attribute","biolink:Attribute"]] = Field(default=["biolink:Attribute"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -836,7 +834,7 @@ class Attribute(NamedThing, OntologyClass):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -876,7 +874,7 @@ class Attribute(NamedThing, OntologyClass):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -987,7 +985,7 @@ class Attribute(NamedThing, OntologyClass):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -1004,7 +1002,7 @@ class Attribute(NamedThing, OntologyClass):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -1040,7 +1038,7 @@ class Attribute(NamedThing, OntologyClass):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -1097,7 +1095,7 @@ class Attribute(NamedThing, OntologyClass):
          'in_subset': ['samples'],
          'narrow_mappings': ['LOINC:has_modality_type', 'LOINC:has_view_type'],
          'slot_uri': 'biolink:has_attribute_type'} })
-    has_quantitative_value: Optional[List[QuantityValue]] = Field(default=None, description="""connects an attribute to a value""", json_schema_extra = { "linkml_meta": {'alias': 'has_quantitative_value',
+    has_quantitative_value: Optional[list[QuantityValue]] = Field(default=None, description="""connects an attribute to a value""", json_schema_extra = { "linkml_meta": {'alias': 'has_quantitative_value',
          'definition_uri': 'https://w3id.org/biolink/vocab/has_quantitative_value',
          'domain': 'attribute',
          'domain_of': ['attribute'],
@@ -1219,7 +1217,7 @@ class OrganismTaxon(NamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/OrganismTaxon","biolink:OrganismTaxon"]] = Field(default=["biolink:OrganismTaxon"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://w3id.org/biolink/vocab/OrganismTaxon","biolink:OrganismTaxon"]] = Field(default=["biolink:OrganismTaxon"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -1240,7 +1238,7 @@ class OrganismTaxon(NamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -1304,7 +1302,7 @@ class OrganismTaxon(NamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -1415,7 +1413,7 @@ class OrganismTaxon(NamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -1432,7 +1430,7 @@ class OrganismTaxon(NamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -1468,7 +1466,7 @@ class OrganismTaxon(NamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -1566,7 +1564,7 @@ class InformationContentEntity(NamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/InformationContentEntity","biolink:InformationContentEntity"]] = Field(default=["biolink:InformationContentEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://w3id.org/biolink/vocab/InformationContentEntity","biolink:InformationContentEntity"]] = Field(default=["biolink:InformationContentEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -1587,7 +1585,7 @@ class InformationContentEntity(NamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -1651,7 +1649,7 @@ class InformationContentEntity(NamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -1762,7 +1760,7 @@ class InformationContentEntity(NamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -1779,7 +1777,7 @@ class InformationContentEntity(NamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -1815,7 +1813,7 @@ class InformationContentEntity(NamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -1924,7 +1922,7 @@ class Dataset(InformationContentEntity):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/Dataset","biolink:Dataset"]] = Field(default=["biolink:Dataset"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://w3id.org/biolink/vocab/Dataset","biolink:Dataset"]] = Field(default=["biolink:Dataset"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -1945,7 +1943,7 @@ class Dataset(InformationContentEntity):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -2009,7 +2007,7 @@ class Dataset(InformationContentEntity):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -2120,7 +2118,7 @@ class Dataset(InformationContentEntity):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -2137,7 +2135,7 @@ class Dataset(InformationContentEntity):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -2173,7 +2171,7 @@ class Dataset(InformationContentEntity):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -2305,7 +2303,7 @@ class PhysicalEntity(PhysicalEssence, NamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/PhysicalEntity","biolink:PhysicalEntity"]] = Field(default=["biolink:PhysicalEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://w3id.org/biolink/vocab/PhysicalEntity","biolink:PhysicalEntity"]] = Field(default=["biolink:PhysicalEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -2326,7 +2324,7 @@ class PhysicalEntity(PhysicalEssence, NamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -2390,7 +2388,7 @@ class PhysicalEntity(PhysicalEssence, NamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -2501,7 +2499,7 @@ class PhysicalEntity(PhysicalEssence, NamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -2518,7 +2516,7 @@ class PhysicalEntity(PhysicalEssence, NamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -2554,7 +2552,7 @@ class PhysicalEntity(PhysicalEssence, NamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -2664,7 +2662,7 @@ class Activity(ActivityAndBehavior, NamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/Activity","biolink:Activity"]] = Field(default=["biolink:Activity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://w3id.org/biolink/vocab/Activity","biolink:Activity"]] = Field(default=["biolink:Activity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -2685,7 +2683,7 @@ class Activity(ActivityAndBehavior, NamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -2749,7 +2747,7 @@ class Activity(ActivityAndBehavior, NamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -2860,7 +2858,7 @@ class Activity(ActivityAndBehavior, NamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -2877,7 +2875,7 @@ class Activity(ActivityAndBehavior, NamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -2913,7 +2911,7 @@ class Activity(ActivityAndBehavior, NamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -2992,7 +2990,7 @@ class Procedure(ActivityAndBehavior, NamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/Procedure","biolink:Procedure"]] = Field(default=["biolink:Procedure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://w3id.org/biolink/vocab/Procedure","biolink:Procedure"]] = Field(default=["biolink:Procedure"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -3013,7 +3011,7 @@ class Procedure(ActivityAndBehavior, NamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -3077,7 +3075,7 @@ class Procedure(ActivityAndBehavior, NamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -3188,7 +3186,7 @@ class Procedure(ActivityAndBehavior, NamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -3205,7 +3203,7 @@ class Procedure(ActivityAndBehavior, NamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -3241,7 +3239,7 @@ class Procedure(ActivityAndBehavior, NamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -3332,7 +3330,7 @@ class MaterialSample(SubjectOfInvestigation, PhysicalEntity):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/MaterialSample","biolink:MaterialSample"]] = Field(default=["biolink:MaterialSample"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://w3id.org/biolink/vocab/MaterialSample","biolink:MaterialSample"]] = Field(default=["biolink:MaterialSample"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -3353,7 +3351,7 @@ class MaterialSample(SubjectOfInvestigation, PhysicalEntity):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -3417,7 +3415,7 @@ class MaterialSample(SubjectOfInvestigation, PhysicalEntity):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -3528,7 +3526,7 @@ class MaterialSample(SubjectOfInvestigation, PhysicalEntity):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -3545,7 +3543,7 @@ class MaterialSample(SubjectOfInvestigation, PhysicalEntity):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -3581,7 +3579,7 @@ class MaterialSample(SubjectOfInvestigation, PhysicalEntity):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -3618,7 +3616,7 @@ class ThingWithTaxon(ConfiguredBaseModel):
          'from_schema': 'https://w3id.org/biolink/bican-biolink-schema',
          'mixin': True})
 
-    in_taxon: Optional[List[str]] = Field(default=None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""", json_schema_extra = { "linkml_meta": {'alias': 'in_taxon',
+    in_taxon: Optional[list[str]] = Field(default=None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""", json_schema_extra = { "linkml_meta": {'alias': 'in_taxon',
          'aliases': ['instance of',
                      'is organism source of gene product',
                      'organism has gene',
@@ -3697,7 +3695,7 @@ class BiologicalEntity(ThingWithTaxon, NamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/BiologicalEntity","biolink:BiologicalEntity"]] = Field(default=["biolink:BiologicalEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://w3id.org/biolink/vocab/BiologicalEntity","biolink:BiologicalEntity"]] = Field(default=["biolink:BiologicalEntity"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -3718,7 +3716,7 @@ class BiologicalEntity(ThingWithTaxon, NamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -3782,7 +3780,7 @@ class BiologicalEntity(ThingWithTaxon, NamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -3893,7 +3891,7 @@ class BiologicalEntity(ThingWithTaxon, NamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -3910,7 +3908,7 @@ class BiologicalEntity(ThingWithTaxon, NamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -3946,7 +3944,7 @@ class BiologicalEntity(ThingWithTaxon, NamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -3972,7 +3970,7 @@ class BiologicalEntity(ThingWithTaxon, NamedThing):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-    in_taxon: Optional[List[str]] = Field(default=None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""", json_schema_extra = { "linkml_meta": {'alias': 'in_taxon',
+    in_taxon: Optional[list[str]] = Field(default=None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""", json_schema_extra = { "linkml_meta": {'alias': 'in_taxon',
          'aliases': ['instance of',
                      'is organism source of gene product',
                      'organism has gene',
@@ -4173,7 +4171,7 @@ class Gene(GeneOrGeneProduct, ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, 
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/Gene","biolink:Gene"]] = Field(default=["biolink:Gene"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://w3id.org/biolink/vocab/Gene","biolink:Gene"]] = Field(default=["biolink:Gene"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -4194,7 +4192,7 @@ class Gene(GeneOrGeneProduct, ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, 
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -4258,7 +4256,7 @@ class Gene(GeneOrGeneProduct, ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, 
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -4369,7 +4367,7 @@ class Gene(GeneOrGeneProduct, ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, 
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -4403,7 +4401,7 @@ class Gene(GeneOrGeneProduct, ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, 
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -4429,7 +4427,7 @@ class Gene(GeneOrGeneProduct, ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, 
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-    in_taxon: Optional[List[str]] = Field(default=None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""", json_schema_extra = { "linkml_meta": {'alias': 'in_taxon',
+    in_taxon: Optional[list[str]] = Field(default=None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""", json_schema_extra = { "linkml_meta": {'alias': 'in_taxon',
          'aliases': ['instance of',
                      'is organism source of gene product',
                      'organism has gene',
@@ -4462,7 +4460,7 @@ class Gene(GeneOrGeneProduct, ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, 
          'exact_mappings': ['AGRKB:symbol', 'gpi:DB_Object_Symbol'],
          'is_a': 'node property',
          'slot_uri': 'biolink:symbol'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -4540,7 +4538,7 @@ class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://w3id.org/biolink/vocab/Genome","biolink:Genome"]] = Field(default=["biolink:Genome"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://w3id.org/biolink/vocab/Genome","biolink:Genome"]] = Field(default=["biolink:Genome"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -4561,7 +4559,7 @@ class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -4625,7 +4623,7 @@ class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -4736,7 +4734,7 @@ class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -4753,7 +4751,7 @@ class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -4789,7 +4787,7 @@ class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -4815,7 +4813,7 @@ class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
                              'IAO:0000136',
                              'RXNORM:has_tradename'],
          'slot_uri': 'biolink:synonym'} })
-    in_taxon: Optional[List[str]] = Field(default=None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""", json_schema_extra = { "linkml_meta": {'alias': 'in_taxon',
+    in_taxon: Optional[list[str]] = Field(default=None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""", json_schema_extra = { "linkml_meta": {'alias': 'in_taxon',
          'aliases': ['instance of',
                      'is organism source of gene product',
                      'organism has gene',
@@ -4904,7 +4902,7 @@ class VersionedNamedThing(NamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/VersionedNamedThing","bican:VersionedNamedThing"]] = Field(default=["bican:VersionedNamedThing"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://identifiers.org/brain-bican/vocab/VersionedNamedThing","bican:VersionedNamedThing"]] = Field(default=["bican:VersionedNamedThing"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -4925,7 +4923,7 @@ class VersionedNamedThing(NamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -4989,7 +4987,7 @@ class VersionedNamedThing(NamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -5100,7 +5098,7 @@ class VersionedNamedThing(NamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -5117,7 +5115,7 @@ class VersionedNamedThing(NamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -5153,7 +5151,7 @@ class VersionedNamedThing(NamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -5228,7 +5226,7 @@ class Checksum(Entity):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/Checksum","bican:Checksum"]] = Field(default=["bican:Checksum"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://identifiers.org/brain-bican/vocab/Checksum","bican:Checksum"]] = Field(default=["bican:Checksum"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -5249,7 +5247,7 @@ class Checksum(Entity):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -5313,7 +5311,7 @@ class Checksum(Entity):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -5500,7 +5498,7 @@ class ImageDataset(VersionedNamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/ImageDataset","bican:ImageDataset"]] = Field(default=["bican:ImageDataset"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://identifiers.org/brain-bican/vocab/ImageDataset","bican:ImageDataset"]] = Field(default=["bican:ImageDataset"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -5521,7 +5519,7 @@ class ImageDataset(VersionedNamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -5585,7 +5583,7 @@ class ImageDataset(VersionedNamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -5696,7 +5694,7 @@ class ImageDataset(VersionedNamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -5713,7 +5711,7 @@ class ImageDataset(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -5749,7 +5747,7 @@ class ImageDataset(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -5838,7 +5836,7 @@ class AnatomicalSpace(VersionedNamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/AnatomicalSpace","bican:AnatomicalSpace"]] = Field(default=["bican:AnatomicalSpace"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://identifiers.org/brain-bican/vocab/AnatomicalSpace","bican:AnatomicalSpace"]] = Field(default=["bican:AnatomicalSpace"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -5859,7 +5857,7 @@ class AnatomicalSpace(VersionedNamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -5923,7 +5921,7 @@ class AnatomicalSpace(VersionedNamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -6034,7 +6032,7 @@ class AnatomicalSpace(VersionedNamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -6051,7 +6049,7 @@ class AnatomicalSpace(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -6087,7 +6085,7 @@ class AnatomicalSpace(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -6173,7 +6171,7 @@ class ParcellationTerminology(VersionedNamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/ParcellationTerminology","bican:ParcellationTerminology"]] = Field(default=["bican:ParcellationTerminology"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://identifiers.org/brain-bican/vocab/ParcellationTerminology","bican:ParcellationTerminology"]] = Field(default=["bican:ParcellationTerminology"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -6194,7 +6192,7 @@ class ParcellationTerminology(VersionedNamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -6258,7 +6256,7 @@ class ParcellationTerminology(VersionedNamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -6369,7 +6367,7 @@ class ParcellationTerminology(VersionedNamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -6386,7 +6384,7 @@ class ParcellationTerminology(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -6422,7 +6420,7 @@ class ParcellationTerminology(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -6515,7 +6513,7 @@ class ParcellationTermSet(VersionedNamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/ParcellationTermSet","bican:ParcellationTermSet"]] = Field(default=["bican:ParcellationTermSet"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://identifiers.org/brain-bican/vocab/ParcellationTermSet","bican:ParcellationTermSet"]] = Field(default=["bican:ParcellationTermSet"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -6536,7 +6534,7 @@ class ParcellationTermSet(VersionedNamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -6600,7 +6598,7 @@ class ParcellationTermSet(VersionedNamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -6711,7 +6709,7 @@ class ParcellationTermSet(VersionedNamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -6728,7 +6726,7 @@ class ParcellationTermSet(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -6764,7 +6762,7 @@ class ParcellationTermSet(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -6858,7 +6856,7 @@ class ParcellationTerm(VersionedNamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/ParcellationTerm","bican:ParcellationTerm"]] = Field(default=["bican:ParcellationTerm"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://identifiers.org/brain-bican/vocab/ParcellationTerm","bican:ParcellationTerm"]] = Field(default=["bican:ParcellationTerm"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -6879,7 +6877,7 @@ class ParcellationTerm(VersionedNamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -6943,7 +6941,7 @@ class ParcellationTerm(VersionedNamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -7054,7 +7052,7 @@ class ParcellationTerm(VersionedNamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -7071,7 +7069,7 @@ class ParcellationTerm(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -7107,7 +7105,7 @@ class ParcellationTerm(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -7196,7 +7194,7 @@ class ParcellationColorScheme(VersionedNamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/ParcellationColorScheme","bican:ParcellationColorScheme"]] = Field(default=["bican:ParcellationColorScheme"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://identifiers.org/brain-bican/vocab/ParcellationColorScheme","bican:ParcellationColorScheme"]] = Field(default=["bican:ParcellationColorScheme"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -7217,7 +7215,7 @@ class ParcellationColorScheme(VersionedNamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -7281,7 +7279,7 @@ class ParcellationColorScheme(VersionedNamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -7392,7 +7390,7 @@ class ParcellationColorScheme(VersionedNamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -7409,7 +7407,7 @@ class ParcellationColorScheme(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -7445,7 +7443,7 @@ class ParcellationColorScheme(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -7551,7 +7549,7 @@ class AnatomicalAnnotationSet(VersionedNamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/AnatomicalAnnotationSet","bican:AnatomicalAnnotationSet"]] = Field(default=["bican:AnatomicalAnnotationSet"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://identifiers.org/brain-bican/vocab/AnatomicalAnnotationSet","bican:AnatomicalAnnotationSet"]] = Field(default=["bican:AnatomicalAnnotationSet"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -7572,7 +7570,7 @@ class AnatomicalAnnotationSet(VersionedNamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -7636,7 +7634,7 @@ class AnatomicalAnnotationSet(VersionedNamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -7747,7 +7745,7 @@ class AnatomicalAnnotationSet(VersionedNamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -7764,7 +7762,7 @@ class AnatomicalAnnotationSet(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -7800,7 +7798,7 @@ class AnatomicalAnnotationSet(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',
@@ -7925,7 +7923,7 @@ class ParcellationAtlas(VersionedNamedThing):
          'exact_mappings': ['WIKIDATA_PROPERTY:P854'],
          'in_subset': ['translator_minimal', 'samples'],
          'slot_uri': 'biolink:iri'} })
-    category: List[Literal["https://identifiers.org/brain-bican/vocab/ParcellationAtlas","bican:ParcellationAtlas"]] = Field(default=["bican:ParcellationAtlas"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
+    category: list[Literal["https://identifiers.org/brain-bican/vocab/ParcellationAtlas","bican:ParcellationAtlas"]] = Field(default=["bican:ParcellationAtlas"], description="""Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.""", json_schema_extra = { "linkml_meta": {'alias': 'category',
          'definition_uri': 'https://w3id.org/biolink/vocab/category',
          'designates_type': True,
          'domain': 'entity',
@@ -7946,7 +7944,7 @@ class ParcellationAtlas(VersionedNamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
-    type: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
+    type: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'type',
          'definition_uri': 'https://w3id.org/biolink/vocab/type',
          'domain': 'entity',
          'domain_of': ['entity',
@@ -8010,7 +8008,7 @@ class ParcellationAtlas(VersionedNamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    has_attribute: Optional[List[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
+    has_attribute: Optional[list[str]] = Field(default=None, description="""connects any entity to an attribute""", json_schema_extra = { "linkml_meta": {'alias': 'has_attribute',
          'close_mappings': ['OBI:0001927'],
          'definition_uri': 'https://w3id.org/biolink/vocab/has_attribute',
          'domain': 'entity',
@@ -8121,7 +8119,7 @@ class ParcellationAtlas(VersionedNamedThing):
                        'genome'],
          'exact_mappings': ['oboInOwl:ObsoleteClass'],
          'slot_uri': 'biolink:deprecated'} })
-    provided_by: Optional[List[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
+    provided_by: Optional[list[str]] = Field(default=None, description="""The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.""", json_schema_extra = { "linkml_meta": {'alias': 'provided_by',
          'definition_uri': 'https://w3id.org/biolink/vocab/provided_by',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -8138,7 +8136,7 @@ class ParcellationAtlas(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
@@ -8174,7 +8172,7 @@ class ParcellationAtlas(VersionedNamedThing):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:full_name'} })
-    synonym: Optional[List[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
+    synonym: Optional[list[str]] = Field(default=None, description="""Alternate human-readable names for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'synonym',
          'aliases': ['alias'],
          'definition_uri': 'https://w3id.org/biolink/vocab/synonym',
          'domain': 'named thing',

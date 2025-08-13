@@ -215,7 +215,10 @@
          "@type": "xsd:integer",
          "@id": "f10e928d-5a2b-4943-af18-d8fe5d05528d"
       },
-      "category": "@type",
+      "category": {
+         "@type": "xsd:anyURI",
+         "@id": "biolink:category"
+      },
       "amplified_cDNA_PCR_cycles": {
          "@type": "xsd:integer",
          "@id": "3827634c-3f8f-4760-b358-86ce4b030238"
@@ -667,3 +670,4 @@
       }
    }
 }
+
