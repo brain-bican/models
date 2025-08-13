@@ -1,0 +1,4 @@
+prefix	URI
+> prefix	prefix_reference
+bican	https://identifiers.org/brain-bican/vocab/
+prov	https://www.w3.org/TR/prov-o/#
