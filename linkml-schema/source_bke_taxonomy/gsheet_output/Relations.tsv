@@ -3,6 +3,7 @@ Class	Predicate	Subject	Multivalued	ExactlyOneOf	Slot Definition	Quasi-formalism
 >		internal_separator: "|"					inner_key: local_name_value	inner_key: local_name_source
 Abbreviation	denotes_gene_annotation	GeneAnnotation	TRUE	FALSE	One of potentially many gene annotation terms to which the abbreviation denotes.	Some abbreviation (a) denotes some GeneAnnotation (G) if and only if a refers to G.	denotes	allen
 Abbreviation	denotes_parcellation_term	ParcellationTerm	TRUE	FALSE	One of potentially many parcellation terms (anatomical structures) which the abbreviation denotes.	A denotes some PT	denotes	allen
+Abbreviation	denotes_cell_type	CellTypeTaxon	TRUE	FALSE	One of potentially many cell type terms  which the abbreviation denotes.		denotes	allen
 CellTypeSet	part_of_taxonomy	CellTypeTaxonomy	FALSE	TRUE	The cell types taxonomy for which the cell type set is part of.	CTS part_of_taxonomy CTT if and only if CTT is a taxonomy, and CTS is a member of CTT		
 CellTypeSet	contains_taxon	CellTypeTaxon	TRUE	FALSE	One of potentially many cell types taxons which together defines the cell type set.	CTS contains_taxon CTT if and only if CTT is a part of CTS		
 CellTypeSet	has_parent	CellTypeSet	FALSE	FALSE	When the cell type set represents a taxonomic level, the parent is the next higher level in the heirarchy. 	CTS1 has_parent CTS2 if and only if CTS2 and CTS1 are part_of some CTT and CTS1 is_child_of CTS2		
