@@ -135,6 +135,17 @@
             "additionalProperties": false,
             "description": "A collection of cDNA molecules derived and amplified from an input barcoded cell sample. These cDNA molecules represent the gene expression of each cell, with all cDNA molecules from a given cell retaining that cell's unique barcode from the cell barcoding step. This is a necessary step for GEX methods but is not used for ATAC methods.",
             "properties": {
+                "amplified_cDNA_quantity_ng": {
+                    "description": "Amount of cDNA produced after cDNA amplification measured in nanograms.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "amplified_cDNA_result": {
+                    "$ref": "#/$defs/AmplifiedCdnaRnaAmplificationPassFail",
+                    "description": "Pass or Fail result based on qualitative assessment of cDNA yield and size."
+                },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.",
                     "enum": [
@@ -197,10 +208,6 @@
                         "null"
                     ]
                 },
-                "pass_fail_result": {
-                    "$ref": "#/$defs/AmplifiedCdnaRnaAmplificationPassFail",
-                    "description": "Pass or Fail result based on qualitative assessment of cDNA yield and size."
-                },
                 "percent_cdna_longer_than_400bp": {
                     "description": "QC metric to measure mRNA degradation of cDNA.  Higher % is higher quality starting material.  Over 400bp is used as a universal cutoff for intact (full length) vs degraded cDNA and is a common output from Bioanalyzer and Fragment Analyzer elecropheragrams.",
                     "type": [
@@ -215,13 +222,6 @@
                     },
                     "type": [
                         "array",
-                        "null"
-                    ]
-                },
-                "quantity_ng": {
-                    "description": "Amount of cDNA produced after cDNA amplification measured in nanograms.",
-                    "type": [
-                        "number",
                         "null"
                     ]
                 },
@@ -716,6 +716,21 @@
             "additionalProperties": false,
             "description": "The process of creating a collection of cDNA molecules derived and amplified from an input barcoded cell sample.  A large amount of cDNA is needed to have accurate and reliable sequencing detection of gene expression.  This process generates multiple copies of each mRNA transcript (expressed gene) within each cell while retaining the cell's unique barcode from the barcoding step. This is a necessary step for GEX methods but is not used for ATAC methods.",
             "properties": {
+                "cDNA_amplification_process_date": {
+                    "description": "Date of cDNA amplification.",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "cDNA_amplification_set": {
+                    "description": "cDNA amplification set, containing multiple amplified_cDNA_names that were processed at the same time.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.",
                     "enum": [
@@ -785,14 +800,6 @@
                         "null"
                     ]
                 },
-                "process_date": {
-                    "description": "Date of cDNA amplification.",
-                    "format": "date",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
@@ -800,13 +807,6 @@
                     },
                     "type": [
                         "array",
-                        "null"
-                    ]
-                },
-                "set": {
-                    "description": "cDNA amplification set, containing multiple amplified_cDNA_names that were processed at the same time.",
-                    "type": [
-                        "string",
                         "null"
                     ]
                 },
@@ -870,6 +870,17 @@
                         "null"
                     ]
                 },
+                "cell_barcoding_method": {
+                    "$ref": "#/$defs/BarcodedCellSampleTechnique",
+                    "description": "Standardized nomenclature to describe the general barcoding method used.  For example: Multiome, ATAC Only, GEX Only or snm3C-seq."
+                },
+                "cell_barcoding_process_date": {
+                    "description": "Date of cell barcoding process.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
                     "type": [
@@ -919,10 +930,6 @@
                         "null"
                     ]
                 },
-                "method": {
-                    "$ref": "#/$defs/BarcodedCellSampleTechnique",
-                    "description": "Standardized nomenclature to describe the general barcoding method used.  For example: Multiome, ATAC Only, GEX Only or snm3C-seq."
-                },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
                     "type": [
@@ -932,13 +939,6 @@
                 },
                 "port_well": {
                     "description": "Specific position of the loaded port of the 10x chip.  An Enriched or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded Cell Sample). Can be left null for non-10x methods.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "process_date": {
-                    "description": "Date of cell barcoding process.",
                     "type": [
                         "string",
                         "null"
@@ -1025,6 +1025,13 @@
                         "null"
                     ]
                 },
+                "cell_dissociation_process_date": {
+                    "description": "Date of cell dissociation process.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
                     "type": [
@@ -1069,13 +1076,6 @@
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "process_date": {
-                    "description": "Date of cell dissociation process.",
                     "type": [
                         "string",
                         "null"
@@ -1154,6 +1154,13 @@
                         "null"
                     ]
                 },
+                "cell_enrichment_process_date": {
+                    "description": "Date of cell enrichment process.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
                     "type": [
@@ -1198,13 +1205,6 @@
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "process_date": {
-                    "description": "Date of cell enrichment process.",
                     "type": [
                         "string",
                         "null"
@@ -1930,10 +1930,6 @@
                     "$ref": "#/$defs/DissociatedCellSampleCellPrepType",
                     "description": "The type of cell preparation. For example: Cells, Nuclei. This is a property of dissociated_cell_sample."
                 },
-                "cell_source_oligo_name": {
-                    "$ref": "#/$defs/DissociatedCellSampleCellLabelBarcode",
-                    "description": "Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the dissociated cell sample and allows separate dissociated cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source dissociated cell sample."
-                },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
                     "type": [
@@ -1947,6 +1943,10 @@
                         "string",
                         "null"
                     ]
+                },
+                "dissociated_cell_oligo_name": {
+                    "$ref": "#/$defs/DissociatedCellSampleCellLabelBarcode",
+                    "description": "Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the dissociated cell sample and allows separate dissociated cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source dissociated cell sample."
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
@@ -2285,13 +2285,6 @@
                         "null"
                     ]
                 },
-                "cell_source_oligo_name": {
-                    "description": "Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the enriched cell sample and allows separate enriched cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source enriched cell sample.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
                     "type": [
@@ -2301,6 +2294,13 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "enriched_cell_oligo_name": {
+                    "description": "Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the enriched cell sample and allows separate enriched cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source enriched cell sample.",
                     "type": [
                         "string",
                         "null"
@@ -2904,16 +2904,23 @@
                         "null"
                     ]
                 },
+                "library_quantity_ng": {
+                    "description": "Amount of library generated in terms of nanograms",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "library_result": {
+                    "$ref": "#/$defs/LibraryPrepPassFail",
+                    "description": "Pass or Fail result based on qualitative assessment of library yield and size."
+                },
                 "name": {
                     "description": "Name of a library, which is a collection of fragmented and barcode-indexed DNA molecules for sequencing.  An index or barcode is typically introduced to enable identification of library origin to allow libraries to be pooled together for sequencing.",
                     "type": [
                         "string",
                         "null"
                     ]
-                },
-                "pass_fail_result": {
-                    "$ref": "#/$defs/LibraryPrepPassFail",
-                    "description": "Pass or Fail result based on qualitative assessment of library yield and size."
                 },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
@@ -2927,13 +2934,6 @@
                 },
                 "quantity_fmol": {
                     "description": "Amount of library generated in terms of femtomoles",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "quantity_ng": {
-                    "description": "Amount of library generated in terms of nanograms",
                     "type": [
                         "number",
                         "null"
@@ -3196,20 +3196,27 @@
                         "null"
                     ]
                 },
-                "method": {
+                "library_construction_method": {
                     "$ref": "#/$defs/LibraryTechnique",
                     "description": "Standardized nomenclature to describe the specific library method used.  This specifies the alignment method required for the library.  For example, 10xV3.1 (for RNASeq single assay), 10xMult-GEX (for RNASeq multiome assay), and 10xMult-ATAC (for ATACSeq multiome assay)."
                 },
-                "name": {
-                    "description": "A human-readable name for an attribute or entity.",
+                "library_construction_process_date": {
+                    "description": "Date of library construction.",
+                    "format": "date",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "process_date": {
-                    "description": "Date of library construction.",
-                    "format": "date",
+                "library_construction_set": {
+                    "description": "Library set, containing multiple library_names that were processed at the same time.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
                     "type": [
                         "string",
                         "null"
@@ -3222,13 +3229,6 @@
                     },
                     "type": [
                         "array",
-                        "null"
-                    ]
-                },
-                "set": {
-                    "description": "Library set, containing multiple library_names that were processed at the same time.",
-                    "type": [
-                        "string",
                         "null"
                     ]
                 },

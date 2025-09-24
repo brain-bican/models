@@ -195,21 +195,21 @@
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "spdx": "http://spdx.org/rdf/terms#",
       "@vocab": "https://identifiers.org/brain-bican/vocab/",
-      "pass_fail_result": {
+      "amplified_cDNA_quantity_ng": {
+         "@type": "xsd:float",
+         "@id": "0db79d05-8612-4896-b9d3-eb1558841449"
+      },
+      "amplified_cDNA_result": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "6817ede2-7ead-402d-9dbc-131aca627c6c"
+         "@id": "bc62bdb2-7dc8-4404-bb84-ce0bbcae59e5"
       },
       "percent_cdna_longer_than_400bp": {
          "@type": "xsd:float",
          "@id": "8d150467-f69e-461c-b54c-bcfd22f581e5"
-      },
-      "quantity_ng": {
-         "@type": "xsd:float",
-         "@id": "318b2d3a-dae7-4c63-bfbb-93862b92f63e"
       },
       "number_of_expected_cells": {
          "@type": "xsd:integer",
@@ -219,30 +219,40 @@
          "@type": "xsd:anyURI",
          "@id": "biolink:category"
       },
+      "cDNA_amplification_process_date": {
+         "@type": "xsd:date",
+         "@id": "6cc333e7-9b98-497f-b7b1-eae904db2400"
+      },
+      "cDNA_amplification_set": {
+         "@id": "42e98a88-50b3-4ea2-871b-2142f6a0dfdd"
+      },
       "pcr_cycles": {
          "@type": "xsd:integer",
          "@id": "3827634c-3f8f-4760-b358-86ce4b030238"
       },
-      "process_date": {
-         "@id": "process_date"
-      },
-      "set": {
-         "@id": "b124ffa9-9134-4a61-a30d-bb191b2fc7fa"
-      },
-      "input_quantity": {
-         "@type": "xsd:integer",
-         "@id": "aa534269-7c9b-4b63-b990-eea8cda56d0e"
-      },
-      "method": {
+      "cell_barcoding_method": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "7b60d59e-fdd7-4b27-a2d4-cae9b69103a6"
+         "@id": "cell_barcoding_method"
+      },
+      "cell_barcoding_process_date": {
+         "@id": "cell_barcoding_process_date"
+      },
+      "input_quantity": {
+         "@type": "xsd:integer",
+         "@id": "aa534269-7c9b-4b63-b990-eea8cda56d0e"
       },
       "port_well": {
          "@id": "aca38100-d245-4be4-9be3-ba27192779fe"
+      },
+      "cell_dissociation_process_date": {
+         "@id": "cell_dissociation_process_date"
+      },
+      "cell_enrichment_process_date": {
+         "@id": "cell_enrichment_process_date"
       },
       "checksum_algorithm": {
          "@context": {
@@ -288,8 +298,13 @@
          },
          "@id": "baae4ac3-f959-4594-b943-3a82ec19bd34"
       },
-      "cell_source_oligo_name": {
-         "@id": "cell_source_oligo_name"
+      "dissociated_cell_oligo_name": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "184abbaf-baff-4b5f-b51e-dd38de6006af"
       },
       "age_at_death_description": {
          "@id": "0630a265-4a63-48f4-8853-66b929002306"
@@ -324,6 +339,9 @@
       },
       "species": {
          "@id": "6837cb02-6bd7-4fb8-838c-9062ead96ba4"
+      },
+      "enriched_cell_oligo_name": {
+         "@id": "enriched_cell_oligo_name"
       },
       "enrichment_population": {
          "@id": "875f1c70-f5aa-45e3-94b9-5e482f6c4830"
@@ -388,6 +406,18 @@
          "@type": "xsd:float",
          "@id": "90805b3f-f380-4f23-b159-e7eaa0c8f052"
       },
+      "library_quantity_ng": {
+         "@type": "xsd:float",
+         "@id": "318b2d3a-dae7-4c63-bfbb-93862b92f63e"
+      },
+      "library_result": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "6817ede2-7ead-402d-9dbc-131aca627c6c"
+      },
       "quantity_fmol": {
          "@type": "xsd:float",
          "@id": "4c09ada7-c116-48bc-8fb1-0dcf5c4b939a"
@@ -404,8 +434,26 @@
          "@type": "xsd:float",
          "@id": "e4d31d97-722d-4771-a0e4-e6062190f2c1"
       },
+      "library_construction_method": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "7b60d59e-fdd7-4b27-a2d4-cae9b69103a6"
+      },
+      "library_construction_process_date": {
+         "@type": "xsd:date",
+         "@id": "9c2f575d-1b64-451d-894f-656861afe07a"
+      },
+      "library_construction_set": {
+         "@id": "b124ffa9-9134-4a61-a30d-bb191b2fc7fa"
+      },
       "local_tube_id": {
          "@id": "f1fdea98-7849-4def-a62f-a04cbbf98922"
+      },
+      "process_date": {
+         "@id": "process_date"
       },
       "license": {
          "@id": "biolink:license"

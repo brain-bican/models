@@ -50,10 +50,10 @@ LibraryPooling {
     label_typeList synonym  
 }
 LibraryConstruction {
-    library_technique method  
-    date process_date  
+    library_technique library_construction_method  
+    date library_construction_process_date  
     float input_quantity_ng  
-    string set  
+    string library_construction_set  
     string id  
     iri_type iri  
     uriorcurieList category  
@@ -68,8 +68,8 @@ LibraryConstruction {
 }
 CdnaAmplification {
     integer pcr_cycles  
-    date process_date  
-    string set  
+    date cDNA_amplification_process_date  
+    string cDNA_amplification_set  
     string id  
     iri_type iri  
     uriorcurieList category  
@@ -85,8 +85,8 @@ CdnaAmplification {
 CellBarcoding {
     string port_well  
     integer input_quantity  
-    string process_date  
-    barcoded_cell_sample_technique method  
+    string cell_barcoding_process_date  
+    barcoded_cell_sample_technique cell_barcoding_method  
     string id  
     iri_type iri  
     uriorcurieList category  
@@ -113,7 +113,7 @@ EnrichedCellSampleSplitting {
     label_typeList synonym  
 }
 CellEnrichment {
-    string process_date  
+    string cell_enrichment_process_date  
     string id  
     iri_type iri  
     uriorcurieList category  
@@ -127,7 +127,7 @@ CellEnrichment {
     label_typeList synonym  
 }
 CellDissociation {
-    string process_date  
+    string cell_dissociation_process_date  
     string id  
     iri_type iri  
     uriorcurieList category  
@@ -197,9 +197,9 @@ Library {
     label_type name  
     integer average_size_bp  
     float concentration_nm  
-    library_prep_pass_fail pass_fail_result  
+    library_prep_pass_fail library_result  
     float quantity_fmol  
-    float quantity_ng  
+    float library_quantity_ng  
     library_r1_r2_index r1_r2_index  
     string id  
     iri_type iri  
@@ -214,8 +214,8 @@ Library {
 }
 AmplifiedCdna {
     label_type name  
-    float quantity_ng  
-    amplified_cdna_rna_amplification_pass_fail pass_fail_result  
+    float amplified_cDNA_quantity_ng  
+    amplified_cdna_rna_amplification_pass_fail amplified_cDNA_result  
     float percent_cdna_longer_than_400bp  
     string id  
     iri_type iri  
@@ -245,7 +245,7 @@ BarcodedCellSample {
 EnrichedCellSample {
     label_type name  
     string enrichment_population  
-    string cell_source_oligo_name  
+    string enriched_cell_oligo_name  
     string histone_modification_marker  
     string id  
     iri_type iri  
@@ -261,7 +261,7 @@ EnrichedCellSample {
 DissociatedCellSample {
     label_type name  
     dissociated_cell_sample_cell_prep_type cell_prep_type  
-    dissociated_cell_sample_cell_label_barcode cell_source_oligo_name  
+    dissociated_cell_sample_cell_label_barcode dissociated_cell_oligo_name  
     string id  
     iri_type iri  
     uriorcurieList category  
