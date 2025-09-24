@@ -2623,7 +2623,7 @@ classes:
         range: TissueSample
         multivalued: true
     attributes:
-      process_date:
+      cell_dissociation_process_date:
         local_names:
           NIMP:
             local_name_source: NIMP
@@ -2655,7 +2655,7 @@ classes:
         range: DissociatedCellSample
         multivalued: true
     attributes:
-      process_date:
+      cell_enrichment_process_date:
         local_names:
           NIMP:
             local_name_source: NIMP
@@ -2737,7 +2737,7 @@ classes:
         - NIMP:PD-ZZZZWQ40
         slot_uri: bican:aa534269-7c9b-4b63-b990-eea8cda56d0e
         range: integer
-      process_date:
+      cell_barcoding_process_date:
         local_names:
           NIMP:
             local_name_source: NIMP
@@ -2794,7 +2794,7 @@ classes:
         - NIMP:PD-OKOKQD38
         slot_uri: bican:3827634c-3f8f-4760-b358-86ce4b030238
         range: integer
-      process_date:
+      cDNA_amplification_process_date:
         local_names:
           NIMP:
             local_name_source: NIMP
@@ -2861,7 +2861,7 @@ classes:
         - NIMP:PD-AJAJCN35
         slot_uri: bican:7b60d59e-fdd7-4b27-a2d4-cae9b69103a6
         range: library_technique
-      process_date:
+      library_construction_process_date:
         local_names:
           NIMP:
             local_name_source: NIMP
