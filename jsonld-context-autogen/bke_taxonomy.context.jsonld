@@ -261,6 +261,9 @@
          "@type": "xsd:date",
          "@id": "biolink:creation_date"
       },
+      "denotes_cell_type": {
+         "@id": "denotes_cell_type"
+      },
       "denotes_gene_annotation": {
          "@id": "denotes_gene_annotation"
       },
