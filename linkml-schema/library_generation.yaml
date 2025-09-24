@@ -2296,7 +2296,7 @@ classes:
         - NIMP:PD-TITIIC26
         slot_uri: bican:0db79d05-8612-4896-b9d3-eb1558841449
         range: float
-      pass_fail_result:
+      amplified_cDNA_result:
         local_names:
           NIMP:
             local_name_source: NIMP
@@ -2399,7 +2399,7 @@ classes:
         - NIMP:PD-DCDCLD43
         slot_uri: bican:90805b3f-f380-4f23-b159-e7eaa0c8f052
         range: float
-      pass_fail_result:
+      library_result:
         local_names:
           NIMP:
             local_name_source: NIMP
