@@ -20,6 +20,8 @@ slots:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   denotes_parcellation_term:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+  denotes_cell_type:
+    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   part_of_taxonomy:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   contains_taxon:
@@ -517,6 +519,7 @@ classes:
     slots:
     - denotes_gene_annotation
     - denotes_parcellation_term
+    - denotes_cell_type
     - id
     - term
     - meaning
@@ -538,6 +541,14 @@ classes:
         description: One of potentially many parcellation terms (anatomical structures)
           which the abbreviation denotes.
         range: ParcellationTerm
+        multivalued: true
+      denotes_cell_type:
+        local_names:
+          local_name_value: denotes
+          local_name_source: allen
+        description: One of potentially many cell type terms  which the abbreviation
+          denotes.
+        range: CellTypeTaxon
         multivalued: true
       id:
         description: ( database GUID)
