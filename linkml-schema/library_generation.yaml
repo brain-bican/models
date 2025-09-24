@@ -2746,7 +2746,7 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-SHSHZS25
-      method:
+      cell_barcoding_method:
         local_names:
           NIMP:
             local_name_source: NIMP
@@ -2843,7 +2843,7 @@ classes:
         - range: BarcodedCellSample
         - range: AmplifiedCdna
     attributes:
-      method:
+      library_construction_method:
         local_names:
           NIMP:
             local_name_source: NIMP
