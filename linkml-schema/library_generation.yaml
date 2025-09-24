@@ -2282,7 +2282,7 @@ classes:
         - NIMP:PD-YAAGGG39
         slot_uri: bican:e2606a11-114e-472f-9e05-33f9b6fc3089
     attributes:
-      quantity_ng:
+      amplified_cDNA_quantity_ng:
         local_names:
           NIMP:
             local_name_source: NIMP
@@ -2426,7 +2426,7 @@ classes:
         - NIMP:PD-JYJYDK42
         slot_uri: bican:4c09ada7-c116-48bc-8fb1-0dcf5c4b939a
         range: float
-      quantity_ng:
+      library_quantity_ng:
         local_names:
           NIMP:
             local_name_source: NIMP
