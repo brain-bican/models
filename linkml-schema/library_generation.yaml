@@ -2805,7 +2805,7 @@ classes:
         - NIMP:PD-BYBYBY24
         slot_uri: bican:6cc333e7-9b98-497f-b7b1-eae904db2400
         range: date
-      set:
+      cDNA_amplification_set:
         local_names:
           NIMP:
             local_name_source: NIMP
@@ -2885,7 +2885,7 @@ classes:
         - NIMP:PD-AFAFXP37
         slot_uri: bican:e4d31d97-722d-4771-a0e4-e6062190f2c1
         range: float
-      set:
+      library_construction_set:
         local_names:
           NIMP:
             local_name_source: NIMP
