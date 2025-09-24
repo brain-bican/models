@@ -25,7 +25,6 @@ jobs:
           python -m pip install .[test]
           pip install linkml=="1.8.1" # specify the older version of linkml
           pip install git+https://github.com/brain-bican/bkbit.git
-          pip install git+https://github.com/linkml/schemasheets.git@649af7e1
 
       - name: Other installations
         run: |
