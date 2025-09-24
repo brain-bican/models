@@ -2061,7 +2061,7 @@ classes:
         - NIMP:PD-RELLGO26
         slot_uri: bican:baae4ac3-f959-4594-b943-3a82ec19bd34
         range: dissociated_cell_sample_cell_prep_type
-      cell_source_oligo_name:
+      dissociated_cell_oligo_name:
         local_names:
           NIMP:
             local_name_source: NIMP
@@ -2140,7 +2140,7 @@ classes:
         - NIMP:PD-TZTZPI37
         slot_uri: bican:875f1c70-f5aa-45e3-94b9-5e482f6c4830
         range: string
-      cell_source_oligo_name:
+      enriched_cell_oligo_name:
         local_names:
           NIMP:
             local_name_source: NIMP
