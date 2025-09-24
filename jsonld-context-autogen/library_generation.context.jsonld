@@ -195,7 +195,11 @@
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "spdx": "http://spdx.org/rdf/terms#",
       "@vocab": "https://identifiers.org/brain-bican/vocab/",
-      "amplified_cDNA_RNA_amplification_pass_fail": {
+      "amplified_cDNA_quantity_ng": {
+         "@type": "xsd:float",
+         "@id": "0db79d05-8612-4896-b9d3-eb1558841449"
+      },
+      "amplified_cDNA_result": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
@@ -203,25 +207,17 @@
          },
          "@id": "bc62bdb2-7dc8-4404-bb84-ce0bbcae59e5"
       },
-      "amplified_cDNA_percent_cDNA_longer_than_400bp": {
+      "percent_cdna_longer_than_400bp": {
          "@type": "xsd:float",
          "@id": "8d150467-f69e-461c-b54c-bcfd22f581e5"
       },
-      "amplified_cDNA_amplified_quantity_ng": {
-         "@type": "xsd:float",
-         "@id": "0db79d05-8612-4896-b9d3-eb1558841449"
-      },
-      "expected_cell_capture": {
+      "number_of_expected_cells": {
          "@type": "xsd:integer",
          "@id": "f10e928d-5a2b-4943-af18-d8fe5d05528d"
       },
       "category": {
          "@type": "xsd:anyURI",
          "@id": "biolink:category"
-      },
-      "amplified_cDNA_PCR_cycles": {
-         "@type": "xsd:integer",
-         "@id": "3827634c-3f8f-4760-b358-86ce4b030238"
       },
       "cDNA_amplification_process_date": {
          "@type": "xsd:date",
@@ -230,23 +226,33 @@
       "cDNA_amplification_set": {
          "@id": "42e98a88-50b3-4ea2-871b-2142f6a0dfdd"
       },
-      "barcoded_cell_input_quantity_count": {
+      "pcr_cycles": {
          "@type": "xsd:integer",
-         "@id": "aa534269-7c9b-4b63-b990-eea8cda56d0e"
+         "@id": "3827634c-3f8f-4760-b358-86ce4b030238"
       },
-      "method": {
+      "cell_barcoding_method": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "method"
+         "@id": "cell_barcoding_method"
       },
-      "barcoded_cell_sample_port_well": {
+      "cell_barcoding_process_date": {
+         "@id": "cell_barcoding_process_date"
+      },
+      "input_quantity": {
+         "@type": "xsd:integer",
+         "@id": "aa534269-7c9b-4b63-b990-eea8cda56d0e"
+      },
+      "port_well": {
          "@id": "aca38100-d245-4be4-9be3-ba27192779fe"
       },
-      "process_date": {
-         "@id": "process_date"
+      "cell_dissociation_process_date": {
+         "@id": "cell_dissociation_process_date"
+      },
+      "cell_enrichment_process_date": {
+         "@id": "cell_enrichment_process_date"
       },
       "checksum_algorithm": {
          "@context": {
@@ -284,7 +290,7 @@
          "@type": "@id",
          "@id": "annotates"
       },
-      "dissociated_cell_sample_cell_prep_type": {
+      "cell_prep_type": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
@@ -292,7 +298,7 @@
          },
          "@id": "baae4ac3-f959-4594-b943-3a82ec19bd34"
       },
-      "dissociated_cell_oligo_tag_name": {
+      "dissociated_cell_oligo_name": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
@@ -331,11 +337,11 @@
          },
          "@id": "632d3d3f-f85b-4efc-a1ab-010fe417ae81"
       },
-      "donor_species": {
+      "species": {
          "@id": "6837cb02-6bd7-4fb8-838c-9062ead96ba4"
       },
-      "cell_source_oligo_name": {
-         "@id": "cell_source_oligo_name"
+      "enriched_cell_oligo_name": {
+         "@id": "enriched_cell_oligo_name"
       },
       "enrichment_population": {
          "@id": "875f1c70-f5aa-45e3-94b9-5e482f6c4830"
@@ -392,15 +398,19 @@
          "@type": "xsd:anyURI",
          "@id": "biolink:iri"
       },
-      "library_avg_size_bp": {
+      "average_size_bp": {
          "@type": "xsd:integer",
          "@id": "f851eba9-56d1-4472-9d0c-d7f8bc33000a"
       },
-      "library_concentration_nm": {
+      "concentration_nm": {
          "@type": "xsd:float",
          "@id": "90805b3f-f380-4f23-b159-e7eaa0c8f052"
       },
-      "library_prep_pass_fail": {
+      "library_quantity_ng": {
+         "@type": "xsd:float",
+         "@id": "318b2d3a-dae7-4c63-bfbb-93862b92f63e"
+      },
+      "library_result": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
@@ -408,15 +418,11 @@
          },
          "@id": "6817ede2-7ead-402d-9dbc-131aca627c6c"
       },
-      "library_quantification_fmol": {
+      "quantity_fmol": {
          "@type": "xsd:float",
          "@id": "4c09ada7-c116-48bc-8fb1-0dcf5c4b939a"
       },
-      "library_quantification_ng": {
-         "@type": "xsd:float",
-         "@id": "318b2d3a-dae7-4c63-bfbb-93862b92f63e"
-      },
-      "R1_R2_index_name": {
+      "r1_r2_index": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
@@ -424,11 +430,11 @@
          },
          "@id": "c94b5d8a-e92d-47af-8c0e-ea3b58be4d06"
       },
-      "library_input_ng": {
+      "input_quantity_ng": {
          "@type": "xsd:float",
          "@id": "e4d31d97-722d-4771-a0e4-e6062190f2c1"
       },
-      "library_method": {
+      "library_construction_method": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
@@ -436,15 +442,18 @@
          },
          "@id": "7b60d59e-fdd7-4b27-a2d4-cae9b69103a6"
       },
-      "library_creation_date": {
+      "library_construction_process_date": {
          "@type": "xsd:date",
          "@id": "9c2f575d-1b64-451d-894f-656861afe07a"
       },
-      "library_prep_set": {
+      "library_construction_set": {
          "@id": "b124ffa9-9134-4a61-a30d-bb191b2fc7fa"
       },
-      "library_pool_tube_internal_label": {
+      "local_tube_id": {
          "@id": "f1fdea98-7849-4def-a62f-a04cbbf98922"
+      },
+      "process_date": {
+         "@id": "process_date"
       },
       "license": {
          "@id": "biolink:license"
@@ -487,8 +496,8 @@
          "@type": "@id",
          "@id": "dissection_was_guided_by"
       },
-      "tissue_sample_structure": {
-         "@id": "tissue_sample_structure"
+      "structure": {
+         "@id": "structure"
       },
       "type": {
          "@id": "rdf:type"

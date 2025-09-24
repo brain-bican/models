@@ -135,23 +135,16 @@
             "additionalProperties": false,
             "description": "A collection of cDNA molecules derived and amplified from an input barcoded cell sample. These cDNA molecules represent the gene expression of each cell, with all cDNA molecules from a given cell retaining that cell's unique barcode from the cell barcoding step. This is a necessary step for GEX methods but is not used for ATAC methods.",
             "properties": {
-                "amplified_cDNA_RNA_amplification_pass_fail": {
-                    "$ref": "#/$defs/AmplifiedCdnaRnaAmplificationPassFail",
-                    "description": "Pass or Fail result based on qualitative assessment of cDNA yield and size."
-                },
-                "amplified_cDNA_amplified_quantity_ng": {
+                "amplified_cDNA_quantity_ng": {
                     "description": "Amount of cDNA produced after cDNA amplification measured in nanograms.",
                     "type": [
                         "number",
                         "null"
                     ]
                 },
-                "amplified_cDNA_percent_cDNA_longer_than_400bp": {
-                    "description": "QC metric to measure mRNA degradation of cDNA.  Higher % is higher quality starting material.  Over 400bp is used as a universal cutoff for intact (full length) vs degraded cDNA and is a common output from Bioanalyzer and Fragment Analyzer elecropheragrams.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                "amplified_cDNA_result": {
+                    "$ref": "#/$defs/AmplifiedCdnaRnaAmplificationPassFail",
+                    "description": "Pass or Fail result based on qualitative assessment of cDNA yield and size."
                 },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.",
@@ -212,6 +205,13 @@
                     "description": "Name of a collection of cDNA molecules derived and amplified from an input barcoded_cell_sample.  These cDNA molecules represent the gene expression of each cell, with all cDNA molecules from a given cell retaining that cell's unique barcode from the cell barcoding step.  This is a necessary step for GEX methods but is not used for ATAC methods.",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "percent_cdna_longer_than_400bp": {
+                    "description": "QC metric to measure mRNA degradation of cDNA.  Higher % is higher quality starting material.  Over 400bp is used as a universal cutoff for intact (full length) vs degraded cDNA and is a common output from Bioanalyzer and Fragment Analyzer elecropheragrams.",
+                    "type": [
+                        "number",
                         "null"
                     ]
                 },
@@ -451,13 +451,6 @@
                         "null"
                     ]
                 },
-                "expected_cell_capture": {
-                    "description": "Expected number of cells/nuclei of a barcoded_cell_sample that will be barcoded and available for sequencing.  This is a derived number from 'Barcoded cell input quantity count' that is dependent on the \"capture rate\" of the barcoding method.  It is usually a calculated fraction of the 'Barcoded cell input quantity count' going into the barcoding method.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
                     "type": [
@@ -490,6 +483,13 @@
                     "description": "Name of a collection of barcoded cells.  Input will be either dissociated_cell_sample or enriched_cell_sample.  Cell barcodes are only guaranteed to be unique within this one collection. One dissociated_cell_sample or enriched_cell_sample can lead to multiple barcoded_cell_samples.",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "number_of_expected_cells": {
+                    "description": "Expected number of cells/nuclei of a barcoded_cell_sample that will be barcoded and available for sequencing.  This is a derived number from 'Barcoded cell input quantity count' that is dependent on the \"capture rate\" of the barcoding method.  It is usually a calculated fraction of the 'Barcoded cell input quantity count' going into the barcoding method.",
+                    "type": [
+                        "integer",
                         "null"
                     ]
                 },
@@ -716,13 +716,6 @@
             "additionalProperties": false,
             "description": "The process of creating a collection of cDNA molecules derived and amplified from an input barcoded cell sample.  A large amount of cDNA is needed to have accurate and reliable sequencing detection of gene expression.  This process generates multiple copies of each mRNA transcript (expressed gene) within each cell while retaining the cell's unique barcode from the barcoding step. This is a necessary step for GEX methods but is not used for ATAC methods.",
             "properties": {
-                "amplified_cDNA_PCR_cycles": {
-                    "description": "Number of PCR cycles used during cDNA amplification for this cDNA.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
                 "cDNA_amplification_process_date": {
                     "description": "Date of cDNA amplification.",
                     "format": "date",
@@ -800,6 +793,13 @@
                         "null"
                     ]
                 },
+                "pcr_cycles": {
+                    "description": "Number of PCR cycles used during cDNA amplification for this cDNA.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
@@ -857,20 +857,6 @@
             "additionalProperties": false,
             "description": "The process of adding a molecular barcode to individual cells in a sample. The input will be either dissociated cell sample or enriched cell sample. Cell barcodes are only guaranteed to be unique within this one collection. One dissociated cell sample or enriched cell sample can lead to multiple barcoded cell samples.",
             "properties": {
-                "barcoded_cell_input_quantity_count": {
-                    "description": "Number of enriched or dissociated cells/nuclei going into the barcoding process.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "barcoded_cell_sample_port_well": {
-                    "description": "Specific position of the loaded port of the 10x chip.  An Enriched or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded Cell Sample). Can be left null for non-10x methods.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.",
                     "enum": [
@@ -881,6 +867,17 @@
                     },
                     "type": [
                         "array",
+                        "null"
+                    ]
+                },
+                "cell_barcoding_method": {
+                    "$ref": "#/$defs/BarcodedCellSampleTechnique",
+                    "description": "Standardized nomenclature to describe the general barcoding method used.  For example: Multiome, ATAC Only, GEX Only or snm3C-seq."
+                },
+                "cell_barcoding_process_date": {
+                    "description": "Date of cell barcoding process.",
+                    "type": [
+                        "string",
                         "null"
                     ]
                 },
@@ -919,16 +916,19 @@
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
                     "type": "string"
                 },
+                "input_quantity": {
+                    "description": "Number of enriched or dissociated cells/nuclei going into the barcoding process.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
                     "type": [
                         "string",
                         "null"
                     ]
-                },
-                "method": {
-                    "$ref": "#/$defs/BarcodedCellSampleTechnique",
-                    "description": "Standardized nomenclature to describe the general barcoding method used.  For example: Multiome, ATAC Only, GEX Only or snm3C-seq."
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
@@ -937,8 +937,8 @@
                         "null"
                     ]
                 },
-                "process_date": {
-                    "description": "Date of cell barcoding process.",
+                "port_well": {
+                    "description": "Specific position of the loaded port of the 10x chip.  An Enriched or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded Cell Sample). Can be left null for non-10x methods.",
                     "type": [
                         "string",
                         "null"
@@ -1025,6 +1025,13 @@
                         "null"
                     ]
                 },
+                "cell_dissociation_process_date": {
+                    "description": "Date of cell dissociation process.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
                     "type": [
@@ -1069,13 +1076,6 @@
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "process_date": {
-                    "description": "Date of cell dissociation process.",
                     "type": [
                         "string",
                         "null"
@@ -1154,6 +1154,13 @@
                         "null"
                     ]
                 },
+                "cell_enrichment_process_date": {
+                    "description": "Date of cell enrichment process.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
                     "type": [
@@ -1198,13 +1205,6 @@
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "process_date": {
-                    "description": "Date of cell enrichment process.",
                     "type": [
                         "string",
                         "null"
@@ -1926,6 +1926,10 @@
                         "null"
                     ]
                 },
+                "cell_prep_type": {
+                    "$ref": "#/$defs/DissociatedCellSampleCellPrepType",
+                    "description": "The type of cell preparation. For example: Cells, Nuclei. This is a property of dissociated_cell_sample."
+                },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
                     "type": [
@@ -1940,13 +1944,9 @@
                         "null"
                     ]
                 },
-                "dissociated_cell_oligo_tag_name": {
+                "dissociated_cell_oligo_name": {
                     "$ref": "#/$defs/DissociatedCellSampleCellLabelBarcode",
                     "description": "Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the dissociated cell sample and allows separate dissociated cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source dissociated cell sample."
-                },
-                "dissociated_cell_sample_cell_prep_type": {
-                    "$ref": "#/$defs/DissociatedCellSampleCellPrepType",
-                    "description": "The type of cell preparation. For example: Cells, Nuclei. This is a property of dissociated_cell_sample."
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
@@ -2141,13 +2141,6 @@
                         "null"
                     ]
                 },
-                "donor_species": {
-                    "description": "Species of donor.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
                     "type": [
@@ -2207,6 +2200,13 @@
                     },
                     "type": [
                         "array",
+                        "null"
+                    ]
+                },
+                "species": {
+                    "description": "Species of donor.",
+                    "type": [
+                        "string",
                         "null"
                     ]
                 },
@@ -2285,13 +2285,6 @@
                         "null"
                     ]
                 },
-                "cell_source_oligo_name": {
-                    "description": "Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the enriched cell sample and allows separate enriched cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source enriched cell sample.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
                     "type": [
@@ -2301,6 +2294,13 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "enriched_cell_oligo_name": {
+                    "description": "Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the enriched cell sample and allows separate enriched cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source enriched cell sample.",
                     "type": [
                         "string",
                         "null"
@@ -2835,9 +2835,12 @@
             "additionalProperties": false,
             "description": "A collection of fragmented and barcode-indexed DNA molecules for sequencing. An index or barcode is typically introduced to enable identification of library origin to allow libraries to be pooled together for sequencing.",
             "properties": {
-                "R1_R2_index_name": {
-                    "$ref": "#/$defs/LibraryR1R2Index",
-                    "description": "Name of the pair of library indexes used for sequencing.  Indexes allow libraries to be pooled together for sequencing.  Sequencing output (fastq) are demultiplexed by using the indexes for each library.  The name will be associated with the sequences of i7, i5, and i5as, which are needed by SeqCores for demultiplexing.  The required direction of the sequence (sense or antisense) of the index can differ depending on sequencing instruments."
+                "average_size_bp": {
+                    "description": "Average size of the library in terms of base pairs.  This is used to calculate the molarity before pooling and sequencing.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
                 },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}.",
@@ -2849,6 +2852,13 @@
                     },
                     "type": [
                         "array",
+                        "null"
+                    ]
+                },
+                "concentration_nm": {
+                    "description": "Concentration of library in terms of nM (nMol/L).  Number of molecules is needed for accurate pooling of the libraries and for generating the number of target reads/cell in sequencing.",
+                    "type": [
+                        "number",
                         "null"
                     ]
                 },
@@ -2894,37 +2904,16 @@
                         "null"
                     ]
                 },
-                "library_avg_size_bp": {
-                    "description": "Average size of the library in terms of base pairs.  This is used to calculate the molarity before pooling and sequencing.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "library_concentration_nm": {
-                    "description": "Concentration of library in terms of nM (nMol/L).  Number of molecules is needed for accurate pooling of the libraries and for generating the number of target reads/cell in sequencing.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "library_prep_pass_fail": {
-                    "$ref": "#/$defs/LibraryPrepPassFail",
-                    "description": "Pass or Fail result based on qualitative assessment of library yield and size."
-                },
-                "library_quantification_fmol": {
-                    "description": "Amount of library generated in terms of femtomoles",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "library_quantification_ng": {
+                "library_quantity_ng": {
                     "description": "Amount of library generated in terms of nanograms",
                     "type": [
                         "number",
                         "null"
                     ]
+                },
+                "library_result": {
+                    "$ref": "#/$defs/LibraryPrepPassFail",
+                    "description": "Pass or Fail result based on qualitative assessment of library yield and size."
                 },
                 "name": {
                     "description": "Name of a library, which is a collection of fragmented and barcode-indexed DNA molecules for sequencing.  An index or barcode is typically introduced to enable identification of library origin to allow libraries to be pooled together for sequencing.",
@@ -2942,6 +2931,17 @@
                         "array",
                         "null"
                     ]
+                },
+                "quantity_fmol": {
+                    "description": "Amount of library generated in terms of femtomoles",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "r1_r2_index": {
+                    "$ref": "#/$defs/LibraryR1R2Index",
+                    "description": "Name of the pair of library indexes used for sequencing.  Indexes allow libraries to be pooled together for sequencing.  Sequencing output (fastq) are demultiplexed by using the indexes for each library.  The name will be associated with the sequences of i7, i5, and i5as, which are needed by SeqCores for demultiplexing.  The required direction of the sequence (sense or antisense) of the index can differ depending on sequencing instruments."
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
@@ -3182,6 +3182,13 @@
                     "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
                     "type": "string"
                 },
+                "input_quantity_ng": {
+                    "description": "Amount of cDNA going into library construction in nanograms.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
                     "type": [
@@ -3189,7 +3196,11 @@
                         "null"
                     ]
                 },
-                "library_creation_date": {
+                "library_construction_method": {
+                    "$ref": "#/$defs/LibraryTechnique",
+                    "description": "Standardized nomenclature to describe the specific library method used.  This specifies the alignment method required for the library.  For example, 10xV3.1 (for RNASeq single assay), 10xMult-GEX (for RNASeq multiome assay), and 10xMult-ATAC (for ATACSeq multiome assay)."
+                },
+                "library_construction_process_date": {
                     "description": "Date of library construction.",
                     "format": "date",
                     "type": [
@@ -3197,18 +3208,7 @@
                         "null"
                     ]
                 },
-                "library_input_ng": {
-                    "description": "Amount of cDNA going into library construction in nanograms.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "library_method": {
-                    "$ref": "#/$defs/LibraryTechnique",
-                    "description": "Standardized nomenclature to describe the specific library method used.  This specifies the alignment method required for the library.  For example, 10xV3.1 (for RNASeq single assay), 10xMult-GEX (for RNASeq multiome assay), and 10xMult-ATAC (for ATACSeq multiome assay)."
-                },
-                "library_prep_set": {
+                "library_construction_set": {
                     "description": "Library set, containing multiple library_names that were processed at the same time.",
                     "type": [
                         "string",
@@ -3341,7 +3341,7 @@
                         "null"
                     ]
                 },
-                "library_pool_tube_internal_label": {
+                "local_tube_id": {
                     "description": "Library Pool Tube local name.  Label of the tube containing the library pool, which is made up of multiple library_aliquots.  This is a Library Lab local tube name, before the pool is aliquoted to the Seq Core provided tube 'Library Pool Tube Name'.",
                     "type": [
                         "string",
@@ -4922,8 +4922,8 @@
                         "null"
                     ]
                 },
-                "synonym": {
-                    "description": "Alternate human-readable names for a thing",
+                "structure": {
+                    "description": "Structure of tissue sample.",
                     "items": {
                         "type": "string"
                     },
@@ -4932,8 +4932,8 @@
                         "null"
                     ]
                 },
-                "tissue_sample_structure": {
-                    "description": "Structure of tissue sample.",
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
                     "items": {
                         "type": "string"
                     },
@@ -4991,4 +4991,3 @@
     "type": "object",
     "version": null
 }
-
