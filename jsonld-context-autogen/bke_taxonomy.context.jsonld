@@ -199,6 +199,11 @@
          "@id": "denotes_parcellation_term"
       },
       "entity_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
          "@id": "entity_type"
       },
       "meaning": {
@@ -244,6 +249,11 @@
          "@id": "biolink:category"
       },
       "cell_type_set_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
          "@id": "cell_type_set_type"
       },
       "contains_taxon": {

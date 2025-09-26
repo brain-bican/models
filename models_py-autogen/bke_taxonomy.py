@@ -116,6 +116,22 @@ class DISTANCEUNIT(str, Enum):
     meter = "m"
 
 
+class AbbreviationEntityType(str, Enum):
+    # Abbreviation denotes a Cell Type entity.
+    cell_type = "cell type"
+    # Abbreviation denotes a Gene entity.
+    gene = "gene"
+    # Abbreviation denotes a Structure entity.
+    structure = "structure"
+
+
+class CellTypeSetType(str, Enum):
+    # Denotes CellTypeSet is at Taxonomic level.
+    taxonomic_level = "taxonomic level"
+    # Denotes CellTypeSet is at Neighborhood level.
+    neighborhood = "neighborhood"
+
+
 
 class OntologyClass(ConfiguredBaseModel):
     """
@@ -11159,7 +11175,7 @@ class CellTypeSet(ProvEntity, NamedThing):
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
     contains_taxon: Optional[List[str]] = Field(default=None, description="""One of potentially many cell types taxons which together defines the cell type set.""", json_schema_extra = { "linkml_meta": {'alias': 'contains_taxon', 'domain_of': ['CellTypeSet']} })
-    cell_type_set_type: Optional[str] = Field(default=None, description="""A tag denoting the type or purpose of the cell type set.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_type_set_type',
+    cell_type_set_type: Optional[CellTypeSetType] = Field(default=None, description="""A tag denoting the type or purpose of the cell type set.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_type_set_type',
          'domain_of': ['CellTypeSet'],
          'examples': [{'value': 'taxonomic_level'}],
          'local_names': {'allen': {'local_name_source': 'allen',
@@ -14637,7 +14653,7 @@ class Abbreviation(ProvEntity, NamedThing):
          'domain_of': ['Abbreviation'],
          'examples': [{'value': 'intratelencephalic-projecting glutamatergic cortical '
                                 'neuron'}]} })
-    entity_type: Optional[str] = Field(default=None, description="""The entity type which the abbreviation term denotes.""", json_schema_extra = { "linkml_meta": {'alias': 'entity_type',
+    entity_type: Optional[AbbreviationEntityType] = Field(default=None, description="""The entity type which the abbreviation term denotes.""", json_schema_extra = { "linkml_meta": {'alias': 'entity_type',
          'domain_of': ['Abbreviation'],
          'examples': [{'value': 'cell type'}]} })
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
