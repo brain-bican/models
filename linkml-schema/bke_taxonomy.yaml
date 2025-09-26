@@ -15,6 +15,23 @@ prefixes:
   linkml: https://w3id.org/linkml/
 default_prefix: bican
 default_range: string
+enums:
+  abbreviation_entity_type:
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
+    permissible_values:
+      cell type:
+        description: Abbreviation denotes a Cell Type entity.
+      gene:
+        description: Abbreviation denotes a Gene entity.
+      structure:
+        description: Abbreviation denotes a Structure entity.
+  cell_type_set_type:
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
+    permissible_values:
+      taxonomic level:
+        description: Denotes CellTypeSet is at Taxonomic level.
+      neighborhood:
+        description: Denotes CellTypeSet is at Neighborhood level.
 slots:
   part_of_taxonomy:
     from_schema: https://w3id.org/brain-bican/bke-taxonomy
@@ -207,7 +224,7 @@ classes:
         examples:
         - value: taxonomic_level
         from_schema: https://w3id.org/brain-bican/bke-taxonomy
-        range: string
+        range: cell_type_set_type
   CellTypeTaxon:
     description: A cell type taxon is a node in a taxonomy. Taxons represents a unit
       of cell type classification and is defined by a set of clusters. Taxons may
@@ -587,7 +604,7 @@ classes:
         examples:
         - value: cell type
         from_schema: https://w3id.org/brain-bican/bke-taxonomy
-        range: string
+        range: abbreviation_entity_type
   MatrixFile:
     description: A digital file containing the representation of full or partial data
       matrix.
