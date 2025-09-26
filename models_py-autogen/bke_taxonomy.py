@@ -10525,9 +10525,11 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
                                        'range': 'datetime'},
                         'description': {'description': 'Description of the cell type '
                                                        'taxonomy.',
+                                        'from_schema': 'bican_biolink',
                                         'name': 'description',
                                         'range': 'string'},
                         'id': {'description': '( database GUID)',
+                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'is_revision_of': {'description': 'The previous version for '
@@ -10537,6 +10539,7 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
                                            'range': 'CellTypeTaxonomy'},
                         'name': {'description': 'Name of the cell type taxonomy.',
                                  'examples': [{'value': 'AIT21.0'}],
+                                 'from_schema': 'bican_biolink',
                                  'name': 'name',
                                  'range': 'string'},
                         'was_derived_from': {'description': 'One of potentially many '
@@ -10554,7 +10557,8 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
                                              'from_schema': 'bican_prov',
                                              'name': 'was_generated_by',
                                              'range': 'CellTypeTaxonomyCreationProcess'},
-                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'from_schema': 'bican_biolink',
+                                 'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -10941,14 +10945,6 @@ class CellTypeSet(ProvEntity, NamedThing):
                                          'examples': [{'value': 'CCN20230722_CLAS'}],
                                          'name': 'accession_id',
                                          'range': 'string'},
-                        'cell_type_set_type': {'description': 'A tag denoting the type '
-                                                              'or purpose of the cell '
-                                                              'type set.',
-                                               'examples': [{'value': 'taxonomic_level'}],
-                                               'local_names': {'allen': {'local_name_source': 'allen',
-                                                                         'local_name_value': 'type'}},
-                                               'name': 'cell_type_set_type',
-                                               'range': 'string'},
                         'description': {'description': 'Description of the cell type '
                                                        'set.',
                                         'examples': [{'value': 'The top level of cell '
@@ -10964,6 +10960,7 @@ class CellTypeSet(ProvEntity, NamedThing):
                                                                'provides a broader '
                                                                'categorization of cell '
                                                                'types.'}],
+                                        'from_schema': 'bican_biolink',
                                         'name': 'description',
                                         'range': 'string'},
                         'has_abbreviation': {'description': 'One of many abbreviation '
@@ -10979,10 +10976,12 @@ class CellTypeSet(ProvEntity, NamedThing):
                                        'name': 'has_parent',
                                        'range': 'CellTypeSet'},
                         'id': {'description': '( database GUID)',
+                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'name': {'description': 'Name of the cell type set taxonomy.',
                                  'examples': [{'value': 'class'}],
+                                 'from_schema': 'bican_biolink',
                                  'name': 'name',
                                  'range': 'string'},
                         'order': {'description': 'The priority or display order of the '
@@ -10999,7 +10998,8 @@ class CellTypeSet(ProvEntity, NamedThing):
                                                             'set is part of.',
                                              'name': 'part_of_taxonomy',
                                              'range': 'CellTypeTaxonomy'},
-                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'from_schema': 'bican_biolink',
+                                 'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -11105,11 +11105,6 @@ class CellTypeSet(ProvEntity, NamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    cell_type_set_type: Optional[str] = Field(default=None, description="""A tag denoting the type or purpose of the cell type set.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_type_set_type',
-         'domain_of': ['CellTypeSet'],
-         'examples': [{'value': 'taxonomic_level'}],
-         'local_names': {'allen': {'local_name_source': 'allen',
-                                   'local_name_value': 'type'}}} })
     order: Optional[int] = Field(default=None, description="""The priority or display order of the cell type set among all other sets of the same type.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'order',
          'domain_of': ['CellTypeSet', 'CellTypeTaxon'],
          'examples': [{'value': '1'}],
@@ -11148,6 +11143,11 @@ class CellTypeSet(ProvEntity, NamedThing):
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
     contains_taxon: Optional[List[str]] = Field(default=None, description="""One of potentially many cell types taxons which together defines the cell type set.""", json_schema_extra = { "linkml_meta": {'alias': 'contains_taxon', 'domain_of': ['CellTypeSet']} })
+    cell_type_set_type: Optional[str] = Field(default=None, description="""A tag denoting the type or purpose of the cell type set.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_type_set_type',
+         'domain_of': ['CellTypeSet'],
+         'examples': [{'value': 'taxonomic_level'}],
+         'local_names': {'allen': {'local_name_source': 'allen',
+                                   'local_name_value': 'type'}}} })
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
          'domain_of': ['ProvEntity',
                        'CellTypeTaxonomy',
@@ -11406,6 +11406,7 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                                          'range': 'string'},
                         'description': {'description': 'Description of the cell type '
                                                        'taxon (optional).',
+                                        'from_schema': 'bican_biolink',
                                         'name': 'description',
                                         'range': 'string'},
                         'has_abbreviation': {'description': 'One of many abbreviation '
@@ -11422,18 +11423,13 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                                        'name': 'has_parent',
                                        'range': 'CellTypeTaxon'},
                         'id': {'description': '( database GUID)',
+                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'name': {'description': 'Name of the cell type taxon.',
                                  'examples': [{'value': '11 CNU-HYa GABA'}],
                                  'name': 'name',
                                  'range': 'string'},
-                        'number_of_cells': {'description': 'The aggregated number of '
-                                                           'cells that defines the '
-                                                           'cell type taxon.',
-                                            'minimum_value': '0.0',
-                                            'name': 'number_of_cells',
-                                            'range': 'integer'},
                         'order': {'description': 'The priority or display order of the '
                                                  'cell type taxon among all other '
                                                  'taxons in the taxonomy.',
@@ -11448,7 +11444,8 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                                                             'taxon is part of.',
                                              'name': 'part_of_taxonomy',
                                              'range': 'CellTypeTaxonomy'},
-                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'from_schema': 'bican_biolink',
+                                 'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -11553,7 +11550,6 @@ class CellTypeTaxon(ProvEntity, NamedThing):
          'mappings': ['dct:description'],
          'narrow_mappings': ['gff3:Description'],
          'slot_uri': 'dct:description'} })
-    number_of_cells: Optional[int] = Field(default=None, description="""The aggregated number of cells that defines the cell type taxon.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'number_of_cells', 'domain_of': ['CellTypeTaxon']} })
     xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
@@ -11587,6 +11583,7 @@ class CellTypeTaxon(ProvEntity, NamedThing):
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
     contains_cluster: Optional[List[str]] = Field(default=None, description="""One of potentially cell clusters which together defines the cell type taxon.""", json_schema_extra = { "linkml_meta": {'alias': 'contains_cluster', 'domain_of': ['CellTypeTaxon']} })
+    number_of_cells: Optional[int] = Field(default=None, description="""The aggregated number of cells that defines the cell type taxon.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'number_of_cells', 'domain_of': ['CellTypeTaxon']} })
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
          'domain_of': ['ProvEntity',
                        'CellTypeTaxonomy',
@@ -12213,9 +12210,11 @@ class ClusterSet(ProvEntity, NamedThing):
                                        'range': 'datetime'},
                         'description': {'description': 'Description of the cluster '
                                                        'set.',
+                                        'from_schema': 'bican_biolink',
                                         'name': 'description',
                                         'range': 'string'},
                         'id': {'description': '( database GUID)',
+                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'is_revision_of': {'description': 'The previous version for '
@@ -12224,6 +12223,7 @@ class ClusterSet(ProvEntity, NamedThing):
                                            'name': 'is_revision_of',
                                            'range': 'ClusterSet'},
                         'name': {'description': 'Name of the cluster set.',
+                                 'from_schema': 'bican_biolink',
                                  'name': 'name',
                                  'range': 'string'},
                         'was_derived_from': {'description': 'One of potentially many '
@@ -12240,7 +12240,8 @@ class ClusterSet(ProvEntity, NamedThing):
                                              'from_schema': 'bican_prov',
                                              'name': 'was_generated_by',
                                              'range': 'ClusteringProcess'},
-                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'from_schema': 'bican_biolink',
+                                 'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -12627,20 +12628,16 @@ class Cluster(ProvEntity, NamedThing):
                                          'name': 'accession_id',
                                          'range': 'string'},
                         'id': {'description': '( database GUID)',
+                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'name': {'description': 'Name of the cluster.',
                                  'examples': [{'value': '1019'}],
+                                 'from_schema': 'bican_biolink',
                                  'name': 'name',
                                  'range': 'string'},
-                        'number_of_observations': {'description': 'The number of '
-                                                                  'observations in the '
-                                                                  'cluster.',
-                                                   'examples': [{'value': '448'}],
-                                                   'minimum_value': '0.0',
-                                                   'name': 'number_of_observations',
-                                                   'range': 'integer'},
-                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'from_schema': 'bican_biolink',
+                                 'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -12711,9 +12708,6 @@ class Cluster(ProvEntity, NamedThing):
          'mappings': ['rdfs:label'],
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
          'slot_uri': 'rdfs:label'} })
-    number_of_observations: Optional[int] = Field(default=None, description="""The number of observations in the cluster.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'number_of_observations',
-         'domain_of': ['Cluster'],
-         'examples': [{'value': '448'}]} })
     xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
@@ -12749,6 +12743,9 @@ class Cluster(ProvEntity, NamedThing):
     part_of_set: Optional[str] = Field(default=None, description="""The cluster set from which the cluster is part of.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_set', 'domain_of': ['Cluster']} })
     contains_observation: Optional[List[str]] = Field(default=None, description="""One of potentially many input observations which together define the cluster.""", json_schema_extra = { "linkml_meta": {'alias': 'contains_observation', 'domain_of': ['Cluster']} })
     contains_sample: Optional[List[str]] = Field(default=None, description="""One of potentially many sample which together define the cluster.""", json_schema_extra = { "linkml_meta": {'alias': 'contains_sample', 'domain_of': ['Cluster']} })
+    number_of_observations: Optional[int] = Field(default=None, description="""The number of observations in the cluster.""", ge=0, json_schema_extra = { "linkml_meta": {'alias': 'number_of_observations',
+         'domain_of': ['Cluster'],
+         'examples': [{'value': '448'}]} })
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
          'domain_of': ['ProvEntity',
                        'CellTypeTaxonomy',
@@ -13401,7 +13398,8 @@ class ObservationMatrix(ProvEntity, NamedThing):
                                              'from_schema': 'bican_prov',
                                              'name': 'was_generated_by',
                                              'range': 'ObservationMatrixCreationProcess'},
-                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'from_schema': 'bican_biolink',
+                                 'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -13779,14 +13777,14 @@ class ObservationRow(ProvEntity, NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
-         'slot_usage': {'label': {'name': 'label'},
-                        'was_derived_from': {'description': 'The cell specimen from '
+         'slot_usage': {'was_derived_from': {'description': 'The cell specimen from '
                                                             'which the observation was '
                                                             'derived from.',
                                              'from_schema': 'bican_prov',
                                              'name': 'was_derived_from',
                                              'range': 'CellSpecimen'},
-                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'from_schema': 'bican_biolink',
+                                 'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -13797,7 +13795,6 @@ class ObservationRow(ProvEntity, NamedThing):
                        'ObservationMatrix',
                        'ObservationRow'],
          'slot_uri': 'prov:wasDerivedFrom'} })
-    label: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'label', 'domain_of': ['ObservationRow']} })
     xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
@@ -13832,6 +13829,7 @@ class ObservationRow(ProvEntity, NamedThing):
          'slot_uri': 'biolink:xref'} })
     part_of_matrix: Optional[str] = Field(default=None, description="""The observation matrix for which is observation row is part of.""", json_schema_extra = { "linkml_meta": {'alias': 'part_of_matrix', 'domain_of': ['ObservationRow']} })
     represented_in: Optional[str] = Field(default=None, description="""The specific file where this observation row is represented.""", json_schema_extra = { "linkml_meta": {'alias': 'represented_in', 'domain_of': ['ObservationRow']} })
+    label: Optional[str] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'label', 'domain_of': ['ObservationRow']} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
          'domain_of': ['ProvEntity',
                        'CellTypeTaxonomy',
@@ -14526,26 +14524,12 @@ class Abbreviation(ProvEntity, NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
-         'slot_usage': {'entity_type': {'description': 'The entity type which the '
-                                                       'abbreviation term denotes.',
-                                        'examples': [{'value': 'cell type'}],
-                                        'name': 'entity_type',
-                                        'range': 'string'},
-                        'id': {'description': '( database GUID)',
+         'slot_usage': {'id': {'description': '( database GUID)',
+                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
-                        'meaning': {'description': 'The meaning of an abbreviation '
-                                                   'term.',
-                                    'examples': [{'value': 'intratelencephalic-projecting '
-                                                           'glutamatergic cortical '
-                                                           'neuron'}],
-                                    'name': 'meaning',
-                                    'range': 'string'},
-                        'term': {'description': 'An abbreviation term.',
-                                 'examples': [{'value': 'IT'}],
-                                 'name': 'term',
-                                 'range': 'string'},
-                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'from_schema': 'bican_biolink',
+                                 'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -14578,14 +14562,6 @@ class Abbreviation(ProvEntity, NamedThing):
          'exact_mappings': ['AGRKB:primaryId', 'gff3:ID', 'gpi:DB_Object_ID'],
          'in_subset': ['translator_minimal'],
          'slot_uri': 'biolink:id'} })
-    term: Optional[str] = Field(default=None, description="""An abbreviation term.""", json_schema_extra = { "linkml_meta": {'alias': 'term', 'domain_of': ['Abbreviation'], 'examples': [{'value': 'IT'}]} })
-    meaning: Optional[str] = Field(default=None, description="""The meaning of an abbreviation term.""", json_schema_extra = { "linkml_meta": {'alias': 'meaning',
-         'domain_of': ['Abbreviation'],
-         'examples': [{'value': 'intratelencephalic-projecting glutamatergic cortical '
-                                'neuron'}]} })
-    entity_type: Optional[str] = Field(default=None, description="""The entity type which the abbreviation term denotes.""", json_schema_extra = { "linkml_meta": {'alias': 'entity_type',
-         'domain_of': ['Abbreviation'],
-         'examples': [{'value': 'cell type'}]} })
     xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
@@ -14630,6 +14606,14 @@ class Abbreviation(ProvEntity, NamedThing):
          'domain_of': ['Abbreviation'],
          'local_names': {'allen': {'local_name_source': 'allen',
                                    'local_name_value': 'denotes'}}} })
+    term: Optional[str] = Field(default=None, description="""An abbreviation term.""", json_schema_extra = { "linkml_meta": {'alias': 'term', 'domain_of': ['Abbreviation'], 'examples': [{'value': 'IT'}]} })
+    meaning: Optional[str] = Field(default=None, description="""The meaning of an abbreviation term.""", json_schema_extra = { "linkml_meta": {'alias': 'meaning',
+         'domain_of': ['Abbreviation'],
+         'examples': [{'value': 'intratelencephalic-projecting glutamatergic cortical '
+                                'neuron'}]} })
+    entity_type: Optional[str] = Field(default=None, description="""The entity type which the abbreviation term denotes.""", json_schema_extra = { "linkml_meta": {'alias': 'entity_type',
+         'domain_of': ['Abbreviation'],
+         'examples': [{'value': 'cell type'}]} })
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
          'domain_of': ['ProvEntity',
                        'CellTypeTaxonomy',
@@ -14940,7 +14924,8 @@ class MatrixFile(ProvEntity, NamedThing):
                                         'local_names': {'allen': {'local_name_source': 'allen',
                                                                   'local_name_value': 'url'}},
                                         'name': 'content_url'},
-                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'from_schema': 'bican_biolink',
+                                 'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -15318,15 +15303,19 @@ class ColorPalette(ProvEntity, NamedThing):
          'mixins': ['ProvEntity'],
          'slot_usage': {'description': {'description': 'Description of the color '
                                                        'palette.',
+                                        'from_schema': 'bican_biolink',
                                         'name': 'description',
                                         'range': 'string'},
                         'id': {'description': '( database GUID)',
+                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'name': {'description': 'Name of the color palette.',
+                                 'from_schema': 'bican_biolink',
                                  'name': 'name',
                                  'range': 'string'},
-                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'from_schema': 'bican_biolink',
+                                 'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -15698,17 +15687,12 @@ class DisplayColor(ProvEntity, NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
-         'slot_usage': {'color_hex_triplet': {'description': 'A hex string '
-                                                             'representing the display '
-                                                             'color for an associated '
-                                                             'entity.',
-                                              'examples': [{'value': '#450099'}],
-                                              'name': 'color_hex_triplet',
-                                              'range': 'string'},
-                        'id': {'description': '( database GUID)',
+         'slot_usage': {'id': {'description': '( database GUID)',
+                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
-                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'from_schema': 'bican_biolink',
+                                 'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -15741,9 +15725,6 @@ class DisplayColor(ProvEntity, NamedThing):
          'exact_mappings': ['AGRKB:primaryId', 'gff3:ID', 'gpi:DB_Object_ID'],
          'in_subset': ['translator_minimal'],
          'slot_uri': 'biolink:id'} })
-    color_hex_triplet: Optional[str] = Field(default=None, description="""A hex string representing the display color for an associated entity.""", json_schema_extra = { "linkml_meta": {'alias': 'color_hex_triplet',
-         'domain_of': ['DisplayColor'],
-         'examples': [{'value': '#450099'}]} })
     xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
@@ -15785,6 +15766,9 @@ class DisplayColor(ProvEntity, NamedThing):
          'domain_of': ['DisplayColor'],
          'local_names': {'allen': {'local_name_source': 'allen',
                                    'local_name_value': 'is_color_for'}}} })
+    color_hex_triplet: Optional[str] = Field(default=None, description="""A hex string representing the display color for an associated entity.""", json_schema_extra = { "linkml_meta": {'alias': 'color_hex_triplet',
+         'domain_of': ['DisplayColor'],
+         'examples': [{'value': '#450099'}]} })
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
          'domain_of': ['ProvEntity',
                        'CellTypeTaxonomy',

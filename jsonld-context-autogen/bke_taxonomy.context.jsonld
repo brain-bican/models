@@ -198,6 +198,15 @@
          "@type": "@id",
          "@id": "denotes_parcellation_term"
       },
+      "entity_type": {
+         "@id": "entity_type"
+      },
+      "meaning": {
+         "@id": "meaning"
+      },
+      "term": {
+         "@id": "term"
+      },
       "id": "@id",
       "accession_id": {
          "@id": "accession_id"
@@ -245,6 +254,10 @@
          "@type": "@id",
          "@id": "contains_cluster"
       },
+      "number_of_cells": {
+         "@type": "xsd:integer",
+         "@id": "number_of_cells"
+      },
       "checksum_algorithm": {
          "@context": {
             "text": "skos:notation",
@@ -264,12 +277,13 @@
          "@type": "@id",
          "@id": "contains_sample"
       },
+      "number_of_observations": {
+         "@type": "xsd:integer",
+         "@id": "number_of_observations"
+      },
       "part_of_set": {
          "@type": "@id",
          "@id": "part_of_set"
-      },
-      "color_hex_triplet": {
-         "@id": "color_hex_triplet"
       },
       "is_palette_for": {
          "@type": "@id",
@@ -279,6 +293,7 @@
          "@id": "schema:url"
       },
       "created_at": {
+         "@type": "xsd:dateTime",
          "@id": "created_at"
       },
       "creation_date": {
@@ -296,6 +311,9 @@
          "@type": "@id",
          "@id": "digest"
       },
+      "color_hex_triplet": {
+         "@id": "color_hex_triplet"
+      },
       "is_color_for_set": {
          "@type": "@id",
          "@id": "is_color_for_set"
@@ -307,9 +325,6 @@
       "part_of_palette": {
          "@type": "@id",
          "@id": "part_of_palette"
-      },
-      "entity_type": {
-         "@id": "entity_type"
       },
       "format": {
          "@id": "biolink:format"
@@ -435,14 +450,8 @@
          "@type": "@id",
          "@id": "is_revision_of"
       },
-      "label": {
-         "@id": "label"
-      },
       "license": {
          "@id": "biolink:license"
-      },
-      "meaning": {
-         "@id": "meaning"
       },
       "molecular_type": {
          "@id": "molecular_type"
@@ -453,12 +462,6 @@
       "node_property": {
          "@id": "biolink:node_property"
       },
-      "number_of_cells": {
-         "@id": "number_of_cells"
-      },
-      "number_of_observations": {
-         "@id": "number_of_observations"
-      },
       "has_variable": {
          "@type": "@id",
          "@id": "has_variable"
@@ -466,6 +469,9 @@
       "represented_by": {
          "@type": "@id",
          "@id": "represented_by"
+      },
+      "label": {
+         "@id": "label"
       },
       "part_of_matrix": {
          "@type": "@id",
@@ -476,6 +482,7 @@
          "@id": "represented_in"
       },
       "order": {
+         "@type": "xsd:integer",
          "@id": "order"
       },
       "ordinal": {
@@ -577,9 +584,6 @@
       },
       "synonym": {
          "@id": "biolink:synonym"
-      },
-      "term": {
-         "@id": "term"
       },
       "type": {
          "@id": "rdf:type"

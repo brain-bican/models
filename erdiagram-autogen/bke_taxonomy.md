@@ -2,8 +2,8 @@
 erDiagram
 DisplayColor {
     string id  
-    string color_hex_triplet  
     uriorcurieList xref  
+    string color_hex_triplet  
     iri_type iri  
     uriorcurieList category  
     stringList type  
@@ -49,10 +49,10 @@ MatrixFile {
 }
 Abbreviation {
     string id  
+    uriorcurieList xref  
     string term  
     string meaning  
     string entity_type  
-    uriorcurieList xref  
     iri_type iri  
     uriorcurieList category  
     stringList type  
@@ -77,8 +77,8 @@ CellSpecimen {
     label_typeList synonym  
 }
 ObservationRow {
-    string label  
     uriorcurieList xref  
+    string label  
     string id  
     iri_type iri  
     uriorcurieList category  
@@ -121,8 +121,8 @@ Cluster {
     string id  
     string accession_id  
     string name  
-    integer number_of_observations  
     uriorcurieList xref  
+    integer number_of_observations  
     iri_type iri  
     uriorcurieList category  
     stringList type  
@@ -166,8 +166,8 @@ CellTypeTaxon {
     string name  
     integer order  
     string description  
-    integer number_of_cells  
     uriorcurieList xref  
+    integer number_of_cells  
     iri_type iri  
     uriorcurieList category  
     stringList type  
@@ -181,9 +181,9 @@ CellTypeSet {
     string accession_id  
     string name  
     string description  
-    string cell_type_set_type  
     integer order  
     uriorcurieList xref  
+    string cell_type_set_type  
     iri_type iri  
     uriorcurieList category  
     stringList type  
