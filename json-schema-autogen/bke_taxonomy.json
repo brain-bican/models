@@ -1321,9 +1321,8 @@
                         "null"
                     ]
                 },
-                "created_at": {
+                "creation_date": {
                     "description": "The creation date of the cell type taxonomy.",
-                    "format": "date-time",
                     "type": [
                         "string",
                         "null"
@@ -1856,9 +1855,8 @@
                         "null"
                     ]
                 },
-                "created_at": {
+                "creation_date": {
                     "description": "The creation date of the cluster set.",
-                    "format": "date-time",
                     "type": [
                         "string",
                         "null"

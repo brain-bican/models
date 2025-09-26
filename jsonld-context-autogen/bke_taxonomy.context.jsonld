@@ -292,13 +292,8 @@
       "content_url": {
          "@id": "schema:url"
       },
-      "created_at": {
-         "@type": "xsd:dateTime",
-         "@id": "created_at"
-      },
       "creation_date": {
-         "@type": "xsd:date",
-         "@id": "biolink:creation_date"
+         "@id": "creation_date"
       },
       "deprecated": {
          "@type": "xsd:boolean",
