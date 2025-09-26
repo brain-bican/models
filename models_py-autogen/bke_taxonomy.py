@@ -10519,10 +10519,9 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
                                          'examples': [{'value': 'CCN20230722'}],
                                          'name': 'accession_id',
                                          'range': 'string'},
-                        'created_at': {'description': 'The creation date of the cell '
-                                                      'type taxonomy.',
-                                       'name': 'created_at',
-                                       'range': 'datetime'},
+                        'creation_date': {'description': 'The creation date of the '
+                                                         'cell type taxonomy.',
+                                          'name': 'creation_date'},
                         'description': {'description': 'Description of the cell type '
                                                        'taxonomy.',
                                         'from_schema': 'bican_biolink',
@@ -10605,7 +10604,7 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
          'exact_mappings': ['AGRKB:primaryId', 'gff3:ID', 'gpi:DB_Object_ID'],
          'in_subset': ['translator_minimal'],
          'slot_uri': 'biolink:id'} })
-    created_at: Optional[datetime ] = Field(default=None, description="""The creation date of the cell type taxonomy.""", json_schema_extra = { "linkml_meta": {'alias': 'created_at', 'domain_of': ['CellTypeTaxonomy', 'ClusterSet']} })
+    creation_date: Optional[str] = Field(default=None, description="""The creation date of the cell type taxonomy.""", json_schema_extra = { "linkml_meta": {'alias': 'creation_date', 'domain_of': ['CellTypeTaxonomy', 'ClusterSet']} })
     accession_id: Optional[str] = Field(default=None, description="""A provider assigned accession identifier for the taxonomy.""", json_schema_extra = { "linkml_meta": {'alias': 'accession_id',
          'domain_of': ['CellTypeTaxonomy',
                        'CellTypeSet',
@@ -12204,10 +12203,9 @@ class ClusterSet(ProvEntity, NamedThing):
                                                         'set.',
                                          'name': 'accession_id',
                                          'range': 'string'},
-                        'created_at': {'description': 'The creation date of the '
-                                                      'cluster set.',
-                                       'name': 'created_at',
-                                       'range': 'datetime'},
+                        'creation_date': {'description': 'The creation date of the '
+                                                         'cluster set.',
+                                          'name': 'creation_date'},
                         'description': {'description': 'Description of the cluster '
                                                        'set.',
                                         'from_schema': 'bican_biolink',
@@ -12288,7 +12286,7 @@ class ClusterSet(ProvEntity, NamedThing):
          'exact_mappings': ['AGRKB:primaryId', 'gff3:ID', 'gpi:DB_Object_ID'],
          'in_subset': ['translator_minimal'],
          'slot_uri': 'biolink:id'} })
-    created_at: Optional[datetime ] = Field(default=None, description="""The creation date of the cluster set.""", json_schema_extra = { "linkml_meta": {'alias': 'created_at', 'domain_of': ['CellTypeTaxonomy', 'ClusterSet']} })
+    creation_date: Optional[str] = Field(default=None, description="""The creation date of the cluster set.""", json_schema_extra = { "linkml_meta": {'alias': 'creation_date', 'domain_of': ['CellTypeTaxonomy', 'ClusterSet']} })
     accession_id: Optional[str] = Field(default=None, description="""A provider assigned accession identifier for the cluster set.""", json_schema_extra = { "linkml_meta": {'alias': 'accession_id',
          'domain_of': ['CellTypeTaxonomy',
                        'CellTypeSet',

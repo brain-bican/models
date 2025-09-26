@@ -134,7 +134,7 @@ Cluster {
 }
 ClusterSet {
     string id  
-    datetime created_at  
+    string creation_date  
     string accession_id  
     string name  
     string description  
@@ -194,7 +194,7 @@ CellTypeSet {
 }
 CellTypeTaxonomy {
     string id  
-    datetime created_at  
+    string creation_date  
     string accession_id  
     string name  
     string description  
