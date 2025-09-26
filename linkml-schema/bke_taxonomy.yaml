@@ -101,7 +101,6 @@ classes:
         range: string
       creation_date:
         description: The creation date of the cell type taxonomy.
-        from_schema: bican_biolink
       accession_id:
         description: A provider assigned accession identifier for the taxonomy.
         examples:
@@ -346,7 +345,6 @@ classes:
         range: string
       creation_date:
         description: The creation date of the cluster set.
-        from_schema: bican_biolink
       accession_id:
         description: A provider assigned accession identifier for the cluster set.
         range: string
