@@ -16,19 +16,19 @@ prefixes:
 default_prefix: bican
 default_range: string
 enums:
-  abbreviation_entity_type:
+  AbbreviationEntityType:
     from_schema: https://w3id.org/brain-bican/bke-taxonomy
     permissible_values:
-      cell type:
+      cell_type:
         description: Abbreviation denotes a Cell Type entity.
       gene:
         description: Abbreviation denotes a Gene entity.
       structure:
         description: Abbreviation denotes a Structure entity.
-  cell_type_set_type:
+  CellTypeSetType:
     from_schema: https://w3id.org/brain-bican/bke-taxonomy
     permissible_values:
-      taxonomic level:
+      taxonomic_level:
         description: Denotes CellTypeSet is at Taxonomic level.
       neighborhood:
         description: Denotes CellTypeSet is at Neighborhood level.
