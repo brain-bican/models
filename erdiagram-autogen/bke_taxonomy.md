@@ -134,11 +134,11 @@ Cluster {
 }
 ClusterSet {
     string id  
-    string creation_date  
     string accession_id  
     string name  
     string description  
     uriorcurieList xref  
+    date creation_date  
     iri_type iri  
     uriorcurieList category  
     stringList type  
@@ -194,7 +194,7 @@ CellTypeSet {
 }
 CellTypeTaxonomy {
     string id  
-    string creation_date  
+    date creation_date  
     string accession_id  
     string name  
     string description  

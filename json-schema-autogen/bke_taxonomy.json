@@ -1323,6 +1323,7 @@
                 },
                 "creation_date": {
                     "description": "The creation date of the cell type taxonomy.",
+                    "format": "date",
                     "type": [
                         "string",
                         "null"
@@ -1857,6 +1858,7 @@
                 },
                 "creation_date": {
                     "description": "The creation date of the cluster set.",
+                    "format": "date",
                     "type": [
                         "string",
                         "null"
@@ -5611,7 +5613,7 @@
             "type": "object"
         }
     },
-    "$id": "https:/w3id.org/brain-bican/bke-taxonomy",
+    "$id": "https://w3id.org/brain-bican/bke-taxonomy",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "",

@@ -68,7 +68,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'bican',
      'description': 'The BKE Taxonomy Schema represents the structure of '
                     'classifications of cell types and their hierarchical '
                     'relationships in the mammalian brain.',
-     'id': 'https:/w3id.org/brain-bican/bke-taxonomy',
+     'id': 'https://w3id.org/brain-bican/bke-taxonomy',
      'imports': ['bican_biolink',
                  'bican_prov',
                  'bican_core',
@@ -2031,7 +2031,10 @@ class InformationContentEntity(NamedThing):
          'aliases': ['publication date'],
          'definition_uri': 'https://w3id.org/biolink/vocab/creation_date',
          'domain': 'named thing',
-         'domain_of': ['information content entity', 'dataset'],
+         'domain_of': ['information content entity',
+                       'dataset',
+                       'CellTypeTaxonomy',
+                       'ClusterSet'],
          'exact_mappings': ['dct:createdOn', 'WIKIDATA_PROPERTY:P577'],
          'is_a': 'node property',
          'slot_uri': 'biolink:creation_date'} })
@@ -2419,7 +2422,10 @@ class Dataset(InformationContentEntity):
          'aliases': ['publication date'],
          'definition_uri': 'https://w3id.org/biolink/vocab/creation_date',
          'domain': 'named thing',
-         'domain_of': ['information content entity', 'dataset'],
+         'domain_of': ['information content entity',
+                       'dataset',
+                       'CellTypeTaxonomy',
+                       'ClusterSet'],
          'exact_mappings': ['dct:createdOn', 'WIKIDATA_PROPERTY:P577'],
          'is_a': 'node property',
          'slot_uri': 'biolink:creation_date'} })
@@ -10147,7 +10153,7 @@ class CellTypeTaxonomyCreationProcess(ProvActivity, Procedure):
     """
     The process of organizing cells or clusters into a systematic classification of cell types and their heirarchical relationships and groupings.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvActivity'],
          'slot_usage': {'used': {'description': 'One of potentially many input cluster '
                                                 'sets from which the cell type '
@@ -10512,16 +10518,17 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
     """
     A cell type taxonomy is a systematic classification of cell types and their heirarchical relationships and groupings. A taxonomy may include concepts such as heirarchical taxonomic levels or (potentially overlapping) neighborhoods.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'accession_id': {'description': 'A provider assigned accession '
                                                         'identifier for the taxonomy.',
                                          'examples': [{'value': 'CCN20230722'}],
                                          'name': 'accession_id',
                                          'range': 'string'},
-                        'creation_date': {'description': 'The creation date of the '
+                        'creation date': {'description': 'The creation date of the '
                                                          'cell type taxonomy.',
-                                          'name': 'creation_date'},
+                                          'from_schema': 'bican_biolink',
+                                          'name': 'creation date'},
                         'description': {'description': 'Description of the cell type '
                                                        'taxonomy.',
                                         'from_schema': 'bican_biolink',
@@ -10604,7 +10611,17 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
          'exact_mappings': ['AGRKB:primaryId', 'gff3:ID', 'gpi:DB_Object_ID'],
          'in_subset': ['translator_minimal'],
          'slot_uri': 'biolink:id'} })
-    creation_date: Optional[str] = Field(default=None, description="""The creation date of the cell type taxonomy.""", json_schema_extra = { "linkml_meta": {'alias': 'creation_date', 'domain_of': ['CellTypeTaxonomy', 'ClusterSet']} })
+    creation_date: Optional[date] = Field(default=None, description="""The creation date of the cell type taxonomy.""", json_schema_extra = { "linkml_meta": {'alias': 'creation_date',
+         'aliases': ['publication date'],
+         'definition_uri': 'https://w3id.org/biolink/vocab/creation_date',
+         'domain': 'named thing',
+         'domain_of': ['information content entity',
+                       'dataset',
+                       'CellTypeTaxonomy',
+                       'ClusterSet'],
+         'exact_mappings': ['dct:createdOn', 'WIKIDATA_PROPERTY:P577'],
+         'is_a': 'node property',
+         'slot_uri': 'biolink:creation_date'} })
     accession_id: Optional[str] = Field(default=None, description="""A provider assigned accession identifier for the taxonomy.""", json_schema_extra = { "linkml_meta": {'alias': 'accession_id',
          'domain_of': ['CellTypeTaxonomy',
                        'CellTypeSet',
@@ -10936,7 +10953,7 @@ class CellTypeSet(ProvEntity, NamedThing):
     """
     A grouping of cell type taxons. The grouping may represent a specific taxonomic level (rank) or cell type neighborhood.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'accession_id': {'description': 'A provider assigned accession '
                                                         'identifier for the cell type '
@@ -11395,7 +11412,7 @@ class CellTypeTaxon(ProvEntity, NamedThing):
     """
     A cell type taxon is a node in a taxonomy. Taxons represents a unit of cell type classification and is defined by a set of clusters. Taxons may be organized into a heirarchy and levels. Taxons at higher levels represents broader cell type classes and partitioned into more specific types at lower levels. Additionally, taxons may be organized into neighborhoods or related groups.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'accession_id': {'description': 'A provider assigned accession '
                                                         'identifier for the cell type '
@@ -11831,7 +11848,7 @@ class ClusteringProcess(ProvActivity, Procedure):
     """
     The process of organizing and classifying observations into groups or clusters based on similarities or patterns.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvActivity'],
          'slot_usage': {'used': {'description': 'One of potentially many input '
                                                 'observation matrices from which '
@@ -12196,16 +12213,17 @@ class ClusterSet(ProvEntity, NamedThing):
     """
     The output of a clustering process where input observations are organized or classified into a set of clusters based on similarities or patterns.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'accession_id': {'description': 'A provider assigned accession '
                                                         'identifier for the cluster '
                                                         'set.',
                                          'name': 'accession_id',
                                          'range': 'string'},
-                        'creation_date': {'description': 'The creation date of the '
+                        'creation date': {'description': 'The creation date of the '
                                                          'cluster set.',
-                                          'name': 'creation_date'},
+                                          'from_schema': 'bican_biolink',
+                                          'name': 'creation date'},
                         'description': {'description': 'Description of the cluster '
                                                        'set.',
                                         'from_schema': 'bican_biolink',
@@ -12286,7 +12304,6 @@ class ClusterSet(ProvEntity, NamedThing):
          'exact_mappings': ['AGRKB:primaryId', 'gff3:ID', 'gpi:DB_Object_ID'],
          'in_subset': ['translator_minimal'],
          'slot_uri': 'biolink:id'} })
-    creation_date: Optional[str] = Field(default=None, description="""The creation date of the cluster set.""", json_schema_extra = { "linkml_meta": {'alias': 'creation_date', 'domain_of': ['CellTypeTaxonomy', 'ClusterSet']} })
     accession_id: Optional[str] = Field(default=None, description="""A provider assigned accession identifier for the cluster set.""", json_schema_extra = { "linkml_meta": {'alias': 'accession_id',
          'domain_of': ['CellTypeTaxonomy',
                        'CellTypeSet',
@@ -12381,6 +12398,17 @@ class ClusterSet(ProvEntity, NamedThing):
                                    'local_name_value': 'unique_id'}},
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
+    creation_date: Optional[date] = Field(default=None, description="""The creation date of the cluster set.""", json_schema_extra = { "linkml_meta": {'alias': 'creation_date',
+         'aliases': ['publication date'],
+         'definition_uri': 'https://w3id.org/biolink/vocab/creation_date',
+         'domain': 'named thing',
+         'domain_of': ['information content entity',
+                       'dataset',
+                       'CellTypeTaxonomy',
+                       'ClusterSet'],
+         'exact_mappings': ['dct:createdOn', 'WIKIDATA_PROPERTY:P577'],
+         'is_a': 'node property',
+         'slot_uri': 'biolink:creation_date'} })
     iri: Optional[str] = Field(default=None, description="""An IRI for an entity. This is determined by the id using expansion rules.""", json_schema_extra = { "linkml_meta": {'alias': 'iri',
          'definition_uri': 'https://w3id.org/biolink/vocab/iri',
          'domain_of': ['attribute',
@@ -12616,7 +12644,7 @@ class Cluster(ProvEntity, NamedThing):
     """
     One specific cluster from the set of clusters determined by a clustering process. A cluster is defined by set of observations which has been grouped together based on similarities or patterns.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'accession_id': {'description': 'A provider assigned accession '
                                                         'identifier for the cluster '
@@ -13018,7 +13046,7 @@ class ObservationMatrixCreationProcess(ProvActivity, Procedure):
     """
     The process of aggregating data to create an observation matrix (potentially virtual) for the purpose of dissemination or performing an analysis (such as clustering).
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvActivity']})
 
     used: Optional[str] = Field(default=None, description="""Usage is the beginning of utilizing an entity by an activity. Before usage, the activity had not begun to utilize this entity and could not have been affected by the entity.""", json_schema_extra = { "linkml_meta": {'alias': 'used',
@@ -13376,7 +13404,7 @@ class ObservationMatrix(ProvEntity, NamedThing):
     """
     A matrix (potentially virtual) of observations. Each row represents a specific observation or measurements on specific sample (such as a cell) over a set of variables or features. Each column represents the set of measurements (such as gene expression) of a specific variable (such as gene) over all samples.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'content_url': {'from_schema': 'bican_core',
                                         'local_names': {'allen': {'local_name_source': 'allen',
@@ -13773,7 +13801,7 @@ class ObservationRow(ProvEntity, NamedThing):
     """
     One specific row of the observation matrix representing a set of measurements preformed on a sample over a set of variables or features.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'was_derived_from': {'description': 'The cell specimen from '
                                                             'which the observation was '
@@ -14154,7 +14182,7 @@ class CellSpecimen(ProvEntity, NamedThing):
     """
     ( defined as in BERS)
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity']})
 
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
@@ -14520,7 +14548,7 @@ class Abbreviation(ProvEntity, NamedThing):
     """
     Maps an abbreviation string to its decoded meaning. Optionally the abbreviation can be link to one or more entities it denotes.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'id': {'description': '( database GUID)',
                                'from_schema': 'bican_biolink',
@@ -14916,7 +14944,7 @@ class MatrixFile(ProvEntity, NamedThing):
     """
     A digital file containing the representation of full or partial data matrix.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'content_url': {'from_schema': 'bican_core',
                                         'local_names': {'allen': {'local_name_source': 'allen',
@@ -15297,7 +15325,7 @@ class ColorPalette(ProvEntity, NamedThing):
     """
     A schematic set of display colors that can be applied to individual components of the associated entity set (for example, a taxonomy).
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'description': {'description': 'Description of the color '
                                                        'palette.',
@@ -15683,7 +15711,7 @@ class DisplayColor(ProvEntity, NamedThing):
     """
     One element of a color palette representing the association between a color and entity,
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https:/w3id.org/brain-bican/bke-taxonomy',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'id': {'description': '( database GUID)',
                                'from_schema': 'bican_biolink',
