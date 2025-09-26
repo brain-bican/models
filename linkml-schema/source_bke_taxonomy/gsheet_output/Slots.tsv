@@ -3,7 +3,6 @@ LinkML Class Name	LinkML Slot	Attribute Name	Data Type	Definition	from_schema	BK
 >						inner_key: local_name_value	inner_key: local_name_source				
 	accession_id		string	A provider assigned accession identifier for a given entity.						FALSE	
 	order		integer	The priority or display order of an entity among all other entiites of the same type.		order_idx	allen			TRUE	
-	created_at		datetime	The creation date of the entity.						FALSE	
 Abbreviation	id		string	( database GUID)	bican_biolink 					FALSE	
 Abbreviation		term	string	An abbreviation term.				IT		FALSE	
 Abbreviation		meaning	string	The meaning of an abbreviation term.				intratelencephalic-projecting glutamatergic cortical neuron		FALSE	
@@ -24,7 +23,7 @@ CellTypeTaxon	description		string	Description of the cell type taxon (optional).
 CellTypeTaxon		number_of_cells	integer	The aggregated number of cells that defines the cell type taxon.					0	FALSE	
 CellTypeTaxon	xref				bican_biolink	unique_id	allen				
 CellTypeTaxonomy	id		string	( database GUID)	bican_biolink					FALSE	
-CellTypeTaxonomy	created_at		datetime	The creation date of the cell type taxonomy.						FALSE	
+CellTypeTaxonomy	creation_date			The creation date of the cell type taxonomy.	bican_biolink					FALSE	
 CellTypeTaxonomy	accession_id		string	A provider assigned accession identifier for the taxonomy.				CCN20230722		FALSE	
 CellTypeTaxonomy	name		string	Name of the cell type taxonomy.	bican_biolink			AIT21.0		FALSE	
 CellTypeTaxonomy	description		string	Description of the cell type taxonomy.	bican_biolink					FALSE	
@@ -35,7 +34,7 @@ Cluster	name		string	Name of the cluster.	bican_biolink			1019		FALSE
 Cluster		number_of_observations	integer	The number of observations in the cluster.				448	0	TRUE	
 Cluster	xref				bican_biolink	unique_id	allen				
 ClusterSet	id		string	( database GUID)	bican_biolink					FALSE	
-ClusterSet	created_at		datetime	The creation date of the cluster set.						FALSE	
+ClusterSet	creation_date			The creation date of the cluster set.	bican_biolink					FALSE	
 ClusterSet	accession_id		string	A provider assigned accession identifier for the cluster set.						FALSE	
 ClusterSet	name		string	Name of the cluster set.	bican_biolink					TRUE	
 ClusterSet	description		string	Description of the cluster set.	bican_biolink					TRUE	

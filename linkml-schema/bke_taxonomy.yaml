@@ -42,10 +42,8 @@ slots:
       of the same type.
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
     range: integer
-  created_at:
-    description: The creation date of the entity.
+  creation_date:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-    range: datetime
 classes:
   CellTypeTaxonomyCreationProcess:
     description: The process of organizing cells or clusters into a systematic classification
@@ -76,7 +74,7 @@ classes:
     - was_derived_from
     - is_revision_of
     - id
-    - created_at
+    - creation_date
     - accession_id
     - name
     - description
@@ -101,9 +99,9 @@ classes:
         description: ( database GUID)
         from_schema: bican_biolink
         range: string
-      created_at:
+      creation_date:
         description: The creation date of the cell type taxonomy.
-        range: datetime
+        from_schema: bican_biolink
       accession_id:
         description: A provider assigned accession identifier for the taxonomy.
         examples:
@@ -322,7 +320,7 @@ classes:
     - was_derived_from
     - is_revision_of
     - id
-    - created_at
+    - creation_date
     - accession_id
     - name
     - description
@@ -346,9 +344,9 @@ classes:
         description: ( database GUID)
         from_schema: bican_biolink
         range: string
-      created_at:
+      creation_date:
         description: The creation date of the cluster set.
-        range: datetime
+        from_schema: bican_biolink
       accession_id:
         description: A provider assigned accession identifier for the cluster set.
         range: string
