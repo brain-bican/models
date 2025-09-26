@@ -29,28 +29,23 @@ slots:
   is_revision_of:
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
     range: named thing
-  term:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  meaning:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  entity_type:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   accession_id:
+    description: A provider assigned accession identifier for a given entity.
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  cell_type_set_type:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    range: string
   order:
+    local_names:
+      allen:
+        local_name_source: allen
+        local_name_value: order_idx
+    description: The priority or display order of an entity among all other entiites
+      of the same type.
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  number_of_cells:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    range: integer
   created_at:
+    description: The creation date of the entity.
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  number_of_observations:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  color_hex_triplet:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
-  label:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    range: datetime
 classes:
   CellTypeTaxonomyCreationProcess:
     description: The process of organizing cells or clusters into a systematic classification
@@ -104,6 +99,7 @@ classes:
         range: CellTypeTaxonomy
       id:
         description: ( database GUID)
+        from_schema: bican_biolink
         range: string
       created_at:
         description: The creation date of the cell type taxonomy.
@@ -117,15 +113,18 @@ classes:
         description: Name of the cell type taxonomy.
         examples:
         - value: AIT21.0
+        from_schema: bican_biolink
         range: string
       description:
         description: Description of the cell type taxonomy.
+        from_schema: bican_biolink
         range: string
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
+        from_schema: bican_biolink
   CellTypeSet:
     description: A grouping of cell type taxons. The grouping may represent a specific
       taxonomic level (rank) or cell type neighborhood.
@@ -141,7 +140,6 @@ classes:
     - accession_id
     - name
     - description
-    - cell_type_set_type
     - order
     - xref
     slot_usage:
@@ -158,6 +156,7 @@ classes:
         multivalued: true
       id:
         description: ( database GUID)
+        from_schema: bican_biolink
         range: string
       accession_id:
         description: A provider assigned accession identifier for the cell type set.
@@ -168,6 +167,7 @@ classes:
         description: Name of the cell type set taxonomy.
         examples:
         - value: class
+        from_schema: bican_biolink
         range: string
       description:
         description: Description of the cell type set.
@@ -176,15 +176,7 @@ classes:
             It is primarily determined by broad brain region and neurotransmitter
             type. All cells within a subclass belong to the same class. Class provides
             a broader categorization of cell types.
-        range: string
-      cell_type_set_type:
-        local_names:
-          allen:
-            local_name_source: allen
-            local_name_value: type
-        description: A tag denoting the type or purpose of the cell type set.
-        examples:
-        - value: taxonomic_level
+        from_schema: bican_biolink
         range: string
       order:
         local_names:
@@ -202,6 +194,7 @@ classes:
           allen:
             local_name_source: allen
             local_name_value: unique_id
+        from_schema: bican_biolink
     attributes:
       contains_taxon:
         description: One of potentially many cell types taxons which together defines
@@ -209,6 +202,16 @@ classes:
         from_schema: https:/w3id.org/brain-bican/bke-taxonomy
         range: CellTypeTaxon
         multivalued: true
+      cell_type_set_type:
+        local_names:
+          allen:
+            local_name_source: allen
+            local_name_value: type
+        description: A tag denoting the type or purpose of the cell type set.
+        examples:
+        - value: taxonomic_level
+        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        range: string
   CellTypeTaxon:
     description: A cell type taxon is a node in a taxonomy. Taxons represents a unit
       of cell type classification and is defined by a set of clusters. Taxons may
@@ -229,7 +232,6 @@ classes:
     - name
     - order
     - description
-    - number_of_cells
     - xref
     slot_usage:
       part_of_taxonomy:
@@ -247,6 +249,7 @@ classes:
         multivalued: true
       id:
         description: ( database GUID)
+        from_schema: bican_biolink
         range: string
       accession_id:
         description: A provider assigned accession identifier for the cell type taxon.
@@ -271,16 +274,14 @@ classes:
         minimum_value: '0.0'
       description:
         description: Description of the cell type taxon (optional).
+        from_schema: bican_biolink
         range: string
-      number_of_cells:
-        description: The aggregated number of cells that defines the cell type taxon.
-        range: integer
-        minimum_value: '0.0'
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
+        from_schema: bican_biolink
     attributes:
       contains_cluster:
         description: One of potentially cell clusters which together defines the cell
@@ -288,6 +289,11 @@ classes:
         from_schema: https:/w3id.org/brain-bican/bke-taxonomy
         range: Cluster
         multivalued: true
+      number_of_cells:
+        description: The aggregated number of cells that defines the cell type taxon.
+        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        range: integer
+        minimum_value: '0.0'
   ClusteringProcess:
     description: The process of organizing and classifying observations into groups
       or clusters based on similarities or patterns.
@@ -338,6 +344,7 @@ classes:
         range: ClusterSet
       id:
         description: ( database GUID)
+        from_schema: bican_biolink
         range: string
       created_at:
         description: The creation date of the cluster set.
@@ -347,15 +354,18 @@ classes:
         range: string
       name:
         description: Name of the cluster set.
+        from_schema: bican_biolink
         range: string
       description:
         description: Description of the cluster set.
+        from_schema: bican_biolink
         range: string
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
+        from_schema: bican_biolink
   Cluster:
     description: One specific cluster from the set of clusters determined by a clustering
       process. A cluster is defined by set of observations which has been grouped
@@ -368,11 +378,11 @@ classes:
     - id
     - accession_id
     - name
-    - number_of_observations
     - xref
     slot_usage:
       id:
         description: ( database GUID)
+        from_schema: bican_biolink
         range: string
       accession_id:
         description: A provider assigned accession identifier for the cluster which
@@ -384,18 +394,14 @@ classes:
         description: Name of the cluster.
         examples:
         - value: '1019'
+        from_schema: bican_biolink
         range: string
-      number_of_observations:
-        description: The number of observations in the cluster.
-        examples:
-        - value: '448'
-        range: integer
-        minimum_value: '0.0'
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
+        from_schema: bican_biolink
     attributes:
       part_of_set:
         description: The cluster set from which the cluster is part of.
@@ -412,6 +418,13 @@ classes:
         from_schema: https:/w3id.org/brain-bican/bke-taxonomy
         range: CellSpecimen
         multivalued: true
+      number_of_observations:
+        description: The number of observations in the cluster.
+        examples:
+        - value: '448'
+        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        range: integer
+        minimum_value: '0.0'
   ObservationMatrixCreationProcess:
     description: The process of aggregating data to create an observation matrix (potentially
       virtual) for the purpose of dissemination or performing an analysis (such as
@@ -457,6 +470,7 @@ classes:
           allen:
             local_name_source: allen
             local_name_value: unique_id
+        from_schema: bican_biolink
     attributes:
       represented_by:
         description: One of potentially matrix files which together represents the
@@ -479,19 +493,18 @@ classes:
     - ProvEntity
     slots:
     - was_derived_from
-    - label
     - xref
     slot_usage:
       was_derived_from:
         description: The cell specimen from which the observation was derived from.
         from_schema: bican_prov
         range: CellSpecimen
-      label: {}
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
+        from_schema: bican_biolink
     attributes:
       part_of_matrix:
         description: The observation matrix for which is observation row is part of.
@@ -501,6 +514,8 @@ classes:
         description: The specific file where this observation row is represented.
         from_schema: https:/w3id.org/brain-bican/bke-taxonomy
         range: MatrixFile
+      label:
+        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
   CellSpecimen:
     description: ( defined as in BERS)
     from_schema: https:/w3id.org/brain-bican/bke-taxonomy
@@ -516,34 +531,18 @@ classes:
     - ProvEntity
     slots:
     - id
-    - term
-    - meaning
-    - entity_type
     - xref
     slot_usage:
       id:
         description: ( database GUID)
-        range: string
-      term:
-        description: An abbreviation term.
-        examples:
-        - value: IT
-        range: string
-      meaning:
-        description: The meaning of an abbreviation term.
-        examples:
-        - value: intratelencephalic-projecting glutamatergic cortical neuron
-        range: string
-      entity_type:
-        description: The entity type which the abbreviation term denotes.
-        examples:
-        - value: cell type
+        from_schema: bican_biolink
         range: string
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
+        from_schema: bican_biolink
     attributes:
       denotes_gene_annotation:
         local_names:
@@ -575,6 +574,24 @@ classes:
         from_schema: https:/w3id.org/brain-bican/bke-taxonomy
         range: CellTypeTaxon
         multivalued: true
+      term:
+        description: An abbreviation term.
+        examples:
+        - value: IT
+        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        range: string
+      meaning:
+        description: The meaning of an abbreviation term.
+        examples:
+        - value: intratelencephalic-projecting glutamatergic cortical neuron
+        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        range: string
+      entity_type:
+        description: The entity type which the abbreviation term denotes.
+        examples:
+        - value: cell type
+        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        range: string
   MatrixFile:
     description: A digital file containing the representation of full or partial data
       matrix.
@@ -597,6 +614,7 @@ classes:
           allen:
             local_name_source: allen
             local_name_value: unique_id
+        from_schema: bican_biolink
   ColorPalette:
     description: A schematic set of display colors that can be applied to individual
       components of the associated entity set (for example, a taxonomy).
@@ -612,18 +630,22 @@ classes:
     slot_usage:
       id:
         description: ( database GUID)
+        from_schema: bican_biolink
         range: string
       name:
         description: Name of the color palette.
+        from_schema: bican_biolink
         range: string
       description:
         description: Description of the color palette.
+        from_schema: bican_biolink
         range: string
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
+        from_schema: bican_biolink
     attributes:
       is_palette_for:
         description: The cell types taxonomy for which the palette provides display
@@ -639,23 +661,18 @@ classes:
     - ProvEntity
     slots:
     - id
-    - color_hex_triplet
     - xref
     slot_usage:
       id:
         description: ( database GUID)
-        range: string
-      color_hex_triplet:
-        description: A hex string representing the display color for an associated
-          entity.
-        examples:
-        - value: '#450099'
+        from_schema: bican_biolink
         range: string
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
+        from_schema: bican_biolink
     attributes:
       part_of_palette:
         description: The color palette for which the display color map is part of.
@@ -677,3 +694,10 @@ classes:
         description: The associated cell type set of the specified display color.
         from_schema: https:/w3id.org/brain-bican/bke-taxonomy
         range: CellTypeSet
+      color_hex_triplet:
+        description: A hex string representing the display color for an associated
+          entity.
+        examples:
+        - value: '#450099'
+        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        range: string
