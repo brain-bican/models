@@ -29,6 +29,16 @@
                         "null"
                     ]
                 },
+                "denotes_cell_type": {
+                    "description": "One of potentially many cell type terms  which the abbreviation denotes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "denotes_gene_annotation": {
                     "description": "One of potentially many gene annotation terms to which the abbreviation denotes.",
                     "items": {
@@ -3462,7 +3472,6 @@
                 },
                 "x_resolution": {
                     "description": "The resolution (length / pixel) in along the x axis (numerical value part).",
-                    "pattern": "{PositiveFloat}",
                     "type": [
                         "number",
                         "null"
@@ -3492,7 +3501,6 @@
                 },
                 "y_resolution": {
                     "description": "The resolution (length / pixel) in along the y axis (numerical value part).",
-                    "pattern": "{PositiveFloat}",
                     "type": [
                         "number",
                         "null"
@@ -3512,7 +3520,6 @@
                 },
                 "z_resolution": {
                     "description": "The resolution (length / pixel) in along the z axis (numerical value part).",
-                    "pattern": "{PositiveFloat}",
                     "type": [
                         "number",
                         "null"
@@ -4711,7 +4718,6 @@
             "properties": {
                 "color": {
                     "description": "A string representing to hex triplet code of a color",
-                    "pattern": "{ColorHexTriplet}",
                     "type": [
                         "string",
                         "null"
@@ -5645,4 +5651,3 @@
     "type": "object",
     "version": null
 }
-
