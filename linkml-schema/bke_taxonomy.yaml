@@ -2,7 +2,7 @@ name: BKETaxonomy
 description: The BKE Taxonomy Schema represents the structure of classifications of
   cell types and their hierarchical relationships in the mammalian brain.
 title: BKE Taxonomy Schema
-id: https:/w3id.org/brain-bican/bke-taxonomy
+id: https://w3id.org/brain-bican/bke-taxonomy
 imports:
 - bican_biolink
 - bican_prov
@@ -17,21 +17,21 @@ default_prefix: bican
 default_range: string
 slots:
   part_of_taxonomy:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     range: CellTypeTaxonomy
   has_parent:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     range: named thing
   has_abbreviation:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     range: Abbreviation
     multivalued: true
   is_revision_of:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     range: named thing
   accession_id:
     description: A provider assigned accession identifier for a given entity.
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     range: string
   order:
     local_names:
@@ -40,15 +40,13 @@ slots:
         local_name_value: order_idx
     description: The priority or display order of an entity among all other entiites
       of the same type.
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     range: integer
-  creation_date:
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
 classes:
   CellTypeTaxonomyCreationProcess:
     description: The process of organizing cells or clusters into a systematic classification
       of cell types and their heirarchical relationships and groupings.
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: procedure
     mixins:
     - ProvActivity
@@ -65,7 +63,7 @@ classes:
     description: A cell type taxonomy is a systematic classification of cell types
       and their heirarchical relationships and groupings. A taxonomy may include concepts
       such as heirarchical taxonomic levels or (potentially overlapping) neighborhoods.
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: named thing
     mixins:
     - ProvEntity
@@ -74,7 +72,7 @@ classes:
     - was_derived_from
     - is_revision_of
     - id
-    - creation_date
+    - creation date
     - accession_id
     - name
     - description
@@ -99,7 +97,7 @@ classes:
         description: ( database GUID)
         from_schema: bican_biolink
         range: string
-      creation_date:
+      creation date:
         description: The creation date of the cell type taxonomy.
         from_schema: bican_biolink
       accession_id:
@@ -126,7 +124,7 @@ classes:
   CellTypeSet:
     description: A grouping of cell type taxons. The grouping may represent a specific
       taxonomic level (rank) or cell type neighborhood.
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: named thing
     mixins:
     - ProvEntity
@@ -197,7 +195,7 @@ classes:
       contains_taxon:
         description: One of potentially many cell types taxons which together defines
           the cell type set.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: CellTypeTaxon
         multivalued: true
       cell_type_set_type:
@@ -208,7 +206,7 @@ classes:
         description: A tag denoting the type or purpose of the cell type set.
         examples:
         - value: taxonomic_level
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: string
   CellTypeTaxon:
     description: A cell type taxon is a node in a taxonomy. Taxons represents a unit
@@ -217,7 +215,7 @@ classes:
       broader cell type classes and partitioned into more specific types at lower
       levels. Additionally, taxons may be organized into neighborhoods or related
       groups.
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: named thing
     mixins:
     - ProvEntity
@@ -284,18 +282,18 @@ classes:
       contains_cluster:
         description: One of potentially cell clusters which together defines the cell
           type taxon.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: Cluster
         multivalued: true
       number_of_cells:
         description: The aggregated number of cells that defines the cell type taxon.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: integer
         minimum_value: '0.0'
   ClusteringProcess:
     description: The process of organizing and classifying observations into groups
       or clusters based on similarities or patterns.
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: procedure
     mixins:
     - ProvActivity
@@ -311,7 +309,7 @@ classes:
   ClusterSet:
     description: The output of a clustering process where input observations are organized
       or classified into a set of clusters based on similarities or patterns.
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: named thing
     mixins:
     - ProvEntity
@@ -320,11 +318,11 @@ classes:
     - was_derived_from
     - is_revision_of
     - id
-    - creation_date
     - accession_id
     - name
     - description
     - xref
+    - creation date
     slot_usage:
       was_generated_by:
         description: The analysis process from which clusters was generated by.
@@ -344,9 +342,6 @@ classes:
         description: ( database GUID)
         from_schema: bican_biolink
         range: string
-      creation_date:
-        description: The creation date of the cluster set.
-        from_schema: bican_biolink
       accession_id:
         description: A provider assigned accession identifier for the cluster set.
         range: string
@@ -364,11 +359,14 @@ classes:
             local_name_source: allen
             local_name_value: unique_id
         from_schema: bican_biolink
+      creation date:
+        description: The creation date of the cluster set.
+        from_schema: bican_biolink
   Cluster:
     description: One specific cluster from the set of clusters determined by a clustering
       process. A cluster is defined by set of observations which has been grouped
       together based on similarities or patterns.
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: named thing
     mixins:
     - ProvEntity
@@ -403,31 +401,31 @@ classes:
     attributes:
       part_of_set:
         description: The cluster set from which the cluster is part of.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: ClusterSet
       contains_observation:
         description: One of potentially many input observations which together define
           the cluster.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: ObservationRow
         multivalued: true
       contains_sample:
         description: One of potentially many sample which together define the cluster.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: CellSpecimen
         multivalued: true
       number_of_observations:
         description: The number of observations in the cluster.
         examples:
         - value: '448'
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: integer
         minimum_value: '0.0'
   ObservationMatrixCreationProcess:
     description: The process of aggregating data to create an observation matrix (potentially
       virtual) for the purpose of dissemination or performing an analysis (such as
       clustering).
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: procedure
     mixins:
     - ProvActivity
@@ -436,7 +434,7 @@ classes:
       a specific observation or measurements on specific sample (such as a cell) over
       a set of variables or features. Each column represents the set of measurements
       (such as gene expression) of a specific variable (such as gene) over all samples.
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: named thing
     mixins:
     - ProvEntity
@@ -473,19 +471,19 @@ classes:
       represented_by:
         description: One of potentially matrix files which together represents the
           entire observation matrix.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: MatrixFile
         multivalued: true
       has_variable:
         description: One of set of genes which together forms the variable set of
           an observation matrix.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: GeneAnnotation
         multivalued: true
   ObservationRow:
     description: One specific row of the observation matrix representing a set of
       measurements preformed on a sample over a set of variables or features.
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: named thing
     mixins:
     - ProvEntity
@@ -506,24 +504,24 @@ classes:
     attributes:
       part_of_matrix:
         description: The observation matrix for which is observation row is part of.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: ObservationMatrix
       represented_in:
         description: The specific file where this observation row is represented.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: MatrixFile
       label:
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
   CellSpecimen:
     description: ( defined as in BERS)
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: named thing
     mixins:
     - ProvEntity
   Abbreviation:
     description: Maps an abbreviation string to its decoded meaning. Optionally the
       abbreviation can be link to one or more entities it denotes.
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: named thing
     mixins:
     - ProvEntity
@@ -549,7 +547,7 @@ classes:
             local_name_value: denotes
         description: One of potentially many gene annotation terms to which the abbreviation
           denotes.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: GeneAnnotation
         multivalued: true
       denotes_parcellation_term:
@@ -559,7 +557,7 @@ classes:
             local_name_value: denotes
         description: One of potentially many parcellation terms (anatomical structures)
           which the abbreviation denotes.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: ParcellationTerm
         multivalued: true
       denotes_cell_type:
@@ -569,31 +567,31 @@ classes:
             local_name_value: denotes
         description: One of potentially many cell type terms  which the abbreviation
           denotes.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: CellTypeTaxon
         multivalued: true
       term:
         description: An abbreviation term.
         examples:
         - value: IT
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: string
       meaning:
         description: The meaning of an abbreviation term.
         examples:
         - value: intratelencephalic-projecting glutamatergic cortical neuron
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: string
       entity_type:
         description: The entity type which the abbreviation term denotes.
         examples:
         - value: cell type
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: string
   MatrixFile:
     description: A digital file containing the representation of full or partial data
       matrix.
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: named thing
     mixins:
     - ProvEntity
@@ -616,7 +614,7 @@ classes:
   ColorPalette:
     description: A schematic set of display colors that can be applied to individual
       components of the associated entity set (for example, a taxonomy).
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: named thing
     mixins:
     - ProvEntity
@@ -648,12 +646,12 @@ classes:
       is_palette_for:
         description: The cell types taxonomy for which the palette provides display
           color properties for.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: CellTypeTaxonomy
   DisplayColor:
     description: One element of a color palette representing the association between
       a color and entity,
-    from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
     is_a: named thing
     mixins:
     - ProvEntity
@@ -674,7 +672,7 @@ classes:
     attributes:
       part_of_palette:
         description: The color palette for which the display color map is part of.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: ColorPalette
       is_color_for_taxon:
         local_names:
@@ -682,7 +680,7 @@ classes:
             local_name_source: allen
             local_name_value: is_color_for
         description: The associated cell type taxon for the specified display color.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: CellTypeTaxon
       is_color_for_set:
         local_names:
@@ -690,12 +688,12 @@ classes:
             local_name_source: allen
             local_name_value: is_color_for
         description: The associated cell type set of the specified display color.
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: CellTypeSet
       color_hex_triplet:
         description: A hex string representing the display color for an associated
           entity.
         examples:
         - value: '#450099'
-        from_schema: https:/w3id.org/brain-bican/bke-taxonomy
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: string
