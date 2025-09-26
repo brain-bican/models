@@ -74,11 +74,8 @@
                     ]
                 },
                 "entity_type": {
-                    "description": "The entity type which the abbreviation term denotes.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "$ref": "#/$defs/AbbreviationEntityType",
+                    "description": "The entity type which the abbreviation term denotes."
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
@@ -196,6 +193,16 @@
             ],
             "title": "Abbreviation",
             "type": "object"
+        },
+        "AbbreviationEntityType": {
+            "description": "",
+            "enum": [
+                "cell type",
+                "gene",
+                "structure"
+            ],
+            "title": "AbbreviationEntityType",
+            "type": "string"
         },
         "Activity": {
             "additionalProperties": false,
@@ -941,11 +948,8 @@
                     ]
                 },
                 "cell_type_set_type": {
-                    "description": "A tag denoting the type or purpose of the cell type set.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "$ref": "#/$defs/CellTypeSetType",
+                    "description": "A tag denoting the type or purpose of the cell type set."
                 },
                 "contains_taxon": {
                     "description": "One of potentially many cell types taxons which together defines the cell type set.",
@@ -1105,6 +1109,15 @@
             ],
             "title": "CellTypeSet",
             "type": "object"
+        },
+        "CellTypeSetType": {
+            "description": "",
+            "enum": [
+                "taxonomic level",
+                "neighborhood"
+            ],
+            "title": "CellTypeSetType",
+            "type": "string"
         },
         "CellTypeTaxon": {
             "additionalProperties": false,
