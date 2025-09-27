@@ -29,6 +29,16 @@
                         "null"
                     ]
                 },
+                "denotes_cell_type": {
+                    "description": "One of potentially many cell type terms  which the abbreviation denotes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "denotes_gene_annotation": {
                     "description": "One of potentially many gene annotation terms to which the abbreviation denotes.",
                     "items": {
@@ -64,11 +74,8 @@
                     ]
                 },
                 "entity_type": {
-                    "description": "The entity type which the abbreviation term denotes.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "$ref": "#/$defs/AbbreviationEntityType",
+                    "description": "The entity type which the abbreviation term denotes."
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
@@ -186,6 +193,16 @@
             ],
             "title": "Abbreviation",
             "type": "object"
+        },
+        "AbbreviationEntityType": {
+            "description": "",
+            "enum": [
+                "cell_type",
+                "gene",
+                "anatomical"
+            ],
+            "title": "AbbreviationEntityType",
+            "type": "string"
         },
         "Activity": {
             "additionalProperties": false,
@@ -931,11 +948,8 @@
                     ]
                 },
                 "cell_type_set_type": {
-                    "description": "A tag denoting the type or purpose of the cell type set.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "$ref": "#/$defs/CellTypeSetType",
+                    "description": "A tag denoting the type or purpose of the cell type set."
                 },
                 "contains_taxon": {
                     "description": "One of potentially many cell types taxons which together defines the cell type set.",
@@ -1095,6 +1109,15 @@
             ],
             "title": "CellTypeSet",
             "type": "object"
+        },
+        "CellTypeSetType": {
+            "description": "",
+            "enum": [
+                "taxonomic_level",
+                "neighborhood"
+            ],
+            "title": "CellTypeSetType",
+            "type": "string"
         },
         "CellTypeTaxon": {
             "additionalProperties": false,
@@ -1311,9 +1334,9 @@
                         "null"
                     ]
                 },
-                "created_at": {
+                "creation_date": {
                     "description": "The creation date of the cell type taxonomy.",
-                    "format": "date-time",
+                    "format": "date",
                     "type": [
                         "string",
                         "null"
@@ -1846,9 +1869,9 @@
                         "null"
                     ]
                 },
-                "created_at": {
+                "creation_date": {
                     "description": "The creation date of the cluster set.",
-                    "format": "date-time",
+                    "format": "date",
                     "type": [
                         "string",
                         "null"
@@ -3462,7 +3485,6 @@
                 },
                 "x_resolution": {
                     "description": "The resolution (length / pixel) in along the x axis (numerical value part).",
-                    "pattern": "{PositiveFloat}",
                     "type": [
                         "number",
                         "null"
@@ -3492,7 +3514,6 @@
                 },
                 "y_resolution": {
                     "description": "The resolution (length / pixel) in along the y axis (numerical value part).",
-                    "pattern": "{PositiveFloat}",
                     "type": [
                         "number",
                         "null"
@@ -3512,7 +3533,6 @@
                 },
                 "z_resolution": {
                     "description": "The resolution (length / pixel) in along the z axis (numerical value part).",
-                    "pattern": "{PositiveFloat}",
                     "type": [
                         "number",
                         "null"
@@ -4711,7 +4731,6 @@
             "properties": {
                 "color": {
                     "description": "A string representing to hex triplet code of a color",
-                    "pattern": "{ColorHexTriplet}",
                     "type": [
                         "string",
                         "null"
@@ -5607,7 +5626,7 @@
             "type": "object"
         }
     },
-    "$id": "https:/w3id.org/brain-bican/bke-taxonomy",
+    "$id": "https://w3id.org/brain-bican/bke-taxonomy",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "",
@@ -5645,4 +5664,3 @@
     "type": "object",
     "version": null
 }
-

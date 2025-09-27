@@ -186,6 +186,32 @@
       "schema": "http://schema.org/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "@vocab": "https://identifiers.org/brain-bican/vocab/",
+      "denotes_cell_type": {
+         "@type": "@id",
+         "@id": "denotes_cell_type"
+      },
+      "denotes_gene_annotation": {
+         "@type": "@id",
+         "@id": "denotes_gene_annotation"
+      },
+      "denotes_parcellation_term": {
+         "@type": "@id",
+         "@id": "denotes_parcellation_term"
+      },
+      "entity_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "entity_type"
+      },
+      "meaning": {
+         "@id": "meaning"
+      },
+      "term": {
+         "@id": "term"
+      },
       "id": "@id",
       "accession_id": {
          "@id": "accession_id"
@@ -223,7 +249,24 @@
          "@id": "biolink:category"
       },
       "cell_type_set_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
          "@id": "cell_type_set_type"
+      },
+      "contains_taxon": {
+         "@type": "@id",
+         "@id": "contains_taxon"
+      },
+      "contains_cluster": {
+         "@type": "@id",
+         "@id": "contains_cluster"
+      },
+      "number_of_cells": {
+         "@type": "xsd:integer",
+         "@id": "number_of_cells"
       },
       "checksum_algorithm": {
          "@context": {
@@ -236,36 +279,32 @@
       "value": {
          "@id": "value"
       },
-      "color_hex_triplet": {
-         "@id": "color_hex_triplet"
-      },
-      "contains_cluster": {
-         "@id": "contains_cluster"
-      },
       "contains_observation": {
+         "@type": "@id",
          "@id": "contains_observation"
       },
       "contains_sample": {
+         "@type": "@id",
          "@id": "contains_sample"
       },
-      "contains_taxon": {
-         "@id": "contains_taxon"
+      "number_of_observations": {
+         "@type": "xsd:integer",
+         "@id": "number_of_observations"
+      },
+      "part_of_set": {
+         "@type": "@id",
+         "@id": "part_of_set"
+      },
+      "is_palette_for": {
+         "@type": "@id",
+         "@id": "is_palette_for"
       },
       "content_url": {
          "@id": "schema:url"
       },
-      "created_at": {
-         "@id": "created_at"
-      },
       "creation_date": {
          "@type": "xsd:date",
          "@id": "biolink:creation_date"
-      },
-      "denotes_gene_annotation": {
-         "@id": "denotes_gene_annotation"
-      },
-      "denotes_parcellation_term": {
-         "@id": "denotes_parcellation_term"
       },
       "deprecated": {
          "@type": "xsd:boolean",
@@ -278,8 +317,20 @@
          "@type": "@id",
          "@id": "digest"
       },
-      "entity_type": {
-         "@id": "entity_type"
+      "color_hex_triplet": {
+         "@id": "color_hex_triplet"
+      },
+      "is_color_for_set": {
+         "@type": "@id",
+         "@id": "is_color_for_set"
+      },
+      "is_color_for_taxon": {
+         "@type": "@id",
+         "@id": "is_color_for_taxon"
+      },
+      "part_of_palette": {
+         "@type": "@id",
+         "@id": "part_of_palette"
       },
       "format": {
          "@id": "biolink:format"
@@ -327,13 +378,12 @@
          "@id": "biolink:has_unit"
       },
       "has_abbreviation": {
+         "@type": "@id",
          "@id": "has_abbreviation"
       },
       "has_parent": {
+         "@type": "@id",
          "@id": "has_parent"
-      },
-      "has_variable": {
-         "@id": "has_variable"
       },
       "unit": {
          "@context": {
@@ -402,26 +452,12 @@
          "@type": "xsd:anyURI",
          "@id": "biolink:iri"
       },
-      "is_color_for_set": {
-         "@id": "is_color_for_set"
-      },
-      "is_color_for_taxon": {
-         "@id": "is_color_for_taxon"
-      },
-      "is_palette_for": {
-         "@id": "is_palette_for"
-      },
       "is_revision_of": {
+         "@type": "@id",
          "@id": "is_revision_of"
-      },
-      "label": {
-         "@id": "label"
       },
       "license": {
          "@id": "biolink:license"
-      },
-      "meaning": {
-         "@id": "meaning"
       },
       "molecular_type": {
          "@id": "molecular_type"
@@ -432,13 +468,27 @@
       "node_property": {
          "@id": "biolink:node_property"
       },
-      "number_of_cells": {
-         "@id": "number_of_cells"
+      "has_variable": {
+         "@type": "@id",
+         "@id": "has_variable"
       },
-      "number_of_observations": {
-         "@id": "number_of_observations"
+      "represented_by": {
+         "@type": "@id",
+         "@id": "represented_by"
+      },
+      "label": {
+         "@id": "label"
+      },
+      "part_of_matrix": {
+         "@type": "@id",
+         "@id": "part_of_matrix"
+      },
+      "represented_in": {
+         "@type": "@id",
+         "@id": "represented_in"
       },
       "order": {
+         "@type": "xsd:integer",
          "@id": "order"
       },
       "ordinal": {
@@ -506,16 +556,8 @@
          "@type": "@id",
          "@id": "part_of_parcellation_terminology"
       },
-      "part_of_matrix": {
-         "@id": "part_of_matrix"
-      },
-      "part_of_palette": {
-         "@id": "part_of_palette"
-      },
-      "part_of_set": {
-         "@id": "part_of_set"
-      },
       "part_of_taxonomy": {
+         "@type": "@id",
          "@id": "part_of_taxonomy"
       },
       "provided_by": {
@@ -528,12 +570,6 @@
       "related_to_at_instance_level": {
          "@type": "@id",
          "@id": "biolink:related_to_at_instance_level"
-      },
-      "represented_by": {
-         "@id": "represented_by"
-      },
-      "represented_in": {
-         "@id": "represented_in"
       },
       "revision_of": {
          "@type": "@id",
@@ -554,9 +590,6 @@
       },
       "synonym": {
          "@id": "biolink:synonym"
-      },
-      "term": {
-         "@id": "term"
       },
       "type": {
          "@id": "rdf:type"

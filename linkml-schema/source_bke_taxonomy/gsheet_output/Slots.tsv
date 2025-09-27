@@ -1,52 +1,54 @@
-LinkML Class Name	LinkML Slot or Attribute Name	from_schema	example	Definition	Nullable	Permissible Values	Data Type	Integer MIN Value	BKE Local Name	Local Name Source
-> class	slot	from_schema	examples             	description	ignore	ignore	range	minimum_value	local_names	local_names
->									inner_key: local_name_value	inner_key: local_name_source
-Abbreviation	id			( database GUID)	FALSE		string			
-Abbreviation	term		IT	An abbreviation term.	FALSE		string			
-Abbreviation	meaning		intratelencephalic-projecting glutamatergic cortical neuron	The meaning of an abbreviation term.	FALSE		string			
-Abbreviation	entity_type		cell type	The entity type which the abbreviation term denotes.	FALSE	cell type, gene, structure	string			
-Abbreviation	xref								unique_id	allen
-CellTypeSet	id			( database GUID)	FALSE		string			
-CellTypeSet	accession_id		CCN20230722_CLAS	A provider assigned accession identifier for the cell type set.	FALSE		string			
-CellTypeSet	name		class	Name of the cell type set taxonomy.	FALSE		string			
-CellTypeSet	description		The top level of cell type definition in the mouse whole brain taxonomy. It is primarily determined by broad brain region and neurotransmitter type. All cells within a subclass belong to the same class. Class provides a broader categorization of cell types.	Description of the cell type set.	FALSE		string			
-CellTypeSet	cell_type_set_type		taxonomic_level	A tag denoting the type or purpose of the cell type set.	FALSE	taxonomic level, neighborhood	string		type	allen
-CellTypeSet	order		1	The priority or display order of the cell type set among all other sets of the same type.	TRUE		integer	0	order_idx	allen
-CellTypeSet	xref								unique_id	allen
-CellTypeTaxon	id			( database GUID)	FALSE		string			
-CellTypeTaxon	accession_id		CS20230722_CLAS_11	A provider assigned accession identifier for the cell type taxon.	FALSE		string			
-CellTypeTaxon	name		11 CNU-HYa GABA	Name of the cell type taxon.	FALSE		string			
-CellTypeTaxon	order		11	The priority or display order of the cell type taxon among all other taxons in the taxonomy.	TRUE		integer	0	order_idx	allen
-CellTypeTaxon	description			Description of the cell type taxon (optional).	TRUE		string			
-CellTypeTaxon	number_of_cells			The aggregated number of cells that defines the cell type taxon.	FALSE		integer	0		
-CellTypeTaxon	xref								unique_id	allen
-CellTypeTaxonomy	id			( database GUID)	FALSE		string			
-CellTypeTaxonomy	created_at			The creation date of the cell type taxonomy.	FALSE		datetime			
-CellTypeTaxonomy	accession_id		CCN20230722	A provider assigned accession identifier for the taxonomy.	FALSE		string			
-CellTypeTaxonomy	name		AIT21.0	Name of the cell type taxonomy.	FALSE		string			
-CellTypeTaxonomy	description			Description of the cell type taxonomy.	FALSE		string			
-CellTypeTaxonomy	xref								unique_id	allen
-Cluster	id			( database GUID)	FALSE		string			
-Cluster	accession_id		CS20230722_1019	A provider assigned accession identifier for the cluster which is unique amongs all clusters in cluster set.	FALSE		string			
-Cluster	name		1019	Name of the cluster.	FALSE		string			
-Cluster	number_of_observations		448	The number of observations in the cluster.	TRUE		integer	0		
-Cluster	xref								unique_id	allen
-ClusterSet	id			( database GUID)	FALSE		string			
-ClusterSet	created_at			The creation date of the cluster set.	FALSE		datetime			
-ClusterSet	accession_id			A provider assigned accession identifier for the cluster set.	FALSE		string			
-ClusterSet	name			Name of the cluster set.	TRUE		string			
-ClusterSet	description			Description of the cluster set.	TRUE		string			
-ClusterSet	xref								unique_id	allen
-ColorPalette	id			( database GUID)	FALSE		string			
-ColorPalette	name			Name of the color palette.	FALSE		string			
-ColorPalette	description			Description of the color palette.	FALSE		string			
-ColorPalette	xref								unique_id	allen
-DisplayColor	id			( database GUID)	FALSE		string			
-DisplayColor	color_hex_triplet		#450099	A hex string representing the display color for an associated entity.	FALSE		string			
-DisplayColor	xref								unique_id	allen
-MatrixFile	content_url	bican_core							url	allen
-MatrixFile	xref								unique_id	allen
-ObservationMatrix	content_url	bican_core							url	allen
-ObservationMatrix	xref								unique_id	allen
-ObservationRow	label									
-ObservationRow	xref								unique_id	allen
+LinkML Class Name	LinkML Slot	Attribute Name	Data Type	Definition	from_schema	BKE Local Name	Local Name Source	example	Integer MIN Value	Nullable	Permissible Values
+> class	slot	attribute	range	description	from_schema	local_names	local_names	examples             	minimum_value	ignore	ignore
+>						inner_key: local_name_value	inner_key: local_name_source				
+	accession_id		string	A provider assigned accession identifier for a given entity.						FALSE	
+	order		integer	The priority or display order of an entity among all other entiites of the same type.		order_idx	allen			TRUE	
+Abbreviation	id		string	( database GUID)	bican_biolink					FALSE	
+Abbreviation		term	string	An abbreviation term.				IT		FALSE	
+Abbreviation		meaning	string	The meaning of an abbreviation term.				intratelencephalic-projecting glutamatergic cortical neuron		FALSE	
+Abbreviation		entity_type	AbbreviationEntityType	The entity type which the abbreviation term denotes.				cell type		FALSE	cell type, gene, structure
+Abbreviation	xref				bican_biolink	unique_id	allen				
+CellTypeSet	id		string	( database GUID)	bican_biolink					FALSE	
+CellTypeSet	accession_id		string	A provider assigned accession identifier for the cell type set.				CCN20230722_CLAS		FALSE	
+CellTypeSet	name		string	Name of the cell type set taxonomy.	bican_biolink			class		FALSE	
+CellTypeSet	description		string	Description of the cell type set.	bican_biolink			The top level of cell type definition in the mouse whole brain taxonomy. It is primarily determined by broad brain region and neurotransmitter type. All cells within a subclass belong to the same class. Class provides a broader categorization of cell types.		FALSE	
+CellTypeSet		cell_type_set_type	CellTypeSetType	A tag denoting the type or purpose of the cell type set.		type	allen	taxonomic_level		FALSE	taxonomic level, neighborhood
+CellTypeSet	order		integer	The priority or display order of the cell type set among all other sets of the same type.		order_idx	allen	1	0	TRUE	
+CellTypeSet	xref				bican_biolink	unique_id	allen				
+CellTypeTaxon	id		string	( database GUID)	bican_biolink					FALSE	
+CellTypeTaxon	accession_id		string	A provider assigned accession identifier for the cell type taxon.				CS20230722_CLAS_11		FALSE	
+CellTypeTaxon	name		string	Name of the cell type taxon.				11 CNU-HYa GABA		FALSE	
+CellTypeTaxon	order		integer	The priority or display order of the cell type taxon among all other taxons in the taxonomy.		order_idx	allen	11	0	TRUE	
+CellTypeTaxon	description		string	Description of the cell type taxon (optional).	bican_biolink					TRUE	
+CellTypeTaxon		number_of_cells	integer	The aggregated number of cells that defines the cell type taxon.					0	FALSE	
+CellTypeTaxon	xref				bican_biolink	unique_id	allen				
+CellTypeTaxonomy	id		string	( database GUID)	bican_biolink					FALSE	
+CellTypeTaxonomy	creation date			The creation date of the cell type taxonomy.	bican_biolink					FALSE	
+CellTypeTaxonomy	accession_id		string	A provider assigned accession identifier for the taxonomy.				CCN20230722		FALSE	
+CellTypeTaxonomy	name		string	Name of the cell type taxonomy.	bican_biolink			AIT21.0		FALSE	
+CellTypeTaxonomy	description		string	Description of the cell type taxonomy.	bican_biolink					FALSE	
+CellTypeTaxonomy	xref				bican_biolink	unique_id	allen				
+Cluster	id		string	( database GUID)	bican_biolink					FALSE	
+Cluster	accession_id		string	A provider assigned accession identifier for the cluster which is unique amongs all clusters in cluster set.				CS20230722_1019		FALSE	
+Cluster	name		string	Name of the cluster.	bican_biolink			1019		FALSE	
+Cluster		number_of_observations	integer	The number of observations in the cluster.				448	0	TRUE	
+Cluster	xref				bican_biolink	unique_id	allen				
+ClusterSet	id		string	( database GUID)	bican_biolink					FALSE	
+ClusterSet	accession_id		string	A provider assigned accession identifier for the cluster set.						FALSE	
+ClusterSet	name		string	Name of the cluster set.	bican_biolink					TRUE	
+ClusterSet	description		string	Description of the cluster set.	bican_biolink					TRUE	
+ClusterSet	xref				bican_biolink	unique_id	allen				
+ClusterSet	creation date			The creation date of the cluster set.	bican_biolink					FALSE	
+ColorPalette	id		string	( database GUID)	bican_biolink					FALSE	
+ColorPalette	name		string	Name of the color palette.	bican_biolink					FALSE	
+ColorPalette	description		string	Description of the color palette.	bican_biolink					FALSE	
+ColorPalette	xref				bican_biolink	unique_id	allen				
+DisplayColor	id		string	( database GUID)	bican_biolink					FALSE	
+DisplayColor		color_hex_triplet	string	A hex string representing the display color for an associated entity.				#450099		FALSE	
+DisplayColor	xref				bican_biolink	unique_id	allen				
+MatrixFile	content_url				bican_core	url	allen				
+MatrixFile	xref				bican_biolink	unique_id	allen				
+ObservationMatrix	content_url				bican_core	url	allen				
+ObservationMatrix	xref				bican_biolink	unique_id	allen				
+ObservationRow		label									
+ObservationRow	xref				bican_biolink	unique_id	allen				

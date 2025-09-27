@@ -2,8 +2,8 @@
 erDiagram
 DisplayColor {
     string id  
-    string color_hex_triplet  
     uriorcurieList xref  
+    string color_hex_triplet  
     iri_type iri  
     uriorcurieList category  
     stringList type  
@@ -49,10 +49,10 @@ MatrixFile {
 }
 Abbreviation {
     string id  
+    uriorcurieList xref  
     string term  
     string meaning  
-    string entity_type  
-    uriorcurieList xref  
+    AbbreviationEntityType entity_type  
     iri_type iri  
     uriorcurieList category  
     stringList type  
@@ -77,8 +77,8 @@ CellSpecimen {
     label_typeList synonym  
 }
 ObservationRow {
-    string label  
     uriorcurieList xref  
+    string label  
     string id  
     iri_type iri  
     uriorcurieList category  
@@ -121,8 +121,8 @@ Cluster {
     string id  
     string accession_id  
     string name  
-    integer number_of_observations  
     uriorcurieList xref  
+    integer number_of_observations  
     iri_type iri  
     uriorcurieList category  
     stringList type  
@@ -134,11 +134,11 @@ Cluster {
 }
 ClusterSet {
     string id  
-    datetime created_at  
     string accession_id  
     string name  
     string description  
     uriorcurieList xref  
+    date creation_date  
     iri_type iri  
     uriorcurieList category  
     stringList type  
@@ -166,8 +166,8 @@ CellTypeTaxon {
     string name  
     integer order  
     string description  
-    integer number_of_cells  
     uriorcurieList xref  
+    integer number_of_cells  
     iri_type iri  
     uriorcurieList category  
     stringList type  
@@ -181,9 +181,9 @@ CellTypeSet {
     string accession_id  
     string name  
     string description  
-    string cell_type_set_type  
     integer order  
     uriorcurieList xref  
+    CellTypeSetType cell_type_set_type  
     iri_type iri  
     uriorcurieList category  
     stringList type  
@@ -194,7 +194,7 @@ CellTypeSet {
 }
 CellTypeTaxonomy {
     string id  
-    datetime created_at  
+    date creation_date  
     string accession_id  
     string name  
     string description  
@@ -239,21 +239,22 @@ MatrixFile ||--|o ProvActivity : "was_generated_by"
 MatrixFile ||--}o Attribute : "has attribute"
 Abbreviation ||--}o GeneAnnotation : "denotes_gene_annotation"
 Abbreviation ||--}o ParcellationTerm : "denotes_parcellation_term"
+Abbreviation ||--}o CellTypeTaxon : "denotes_cell_type"
 Abbreviation ||--|o ProvEntity : "was_derived_from"
 Abbreviation ||--|o ProvActivity : "was_generated_by"
 Abbreviation ||--}o Attribute : "has attribute"
 CellSpecimen ||--|o ProvEntity : "was_derived_from"
 CellSpecimen ||--|o ProvActivity : "was_generated_by"
 CellSpecimen ||--}o Attribute : "has attribute"
+ObservationRow ||--|o CellSpecimen : "was_derived_from"
 ObservationRow ||--|o ObservationMatrix : "part_of_matrix"
 ObservationRow ||--|o MatrixFile : "represented_in"
-ObservationRow ||--|o CellSpecimen : "was_derived_from"
 ObservationRow ||--|o ProvActivity : "was_generated_by"
 ObservationRow ||--}o Attribute : "has attribute"
 ObservationMatrix ||--|o ObservationMatrixCreationProcess : "was_generated_by"
+ObservationMatrix ||--}o CellSpecimen : "was_derived_from"
 ObservationMatrix ||--}o MatrixFile : "represented_by"
 ObservationMatrix ||--}o GeneAnnotation : "has_variable"
-ObservationMatrix ||--}o CellSpecimen : "was_derived_from"
 ObservationMatrix ||--}o Attribute : "has attribute"
 ObservationMatrixCreationProcess ||--|o ProvEntity : "used"
 ObservationMatrixCreationProcess ||--}o Attribute : "has attribute"
@@ -270,16 +271,16 @@ ClusterSet ||--}o Attribute : "has attribute"
 ClusteringProcess ||--}o ObservationMatrix : "used"
 ClusteringProcess ||--}o Attribute : "has attribute"
 CellTypeTaxon ||--|o CellTypeTaxonomy : "part_of_taxonomy"
-CellTypeTaxon ||--}o Cluster : "contains_cluster"
 CellTypeTaxon ||--|o CellTypeTaxon : "has_parent"
 CellTypeTaxon ||--}o Abbreviation : "has_abbreviation"
+CellTypeTaxon ||--}o Cluster : "contains_cluster"
 CellTypeTaxon ||--|o ProvEntity : "was_derived_from"
 CellTypeTaxon ||--|o ProvActivity : "was_generated_by"
 CellTypeTaxon ||--}o Attribute : "has attribute"
 CellTypeSet ||--|o CellTypeTaxonomy : "part_of_taxonomy"
-CellTypeSet ||--}o CellTypeTaxon : "contains_taxon"
 CellTypeSet ||--|o CellTypeSet : "has_parent"
 CellTypeSet ||--}o Abbreviation : "has_abbreviation"
+CellTypeSet ||--}o CellTypeTaxon : "contains_taxon"
 CellTypeSet ||--|o ProvEntity : "was_derived_from"
 CellTypeSet ||--|o ProvActivity : "was_generated_by"
 CellTypeSet ||--}o Attribute : "has attribute"
