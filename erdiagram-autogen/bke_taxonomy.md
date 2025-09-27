@@ -52,7 +52,7 @@ Abbreviation {
     uriorcurieList xref  
     string term  
     string meaning  
-    abbreviation_entity_type entity_type  
+    AbbreviationEntityType entity_type  
     iri_type iri  
     uriorcurieList category  
     stringList type  
@@ -183,7 +183,7 @@ CellTypeSet {
     string description  
     integer order  
     uriorcurieList xref  
-    cell_type_set_type cell_type_set_type  
+    CellTypeSetType cell_type_set_type  
     iri_type iri  
     uriorcurieList category  
     stringList type  

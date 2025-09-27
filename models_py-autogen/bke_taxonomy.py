@@ -118,16 +118,16 @@ class DISTANCEUNIT(str, Enum):
 
 class AbbreviationEntityType(str, Enum):
     # Abbreviation denotes a Cell Type entity.
-    cell_type = "cell type"
+    cell_type = "cell_type"
     # Abbreviation denotes a Gene entity.
     gene = "gene"
-    # Abbreviation denotes a Structure entity.
-    structure = "structure"
+    # Abbreviation denotes a Anatomical Structure entity.
+    anatomical = "anatomical"
 
 
 class CellTypeSetType(str, Enum):
     # Denotes CellTypeSet is at Taxonomic level.
-    taxonomic_level = "taxonomic level"
+    taxonomic_level = "taxonomic_level"
     # Denotes CellTypeSet is at Neighborhood level.
     neighborhood = "neighborhood"
 

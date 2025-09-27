@@ -197,9 +197,9 @@
         "AbbreviationEntityType": {
             "description": "",
             "enum": [
-                "cell type",
+                "cell_type",
                 "gene",
-                "structure"
+                "anatomical"
             ],
             "title": "AbbreviationEntityType",
             "type": "string"
@@ -1113,7 +1113,7 @@
         "CellTypeSetType": {
             "description": "",
             "enum": [
-                "taxonomic level",
+                "taxonomic_level",
                 "neighborhood"
             ],
             "title": "CellTypeSetType",
