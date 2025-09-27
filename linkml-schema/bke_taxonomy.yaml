@@ -23,8 +23,8 @@ enums:
         description: Abbreviation denotes a Cell Type entity.
       gene:
         description: Abbreviation denotes a Gene entity.
-      structure:
-        description: Abbreviation denotes a Structure entity.
+      anatomical:
+        description: Abbreviation denotes a Anatomical Structure entity.
   CellTypeSetType:
     from_schema: https://w3id.org/brain-bican/bke-taxonomy
     permissible_values:

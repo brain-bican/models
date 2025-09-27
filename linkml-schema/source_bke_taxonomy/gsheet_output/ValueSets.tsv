@@ -2,6 +2,6 @@ variable_name	value	description
 > enum	permissible_value	description
 AbbreviationEntityType	cell_type	Abbreviation denotes a Cell Type entity.
 AbbreviationEntityType	gene	Abbreviation denotes a Gene entity.
-AbbreviationEntityType	structure	Abbreviation denotes a Structure entity.
+AbbreviationEntityType	anatomical	Abbreviation denotes a Anatomical Structure entity.
 CellTypeSetType	taxonomic_level	Denotes CellTypeSet is at Taxonomic level.
 CellTypeSetType	neighborhood	Denotes CellTypeSet is at Neighborhood level.
