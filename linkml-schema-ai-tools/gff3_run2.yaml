@@ -1,0 +1,142 @@
+id: https://identifiers.org/brain-bican/gff3-gene-schema
+name: gff3-gene-schema
+title: GFF3 Gene Schema
+description: >
+  Minimal LinkML schema to represent GFF3 records where type == 'gene' (SO:0000704),
+  focusing on the attributes column. Reuses Biolink gene semantics and BICAN core versioning.
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/vocab/
+  bican: https://identifiers.org/brain-bican/vocab/
+  schema: http://schema.org/
+  gff3: https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md#
+  SO: http://purl.obolibrary.org/obo/SO_
+  NCBITaxon: http://identifiers.org/taxonomy/
+
+imports:
+  - linkml:types
+  - bican_biolink
+  - bican_core
+
+default_prefix: bican
+default_range: string
+
+enums:
+  Strand:
+    permissible_values:
+      '+': {}
+      '-': {}
+      '.': {}
+      '?': {}
+
+slots:
+  # Core GFF3 columns retained for gene features
+  seqid:
+    description: "GFF3 column 1: reference sequence identifier (landmark for coordinates)."
+  source:
+    description: "GFF3 column 2: source/method free text."
+  start:
+    description: "GFF3 column 4: 1-based inclusive start coordinate."
+    range: integer
+    minimum_value: 1
+  end:
+    description: "GFF3 column 5: 1-based inclusive end coordinate."
+    range: integer
+    minimum_value: 1
+  score:
+    description: "GFF3 column 6: numeric score; omit if '.' in the file."
+    range: double
+  strand:
+    description: "GFF3 column 7: strand."
+    range: Strand
+
+  # Attributes column mappings (reserved)
+  ontology_terms:
+    description: GFF3 attributes 'Ontology_term' (DBTAG:ID CURIEs).
+    slot_uri: gff3:Ontology_term
+    range: uriorcurie
+    multivalued: true
+  is_circular:
+    description: GFF3 attributes 'Is_circular' flag.
+    slot_uri: gff3:Is_circular
+    range: boolean
+  note:
+    description: GFF3 attributes 'Note' (free text).
+    slot_uri: gff3:Note
+
+  # Optional dataset-level metadata
+  gff_version:
+    description: Value from the ##gff-version directive (e.g., 3.1.26).
+
+classes:
+  FreeformAttribute:
+    description: Non-reserved attribute from column 9 (lowercase tag), with one or more values.
+    attributes:
+      tag:
+        description: Attribute name (should start with lowercase per spec).
+        pattern: "^[a-z][A-Za-z0-9_]*$"
+        required: true
+      values:
+        description: One or more values for the tag (comma-separated in GFF3).
+        multivalued: true
+
+  GFF3Gene:
+    is_a: gene
+    description: >
+      A single GFF3 gene feature (type == 'gene'), including selected core columns and attributes column content.
+    attributes:
+      # Core columns (type is fixed by the class semantics)
+      seqid:
+        range: string
+      source:
+        range: string
+      start: {}
+      end: {}
+      score: {}
+      strand: {}
+
+      # Attributes (mapped to Biolink where applicable)
+      id:
+        description: GFF3 'ID' attribute for the gene (unique within the file).
+        required: true
+      name:
+        description: GFF3 'Name' attribute (display name).
+        range: label type
+      synonym:
+        description: GFF3 'Alias' values.
+        multivalued: true
+        range: label type
+      xref:
+        description: GFF3 'Dbxref' cross-references (DBTAG:ID).
+        multivalued: true
+        range: uriorcurie
+
+      ontology_terms: {}
+      is_circular: {}
+      note: {}
+      description:
+        description: Optional longer description of the gene. May be populated from notes or other sources.
+
+      other_attributes:
+        description: Additional non-reserved attributes from the attributes column.
+        range: FreeformAttribute
+        multivalued: true
+        inlined_as_list: true
+
+  GFF3GeneSet:
+    is_a: dataset
+    tree_root: true
+    description: A collection of gene features extracted from a GFF3 file.
+    slots:
+      - version
+      - revision_of
+      - digest
+      - content_url
+    attributes:
+      gff_version:
+        range: string
+      genes:
+        range: GFF3Gene
+        multivalued: true
+        inlined_as_list: true
