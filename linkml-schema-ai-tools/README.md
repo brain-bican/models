@@ -38,3 +38,14 @@ Goal: Given the linkml-schema-ai-tools/gff3.md file, create a linkml model to re
 Reuse: linkml-schema/bican_biolink.yaml (a biolink subset commonly used in BICAN) and linkml-schema/bican_core.yaml (BICAN core metadata such as versioning and checksums)
 ### Model 
  - openai/gpt-5
+
+ ## Run 3
+### User Prompt
+Task: create a linkml model 
+Background: You are an expert in data modeling and the tool LinkML. 
+Goal: Given the 'linkml-schema-ai-tools/gff3.md' file, create a linkml model to represent the data present in a gff3 file. We are only interested in representing feature types that are 'genes' and the associated information stored in the 'attributes' column. 
+Example Data: 'data/GCF_000003025.6_Sscrofa11.1_genomic.gff' is an example of how data is represented in a gff3 file. Use this file to help refine the model. 
+Reuse: linkml-schema/bican_biolink.yaml (a biolink subset commonly used in BICAN) and linkml-schema/bican_core.yaml (BICAN core metadata such as versioning and checksums)
+Testing: Test the generated linkml model by running 2 commands. First run : 'linkml lint' and then run 'linkml generate pydantic'.
+### Model 
+ - openai/gpt-5
