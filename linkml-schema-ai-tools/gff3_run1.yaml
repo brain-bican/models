@@ -1,0 +1,287 @@
+id: https://identifiers.org/brain-bican/gff3-schema
+name: gff3-schema
+title: GFF3 Schema
+description: >
+  LinkML schema to represent GFF3 files: directives, features, relationships, and optional FASTA sequences.
+  Closely follows the GFF3 column semantics and reserved attributes.
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/vocab/
+  bican: https://identifiers.org/brain-bican/vocab/
+  schema: http://schema.org/
+  SO: http://purl.obolibrary.org/obo/SO_
+  NCBITaxon: http://identifiers.org/taxonomy/
+  gff3: https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md#
+
+imports:
+  - linkml:types
+  - bican_biolink
+  - bican_core
+
+default_prefix: bican
+default_range: string
+
+types:
+  FloatLike:
+    base: float
+    uri: xsd:float
+
+classes:
+  GFF3Document:
+    is_a: dataset
+    description: A GFF3 document, including directives, features, and optional FASTA sequences.
+    tree_root: true
+    slots:
+      - version
+      - revision_of
+    attributes:
+      gff_version:
+        description: Version declared in ##gff-version directive (e.g., 3.1.26).
+        range: string
+        required: true
+      feature_ontology:
+        description: URIs of ontologies providing feature types (##feature-ontology).
+        range: uriorcurie
+        multivalued: true
+      attribute_ontology:
+        description: URIs for attribute ontologies (##attribute-ontology).
+        range: uriorcurie
+        multivalued: true
+      source_ontology:
+        description: URIs for source ontologies (##source-ontology).
+        range: uriorcurie
+        multivalued: true
+      species:
+        description: Species of the annotations (##species), typically an NCBI taxonomy URL/CURIE.
+        any_of:
+          - range: organism taxon
+          - range: uriorcurie
+          - range: string
+      genome_build:
+        description: Genome assembly build source and name (##genome-build).
+        range: GenomeBuild
+      sequence_regions:
+        description: Declared sequence regions (##sequence-region).
+        range: SequenceRegion
+        multivalued: true
+        inlined_as_list: true
+      features:
+        description: Feature rows (one per GFF3 line).
+        range: GFF3Feature
+        multivalued: true
+        inlined_as_list: true
+      fasta_sequences:
+        description: Optional FASTA section after ##FASTA.
+        range: SequenceRecord
+        multivalued: true
+        inlined_as_list: true
+
+  GenomeBuild:
+    description: Source and name of the genome assembly build (##genome-build).
+    attributes:
+      source:
+        description: Source of the assembly (e.g., NCBI, WormBase).
+      name:
+        description: Build identifier (e.g., B36, ws110, r4.1).
+
+  SequenceRegion:
+    description: Declared sequence region bounds for a seqid.
+    attributes:
+      seqid:
+        description: The reference sequence identifier.
+        identifier: true
+      start:
+        description: Start of region (1-based).
+        range: integer
+        minimum_value: 1
+      end:
+        description: End of region (1-based).
+        range: integer
+        minimum_value: 1
+      is_circular:
+        description: Whether the landmark feature is circular (Is_circular=true).
+        range: boolean
+
+  GFF3Feature:
+    description: One GFF3 feature line (columns 1–9) and parsed reserved attributes.
+    attributes:
+      seqid:
+        description: Landmark reference sequence for coordinates. Should match a SequenceRegion.seqid if declared.
+        any_of:
+          - range: SequenceRegion
+          - range: string
+        inlined: false
+      source:
+        description: Free-text method/source (column 2).
+      type:
+        description: Feature type term/identifier; recommended to use SO terms or accessions.
+        range: uriorcurie
+      start:
+        description: Start coordinate (1-based).
+        range: integer
+        minimum_value: 1
+        required: true
+      end:
+        description: End coordinate (1-based).
+        range: integer
+        minimum_value: 1
+        required: true
+      score:
+        description: Feature score (column 6). Optional; omit if '.' in GFF3.
+        range: FloatLike
+      strand:
+        description: Strand of the feature (column 7).
+        range: Strand
+      phase:
+        description: CDS phase (0,1,2). REQUIRED for CDS features per spec.
+        range: Phase
+
+      gff_id:
+        description: GFF3 ID attribute value (unique within a file for features with children or multiline features).
+      name:
+        description: Display name (Name attribute).
+      aliases:
+        description: Alias attribute values.
+        range: label type
+        multivalued: true
+      parents:
+        description: Parent attribute (part_of relation). References gff_id of parent features.
+        range: string
+        multivalued: true
+      derives_from:
+        description: Derives_from attribute (temporal relation).
+        range: string
+        multivalued: true
+      target:
+        description: Target attribute for alignments.
+        range: Target
+      gap:
+        description: Gap attribute as parsed operations.
+        range: Gap
+      note:
+        description: Free text Note.
+      dbxrefs:
+        description: Dbxref attribute values (DBTAG:ID).
+        range: uriorcurie
+        multivalued: true
+      ontology_terms:
+        description: Ontology_term attribute values.
+        range: uriorcurie
+        multivalued: true
+      is_circular:
+        description: Is_circular flag on a feature.
+        range: boolean
+
+      other_attributes:
+        description: Additional non-reserved attributes (tag=value pairs) with lowercase names.
+        range: FreeformAttribute
+        multivalued: true
+        inlined_as_list: true
+
+    slot_usage:
+      phase:
+        description: REQUIRED for CDS features (cannot be enforced purely structurally; validators should check when type == SO:0000316).
+      parents:
+        description: Indicates part_of only; cycles should be rejected by validators.
+
+  Target:
+    description: >
+      Target attribute: target_id start end [strand].
+    attributes:
+      target_id:
+        description: Identifier of the target sequence (may contain escaped spaces).
+      start:
+        range: integer
+        minimum_value: 1
+        required: true
+      end:
+        range: integer
+        minimum_value: 1
+        required: true
+      strand:
+        range: Strand
+
+  CIGAROperation:
+    description: One operation in the Gap attribute.
+    attributes:
+      op:
+        range: CIGAROp
+        required: true
+      length:
+        range: integer
+        minimum_value: 1
+        required: true
+
+  Gap:
+    description: Parsed Gap attribute as a series of operations (e.g., M451 D3499 M501 ...).
+    attributes:
+      operations:
+        range: CIGAROperation
+        multivalued: true
+        inlined_as_list: true
+
+  FreeformAttribute:
+    description: Non-reserved attribute from column 9; tag should start with lowercase per spec.
+    attributes:
+      tag:
+        description: Attribute name (lowercase initial).
+        pattern: "^[a-z][A-Za-z0-9_]*$"
+        required: true
+      values:
+        description: One or more values for the tag (comma-separated in GFF3).
+        multivalued: true
+
+  SequenceRecord:
+    description: FASTA record included after ##FASTA.
+    attributes:
+      id:
+        identifier: true
+      sequence:
+        range: biological sequence
+        required: true
+
+slots:
+  name:
+    slot_uri: rdfs:label
+  aliases:
+    slot_uri: gff3:Alias
+  gff_id:
+    slot_uri: gff3:ID
+  dbxrefs:
+    slot_uri: gff3:Dbxref
+  ontology_terms:
+    slot_uri: gff3:Ontology_term
+  revision_of:
+    range: VersionedNamedThing
+  parents:
+    slot_uri: gff3:Parent
+  derives_from:
+    slot_uri: gff3:Derives_from
+  is_circular:
+    slot_uri: gff3:Is_circular
+
+enums:
+  Strand:
+    permissible_values:
+      '+': {}
+      '-': {}
+      '.': {}
+      '?': {}
+  Phase:
+    permissible_values:
+      '0': {}
+      '1': {}
+      '2': {}
+  CIGAROp:
+    permissible_values:
+      M:
+        description: match
+      I:
+        description: insert gap in reference
+      D:
+        description: delete from reference (gap in target)
+      F:
+        description: frameshift forward (reference coords)
+      R:
+        description: frameshift reverse (reference coords)
