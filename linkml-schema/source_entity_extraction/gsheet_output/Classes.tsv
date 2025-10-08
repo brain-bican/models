@@ -1,0 +1,6 @@
+class	Inheritance: is_a	Inheritance: mixin	Subsets	Definition		
+> class	is_a	mixins	in_subset	description	class_uri	mixin
+>		internal_separator: "|"	internal_separator: "|"			
+ExtractedEntity						
+JudgeExtraction	Activity					
+Paper						
