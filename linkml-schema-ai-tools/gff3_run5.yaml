@@ -1,0 +1,316 @@
+id: https://w3id.org/bican/gff3-gene-annotation
+name: gff3_gene_annotation
+description: >
+  A minimal LinkML schema for modeling gene annotations derived from GFF3 gene features,
+  organized into a reusable "genome annotation" package with dataset and assembly context.
+version: 0.1.0
+
+default_prefix: bican
+default_range: string
+
+imports:
+  - linkml:types
+  - ../linkml-schema/bican_biolink
+  - ../linkml-schema/bican_core
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  bican: https://identifiers.org/brain-bican/vocab/
+  schema: http://schema.org/
+  gff3: https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md#
+  NCBIGene: "http://identifiers.org/ncbigene/"
+  NCBIAssembly: "https://identifiers.org/insdc.gca:"
+  NCBITaxon: "http://purl.obolibrary.org/obo/NCBITaxon_"
+
+types:
+  one_based_int:
+    typeof: integer
+    minimum_value: 1
+    description: One-based positive integer used for GFF3 coordinate columns 4 and 5.
+
+enums:
+  StrandEnum:
+    description: GFF3 strand enumeration.
+    permissible_values:
+      "+":
+        description: plus strand
+      "-":
+        description: minus strand
+      ".":
+        description: no strand/NA
+      "?":
+        description: unknown strand
+  GeneFeatureType:
+    description: Constrained GFF3 feature type for this schema (gene only).
+    permissible_values:
+      gene:
+        description: GFF3 feature of type "gene"
+  BioType:
+    description: Minimal molecular/biotype classification harmonization.
+    permissible_values:
+      protein_coding:
+        description: Protein-coding gene
+      noncoding:
+        description: Non-coding gene (all noncoding rolled-up)
+  AuthorityType:
+    description: Authority issuing the genome annotation dataset.
+    permissible_values:
+      ENSEMBL:
+        description: Ensembl genome annotation authority
+      NCBI:
+        description: NCBI genome annotation authority
+
+slots:
+  # Core GFF3 columns (minimal set appropriate for gene features)
+  seqid:
+    description: GFF3 column 1; the reference sequence ID (often accession.version).
+    exact_mappings:
+      - gff3:seqid
+  source:
+    description: GFF3 column 2; the annotation source.
+    exact_mappings:
+      - gff3:source
+  type:
+    description: GFF3 column 3; constrained here to gene features.
+    range: GeneFeatureType
+    exact_mappings:
+      - gff3:type
+  start:
+    description: GFF3 column 4; 1-based start coordinate for the gene feature.
+    range: one_based_int
+    exact_mappings:
+      - gff3:start
+  end:
+    description: GFF3 column 5; 1-based end coordinate for the gene feature.
+    range: one_based_int
+    exact_mappings:
+      - gff3:end
+  score:
+    description: GFF3 column 6; floating point score.
+    range: float
+    exact_mappings:
+      - gff3:score
+  strand:
+    description: GFF3 column 7; strand of the feature.
+    range: StrandEnum
+    exact_mappings:
+      - gff3:strand
+
+  # Unified gene identity and classification
+  source_id:
+    description: Authority-specific primary identifier for this gene record.
+    slot_uri: schema:identifier
+    exact_mappings:
+      - gff3:ID
+  molecular_type:
+    description: >
+      Harmonized molecular/biotype classification; small controlled vocabulary
+      with fallback to string. Roll-up target for provider-specific gene_biotype/biotype.
+    any_of:
+      - range: BioType
+      - range: string
+    annotations:
+      ensembl_attr: biotype
+      ncbi_attr: gene_biotype
+
+  # Provenance links
+  referenced_in:
+    description: The genome annotation dataset this gene came from.
+    required: true
+    any_of:
+      - range: GenomeAnnotation
+        inlined: true
+      - range: string
+
+  # Dataset-level metadata slots (reused)
+  version:
+    description: Version string; applies to datasets or assemblies depending on usage context.
+  digest:
+    description: Optional content digest for dataset integrity verification.
+  content_url:
+    description: URL to download or view the dataset content.
+    range: uri
+  authority:
+    description: Authority issuing this dataset.
+    range: AuthorityType
+
+  # Assembly link and minimal attributes
+  reference_assembly:
+    description: The reference genome assembly used by the genome annotation dataset.
+    required: true
+    any_of:
+      - range: GenomeAssembly
+        inlined: true
+      - range: string
+  strain:
+    description: Strain designation of the genome assembly.
+
+  # Harmonized attributes from GFF3 attributes column (column 9)
+  ensembl_gene_id:
+    description: Ensembl gene identifier (e.g., ENSG..., ENSMUSG...).
+    annotations:
+      ensembl_attr: gene_id
+  ncbi_gene_id:
+    description: NCBI Gene identifier as a CURIE (e.g., NCBIGene:####).
+    range: uriorcurie
+    annotations:
+      ncbi_attr: "Dbxref(GeneID)"
+  gene_biotype:
+    description: Provider-specific gene biotype; should roll-up to molecular_type.
+    annotations:
+      ensembl_attr: biotype
+      ncbi_attr: gene_biotype
+  symbol:
+    description: Gene symbol/short name.
+    exact_mappings:
+      - gff3:Name
+  name:
+    description: Full gene name or label; may duplicate symbol in some providers.
+  description:
+    description: Free-text description of the gene.
+    exact_mappings:
+      - gff3:description
+    narrow_mappings:
+      - gff3:Note
+  synonym:
+    description: Alternate names/synonyms for the gene.
+    multivalued: true
+    narrow_mappings:
+      - gff3:Alias
+  xref:
+    description: Cross-references for the gene (e.g., external DB links).
+    multivalued: true
+    exact_mappings:
+      - gff3:Dbxref
+  locus_tag:
+    description: Locus tag used by some providers (esp. NCBI).
+    exact_mappings:
+      - gff3:locus_tag
+  pseudo:
+    description: Whether this is annotated as a pseudogene/pseudo feature.
+    range: boolean
+    exact_mappings:
+      - gff3:pseudo
+  pseudogene_subtype:
+    description: Provider-specific pseudogene subtype classification.
+    narrow_mappings:
+      - gff3:pseudogene
+  note:
+    description: Free-text note(s) provided by the source.
+    multivalued: true
+    exact_mappings:
+      - gff3:Note
+
+classes:
+  # 1. GeneAnnotation
+  GeneAnnotation:
+    is_a: gene
+    description: >
+      Represents a single gene derived from a GFF3 row where type=gene, with
+      minimal coordinates and harmonized attributes. Explicitly references the
+      genome annotation dataset it came from.
+    slots:
+      - source_id
+      - molecular_type
+      - referenced_in
+      - seqid
+      - source
+      - type
+      - start
+      - end
+      - score
+      - strand
+      - symbol
+      - name
+      - description
+      - synonym
+      - xref
+      - ensembl_gene_id
+      - ncbi_gene_id
+      - gene_biotype
+      - locus_tag
+      - pseudo
+      - pseudogene_subtype
+      - note
+      - version
+    slot_usage:
+      type:
+        required: true
+        range: GeneFeatureType
+      start:
+        required: true
+        range: one_based_int
+      end:
+        required: true
+        range: one_based_int
+      strand:
+        range: StrandEnum
+      source_id:
+        exact_mappings:
+          - gff3:ID
+      symbol:
+        exact_mappings:
+          - gff3:Name
+      synonym:
+        narrow_mappings:
+          - gff3:Alias
+      xref:
+        exact_mappings:
+          - gff3:Dbxref
+
+  # 2. GenomeAnnotation
+  GenomeAnnotation:
+    is_a: genome
+    description: >
+      A genome annotation dataset (e.g., an authority’s release of gene annotations).
+      Includes dataset-level metadata and references a genome assembly.
+    slots:
+      - version
+      - digest
+      - content_url
+      - authority
+      - reference_assembly
+    slot_usage:
+      reference_assembly:
+        required: true
+        any_of:
+          - range: GenomeAssembly
+            inlined: true
+          - range: string
+      content_url:
+        range: uri
+      authority:
+        range: AuthorityType
+
+  # 3. GenomeAssembly
+  GenomeAssembly:
+    is_a: named thing
+    mixins:
+      - thing with taxon
+    description: >
+      Represents the genome assembly used by a genome annotation dataset. Provides
+      minimal assembly metadata and taxon context via mixin.
+    slots:
+      - version
+      - strain
+
+  # 4. AnnotationCollection (tree root)
+  AnnotationCollection:
+    tree_root: true
+    description: Root container for transporting sets of gene annotations, genome annotations, and assemblies.
+    attributes:
+      annotations:
+        description: A list of gene annotations.
+        range: GeneAnnotation
+        multivalued: true
+        inlined_as_list: true
+      genome_annotations:
+        description: A list of genome annotation datasets.
+        range: GenomeAnnotation
+        multivalued: true
+        inlined_as_list: true
+      genome_assemblies:
+        description: A list of genome assemblies.
+        range: GenomeAssembly
+        multivalued: true
+        inlined_as_list: true

@@ -1,0 +1,783 @@
+################################################################################
+README for NCBI's GFF3 format specifications
+
+Last updated: January 6, 2020
+################################################################################
+
+=========================================================================
+UPDATES TO THIS README:
+
+June 26, 2015   First version
+July 16, 2015   updates to ID and gene_biotype attribute descriptions
+Aug  24, 2015   added details on how to infer start and stop codons
+May   6, 2016   clarified details about gene_biotype=other
+=========================================================================
+
+
+==========
+BACKGROUND
+==========
+
+Genome annotation files are provided in GFF3 format for all annotated assemblies
+included in NCBI's genomes FTP resource. GFF3 files are formatted according to 
+the specifications described at:
+http://www.sequenceontology.org/gff3.shtml
+
+Files are available by anonymous FTP at:
+        https://ftp.ncbi.nlm.nih.gov/genomes/all/ 
+        https://ftp.ncbi.nlm.nih.gov/genomes/genbank/
+        https://ftp.ncbi.nlm.nih.gov/genomes/refseq/
+        https://ftp.ncbi.nlm.nih.gov/genomes/<species_name>/
+		
+This README file is provided to describe attributes and formatting details
+characteristic of NCBI's GFF3 files.
+
+
+==========
+DIRECTIVES
+==========
+
+Official directives
+-------------------
+
+The following directives or pragmas are provided according to the GFF3 
+specifications:
+##gff-version
+##sequence-region
+##species
+
+Un-official directives
+----------------------
+
+The following directives are not part of the official GFF3 specifications, but 
+have either been proposed or are provided as additional information to aid in
+parsing the files. They are indicated by a leading '#!'.
+
+#!gff-spec-version
+   specific version of the GFF3 specification that the files conform to
+
+#!processor
+   NCBI application used to generate the files
+
+#!genome-build
+   Assembly name, if the set of seqids included in the file correspond to a
+   specific genome assembly
+
+#!genome-build-accession
+   Assembly accession.version as defined in NCBI's Assembly resource. This is
+   a stable, unique identifier for the set of sequence records included in an
+   assembly as found in INSDC or RefSeq, and it is highly recommended to use
+   the assembly accession.version in addition to or instead of the assembly
+   name to ensure consistency in datasets. The accession.version can be used 
+   to access the Assembly resource using a URL with the following format:
+   https://www.ncbi.nlm.nih.gov/assembly/<accession.version>
+
+#!annotation-date
+   Date the annotation was produced, if available
+
+#!annotation-source
+   Source and name to use for the annotation, if available
+
+   
+=====================
+COLUMN SPECIFICATIONS
+=====================
+
+Column 1: "seqid"
+   accession.version of the annotated genomic sequence. 
+   NCBI files universally use accession.version because it provides an 
+   unambiguous identifier for the annotated sequence, and does not require
+   additional knowledge of the species, assembly and version, and data source.
+   We strongly recommend using accession.version instead of ambiguous seqids
+   such as 'chr1' to avoid errors due to mis-associating features with the
+   wrong genomic location.
+   
+Column 2: "source"
+   For annotations produced by one of NCBI's pipelines, the method used to
+   generate the annotation is provided in column 2. The method is found in the
+   ModelEvidence object in ASN.1 format, and appears in the flatfile format as
+   a structured note. For example:
+   "Derived by automated computational analysis using gene prediction method: 
+   BestRefSeq"
+
+   The reported methods for RefSeq eukaryotic annotations include:
+
+      BestRefSeq: feature projected from the alignment of a "known" RefSeq 
+           transcript to the genome   
+      Curated Genomic: feature projected from the alignment of a curated RefSeq
+           genomic sequence to the genome
+      Gnomon: feature predicted by Gnomon, using transcript and protein evidence
+           and/or ab initio
+      BestRefSeq%2CGnomon: gene with children features predicted by BestRefSeq 
+           and Gnomon
+      Curated Genomic%2CGnomon: gene with children features predicted Curated 
+           Genomic or Gnomon
+      tRNAscan-SE: feature predicted by tRNAscan-SE
+
+   The reported methods for RefSeq prokaryotic annotations include:
+
+      GeneMarkS+: feature predicted by GeneMarkS+
+      Protein Homology: feature predicted by protein alignment
+      cmsearch: feature predicted by cmsearch
+      tRNAscan-SE: feature predicted by tRNAscan-SE
+
+   If the annotation method is not available, the source column is based on the
+   source database for the record (RefSeq, GenBank, EMBL, DDBJ).
+   
+Column 3: "type"
+   The SOFA feature type most equivalent to the feature found in the source
+   annotation. The original GenBank feature type is also provided by the "gbkey"
+   attribute in column 9.
+   
+Columns 4 & 5: "start" and "end"
+   Start and end coordinates of the feature in 1-based coordinates. Note two
+   exon or CDS rows of the same feature may overlap or be separated by an
+   artificial "micro-intron" in order to represent cases of ribosomal slippage 
+   or putative assembly errors. See Additional Details below for more 
+   information.
+   
+Column 6: "score"
+   Currently only provided for alignments, if they contain a score named 
+   "score". The definition of this score may vary depending on the type of 
+   alignment.
+   
+Column 7: "strand"
+   The strand of the feature
+   
+Column 8: "phase"
+   The phase of the CDS feature, which is related to /codon_start in the 
+   flatfile specification. The phase is computed based on the known phase at 
+   the start of the CDS and computed for subsequent CDS rows. It may not be 
+   accurate if the CDS contains internal frameshifts, which can occur in 
+   pseudogenes and in genomes with indels, assembly gaps, and other errors. 
+   See Additional Details below for more information.
+
+Column 9: "attributes"
+   A semicolon delimited list of official and additional attributes describing 
+   the feature.
+
+
+========================
+ATTRIBUTE SPECIFICATIONS
+========================
+
+Attributes in column 9 conform to the GFF3 specification, which uses a starting
+Capital letter for official attributes and starting lower-case letter for other
+attributes. 
+
+Official GFF3 attributes
+------------------------
+ID
+   A unique identifier for the feature. Most IDs are generated on-the-fly 
+   during file generation. They are not intended to be used as stable feature
+   identifiers, and they are likely to change between annotation versions. 
+   Multiple rows with the same ID designate a single feature that is 
+   composed of multiple parts, most common for CDSes and multi-exon alignments 
+   but possible for other feature types as well. Note other attributes such as 
+   gene symbols, GeneIDs, and transcript or protein accessions may occur on 
+   multiple features, whereas the ID is globally unique for an individual file.
+
+Parent
+   ID of the parent of the feature
+   
+Dbxref
+   a set of comma-separated tag:ID pairs corresponding to the /db_xref
+   qualifiers provided in the source annotation. Note database IDs can contain
+   colons, so a format such as "HGNC:HGNC:1100" is expected and should be 
+   parsed on the first colon. URLs corresponding to specific database tags are 
+   available at:
+   https://www.ncbi.nlm.nih.gov/genbank/collab/db_xref   
+   
+   Most Dbxref tags known to NCBI are also available in the list provided by
+   the Gene Ontology Consortium at:
+   ftp://ftp.geneontology.org/pub/go/doc/GO.xrf_abbs
+
+Name
+   A suggested display name for the feature, currently populated for specific 
+   features:
+     region "landmark" feature -- chromosome or linkage group, if available
+     gene -- gene symbol or locus_tag
+     RNA (multiple types) and CDS -- product accession.version (if exists)
+   
+Note
+   feature comment. This appears as a /note qualifier in the GenBank format.
+   Additional text may appear in the flatfile /note that internally is not part
+   of a comment, and is not included in the GFF3 Note attribute.
+   
+Is_circular
+   provided on the landmark "region" feature as 'Is_circular=true' if the record
+   is annotated to be a circular chromosome.
+
+Non-official attributes
+-----------------------   
+
+This section describes the non-official attributes that are considered to be 
+the most informative for interpreting NCBI's GFF3 files. Many of the 
+non-official attributes, including those not described here, correspond to 
+qualifiers that are described for the GenBank flatfile format at:
+http://www.insdc.org/files/feature_table.html#7.2
+
+anticodon
+   Position of the anticodon on the seq-id for a tRNA feature
+
+description
+   The gene full name, corresponding to /gene_desc in the flatfile format.   
+   
+exception
+   indicates that the transcription or translation product of the feature as
+   derived from the annotated sequence does not match the sequence of the 
+   product. There are several common usages in annotations from the RefSeq 
+   eukaryotic genome annotation pipeline (e.g. RefSeq annotation for human):
+   1) features corresponding to known RefSeq transcripts (NM_) or proteins (NP_)
+      that have mismatches, indels, or additional sequence compared to the 
+      genome. These use the "exception=annotated by transcript or 
+      proteomic data".
+   2) features corresponding to model RefSeq transcripts (XM_) or proteins (XP_)
+      that have additional sequence compared to the genome. These use 
+      "exception=annotated by transcript or proteomic data".
+   3) features corresponding to model RefSeq transcripts (XM_) or proteins (XP_)
+      annotated as having indels compared to the genome. These use
+      "exception=unclassified transcription discrepancy" or
+      "exception=unclassified translation discrepancy".
+   4) features that undergo programmed genomic rearrangements in order to 
+      generate a functional transcript and protein product. These use
+      "exception=rearrangement required for product".
+   5) CDS features that undergo +1 or -1 translation frameshifts (aka ribosomal
+      slippage) use "exception=ribosomal slippage". See Additional Details for 
+      more information.
+	  
+   These and other exceptions may also appear in INSDC annotations, with 
+   similar meanings.
+   
+exon_number
+   The GFF3 specification does not include explicit numbering of exons, as is
+   sometimes found in GTF files. Occasionally an exon_number attribute is 
+   present on exon features that are annotated separately from an RNA feature. 
+   Exon features that are children of mRNA or other transcript features do not
+   include an explicit exon_number attribute, and their relative order should be
+   inferred from the order on the genome.
+   
+gbkey
+   The original GenBank feature type, before conversion into the SOFA type
+   indicated in column 3. Feature types are described at:
+   http://www.insdc.org/files/feature_table.html#7.2
+   
+gene
+   The primary gene symbol.
+   
+gene_biotype
+   Attribute computed on gene features based on the set of child features to 
+   indicate the overall biotype for the gene annotation at this location. 
+   This attribute was introduced in June 2015, and is not present in older 
+   files. Values are:
+     protein_coding: gene has at least one CDS feature, and is not a Ig/TCR
+       segment or pseudogene
+     V_region, V_segment, D_segment, J_segment, C_region, tRNA, rRNA, snRNA, 
+       snoRNA, tmRNA, miscRNA: gene has one or more of the child
+       features, and no other type, and is not a pseudogene
+     V_region_pseudogene, etc: same as above, but the gene is marked as a 
+       pseudogene
+     transcribed_pseudogene: only has miscRNA child feature(s) marked as 
+       pseudogene
+     lncRNA, and additional ncRNA classes: gene has one or more child ncRNA
+       features of a single ncRNA_class. If ncRNA_class="other", then the
+       gene_biotype=ncRNA. A full list of ncRNA_classes is available at:
+       http://www.insdc.org/rna_vocab.html
+     miRNA: a gene with only miRNA child features, or both miRNA and
+       precursor_RNA
+     segment: gene has a CDS with a "rearrangment required for product" 
+       exception, no specific region or segment feature, and is not a pseudogene
+     segment_pseudogene: same as segment, but is a pseudogene
+     pseudogene: marked as a pseudogene, but does not meet any of the more
+       specific criteria above.
+     other: rare cases where gene does not meet any of the above criteria. For
+       example, a partial gene with only mRNA and no CDS child feature(s) is
+       sometimes annotated by RefSeq to represent a location that contains 
+       only 5' or 3' UTR, or a gene feature that is not marked as a pseudogene
+       but has no child features.
+	   
+   Note: There may be multiple gene features on a single assembly annotated 
+   with the same GeneID dbxref because they are considered to be different 
+   parts or alleles of the same gene. In these cases, it's possible for the
+   gene features to be annotated with different gene_biotype values, such as
+   protein_coding and transcribed_pseudogene or protein_coding and other.
+
+gene_synonym
+   One or more additional synonyms for gene symbol.
+
+locus_tag
+   locus_tag is intended to be a unique value on each gene feature, and is
+   also propagated to child features. In some cases it may not be unique because
+   of errors in data files. Annotations from the RefSeq eukaryotic annotation
+   pipeline do not use locus_tag.
+   
+ncrna_class
+   An additional qualifier provided on ncRNA features to indicate a specific
+   feature subtype, such as miRNA or lncRNA. The current list of valid 
+   ncrna_class values can be found in the feature table documentation:
+   http://www.insdc.org/files/feature_table.html#7.2   
+
+part
+   A proposed attribute for the official GFF3 specification that has not yet
+   been finalized. Indicates the order in which multiple rows for the same ID 
+   should be joined, using the format "part=X/Y", where X is the row order and
+   Y is the total number of rows. Only found on some types of features such as
+   genes that are rarely represented as more than one range.
+
+partial
+   Indicates that the feature is considered to be partial, either internally or
+   at one or both ends. The start_range and end_range attributes indicate which
+   end of an interval is partial. The partial attribute always appears with the 
+   value 'true' (i.e. partial=true).
+
+product
+   Name of the transcript or protein product, corresponding to /product in the
+   GenBank flatfile format.
+   
+protein_id
+   Accession.version of the product record for the protein feature, if one 
+   exists.
+   
+pseudo
+   The feature, or its parent, is annotated as a non-functional version. If 
+   present, it is always provided with the value 'true' (i.e. pseudo=true).
+   
+pseudogene
+   A more specific attribute indicating the feature is considered to be a
+   pseudogene. The value is a controlled vocabulary, as described at:
+   http://www.insdc.org/documents/pseudogene-qualifier-vocabulary
+
+start_range
+end_range
+   Attributes adapted from GVF to indicate partial feature boundaries. The value
+   is two integers (or a '.' for an unknown value) separated by a comma, where
+   the two values indicate the range of ambiguity for that boundary. The
+   start_range attribute applies to column 4, and end_range applies to column 5.
+   If a '.' is used for the outer range value, as is always the case in NCBI's
+   current files, then presence of a start_range attribute can simply be 
+   interpreted as column 4 is partial, and an end_range attribute as column 5 
+   is partial, regardless of strand, without further analysis of the tag value. 
+   Further details about the attributes are available in the GVF specifications:
+   http://www.sequenceontology.org/resources/gvf_1.05.html#attribute_summary
+
+transcript_id
+   Accession.version of the product record for the transcript feature, if one 
+   exists.
+
+transl_except
+   One or more translation exceptions, found on CDS features. These indicate 
+   codons on the genome (in coordinates corresponding to the column 1 seq-id)
+   that should be considered to be translated as a different amino acid than
+   expected by the codon sequence and translation table for this organism. The 
+   format corresponds to that used in the flatfile format, with some encoded
+   characters. For example:
+   transl_except=(pos:25802093..25802095%2Caa:OTHER)
+   means the codon at the indicated position should be translated as "X",
+   typically instead of a stop codon.
+
+   
+=====================
+ANNOTATION DATA MODEL
+=====================
+   
+The annotation in GFF3 format reflects the annotation in the source GenBank or
+RefSeq records, adapted according to the GFF3 specifications. Thus, the data
+model may vary depending on what information was provided by the annotation 
+submitter. Annotations in RefSeq are more standardized through the use of either
+NCBI's own annotation pipelines or additional cleanup steps applied when
+propagating INSDC submitted annotation into RefSeq records.
+
+In general, annotations conform to the central dogma of gene-mRNA-CDS, or
+gene-RNA for non-coding genes, with some exceptions:
+
+   Protein-coding gene annotations in prokaryotes, organelles, and some 
+   eukaryote records lack mRNA features in INSDC and RefSeq annotations, and 
+   therefore lack mRNA features in the GFF3 files, as allowed by the GFF3 
+   specifications. See "NOTE 2" in the GFF3 specifications for more details.
+   
+   Gene segment annotations for immunoglobulin and T-cell receptor genes that
+   undergo genomic rearrangements are commonly represented by gene, 
+   C/V/D/J_gene_segment, and CDS features corresponding to individual segments
+   of the overall gene. The C/V/D/J_gene_segment feature with one or more child
+   exon features can be treated similar to a transcript feature. Currently, the
+   CDS features for gene segments use the Gene feature as the Parent.
+   
+   Some pseudogene annotations are represented by a CDS feature with no
+   corresponding mRNA Parent feature.
+   
+   Some RNA annotations, especially tRNAs, may not have a corresponding Gene
+   parent. This is more common in older annotation submissions.
+
+RefSeq annotations from NCBI's eukaryotic genome annotation pipeline include
+additional conventions that may be relevant for processing. A complete list of 
+organisms in RefSeq annotated with NCBI's pipeline can be found at:
+https://www.ncbi.nlm.nih.gov/genome/annotation_euk/all/
+
+Notable conventions used in RefSeq annotations from NCBI's eukaryotic genome
+annotation pipeline are:
+
+   Transcribed genes, both protein-coding and non-coding, may be annotated with
+   multiple transcript variants and protein isoforms. A single gene may have
+   both "known" (NM/NR/NP) and "model" (XM/XR/XP) RefSeq products. Known RefSeqs
+   are created both through curation done at NCBI, and automated processes
+   using annotated INSDC sequences, whereas model RefSeqs are created by
+   automated processes primarily based on alignment evidence supplemented with
+   ab initio prediction.
+
+   A protein-coding gene may have both coding and non-coding transcript child
+   features. Coding transcripts are represented by mRNA-exon-CDS features, and
+   non-coding transcripts are represented by transcript-exon features.
+   
+   Non-transcribed pseudogenes are annotated with a gene feature, and may have
+   child exon features if sufficient evidence was available to define the pseudo
+   exon structure. No mRNA or CDS feature is annotated because the gene is
+   thought to not produce an RNA or protein.
+
+   Transcribed pseudogenes are annotated with a gene feature and one or more
+   transcript-exon features.
+   
+   MicroRNAs are annotated as gene-primary_transcript-exon features based on
+   the stem-loop sequence identified by miRBase. Additional ncRNA child 
+   features with the attribute ncrna_class=miRNA are annotated to represent the
+   mature miRNA products. The miRNA features currently have the Gene feature as
+   the parent.
+
+   Additional non-coding transcripts are annotated as ncRNA, rRNA, or tRNA
+   features with one or more exon child features.
+   
+Both "known" (NM/NR/NP) and "model" (XM/XR/XP) RefSeq transcript and protein
+products may have differences (mismatches or indels) or additional sequence
+compared to the sequence of the corresponding genome feature. These differences
+are conveyed in several ways:
+
+   A Note describing the differences is provided on the affected transcript or 
+   CDS feature. 
+   
+   For RefSeqs with indels or additional 5' or internal sequence, an alignment 
+   between the transcript and genome is provided that can be used to map 
+   between genome, transcript, and protein coordinates. These alignments are 
+   found at the end of each seq-id. See below for details on the alignment 
+   format specifications.
+   
+   More recent GFF files under the /genomes/<genus_species> FTP path incorporate
+   the use of short overlaps or micro-introns to adjust the annotated feature
+   for insertions or deletions in the coding region compared to the RefSeq
+   product. See Additional Details below for more information.
+
+   For CDS features with internal stop codons compared to the RefSeq product, 
+   a transl_except attribute is provided to indicate the location of the stop
+   codon, and the amino acid that is thought to be encoded at that position.
+   Model RefSeqs use aa:OTHER to indicate the stop codon in the genome may be
+   in error, but the correct sequence is unknown. Known RefSeqs may also use
+   aa:OTHER in older files (fixed in mid 2015). The transl_except attribute is
+   also used to indicate stop codons in the genome that are naturally translated
+   as selenocysteine (Sec).
+   
+   RefSeqs with additional sequence that does not align to the genome, with the
+   exception of 3' polyA tails and very short unaligned 5' sequence, are
+   annotated with partial features. This markup includes a partial=true
+   attribute on all rows of the affected feature, and a start_range and/or
+   end_range attribute on the specific rows that are marked as partial (see
+   above for a description of start_range/end_range). The most common partial
+   markup is for the 5'-most or 3'-most end of the mRNA and CDS to be marked
+   as partial, but it is also possible for internal sequence to be missing, in
+   which case internal exon and CDS rows will be marked with start_range or 
+   end_range. 
+   
+
+==================
+ADDITIONAL DETAILS
+==================
+
+The source 'region' feature
+---------------------------
+The first feature row for every seqid is a "region" feature spanning the 
+entire range of the sequence, and corresponds to the "source feature" that
+appears in the GenBank flatfile format. It can be identified by the 
+"gbkey=Src" attribute, and can function as the landmark feature that is used 
+by some software but is not well defined in the current GFF3 specifications. 
+It contains many qualifiers with information about the source of the record.
+These include:
+
+Name
+   Currently set to the source chromosome value, if known. The value chosen for
+   Name may be revised in the future to better address requirements for some 
+   software.
+
+chromosome
+   The chromosome of the record, if one is assigned. Note some scaffolds may be
+   assigned to a specific chromosome even if they are not part of a single
+   record for that chromosome ("unlocalized scaffolds").
+
+Is_circular
+   see official GFF3 attributes above
+
+genome
+   The genome source of the record, corresponding to "source genome <value>" in
+   the ASN.1 specification, and indexed as "gene in <value>[properties]" in the 
+   Entrez nucleotide indexing system.
+
+linkage-group
+   The linkage group of the record, if one is assigned. Similar to chromosome.
+
+mol_type
+   The molecule type of the record, such as "genomic DNA" or "mRNA"
+
+transl_table
+   the genetic code table to use for translation of CDS features, if other than
+   the universal table. More details are available at:
+   http://www.insdc.org/files/feature_table.html#7.4.5
+  
+ 
+UTRs
+----
+5' and 3' UTR features for mRNAs are not explicitly annotated, but can be 
+inferred from the difference between the child exon and CDS features. For 
+applications that require explicit five_prime_UTR and three_prime_UTR features,
+a Python script to add UTR features is available at:
+https://ftp.ncbi.nlm.nih.gov/genomes/TOOLS/add_utrs_to_gff/
+
+
+Start and stop codons
+---------------------
+start_codon and stop_codon features are not explicitly annotated, but can be 
+inferred from the beginning and end of the CDS feature, if that CDS feature is 
+not partial on the end in question. Partialness is represented by start_range 
+and end_range attributes in NCBI's GFF3 files, using a format adapted from GVF.
+
+More specifically:
+1) the CDS is 5' partial and does not include a start codon if:
+  a) the first CDS row is on the + strand and has a start_range=.,### attribute.
+  b) the first CDS row is on the - strand and has an end_range=###,. attribute.
+
+2) the CDS is 3' partial and does not include a stop codon if:
+  a) the last CDS row is on the + strand and has an end_range=###,. attribute.
+  b) the last CDS row is on the - strand and has a start_range=.,### attribute.
+
+If those conditions are not met, then you can infer the start_codon and 
+stop_codon position from the first or last 3 bp of the CDS feature.
+
+
+
+Origin-spanning features
+------------------------
+If an interval (an individual row) spans the origin of a circular sequence, the
+column 5 coordinate is extended into virtual space. This means that a parent
+feature may be extended into virtual space, but its child features are not, and
+some child features may not fall within the span of the parent. For example:
+
+A simple case, with single interval gene and CDS features that both span the 
+origin:
+
+##sequence-region NC_005213.1 1 490885
+NC_005213.1	RefSeq	gene	490883	491764	.	-	.	ID=gene1
+NC_005213.1	RefSeq	CDS	490883	491764	.	-	0	ID=cds0;;Parent=gene1
+
+A complex multi-exon case, where the gene and mRNA features span the origin, but
+none of the individual exon or CDS rows span the origin. Note the exon and CDS
+at 959..966(-) that do not fall within the span of the Parent mRNA:
+
+##sequence-region NC_004367.1 1 149696
+NC_004367.1	RefSeq	gene	138637	150662	.	-	.	ID=gene0
+NC_004367.1	RefSeq	mRNA	138637	150662	.	-	.	ID=rna0;Parent=gene0
+NC_004367.1	RefSeq	exon	959	966	.	-	.	ID=id1;Parent=rna0
+NC_004367.1	RefSeq	exon	140247	140485	.	-	.	ID=id2;Parent=rna0
+NC_004367.1	RefSeq	exon	140075	140167	.	-	.	ID=id3;Parent=rna0
+NC_004367.1	RefSeq	exon	139744	139992	.	-	.	ID=id4;Parent=rna0
+NC_004367.1	RefSeq	exon	139572	139661	.	-	.	ID=id5;Parent=rna0
+NC_004367.1	RefSeq	exon	139294	139458	.	-	.	ID=id6;Parent=rna0
+NC_004367.1	RefSeq	exon	139106	139219	.	-	.	ID=id7;Parent=rna0
+NC_004367.1	RefSeq	exon	138904	139005	.	-	.	ID=id8;Parent=rna0
+NC_004367.1	RefSeq	exon	138637	138818	.	-	.	ID=id9;Parent=rna0
+NC_004367.1	RefSeq	CDS	959	966	.	-	0	ID=cds0;Parent=rna0
+NC_004367.1	RefSeq	CDS	140247	140485	.	-	1	ID=cds0;Parent=rna0
+NC_004367.1	RefSeq	CDS	140075	140167	.	-	2	ID=cds0;Parent=rna0
+NC_004367.1	RefSeq	CDS	139744	139992	.	-	2	ID=cds0;Parent=rna0
+NC_004367.1	RefSeq	CDS	139572	139661	.	-	2	ID=cds0;Parent=rna0
+NC_004367.1	RefSeq	CDS	139294	139458	.	-	2	ID=cds0;Parent=rna0
+NC_004367.1	RefSeq	CDS	139106	139219	.	-	2	ID=cds0;Parent=rna0
+NC_004367.1	RefSeq	CDS	138904	139005	.	-	2	ID=cds0;Parent=rna0
+NC_004367.1	RefSeq	CDS	138637	138818	.	-	2	ID=cds0;Parent=rna0
+
+
+Annotation accommodations for putative assembly errors
+------------------------------------------------------
+The INSDC annotation specification includes several options for annotating mRNA
+and CDS features affected by putative assembly errors, and these conventions can
+also appear in the GFF3 format for both GenBank and RefSeq genomes.
+
+CDSes with internal stop codons that are believed to be in error can be
+annotated with a transl_except attribute on the CDS feature to indicate the 
+location of the internal stop codon and its replacement amino acid.
+
+mRNA and CDS features disrupted by frameshifting insertions or deletions that 
+are thought to represent assembly errors may be adjusted through the use of 
+short overlaps or "micro-introns" between exon and CDS rows of the same mRNA 
+feature. These adjustments artificially appear to split a single exon into two,
+but serve to restore the reading frame and allow representation of a complete 
+CDS in the correct frame. In the case of an overlap, the overlapping base does 
+not necessarily represent the correct sequence, but serves to represent an 
+insertion of a length that restores the proper reading frame. 
+
+The overlap/micro-intron format is a compromise designed to allow processing by
+most software; however, some software may not properly accommodate overlaps, in 
+which case the annotation may require modification. 
+     
+   If the software supports internal phase shifts with a partial codon in the
+   middle of the CDS, then an overlap can be adjusted by trimming the
+   coordinate of the first row (modify column 5 if the feature is on the +
+   strand, and column 4 if the feature is on the - strand), without altering 
+   the phase column:
+
+original:
+seq1   GenBank	CDS	100	150	.	+	0	ID=cds1
+seq1   GenBank	CDS	150	200	.	+	0	ID=cds1
+
+altered:
+seq1   GenBank	CDS	100	149	.	+	0	ID=cds1
+seq1   GenBank	CDS	150	200	.	+	0	ID=cds1
+
+   If the software does not support either overlaps or internal phase shifts,
+   then the alternative is to adjust the first row by a multiple of three,
+   creating a micro-intron that maintains the proper phase:
+
+original:
+seq1	GenBank	CDS	100	150	.	+	0	ID=cds1
+seq1	GenBank	CDS	150	200	.	+	0	ID=cds1
+
+altered:
+seq1	GenBank	CDS	100	147	.	+	0	ID=cds1
+seq1	GenBank	CDS	150	200	.	+	0	ID=cds1
+
+
+
+Ribosomal slippage
+------------------
+Some proteins are expressed by a process involving  +1 or -1 translation 
+frameshifts (aka ribosomal slippage). In this case the CDS feature for what is 
+a single exon is split into two intervals, with either a small gap (positive 
+slippage) or a slight overlap (negative slippage), similar to how some putative
+assembly error cases are annotated. However, for ribosomal slippage annotations
+the exons of the corresponding mRNA feature do NOT include the slippage because 
+only the translated protein is affected by the slippage event. These types of
+CDS features can be identified by the attribute "exception=ribosomal slippage".
+    
+   
+==========
+ALIGNMENTS
+==========
+
+Alignments are provided according to the GFF3 specifications. They are
+identified by the SO type in column 3:
+   cDNA_match -- used for mRNA-genome alignments
+   EST_match -- used for EST-genome alignments
+   protein_match -- used for protein-genome alignments
+   match -- used for all other alignments, including transcripts other than mRNA
+
+They appear in several places:
+
+   Genomic annotation GFF3 files include alignments for genomic RefSeq (NGs), 
+   and those transcript RefSeqs (NM/NR and XM/XR accession prefixes) where the 
+   transcript does not map perfectly to the feature (see ANNOTATION DATA MODEL).
+   
+   Genome-genome alignment files as used by NCBI's Remap service:
+   https://ftp.ncbi.nlm.nih.gov/pub/remap/
+   
+   Primary-ALT_LOCI and primary-PATCH alignment files, provided as part of
+   the human and mouse GRC assemblies, indicating correspondence between
+   locations on the primary assembly and sequences of alternate loci. For 
+   example: 
+   https://ftp.ncbi.nlm.nih.gov/genomes/refseq/vertebrate_mammalian/Homo_sapiens/reference/*/*/ALT_REF_LOCI_1/alt_scaffolds/alignments/
+   
+   Transcript alignment files for eukaryotes produced by NCBI's eukaryotic
+   genome annotation pipeline, provided in the Evidence_alignments sub-directory. 
+   For example:
+   https://ftp.ncbi.nlm.nih.gov/genomes/refseq/vertebrate_mammalian/Mus_musculus/annotation_releases/108/GCF_000001635.26_GRCm38.p6/Evidence_alignments/GCF_000001635.26_GRCm38.p6_same_species_tx_alns.gff.gz
+
+   RefSeq transcript and RefSeqGene genomic alignments for human and mouse,
+   updated weekly with newly released accessions and versions:
+   https://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/alignments/
+   https://ftp.ncbi.nlm.nih.gov/refseq/M_musculus/alignments/
+
+   
+Official GFF3 attributes
+------------------------
+
+ID
+   A unique identifier for the alignment. Some alignments use a long UUID string
+   as a stable alignment identifier. Multiple rows with the same ID indicate
+   parts of the same alignment. For example, transcript alignments are
+   represented with a separate row representing each exon of the transcript.
+
+Target
+   The accession.version of the sequence aligned to the reference sequence
+   indicated in column 1. The format is "target_id start end strand", where 
+   start < end.
+
+Gap
+   Location of Gaps (indels) in the alignment in the Exonerate CIGAR format
+   where 'M' indicates an aligned base (which may be either a match or
+   mismatch). The locations of mismatches must be computed by comparing the
+   Target and Reference sequences. The Gap attribute is omitted if there are
+   no indels within the alignment Target range.
+   
+   The Gap attribute is relative to the Target sequence and range
+   for that row of the alignment. If the Target is in minus orientation, then 
+   the Gap string is read from end to start. For example:
+     ID=aln1;Target=NG_033055.1 1 7866 -;Gap=M7047 D1 M819
+     indicates:
+        NG_0033055.1:7866..820 "match"
+        followed by a deletion of 1 bp (the extra base is present in the    
+           reference sequence, and missing from the target)
+        NG_0033055.1:819..1  "match"
+	  
+   Note gaps can also be represented by ranges of the Target (either at the
+   beginning, end, or internally) that are not found in any row of the 
+   alignment.
+   
+Non-official attributes
+-----------------------  
+
+A wide variety of scores may be present in alignment files depending on the 
+process that generated them. Many aren't of direct use to most users. Most
+reported scores, including all scores listed below, apply to the alignment as 
+a whole (all rows with the same ID). The most useful scores are described here:
+
+gap_count
+   number of gap openings in the alignment. Equal to the number of D or I codes
+   in the Gap string.
+   
+num_ident
+   number of identities in the alignment
+
+num_mismatch
+   number of mismatches in the alignment. If num_mismatch=0, then there are no
+   mismatches within the aligned portion of the Target and Reference (for any
+   match row with the same ID)
+   
+pct_coverage
+   Gapped percent coverage of the Target sequence.
+   
+pct_identity_gap
+   Gapped percent identity, for the aligned portion of the Target. This is the 
+   standard BLAST percent identity score. Unaligned portions of the Target 
+   (not included in any match row with the same ID) do not affect the reported
+   identity.
+   
+pct_identity_gapopen_only
+   Percent identity, counting gaps as a mismatch regardless of length.
+   
+pct_identity_ungap
+   Percent identity, ignoring gaps
+   
+reciprocity
+   Used for assembly-assembly alignments. Values:
+   3 == alignment is best for both Reference and Target. Also referred to as 
+        'First-Pass Alignments'
+   1 or 2 == alignment is best for one sequence, but a better alignment is
+        reported for the other sequence. Also referred to as 'Second-Pass
+		Alignments'
+
+More details on some of the reported scores is available in the NCBI C++
+Toolkit documentation:
+https://www.ncbi.nlm.nih.gov/IEB/ToolBox/CPP_DOC/doxyhtml/classCSeq__align.html#a0a7501fd78111aeea55afdf681847c01
