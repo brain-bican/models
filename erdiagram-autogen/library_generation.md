@@ -6,7 +6,6 @@ DigitalAsset {
     string data_type  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -15,10 +14,14 @@ DigitalAsset {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
     string license  
     string rights  
     string format  
     date creation_date  
+    uriorcurieList category  
 }
 ProvActivity {
 
@@ -39,7 +42,6 @@ LibraryPooling {
     string process_date  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -48,6 +50,10 @@ LibraryPooling {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 LibraryConstruction {
     library_technique library_construction_method  
@@ -56,7 +62,6 @@ LibraryConstruction {
     string library_construction_set  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -65,6 +70,10 @@ LibraryConstruction {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 CdnaAmplification {
     integer pcr_cycles  
@@ -72,7 +81,6 @@ CdnaAmplification {
     string cDNA_amplification_set  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -81,6 +89,10 @@ CdnaAmplification {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 CellBarcoding {
     string port_well  
@@ -89,7 +101,6 @@ CellBarcoding {
     barcoded_cell_sample_technique cell_barcoding_method  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -98,11 +109,14 @@ CellBarcoding {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 EnrichedCellSampleSplitting {
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -111,12 +125,15 @@ EnrichedCellSampleSplitting {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 CellEnrichment {
     string cell_enrichment_process_date  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -125,12 +142,15 @@ CellEnrichment {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 CellDissociation {
     string cell_dissociation_process_date  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -139,11 +159,14 @@ CellDissociation {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 TissueDissection {
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -152,11 +175,14 @@ TissueDissection {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 DissectionRoiDelineation {
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -165,13 +191,16 @@ DissectionRoiDelineation {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 LibraryPool {
     label_type name  
     string local_tube_id  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -179,12 +208,15 @@ LibraryPool {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 LibraryAliquot {
     label_type name  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -192,6 +224,10 @@ LibraryAliquot {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 Library {
     label_type name  
@@ -203,7 +239,6 @@ Library {
     library_r1_r2_index r1_r2_index  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -211,6 +246,10 @@ Library {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 AmplifiedCdna {
     label_type name  
@@ -219,7 +258,6 @@ AmplifiedCdna {
     float percent_cdna_longer_than_400bp  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -227,13 +265,16 @@ AmplifiedCdna {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 BarcodedCellSample {
     label_type name  
     integer number_of_expected_cells  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -241,6 +282,10 @@ BarcodedCellSample {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 EnrichedCellSample {
     label_type name  
@@ -249,7 +294,6 @@ EnrichedCellSample {
     string histone_modification_marker  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -257,6 +301,10 @@ EnrichedCellSample {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 DissociatedCellSample {
     label_type name  
@@ -264,7 +312,6 @@ DissociatedCellSample {
     dissociated_cell_sample_cell_label_barcode dissociated_cell_oligo_name  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -272,13 +319,16 @@ DissociatedCellSample {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 TissueSample {
     label_type name  
     stringList structure  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -286,12 +336,15 @@ TissueSample {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 BrainSlab {
     label_type name  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -299,6 +352,10 @@ BrainSlab {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 Donor {
     label_type name  
@@ -311,7 +368,6 @@ Donor {
     label_type in_taxon_label  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
@@ -319,6 +375,10 @@ Donor {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 
 DigitalAsset ||--|o LibraryPool : "was_derived_from"

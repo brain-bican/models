@@ -1,10 +1,13 @@
+# command used to generate file: bkbit linkml-trimmer  --classes "gene, genome, organism taxon, thing with taxon, material sample, procedure, entity, activity, named thing, relative frequency analysis result, dataset" --slots "version" biolink-model.yaml
 id: https://w3id.org/biolink/bican-biolink-schema
 name: bican-biolink-schema
 title: BICAN Biolink Schema
-description: The BICAN Biolink schema contains a subset of classes from the Biolink
-  Model that are frequently used in BICAN schemas. The Biolink model represents life-sciences
-  data and defines entities and association taxonomy classes.
-version: 4.2.0-rc.2
+description: The BICAN Biolink schema contains a subset of classes from the 
+            Biolink Model that are frequently used in BICAN schemas.
+            The Biolink model represents life-sciences data and defines 
+            entities and association taxonomy classes.
+created_by: BICAN_bkbit_linkml-trimmer
+version: Biolink-Model-4.3.2
 imports:
 - linkml:types
 license: https://creativecommons.org/publicdomain/zero/1.0/
@@ -114,6 +117,9 @@ prefixes:
   fabio:
     prefix_prefix: fabio
     prefix_reference: http://purl.org/spar/fabio/
+  FMA:
+    prefix_prefix: FMA
+    prefix_reference: http://purl.obolibrary.org/obo/FMA_
   foaf:
     prefix_prefix: foaf
     prefix_reference: http://xmlns.com/foaf/0.1/
@@ -164,10 +170,16 @@ prefixes:
     prefix_reference: http://purl.obolibrary.org/obo/HsapDv_
   ICD10:
     prefix_prefix: ICD10
-    prefix_reference: https://icd.codes/icd9cm/
+    prefix_reference: https://icd.who.int/browse10/2016/en#/
   ICD9:
     prefix_prefix: ICD9
     prefix_reference: http://translator.ncats.nih.gov/ICD9_
+  icd11:
+    prefix_prefix: icd11
+    prefix_reference: http://id.who.int/icd/entity/
+  icd11.foundation:
+    prefix_prefix: icd11.foundation
+    prefix_reference: http://id.who.int/icd/entity/
   interpro:
     prefix_prefix: interpro
     prefix_reference: https://www.ebi.ac.uk/interpro/entry/
@@ -276,8 +288,8 @@ prefixes:
   pav:
     prefix_prefix: pav
     prefix_reference: http://purl.org/pav/
-  PHARMGKB.CHEMICAL:
-    prefix_prefix: PHARMGKB.CHEMICAL
+  PHARMGKB.DRUG:
+    prefix_prefix: PHARMGKB.DRUG
     prefix_reference: https://www.pharmgkb.org/chemical/
   PHARMGKB.DISEASE:
     prefix_prefix: PHARMGKB.DISEASE
@@ -433,107 +445,51 @@ subsets:
     description: TBD
     from_schema: https://w3id.org/biolink/biolink-model
 types:
-  chemical formula value:
-    name: chemical formula value
-    definition_uri: https://w3id.org/biolink/vocab/ChemicalFormulaValue
-    description: A chemical formula
-    notes:
-    - Should be implemented as a stronger type
-    from_schema: https://w3id.org/biolink/biolink-model
-    base: str
-    uri: xsd:string
   iri type:
-    name: iri type
-    definition_uri: https://w3id.org/biolink/vocab/IriType
-    description: An IRI
-    from_schema: https://w3id.org/biolink/biolink-model
+    uri: xsd:string
     typeof: uriorcurie
-    base: URIorCURIE
-    uri: xsd:anyURI
-    repr: str
+    description: >-
+      An IRI
+
   label type:
-    name: label type
-    definition_uri: https://w3id.org/biolink/vocab/LabelType
-    description: A string that provides a human-readable name for an entity
-    from_schema: https://w3id.org/biolink/biolink-model
-    typeof: string
-    base: str
     uri: xsd:string
-  predicate type:
-    name: predicate type
-    definition_uri: https://w3id.org/biolink/vocab/PredicateType
-    description: A CURIE from the biolink related_to hierarchy. For example, biolink:related_to,
-      biolink:causes, biolink:treats.
-    from_schema: https://w3id.org/biolink/biolink-model
-    typeof: uriorcurie
-    base: URIorCURIE
-    uri: xsd:anyURI
-    repr: str
+    typeof: string
+    description: >-
+      A string that provides a human-readable name for an entity
+
   narrative text:
-    name: narrative text
-    definition_uri: https://w3id.org/biolink/vocab/NarrativeText
-    description: A string that provides a human-readable description of something
-    from_schema: https://w3id.org/biolink/biolink-model
-    typeof: string
-    base: str
     uri: xsd:string
-  symbol type:
-    name: symbol type
-    definition_uri: https://w3id.org/biolink/vocab/SymbolType
-    from_schema: https://w3id.org/biolink/biolink-model
     typeof: string
-    base: str
-    uri: xsd:string
-  frequency value:
-    name: frequency value
-    definition_uri: https://w3id.org/biolink/vocab/FrequencyValue
-    from_schema: https://w3id.org/biolink/biolink-model
-    typeof: string
-    base: str
-    uri: UO:0000105
-  percentage frequency value:
-    name: percentage frequency value
-    definition_uri: https://w3id.org/biolink/vocab/PercentageFrequencyValue
-    from_schema: https://w3id.org/biolink/biolink-model
-    typeof: double
-    base: float
-    uri: UO:0000187
-  quotient:
-    name: quotient
-    definition_uri: https://w3id.org/biolink/vocab/Quotient
-    from_schema: https://w3id.org/biolink/biolink-model
-    aliases:
-    - ratio
-    typeof: double
-    base: float
-    uri: UO:0010006
+    description: >-
+      A string that provides a human-readable description of something
+
   unit:
-    name: unit
-    id_prefixes:
-    - UO
-    definition_uri: https://w3id.org/biolink/vocab/Unit
-    from_schema: https://w3id.org/biolink/biolink-model
-    exact_mappings:
-    - qud:Unit
     typeof: string
-    base: str
     uri: UO:0000000
-  time type:
-    name: time type
-    definition_uri: https://w3id.org/biolink/vocab/TimeType
-    from_schema: https://w3id.org/biolink/biolink-model
-    typeof: time
-    base: XSDTime
-    uri: xsd:time
-    repr: str
+    id_prefixes:
+      - UO
+    exact_mappings:
+      - qud:Unit
+
   biological sequence:
-    name: biological sequence
-    definition_uri: https://w3id.org/biolink/vocab/BiologicalSequence
-    from_schema: https://w3id.org/biolink/biolink-model
-    typeof: string
-    base: str
     uri: xsd:string
+    typeof: string
+
+  symbol type:
+    uri: xsd:string
+    typeof: string
+
 slots:
+  node property:
+    name: node property
+    definition_uri: https://w3id.org/biolink/vocab/node_property
+    description: A grouping for any property that holds between a node and a value
+    from_schema: https://w3id.org/biolink/biolink-model
+    abstract: true
+    domain: named thing
+    slot_uri: biolink:node_property
+    owner: node property
+    range: string
   has attribute:
     name: has attribute
     definition_uri: https://w3id.org/biolink/vocab/has_attribute
@@ -581,7 +537,6 @@ slots:
     - NCIT:role_has_range
     - INO:0000154
     - HANCESTRO:0308
-    - OMIM:has_inheritance_type
     - orphanet:C016
     - orphanet:C017
     - RO:0000053
@@ -622,11 +577,11 @@ slots:
     - UMLS:may_be_qualified_by
     domain: entity
     slot_uri: biolink:has_attribute
-    multivalued: true
     owner: entity
     domain_of:
     - entity
     range: attribute
+    multivalued: true
   has attribute type:
     name: has attribute type
     definition_uri: https://w3id.org/biolink/vocab/has_attribute_type
@@ -639,12 +594,12 @@ slots:
     - LOINC:has_view_type
     domain: attribute
     slot_uri: biolink:has_attribute_type
-    multivalued: false
     owner: attribute
     domain_of:
     - attribute
     range: ontology class
     required: true
+    multivalued: false
   has qualitative value:
     name: has qualitative value
     definition_uri: https://w3id.org/biolink/vocab/has_qualitative_value
@@ -654,11 +609,11 @@ slots:
     from_schema: https://w3id.org/biolink/biolink-model
     domain: attribute
     slot_uri: biolink:has_qualitative_value
-    multivalued: false
     owner: attribute
     domain_of:
     - attribute
     range: named thing
+    multivalued: false
   has quantitative value:
     name: has quantitative value
     definition_uri: https://w3id.org/biolink/vocab/has_quantitative_value
@@ -674,11 +629,11 @@ slots:
     - SNOMED:has_presentation_strength_numerator_value
     domain: attribute
     slot_uri: biolink:has_quantitative_value
-    multivalued: true
     owner: attribute
     domain_of:
     - attribute
     range: quantity value
+    multivalued: true
     inlined: true
   has numeric value:
     name: has numeric value
@@ -691,11 +646,11 @@ slots:
     - qud:quantityValue
     domain: quantity value
     slot_uri: biolink:has_numeric_value
-    multivalued: false
     owner: quantity value
     domain_of:
     - quantity value
     range: double
+    multivalued: false
   has unit:
     name: has unit
     definition_uri: https://w3id.org/biolink/vocab/has_unit
@@ -717,20 +672,11 @@ slots:
     - SNOMED:has_unit_of_presentation
     domain: quantity value
     slot_uri: biolink:has_unit
-    multivalued: false
     owner: quantity value
     domain_of:
     - quantity value
     range: unit
-  node property:
-    name: node property
-    definition_uri: https://w3id.org/biolink/vocab/node_property
-    description: A grouping for any property that holds between a node and a value
-    from_schema: https://w3id.org/biolink/biolink-model
-    domain: named thing
-    slot_uri: biolink:node_property
-    owner: node property
-    range: string
+    multivalued: false
   id:
     name: id
     definition_uri: https://w3id.org/biolink/vocab/id
@@ -780,15 +726,15 @@ slots:
     - gpi:DB_Object_Type
     domain: entity
     slot_uri: rdf:type
-    multivalued: true
     owner: entity
     domain_of:
     - entity
     range: string
+    multivalued: true
   category:
     name: category
     definition_uri: https://w3id.org/biolink/vocab/category
-    description: 'Name of the high level ontology class in which this entity is categorized.
+    description: Name of the high level ontology class in which this entity is categorized.
       Corresponds to the label for the biolink entity type class. In a neo4j database
       this MAY correspond to the neo4j label tag. In an RDF database it should be
       a biolink model class URI. This field is multi-valued. It should include values
@@ -799,20 +745,20 @@ slots:
       than something in biolink. For example, a sequence feature `f` may have a rdf:type
       assertion to a SO class such as TF_binding_site, which is more specific than
       anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity,
-      biolink:NamedThing}.'
+      biolink:NamedThing}
     in_subset:
     - translator_minimal
     from_schema: https://w3id.org/biolink/biolink-model
     is_a: type
     domain: entity
     slot_uri: biolink:category
-    multivalued: true
     designates_type: true
     owner: entity
     domain_of:
     - entity
     is_class_field: true
     range: uriorcurie
+    multivalued: true
   name:
     name: name
     definition_uri: https://w3id.org/biolink/vocab/name
@@ -876,11 +822,11 @@ slots:
     is_a: node property
     domain: named thing
     slot_uri: biolink:synonym
-    multivalued: true
     owner: named thing
     domain_of:
     - named thing
     range: label type
+    multivalued: true
   deprecated:
     name: deprecated
     definition_uri: https://w3id.org/biolink/vocab/deprecated
@@ -916,12 +862,12 @@ slots:
     - gpi:DB_Xrefs
     domain: named thing
     slot_uri: biolink:xref
-    multivalued: true
     owner: gene
     domain_of:
     - named thing
     - gene
     range: uriorcurie
+    multivalued: true
   full name:
     name: full name
     definition_uri: https://w3id.org/biolink/vocab/full_name
@@ -963,6 +909,7 @@ slots:
     from_schema: https://w3id.org/biolink/biolink-model
     aliases:
     - publication date
+    - date started
     exact_mappings:
     - dct:createdOn
     - WIKIDATA_PROPERTY:P577
@@ -982,11 +929,11 @@ slots:
     is_a: node property
     domain: named thing
     slot_uri: biolink:has_taxonomic_rank
-    multivalued: false
     owner: organism taxon
     domain_of:
     - organism taxon
     range: taxonomic rank
+    multivalued: false
   version:
     name: version
     definition_uri: https://w3id.org/biolink/vocab/version
@@ -1068,6 +1015,8 @@ slots:
     - SEMMEDDB:compared_with
     - SEMMEDDB:higher_than
     - SEMMEDDB:lower_than
+    - SEMMEDDB:ADMINISTERED_TO
+    - SEMMEDDB:ASSOCIATED_WITH
     - BFO:0000054
     - UBERON_CORE:protects
     - GOREL:0002005
@@ -1174,11 +1123,11 @@ slots:
     - owl:topObjectProperty
     domain: named thing
     slot_uri: biolink:related_to
-    multivalued: true
     inherited: true
     owner: related to
     symmetric: true
     range: named thing
+    multivalued: true
   related to at instance level:
     name: related to at instance level
     definition_uri: https://w3id.org/biolink/vocab/related_to_at_instance_level
@@ -1193,11 +1142,11 @@ slots:
     is_a: related to
     domain: named thing
     slot_uri: biolink:related_to_at_instance_level
-    multivalued: true
     inherited: true
     owner: related to at instance level
     symmetric: true
     range: named thing
+    multivalued: true
   in taxon:
     name: in taxon
     definition_uri: https://w3id.org/biolink/vocab/in_taxon
@@ -1224,12 +1173,12 @@ slots:
     is_a: related to at instance level
     domain: thing with taxon
     slot_uri: biolink:in_taxon
-    multivalued: true
     inherited: true
     owner: thing with taxon
     domain_of:
     - thing with taxon
     range: organism taxon
+    multivalued: true
   in taxon label:
     name: in taxon label
     definition_uri: https://w3id.org/biolink/vocab/in_taxon_label
@@ -1261,10 +1210,76 @@ slots:
     is_a: node property
     domain: named thing
     slot_uri: biolink:provided_by
-    multivalued: true
     owner: named thing
     domain_of:
     - named thing
+    range: string
+    multivalued: true
+  information content:
+    name: information content
+    definition_uri: https://w3id.org/biolink/vocab/information_content
+    description: Information content (IC) value for a term, primarily from Automats.
+    from_schema: https://w3id.org/biolink/biolink-model/attributes
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:information_content
+    owner: named thing
+    domain_of:
+    - named thing
+    range: float
+  equivalent identifiers:
+    name: equivalent identifiers
+    definition_uri: https://w3id.org/biolink/vocab/equivalent_identifiers
+    description: A set of identifiers that are considered equivalent to the primary
+      identifier of the entity. This attribute is used to represent a collection of
+      identifiers that are considered equivalent to the primary identifier of an entity.
+      These equivalent identifiers may come from different databases, ontologies,
+      or naming conventions, but they all refer to the same underlying concept or
+      entity. This attribute is particularly useful in data integration and interoperability
+      scenarios, where it is important to recognize and link different representations
+      of the same entity across various sources.
+    from_schema: https://w3id.org/biolink/biolink-model/attributes
+    see_also:
+    - biolink:xref
+    - biolink:synonyms
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:equivalent_identifiers
+    owner: named thing
+    domain_of:
+    - named thing
+    range: uriorcurie
+    multivalued: true
+  chembl drug warning:
+    name: chembl drug warning
+    definition_uri: https://w3id.org/biolink/vocab/chembl_drug_warning
+    description: Text describing warnings for use of chemicals as therapeutics.
+    from_schema: https://w3id.org/biolink/biolink-model/attributes
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:chembl_drug_warning
+    owner: chembl drug warning
+    range: string
+  chembl prodrug:
+    name: chembl prodrug
+    definition_uri: https://w3id.org/biolink/vocab/chembl_prodrug
+    description: Flag indicating if a drug is a prodrug that is active only after
+      being metabolized by the body.
+    from_schema: https://w3id.org/biolink/biolink-model/attributes
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:chembl_prodrug
+    owner: chembl prodrug
+    range: boolean
+  chembl chirality:
+    name: chembl chirality
+    definition_uri: https://w3id.org/biolink/vocab/chembl_chirality
+    description: Tern indicating the chirality of the chemical entity.
+    from_schema: https://w3id.org/biolink/biolink-model/attributes
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:chembl_chirality
+    owner: chembl chirality
     range: string
   attribute_name:
     name: attribute_name
@@ -1299,6 +1314,87 @@ slots:
     is_usage_slot: true
     usage_slot_name: name
     range: label type
+  named thing_category:
+    name: named thing_category
+    definition_uri: https://w3id.org/biolink/vocab/category
+    description: Name of the high level ontology class in which this entity is categorized.
+      Corresponds to the label for the biolink entity type class. In a neo4j database
+      this MAY correspond to the neo4j label tag. In an RDF database it should be
+      a biolink model class URI. This field is multi-valued. It should include values
+      for ancestors of the biolink class; for example, a protein such as Shh would
+      have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`.
+      In an RDF database, nodes will typically have an rdf:type triples. This can
+      be to the most specific biolink class, or potentially to a class more specific
+      than something in biolink. For example, a sequence feature `f` may have a rdf:type
+      assertion to a SO class such as TF_binding_site, which is more specific than
+      anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity,
+      biolink:NamedThing}
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/biolink/biolink-model
+    is_a: category
+    domain: named thing
+    slot_uri: biolink:category
+    designates_type: true
+    alias: category
+    owner: named thing
+    domain_of:
+    - named thing
+    is_class_field: true
+    is_usage_slot: true
+    usage_slot_name: category
+    range: uriorcurie
+    required: true
+    multivalued: true
+  organism taxon_has taxonomic rank:
+    name: organism taxon_has taxonomic rank
+    definition_uri: https://w3id.org/biolink/vocab/has_taxonomic_rank
+    from_schema: https://w3id.org/biolink/biolink-model
+    mappings:
+    - WIKIDATA:P105
+    is_a: has taxonomic rank
+    domain: organism taxon
+    slot_uri: biolink:has_taxonomic_rank
+    alias: has taxonomic rank
+    owner: organism taxon
+    domain_of:
+    - organism taxon
+    is_usage_slot: true
+    usage_slot_name: has taxonomic rank
+    range: taxonomic rank
+    multivalued: false
+  macromolecular machine mixin_name:
+    name: macromolecular machine mixin_name
+    definition_uri: https://w3id.org/biolink/vocab/name
+    description: genes are typically designated by a short symbol and a full name.
+      We map the symbol to the default display name and use an additional slot for
+      full name
+    in_subset:
+    - translator_minimal
+    - samples
+    from_schema: https://w3id.org/biolink/biolink-model
+    aliases:
+    - label
+    - display name
+    - title
+    mappings:
+    - rdfs:label
+    exact_mappings:
+    - gff3:Name
+    - gpi:DB_Object_Name
+    narrow_mappings:
+    - dct:title
+    - WIKIDATA_PROPERTY:P1476
+    is_a: name
+    domain: macromolecular machine mixin
+    slot_uri: rdfs:label
+    alias: name
+    owner: macromolecular machine mixin
+    domain_of:
+    - macromolecular machine mixin
+    is_usage_slot: true
+    usage_slot_name: name
+    range: symbol type
 classes:
   ontology class:
     name: ontology class
@@ -1375,7 +1471,6 @@ classes:
     - ontology class
     slots:
     - id
-    - category
     - type
     - description
     - has attribute
@@ -1384,6 +1479,9 @@ classes:
     - xref
     - full name
     - synonym
+    - information content
+    - equivalent identifiers
+    - named thing_category
     - attribute_name
     - has attribute type
     - has quantitative value
@@ -1429,7 +1527,6 @@ classes:
     slots:
     - id
     - iri
-    - category
     - type
     - name
     - description
@@ -1439,6 +1536,13 @@ classes:
     - xref
     - full name
     - synonym
+    - information content
+    - equivalent identifiers
+    - named thing_category
+    slot_usage:
+      category:
+        name: category
+        required: true
     class_uri: biolink:NamedThing
   taxonomic rank:
     name: taxonomic rank
@@ -1482,7 +1586,6 @@ classes:
     slots:
     - id
     - iri
-    - category
     - type
     - name
     - description
@@ -1492,8 +1595,82 @@ classes:
     - xref
     - full name
     - synonym
-    - has taxonomic rank
+    - information content
+    - equivalent identifiers
+    - named thing_category
+    - organism taxon_has taxonomic rank
+    slot_usage:
+      has taxonomic rank:
+        name: has taxonomic rank
+        mappings:
+        - WIKIDATA:P105
+        range: taxonomic rank
+        multivalued: false
     class_uri: biolink:OrganismTaxon
+  study result:
+    name: study result
+    definition_uri: https://w3id.org/biolink/vocab/StudyResult
+    description: A collection of data items from a study that are about a particular
+      study subject or experimental unit (the 'focus' of the Result) - optionally
+      with context/provenance metadata that may be relevant to the interpretation
+      of this data as evidence.
+    notes:
+    - The data/metadata included in a Study Result object are typically a subset of
+      data from a larger study data set, that are selected by a curator because they
+      may be useful as evidence for deriving knowledge about a specific focus of the
+      study. The notion of a 'study' here is defined broadly to include any research
+      activity at any scale that is aimed at generating knowledge or hypotheses. This
+      may include a single assay or computational analyses, or a larger scale clinical
+      trial or experimental research investigation.
+    from_schema: https://w3id.org/biolink/biolink-model
+    is_a: information content entity
+    abstract: true
+    slots:
+    - id
+    - iri
+    - type
+    - name
+    - description
+    - has attribute
+    - deprecated
+    - provided by
+    - xref
+    - full name
+    - synonym
+    - information content
+    - equivalent identifiers
+    - named thing_category
+    - license
+    - rights
+    - format
+    - creation date
+    class_uri: biolink:StudyResult
+  relative frequency analysis result:
+    name: relative frequency analysis result
+    definition_uri: https://w3id.org/biolink/vocab/RelativeFrequencyAnalysisResult
+    description: A result of a relative frequency analysis.
+    from_schema: https://w3id.org/biolink/biolink-model
+    is_a: study result
+    slots:
+    - id
+    - iri
+    - type
+    - name
+    - description
+    - has attribute
+    - deprecated
+    - provided by
+    - xref
+    - full name
+    - synonym
+    - information content
+    - equivalent identifiers
+    - named thing_category
+    - license
+    - rights
+    - format
+    - creation date
+    class_uri: biolink:RelativeFrequencyAnalysisResult
   information content entity:
     name: information content entity
     id_prefixes:
@@ -1526,7 +1703,6 @@ classes:
     slots:
     - id
     - iri
-    - category
     - type
     - name
     - description
@@ -1536,6 +1712,9 @@ classes:
     - xref
     - full name
     - synonym
+    - information content
+    - equivalent identifiers
+    - named thing_category
     - license
     - rights
     - format
@@ -1555,7 +1734,6 @@ classes:
     slots:
     - id
     - iri
-    - category
     - type
     - name
     - description
@@ -1565,6 +1743,9 @@ classes:
     - xref
     - full name
     - synonym
+    - information content
+    - equivalent identifiers
+    - named thing_category
     - license
     - rights
     - format
@@ -1601,7 +1782,6 @@ classes:
     slots:
     - id
     - iri
-    - category
     - type
     - name
     - description
@@ -1611,6 +1791,9 @@ classes:
     - xref
     - full name
     - synonym
+    - information content
+    - equivalent identifiers
+    - named thing_category
     class_uri: biolink:PhysicalEntity
   occurrent:
     name: occurrent
@@ -1658,7 +1841,6 @@ classes:
     slots:
     - id
     - iri
-    - category
     - type
     - name
     - description
@@ -1668,6 +1850,9 @@ classes:
     - xref
     - full name
     - synonym
+    - information content
+    - equivalent identifiers
+    - named thing_category
     class_uri: biolink:Activity
   procedure:
     name: procedure
@@ -1690,7 +1875,6 @@ classes:
     slots:
     - id
     - iri
-    - category
     - type
     - name
     - description
@@ -1700,6 +1884,9 @@ classes:
     - xref
     - full name
     - synonym
+    - information content
+    - equivalent identifiers
+    - named thing_category
     class_uri: biolink:Procedure
   subject of investigation:
     name: subject of investigation
@@ -1734,7 +1921,6 @@ classes:
     slots:
     - id
     - iri
-    - category
     - type
     - name
     - description
@@ -1744,6 +1930,9 @@ classes:
     - xref
     - full name
     - synonym
+    - information content
+    - equivalent identifiers
+    - named thing_category
     class_uri: biolink:MaterialSample
   thing with taxon:
     name: thing with taxon
@@ -1775,7 +1964,6 @@ classes:
     slots:
     - id
     - iri
-    - category
     - type
     - name
     - description
@@ -1785,6 +1973,9 @@ classes:
     - xref
     - full name
     - synonym
+    - information content
+    - equivalent identifiers
+    - named thing_category
     - in taxon
     - in taxon label
     class_uri: biolink:BiologicalEntity
@@ -1819,7 +2010,14 @@ classes:
     from_schema: https://w3id.org/biolink/biolink-model
     mixin: true
     slots:
-    - name
+    - macromolecular machine mixin_name
+    slot_usage:
+      name:
+        name: name
+        description: genes are typically designated by a short symbol and a full name.
+          We map the symbol to the default display name and use an additional slot
+          for full name
+        range: symbol type
     class_uri: biolink:MacromolecularMachineMixin
   gene or gene product:
     name: gene or gene product
@@ -1833,7 +2031,7 @@ classes:
     is_a: macromolecular machine mixin
     mixin: true
     slots:
-    - name
+    - macromolecular machine mixin_name
     class_uri: biolink:GeneOrGeneProduct
   gene:
     name: gene
@@ -1883,7 +2081,6 @@ classes:
     slots:
     - id
     - iri
-    - category
     - type
     - name
     - description
@@ -1892,6 +2089,9 @@ classes:
     - provided by
     - full name
     - synonym
+    - information content
+    - equivalent identifiers
+    - named thing_category
     - in taxon
     - in taxon label
     - symbol
@@ -1919,7 +2119,6 @@ classes:
     slots:
     - id
     - iri
-    - category
     - type
     - name
     - description
@@ -1929,10 +2128,13 @@ classes:
     - xref
     - full name
     - synonym
+    - information content
+    - equivalent identifiers
+    - named thing_category
     - in taxon
     - in taxon label
     - has biological sequence
     class_uri: biolink:Genome
 metamodel_version: 1.7.0
-source_file_size: 44864
-generation_date: '2024-03-27T11:46:24'
+generation_date: '2025-10-26T21:18:16'
+

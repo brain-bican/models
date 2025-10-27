@@ -8,7 +8,6 @@ ParcellationAtlas {
     string version  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -17,6 +16,10 @@ ParcellationAtlas {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 ParcellationAnnotationTermMap {
     string subject_parcellation_term  
@@ -32,7 +35,6 @@ AnatomicalAnnotationSet {
     string version  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -41,6 +43,10 @@ AnatomicalAnnotationSet {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 ParcellationColorAssignment {
     string subject_parcellation_term  
@@ -52,7 +58,6 @@ ParcellationColorScheme {
     string version  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -61,6 +66,10 @@ ParcellationColorScheme {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 ParcellationTerm {
     integer ordinal  
@@ -70,7 +79,6 @@ ParcellationTerm {
     string version  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -79,6 +87,10 @@ ParcellationTerm {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 ParcellationTermSet {
     integer ordinal  
@@ -87,7 +99,6 @@ ParcellationTermSet {
     string version  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -96,12 +107,15 @@ ParcellationTermSet {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 ParcellationTerminology {
     string version  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -110,13 +124,16 @@ ParcellationTerminology {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 AnatomicalSpace {
     string measures  
     string version  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -125,6 +142,10 @@ AnatomicalSpace {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 ImageDataset {
     ANATOMICAL_DIRECTION x_direction  
@@ -140,7 +161,6 @@ ImageDataset {
     string version  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -149,6 +169,10 @@ ImageDataset {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 
 ParcellationAtlas ||--|o VersionedNamedThing : "revision_of"

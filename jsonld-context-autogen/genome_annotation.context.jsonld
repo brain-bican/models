@@ -222,6 +222,16 @@
       "value": {
          "@id": "value"
       },
+      "chembl_chirality": {
+         "@id": "biolink:chembl_chirality"
+      },
+      "chembl_drug_warning": {
+         "@id": "biolink:chembl_drug_warning"
+      },
+      "chembl_prodrug": {
+         "@type": "xsd:boolean",
+         "@id": "biolink:chembl_prodrug"
+      },
       "content_url": {
          "@id": "schema:url"
       },
@@ -239,6 +249,10 @@
       "digest": {
          "@type": "@id",
          "@id": "digest"
+      },
+      "equivalent_identifiers": {
+         "@type": "xsd:anyURI",
+         "@id": "biolink:equivalent_identifiers"
       },
       "format": {
          "@id": "biolink:format"
@@ -293,8 +307,11 @@
       "in_taxon_label": {
          "@id": "biolink:in_taxon_label"
       },
+      "information_content": {
+         "@type": "xsd:float",
+         "@id": "biolink:information_content"
+      },
       "iri": {
-         "@type": "xsd:anyURI",
          "@id": "biolink:iri"
       },
       "license": {
@@ -435,6 +452,12 @@
       },
       "QuantityValue": {
          "@id": "biolink:QuantityValue"
+      },
+      "RelativeFrequencyAnalysisResult": {
+         "@id": "biolink:RelativeFrequencyAnalysisResult"
+      },
+      "StudyResult": {
+         "@id": "biolink:StudyResult"
       },
       "SubjectOfInvestigation": {
          "@id": "biolink:SubjectOfInvestigation"
