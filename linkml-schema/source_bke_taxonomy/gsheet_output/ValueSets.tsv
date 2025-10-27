@@ -5,3 +5,9 @@ AbbreviationEntityType	gene	Abbreviation denotes a Gene entity.
 AbbreviationEntityType	anatomical	Abbreviation denotes a Anatomical Structure entity.
 CellTypeSetType	taxonomic_level	Denotes CellTypeSet is at Taxonomic level.
 CellTypeSetType	neighborhood	Denotes CellTypeSet is at Neighborhood level.
+Region	STR	Striatum
+Region	GPe	External Globus Pallidus
+Region	GPi	Internal Globus Pallidus
+Region	SN	Substantia Nigra
+Region	Adj	Adjacent Regions
+Region	STH	Subthalamic Nucleus
