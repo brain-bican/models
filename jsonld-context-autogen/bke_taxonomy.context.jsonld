@@ -26,6 +26,10 @@
       },
       "CHEMBL.TARGET": "http://identifiers.org/chembl.target/",
       "CPT": "https://www.ama-assn.org/practice-management/cpt/",
+      "DHBA": {
+         "@id": "https://purl.brain-bican.org/ontology/dmbao/DMBA_",
+         "@prefix": true
+      },
       "DRUGBANK": "http://identifiers.org/drugbank/",
       "EDAM-DATA": {
          "@id": "http://edamontology.org/data_",
