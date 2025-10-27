@@ -1598,7 +1598,7 @@ classes:
     - information content
     - equivalent identifiers
     - named thing_category
-    - organism taxon_has taxonomic rank
+    - has taxonomic rank
     slot_usage:
       has taxonomic rank:
         name: has taxonomic rank
@@ -2010,7 +2010,7 @@ classes:
     from_schema: https://w3id.org/biolink/biolink-model
     mixin: true
     slots:
-    - macromolecular machine mixin_name
+    - name
     slot_usage:
       name:
         name: name
