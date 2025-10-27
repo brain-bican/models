@@ -1,3 +1,4 @@
 prefix	URI
 > prefix	prefix_reference
 bican	https://identifiers.org/brain-bican/vocab/
+DHBA	https://purl.brain-bican.org/ontology/dmbao/DMBA_
