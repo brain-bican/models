@@ -470,6 +470,10 @@ types:
       - UO
     exact_mappings:
       - qud:Unit
+
+  biological sequence:
+    uri: xsd:string
+    typeof: string
 slots:
   node property:
     name: node property
