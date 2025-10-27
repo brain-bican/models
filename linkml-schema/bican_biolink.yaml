@@ -1,3 +1,4 @@
+# command used to generate file: bkbit linkml-trimmer  --classes "gene, genome, organism taxon, thing with taxon, material sample, procedure, entity, activity, named thing, relative frequency analysis result, dataset" --slots "version" biolink-model.yaml
 id: https://w3id.org/biolink/bican-biolink-schema
 name: bican-biolink-schema
 title: BICAN Biolink Schema
@@ -1268,6 +1269,18 @@ slots:
     - organism taxon
     range: taxonomic rank
     multivalued: false
+  version:
+    name: version
+    definition_uri: https://w3id.org/biolink/vocab/version
+    from_schema: https://w3id.org/biolink/biolink-model
+    broad_mappings:
+    - pav:version
+    - owl:versionInfo
+    is_a: node property
+    domain: dataset
+    slot_uri: biolink:version
+    owner: version
+    range: string
   license:
     name: license
     definition_uri: https://w3id.org/biolink/vocab/license
@@ -2042,6 +2055,37 @@ classes:
     - format
     - creation date
     class_uri: biolink:InformationContentEntity
+  dataset:
+    name: dataset
+    definition_uri: https://w3id.org/biolink/vocab/Dataset
+    description: an item that refers to a collection of data from a data source.
+    from_schema: https://w3id.org/biolink/biolink-model
+    exact_mappings:
+    - IAO:0000100
+    - dctypes:Dataset
+    - schema:dataset
+    - dcid:Dataset
+    is_a: information content entity
+    slots:
+    - id
+    - iri
+    - type
+    - name
+    - description
+    - has attribute
+    - deprecated
+    - provided by
+    - xref
+    - full name
+    - synonym
+    - information content
+    - equivalent identifiers
+    - named thing_category
+    - license
+    - rights
+    - format
+    - creation date
+    class_uri: biolink:Dataset
   physical essence or occurrent:
     name: physical essence or occurrent
     definition_uri: https://w3id.org/biolink/vocab/PhysicalEssenceOrOccurrent
@@ -2427,5 +2471,5 @@ classes:
     - has biological sequence
     class_uri: biolink:Genome
 metamodel_version: 1.7.0
-generation_date: '2025-10-26T20:29:14'
+generation_date: '2025-10-26T21:18:16'
 
