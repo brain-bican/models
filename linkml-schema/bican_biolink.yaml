@@ -474,6 +474,11 @@ types:
   biological sequence:
     uri: xsd:string
     typeof: string
+
+  symbol type:
+    uri: xsd:string
+    typeof: string
+
 slots:
   node property:
     name: node property
