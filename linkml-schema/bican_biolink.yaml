@@ -444,7 +444,14 @@ subsets:
     definition_uri: https://w3id.org/biolink/vocab/Testing
     description: TBD
     from_schema: https://w3id.org/biolink/biolink-model
-
+types:
+  unit:
+    typeof: string
+    uri: UO:0000000
+    id_prefixes:
+      - UO
+    exact_mappings:
+      - qud:Unit
 slots:
   node property:
     name: node property
