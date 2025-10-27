@@ -450,13 +450,19 @@ types:
     typeof: uriorcurie
     description: >-
       An IRI
-      
+
   label type:
     uri: xsd:string
     typeof: string
     description: >-
       A string that provides a human-readable name for an entity
-            
+
+  narrative text:
+    uri: xsd:string
+    typeof: string
+    description: >-
+      A string that provides a human-readable description of something
+
   unit:
     typeof: string
     uri: UO:0000000
