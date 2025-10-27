@@ -451,6 +451,12 @@ types:
     description: >-
       An IRI
       
+  label type:
+    uri: xsd:string
+    typeof: string
+    description: >-
+      A string that provides a human-readable name for an entity
+            
   unit:
     typeof: string
     uri: UO:0000000
