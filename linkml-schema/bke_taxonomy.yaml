@@ -317,11 +317,6 @@ classes:
         from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: Cluster
         multivalued: true
-      number_of_cells:
-        description: The aggregated number of cells that defines the cell type taxon.
-        from_schema: https://w3id.org/brain-bican/bke-taxonomy
-        range: integer
-        minimum_value: '0.0'
       spatial_regional_proportions:
         description: Species-independent quantification of regional composition (how
           much of something is found in each named brain region),
@@ -342,6 +337,11 @@ classes:
           is found in each named brain region) in Human species.
         from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: SpatialProportions
+      number_of_cells:
+        description: The aggregated number of cells that defines the cell type taxon.
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: integer
+        minimum_value: '0.0'
   ClusteringProcess:
     description: The process of organizing and classifying observations into groups
       or clusters based on similarities or patterns.

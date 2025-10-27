@@ -22,10 +22,7 @@ CellTypeTaxon	order		integer	The priority or display order of the cell type taxo
 CellTypeTaxon	description		string	Description of the cell type taxon (optional).	bican_biolink						TRUE	
 CellTypeTaxon		number_of_cells	integer	The aggregated number of cells that defines the cell type taxon.					0		FALSE	
 CellTypeTaxon	xref				bican_biolink	unique_id	allen					
-CellTypeTaxon		spatial_regional_proportions	SpatialProportions	Species-independent quantification of regional composition (how much of something is found in each named brain region),								
-CellTypeTaxon		spatial_proportions_marmoset	SpatialProportions	Quantification of regional composition (how much of something is found in each named brain region) in Marmoset species. 								
-CellTypeTaxon		spatial_proportions_macaque	SpatialProportions	Quantification of regional composition (how much of something is found in each named brain region) in Macaque species. 								
-CellTypeTaxon		spatial_proportions_human	SpatialProportions	Quantification of regional composition (how much of something is found in each named brain region) in Human species. 								
+CellTypeTaxon												
 CellTypeTaxonomy	id		string	( database GUID)	bican_biolink						FALSE	
 CellTypeTaxonomy	creation date			The creation date of the cell type taxonomy.	bican_biolink						FALSE	
 CellTypeTaxonomy	accession_id		string	A provider assigned accession identifier for the taxonomy.				CCN20230722			FALSE	
