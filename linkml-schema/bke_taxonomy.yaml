@@ -337,6 +337,18 @@ classes:
           is found in each named brain region) in Human species.
         from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: SpatialProportions
+      curated_markers_to_primates:
+        description: Marker genes in the primate species that are related to the respective
+          cell type.
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: GeneAnnotation
+        multivalued: true
+      curated_markers_to_mouse:
+        description: Marker genes in the mouse species that are related to the respective
+          cell type.
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: GeneAnnotation
+        multivalued: true
       number_of_cells:
         description: The aggregated number of cells that defines the cell type taxon.
         from_schema: https://w3id.org/brain-bican/bke-taxonomy
