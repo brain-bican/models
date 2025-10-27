@@ -6237,12 +6237,12 @@
         "Region": {
             "description": "",
             "enum": [
-                "STR",
-                "GPe",
-                "GPi",
-                "SN",
-                "Adj",
-                "STH"
+                "str",
+                "gpe",
+                "gpi",
+                "sn",
+                "adj",
+                "sth"
             ],
             "title": "Region",
             "type": "string"
@@ -6555,6 +6555,8 @@
                 },
                 "sth": {
                     "description": "Proportion of composition found in Subthalamic Nucleus",
+                    "maximum": "1.0",
+                    "minimum": "0.0",
                     "type": [
                         "number",
                         "null"
