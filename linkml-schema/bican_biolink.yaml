@@ -445,6 +445,12 @@ subsets:
     description: TBD
     from_schema: https://w3id.org/biolink/biolink-model
 types:
+  iri type:
+    uri: xsd:string
+    typeof: uriorcurie
+    description: >-
+      An IRI
+      
   unit:
     typeof: string
     uri: UO:0000000
