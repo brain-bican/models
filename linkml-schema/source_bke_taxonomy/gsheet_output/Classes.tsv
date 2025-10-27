@@ -16,3 +16,4 @@ Abbreviation	named thing	ProvEntity		Maps an abbreviation string to its decoded 
 MatrixFile	named thing	ProvEntity		A digital file containing the representation of full or partial data matrix.		
 ColorPalette	named thing	ProvEntity		A schematic set of display colors that can be applied to individual components of the associated entity set (for example, a taxonomy).		
 DisplayColor	named thing	ProvEntity		One element of a color palette representing the association between a color and entity,		
+SpatialProportions	relative frequency analysis result	ProvEntity		Spatial distribution of expression, labeling, or anatomical density of a given entity — typically a cell type, cluster, or signal source — across named brain regions.		

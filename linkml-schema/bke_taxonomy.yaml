@@ -32,6 +32,21 @@ enums:
         description: Denotes CellTypeSet is at Taxonomic level.
       neighborhood:
         description: Denotes CellTypeSet is at Neighborhood level.
+  Region:
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
+    permissible_values:
+      STR:
+        description: Striatum
+      GPe:
+        description: External Globus Pallidus
+      GPi:
+        description: Internal Globus Pallidus
+      SN:
+        description: Substantia Nigra
+      Adj:
+        description: Adjacent Regions
+      STH:
+        description: Subthalamic Nucleus
 slots:
   part_of_taxonomy:
     from_schema: https://w3id.org/brain-bican/bke-taxonomy
@@ -301,6 +316,38 @@ classes:
           type taxon.
         from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: Cluster
+        multivalued: true
+      spatial_regional_proportions:
+        description: Species-independent quantification of regional composition (how
+          much of something is found in each named brain region),
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: SpatialProportions
+      spatial_proportions_marmoset:
+        description: Quantification of regional composition (how much of something
+          is found in each named brain region) in Marmoset species.
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: SpatialProportions
+      spatial_proportions_macaque:
+        description: Quantification of regional composition (how much of something
+          is found in each named brain region) in Macaque species.
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: SpatialProportions
+      spatial_proportions_human:
+        description: Quantification of regional composition (how much of something
+          is found in each named brain region) in Human species.
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: SpatialProportions
+      curated_markers_to_primates:
+        description: Marker genes in the primate species that are related to the respective
+          cell type.
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: GeneAnnotation
+        multivalued: true
+      curated_markers_to_mouse:
+        description: Marker genes in the mouse species that are related to the respective
+          cell type.
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: GeneAnnotation
         multivalued: true
       number_of_cells:
         description: The aggregated number of cells that defines the cell type taxon.
@@ -714,3 +761,46 @@ classes:
         - value: '#450099'
         from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: string
+  SpatialProportions:
+    description: "Spatial distribution of expression, labeling, or anatomical density\
+      \ of a given entity \u2014 typically a cell type, cluster, or signal source\
+      \ \u2014 across named brain regions."
+    from_schema: https://w3id.org/brain-bican/bke-taxonomy
+    is_a: relative frequency analysis result
+    mixins:
+    - ProvEntity
+    attributes:
+      str:
+        description: Proportion of composition found in Striatum
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: float
+        minimum_value: '0.0'
+        maximum_value: '1.0'
+      gpe:
+        description: Proportion of composition found in External Globus Pallidus
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: float
+        minimum_value: '0.0'
+        maximum_value: '1.0'
+      gpi:
+        description: Proportion of composition found in Internal Globus Pallidus
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: float
+        minimum_value: '0.0'
+        maximum_value: '1.0'
+      sn:
+        description: Proportion of composition found in Substantia Nigra
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: float
+        minimum_value: '0.0'
+        maximum_value: '1.0'
+      adj:
+        description: Proportion of composition found in Adjacent Regions
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: float
+        minimum_value: '0.0'
+        maximum_value: '1.0'
+      sth:
+        description: Proportion of composition found in Subthalamic Nucleus
+        from_schema: https://w3id.org/brain-bican/bke-taxonomy
+        range: float
