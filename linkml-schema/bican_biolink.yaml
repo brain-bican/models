@@ -10,7 +10,6 @@ created_by: BICAN_bkbit_linkml-trimmer
 version: Biolink-Model-4.3.2
 imports:
 - linkml:types
-- https://raw.githubusercontent.com/biolink/biolink-model/refs/heads/master/attributes
 license: https://creativecommons.org/publicdomain/zero/1.0/
 prefixes:
   AGRKB:
