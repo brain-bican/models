@@ -5,7 +5,6 @@ DisplayColor {
     uriorcurieList xref  
     string color_hex_triplet  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -13,6 +12,10 @@ DisplayColor {
     stringList provided_by  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 ProvActivity {
 
@@ -26,19 +29,21 @@ ColorPalette {
     string description  
     uriorcurieList xref  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     boolean deprecated  
     stringList provided_by  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 MatrixFile {
     stringList content_url  
     uriorcurieList xref  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -46,6 +51,10 @@ MatrixFile {
     stringList provided_by  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 Abbreviation {
     string id  
@@ -54,7 +63,6 @@ Abbreviation {
     string meaning  
     AbbreviationEntityType entity_type  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -62,11 +70,14 @@ Abbreviation {
     stringList provided_by  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 CellSpecimen {
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -75,13 +86,16 @@ CellSpecimen {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 ObservationRow {
     uriorcurieList xref  
     string label  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -89,13 +103,16 @@ ObservationRow {
     stringList provided_by  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 ObservationMatrix {
     stringList content_url  
     uriorcurieList xref  
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -103,11 +120,14 @@ ObservationMatrix {
     stringList provided_by  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 ObservationMatrixCreationProcess {
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -116,6 +136,10 @@ ObservationMatrixCreationProcess {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 Cluster {
     string id  
@@ -124,13 +148,16 @@ Cluster {
     uriorcurieList xref  
     integer number_of_observations  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 ClusterSet {
     string id  
@@ -140,17 +167,19 @@ ClusterSet {
     uriorcurieList xref  
     date creation_date  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     boolean deprecated  
     stringList provided_by  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 ClusteringProcess {
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -159,6 +188,10 @@ ClusteringProcess {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 CellTypeTaxon {
     string id  
@@ -169,12 +202,15 @@ CellTypeTaxon {
     uriorcurieList xref  
     integer number_of_cells  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     boolean deprecated  
     stringList provided_by  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 CellTypeSet {
     string id  
@@ -185,12 +221,15 @@ CellTypeSet {
     uriorcurieList xref  
     CellTypeSetType cell_type_set_type  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     boolean deprecated  
     stringList provided_by  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 CellTypeTaxonomy {
     string id  
@@ -200,17 +239,19 @@ CellTypeTaxonomy {
     string description  
     uriorcurieList xref  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     boolean deprecated  
     stringList provided_by  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 CellTypeTaxonomyCreationProcess {
     string id  
     iri_type iri  
-    uriorcurieList category  
     stringList type  
     label_type name  
     narrative_text description  
@@ -219,6 +260,10 @@ CellTypeTaxonomyCreationProcess {
     uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    uriorcurieList category  
 }
 
 DisplayColor ||--|o ColorPalette : "part_of_palette"
