@@ -58,4 +58,4 @@ SpatialProportions		gpe	float	Proportion of composition found in External Globus
 SpatialProportions		gpi	float	Proportion of composition found in Internal Globus Pallidus					0	1		
 SpatialProportions		sn	float	Proportion of composition found in Substantia Nigra					0	1		
 SpatialProportions		adj	float	Proportion of composition found in Adjacent Regions					0	1		
-SpatialProportions		sth	float	Proportion of composition found in Subthalamic Nucleus								
+SpatialProportions		sth	float	Proportion of composition found in Subthalamic Nucleus					0	1		

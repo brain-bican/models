@@ -35,18 +35,24 @@ enums:
   Region:
     from_schema: https://w3id.org/brain-bican/bke-taxonomy
     permissible_values:
-      STR:
+      str:
         description: Striatum
-      GPe:
+        title: STR
+      gpe:
         description: External Globus Pallidus
-      GPi:
+        title: GPe
+      gpi:
         description: Internal Globus Pallidus
-      SN:
+        title: GPi
+      sn:
         description: Substantia Nigra
-      Adj:
+        title: SN
+      adj:
         description: Adjacent Regions
-      STH:
+        title: Adj
+      sth:
         description: Subthalamic Nucleus
+        title: STH
 slots:
   part_of_taxonomy:
     from_schema: https://w3id.org/brain-bican/bke-taxonomy
@@ -804,3 +810,5 @@ classes:
         description: Proportion of composition found in Subthalamic Nucleus
         from_schema: https://w3id.org/brain-bican/bke-taxonomy
         range: float
+        minimum_value: '0.0'
+        maximum_value: '1.0'

@@ -134,17 +134,17 @@ class CellTypeSetType(str, Enum):
 
 class Region(str, Enum):
     # Striatum
-    STR = "STR"
+    STR = "str"
     # External Globus Pallidus
-    GPe = "GPe"
+    GPe = "gpe"
     # Internal Globus Pallidus
-    GPi = "GPi"
+    GPi = "gpi"
     # Substantia Nigra
-    SN = "SN"
+    SN = "sn"
     # Adjacent Regions
-    Adj = "Adj"
+    Adj = "adj"
     # Subthalamic Nucleus
-    STH = "STH"
+    STH = "sth"
 
 
 
@@ -18885,7 +18885,7 @@ class SpatialProportions(ProvEntity, RelativeFrequencyAnalysisResult):
     gpi: Optional[float] = Field(default=None, description="""Proportion of composition found in Internal Globus Pallidus""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'alias': 'gpi', 'domain_of': ['SpatialProportions']} })
     sn: Optional[float] = Field(default=None, description="""Proportion of composition found in Substantia Nigra""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'alias': 'sn', 'domain_of': ['SpatialProportions']} })
     adj: Optional[float] = Field(default=None, description="""Proportion of composition found in Adjacent Regions""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'alias': 'adj', 'domain_of': ['SpatialProportions']} })
-    sth: Optional[float] = Field(default=None, description="""Proportion of composition found in Subthalamic Nucleus""", json_schema_extra = { "linkml_meta": {'alias': 'sth', 'domain_of': ['SpatialProportions']} })
+    sth: Optional[float] = Field(default=None, description="""Proportion of composition found in Subthalamic Nucleus""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'alias': 'sth', 'domain_of': ['SpatialProportions']} })
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
          'domain_of': ['ProvEntity',
                        'CellTypeTaxonomy',
