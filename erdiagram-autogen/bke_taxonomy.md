@@ -1,5 +1,37 @@
 ```mermaid
 erDiagram
+SpatialProportions {
+    float str  
+    float gpe  
+    float gpi  
+    float sn  
+    float adj  
+    float sth  
+    string id  
+    iri_type iri  
+    stringList type  
+    label_type name  
+    narrative_text description  
+    boolean deprecated  
+    stringList provided_by  
+    uriorcurieList xref  
+    label_type full_name  
+    label_typeList synonym  
+    float information_content  
+    uriorcurieList equivalent_identifiers  
+    uriorcurieList named_thing_category  
+    string license  
+    string rights  
+    string format  
+    date creation_date  
+    uriorcurieList category  
+}
+ProvActivity {
+
+}
+ProvEntity {
+
+}
 DisplayColor {
     string id  
     uriorcurieList xref  
@@ -16,12 +48,6 @@ DisplayColor {
     uriorcurieList equivalent_identifiers  
     uriorcurieList named_thing_category  
     uriorcurieList category  
-}
-ProvActivity {
-
-}
-ProvEntity {
-
 }
 ColorPalette {
     string id  
@@ -266,15 +292,18 @@ CellTypeTaxonomyCreationProcess {
     uriorcurieList category  
 }
 
+SpatialProportions ||--|o ProvEntity : "was_derived_from"
+SpatialProportions ||--|o ProvActivity : "was_generated_by"
+SpatialProportions ||--}o Attribute : "has attribute"
+ProvActivity ||--|o ProvEntity : "used"
+ProvEntity ||--|o ProvEntity : "was_derived_from"
+ProvEntity ||--|o ProvActivity : "was_generated_by"
 DisplayColor ||--|o ColorPalette : "part_of_palette"
 DisplayColor ||--|o CellTypeTaxon : "is_color_for_taxon"
 DisplayColor ||--|o CellTypeSet : "is_color_for_set"
 DisplayColor ||--|o ProvEntity : "was_derived_from"
 DisplayColor ||--|o ProvActivity : "was_generated_by"
 DisplayColor ||--}o Attribute : "has attribute"
-ProvActivity ||--|o ProvEntity : "used"
-ProvEntity ||--|o ProvEntity : "was_derived_from"
-ProvEntity ||--|o ProvActivity : "was_generated_by"
 ColorPalette ||--|o CellTypeTaxonomy : "is_palette_for"
 ColorPalette ||--|o ProvEntity : "was_derived_from"
 ColorPalette ||--|o ProvActivity : "was_generated_by"
@@ -319,6 +348,12 @@ CellTypeTaxon ||--|o CellTypeTaxonomy : "part_of_taxonomy"
 CellTypeTaxon ||--|o CellTypeTaxon : "has_parent"
 CellTypeTaxon ||--}o Abbreviation : "has_abbreviation"
 CellTypeTaxon ||--}o Cluster : "contains_cluster"
+CellTypeTaxon ||--|o SpatialProportions : "spatial_regional_proportions"
+CellTypeTaxon ||--|o SpatialProportions : "spatial_proportions_marmoset"
+CellTypeTaxon ||--|o SpatialProportions : "spatial_proportions_macaque"
+CellTypeTaxon ||--|o SpatialProportions : "spatial_proportions_human"
+CellTypeTaxon ||--}o GeneAnnotation : "curated_markers_to_primates"
+CellTypeTaxon ||--}o GeneAnnotation : "curated_markers_to_mouse"
 CellTypeTaxon ||--|o ProvEntity : "was_derived_from"
 CellTypeTaxon ||--|o ProvActivity : "was_generated_by"
 CellTypeTaxon ||--}o Attribute : "has attribute"
