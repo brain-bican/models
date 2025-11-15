@@ -2615,7 +2615,7 @@ classes:
             local_name_value: id
         from_schema: bican_biolink
     attributes:
-      local_tube_id:
+      tube_internal_label:
         local_names:
           NIMP:
             local_name_source: NIMP
