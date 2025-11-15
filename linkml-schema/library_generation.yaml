@@ -1835,6 +1835,7 @@ classes:
     - ProvEntity
     slots:
     - name
+    - xref
     slot_usage:
       name:
         local_names:
@@ -1844,6 +1845,12 @@ classes:
         description: Name of person or organism that is the source of a biological
           sample for scientific study.  Many biological samples are generated from
           a single donor.
+        from_schema: bican_biolink
+      xref:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: id
         from_schema: bican_biolink
     attributes:
       biological_sex:
@@ -1928,6 +1935,7 @@ classes:
     slots:
     - was_derived_from
     - name
+    - xref
     slot_usage:
       was_derived_from:
         description: The donor from which the brain slab was derived from.
@@ -1947,6 +1955,12 @@ classes:
           multiple brain slabs are obtained from the slicing process, an ordinal is
           assigned to provide information about the relative positioning of the slabs.
         from_schema: bican_biolink
+      xref:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: id
+        from_schema: bican_biolink
   TissueSample:
     description: The final intact piece of tissue before cell or nuclei prep. This
       piece of tissue will be used in dissociation and has an region of interest polygon
@@ -1964,6 +1978,7 @@ classes:
     - was_derived_from
     - was_generated_by
     - name
+    - xref
     slot_usage:
       was_derived_from:
         description: The donor or brain slab from which the tissue sample was derived
@@ -1989,6 +2004,12 @@ classes:
         exact_mappings:
         - NIMP:PD-LJCRCC35
         slot_uri: bican:2e4ca2fc-2d77-4d19-af45-d0fb7bbc2269
+      xref:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: id
+        from_schema: bican_biolink
     attributes:
       dissection_was_guided_by:
         description: The dissection ROI polygon that was used to guide the dissection.
@@ -2020,6 +2041,7 @@ classes:
     - was_generated_by
     - was_derived_from
     - name
+    - xref
     slot_usage:
       was_generated_by:
         description: The cell dissociation process from which the dissociated cell
@@ -2045,6 +2067,12 @@ classes:
         exact_mappings:
         - NIMP:PD-RQRWHS40
         slot_uri: bican:65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2
+      xref:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: id
+        from_schema: bican_biolink
     attributes:
       cell_prep_type:
         local_names:
@@ -2094,6 +2122,7 @@ classes:
     - was_generated_by
     - was_derived_from
     - name
+    - xref
     slot_usage:
       was_generated_by:
         description: The cell enrichment or sample splitting process from which the
@@ -2123,6 +2152,12 @@ classes:
         exact_mappings:
         - NIMP:PD-BERWTM41
         slot_uri: bican:bb3fc701-23a7-45c1-890d-7471730e0ec1
+      xref:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: id
+        from_schema: bican_biolink
     attributes:
       enrichment_population:
         local_names:
@@ -2188,6 +2223,7 @@ classes:
     - was_generated_by
     - was_derived_from
     - name
+    - xref
     slot_usage:
       was_generated_by:
         description: The barcoding process from which the barcoded cell sample is
@@ -2217,6 +2253,12 @@ classes:
         exact_mappings:
         - NIMP:PD-XEMDJF38
         slot_uri: bican:4c0e6380-e53f-4173-a474-d41e836fefe3
+      xref:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: id
+        from_schema: bican_biolink
     attributes:
       number_of_expected_cells:
         local_names:
@@ -2254,6 +2296,7 @@ classes:
     - was_generated_by
     - was_derived_from
     - name
+    - xref
     slot_usage:
       was_generated_by:
         description: The cDNA amplification process from which the amplified cDNA
@@ -2281,6 +2324,12 @@ classes:
         exact_mappings:
         - NIMP:PD-YAAGGG39
         slot_uri: bican:e2606a11-114e-472f-9e05-33f9b6fc3089
+      xref:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: id
+        from_schema: bican_biolink
     attributes:
       amplified_cDNA_quantity_ng:
         local_names:
@@ -2343,6 +2392,7 @@ classes:
     - was_generated_by
     - was_derived_from
     - name
+    - xref
     slot_usage:
       was_generated_by:
         description: The library construction process from which the library was generated
@@ -2371,6 +2421,12 @@ classes:
         exact_mappings:
         - NIMP:PD-AJJUCC35
         slot_uri: bican:f717e254-3630-4342-be7b-4d56376e7afe
+      xref:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: id
+        from_schema: bican_biolink
     attributes:
       average_size_bp:
         local_names:
@@ -2476,6 +2532,7 @@ classes:
     slots:
     - was_derived_from
     - name
+    - xref
     slot_usage:
       was_derived_from:
         description: The input library from which the library aliquot was derived
@@ -2498,6 +2555,12 @@ classes:
         exact_mappings:
         - NIMP:PD-XCXCCC35
         slot_uri: bican:34191bad-d167-4335-8224-ade897d3728e
+      xref:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: id
+        from_schema: bican_biolink
   LibraryPool:
     description: A library pool is made up of library aliquots from multiple libraries.
       Each library aliquot in a library pool will have a unique R1/R2 index to allow
@@ -2516,6 +2579,7 @@ classes:
     - was_generated_by
     - was_derived_from
     - name
+    - xref
     slot_usage:
       was_generated_by:
         description: The pooling process from which the library pool was generated
@@ -2544,6 +2608,12 @@ classes:
         exact_mappings:
         - NIMP:PD-KKIAPA48
         slot_uri: bican:29e0578b-6427-4c93-b29b-bde27fbadeec
+      xref:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: id
+        from_schema: bican_biolink
     attributes:
       local_tube_id:
         local_names:
@@ -2946,6 +3016,7 @@ classes:
     slots:
     - was_generated_by
     - name
+    - xref
     slot_usage:
       was_generated_by:
         description: The delineation process from which the dissection ROI polygon
@@ -2959,6 +3030,12 @@ classes:
             local_name_value: local_name
         description: Name of a polygon annotated on a brain slab image delineating
           a region of interest (ROI) for a tissue sample dissectioning.
+        from_schema: bican_biolink
+      xref:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: id
         from_schema: bican_biolink
     attributes:
       annotates:
