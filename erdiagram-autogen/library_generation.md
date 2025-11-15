@@ -200,7 +200,7 @@ DissectionRoiDelineation {
 LibraryPool {
     label_type name  
     uriorcurieList xref  
-    string local_tube_id  
+    string tube_internal_label  
     string id  
     iri_type iri  
     stringList type  

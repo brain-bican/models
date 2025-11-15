@@ -12899,7 +12899,7 @@ class LibraryPool(ProvEntity, MaterialSample):
                                   'local_name_value': 'id'}},
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
-    local_tube_id: Optional[str] = Field(default=None, description="""Library Pool Tube local name.  Label of the tube containing the library pool, which is made up of multiple library_aliquots.  This is a Library Lab local tube name, before the pool is aliquoted to the Seq Core provided tube 'Library Pool Tube Name'.""", json_schema_extra = { "linkml_meta": {'alias': 'local_tube_id',
+    tube_internal_label: Optional[str] = Field(default=None, description="""Library Pool Tube local name.  Label of the tube containing the library pool, which is made up of multiple library_aliquots.  This is a Library Lab local tube name, before the pool is aliquoted to the Seq Core provided tube 'Library Pool Tube Name'.""", json_schema_extra = { "linkml_meta": {'alias': 'tube_internal_label',
          'domain_of': ['LibraryPool'],
          'exact_mappings': ['NIMP:PD-WNYWPA48'],
          'in_subset': ['analysis', 'tracking'],
