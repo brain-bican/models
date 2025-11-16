@@ -8615,37 +8615,31 @@ class Donor(ProvEntity, ThingWithTaxon, PhysicalEntity):
          'domain_of': ['Donor'],
          'exact_mappings': ['NIMP:PD-LXUBTM45'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'sex'}},
-         'slot_uri': 'bican:632d3d3f-f85b-4efc-a1ab-010fe417ae81'} })
+                                  'local_name_value': 'sex'}}} })
     age_at_death_description: Optional[str] = Field(default=None, description="""Text description of the age of death following typical scientific convention for the species or developmental stage. For example: P56, E11.5""", json_schema_extra = { "linkml_meta": {'alias': 'age_at_death_description',
          'domain_of': ['Donor'],
          'exact_mappings': ['NIMP:PD-ZJZJLE33'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'age_at_death_description'}},
-         'slot_uri': 'bican:0630a265-4a63-48f4-8853-66b929002306'} })
+                                  'local_name_value': 'age_at_death_description'}}} })
     age_at_death_reference_point: Optional[AgeAtDeathReferencePoint] = Field(default=None, description="""The reference point for an age interval; for example, birth or conception.""", json_schema_extra = { "linkml_meta": {'alias': 'age_at_death_reference_point',
          'domain_of': ['Donor'],
          'exact_mappings': ['NIMP:PD-RARAGG39'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'age_at_death_reference_point'}},
-         'slot_uri': 'bican:3bed1f94-9d82-4ed7-afdf-79d896b24dbb'} })
+                                  'local_name_value': 'age_at_death_reference_point'}}} })
     age_at_death_unit: Optional[AgeAtDeathUnit] = Field(default=None, description="""The unit used for representing the donor age from the reference point.""", json_schema_extra = { "linkml_meta": {'alias': 'age_at_death_unit',
          'domain_of': ['Donor'],
          'exact_mappings': ['NIMP:PD-AVAVEV39'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'age_at_death_unit'}},
-         'slot_uri': 'bican:b5436e99-f0a7-4c30-825d-56b88ee2ac1d'} })
+                                  'local_name_value': 'age_at_death_unit'}}} })
     age_at_death_value: Optional[float] = Field(default=None, description="""The value representing the donor age from the reference point.""", json_schema_extra = { "linkml_meta": {'alias': 'age_at_death_value',
          'domain_of': ['Donor'],
          'exact_mappings': ['NIMP:PD-FTFTCP24'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'age_at_death'}},
-         'slot_uri': 'bican:57e24d3c-c9c7-4ef3-9809-a35802d563ec'} })
+                                  'local_name_value': 'age_at_death'}}} })
     species: Optional[str] = Field(default=None, description="""Species of donor.""", json_schema_extra = { "linkml_meta": {'alias': 'species',
          'domain_of': ['Donor'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'donor_species'}},
-         'slot_uri': 'bican:6837cb02-6bd7-4fb8-838c-9062ead96ba4'} })
+                                  'local_name_value': 'donor_species'}}} })
     in_taxon: Optional[List[str]] = Field(default=None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""", json_schema_extra = { "linkml_meta": {'alias': 'in_taxon',
          'aliases': ['instance of',
                      'is organism source of gene product',
@@ -10060,14 +10054,12 @@ class DissociatedCellSample(ProvEntity, MaterialSample):
          'exact_mappings': ['NIMP:PD-RELLGO26'],
          'in_subset': ['analysis', 'tracking'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'dissociated_cell_sample_cell_prep_type'}},
-         'slot_uri': 'bican:baae4ac3-f959-4594-b943-3a82ec19bd34'} })
+                                  'local_name_value': 'dissociated_cell_sample_cell_prep_type'}}} })
     dissociated_cell_oligo_name: Optional[DissociatedCellSampleCellLabelBarcode] = Field(default=None, description="""Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the dissociated cell sample and allows separate dissociated cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source dissociated cell sample.""", json_schema_extra = { "linkml_meta": {'alias': 'dissociated_cell_oligo_name',
          'domain_of': ['DissociatedCellSample'],
          'exact_mappings': ['NIMP:PD-CFCFPS27'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'dissociated_cell_sample_cell_label_barcode'}},
-         'slot_uri': 'bican:184abbaf-baff-4b5f-b51e-dd38de6006af'} })
+                                  'local_name_value': 'dissociated_cell_sample_cell_label_barcode'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -10535,8 +10527,7 @@ class EnrichedCellSample(ProvEntity, MaterialSample):
          'exact_mappings': ['NIMP:PD-TZTZPI37'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'enrichment_population'}},
-         'slot_uri': 'bican:875f1c70-f5aa-45e3-94b9-5e482f6c4830'} })
+                                  'local_name_value': 'enrichment_population'}}} })
     enriched_cell_oligo_name: Optional[str] = Field(default=None, description="""Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the enriched cell sample and allows separate enriched cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source enriched cell sample.""", json_schema_extra = { "linkml_meta": {'alias': 'enriched_cell_oligo_name',
          'domain_of': ['EnrichedCellSample'],
          'exact_mappings': ['NIMP:PD-CFCFPS27'],
@@ -11014,8 +11005,7 @@ class BarcodedCellSample(ProvEntity, MaterialSample):
          'exact_mappings': ['NIMP:PD-ONONEV39'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'barcoded_cell_sample_number_of_expected_cells'}},
-         'slot_uri': 'bican:f10e928d-5a2b-4943-af18-d8fe5d05528d'} })
+                                  'local_name_value': 'barcoded_cell_sample_number_of_expected_cells'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -11479,22 +11469,19 @@ class AmplifiedCdna(ProvEntity, MaterialSample):
          'exact_mappings': ['NIMP:PD-TITIIC26'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'amplified_cdna_amplified_quantity_ng'}},
-         'slot_uri': 'bican:0db79d05-8612-4896-b9d3-eb1558841449'} })
+                                  'local_name_value': 'amplified_cdna_amplified_quantity_ng'}}} })
     amplified_cDNA_result: Optional[AmplifiedCdnaRnaAmplificationPassFail] = Field(default=None, description="""Pass or Fail result based on qualitative assessment of cDNA yield and size.""", json_schema_extra = { "linkml_meta": {'alias': 'amplified_cDNA_result',
          'domain_of': ['AmplifiedCdna'],
          'exact_mappings': ['NIMP:PD-XXXXFQ31'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'amplified_cdna_rna_amplification_pass_fail'}},
-         'slot_uri': 'bican:bc62bdb2-7dc8-4404-bb84-ce0bbcae59e5'} })
+                                  'local_name_value': 'amplified_cdna_rna_amplification_pass_fail'}}} })
     percent_cdna_longer_than_400bp: Optional[float] = Field(default=None, description="""QC metric to measure mRNA degradation of cDNA.  Higher % is higher quality starting material.  Over 400bp is used as a universal cutoff for intact (full length) vs degraded cDNA and is a common output from Bioanalyzer and Fragment Analyzer elecropheragrams.""", json_schema_extra = { "linkml_meta": {'alias': 'percent_cdna_longer_than_400bp',
          'domain_of': ['AmplifiedCdna'],
          'exact_mappings': ['NIMP:PD-JJJJWD35'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'amplified_cdna_percent_cdna_longer_than_400bp'}},
-         'slot_uri': 'bican:8d150467-f69e-461c-b54c-bcfd22f581e5'} })
+                                  'local_name_value': 'amplified_cdna_percent_cdna_longer_than_400bp'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -11957,41 +11944,35 @@ class Library(ProvEntity, MaterialSample):
          'exact_mappings': ['NIMP:PD-VJVJLC46'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_avg_size_bp'}},
-         'slot_uri': 'bican:f851eba9-56d1-4472-9d0c-d7f8bc33000a'} })
+                                  'local_name_value': 'library_avg_size_bp'}}} })
     concentration_nm: Optional[float] = Field(default=None, description="""Concentration of library in terms of nM (nMol/L).  Number of molecules is needed for accurate pooling of the libraries and for generating the number of target reads/cell in sequencing.""", json_schema_extra = { "linkml_meta": {'alias': 'concentration_nm',
          'domain_of': ['Library'],
          'exact_mappings': ['NIMP:PD-DCDCLD43'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_concentration_nm'}},
-         'slot_uri': 'bican:90805b3f-f380-4f23-b159-e7eaa0c8f052'} })
+                                  'local_name_value': 'library_concentration_nm'}}} })
     library_result: Optional[LibraryPrepPassFail] = Field(default=None, description="""Pass or Fail result based on qualitative assessment of library yield and size.""", json_schema_extra = { "linkml_meta": {'alias': 'library_result',
          'domain_of': ['Library'],
          'exact_mappings': ['NIMP:PD-QHQHQB42'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_prep_pass_fail'}},
-         'slot_uri': 'bican:6817ede2-7ead-402d-9dbc-131aca627c6c'} })
+                                  'local_name_value': 'library_prep_pass_fail'}}} })
     quantity_fmol: Optional[float] = Field(default=None, description="""Amount of library generated in terms of femtomoles""", json_schema_extra = { "linkml_meta": {'alias': 'quantity_fmol',
          'domain_of': ['Library'],
          'exact_mappings': ['NIMP:PD-JYJYDK42'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_quantification_fmol'}},
-         'slot_uri': 'bican:4c09ada7-c116-48bc-8fb1-0dcf5c4b939a'} })
+                                  'local_name_value': 'library_quantification_fmol'}}} })
     library_quantity_ng: Optional[float] = Field(default=None, description="""Amount of library generated in terms of nanograms""", json_schema_extra = { "linkml_meta": {'alias': 'library_quantity_ng',
          'domain_of': ['Library'],
          'exact_mappings': ['NIMP:PD-TNTNXP37'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_quantification_ng'}},
-         'slot_uri': 'bican:318b2d3a-dae7-4c63-bfbb-93862b92f63e'} })
+                                  'local_name_value': 'library_quantification_ng'}}} })
     r1_r2_index: Optional[LibraryR1R2Index] = Field(default=None, description="""Name of the pair of library indexes used for sequencing.  Indexes allow libraries to be pooled together for sequencing.  Sequencing output (fastq) are demultiplexed by using the indexes for each library.  The name will be associated with the sequences of i7, i5, and i5as, which are needed by SeqCores for demultiplexing.  The required direction of the sequence (sense or antisense) of the index can differ depending on sequencing instruments.""", json_schema_extra = { "linkml_meta": {'alias': 'r1_r2_index',
          'domain_of': ['Library'],
          'exact_mappings': ['NIMP:PD-VLLMWZ60'],
          'in_subset': ['analysis', 'tracking'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_r1_r2_index'}},
-         'slot_uri': 'bican:c94b5d8a-e92d-47af-8c0e-ea3b58be4d06'} })
+                                  'local_name_value': 'library_r1_r2_index'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -12904,8 +12885,7 @@ class LibraryPool(ProvEntity, MaterialSample):
          'exact_mappings': ['NIMP:PD-WNYWPA48'],
          'in_subset': ['analysis', 'tracking'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_pool_local_tube_id'}},
-         'slot_uri': 'bican:f1fdea98-7849-4def-a62f-a04cbbf98922'} })
+                                  'local_name_value': 'library_pool_local_tube_id'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -15325,15 +15305,13 @@ class CellBarcoding(ProvActivity, Procedure):
          'exact_mappings': ['NIMP:PD-KJKJZK32'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'barcoded_cell_sample_port_well'}},
-         'slot_uri': 'bican:aca38100-d245-4be4-9be3-ba27192779fe'} })
+                                  'local_name_value': 'barcoded_cell_sample_port_well'}}} })
     input_quantity: Optional[int] = Field(default=None, description="""Number of enriched or dissociated cells/nuclei going into the barcoding process.""", json_schema_extra = { "linkml_meta": {'alias': 'input_quantity',
          'domain_of': ['CellBarcoding'],
          'exact_mappings': ['NIMP:PD-ZZZZWQ40'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'barcoded_cell_input_quantity_count'}},
-         'slot_uri': 'bican:aa534269-7c9b-4b63-b990-eea8cda56d0e'} })
+                                  'local_name_value': 'barcoded_cell_input_quantity_count'}}} })
     cell_barcoding_process_date: Optional[str] = Field(default=None, description="""Date of cell barcoding process.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_barcoding_process_date',
          'domain_of': ['CellBarcoding'],
          'exact_mappings': ['NIMP:PD-SHSHZS25'],
@@ -15760,21 +15738,18 @@ class CdnaAmplification(ProvActivity, Procedure):
          'exact_mappings': ['NIMP:PD-OKOKQD38'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'amplified_cdna_pcr_cycles'}},
-         'slot_uri': 'bican:3827634c-3f8f-4760-b358-86ce4b030238'} })
+                                  'local_name_value': 'amplified_cdna_pcr_cycles'}}} })
     cDNA_amplification_process_date: Optional[date] = Field(default=None, description="""Date of cDNA amplification.""", json_schema_extra = { "linkml_meta": {'alias': 'cDNA_amplification_process_date',
          'domain_of': ['CdnaAmplification'],
          'exact_mappings': ['NIMP:PD-BYBYBY24'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'amplified_cdna_preparation_date'}},
-         'slot_uri': 'bican:6cc333e7-9b98-497f-b7b1-eae904db2400'} })
+                                  'local_name_value': 'amplified_cdna_preparation_date'}}} })
     cDNA_amplification_set: Optional[str] = Field(default=None, description="""cDNA amplification set, containing multiple amplified_cDNA_names that were processed at the same time.""", json_schema_extra = { "linkml_meta": {'alias': 'cDNA_amplification_set',
          'domain_of': ['CdnaAmplification'],
          'exact_mappings': ['NIMP:PD-SCSCTM41'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'cdna_amplification_set'}},
-         'slot_uri': 'bican:42e98a88-50b3-4ea2-871b-2142f6a0dfdd'} })
+                                  'local_name_value': 'cdna_amplification_set'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -16193,28 +16168,24 @@ class LibraryConstruction(ProvActivity, Procedure):
          'exact_mappings': ['NIMP:PD-AJAJCN35'],
          'in_subset': ['analysis', 'tracking', 'alignment'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_technique'}},
-         'slot_uri': 'bican:7b60d59e-fdd7-4b27-a2d4-cae9b69103a6'} })
+                                  'local_name_value': 'library_technique'}}} })
     library_construction_process_date: Optional[date] = Field(default=None, description="""Date of library construction.""", json_schema_extra = { "linkml_meta": {'alias': 'library_construction_process_date',
          'domain_of': ['LibraryConstruction'],
          'exact_mappings': ['NIMP:PD-JCJCNM35'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_preparation_date'}},
-         'slot_uri': 'bican:9c2f575d-1b64-451d-894f-656861afe07a'} })
+                                  'local_name_value': 'library_preparation_date'}}} })
     input_quantity_ng: Optional[float] = Field(default=None, description="""Amount of cDNA going into library construction in nanograms.""", json_schema_extra = { "linkml_meta": {'alias': 'input_quantity_ng',
          'domain_of': ['LibraryConstruction'],
          'exact_mappings': ['NIMP:PD-AFAFXP37'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_input_ng'}},
-         'slot_uri': 'bican:e4d31d97-722d-4771-a0e4-e6062190f2c1'} })
+                                  'local_name_value': 'library_input_ng'}}} })
     library_construction_set: Optional[str] = Field(default=None, description="""Library set, containing multiple library_names that were processed at the same time.""", json_schema_extra = { "linkml_meta": {'alias': 'library_construction_set',
          'domain_of': ['LibraryConstruction'],
          'exact_mappings': ['NIMP:PD-PCPCVR50'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_prep_set'}},
-         'slot_uri': 'bican:b124ffa9-9134-4a61-a30d-bb191b2fc7fa'} })
+                                  'local_name_value': 'library_prep_set'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
