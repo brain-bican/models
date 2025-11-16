@@ -1862,7 +1862,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-LXUBTM45
-        slot_uri: bican:632d3d3f-f85b-4efc-a1ab-010fe417ae81
         range: sex
       age_at_death_description:
         local_names:
@@ -1874,7 +1873,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-ZJZJLE33
-        slot_uri: bican:0630a265-4a63-48f4-8853-66b929002306
       age_at_death_reference_point:
         local_names:
           NIMP:
@@ -1885,7 +1883,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-RARAGG39
-        slot_uri: bican:3bed1f94-9d82-4ed7-afdf-79d896b24dbb
         range: age_at_death_reference_point
       age_at_death_unit:
         local_names:
@@ -1897,7 +1894,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-AVAVEV39
-        slot_uri: bican:b5436e99-f0a7-4c30-825d-56b88ee2ac1d
         range: age_at_death_unit
       age_at_death_value:
         local_names:
@@ -1908,7 +1904,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-FTFTCP24
-        slot_uri: bican:57e24d3c-c9c7-4ef3-9809-a35802d563ec
         range: float
       species:
         local_names:
@@ -1917,7 +1912,6 @@ classes:
             local_name_value: donor_species
         description: Species of donor.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        slot_uri: bican:6837cb02-6bd7-4fb8-838c-9062ead96ba4
   BrainSlab:
     description: A thick flat piece of brain tissue obtained by slicing a whole brain,
       brain hemisphere or subdivision with a blade at regular interval.  When multiple
@@ -2087,7 +2081,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-RELLGO26
-        slot_uri: bican:baae4ac3-f959-4594-b943-3a82ec19bd34
         range: dissociated_cell_sample_cell_prep_type
       dissociated_cell_oligo_name:
         local_names:
@@ -2103,7 +2096,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-CFCFPS27
-        slot_uri: bican:184abbaf-baff-4b5f-b51e-dd38de6006af
         range: dissociated_cell_sample_cell_label_barcode
   EnrichedCellSample:
     description: A collection of enriched cells or nuclei after enrichment process,
@@ -2173,7 +2165,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-TZTZPI37
-        slot_uri: bican:875f1c70-f5aa-45e3-94b9-5e482f6c4830
         range: string
       enriched_cell_oligo_name:
         local_names:
@@ -2275,7 +2266,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-ONONEV39
-        slot_uri: bican:f10e928d-5a2b-4943-af18-d8fe5d05528d
         range: integer
   AmplifiedCdna:
     description: A collection of cDNA molecules derived and amplified from an input
@@ -2343,7 +2333,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-TITIIC26
-        slot_uri: bican:0db79d05-8612-4896-b9d3-eb1558841449
         range: float
       amplified_cDNA_result:
         local_names:
@@ -2357,7 +2346,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-XXXXFQ31
-        slot_uri: bican:bc62bdb2-7dc8-4404-bb84-ce0bbcae59e5
         range: amplified_cdna_rna_amplification_pass_fail
       percent_cdna_longer_than_400bp:
         local_names:
@@ -2373,7 +2361,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-JJJJWD35
-        slot_uri: bican:8d150467-f69e-461c-b54c-bcfd22f581e5
         range: float
   Library:
     description: A collection of fragmented and barcode-indexed DNA molecules for
@@ -2440,7 +2427,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-VJVJLC46
-        slot_uri: bican:f851eba9-56d1-4472-9d0c-d7f8bc33000a
         range: integer
       concentration_nm:
         local_names:
@@ -2453,7 +2439,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-DCDCLD43
-        slot_uri: bican:90805b3f-f380-4f23-b159-e7eaa0c8f052
         range: float
       library_result:
         local_names:
@@ -2467,7 +2452,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-QHQHQB42
-        slot_uri: bican:6817ede2-7ead-402d-9dbc-131aca627c6c
         range: library_prep_pass_fail
       quantity_fmol:
         local_names:
@@ -2480,7 +2464,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-JYJYDK42
-        slot_uri: bican:4c09ada7-c116-48bc-8fb1-0dcf5c4b939a
         range: float
       library_quantity_ng:
         local_names:
@@ -2491,7 +2474,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-TNTNXP37
-        slot_uri: bican:318b2d3a-dae7-4c63-bfbb-93862b92f63e
         range: float
       r1_r2_index:
         local_names:
@@ -2510,7 +2492,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-VLLMWZ60
-        slot_uri: bican:c94b5d8a-e92d-47af-8c0e-ea3b58be4d06
         range: library_r1_r2_index
   LibraryAliquot:
     description: One library in the library pool. Each library aliquot in a library
@@ -2630,7 +2611,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-WNYWPA48
-        slot_uri: bican:f1fdea98-7849-4def-a62f-a04cbbf98922
         range: string
   DissectionRoiDelineation:
     description: The process of outlining a region of interest on a brain slab image
@@ -2791,7 +2771,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-KJKJZK32
-        slot_uri: bican:aca38100-d245-4be4-9be3-ba27192779fe
         range: string
       input_quantity:
         local_names:
@@ -2805,7 +2784,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-ZZZZWQ40
-        slot_uri: bican:aa534269-7c9b-4b63-b990-eea8cda56d0e
         range: integer
       cell_barcoding_process_date:
         local_names:
@@ -2862,7 +2840,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-OKOKQD38
-        slot_uri: bican:3827634c-3f8f-4760-b358-86ce4b030238
         range: integer
       cDNA_amplification_process_date:
         local_names:
@@ -2873,7 +2850,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-BYBYBY24
-        slot_uri: bican:6cc333e7-9b98-497f-b7b1-eae904db2400
         range: date
       cDNA_amplification_set:
         local_names:
@@ -2887,7 +2863,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-SCSCTM41
-        slot_uri: bican:42e98a88-50b3-4ea2-871b-2142f6a0dfdd
         range: string
   LibraryConstruction:
     description: The process of constructing a library from input material (such as
@@ -2929,7 +2904,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-AJAJCN35
-        slot_uri: bican:7b60d59e-fdd7-4b27-a2d4-cae9b69103a6
         range: library_technique
       library_construction_process_date:
         local_names:
@@ -2940,7 +2914,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-JCJCNM35
-        slot_uri: bican:9c2f575d-1b64-451d-894f-656861afe07a
         range: date
       input_quantity_ng:
         local_names:
@@ -2953,7 +2926,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-AFAFXP37
-        slot_uri: bican:e4d31d97-722d-4771-a0e4-e6062190f2c1
         range: float
       library_construction_set:
         local_names:
@@ -2967,7 +2939,6 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-PCPCVR50
-        slot_uri: bican:b124ffa9-9134-4a61-a30d-bb191b2fc7fa
         range: string
   LibraryPooling:
     description: The process of constructing of a libray pool by combining library
