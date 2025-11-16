@@ -3701,13 +3701,6 @@
                         "null"
                     ]
                 },
-                "local_tube_id": {
-                    "description": "Library Pool Tube local name.  Label of the tube containing the library pool, which is made up of multiple library_aliquots.  This is a Library Lab local tube name, before the pool is aliquoted to the Seq Core provided tube 'Library Pool Tube Name'.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "name": {
                     "description": "Library lab's library pool name.  For some labs this may be the same as \"Libray pool tube local name\".   Other labs distinguish between the local tube label of the library pool and the library pool name provided to SeqCore for tracking.  Local Pool Name is used to communicate sequencing status between SeqCore and Library Labs.",
                     "type": [
@@ -3732,6 +3725,13 @@
                     },
                     "type": [
                         "array",
+                        "null"
+                    ]
+                },
+                "tube_internal_label": {
+                    "description": "Library Pool Tube local name.  Label of the tube containing the library pool, which is made up of multiple library_aliquots.  This is a Library Lab local tube name, before the pool is aliquoted to the Seq Core provided tube 'Library Pool Tube Name'.",
+                    "type": [
+                        "string",
                         "null"
                     ]
                 },
