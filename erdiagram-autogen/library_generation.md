@@ -31,6 +31,7 @@ ProvEntity {
 }
 DissectionRoiPolygon {
     label_type name  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     uriorcurieList category  
@@ -198,14 +199,14 @@ DissectionRoiDelineation {
 }
 LibraryPool {
     label_type name  
-    string local_tube_id  
+    uriorcurieList xref  
+    string tube_internal_label  
     string id  
     iri_type iri  
     stringList type  
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -215,13 +216,13 @@ LibraryPool {
 }
 LibraryAliquot {
     label_type name  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     stringList type  
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -231,6 +232,7 @@ LibraryAliquot {
 }
 Library {
     label_type name  
+    uriorcurieList xref  
     integer average_size_bp  
     float concentration_nm  
     library_prep_pass_fail library_result  
@@ -243,7 +245,6 @@ Library {
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -253,6 +254,7 @@ Library {
 }
 AmplifiedCdna {
     label_type name  
+    uriorcurieList xref  
     float amplified_cDNA_quantity_ng  
     amplified_cdna_rna_amplification_pass_fail amplified_cDNA_result  
     float percent_cdna_longer_than_400bp  
@@ -262,7 +264,6 @@ AmplifiedCdna {
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -272,6 +273,7 @@ AmplifiedCdna {
 }
 BarcodedCellSample {
     label_type name  
+    uriorcurieList xref  
     integer number_of_expected_cells  
     string id  
     iri_type iri  
@@ -279,7 +281,6 @@ BarcodedCellSample {
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -289,6 +290,7 @@ BarcodedCellSample {
 }
 EnrichedCellSample {
     label_type name  
+    uriorcurieList xref  
     string enrichment_population  
     string enriched_cell_oligo_name  
     string histone_modification_marker  
@@ -298,7 +300,6 @@ EnrichedCellSample {
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -308,6 +309,7 @@ EnrichedCellSample {
 }
 DissociatedCellSample {
     label_type name  
+    uriorcurieList xref  
     dissociated_cell_sample_cell_prep_type cell_prep_type  
     dissociated_cell_sample_cell_label_barcode dissociated_cell_oligo_name  
     string id  
@@ -316,7 +318,6 @@ DissociatedCellSample {
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -326,6 +327,7 @@ DissociatedCellSample {
 }
 TissueSample {
     label_type name  
+    uriorcurieList xref  
     stringList structure  
     string id  
     iri_type iri  
@@ -333,7 +335,6 @@ TissueSample {
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -343,13 +344,13 @@ TissueSample {
 }
 BrainSlab {
     label_type name  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     stringList type  
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -359,6 +360,7 @@ BrainSlab {
 }
 Donor {
     label_type name  
+    uriorcurieList xref  
     sex biological_sex  
     string age_at_death_description  
     age_at_death_reference_point age_at_death_reference_point  
@@ -372,7 +374,6 @@ Donor {
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
