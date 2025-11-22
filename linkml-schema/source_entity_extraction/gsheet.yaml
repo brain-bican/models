@@ -1,0 +1,14 @@
+gsheet_id: "1gziX3bgw_I0BDchi1FH2JSTUEOHjfVCUrQFsRwiXogs"
+sheets:
+  - name: "Classes"
+    gid: "0"
+  - name: "Attributes"
+    gid: "205457862"
+  # - name: "Slots"
+  #   gid: "1496475127"
+  - name: "Prefixes"
+    gid: "2018832318"
+  - name: "Schema"
+    gid: "1640492340"
+
+
