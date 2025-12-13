@@ -2161,6 +2161,16 @@ classes:
             local_name_value: id
         from_schema: bican_biolink
     attributes:
+      sample_preparation_date:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: enriched_cell_sample_preparation_date
+        description: Date of cell enrichment process.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-PFPFFC28
+        range: date
       enrichment_population:
         local_names:
           NIMP:
@@ -2704,16 +2714,6 @@ classes:
         from_schema: bican_prov
         range: DissociatedCellSample
         multivalued: true
-    attributes:
-      cell_enrichment_process_date:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: enriched_cell_sample_preparation_date
-        description: Date of cell enrichment process.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-PFPFFC28
   EnrichedCellSampleSplitting:
     description: The process of splitting an enriched cell sample into several portions.
       Each portion may be used by the same or different groups for different scientific
