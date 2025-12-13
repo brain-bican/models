@@ -1809,6 +1809,42 @@ classes:
         exact_mappings:
         - NIMP:PD-JJJJWD35
         range: float
+      pcr_cycles:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: amplified_cdna_pcr_cycles
+        description: Number of PCR cycles used during cDNA amplification for this
+          cDNA.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-OKOKQD38
+        range: integer
+      preparation_date:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: amplified_cdna_preparation_date
+        description: Date of cDNA amplification.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-BYBYBY24
+        range: date
+      cdna_amplification_set:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: cdna_amplification_set
+        description: cDNA amplification set, containing multiple amplified_cDNA_names
+          that were processed at the same time.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-SCSCTM41
+        range: string
   Library:
     description: A collection of fragmented and barcode-indexed DNA molecules for
       sequencing. An index or barcode is typically introduced to enable identification
@@ -2265,43 +2301,6 @@ classes:
           derived from.
         from_schema: bican_prov
         range: BarcodedCellSample
-    attributes:
-      pcr_cycles:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: amplified_cdna_pcr_cycles
-        description: Number of PCR cycles used during cDNA amplification for this
-          cDNA.
-        in_subset:
-        - analysis
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-OKOKQD38
-        range: integer
-      cDNA_amplification_process_date:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: amplified_cdna_preparation_date
-        description: Date of cDNA amplification.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-BYBYBY24
-        range: date
-      cDNA_amplification_set:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: cdna_amplification_set
-        description: cDNA amplification set, containing multiple amplified_cDNA_names
-          that were processed at the same time.
-        in_subset:
-        - analysis
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-SCSCTM41
-        range: string
   LibraryConstruction:
     description: The process of constructing a library from input material (such as
       amplified cDNA or barcoded cell sample) derived from one or more cell samples.  cDNA
