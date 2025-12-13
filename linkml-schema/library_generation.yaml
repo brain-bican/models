@@ -1639,6 +1639,7 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-ESESLW44
+        range: string
   BarcodedCellSample:
     description: A collection of molecularly barcoded cells. Input will be either
       dissociated cell sample or enriched cell sample. Cell barcodes are only guaranteed
