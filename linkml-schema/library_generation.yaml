@@ -2059,6 +2059,16 @@ classes:
         exact_mappings:
         - NIMP:PD-WNYWPA48
         range: string
+      preparation_date:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: library_pool_preparation_date
+        description: Date of library pooling process.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-XUXUNM35
+        range: date
   DissectionRoiDelineation:
     description: The process of outlining a region of interest on a brain slab image
       to guide the dissection and generation of a tissue sample.
@@ -2390,16 +2400,6 @@ classes:
         from_schema: bican_prov
         range: LibraryAliquot
         multivalued: true
-    attributes:
-      process_date:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: library_pool_preparation_date
-        description: Date of library pooling process.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-XUXUNM35
   DissectionRoiPolygon:
     description: A polygon annotated on a brain slab image delineating a region of
       interest (ROI) for a tissue sample dissectioning.
