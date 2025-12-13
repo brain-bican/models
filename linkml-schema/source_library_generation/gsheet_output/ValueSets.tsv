@@ -8,6 +8,13 @@ barcoded_cell_sample_technique	Multiome	Multiome	Barcoded Cell Sample	PD-TDTDDF2
 barcoded_cell_sample_technique	ATACOnly	ATACOnly	Barcoded Cell Sample	PD-TDTDDF25
 barcoded_cell_sample_technique	GEXOnly	GEXOnly	Barcoded Cell Sample	PD-TDTDDF25
 barcoded_cell_sample_technique	snm3C-seq	snm3C-seq	Barcoded Cell Sample	PD-TDTDDF25
+barcoded_cell_sample_technique	Droplet Paired-Tag	Droplet Paired-Tag	Barcoded Cell Sample	PD-TDTDDF26
+barcoded_cell_sample_technique	Slide-tag_std	Slide-tag_std	Barcoded Cell Sample	PD-TDTDDF27
+barcoded_cell_sample_technique	Slide-tag_recon	Slide-tag_recon	Barcoded Cell Sample	PD-TDTDDF28
+barcoded_cell_sample_technique	snmCT-seq	snmCT-seq	Barcoded Cell Sample	PD-TDTDDF29
+barcoded_cell_sample_technique	PatchSeq-SmartSeq	PatchSeq-SmartSeq	Barcoded Cell Sample	PD-TDTDDF30
+barcoded_cell_sample_technique	SmartSeq	SmartSeq	Barcoded Cell Sample	PD-TDTDDF31
+barcoded_cell_sample_technique	DBiT-Seq	DBiT-Seq	Barcoded Cell Sample	PD-TDTDDF32
 dissociated_cell_sample_cell_prep_type	Nuclei	isolated nuclei	Dissociated Cell Sample	PD-RELLGO26
 dissociated_cell_sample_cell_prep_type	Cells	isolated whole cells	Dissociated Cell Sample	PD-RELLGO26
 cell_label_barcode	CMO301	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27

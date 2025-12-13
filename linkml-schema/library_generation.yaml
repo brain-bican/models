@@ -66,6 +66,20 @@ enums:
         description: GEXOnly
       snm3C-seq:
         description: snm3C-seq
+      Droplet Paired-Tag:
+        description: Droplet Paired-Tag
+      Slide-tag_std:
+        description: Slide-tag_std
+      Slide-tag_recon:
+        description: Slide-tag_recon
+      snmCT-seq:
+        description: snmCT-seq
+      PatchSeq-SmartSeq:
+        description: PatchSeq-SmartSeq
+      SmartSeq:
+        description: SmartSeq
+      DBiT-Seq:
+        description: DBiT-Seq
   dissociated_cell_sample_cell_prep_type:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
@@ -1714,6 +1728,56 @@ classes:
         exact_mappings:
         - NIMP:PD-ONONEV39
         range: integer
+      port_well:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: barcoded_cell_sample_port_well
+        description: Specific position of the loaded port of the 10x chip.  An Enriched
+          or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded
+          Cell Sample). Can be left null for non-10x methods.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-KJKJZK32
+        range: string
+      input_quantity_count:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: barcoded_cell_input_quantity_count
+        description: Number of enriched or dissociated cells/nuclei going into the
+          barcoding process.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-ZZZZWQ40
+        range: integer
+      preparation_date:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: barcoded_cell_sample_preparation_date
+        description: Date of cell barcoding process.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-SHSHZS25
+        range: date
+      technique:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: barcoded_cell_sample_technique
+        description: Required standardized nomenclature to describe the general method
+          used to barcode individual cells. This method (eg Multiome, ATAConly, GEXonly)
+          will be more general than the Library Method (which is specific for alignment)
+          and could be used for general classification of Barcoded Cell Samples.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-TDTDDF25
+        range: barcoded_cell_sample_technique
   AmplifiedCdna:
     description: A collection of cDNA molecules derived and amplified from an input
       barcoded cell sample. These cDNA molecules represent the gene expression of
@@ -2230,55 +2294,6 @@ classes:
         exactly_one_of:
         - range: DissociatedCellSample
         - range: EnrichedCellSample
-    attributes:
-      port_well:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: barcoded_cell_sample_port_well
-        description: Specific position of the loaded port of the 10x chip.  An Enriched
-          or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded
-          Cell Sample). Can be left null for non-10x methods.
-        in_subset:
-        - analysis
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-KJKJZK32
-        range: string
-      input_quantity:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: barcoded_cell_input_quantity_count
-        description: Number of enriched or dissociated cells/nuclei going into the
-          barcoding process.
-        in_subset:
-        - analysis
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-ZZZZWQ40
-        range: integer
-      cell_barcoding_process_date:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: barcoded_cell_sample_preparation_date
-        description: Date of cell barcoding process.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-SHSHZS25
-        range: date
-      cell_barcoding_method:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: barcoded_cell_sample_technique
-        description: 'Standardized nomenclature to describe the general barcoding
-          method used.  For example: Multiome, ATAC Only, GEX Only or snm3C-seq.'
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-TDTDDF25
-        range: barcoded_cell_sample_technique
   CdnaAmplification:
     description: The process of creating a collection of cDNA molecules derived and
       amplified from an input barcoded cell sample.  A large amount of cDNA is needed
