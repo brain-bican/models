@@ -2097,6 +2097,41 @@ classes:
         exact_mappings:
         - NIMP:PD-AJAJCN35
         range: library_technique
+      preparation_date:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: library_preparation_date
+        description: Date of library construction.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-JCJCNM35
+        range: date
+      input_ng:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: library_input_ng
+        description: Amount of cDNA going into library construction in nanograms.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-AFAFXP37
+        range: float
+      prep_set:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: library_prep_set
+        description: Library set, containing multiple library_names that were processed
+          at the same time.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-PCPCVR50
+        range: string
   LibraryAliquot:
     description: One library in the library pool. Each library aliquot in a library
       pool will have a unique R1/R2 index to allow for sequencing together then separating
@@ -2396,42 +2431,6 @@ classes:
         any_of:
         - range: BarcodedCellSample
         - range: AmplifiedCdna
-    attributes:
-      library_construction_process_date:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: library_preparation_date
-        description: Date of library construction.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-JCJCNM35
-        range: date
-      input_quantity_ng:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: library_input_ng
-        description: Amount of cDNA going into library construction in nanograms.
-        in_subset:
-        - analysis
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-AFAFXP37
-        range: float
-      library_construction_set:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: library_prep_set
-        description: Library set, containing multiple library_names that were processed
-          at the same time.
-        in_subset:
-        - analysis
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-PCPCVR50
-        range: string
   LibraryPooling:
     description: The process of constructing of a libray pool by combining library
       aliquots from a set of input libraries. Each library aliquot in a library pool
