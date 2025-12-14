@@ -61,7 +61,27 @@ library_technique	MERFISH	MERFISH	Library	PD-AJAJCN35
 library_technique	Slide-seq MERFISH	Slide-seq MERFISH	Library	PD-AJAJCN35
 library_technique	whole brain MERFISH	whole brain MERFISH	Library	PD-AJAJCN35
 library_technique	DBiT RNA-seq	DBiT RNA-seq	Library	PD-AJAJCN35
-library_technique	DBiT ATAC-seq	DBiT ATAC-seq	Library	PD-AJAJCN35
+library_technique	DBiT ATAC-seq	DBiT ATAC-seq	Library	PD-AJAJCN36
+library_technique	Droplet Paired-Tag; DNA	Droplet Paired-Tag; DNA	Library	PD-AJAJCN37
+library_technique	Droplet Paired-Tag; RNA	Droplet Paired-Tag; RNA	Library	PD-AJAJCN38
+library_technique	Multiplex Droplet Paired-Tag; DNA	Multiplex Droplet Paired-Tag; DNA	Library	PD-AJAJCN39
+library_technique	Multiplex Droplet Paired-Tag; RNA	Multiplex Droplet Paired-Tag; RNA	Library	PD-AJAJCN40
+library_technique	10xV4	10xV4	Library	PD-AJAJCN41
+library_technique	10x_5P_v5.2	10x_5P_v5.2	Library	PD-AJAJCN42
+library_technique	PIPSeq_T2_3P_v4+	PIPSeq_T2_3P_v4+	Library	PD-AJAJCN43
+library_technique	PIPSeq_T20_3P_v4+	PIPSeq_T20_3P_v4+	Library	PD-AJAJCN44
+library_technique	Slide-tag_10x5Pv2;GEX	Slide-tag_10x5Pv2;GEX	Library	PD-AJAJCN45
+library_technique	Slide-tag_10x5Pv2;Spatial	Slide-tag_10x5Pv2;Spatial	Library	PD-AJAJCN46
+library_technique	Slide-tag_PIPSeq_T100_3P_v4+;GEX	Slide-tag_PIPSeq_T100_3P_v4+;GEX	Library	PD-AJAJCN47
+library_technique	Slide-tag_PIPSeq_T100_3P_v4+;Spatial	Slide-tag_PIPSeq_T100_3P_v4+;Spatial	Library	PD-AJAJCN48
+library_technique	Slide-tag_PIPSeq_T20_3P_v4+;GEX	Slide-tag_PIPSeq_T20_3P_v4+;GEX	Library	PD-AJAJCN49
+library_technique	Slide-tag_PIPSeq_T20_3P_v4+;Spatial	Slide-tag_PIPSeq_T20_3P_v4+;Spatial	Library	PD-AJAJCN50
+library_technique	10x5Pv3	10x5Pv3	Library	PD-AJAJCN51
+library_technique	Slide-tag_10xV4;GEX	Slide-tag_10xV4;GEX	Library	PD-AJAJCN52
+library_technique	Slide-tag_10xV4;Spatial	Slide-tag_10xV4;Spatial	Library	PD-AJAJCN53
+library_technique	Slide-tag_TruSeq;Recon	Slide-tag_TruSeq;Recon	Library	PD-AJAJCN54
+library_technique	10xV4_OCM	10xV4_OCM	Library	PD-AJAJCN55
+library_technique	SMARTSeqV4	SMARTSeqV4	Library	PD-AJAJCN56
 library_prep_pass_fail	Pass	Library Prep passed the QA/QC	Library	PD-QHQHQB42
 library_prep_pass_fail	Fail	Library Prep failed the QA/QC	Library	PD-QHQHQB42
 library_prep_pass_fail	Low QC	Library Prep low passed the QA/QC	Library	PD-QHQHQB42

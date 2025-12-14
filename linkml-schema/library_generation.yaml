@@ -215,6 +215,46 @@ enums:
         description: DBiT RNA-seq
       DBiT ATAC-seq:
         description: DBiT ATAC-seq
+      Droplet Paired-Tag; DNA:
+        description: Droplet Paired-Tag; DNA
+      Droplet Paired-Tag; RNA:
+        description: Droplet Paired-Tag; RNA
+      Multiplex Droplet Paired-Tag; DNA:
+        description: Multiplex Droplet Paired-Tag; DNA
+      Multiplex Droplet Paired-Tag; RNA:
+        description: Multiplex Droplet Paired-Tag; RNA
+      10xV4:
+        description: 10xV4
+      10x_5P_v5.2:
+        description: 10x_5P_v5.2
+      PIPSeq_T2_3P_v4+:
+        description: PIPSeq_T2_3P_v4+
+      PIPSeq_T20_3P_v4+:
+        description: PIPSeq_T20_3P_v4+
+      Slide-tag_10x5Pv2;GEX:
+        description: Slide-tag_10x5Pv2;GEX
+      Slide-tag_10x5Pv2;Spatial:
+        description: Slide-tag_10x5Pv2;Spatial
+      Slide-tag_PIPSeq_T100_3P_v4+;GEX:
+        description: Slide-tag_PIPSeq_T100_3P_v4+;GEX
+      Slide-tag_PIPSeq_T100_3P_v4+;Spatial:
+        description: Slide-tag_PIPSeq_T100_3P_v4+;Spatial
+      Slide-tag_PIPSeq_T20_3P_v4+;GEX:
+        description: Slide-tag_PIPSeq_T20_3P_v4+;GEX
+      Slide-tag_PIPSeq_T20_3P_v4+;Spatial:
+        description: Slide-tag_PIPSeq_T20_3P_v4+;Spatial
+      10x5Pv3:
+        description: 10x5Pv3
+      Slide-tag_10xV4;GEX:
+        description: Slide-tag_10xV4;GEX
+      Slide-tag_10xV4;Spatial:
+        description: Slide-tag_10xV4;Spatial
+      Slide-tag_TruSeq;Recon:
+        description: Slide-tag_TruSeq;Recon
+      10xV4_OCM:
+        description: 10xV4_OCM
+      SMARTSeqV4:
+        description: SMARTSeqV4
   library_prep_pass_fail:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
@@ -1510,7 +1550,7 @@ classes:
             local_name_value: id
         from_schema: bican_biolink
     attributes:
-      sample_preparation_date:
+      preparation_date:
         local_names:
           NIMP:
             local_name_source: NIMP
@@ -1603,7 +1643,7 @@ classes:
             local_name_value: id
         from_schema: bican_biolink
     attributes:
-      sample_preparation_date:
+      preparation_date:
         local_names:
           NIMP:
             local_name_source: NIMP
@@ -2040,6 +2080,23 @@ classes:
         exact_mappings:
         - NIMP:PD-VLLMWZ60
         range: library_r1_r2_index
+      technique:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: library_technique
+        description: Standardized nomenclature to describe the specific library method
+          used.  This specifies the alignment method required for the library.  For
+          example, 10xV3.1 (for RNASeq single assay), 10xMult-GEX (for RNASeq multiome
+          assay), and 10xMult-ATAC (for ATACSeq multiome assay).
+        in_subset:
+        - analysis
+        - tracking
+        - alignment
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-AJAJCN35
+        range: library_technique
   LibraryAliquot:
     description: One library in the library pool. Each library aliquot in a library
       pool will have a unique R1/R2 index to allow for sequencing together then separating
@@ -2340,23 +2397,6 @@ classes:
         - range: BarcodedCellSample
         - range: AmplifiedCdna
     attributes:
-      library_construction_method:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: library_technique
-        description: Standardized nomenclature to describe the specific library method
-          used.  This specifies the alignment method required for the library.  For
-          example, 10xV3.1 (for RNASeq single assay), 10xMult-GEX (for RNASeq multiome
-          assay), and 10xMult-ATAC (for ATACSeq multiome assay).
-        in_subset:
-        - analysis
-        - tracking
-        - alignment
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-AJAJCN35
-        range: library_technique
       library_construction_process_date:
         local_names:
           NIMP:
