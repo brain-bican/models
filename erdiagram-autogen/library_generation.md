@@ -1,8 +1,8 @@
 ```mermaid
 erDiagram
 DigitalAsset {
-    stringList digest  
     stringList content_url  
+    stringList digest  
     string data_type  
     string id  
     iri_type iri  
@@ -31,6 +31,7 @@ ProvEntity {
 }
 DissectionRoiPolygon {
     label_type name  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     uriorcurieList category  
@@ -39,7 +40,6 @@ DissectionRoiPolygon {
     boolean deprecated  
 }
 LibraryPooling {
-    string process_date  
     string id  
     iri_type iri  
     stringList type  
@@ -56,10 +56,6 @@ LibraryPooling {
     uriorcurieList category  
 }
 LibraryConstruction {
-    library_technique library_construction_method  
-    date library_construction_process_date  
-    float input_quantity_ng  
-    string library_construction_set  
     string id  
     iri_type iri  
     stringList type  
@@ -76,9 +72,6 @@ LibraryConstruction {
     uriorcurieList category  
 }
 CdnaAmplification {
-    integer pcr_cycles  
-    date cDNA_amplification_process_date  
-    string cDNA_amplification_set  
     string id  
     iri_type iri  
     stringList type  
@@ -95,10 +88,6 @@ CdnaAmplification {
     uriorcurieList category  
 }
 CellBarcoding {
-    string port_well  
-    integer input_quantity  
-    string cell_barcoding_process_date  
-    barcoded_cell_sample_technique cell_barcoding_method  
     string id  
     iri_type iri  
     stringList type  
@@ -131,7 +120,6 @@ EnrichedCellSampleSplitting {
     uriorcurieList category  
 }
 CellEnrichment {
-    string cell_enrichment_process_date  
     string id  
     iri_type iri  
     stringList type  
@@ -148,7 +136,6 @@ CellEnrichment {
     uriorcurieList category  
 }
 CellDissociation {
-    string cell_dissociation_process_date  
     string id  
     iri_type iri  
     stringList type  
@@ -198,14 +185,15 @@ DissectionRoiDelineation {
 }
 LibraryPool {
     label_type name  
+    uriorcurieList xref  
     string local_tube_id  
+    date preparation_date  
     string id  
     iri_type iri  
     stringList type  
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -215,13 +203,13 @@ LibraryPool {
 }
 LibraryAliquot {
     label_type name  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     stringList type  
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -231,19 +219,23 @@ LibraryAliquot {
 }
 Library {
     label_type name  
+    uriorcurieList xref  
     integer average_size_bp  
     float concentration_nm  
     library_prep_pass_fail library_result  
     float quantity_fmol  
     float library_quantity_ng  
     library_r1_r2_index r1_r2_index  
+    library_technique technique  
+    date preparation_date  
+    float input_ng  
+    string prep_set  
     string id  
     iri_type iri  
     stringList type  
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -253,16 +245,19 @@ Library {
 }
 AmplifiedCdna {
     label_type name  
+    uriorcurieList xref  
     float amplified_cDNA_quantity_ng  
     amplified_cdna_rna_amplification_pass_fail amplified_cDNA_result  
     float percent_cdna_longer_than_400bp  
+    integer pcr_cycles  
+    date preparation_date  
+    string cdna_amplification_set  
     string id  
     iri_type iri  
     stringList type  
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -272,14 +267,18 @@ AmplifiedCdna {
 }
 BarcodedCellSample {
     label_type name  
+    uriorcurieList xref  
     integer number_of_expected_cells  
+    string port_well  
+    integer input_quantity_count  
+    date preparation_date  
+    barcoded_cell_sample_technique technique  
     string id  
     iri_type iri  
     stringList type  
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -289,8 +288,10 @@ BarcodedCellSample {
 }
 EnrichedCellSample {
     label_type name  
+    uriorcurieList xref  
+    date preparation_date  
     string enrichment_population  
-    string enriched_cell_oligo_name  
+    cell_label_barcode cell_label_barcode  
     string histone_modification_marker  
     string id  
     iri_type iri  
@@ -298,7 +299,6 @@ EnrichedCellSample {
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -308,15 +308,16 @@ EnrichedCellSample {
 }
 DissociatedCellSample {
     label_type name  
+    uriorcurieList xref  
+    date preparation_date  
     dissociated_cell_sample_cell_prep_type cell_prep_type  
-    dissociated_cell_sample_cell_label_barcode dissociated_cell_oligo_name  
+    cell_label_barcode cell_label_barcode  
     string id  
     iri_type iri  
     stringList type  
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -326,6 +327,7 @@ DissociatedCellSample {
 }
 TissueSample {
     label_type name  
+    uriorcurieList xref  
     stringList structure  
     string id  
     iri_type iri  
@@ -333,7 +335,6 @@ TissueSample {
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -343,13 +344,13 @@ TissueSample {
 }
 BrainSlab {
     label_type name  
+    uriorcurieList xref  
     string id  
     iri_type iri  
     stringList type  
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
@@ -359,12 +360,13 @@ BrainSlab {
 }
 Donor {
     label_type name  
+    uriorcurieList xref  
     sex biological_sex  
     string age_at_death_description  
     age_at_death_reference_point age_at_death_reference_point  
     age_at_death_unit age_at_death_unit  
     float age_at_death_value  
-    string species  
+    species species  
     label_type in_taxon_label  
     string id  
     iri_type iri  
@@ -372,7 +374,6 @@ Donor {
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
-    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  
