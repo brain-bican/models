@@ -207,52 +207,43 @@
          },
          "@id": "amplified_cDNA_result"
       },
-      "percent_cdna_longer_than_400bp": {
-         "@type": "xsd:float",
-         "@id": "percent_cdna_longer_than_400bp"
-      },
-      "number_of_expected_cells": {
-         "@type": "xsd:integer",
-         "@id": "number_of_expected_cells"
-      },
-      "category": {
-         "@type": "xsd:anyURI",
-         "@id": "biolink:category"
-      },
-      "cDNA_amplification_process_date": {
-         "@type": "xsd:date",
-         "@id": "cDNA_amplification_process_date"
-      },
-      "cDNA_amplification_set": {
-         "@id": "cDNA_amplification_set"
+      "cdna_amplification_set": {
+         "@id": "cdna_amplification_set"
       },
       "pcr_cycles": {
          "@type": "xsd:integer",
          "@id": "pcr_cycles"
       },
-      "cell_barcoding_method": {
+      "percent_cdna_longer_than_400bp": {
+         "@type": "xsd:float",
+         "@id": "percent_cdna_longer_than_400bp"
+      },
+      "preparation_date": {
+         "@type": "xsd:date",
+         "@id": "preparation_date"
+      },
+      "input_quantity_count": {
+         "@type": "xsd:integer",
+         "@id": "input_quantity_count"
+      },
+      "number_of_expected_cells": {
+         "@type": "xsd:integer",
+         "@id": "number_of_expected_cells"
+      },
+      "port_well": {
+         "@id": "port_well"
+      },
+      "technique": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "cell_barcoding_method"
+         "@id": "technique"
       },
-      "cell_barcoding_process_date": {
-         "@id": "cell_barcoding_process_date"
-      },
-      "input_quantity": {
-         "@type": "xsd:integer",
-         "@id": "input_quantity"
-      },
-      "port_well": {
-         "@id": "port_well"
-      },
-      "cell_dissociation_process_date": {
-         "@id": "cell_dissociation_process_date"
-      },
-      "cell_enrichment_process_date": {
-         "@id": "cell_enrichment_process_date"
+      "category": {
+         "@type": "xsd:anyURI",
+         "@id": "biolink:category"
       },
       "checksum_algorithm": {
          "@context": {
@@ -300,6 +291,14 @@
          "@type": "@id",
          "@id": "annotates"
       },
+      "cell_label_barcode": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cell_label_barcode"
+      },
       "cell_prep_type": {
          "@context": {
             "text": "skos:notation",
@@ -307,14 +306,6 @@
             "meaning": "@id"
          },
          "@id": "cell_prep_type"
-      },
-      "dissociated_cell_oligo_name": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "dissociated_cell_oligo_name"
       },
       "age_at_death_description": {
          "@id": "age_at_death_description"
@@ -348,10 +339,12 @@
          "@id": "biological_sex"
       },
       "species": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
          "@id": "species"
-      },
-      "enriched_cell_oligo_name": {
-         "@id": "enriched_cell_oligo_name"
       },
       "enrichment_population": {
          "@id": "enrichment_population"
@@ -423,6 +416,10 @@
          "@type": "xsd:float",
          "@id": "concentration_nm"
       },
+      "input_ng": {
+         "@type": "xsd:float",
+         "@id": "input_ng"
+      },
       "library_quantity_ng": {
          "@type": "xsd:float",
          "@id": "library_quantity_ng"
@@ -434,6 +431,9 @@
             "meaning": "@id"
          },
          "@id": "library_result"
+      },
+      "prep_set": {
+         "@id": "prep_set"
       },
       "quantity_fmol": {
          "@type": "xsd:float",
@@ -447,30 +447,8 @@
          },
          "@id": "r1_r2_index"
       },
-      "input_quantity_ng": {
-         "@type": "xsd:float",
-         "@id": "input_quantity_ng"
-      },
-      "library_construction_method": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "library_construction_method"
-      },
-      "library_construction_process_date": {
-         "@type": "xsd:date",
-         "@id": "library_construction_process_date"
-      },
-      "library_construction_set": {
-         "@id": "library_construction_set"
-      },
-      "tube_internal_label": {
-         "@id": "tube_internal_label"
-      },
-      "process_date": {
-         "@id": "process_date"
+      "local_tube_id": {
+         "@id": "local_tube_id"
       },
       "license": {
          "@id": "biolink:license"
