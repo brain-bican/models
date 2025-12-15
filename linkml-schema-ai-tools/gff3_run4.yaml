@@ -1,0 +1,275 @@
+id: https://identifiers.org/brain-bican/gff3-gene-schema
+name: gff3-gene-schema
+description: "LinkML schema for modeling GFF3 gene-level features (Column 3 = gene) with unified attributes for NCBI and Ensembl."
+version: 0.1.0
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/vocab/
+  bican: https://identifiers.org/brain-bican/vocab/
+  gff3: https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md#
+  NCBIGene: http://identifiers.org/ncbigene/
+  ENSEMBL: http://identifiers.org/ensembl/
+  SO: http://purl.obolibrary.org/obo/SO_
+  schema: http://schema.org/
+
+imports:
+  - linkml:types
+  - ../linkml-schema/bican_biolink
+  - ../linkml-schema/bican_core
+
+default_prefix: bican
+default_range: string
+
+types:
+  one_based_int:
+    name: one_based_int
+    typeof: integer
+    minimum_value: 1
+    description: "Positive, one-based integer coordinate as used by GFF3 start/end."
+
+enums:
+  StrandEnum:
+    name: StrandEnum
+    description: "GFF3 strand column encoding per spec."
+    permissible_values:
+      '+':
+        description: "plus strand"
+      '-':
+        description: "minus strand"
+      '.':
+        description: "not stranded"
+      '?':
+        description: "stranded but unknown"
+  GeneFeatureType:
+    name: GeneFeatureType
+    description: "GFF3 Column 3 feature type; constrained to gene for this class."
+    permissible_values:
+      gene:
+        description: "gene feature (SO:0000704)"
+        meaning: SO:0000704
+  GeneBiotypeEnum:
+    name: GeneBiotypeEnum
+    description: "Unified gene biotype values across NCBI (gene_biotype) and Ensembl (biotype)."
+    permissible_values:
+      protein_coding: {}
+      lncRNA: {}
+      miRNA: {}
+      rRNA: {}
+      snRNA: {}
+      snoRNA: {}
+      tRNA: {}
+      ncRNA: {}
+      miscRNA: {}
+      pseudogene: {}
+      transcribed_pseudogene: {}
+      other: {}
+
+slots:
+  # Core GFF3 columns for a gene row
+  seqid:
+    name: seqid
+    description: "GFF3 Column 1; landmark ID establishing coordinate system (NCBI uses accession.version)."
+    exact_mappings:
+      - gff3:seqid
+  source:
+    name: source
+    description: "GFF3 Column 2; pipeline or database source, e.g., RefSeq, Ensembl, Gnomon."
+    exact_mappings:
+      - gff3:source
+  feature_type:
+    name: feature_type
+    description: "GFF3 Column 3; constrained to 'gene' for this class."
+    range: GeneFeatureType
+    required: true
+    exact_mappings:
+      - gff3:type
+  start:
+    name: start
+    description: "GFF3 Column 4; start coordinate (1-based)."
+    range: one_based_int
+    required: true
+    exact_mappings:
+      - gff3:start
+  end:
+    name: end
+    description: "GFF3 Column 5; end coordinate (1-based)."
+    range: one_based_int
+    required: true
+    exact_mappings:
+      - gff3:end
+  score:
+    name: score
+    description: "GFF3 Column 6; feature score (rarely populated for gene rows)."
+    range: float
+    exact_mappings:
+      - gff3:score
+  strand:
+    name: strand
+    description: "GFF3 Column 7; strand of the feature."
+    range: StrandEnum
+    exact_mappings:
+      - gff3:strand
+
+  # Unified attributes (Column 9)
+  biotype:
+    name: biotype
+    description: "Unified gene biotype across sources (NCBI: gene_biotype; Ensembl: biotype)."
+    range: GeneBiotypeEnum
+    annotations:
+      ncbi_attr: gene_biotype
+      ensembl_attr: biotype
+  ensembl_gene_id:
+    name: ensembl_gene_id
+    description: "Ensembl gene stable identifier (e.g., ENSG..., ENSMUSG...)."
+    annotations:
+      ensembl_attr: gene_id
+  ncbi_gene_id:
+    name: ncbi_gene_id
+    description: "NCBI GeneID as a CURIE (e.g., NCBIGene:7157); typically sourced from Dbxref=GeneID:####."
+    range: uriorcurie
+    annotations:
+      ncbi_attr: Dbxref(GeneID)
+  locus_tag:
+    name: locus_tag
+    description: "NCBI locus_tag for the gene (if used)."
+    annotations:
+      ncbi_attr: locus_tag
+  gbkey:
+    name: gbkey
+    description: "Original GenBank feature key (NCBI), e.g., 'Gene'."
+    annotations:
+      ncbi_attr: gbkey
+  pseudo:
+    name: pseudo
+    description: "NCBI boolean pseudo marker (pseudo=true)."
+    range: boolean
+    annotations:
+      ncbi_attr: pseudo
+  pseudogene_subtype:
+    name: pseudogene_subtype
+    description: "NCBI pseudogene subtype vocabulary when present (e.g., processed, unitary); see INSDC pseudogene qualifier vocabulary."
+    annotations:
+      ncbi_attr: pseudogene
+  note:
+    name: note
+    description: "Free-text note/comment from the attribute column."
+    annotations:
+      gff3_attr: Note
+
+  # File/directive provenance convenience on the gene record (optional)
+  genome_build:
+    name: genome_build
+    description: "Genome build label from directive (##genome-build)."
+  genome_build_accession:
+    name: genome_build_accession
+    description: "Assembly accession.version from directive (#!genome-build-accession / ##genome-build-accession)."
+  species_taxon:
+    name: species_taxon
+    description: "Species taxon CURIE (e.g., NCBITaxon:9606) from ##species when known."
+    range: uriorcurie
+
+  records:
+    name: records
+    description: "Collection of gene records in a dataset container."
+    multivalued: true
+    inlined: true
+
+classes:
+  GFF3Gene:
+    name: GFF3Gene
+    is_a: gene
+    description: "A gene-level GFF3 feature row (Column 3 = gene) with unified attributes."
+    slots:
+      - id                 # Biolink: ID; maps to GFF3 ID
+      - seqid
+      - source
+      - feature_type
+      - start
+      - end
+      - score
+      - strand
+      - name               # Biolink name; GFF3 Name
+      - symbol             # Biolink symbol; NCBI gene attribute
+      - description        # Biolink description
+      - synonym            # Biolink synonym
+      - xref               # Biolink xref; GFF3 Dbxref
+      - version            # Biolink version; Ensembl gene version when present
+      - biotype
+      - ensembl_gene_id
+      - ncbi_gene_id
+      - locus_tag
+      - gbkey
+      - pseudo
+      - pseudogene_subtype
+      - note
+      - genome_build
+      - genome_build_accession
+      - species_taxon
+    slot_usage:
+      id:
+        name: id
+        description: "GFF3 ID attribute; unique per file (not guaranteed stable across releases)."
+        exact_mappings:
+          - gff3:ID
+      name:
+        name: name
+        description: "Display name for the gene (GFF3 Name)."
+        exact_mappings:
+          - gff3:Name
+      symbol:
+        name: symbol
+        description: "Primary gene symbol (NCBI 'gene'; Ensembl commonly uses Name)."
+        annotations:
+          ncbi_attr: gene
+          ensembl_attr: Name
+      description:
+        name: description
+        description: "Human-readable description of the gene."
+        annotations:
+          ncbi_attr: description
+          ensembl_attr: description
+      synonym:
+        name: synonym
+        description: "Alternate symbols/synonyms (NCBI 'gene_synonym'; GFF3 'Alias' where present)."
+        annotations:
+          ncbi_attr: gene_synonym
+          gff3_attr: Alias
+      xref:
+        name: xref
+        description: "Database cross references (e.g., GeneID, HGNC, MGI)."
+        narrow_mappings:
+          - gff3:Dbxref
+      version:
+        name: version
+        description: "Version of the gene record (e.g., Ensembl gene version)."
+        annotations:
+          ensembl_attr: version
+
+  GFF3GeneSet:
+    name: GFF3GeneSet
+    is_a: dataset
+    description: "A collection of gene-level GFF3 records with file-level provenance and checksums."
+    slots:
+      - id
+      - name
+      - version
+      - records
+      - content_url
+      - genome_build
+      - genome_build_accession
+      - species_taxon
+      - digest
+    slot_usage:
+      records:
+        name: records
+        range: GFF3Gene
+        multivalued: true
+        inlined: true
+      digest:
+        name: digest
+        description: "Checksums for the source GFF3 file."
+      content_url:
+        name: content_url
+        description: "Download URL(s) of the GFF3 file(s)."
