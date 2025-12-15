@@ -1,5 +1,5 @@
 SubGroup/LinkML Class Name	Proposed BICAN Field	LinkML Slot or Attribute Name	BICAN UUID	Aliases	Definition	from_schema	Nullable	Permissible Values	Data Type	Data Examples	Min Value	Max Value	Unit	Statistical Type	Subsets	Notes	NIMP Category	NIMP Terminology NHash	NIMP Variable Name	NIMP Variable Name: Source
-> class	ignore	slot	slot_uri: {curie_prefix: bican}	ignore	description	from_schema	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	exact_mappings: {curie_prefix: NIMP}	local_names	local_names
+> class	ignore	slot	exact_mappings: {curie_prefix: bican}	ignore	description	from_schema	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	exact_mappings: {curie_prefix: NIMP}	local_names	local_names
 >																			inner_key: local_name_value	inner_key: local_name_source
 DigitalAsset		content_url				bican_core														
 DigitalAsset		digest				bican_core														
