@@ -1,5 +1,5 @@
 Object	Predicate (more general)	Predicate (more specific)	Subject	from_schema	Multivalued	ExactlyOneOf (True/False, default=False)	Slot Definition	LIMS Object Class	NIMP Relationship	NIMP Subject Category
-> class	slot	attribute	range	from_schema	multivalued	ignore	description	ignore	exact_mappings: {curie_prefix: NIMP}	ignore
+> class	slot	attribute	range	from_schema	multivalued	ignore	description	ignore	ignore	ignore
 >										
 BrainSlab	was_derived_from		Donor|BrainSlab	bican_prov	FALSE		The donor from which the brain slab was derived from.		has_parent	Donor
 TissueSample	was_derived_from		Donor	bican_prov	FALSE		The donor or brain slab from which the tissue sample was derived from.	aibs:lims:cell_prep_roi_plans	has_parent	Donor

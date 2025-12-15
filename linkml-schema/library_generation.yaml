@@ -1380,11 +1380,11 @@ classes:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: donor_local_id
-        description: Name of person or organism that is the source of a biological
-          sample for scientific study.  Many biological samples are generated from
-          a single donor.
+            local_name_value: donor_local_name
+        description: Donor identifier given by the brain bank or the institution that
+          holds the brain
         from_schema: bican_biolink
+        slot_uri: bican:f8af20f7-e8b8-47b5-8a68-9ec1f913ffdf
       xref:
         local_names:
           NIMP:
@@ -1477,8 +1477,6 @@ classes:
       was_derived_from:
         description: The donor from which the brain slab was derived from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         any_of:
         - range: Donor
         - range: BrainSlab
@@ -1486,12 +1484,11 @@ classes:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: local_name
-        description: Name of a thick flat piece of brain tissue obtained by slicing
-          a whole brain, brain hemisphere or subdivision with a blade at regular interval.  When
-          multiple brain slabs are obtained from the slicing process, an ordinal is
-          assigned to provide information about the relative positioning of the slabs.
+            local_name_value: slab_local_name
+        description: The identifier given to the slab by the brain bank.
         from_schema: bican_biolink
+        exact_mappings:
+        - NIMP:PD-WKWKFB34
       xref:
         local_names:
           NIMP:
@@ -1521,8 +1518,6 @@ classes:
         description: The donor or brain slab from which the tissue sample was derived
           from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         range: Donor
       was_generated_by:
         description: The dissection process from which the tissue sample was generated
@@ -1551,8 +1546,6 @@ classes:
       dissection_was_guided_by:
         description: The dissection ROI polygon that was used to guide the dissection.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:has_parent
         range: DissectionRoiPolygon
       structure:
         local_names:
@@ -1593,8 +1586,6 @@ classes:
         description: The input tissue sample(s) from which dissociated cell sample
           was derived from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         range: TissueSample
         multivalued: true
       name:
@@ -1684,8 +1675,6 @@ classes:
         description: The dissociated or enriched cell sample(s) from which the enriched
           cell sample was derived from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         multivalued: true
         exactly_one_of:
         - range: DissociatedCellSample
@@ -1791,8 +1780,6 @@ classes:
         description: The input dissociated or enriched cell sample(s) from which the
           barcoded cell sample was derived from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         multivalued: true
         exactly_one_of:
         - range: DissociatedCellSample
@@ -1913,8 +1900,6 @@ classes:
         description: The input barcoded cell sample from which amplified cDNA was
           derived from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         range: BarcodedCellSample
       name:
         local_names:
@@ -2042,8 +2027,6 @@ classes:
         description: The input barcoded cell sample or amplified cDNA from which the
           library was derived from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         any_of:
         - range: BarcodedCellSample
         - range: AmplifiedCdna
@@ -2223,8 +2206,6 @@ classes:
         description: The input library from which the library aliquot was derived
           from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         range: Library
       name:
         local_names:
@@ -2275,8 +2256,6 @@ classes:
         description: The input aliquot(s) from which the library pool was derived
           from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         range: LibraryAliquot
         multivalued: true
       name:
@@ -2558,8 +2537,6 @@ classes:
       annotates:
         description: The brain slab that was annotated by the delineation process.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:has_parent
         range: BrainSlab
   DigitalAsset:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
@@ -2568,15 +2545,15 @@ classes:
     - ProvEntity
     slots:
     - was_derived_from
-    - digest
     - content_url
+    - digest
     slot_usage:
       was_derived_from:
         from_schema: bican_prov
         range: LibraryPool
-      digest:
-        from_schema: bican_core
       content_url:
+        from_schema: bican_core
+      digest:
         from_schema: bican_core
     attributes:
       data_type:
