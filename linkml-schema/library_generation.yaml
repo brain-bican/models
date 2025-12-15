@@ -1375,7 +1375,6 @@ classes:
     slots:
     - name
     - xref
-    - xref
     slot_usage:
       name:
         local_names:
@@ -1481,7 +1480,6 @@ classes:
     - was_derived_from
     - name
     - xref
-    - xref
     slot_usage:
       was_derived_from:
         description: The donor from which the brain slab was derived from.
@@ -1521,7 +1519,6 @@ classes:
     - was_derived_from
     - was_generated_by
     - name
-    - xref
     - xref
     slot_usage:
       was_derived_from:
@@ -1585,7 +1582,6 @@ classes:
     - was_generated_by
     - was_derived_from
     - name
-    - xref
     - xref
     slot_usage:
       was_generated_by:
@@ -1676,7 +1672,6 @@ classes:
     - was_generated_by
     - was_derived_from
     - name
-    - xref
     - xref
     slot_usage:
       was_generated_by:
@@ -1788,7 +1783,6 @@ classes:
     - was_generated_by
     - was_derived_from
     - name
-    - xref
     - xref
     slot_usage:
       was_generated_by:
@@ -1912,7 +1906,6 @@ classes:
     - was_generated_by
     - was_derived_from
     - name
-    - xref
     - xref
     slot_usage:
       was_generated_by:
@@ -2046,7 +2039,6 @@ classes:
     - was_generated_by
     - was_derived_from
     - name
-    - xref
     - xref
     slot_usage:
       was_generated_by:
@@ -2242,7 +2234,6 @@ classes:
     - was_derived_from
     - name
     - xref
-    - xref
     slot_usage:
       was_derived_from:
         description: The input library from which the library aliquot was derived
@@ -2288,7 +2279,6 @@ classes:
     - was_derived_from
     - name
     - xref
-    - xref
     slot_usage:
       was_generated_by:
         description: The pooling process from which the library pool was generated
@@ -2307,7 +2297,7 @@ classes:
             local_name_source: NIMP
             local_name_value: library_pool_local_name
         description: Library lab's library pool name.  For some labs this may be the
-          same as "Libray pool tube local name".   Other labs distinguish between
+          same as "Library pool tube local name".   Other labs distinguish between
           the local tube label of the library pool and the library pool name provided
           to SeqCore for tracking.  Local Pool Name is used to communicate sequencing
           status between SeqCore and Library Labs.
@@ -2322,7 +2312,7 @@ classes:
             local_name_value: id
         from_schema: bican_biolink
     attributes:
-      tube_internal_label:
+      local_tube_id:
         local_names:
           NIMP:
             local_name_source: NIMP
@@ -2558,7 +2548,6 @@ classes:
     - was_generated_by
     - name
     - xref
-    - xref
     slot_usage:
       was_generated_by:
         description: The delineation process from which the dissection ROI polygon
@@ -2572,12 +2561,6 @@ classes:
             local_name_value: local_name
         description: Name of a polygon annotated on a brain slab image delineating
           a region of interest (ROI) for a tissue sample dissectioning.
-        from_schema: bican_biolink
-      xref:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: id
         from_schema: bican_biolink
       xref:
         local_names:
