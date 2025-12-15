@@ -596,6 +596,33 @@ sex	8	Unknown	Donor	PD-LXUBTM45
 sex	9	Not Reported	Donor	PD-LXUBTM45
 age_at_death_reference_point	birth	birth	Donor	PD-RARAGG39
 age_at_death_reference_point	conception	conception	Donor	PD-RARAGG39
-age_at_death_unit	days	days	Donor	PD-AVAVEV39
-age_at_death_unit	months	months	Donor	PD-AVAVEV39
-age_at_death_unit	years	years	Donor	PD-AVAVEV39
+age_at_death_unit	day	day	Donor	PD-AVAVEV39
+age_at_death_unit	month	month	Donor	PD-AVAVEV39
+age_at_death_unit	year	year	Donor	PD-AVAVEV39
+species	NCBITaxon:9606	Homo sapiens		
+species	NCBITaxon:9483	Callithrix jacchus		
+species	NCBITaxon:10090	Mus musculus		
+species	NCBITaxon:9544	Macaca mulatta		
+species	NCBITaxon:60711	Chlorocebus sabaeus		
+species	NCBITaxon:9999	Urocitellus parryii		
+species	NCBITaxon:9361	Dasypus novemcinctus		
+species	NCBITaxon:9598	Pan troglodytes		
+species	NCBITaxon:9669	Mustela putorius furo		
+species	NCBITaxon:9593	Gorilla gorilla		
+species	NCBITaxon:9545	Macaca nemestrina		
+species	NCBITaxon:13616	Monodelphis domestica		
+species	NCBITaxon:9986	Oryctolagus cuniculus		
+species	NCBITaxon:10116	Rattus norvegicus		
+species	NCBITaxon:9541	Macaca fascicularis		
+species	NCBITaxon:9534	Chlorocebus aethiops		
+species	NCBITaxon:9614	Canis latrans		
+species	NCBITaxon:9555	Papio anubis		
+species	NCBITaxon:27679	Saimiri boliviensis		
+species	NCBITaxon:9521	Saimiri sciureus		
+species	NCBITaxon:30608	Microcebus murinus		
+species	NCBITaxon:37293	Aotus nancymaae		
+species	NCBITaxon:37347	Tupaia belangeri		
+species	NCBITaxon:10181	Heterocephalus glaber		
+species	NCBITaxon:9823	Sus scrofa		
+species	NCBITaxon:9685	Felis catus		
+species	NCBITaxon:9742	Phocoena phocoena		

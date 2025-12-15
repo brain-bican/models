@@ -1298,12 +1298,69 @@ enums:
   age_at_death_unit:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
-      days:
-        description: days
-      months:
-        description: months
-      years:
-        description: years
+      day:
+        description: day
+      month:
+        description: month
+      year:
+        description: year
+  species:
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
+    permissible_values:
+      NCBITaxon:9606:
+        description: Homo sapiens
+      NCBITaxon:9483:
+        description: Callithrix jacchus
+      NCBITaxon:10090:
+        description: Mus musculus
+      NCBITaxon:9544:
+        description: Macaca mulatta
+      NCBITaxon:60711:
+        description: Chlorocebus sabaeus
+      NCBITaxon:9999:
+        description: Urocitellus parryii
+      NCBITaxon:9361:
+        description: Dasypus novemcinctus
+      NCBITaxon:9598:
+        description: Pan troglodytes
+      NCBITaxon:9669:
+        description: Mustela putorius furo
+      NCBITaxon:9593:
+        description: Gorilla gorilla
+      NCBITaxon:9545:
+        description: Macaca nemestrina
+      NCBITaxon:13616:
+        description: Monodelphis domestica
+      NCBITaxon:9986:
+        description: Oryctolagus cuniculus
+      NCBITaxon:10116:
+        description: Rattus norvegicus
+      NCBITaxon:9541:
+        description: Macaca fascicularis
+      NCBITaxon:9534:
+        description: Chlorocebus aethiops
+      NCBITaxon:9614:
+        description: Canis latrans
+      NCBITaxon:9555:
+        description: Papio anubis
+      NCBITaxon:27679:
+        description: Saimiri boliviensis
+      NCBITaxon:9521:
+        description: Saimiri sciureus
+      NCBITaxon:30608:
+        description: Microcebus murinus
+      NCBITaxon:37293:
+        description: Aotus nancymaae
+      NCBITaxon:37347:
+        description: Tupaia belangeri
+      NCBITaxon:10181:
+        description: Heterocephalus glaber
+      NCBITaxon:9823:
+        description: Sus scrofa
+      NCBITaxon:9685:
+        description: Felis catus
+      NCBITaxon:9742:
+        description: Phocoena phocoena
 classes:
   Donor:
     description: A person or organism that is the source of a biological sample for
@@ -1355,6 +1412,7 @@ classes:
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
         - NIMP:PD-ZJZJLE33
+        range: string
       age_at_death_reference_point:
         local_names:
           NIMP:
@@ -1392,8 +1450,11 @@ classes:
           NIMP:
             local_name_source: NIMP
             local_name_value: donor_species
-        description: Species of donor.
+        description: The NCBI taxonomy identifier of the organism type of this donor.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-HEHERP41
+        range: species
   BrainSlab:
     description: A thick flat piece of brain tissue obtained by slicing a whole brain,
       brain hemisphere or subdivision with a blade at regular interval.  When multiple
@@ -1498,8 +1559,12 @@ classes:
           NIMP:
             local_name_source: NIMP
             local_name_value: structure
-        description: Structure of tissue sample.
+        description: The code referring to a structure in a brain atlas that the tissue
+          was found to be associated with.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-NLNONY46
+        range: string
         multivalued: true
   DissociatedCellSample:
     description: A collection of dissociated cells or nuclei derived from dissociation
@@ -2235,7 +2300,7 @@ classes:
             local_name_value: id
         from_schema: bican_biolink
     attributes:
-      tube_internal_label:
+      local_tube_id:
         local_names:
           NIMP:
             local_name_source: NIMP
