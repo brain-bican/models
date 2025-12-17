@@ -1372,96 +1372,6 @@ classes:
     mixins:
     - thing with taxon
     - ProvEntity
-    slots:
-    - name
-    - xref
-    slot_usage:
-      name:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: donor_local_name
-        description: Donor identifier given by the brain bank or the institution that
-          holds the brain
-        from_schema: bican_biolink
-        exact_mappings:
-        - bican:f8af20f7-e8b8-47b5-8a68-9ec1f913ffdf
-      xref:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: id
-        from_schema: bican_biolink
-    attributes:
-      biological_sex:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: sex
-        description: Biological sex of donor at birth
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - bican:632d3d3f-f85b-4efc-a1ab-010fe417ae81
-        - NIMP:PD-LXUBTM45
-        range: sex
-      age_at_death_description:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: age_at_death_description
-        description: 'Text description of the age of death following typical scientific
-          convention for the species or developmental stage. For example: P56, E11.5'
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - bican:0630a265-4a63-48f4-8853-66b929002306
-        - NIMP:PD-ZJZJLE33
-        range: string
-      age_at_death_reference_point:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: age_at_death_reference_point
-        description: The reference point for an age interval; for example, birth or
-          conception.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - bican:3bed1f94-9d82-4ed7-afdf-79d896b24dbb
-        - NIMP:PD-RARAGG39
-        range: age_at_death_reference_point
-      age_at_death_unit:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: age_at_death_unit
-        description: The unit used for representing the donor age from the reference
-          point.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - bican:b5436e99-f0a7-4c30-825d-56b88ee2ac1d
-        - NIMP:PD-AVAVEV39
-        range: age_at_death_unit
-      age_at_death_value:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: age_at_death
-        description: The value representing the donor age from the reference point.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - bican:57e24d3c-c9c7-4ef3-9809-a35802d563ec
-        - NIMP:PD-FTFTCP24
-        range: float
-      species:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: donor_species
-        description: The NCBI taxonomy identifier of the organism type of this donor.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - bican:6837cb02-6bd7-4fb8-838c-9062ead96ba4
-        - NIMP:PD-HEHERP41
-        range: species
   BrainSlab:
     description: A thick flat piece of brain tissue obtained by slicing a whole brain,
       brain hemisphere or subdivision with a blade at regular interval.  When multiple
@@ -1563,6 +1473,7 @@ classes:
           was found to be associated with.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:missing_TS_structure
         - NIMP:PD-NLNONY46
         range: string
         multivalued: true
@@ -1872,6 +1783,7 @@ classes:
         description: Date of cell barcoding process.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:missing_BCS_preparation_date
         - NIMP:PD-SHSHZS25
         range: date
       technique:
@@ -1885,6 +1797,7 @@ classes:
           and could be used for general classification of Barcoded Cell Samples.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:missing_BCS_technique
         - NIMP:PD-TDTDDF25
         range: barcoded_cell_sample_technique
   AmplifiedCdna:
