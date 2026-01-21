@@ -2253,6 +2253,39 @@ classes:
         - bican:ef950ca1-2a62-4fce-a826-6c27d94d3be3
         - NIMP:PD-XUXUNM35
         range: date
+      tube_barcode:
+        local_names:
+          local_name_value:
+            local_name_source: local_name_value
+            local_name_value: library_pool_tube_barcode
+        description: Library Pool tube name as provided by the SeqCore (often a barcode).
+          This tube is provided from the SeqCore and is part of the SeqCore tracking
+          system.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:da02a0ee-9abf-45ef-abb1-981f1aaba6b2
+        - NIMP:PD-KNKNCC35
+        range: string
+      flowcell:
+        local_names:
+          local_name_value:
+            local_name_source: local_name_value
+            local_name_value: flowcell
+        description: The Flowcell is a unique identifer of the sequencing cartridge
+          (provided by the sequencing instrument manufacturer) used and consumed when
+          sequencing Library Pools on an Illumina sequencing instrument. A flowcell
+          can be different sizes with different number of lanes. The flowcell size
+          determines the number of total reads it will produce. Typically one Flowcell
+          is used to run one Library Pool across all lanes. Multiple pools, however,
+          can be run on a single flowcell as long as the pools are partitioned onto
+          separate lanes of the flowcell. Each lane from a flowcell will produce fastq
+          files for all Library Aliquots within the Library Pool applied to a given
+          lane.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:4c8d7ac8-d3e3-4177-a93d-18ec2302c392
+        - NIMP:PD-MOMODO36
+        range: string
   DissectionRoiDelineation:
     description: The process of outlining a region of interest on a brain slab image
       to guide the dissection and generation of a tissue sample.
