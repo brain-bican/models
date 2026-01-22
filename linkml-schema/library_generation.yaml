@@ -1361,6 +1361,15 @@ enums:
         description: Felis catus
       NCBITaxon:9742:
         description: Phocoena phocoena
+  fastq_file_alignment_status:
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
+    permissible_values:
+      '1':
+        description: Pass
+      '2':
+        description: Pass-Flag
+      '3':
+        description: Fail_Withhold
 classes:
   Donor:
     description: A person or organism that is the source of a biological sample for
@@ -1566,6 +1575,17 @@ classes:
         - bican:0c8628d0-809b-458c-b4b3-686131dceef8
         - NIMP:PD-CFCFPS27
         range: cell_label_barcode
+      patched_cell_structure:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: patched_cell_structure
+        description: Ontological structure assigned to a single patched cell. This
+          is typically assigned and confirmed after imaging.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:7636b4c8-12f6-4b33-bdc6-c2f1a3b1c953
+        - NIMP:PD-RCRCEV39
   EnrichedCellSample:
     description: A collection of enriched cells or nuclei after enrichment process,
       usually via fluorescence-activated cell sorting (FACS) using the enrichment
@@ -1775,6 +1795,21 @@ classes:
         - bican:aa534269-7c9b-4b63-b990-eea8cda56d0e
         - NIMP:PD-ZZZZWQ40
         range: integer
+      tag_local_name:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: barcoded_cell_sample_tag_local_name
+        description: Barcoded Cell Sample tags can be used to group a set of barcoded
+          cell samples so that the tag can be used to obtain all the members of the
+          cohort
+        in_subset:
+        - analysis
+        - tracking
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:8877f8f0-3939-4062-84c9-414bdcdd04ca
+        range: string
       preparation_date:
         local_names:
           NIMP:
@@ -2173,6 +2208,20 @@ classes:
             local_name_source: NIMP
             local_name_value: id
         from_schema: bican_biolink
+    attributes:
+      fastq_file_alignment_status:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: fastq_file_alignment_status
+        description: The FASTQ file alignment status as reported by the Library Lab
+        in_subset:
+        - alignment
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:834a0e66-fd81-4d9c-b379-146372c3a629
+        - NIMP:PD-KRKRCT43
+        range: fastq_file_alignment_status
   LibraryPool:
     description: A library pool is made up of library aliquots from multiple libraries.
       Each library aliquot in a library pool will have a unique R1/R2 index to allow
@@ -2255,8 +2304,8 @@ classes:
         range: date
       tube_barcode:
         local_names:
-          local_name_value:
-            local_name_source: local_name_value
+          NIMP:
+            local_name_source: NIMP
             local_name_value: library_pool_tube_barcode
         description: Library Pool tube name as provided by the SeqCore (often a barcode).
           This tube is provided from the SeqCore and is part of the SeqCore tracking
@@ -2268,8 +2317,8 @@ classes:
         range: string
       flowcell:
         local_names:
-          local_name_value:
-            local_name_source: local_name_value
+          NIMP:
+            local_name_source: NIMP
             local_name_value: flowcell
         description: The Flowcell is a unique identifer of the sequencing cartridge
           (provided by the sequencing instrument manufacturer) used and consumed when
@@ -2508,6 +2557,8 @@ classes:
         description: Name of a polygon annotated on a brain slab image delineating
           a region of interest (ROI) for a tissue sample dissectioning.
         from_schema: bican_biolink
+        exact_mappings:
+        - NIMP:PD-RPRPTM41
       xref:
         local_names:
           NIMP:

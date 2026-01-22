@@ -626,3 +626,6 @@ species	NCBITaxon:10181	Heterocephalus glaber
 species	NCBITaxon:9823	Sus scrofa		
 species	NCBITaxon:9685	Felis catus		
 species	NCBITaxon:9742	Phocoena phocoena		
+fastq_file_alignment_status	1	Pass	LibraryAliquot	PD-KRKRCT43
+fastq_file_alignment_status	2	Pass-Flag	LibraryAliquot	PD-KRKRCT44
+fastq_file_alignment_status	3	Fail_Withhold	LibraryAliquot	PD-KRKRCT45
