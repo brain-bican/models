@@ -1419,7 +1419,7 @@ classes:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: slab_nhash_id
         from_schema: bican_biolink
   TissueSample:
     description: The final intact piece of tissue before cell or nuclei prep. This
@@ -1466,7 +1466,7 @@ classes:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: tissue_nhash_id
         from_schema: bican_biolink
     attributes:
       dissection_was_guided_by:
@@ -1530,7 +1530,7 @@ classes:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: dissociated_cell_sample_nhash_id
         from_schema: bican_biolink
     attributes:
       preparation_date:
@@ -1635,7 +1635,7 @@ classes:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: enriched_cell_sample_nhash_id
         from_schema: bican_biolink
     attributes:
       preparation_date:
@@ -1746,7 +1746,7 @@ classes:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: barcoded_cell_sample_nhash_id
         from_schema: bican_biolink
     attributes:
       number_of_expected_cells:
@@ -1884,7 +1884,7 @@ classes:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: amplified_cdna_nhash_id
         from_schema: bican_biolink
     attributes:
       amplified_cDNA_quantity_ng:
@@ -2018,7 +2018,7 @@ classes:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: library_nhash_id
         from_schema: bican_biolink
     attributes:
       average_size_bp:
@@ -2206,7 +2206,7 @@ classes:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: library_pool_nhash_id
         from_schema: bican_biolink
     attributes:
       fastq_file_alignment_status:
@@ -2271,7 +2271,7 @@ classes:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: library_pool_nhash_id
         from_schema: bican_biolink
     attributes:
       local_tube_id:
@@ -2535,7 +2535,7 @@ classes:
     - tissue_specimen
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
     exact_mappings:
-    - NIMP:Specimen%20Dissected%20ROI
+    - NIMP:ROI
     is_a: entity
     mixins:
     - ProvEntity
@@ -2563,7 +2563,7 @@ classes:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: roi_nhash_id
         from_schema: bican_biolink
     attributes:
       annotates:

@@ -3,23 +3,23 @@ SubGroup/LinkML Class Name	Proposed BICAN Field	LinkML Slot or Attribute Name	BI
 >																			inner_key: local_name_value	inner_key: local_name_source
 DigitalAsset		content_url				bican_core														
 DigitalAsset		digest				bican_core														
-AmplifiedCdna	amplified cDNA label  	name	e2606a11-114e-472f-9e05-33f9b6fc3089	amplified cdna name	Name of a collection of cDNA molecules derived and amplified from an input barcoded_cell_sample.  These cDNA molecules represent the gene expression of each cell, with all cDNA molecules from a given cell retaining that cell's unique barcode from the cell barcoding step.  This is a necessary step for GEX methods but is not used for ATAC methods.	bican_biolink	TRUE		Text						analysis		PD-YAAGGG39	Amplified cDNA	amplified_cdna_local_name	NIMP
-BarcodedCellSample	barcoded cell sample label 	name	4c0e6380-e53f-4173-a474-d41e836fefe3	barcoded cell sample name	Name of a collection of barcoded cells.  Input will be either dissociated_cell_sample or enriched_cell_sample.  Cell barcodes are only guaranteed to be unique within this one collection. One dissociated_cell_sample or enriched_cell_sample can lead to multiple barcoded_cell_samples.	bican_biolink	FALSE		Text						analysis, tracking, alignment		PD-XEMDJF38	Barcoded Cell Sample	barcoded_cell_sample_local_name	NIMP
+AmplifiedCdna	amplified cDNA label	name	e2606a11-114e-472f-9e05-33f9b6fc3089	amplified cdna name	Name of a collection of cDNA molecules derived and amplified from an input barcoded_cell_sample.  These cDNA molecules represent the gene expression of each cell, with all cDNA molecules from a given cell retaining that cell's unique barcode from the cell barcoding step.  This is a necessary step for GEX methods but is not used for ATAC methods.	bican_biolink	TRUE		Text						analysis		PD-YAAGGG39	Amplified cDNA	amplified_cdna_local_name	NIMP
+BarcodedCellSample	barcoded cell sample label	name	4c0e6380-e53f-4173-a474-d41e836fefe3	barcoded cell sample name	Name of a collection of barcoded cells.  Input will be either dissociated_cell_sample or enriched_cell_sample.  Cell barcodes are only guaranteed to be unique within this one collection. One dissociated_cell_sample or enriched_cell_sample can lead to multiple barcoded_cell_samples.	bican_biolink	FALSE		Text						analysis, tracking, alignment		PD-XEMDJF38	Barcoded Cell Sample	barcoded_cell_sample_local_name	NIMP
 BrainSlab		name			The identifier given to the slab by the brain bank.	bican_biolink											PD-WKWKFB34	Slab	slab_local_name	NIMP
-DissectionRoiPolygon		name			Name of a polygon annotated on a brain slab image delineating a region of interest (ROI) for a tissue sample dissectioning.	bican_biolink											PD-RPRPTM41	Specimen Dissected ROI	local_name	NIMP
-DissociatedCellSample	dissociated cell sample label	name	65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2	dissociated cell sample name	Name of a collection of dissociated cells or nuclei derived from dissociation of a tissue sample. 	bican_biolink	TRUE		Text						analysis		PD-RQRWHS40	Dissociated Cell Sample	dissociated_cell_sample_local_name	NIMP
+DissectionRoiPolygon		name			Name of a polygon annotated on a brain slab image delineating a region of interest (ROI) for a tissue sample dissectioning.	bican_biolink											PD-RPRPTM41	ROI	local_name	NIMP
+DissociatedCellSample	dissociated cell sample label	name	65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2	dissociated cell sample name	Name of a collection of dissociated cells or nuclei derived from dissociation of a tissue sample.	bican_biolink	TRUE		Text						analysis		PD-RQRWHS40	Dissociated Cell Sample	dissociated_cell_sample_local_name	NIMP
 EnrichedCellSample	enriched cell sample name	name	bb3fc701-23a7-45c1-890d-7471730e0ec1		Name of collection of enriched cells or nuclei after enrichment process (usually via FACS using the Enrichment Plan) applied to dissociated_cell_sample.	bican_biolink	TRUE		Text						analysis		PD-BERWTM41	Enriched Cell Sample	enriched_cell_sample_local_name	NIMP
 Library	library label	name	f717e254-3630-4342-be7b-4d56376e7afe	library name	Name of a library, which is a collection of fragmented and barcode-indexed DNA molecules for sequencing.  An index or barcode is typically introduced to enable identification of library origin to allow libraries to be pooled together for sequencing.	bican_biolink	TRUE		Text						analysis, tracking		PD-AJJUCC35	Library	library_local_name	NIMP
 LibraryAliquot	library aliquot label	name	34191bad-d167-4335-8224-ade897d3728e	library aliquot name	One library in the library pool.  Each Library_aliquot_name in a library pool will have a unique R1/R2 index to allow for sequencing together then separating the sequencing output by originating library aliquot through the process of demultiplexing.  The resulting demultiplexed fastq files will include the library_aliquot_name.	bican_biolink	FALSE		Text						analysis, tracking, alignment		PD-XCXCCC35	Library Aliquot	library_aliquot_local_name	NIMP
 LibraryPool	library pool label	name	29e0578b-6427-4c93-b29b-bde27fbadeec	local pool name	Library lab's library pool name.  For some labs this may be the same as "Library pool tube local name".   Other labs distinguish between the local tube label of the library pool and the library pool name provided to SeqCore for tracking.  Local Pool Name is used to communicate sequencing status between SeqCore and Library Labs.	bican_biolink	FALSE		Text						analysis, tracking		PD-KKIAPA48	Library Pool	library_pool_local_name	NIMP
 TissueSample	tissue sample label	name	2e4ca2fc-2d77-4d19-af45-d0fb7bbc2269	tissue name|tissue sample label	Identifier name for final intact piece of tissue before cell or nuclei prep.  This piece of tissue will be used in dissociation and has an ROI associated with it.	bican_biolink	FALSE		text						analysis, tracking		PD-LJCRCC35	Tissue	tissue_sample_local_name	NIMP
-AmplifiedCdna		xref				bican_biolink													id	NIMP
-BarcodedCellSample		xref				bican_biolink													id	NIMP
-BrainSlab		xref				bican_biolink													id	NIMP
-DissectionRoiPolygon		xref				bican_biolink													id	NIMP
-DissociatedCellSample		xref				bican_biolink													id	NIMP
-EnrichedCellSample		xref				bican_biolink													id	NIMP
-Library		xref				bican_biolink													id	NIMP
-LibraryAliquot		xref				bican_biolink													id	NIMP
-LibraryPool		xref				bican_biolink													id	NIMP
-TissueSample		xref				bican_biolink													id	NIMP
+AmplifiedCdna		xref				bican_biolink												Amplified cDNA	amplified_cdna_nhash_id	NIMP
+BarcodedCellSample		xref				bican_biolink												Barcoded Cell Sample	barcoded_cell_sample_nhash_id	NIMP
+BrainSlab		xref				bican_biolink												Slab	slab_nhash_id	NIMP
+DissectionRoiPolygon		xref				bican_biolink												ROI	roi_nhash_id	NIMP
+DissociatedCellSample		xref				bican_biolink												Dissociated Cell Sample	dissociated_cell_sample_nhash_id	NIMP
+EnrichedCellSample		xref				bican_biolink												Enriched Cell Sample	enriched_cell_sample_nhash_id	NIMP
+Library		xref				bican_biolink												Library	library_nhash_id	NIMP
+LibraryAliquot		xref				bican_biolink												Library Pool	library_pool_nhash_id	NIMP
+LibraryPool		xref				bican_biolink												Library Pool	library_pool_nhash_id	NIMP
+TissueSample		xref				bican_biolink												Tissue	tissue_nhash_id	NIMP
