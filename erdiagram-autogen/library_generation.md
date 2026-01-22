@@ -188,6 +188,8 @@ LibraryPool {
     uriorcurieList xref  
     string local_tube_id  
     date preparation_date  
+    string tube_barcode  
+    string flowcell  
     string id  
     iri_type iri  
     stringList type  
@@ -204,6 +206,7 @@ LibraryPool {
 LibraryAliquot {
     label_type name  
     uriorcurieList xref  
+    fastq_file_alignment_status fastq_file_alignment_status  
     string id  
     iri_type iri  
     stringList type  
@@ -271,6 +274,7 @@ BarcodedCellSample {
     integer number_of_expected_cells  
     string port_well  
     integer input_quantity_count  
+    string tag_local_name  
     date preparation_date  
     barcoded_cell_sample_technique technique  
     string id  
@@ -312,6 +316,7 @@ DissociatedCellSample {
     date preparation_date  
     dissociated_cell_sample_cell_prep_type cell_prep_type  
     cell_label_barcode cell_label_barcode  
+    string patched_cell_structure  
     string id  
     iri_type iri  
     stringList type  
@@ -359,21 +364,15 @@ BrainSlab {
     uriorcurieList category  
 }
 Donor {
-    label_type name  
-    uriorcurieList xref  
-    sex biological_sex  
-    string age_at_death_description  
-    age_at_death_reference_point age_at_death_reference_point  
-    age_at_death_unit age_at_death_unit  
-    float age_at_death_value  
-    species species  
     label_type in_taxon_label  
     string id  
     iri_type iri  
     stringList type  
+    label_type name  
     narrative_text description  
     boolean deprecated  
     stringList provided_by  
+    uriorcurieList xref  
     label_type full_name  
     label_typeList synonym  
     float information_content  

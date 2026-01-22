@@ -233,6 +233,9 @@
       "port_well": {
          "@id": "port_well"
       },
+      "tag_local_name": {
+         "@id": "tag_local_name"
+      },
       "technique": {
          "@context": {
             "text": "skos:notation",
@@ -307,44 +310,8 @@
          },
          "@id": "cell_prep_type"
       },
-      "age_at_death_description": {
-         "@id": "age_at_death_description"
-      },
-      "age_at_death_reference_point": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "age_at_death_reference_point"
-      },
-      "age_at_death_unit": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "age_at_death_unit"
-      },
-      "age_at_death_value": {
-         "@type": "xsd:float",
-         "@id": "age_at_death_value"
-      },
-      "biological_sex": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "biological_sex"
-      },
-      "species": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "species"
+      "patched_cell_structure": {
+         "@id": "patched_cell_structure"
       },
       "enrichment_population": {
          "@id": "enrichment_population"
@@ -447,8 +414,22 @@
          },
          "@id": "r1_r2_index"
       },
+      "fastq_file_alignment_status": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "fastq_file_alignment_status"
+      },
+      "flowcell": {
+         "@id": "flowcell"
+      },
       "local_tube_id": {
          "@id": "local_tube_id"
+      },
+      "tube_barcode": {
+         "@id": "tube_barcode"
       },
       "license": {
          "@id": "biolink:license"

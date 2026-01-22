@@ -619,6 +619,13 @@
                         "null"
                     ]
                 },
+                "tag_local_name": {
+                    "description": "Barcoded Cell Sample tags can be used to group a set of barcoded cell samples so that the tag can be used to obtain all the members of the cohort",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "technique": {
                     "$ref": "#/$defs/BarcodedCellSampleTechnique",
                     "description": "Required standardized nomenclature to describe the general method used to barcode individual cells. This method (eg Multiome, ATAConly, GEXonly) will be more general than the Library Method (which is specific for alignment) and could be used for general classification of Barcoded Cell Samples."
@@ -2222,6 +2229,13 @@
                         "null"
                     ]
                 },
+                "patched_cell_structure": {
+                    "description": "Ontological structure assigned to a single patched cell. This is typically assigned and confirmed after imaging.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "preparation_date": {
                     "description": "Date of cell dissociation process.",
                     "format": "date",
@@ -2308,32 +2322,6 @@
             "additionalProperties": false,
             "description": "A person or organism that is the source of a biological sample for scientific study.  Many biological samples are generated from a single donor.",
             "properties": {
-                "age_at_death_description": {
-                    "description": "Text description of the age of death following typical scientific convention for the species or developmental stage. For example: P56, E11.5",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "age_at_death_reference_point": {
-                    "$ref": "#/$defs/AgeAtDeathReferencePoint",
-                    "description": "The reference point for an age interval; for example, birth or conception."
-                },
-                "age_at_death_unit": {
-                    "$ref": "#/$defs/AgeAtDeathUnit",
-                    "description": "The unit used for representing the donor age from the reference point."
-                },
-                "age_at_death_value": {
-                    "description": "The value representing the donor age from the reference point.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "biological_sex": {
-                    "$ref": "#/$defs/Sex",
-                    "description": "Biological sex of donor at birth"
-                },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
                     "enum": [
@@ -2421,7 +2409,7 @@
                     ]
                 },
                 "name": {
-                    "description": "Donor identifier given by the brain bank or the institution that holds the brain",
+                    "description": "A human-readable name for an attribute or entity.",
                     "type": [
                         "string",
                         "null"
@@ -2436,10 +2424,6 @@
                         "array",
                         "null"
                     ]
-                },
-                "species": {
-                    "$ref": "#/$defs/Species",
-                    "description": "The NCBI taxonomy identifier of the organism type of this donor."
                 },
                 "synonym": {
                     "description": "Alternate human-readable names for a thing",
@@ -2821,6 +2805,16 @@
             ],
             "title": "EnrichedCellSampleSplitting",
             "type": "object"
+        },
+        "FastqFileAlignmentStatus": {
+            "description": "",
+            "enum": [
+                "1",
+                "2",
+                "3"
+            ],
+            "title": "FastqFileAlignmentStatus",
+            "type": "string"
         },
         "Gene": {
             "additionalProperties": false,
@@ -3382,6 +3376,10 @@
                         "null"
                     ]
                 },
+                "fastq_file_alignment_status": {
+                    "$ref": "#/$defs/FastqFileAlignmentStatus",
+                    "description": "The FASTQ file alignment status as reported by the Library Lab"
+                },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
                     "type": [
@@ -3670,6 +3668,13 @@
                         "null"
                     ]
                 },
+                "flowcell": {
+                    "description": "The Flowcell is a unique identifer of the sequencing cartridge (provided by the sequencing instrument manufacturer) used and consumed when sequencing Library Pools on an Illumina sequencing instrument. A flowcell can be different sizes with different number of lanes. The flowcell size determines the number of total reads it will produce. Typically one Flowcell is used to run one Library Pool across all lanes. Multiple pools, however, can be run on a single flowcell as long as the pools are partitioned onto separate lanes of the flowcell. Each lane from a flowcell will produce fastq files for all Library Aliquots within the Library Pool applied to a given lane.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
                     "type": [
@@ -3744,6 +3749,13 @@
                     },
                     "type": [
                         "array",
+                        "null"
+                    ]
+                },
+                "tube_barcode": {
+                    "description": "Library Pool tube name as provided by the SeqCore (often a barcode). This tube is provided from the SeqCore and is part of the SeqCore tracking system.",
+                    "type": [
+                        "string",
                         "null"
                     ]
                 },
