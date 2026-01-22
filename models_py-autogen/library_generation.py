@@ -12974,7 +12974,7 @@ class LibraryPool(ProvEntity, MaterialSample):
          'mixins': ['ProvEntity'],
          'slot_usage': {'name': {'description': "Library lab's library pool name.  For "
                                                 'some labs this may be the same as '
-                                                '"Libray pool tube local name".   '
+                                                '"Library pool tube local name".   '
                                                 'Other labs distinguish between the '
                                                 'local tube label of the library pool '
                                                 'and the library pool name provided to '
@@ -13030,7 +13030,7 @@ class LibraryPool(ProvEntity, MaterialSample):
                        'LibraryPool',
                        'DigitalAsset'],
          'slot_uri': 'prov:wasDerivedFrom'} })
-    name: Optional[str] = Field(default=None, description="""Library lab's library pool name.  For some labs this may be the same as \"Libray pool tube local name\".   Other labs distinguish between the local tube label of the library pool and the library pool name provided to SeqCore for tracking.  Local Pool Name is used to communicate sequencing status between SeqCore and Library Labs.""", json_schema_extra = { "linkml_meta": {'alias': 'name',
+    name: Optional[str] = Field(default=None, description="""Library lab's library pool name.  For some labs this may be the same as \"Library pool tube local name\".   Other labs distinguish between the local tube label of the library pool and the library pool name provided to SeqCore for tracking.  Local Pool Name is used to communicate sequencing status between SeqCore and Library Labs.""", json_schema_extra = { "linkml_meta": {'alias': 'name',
          'aliases': ['label', 'display name', 'title'],
          'definition_uri': 'https://w3id.org/biolink/vocab/name',
          'domain': 'entity',
