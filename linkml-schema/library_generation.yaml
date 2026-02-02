@@ -49,1779 +49,1327 @@ enums:
     permissible_values:
       Pass:
         description: The RNA amplification passed the QA/QC
-        meaning: NIMP:PD-XXXXFQ31
       Fail:
         description: The RNA amplification failed the QA/QC
-        meaning: NIMP:PD-XXXXFQ31
       Low QC:
         description: The RNA amplification low passed the QA/QC
-        meaning: NIMP:PD-XXXXFQ31
       Not evaluated:
         description: Library Prep not evaluated for QA/QC
-        meaning: NIMP:PD-XXXXFQ31
   barcoded_cell_sample_technique:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       Multiome:
         description: Multiome
-        meaning: NIMP:PD-TDTDDF25
       ATACOnly:
         description: ATACOnly
-        meaning: NIMP:PD-TDTDDF25
       GEXOnly:
         description: GEXOnly
-        meaning: NIMP:PD-TDTDDF25
       snm3C-seq:
         description: snm3C-seq
-        meaning: NIMP:PD-TDTDDF25
+      Droplet Paired-Tag:
+        description: Droplet Paired-Tag
+      Slide-tag_std:
+        description: Slide-tag_std
+      Slide-tag_recon:
+        description: Slide-tag_recon
+      snmCT-seq:
+        description: snmCT-seq
+      PatchSeq-SmartSeq:
+        description: PatchSeq-SmartSeq
+      SmartSeq:
+        description: SmartSeq
+      DBiT-Seq:
+        description: DBiT-Seq
   dissociated_cell_sample_cell_prep_type:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       Nuclei:
         description: isolated nuclei
-        meaning: NIMP:PD-RELLGO26
       Cells:
         description: isolated whole cells
-        meaning: NIMP:PD-RELLGO26
-  dissociated_cell_sample_cell_label_barcode:
+  cell_label_barcode:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       CMO301:
         description: 10x Cell Plex oligo tag for multiplexing tissue sources into
           a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       CMO302:
         description: 10x Cell Plex oligo tag for multiplexing tissue sources into
           a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       CMO303:
         description: 10x Cell Plex oligo tag for multiplexing tissue sources into
           a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       CMO304:
         description: 10x Cell Plex oligo tag for multiplexing tissue sources into
           a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       CMO305:
         description: 10x Cell Plex oligo tag for multiplexing tissue sources into
           a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       CMO306:
         description: 10x Cell Plex oligo tag for multiplexing tissue sources into
           a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       CMO307:
         description: 10x Cell Plex oligo tag for multiplexing tissue sources into
           a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       CMO308:
         description: 10x Cell Plex oligo tag for multiplexing tissue sources into
           a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       CMO309:
         description: 10x Cell Plex oligo tag for multiplexing tissue sources into
           a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       CMO310:
         description: 10x Cell Plex oligo tag for multiplexing tissue sources into
           a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       CMO311:
         description: 10x Cell Plex oligo tag for multiplexing tissue sources into
           a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       CMO312:
         description: 10x Cell Plex oligo tag for multiplexing tissue sources into
           a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       2nt-001:
         description: Used in conjunction with Histone antibody to capture and tag
           separate subcomponents of the epigenome. Allows for pooling of enriched
           cell samples into a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       2nt-002:
         description: Used in conjunction with Histone antibody to capture and tag
           separate subcomponents of the epigenome. Allows for pooling of enriched
           cell samples into a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       2nt-003:
         description: Used in conjunction with Histone antibody to capture and tag
           separate subcomponents of the epigenome. Allows for pooling of enriched
           cell samples into a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       2nt-004:
         description: Used in conjunction with Histone antibody to capture and tag
           separate subcomponents of the epigenome. Allows for pooling of enriched
           cell samples into a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       3nt-001:
         description: Used in conjunction with Histone antibody to capture and tag
           separate subcomponents of the epigenome. Allows for pooling of enriched
           cell samples into a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       3nt-002:
         description: Used in conjunction with Histone antibody to capture and tag
           separate subcomponents of the epigenome. Allows for pooling of enriched
           cell samples into a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       3nt-003:
         description: Used in conjunction with Histone antibody to capture and tag
           separate subcomponents of the epigenome. Allows for pooling of enriched
           cell samples into a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       3nt-004:
         description: Used in conjunction with Histone antibody to capture and tag
           separate subcomponents of the epigenome. Allows for pooling of enriched
           cell samples into a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       3nt-005:
         description: Used in conjunction with Histone antibody to capture and tag
           separate subcomponents of the epigenome. Allows for pooling of enriched
           cell samples into a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
       3nt-006:
         description: Used in conjunction with Histone antibody to capture and tag
           separate subcomponents of the epigenome. Allows for pooling of enriched
           cell samples into a single 10x load.
-        meaning: NIMP:PD-CFCFPS27
   library_technique:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       SMARTSeqSC:
         description: SMARTSeqSC
-        meaning: NIMP:PD-AJAJCN35
       SmartSeq3:
         description: SmartSeq3
-        meaning: NIMP:PD-AJAJCN35
       10xV3.1:
         description: 10xV3.1
-        meaning: NIMP:PD-AJAJCN35
       10xV3.1_HT:
         description: 10xV3.1_HT
-        meaning: NIMP:PD-AJAJCN35
       10xMultiome;GEX:
         description: 10xMultiome;GEX
-        meaning: NIMP:PD-AJAJCN35
       10xMultiome;ATAC:
         description: 10xMultiome;ATAC
-        meaning: NIMP:PD-AJAJCN35
       10xATAC_V2.0:
         description: 10xATAC_V2.0
-        meaning: NIMP:PD-AJAJCN35
       10XMultiome-CellHashing;GEX:
         description: 10XMultiome-CellHashing;GEX
-        meaning: NIMP:PD-AJAJCN35
       10XMultiome-CellHashing;ATAC:
         description: 10XMultiome-CellHashing;ATAC
-        meaning: NIMP:PD-AJAJCN35
       10XMultiome-Cell Hashing;Barcode:
         description: 10XMultiome-Cell Hashing;Barcode
-        meaning: NIMP:PD-AJAJCN35
       10xV3.1_CellPlex;GEX:
         description: 10xV3.1_CellPlex;GEX
-        meaning: NIMP:PD-AJAJCN35
       10xV3.1_CellPlex;Barcode:
         description: 10xV3.1_CellPlex;Barcode
-        meaning: NIMP:PD-AJAJCN35
       10xV3.1_HT_CellPlex;GEX:
         description: 10xV3.1_HT_CellPlex;GEX
-        meaning: NIMP:PD-AJAJCN35
       10xV3.1_HT_CellPlex;Barcode:
         description: 10xV3.1_HT_CellPlex;Barcode
-        meaning: NIMP:PD-AJAJCN35
       MethylC-Seq:
         description: MethylC-Seq
-        meaning: NIMP:PD-AJAJCN35
       snm3C-seq:
         description: snm3C-seq
-        meaning: NIMP:PD-AJAJCN35
       snmCT-seq:
         description: snmCT-seq
-        meaning: NIMP:PD-AJAJCN35
       scATAC-seq:
         description: scATAC-seq
-        meaning: NIMP:PD-AJAJCN35
       MERFISH:
         description: MERFISH
-        meaning: NIMP:PD-AJAJCN35
       Slide-seq MERFISH:
         description: Slide-seq MERFISH
-        meaning: NIMP:PD-AJAJCN35
       whole brain MERFISH:
         description: whole brain MERFISH
-        meaning: NIMP:PD-AJAJCN35
       DBiT RNA-seq:
         description: DBiT RNA-seq
-        meaning: NIMP:PD-AJAJCN35
       DBiT ATAC-seq:
         description: DBiT ATAC-seq
-        meaning: NIMP:PD-AJAJCN35
+      Droplet Paired-Tag; DNA:
+        description: Droplet Paired-Tag; DNA
+      Droplet Paired-Tag; RNA:
+        description: Droplet Paired-Tag; RNA
+      Multiplex Droplet Paired-Tag; DNA:
+        description: Multiplex Droplet Paired-Tag; DNA
+      Multiplex Droplet Paired-Tag; RNA:
+        description: Multiplex Droplet Paired-Tag; RNA
+      10xV4:
+        description: 10xV4
+      10x_5P_v5.2:
+        description: 10x_5P_v5.2
+      PIPSeq_T2_3P_v4+:
+        description: PIPSeq_T2_3P_v4+
+      PIPSeq_T20_3P_v4+:
+        description: PIPSeq_T20_3P_v4+
+      Slide-tag_10x5Pv2;GEX:
+        description: Slide-tag_10x5Pv2;GEX
+      Slide-tag_10x5Pv2;Spatial:
+        description: Slide-tag_10x5Pv2;Spatial
+      Slide-tag_PIPSeq_T100_3P_v4+;GEX:
+        description: Slide-tag_PIPSeq_T100_3P_v4+;GEX
+      Slide-tag_PIPSeq_T100_3P_v4+;Spatial:
+        description: Slide-tag_PIPSeq_T100_3P_v4+;Spatial
+      Slide-tag_PIPSeq_T20_3P_v4+;GEX:
+        description: Slide-tag_PIPSeq_T20_3P_v4+;GEX
+      Slide-tag_PIPSeq_T20_3P_v4+;Spatial:
+        description: Slide-tag_PIPSeq_T20_3P_v4+;Spatial
+      10x5Pv3:
+        description: 10x5Pv3
+      Slide-tag_10xV4;GEX:
+        description: Slide-tag_10xV4;GEX
+      Slide-tag_10xV4;Spatial:
+        description: Slide-tag_10xV4;Spatial
+      Slide-tag_TruSeq;Recon:
+        description: Slide-tag_TruSeq;Recon
+      10xV4_OCM:
+        description: 10xV4_OCM
+      SMARTSeqV4:
+        description: SMARTSeqV4
   library_prep_pass_fail:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       Pass:
         description: Library Prep passed the QA/QC
-        meaning: NIMP:PD-QHQHQB42
       Fail:
         description: Library Prep failed the QA/QC
-        meaning: NIMP:PD-QHQHQB42
       Low QC:
         description: Library Prep low passed the QA/QC
-        meaning: NIMP:PD-QHQHQB42
       Not evaluated:
         description: Library Prep not evaluated for QA/QC
-        meaning: NIMP:PD-QHQHQB42
   library_r1_r2_index:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       SI-TT-A1:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-A2:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-A3:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-A4:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-A5:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-A6:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-A7:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-A8:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-A9:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-A10:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-A11:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-A12:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-B1:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-B2:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-B3:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-B4:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-B5:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-B6:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-B7:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-B8:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-B9:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-B10:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-B11:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-B12:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-C1:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-C2:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-C3:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-C4:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-C5:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-C6:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-C7:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-C8:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-C9:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-C10:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-C11:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-C12:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-D1:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-D2:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-D3:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-D4:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-D5:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-D6:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-D7:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-D8:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-D9:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-D10:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-D11:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-D12:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-E1:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-E2:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-E3:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-E4:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-E5:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-E6:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-E7:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-E8:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-E9:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-E10:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-E11:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-E12:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-F1:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-F2:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-F3:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-F4:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-F5:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-F6:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-F7:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-F8:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-F9:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-F10:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-F11:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-F12:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-G1:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-G2:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-G3:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-G4:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-G5:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-G6:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-G7:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-G8:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-G9:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-G10:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-G11:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-G12:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-H1:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-H2:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-H3:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-H4:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-H5:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-H6:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-H7:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-H8:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-H9:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-H10:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-H11:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-TT-H12:
         description: 10x Dual Index TT Set A. Used with 10xV3.1, 10xV3.1_HT, and 10xMultiome;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-A1:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-A2:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-A3:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-A4:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-A5:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-A6:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-A7:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-A8:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-A9:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-A10:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-A11:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-A12:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-B1:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-B2:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-B3:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-B4:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-B5:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-B6:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-B7:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-B8:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-B9:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-B10:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-B11:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-B12:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-C1:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-C2:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-C3:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-C4:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-C5:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-C6:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-C7:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-C8:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-C9:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-C10:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-C11:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-C12:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-D1:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-D2:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-D3:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-D4:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-D5:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-D6:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-D7:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-D8:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-D9:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-D10:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-D11:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-D12:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-E1:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-E2:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-E3:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-E4:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-E5:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-E6:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-E7:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-E8:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-E9:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-E10:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-E11:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-E12:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-F1:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-F2:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-F3:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-F4:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-F5:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-F6:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-F7:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-F8:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-F9:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-F10:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-F11:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-F12:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-G1:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-G2:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-G3:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-G4:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-G5:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-G6:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-G7:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-G8:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-G9:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-G10:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-G11:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-G12:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-H1:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-H2:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-H3:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-H4:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-H5:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-H6:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-H7:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-H8:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-H9:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-H10:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-H11:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NN-H12:
         description: 10x Dual Index NN Set A. Used with 10xV3.1_CellPlex;GEX and 10xV3.1-HT_CellPlex;GEX
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-A1:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-B1:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-C1:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-D1:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-E1:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-F1:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-G1:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-H1:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-A2:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-B2:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-C2:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-D2:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-E2:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-F2:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-G2:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-H2:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-A3:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-B3:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-C3:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-D3:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-E3:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-F3:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-G3:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-H3:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-A4:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-B4:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-C4:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-D4:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-E4:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-F4:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-G4:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-H4:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-A5:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-B5:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-C5:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-D5:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-E5:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-F5:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-G5:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-H5:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-A6:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-B6:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-C6:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-D6:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-E6:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-F6:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-G6:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-H6:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-A7:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-B7:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-C7:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-D7:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-E7:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-F7:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-G7:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-H7:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-A8:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-B8:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-C8:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-D8:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-E8:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-F8:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-G8:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-H8:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-A9:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-B9:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-C9:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-D9:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-E9:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-F9:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-G9:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-H9:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-A10:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-B10:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-C10:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-D10:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-E10:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-F10:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-G10:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-H10:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-A11:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-B11:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-C11:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-D11:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-E11:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-F11:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-G11:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-H11:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-A12:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-B12:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-C12:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-D12:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-E12:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-F12:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-G12:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SI-NA-H12:
         description: 10x Single Index N Set A. Used with 10xATAC_v2.0 and 10xMultiome;ATAC
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A1:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A10:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A11:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A12:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A13:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A14:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A15:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A16:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A17:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A18:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A19:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A2:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A20:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A21:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A22:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A23:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A24:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A3:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A4:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A5:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A6:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A7:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A8:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-A9:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B1:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B10:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B11:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B12:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B13:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B14:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B15:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B16:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B17:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B18:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B19:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B2:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B20:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B21:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B22:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B23:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B24:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B3:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B4:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B5:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B6:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B7:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B8:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-B9:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C1:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C10:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C11:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C12:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C13:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C14:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C15:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C16:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C17:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C18:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C19:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C2:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C20:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C21:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C22:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C23:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C24:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C3:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C4:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C5:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C6:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C7:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C8:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-C9:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D1:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D10:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D11:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D12:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D13:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D14:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D15:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D16:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D17:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D18:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D19:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D2:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D20:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D21:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D22:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D23:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D24:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D3:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D4:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D5:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D6:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D7:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D8:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-D9:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E1:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E10:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E11:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E12:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E13:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E14:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E15:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E16:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E17:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E18:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E19:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E2:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E20:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E21:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E22:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E23:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E24:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E3:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E4:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E5:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E6:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E7:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E8:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-E9:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F1:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F10:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F11:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F12:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F13:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F14:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F15:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F16:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F17:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F18:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F19:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F2:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F20:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F21:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F22:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F23:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F24:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F3:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F4:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F5:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F6:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F7:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F8:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-F9:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G1:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G10:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G11:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G12:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G13:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G14:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G15:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G16:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G17:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G18:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G19:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G2:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G20:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G21:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G22:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G23:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G24:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G3:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G4:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G5:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G6:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G7:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G8:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-G9:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H1:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H10:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H11:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H12:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H13:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H14:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H15:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H16:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H17:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H18:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H19:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H2:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H20:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H21:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H22:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H23:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H24:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H3:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H4:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H5:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H6:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H7:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H8:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-H9:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I1:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I10:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I11:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I12:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I13:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I14:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I15:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I16:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I17:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I18:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I19:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I2:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I20:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I21:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I22:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I23:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I24:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I3:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I4:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I5:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I6:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I7:
         description: NeryLab 384_SetB
-        meaning: NIMP:PD-VLLMWZ60
       SetB-I8:
         description: NeryLab 384_SetB/#
-        meaning: NIMP:PD-VLLMWZ60
   sex:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       '1':
         description: Male
-        meaning: NIMP:PD-LXUBTM45
       '2':
         description: Female
-        meaning: NIMP:PD-LXUBTM45
       '7':
         description: Other
-        meaning: NIMP:PD-LXUBTM45
       '8':
         description: Unknown
-        meaning: NIMP:PD-LXUBTM45
       '9':
         description: Not Reported
-        meaning: NIMP:PD-LXUBTM45
   age_at_death_reference_point:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
       birth:
         description: birth
-        meaning: NIMP:PD-RARAGG39
       conception:
         description: conception
-        meaning: NIMP:PD-RARAGG39
   age_at_death_unit:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
     permissible_values:
-      days:
-        description: days
-        meaning: NIMP:PD-AVAVEV39
-      months:
-        description: months
-        meaning: NIMP:PD-AVAVEV39
-      years:
-        description: years
-        meaning: NIMP:PD-AVAVEV39
+      day:
+        description: day
+      month:
+        description: month
+      year:
+        description: year
+  species:
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
+    permissible_values:
+      NCBITaxon:9606:
+        description: Homo sapiens
+      NCBITaxon:9483:
+        description: Callithrix jacchus
+      NCBITaxon:10090:
+        description: Mus musculus
+      NCBITaxon:9544:
+        description: Macaca mulatta
+      NCBITaxon:60711:
+        description: Chlorocebus sabaeus
+      NCBITaxon:9999:
+        description: Urocitellus parryii
+      NCBITaxon:9361:
+        description: Dasypus novemcinctus
+      NCBITaxon:9598:
+        description: Pan troglodytes
+      NCBITaxon:9669:
+        description: Mustela putorius furo
+      NCBITaxon:9593:
+        description: Gorilla gorilla
+      NCBITaxon:9545:
+        description: Macaca nemestrina
+      NCBITaxon:13616:
+        description: Monodelphis domestica
+      NCBITaxon:9986:
+        description: Oryctolagus cuniculus
+      NCBITaxon:10116:
+        description: Rattus norvegicus
+      NCBITaxon:9541:
+        description: Macaca fascicularis
+      NCBITaxon:9534:
+        description: Chlorocebus aethiops
+      NCBITaxon:9614:
+        description: Canis latrans
+      NCBITaxon:9555:
+        description: Papio anubis
+      NCBITaxon:27679:
+        description: Saimiri boliviensis
+      NCBITaxon:9521:
+        description: Saimiri sciureus
+      NCBITaxon:30608:
+        description: Microcebus murinus
+      NCBITaxon:37293:
+        description: Aotus nancymaae
+      NCBITaxon:37347:
+        description: Tupaia belangeri
+      NCBITaxon:10181:
+        description: Heterocephalus glaber
+      NCBITaxon:9823:
+        description: Sus scrofa
+      NCBITaxon:9685:
+        description: Felis catus
+      NCBITaxon:9742:
+        description: Phocoena phocoena
+  fastq_file_alignment_status:
+    from_schema: https://identifiers.org/brain-bican/library-generation-schema
+    permissible_values:
+      '1':
+        description: Pass
+      '2':
+        description: Pass-Flag
+      '3':
+        description: Fail_Withhold
 classes:
   Donor:
     description: A person or organism that is the source of a biological sample for
@@ -1833,85 +1381,6 @@ classes:
     mixins:
     - thing with taxon
     - ProvEntity
-    slots:
-    - name
-    - xref
-    slot_usage:
-      name:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: donor_local_id
-        description: Name of person or organism that is the source of a biological
-          sample for scientific study.  Many biological samples are generated from
-          a single donor.
-        from_schema: bican_biolink
-      xref:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: id
-        from_schema: bican_biolink
-    attributes:
-      biological_sex:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: sex
-        description: Biological sex of donor at birth
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-LXUBTM45
-        range: sex
-      age_at_death_description:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: age_at_death_description
-        description: 'Text description of the age of death following typical scientific
-          convention for the species or developmental stage. For example: P56, E11.5'
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-ZJZJLE33
-      age_at_death_reference_point:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: age_at_death_reference_point
-        description: The reference point for an age interval; for example, birth or
-          conception.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-RARAGG39
-        range: age_at_death_reference_point
-      age_at_death_unit:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: age_at_death_unit
-        description: The unit used for representing the donor age from the reference
-          point.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-AVAVEV39
-        range: age_at_death_unit
-      age_at_death_value:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: age_at_death
-        description: The value representing the donor age from the reference point.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-FTFTCP24
-        range: float
-      species:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: donor_species
-        description: Species of donor.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
   BrainSlab:
     description: A thick flat piece of brain tissue obtained by slicing a whole brain,
       brain hemisphere or subdivision with a blade at regular interval.  When multiple
@@ -1934,8 +1403,6 @@ classes:
       was_derived_from:
         description: The donor from which the brain slab was derived from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         any_of:
         - range: Donor
         - range: BrainSlab
@@ -1943,17 +1410,16 @@ classes:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: local_name
-        description: Name of a thick flat piece of brain tissue obtained by slicing
-          a whole brain, brain hemisphere or subdivision with a blade at regular interval.  When
-          multiple brain slabs are obtained from the slicing process, an ordinal is
-          assigned to provide information about the relative positioning of the slabs.
+            local_name_value: slab_local_name
+        description: The identifier given to the slab by the brain bank.
         from_schema: bican_biolink
+        exact_mappings:
+        - NIMP:PD-WKWKFB34
       xref:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: slab_nhash_id
         from_schema: bican_biolink
   TissueSample:
     description: The final intact piece of tissue before cell or nuclei prep. This
@@ -1978,8 +1444,6 @@ classes:
         description: The donor or brain slab from which the tissue sample was derived
           from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         range: Donor
       was_generated_by:
         description: The dissection process from which the tissue sample was generated
@@ -1996,28 +1460,31 @@ classes:
           an ROI associated with it.
         from_schema: bican_biolink
         exact_mappings:
+        - bican:2e4ca2fc-2d77-4d19-af45-d0fb7bbc2269
         - NIMP:PD-LJCRCC35
-        slot_uri: bican:2e4ca2fc-2d77-4d19-af45-d0fb7bbc2269
       xref:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: tissue_nhash_id
         from_schema: bican_biolink
     attributes:
       dissection_was_guided_by:
         description: The dissection ROI polygon that was used to guide the dissection.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:has_parent
         range: DissectionRoiPolygon
       structure:
         local_names:
           NIMP:
             local_name_source: NIMP
             local_name_value: structure
-        description: Structure of tissue sample.
+        description: The code referring to a structure in a brain atlas that the tissue
+          was found to be associated with.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:missing_TS_structure
+        - NIMP:PD-NLNONY46
+        range: string
         multivalued: true
   DissociatedCellSample:
     description: A collection of dissociated cells or nuclei derived from dissociation
@@ -2046,8 +1513,6 @@ classes:
         description: The input tissue sample(s) from which dissociated cell sample
           was derived from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         range: TissueSample
         multivalued: true
       name:
@@ -2059,15 +1524,26 @@ classes:
           dissociation of a tissue sample.
         from_schema: bican_biolink
         exact_mappings:
+        - bican:65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2
         - NIMP:PD-RQRWHS40
-        slot_uri: bican:65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2
       xref:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: dissociated_cell_sample_nhash_id
         from_schema: bican_biolink
     attributes:
+      preparation_date:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: dissociated_cell_sample_preparation_date
+        description: Date of cell dissociation process.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:c508b63d-a1b4-42de-9b22-9c4736deac6e
+        - NIMP:PD-BUBUFE27
+        range: date
       cell_prep_type:
         local_names:
           NIMP:
@@ -2080,9 +1556,10 @@ classes:
         - tracking
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:baae4ac3-f959-4594-b943-3a82ec19bd34
         - NIMP:PD-RELLGO26
         range: dissociated_cell_sample_cell_prep_type
-      dissociated_cell_oligo_name:
+      cell_label_barcode:
         local_names:
           NIMP:
             local_name_source: NIMP
@@ -2095,8 +1572,20 @@ classes:
           dissociated cell sample.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:0c8628d0-809b-458c-b4b3-686131dceef8
         - NIMP:PD-CFCFPS27
-        range: dissociated_cell_sample_cell_label_barcode
+        range: cell_label_barcode
+      patched_cell_structure:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: patched_cell_structure
+        description: Ontological structure assigned to a single patched cell. This
+          is typically assigned and confirmed after imaging.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:7636b4c8-12f6-4b33-bdc6-c2f1a3b1c953
+        - NIMP:PD-RCRCEV39
   EnrichedCellSample:
     description: A collection of enriched cells or nuclei after enrichment process,
       usually via fluorescence-activated cell sorting (FACS) using the enrichment
@@ -2127,8 +1616,6 @@ classes:
         description: The dissociated or enriched cell sample(s) from which the enriched
           cell sample was derived from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         multivalued: true
         exactly_one_of:
         - range: DissociatedCellSample
@@ -2142,15 +1629,26 @@ classes:
           process (usually via FACS using the Enrichment Plan) applied to dissociated_cell_sample.
         from_schema: bican_biolink
         exact_mappings:
+        - bican:bb3fc701-23a7-45c1-890d-7471730e0ec1
         - NIMP:PD-BERWTM41
-        slot_uri: bican:bb3fc701-23a7-45c1-890d-7471730e0ec1
       xref:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: enriched_cell_sample_nhash_id
         from_schema: bican_biolink
     attributes:
+      preparation_date:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: enriched_cell_sample_preparation_date
+        description: Date of cell enrichment process.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:e2fd2d84-3999-4cc4-8f41-e0e2a708f407
+        - NIMP:PD-PFPFFC28
+        range: date
       enrichment_population:
         local_names:
           NIMP:
@@ -2164,22 +1662,22 @@ classes:
         - analysis
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:875f1c70-f5aa-45e3-94b9-5e482f6c4830
         - NIMP:PD-TZTZPI37
         range: string
-      enriched_cell_oligo_name:
+      cell_label_barcode:
         local_names:
           NIMP:
             local_name_source: NIMP
             local_name_value: enriched_cell_sample_cell_label_barcode
-        description: Name of cell source oligo used in cell plexing.  The oligo molecularly
-          tags all the cells in the enriched cell sample and allows separate enriched
-          cell samples to be combined downstream in the barcoded cell sample.  The
-          oligo name is associated with a sequence in a lookup table.  This sequence
-          will be needed during alignment to associate reads with the parent source
-          enriched cell sample.
+        description: Name of molecular barcode used to individual Enriched Cell Source
+          to allow for pooling of Enriched Cell Sources before 10x load (Barcoding
+          Cell step) [aka 1st round barcodes]
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
-        - NIMP:PD-CFCFPS27
+        - bican:bdd5e2bf-c6fa-43e6-a5ac-6878fcf814d6
+        - NIMP:PD-CTCTTK28
+        range: cell_label_barcode
       histone_modification_marker:
         local_names:
           NIMP:
@@ -2192,7 +1690,9 @@ classes:
           essential part of the epigenome.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:a2ef2228-e438-4260-95e5-22eb3b35b5a9
         - NIMP:PD-ESESLW44
+        range: string
   BarcodedCellSample:
     description: A collection of molecularly barcoded cells. Input will be either
       dissociated cell sample or enriched cell sample. Cell barcodes are only guaranteed
@@ -2225,8 +1725,6 @@ classes:
         description: The input dissociated or enriched cell sample(s) from which the
           barcoded cell sample was derived from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         multivalued: true
         exactly_one_of:
         - range: DissociatedCellSample
@@ -2242,13 +1740,13 @@ classes:
           or enriched_cell_sample can lead to multiple barcoded_cell_samples.
         from_schema: bican_biolink
         exact_mappings:
+        - bican:4c0e6380-e53f-4173-a474-d41e836fefe3
         - NIMP:PD-XEMDJF38
-        slot_uri: bican:4c0e6380-e53f-4173-a474-d41e836fefe3
       xref:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: barcoded_cell_sample_nhash_id
         from_schema: bican_biolink
     attributes:
       number_of_expected_cells:
@@ -2265,8 +1763,78 @@ classes:
         - analysis
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:f10e928d-5a2b-4943-af18-d8fe5d05528d
         - NIMP:PD-ONONEV39
         range: integer
+      port_well:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: barcoded_cell_sample_port_well
+        description: Specific position of the loaded port of the 10x chip.  An Enriched
+          or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded
+          Cell Sample). Can be left null for non-10x methods.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:aca38100-d245-4be4-9be3-ba27192779fe
+        - NIMP:PD-KJKJZK32
+        range: string
+      input_quantity_count:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: barcoded_cell_input_quantity_count
+        description: Number of enriched or dissociated cells/nuclei going into the
+          barcoding process.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:aa534269-7c9b-4b63-b990-eea8cda56d0e
+        - NIMP:PD-ZZZZWQ40
+        range: integer
+      tag_local_name:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: barcoded_cell_sample_tag_local_name
+        description: Barcoded Cell Sample tags can be used to group a set of barcoded
+          cell samples so that the tag can be used to obtain all the members of the
+          cohort
+        in_subset:
+        - analysis
+        - tracking
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:8877f8f0-3939-4062-84c9-414bdcdd04ca
+        range: string
+      preparation_date:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: barcoded_cell_sample_preparation_date
+        description: Date of cell barcoding process.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:missing_BCS_preparation_date
+        - NIMP:PD-SHSHZS25
+        range: date
+      technique:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: barcoded_cell_sample_technique
+        description: Required standardized nomenclature to describe the general method
+          used to barcode individual cells. This method (eg Multiome, ATAConly, GEXonly)
+          will be more general than the Library Method (which is specific for alignment)
+          and could be used for general classification of Barcoded Cell Samples.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:missing_BCS_technique
+        - NIMP:PD-TDTDDF25
+        range: barcoded_cell_sample_technique
   AmplifiedCdna:
     description: A collection of cDNA molecules derived and amplified from an input
       barcoded cell sample. These cDNA molecules represent the gene expression of
@@ -2297,8 +1865,6 @@ classes:
         description: The input barcoded cell sample from which amplified cDNA was
           derived from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         range: BarcodedCellSample
       name:
         local_names:
@@ -2312,13 +1878,13 @@ classes:
           is a necessary step for GEX methods but is not used for ATAC methods.
         from_schema: bican_biolink
         exact_mappings:
+        - bican:e2606a11-114e-472f-9e05-33f9b6fc3089
         - NIMP:PD-YAAGGG39
-        slot_uri: bican:e2606a11-114e-472f-9e05-33f9b6fc3089
       xref:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: amplified_cdna_nhash_id
         from_schema: bican_biolink
     attributes:
       amplified_cDNA_quantity_ng:
@@ -2332,6 +1898,7 @@ classes:
         - analysis
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:0db79d05-8612-4896-b9d3-eb1558841449
         - NIMP:PD-TITIIC26
         range: float
       amplified_cDNA_result:
@@ -2345,6 +1912,7 @@ classes:
         - analysis
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:bc62bdb2-7dc8-4404-bb84-ce0bbcae59e5
         - NIMP:PD-XXXXFQ31
         range: amplified_cdna_rna_amplification_pass_fail
       percent_cdna_longer_than_400bp:
@@ -2360,8 +1928,48 @@ classes:
         - analysis
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:8d150467-f69e-461c-b54c-bcfd22f581e5
         - NIMP:PD-JJJJWD35
         range: float
+      pcr_cycles:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: amplified_cdna_pcr_cycles
+        description: Number of PCR cycles used during cDNA amplification for this
+          cDNA.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:3827634c-3f8f-4760-b358-86ce4b030238
+        - NIMP:PD-OKOKQD38
+        range: integer
+      preparation_date:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: amplified_cdna_preparation_date
+        description: Date of cDNA amplification.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:6cc333e7-9b98-497f-b7b1-eae904db2400
+        - NIMP:PD-BYBYBY24
+        range: date
+      cdna_amplification_set:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: cdna_amplification_set
+        description: cDNA amplification set, containing multiple amplified_cDNA_names
+          that were processed at the same time.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:42e98a88-50b3-4ea2-871b-2142f6a0dfdd
+        - NIMP:PD-SCSCTM41
+        range: string
   Library:
     description: A collection of fragmented and barcode-indexed DNA molecules for
       sequencing. An index or barcode is typically introduced to enable identification
@@ -2390,8 +1998,6 @@ classes:
         description: The input barcoded cell sample or amplified cDNA from which the
           library was derived from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         any_of:
         - range: BarcodedCellSample
         - range: AmplifiedCdna
@@ -2406,13 +2012,13 @@ classes:
           together for sequencing.
         from_schema: bican_biolink
         exact_mappings:
+        - bican:f717e254-3630-4342-be7b-4d56376e7afe
         - NIMP:PD-AJJUCC35
-        slot_uri: bican:f717e254-3630-4342-be7b-4d56376e7afe
       xref:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: library_nhash_id
         from_schema: bican_biolink
     attributes:
       average_size_bp:
@@ -2426,6 +2032,7 @@ classes:
         - analysis
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:f851eba9-56d1-4472-9d0c-d7f8bc33000a
         - NIMP:PD-VJVJLC46
         range: integer
       concentration_nm:
@@ -2438,6 +2045,7 @@ classes:
           the number of target reads/cell in sequencing.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:90805b3f-f380-4f23-b159-e7eaa0c8f052
         - NIMP:PD-DCDCLD43
         range: float
       library_result:
@@ -2451,6 +2059,7 @@ classes:
         - analysis
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:6817ede2-7ead-402d-9dbc-131aca627c6c
         - NIMP:PD-QHQHQB42
         range: library_prep_pass_fail
       quantity_fmol:
@@ -2463,6 +2072,7 @@ classes:
         - analysis
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:4c09ada7-c116-48bc-8fb1-0dcf5c4b939a
         - NIMP:PD-JYJYDK42
         range: float
       library_quantity_ng:
@@ -2473,6 +2083,7 @@ classes:
         description: Amount of library generated in terms of nanograms
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:318b2d3a-dae7-4c63-bfbb-93862b92f63e
         - NIMP:PD-TNTNXP37
         range: float
       r1_r2_index:
@@ -2491,8 +2102,65 @@ classes:
         - tracking
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:c94b5d8a-e92d-47af-8c0e-ea3b58be4d06
         - NIMP:PD-VLLMWZ60
         range: library_r1_r2_index
+      technique:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: library_technique
+        description: Standardized nomenclature to describe the specific library method
+          used.  This specifies the alignment method required for the library.  For
+          example, 10xV3.1 (for RNASeq single assay), 10xMult-GEX (for RNASeq multiome
+          assay), and 10xMult-ATAC (for ATACSeq multiome assay).
+        in_subset:
+        - analysis
+        - tracking
+        - alignment
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:7b60d59e-fdd7-4b27-a2d4-cae9b69103a6
+        - NIMP:PD-AJAJCN35
+        range: library_technique
+      preparation_date:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: library_preparation_date
+        description: Date of library construction.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:9c2f575d-1b64-451d-894f-656861afe07a
+        - NIMP:PD-JCJCNM35
+        range: date
+      input_ng:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: library_input_ng
+        description: Amount of cDNA going into library construction in nanograms.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:e4d31d97-722d-4771-a0e4-e6062190f2c1
+        - NIMP:PD-AFAFXP37
+        range: float
+      prep_set:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: library_prep_set
+        description: Library set, containing multiple library_names that were processed
+          at the same time.
+        in_subset:
+        - analysis
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:b124ffa9-9134-4a61-a30d-bb191b2fc7fa
+        - NIMP:PD-PCPCVR50
+        range: string
   LibraryAliquot:
     description: One library in the library pool. Each library aliquot in a library
       pool will have a unique R1/R2 index to allow for sequencing together then separating
@@ -2519,8 +2187,6 @@ classes:
         description: The input library from which the library aliquot was derived
           from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         range: Library
       name:
         local_names:
@@ -2534,14 +2200,28 @@ classes:
           will include the library_aliquot_name.
         from_schema: bican_biolink
         exact_mappings:
+        - bican:34191bad-d167-4335-8224-ade897d3728e
         - NIMP:PD-XCXCCC35
-        slot_uri: bican:34191bad-d167-4335-8224-ade897d3728e
       xref:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: library_pool_nhash_id
         from_schema: bican_biolink
+    attributes:
+      fastq_file_alignment_status:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: fastq_file_alignment_status
+        description: The FASTQ file alignment status as reported by the Library Lab
+        in_subset:
+        - alignment
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:834a0e66-fd81-4d9c-b379-146372c3a629
+        - NIMP:PD-KRKRCT43
+        range: fastq_file_alignment_status
   LibraryPool:
     description: A library pool is made up of library aliquots from multiple libraries.
       Each library aliquot in a library pool will have a unique R1/R2 index to allow
@@ -2571,8 +2251,6 @@ classes:
         description: The input aliquot(s) from which the library pool was derived
           from.
         from_schema: bican_prov
-        exact_mappings:
-        - NIMP:has_parent
         range: LibraryAliquot
         multivalued: true
       name:
@@ -2581,22 +2259,22 @@ classes:
             local_name_source: NIMP
             local_name_value: library_pool_local_name
         description: Library lab's library pool name.  For some labs this may be the
-          same as "Libray pool tube local name".   Other labs distinguish between
+          same as "Library pool tube local name".   Other labs distinguish between
           the local tube label of the library pool and the library pool name provided
           to SeqCore for tracking.  Local Pool Name is used to communicate sequencing
           status between SeqCore and Library Labs.
         from_schema: bican_biolink
         exact_mappings:
+        - bican:29e0578b-6427-4c93-b29b-bde27fbadeec
         - NIMP:PD-KKIAPA48
-        slot_uri: bican:29e0578b-6427-4c93-b29b-bde27fbadeec
       xref:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: library_pool_nhash_id
         from_schema: bican_biolink
     attributes:
-      tube_internal_label:
+      local_tube_id:
         local_names:
           NIMP:
             local_name_source: NIMP
@@ -2610,7 +2288,52 @@ classes:
         - tracking
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
+        - bican:f1fdea98-7849-4def-a62f-a04cbbf98922
         - NIMP:PD-WNYWPA48
+        range: string
+      preparation_date:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: library_pool_preparation_date
+        description: Date of library pooling process.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:ef950ca1-2a62-4fce-a826-6c27d94d3be3
+        - NIMP:PD-XUXUNM35
+        range: date
+      tube_barcode:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: library_pool_tube_barcode
+        description: Library Pool tube name as provided by the SeqCore (often a barcode).
+          This tube is provided from the SeqCore and is part of the SeqCore tracking
+          system.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:da02a0ee-9abf-45ef-abb1-981f1aaba6b2
+        - NIMP:PD-KNKNCC35
+        range: string
+      flowcell:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: flowcell
+        description: The Flowcell is a unique identifer of the sequencing cartridge
+          (provided by the sequencing instrument manufacturer) used and consumed when
+          sequencing Library Pools on an Illumina sequencing instrument. A flowcell
+          can be different sizes with different number of lanes. The flowcell size
+          determines the number of total reads it will produce. Typically one Flowcell
+          is used to run one Library Pool across all lanes. Multiple pools, however,
+          can be run on a single flowcell as long as the pools are partitioned onto
+          separate lanes of the flowcell. Each lane from a flowcell will produce fastq
+          files for all Library Aliquots within the Library Pool applied to a given
+          lane.
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - bican:4c8d7ac8-d3e3-4177-a93d-18ec2302c392
+        - NIMP:PD-MOMODO36
         range: string
   DissectionRoiDelineation:
     description: The process of outlining a region of interest on a brain slab image
@@ -2672,16 +2395,6 @@ classes:
         from_schema: bican_prov
         range: TissueSample
         multivalued: true
-    attributes:
-      cell_dissociation_process_date:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: dissociated_cell_sample_preparation_date
-        description: Date of cell dissociation process.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-BUBUFE27
   CellEnrichment:
     description: The process of enriching a dissociated cell sample by including or
       excluding cells of different types based on an enrichment plan using techniques
@@ -2704,16 +2417,6 @@ classes:
         from_schema: bican_prov
         range: DissociatedCellSample
         multivalued: true
-    attributes:
-      cell_enrichment_process_date:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: enriched_cell_sample_preparation_date
-        description: Date of cell enrichment process.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-PFPFFC28
   EnrichedCellSampleSplitting:
     description: The process of splitting an enriched cell sample into several portions.
       Each portion may be used by the same or different groups for different scientific
@@ -2757,54 +2460,6 @@ classes:
         exactly_one_of:
         - range: DissociatedCellSample
         - range: EnrichedCellSample
-    attributes:
-      port_well:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: barcoded_cell_sample_port_well
-        description: Specific position of the loaded port of the 10x chip.  An Enriched
-          or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded
-          Cell Sample). Can be left null for non-10x methods.
-        in_subset:
-        - analysis
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-KJKJZK32
-        range: string
-      input_quantity:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: barcoded_cell_input_quantity_count
-        description: Number of enriched or dissociated cells/nuclei going into the
-          barcoding process.
-        in_subset:
-        - analysis
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-ZZZZWQ40
-        range: integer
-      cell_barcoding_process_date:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: barcoded_cell_sample_preparation_date
-        description: Date of cell barcoding process.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-SHSHZS25
-      cell_barcoding_method:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: barcoded_cell_sample_technique
-        description: 'Standardized nomenclature to describe the general barcoding
-          method used.  For example: Multiome, ATAC Only, GEX Only or snm3C-seq.'
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-TDTDDF25
-        range: barcoded_cell_sample_technique
   CdnaAmplification:
     description: The process of creating a collection of cDNA molecules derived and
       amplified from an input barcoded cell sample.  A large amount of cDNA is needed
@@ -2827,43 +2482,6 @@ classes:
           derived from.
         from_schema: bican_prov
         range: BarcodedCellSample
-    attributes:
-      pcr_cycles:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: amplified_cdna_pcr_cycles
-        description: Number of PCR cycles used during cDNA amplification for this
-          cDNA.
-        in_subset:
-        - analysis
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-OKOKQD38
-        range: integer
-      cDNA_amplification_process_date:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: amplified_cdna_preparation_date
-        description: Date of cDNA amplification.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-BYBYBY24
-        range: date
-      cDNA_amplification_set:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: cdna_amplification_set
-        description: cDNA amplification set, containing multiple amplified_cDNA_names
-          that were processed at the same time.
-        in_subset:
-        - analysis
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-SCSCTM41
-        range: string
   LibraryConstruction:
     description: The process of constructing a library from input material (such as
       amplified cDNA or barcoded cell sample) derived from one or more cell samples.  cDNA
@@ -2887,59 +2505,6 @@ classes:
         any_of:
         - range: BarcodedCellSample
         - range: AmplifiedCdna
-    attributes:
-      library_construction_method:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: library_technique
-        description: Standardized nomenclature to describe the specific library method
-          used.  This specifies the alignment method required for the library.  For
-          example, 10xV3.1 (for RNASeq single assay), 10xMult-GEX (for RNASeq multiome
-          assay), and 10xMult-ATAC (for ATACSeq multiome assay).
-        in_subset:
-        - analysis
-        - tracking
-        - alignment
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-AJAJCN35
-        range: library_technique
-      library_construction_process_date:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: library_preparation_date
-        description: Date of library construction.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-JCJCNM35
-        range: date
-      input_quantity_ng:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: library_input_ng
-        description: Amount of cDNA going into library construction in nanograms.
-        in_subset:
-        - analysis
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-AFAFXP37
-        range: float
-      library_construction_set:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: library_prep_set
-        description: Library set, containing multiple library_names that were processed
-          at the same time.
-        in_subset:
-        - analysis
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-PCPCVR50
-        range: string
   LibraryPooling:
     description: The process of constructing of a libray pool by combining library
       aliquots from a set of input libraries. Each library aliquot in a library pool
@@ -2962,16 +2527,6 @@ classes:
         from_schema: bican_prov
         range: LibraryAliquot
         multivalued: true
-    attributes:
-      process_date:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: library_pool_preparation_date
-        description: Date of library pooling process.
-        from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:PD-XUXUNM35
   DissectionRoiPolygon:
     description: A polygon annotated on a brain slab image delineating a region of
       interest (ROI) for a tissue sample dissectioning.
@@ -2980,7 +2535,7 @@ classes:
     - tissue_specimen
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
     exact_mappings:
-    - NIMP:Specimen%20Dissected%20ROI
+    - NIMP:ROI
     is_a: entity
     mixins:
     - ProvEntity
@@ -3002,18 +2557,18 @@ classes:
         description: Name of a polygon annotated on a brain slab image delineating
           a region of interest (ROI) for a tissue sample dissectioning.
         from_schema: bican_biolink
+        exact_mappings:
+        - NIMP:PD-RPRPTM41
       xref:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: id
+            local_name_value: roi_nhash_id
         from_schema: bican_biolink
     attributes:
       annotates:
         description: The brain slab that was annotated by the delineation process.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
-        exact_mappings:
-        - NIMP:has_parent
         range: BrainSlab
   DigitalAsset:
     from_schema: https://identifiers.org/brain-bican/library-generation-schema
@@ -3022,15 +2577,15 @@ classes:
     - ProvEntity
     slots:
     - was_derived_from
-    - digest
     - content_url
+    - digest
     slot_usage:
       was_derived_from:
         from_schema: bican_prov
         range: LibraryPool
-      digest:
-        from_schema: bican_core
       content_url:
+        from_schema: bican_core
+      digest:
         from_schema: bican_core
     attributes:
       data_type:
