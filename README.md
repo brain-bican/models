@@ -1,4 +1,4 @@
-# BICAN Knowledgebase Data Models
+# BICAN Data Models
 
 This repo contains data models generated using [LinkML](https://linkml.io/linkml/) for the [BICAN knowledgebase project](https://www.portal.brain-bican.org/teams/bican-knowledgebase) founded by the National Institute of Mental Health.
 
