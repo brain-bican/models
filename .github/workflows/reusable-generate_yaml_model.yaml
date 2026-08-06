@@ -9,7 +9,7 @@ on:
         type: string
 
 jobs:
-  generate_libgen_yaml:
+  generate_yaml:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repository
