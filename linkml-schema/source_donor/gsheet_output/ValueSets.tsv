@@ -1,0 +1,1569 @@
+variable_name	title	ontology_id	description	bican_uuid	meaning	value
+> enum	permissible_value	meaning	description	ignore	ignore	ignore
+aging_type						
+aging_type	pTau	PR:000026989	A microtubule-associated protein tau that includes at least one phosphorylated residue.	f0c1e00e-f35a-43ae-872b-d9060caac45c	microtubule-associated protein tau phosphorylated form|MAPT/PhosRes+	
+aging_type	pTDP-43	PR:000016057	A protein that is a translation product of the human TARDBP gene or a 1:1 ortholog thereof.	5f77b204-1d3e-49e1-a855-f575d96dd429	TAR DNA-binding protein 43	
+aging_type	atherosclerosis	MONDO:0005311	Build-up of fatty material and calcium deposition in the arterial wall resulting in partial or complete occlusion of the arterial lumen.	e04f6a45-69d0-49a7-b1a2-4cff06db3704	atherosclerosis artery|atherosclerosis of artery|atherosclerotic cardiovascular disease	
+aging_type	arteriolosclerosis	MONDO:0006658	The thickening of the wall of the small arteries and arterioles. It is caused by deposition of hyaline material in the wall or concentric smooth muscle wall hypertrophy. It results in lumen narrowing and tissue ischemia.	b43714d1-5ff0-49c0-8361-226273c95405	arteriolosclerosis (morphologic abnormality)	
+aging_type	Other (specify)			5a5297b5-57bf-4e8a-9872-7fc71451407d		
+artifact_type						
+artifact_type	gross: brain removal/dissection		A planned process that separates and isolates the brain or tissues thereof for surgical purposes, or for the analysis of their structures.	ab5cebb9-a9ab-495b-af33-d45ffaf52ab6		
+artifact_type	microscopic: autolysis	GO:0001896	"A programmed cell death process observed in bacteria and filamentous fungi and leading to spontaneous death by lysis. Examples are lysis of the mother cell during sporulation of Bacillus subtilis and self-degradation of fungal cells in Aspergillus nidulans. Autolysis is also involved in bacterial biofilm formation." [GO]	9893678a-621c-4e14-ae10-21682f624c7c		
+artifact_type	Other (specify)			e2741a06-4965-49bb-bf06-d6b5cd022281		
+birth_country						
+birth_country	AF	GAZ:00006882	Afghanistan	a6ac5828-ceb8-4824-aa2d-1894c3dcd6ca	Afghanistan	4
+birth_country	AL		Albania	1fd2134a-241f-4b9f-aec7-53edffb5df68	Albania	8
+birth_country	DZ		Algeria	0d550381-f59f-463b-a2a0-a5b04deb5d63	Algeria	12
+birth_country	AS		American Samoa	278a2348-9352-4291-9320-5f56f1602f4c	American Samoa	16
+birth_country	AD		Andorra	2c5d9c97-8cac-45af-93ba-c5728ed1e500	Andorra	20
+birth_country	AO		Angola	cb144431-87a6-4bff-b14d-7381c3c78b21	Angola	24
+birth_country	AI		Anguilla	f641130e-28f5-433f-93ad-86f5c17741ec	Anguilla	660
+birth_country	AQ		Antarctica	29ab8709-5264-4b51-b78c-5ef7c85acd7d	Antarctica	10
+birth_country	AG		Antigua and Barbuda	29ef4764-4b07-4d71-9c17-b84467a19143	Antigua and Barbuda	28
+birth_country	AR		Argentina	b6d45925-edb1-4921-906f-9aeecf684a58	Argentina	32
+birth_country	AM		Armenia	b31eb5a6-ca40-42f7-abcc-2414051129f9	Armenia	51
+birth_country	AW		Aruba	cd294848-85fb-48f9-9165-96b371d1b26f	Aruba	533
+birth_country	AU		Australia	d07b4dac-ea4c-491a-8ac5-717537fdbf9e	Australia	36
+birth_country	AT		Austria	3c62ab3d-0076-42de-8222-d8f3cb8439e0	Austria	40
+birth_country	AZ		Azerbaijan	5f295914-5b2b-4ed8-bd62-0db4200d2639	Azerbaijan	31
+birth_country	BS		Bahamas (the)	8b677361-477a-4c54-94df-d54ad61644d2	Bahamas (the)	44
+birth_country	BH		Bahrain	c296ea98-8084-4475-807a-54334043f57e	Bahrain	48
+birth_country	BD		Bangladesh	b88e0c02-a844-41d5-913c-652c43d6dd73	Bangladesh	50
+birth_country	BB		Barbados	2a95727a-34cb-412a-a654-c1a6acbc8b4d	Barbados	52
+birth_country	BY		Belarus	bebecafc-7335-4c57-aa68-b1e01e57b32d	Belarus	112
+birth_country	BE		Belgium	183afdbd-ca0a-44cb-8090-b0b18b2a394c	Belgium	56
+birth_country	BZ		Belize	6f0921bb-066a-410e-a494-51e2a9582e86	Belize	84
+birth_country	BJ		Benin	79513e39-f77d-4dc2-88a8-61beae61e83c	Benin	204
+birth_country	BM		Bermuda	e2f4a711-cc3f-426c-9834-f0853009e259	Bermuda	60
+birth_country	BT		Bhutan	6536957b-dd4e-401e-8fb3-984ab8fa44f7	Bhutan	64
+birth_country	BO		Bolivia (Plurinational State of)	cd8442dd-0a3e-41c3-be95-52fb7b9c36ef	Bolivia (Plurinational State of)	68
+birth_country	BQ		Bonaire, Sint Eustatius and Saba	5d90335b-4aa7-4856-a428-65a2ca6bdd1a	Bonaire, Sint Eustatius and Saba	535
+birth_country	BA		Bosnia and Herzegovina	0129b0b3-e412-4b67-b132-97420f376dab	Bosnia and Herzegovina	70
+birth_country	BW		Botswana	02848a58-58c3-4ee8-a5d2-4de239c1c381	Botswana	72
+birth_country	BV		Bouvet Island	533c3da6-39ad-439b-8eb3-413e5ed36778	Bouvet Island	74
+birth_country	BR		Brazil	5e1e2da4-f376-4715-86ae-eb6eafc9c8fd	Brazil	76
+birth_country	IO		British Indian Ocean Territory (the)	98e1a44c-beb9-46b8-8972-b2fc3ee3347b	British Indian Ocean Territory (the)	86
+birth_country	BN		Brunei Darussalam	fd1810f6-d572-4e8c-a422-4af268708651	Brunei Darussalam	96
+birth_country	BG		Bulgaria	7e64bd5b-deb2-40dc-886d-feeef0fd9c0b	Bulgaria	100
+birth_country	BF		Burkina Faso	5dc3d8e3-e111-4504-baa1-74a6e6bed7a3	Burkina Faso	854
+birth_country	BI		Burundi	f7bfceb8-2fcf-4e27-beac-c6ea5ff2ca2a	Burundi	108
+birth_country	CV		Cabo Verde	206804db-4d1d-4f87-be0a-7aa74f69108f	Cabo Verde	132
+birth_country	KH		Cambodia	e3005479-e0fa-4acd-bb0d-43378c2f8fd8	Cambodia	116
+birth_country	CM		Cameroon	97dee721-2b52-4643-b2f9-de2ef800b0a4	Cameroon	120
+birth_country	CA		Canada	270cdc09-34f2-4c35-8258-8e7c6bb66bfd	Canada	124
+birth_country	KY		Cayman Islands (the)	56e1ce37-a2de-4bd7-8cc6-dc4e3471fea9	Cayman Islands (the)	136
+birth_country	CF		Central African Republic (the)	8614a012-184a-45e7-ae45-3029c5274544	Central African Republic (the)	140
+birth_country	TD		Chad	ac06c0cb-bf09-4357-a7db-8698081e56e3	Chad	148
+birth_country	CL		Chile	5a57f3fa-80eb-41db-a302-aabcdd2df80a	Chile	152
+birth_country	CN		China	99fae739-2b21-4474-b84c-7678ebb343fd	China	156
+birth_country	CX		Christmas Island	8bf30fd2-04cc-4b3a-add2-ff55b86a8c1a	Christmas Island	162
+birth_country	CC		Cocos (Keeling) Islands (the)	e842873a-4bb8-4a33-b7e8-3bea9783e947	Cocos (Keeling) Islands (the)	166
+birth_country	CO		Colombia	30fe8906-2443-4617-86c8-98439913d96f	Colombia	170
+birth_country	KM		Comoros (the)	7f8ebc67-0761-44e0-a3f5-8fcdc6b97453	Comoros (the)	174
+birth_country	CD		Congo (the Democratic Republic of the)	eaf26722-5115-442d-a850-369971467560	Congo (the Democratic Republic of the)	180
+birth_country	CG		Congo (the)	efa5a921-a564-4cf0-8e7d-c3d15298f81a	Congo (the)	178
+birth_country	CK		Cook Islands (the)	459b69ed-441b-4a77-8c88-0cb49cc52274	Cook Islands (the)	184
+birth_country	CR		Costa Rica	3c6c0ac6-2a16-4f71-951b-47744e4483f3	Costa Rica	188
+birth_country	HR		Croatia	82b0a002-def4-4346-85f9-e8a9d6ca73f1	Croatia	191
+birth_country	CU		Cuba	d27bf8c0-ad2f-4f87-af02-949a47584eee	Cuba	192
+birth_country	CW		Curaçao	def4a898-dc27-4250-97bb-42e202ec00a9	Curaçao	531
+birth_country	CY		Cyprus	1d9dbe12-bec3-40db-bfc1-b9358fc28669	Cyprus	196
+birth_country	CZ		Czechia	5996999c-8472-4309-888d-612edc6738ab	Czechia	203
+birth_country	CI		Côte d'Ivoire	b12c66d3-090c-474c-9644-c2bc0d1a64ac	Côte d'Ivoire	384
+birth_country	DK		Denmark	7978f984-d3fe-4164-abf9-339a4825aa85	Denmark	208
+birth_country	DJ		Djibouti	2a0c1da8-f654-4e3b-8496-9707870b6532	Djibouti	262
+birth_country	DM		Dominica	a13878b2-6d3f-46be-9501-074f5da07095	Dominica	212
+birth_country	DO		Dominican Republic (the)	967bfbfc-0bf5-4a22-9782-fa7d0688cbc8	Dominican Republic (the)	214
+birth_country	EC		Ecuador	8d31c12d-a021-4ea5-a5ed-5369c30c39a8	Ecuador	218
+birth_country	EG		Egypt	c8a19f6a-da0a-4296-82b1-2c522adccc15	Egypt	818
+birth_country	SV		El Salvador	1e49b360-8f34-4af5-bfc5-86542df5aa7a	El Salvador	222
+birth_country	GQ		Equatorial Guinea	83a09329-de9d-4ba8-9ce8-a7aa45168ca8	Equatorial Guinea	226
+birth_country	ER		Eritrea	e9a7b1fb-2f25-4c7f-8278-3e80243552fb	Eritrea	232
+birth_country	EE		Estonia	c54bb018-b7d5-4405-b19e-14586e0b241e	Estonia	233
+birth_country	SZ		Eswatini	0b1edbc7-c2fe-43b7-b759-3528d382d123	Eswatini	748
+birth_country	ET		Ethiopia	20c98add-32ee-4155-b9b8-9839ce42a559	Ethiopia	231
+birth_country	FK		Falkland Islands (the) [Malvinas]	b2ab2845-2260-4992-9bf6-ffc2ee1c91c3	Falkland Islands (the) [Malvinas]	238
+birth_country	FO		Faroe Islands (the)	6e2b4787-40dc-4b96-803c-383346e62e65	Faroe Islands (the)	234
+birth_country	FJ		Fiji	8aa582f4-a393-43e8-9bb7-9ce96740286b	Fiji	242
+birth_country	FI		Finland	d1631002-2515-4f14-9acb-fd99440b0b43	Finland	246
+birth_country	FR		France	cca1c85c-6914-438a-be49-e15bb331a0df	France	250
+birth_country	GF		French Guiana	5ea81e83-9b7f-4355-b2fc-7630e4a6135a	French Guiana	254
+birth_country	PF		French Polynesia	ee9b44f3-1534-4699-b15b-81a349b964db	French Polynesia	258
+birth_country	TF		French Southern Territories (the)	9845934d-61fa-44c1-9cbc-537e1e0b1a0f	French Southern Territories (the)	260
+birth_country	GA		Gabon	da137875-b4fb-48ce-9f83-1910c97ae41f	Gabon	266
+birth_country	GM		Gambia (the)	90d2dc3b-636d-43fd-8045-6ae07261825c	Gambia (the)	270
+birth_country	GE		Georgia	03bcd7f1-0f71-46dc-9276-d7d7538c3d67	Georgia	268
+birth_country	DE		Germany	7d74ec6e-6f48-44dd-a784-309b56267388	Germany	276
+birth_country	GH		Ghana	fc191d69-8d36-4ce5-bf3e-7f92a45b6a29	Ghana	288
+birth_country	GI		Gibraltar	06e4a0c9-e794-46dc-b6e5-0d9b4f1ec5b6	Gibraltar	292
+birth_country	GR		Greece	f536c004-eadc-4368-be04-018f784826ef	Greece	300
+birth_country	GL		Greenland	2fd2247f-c0d5-44d6-b981-97d058620a7c	Greenland	304
+birth_country	GD		Grenada	c21822b1-87e1-49c2-b78a-4954d8ad51f3	Grenada	308
+birth_country	GP		Guadeloupe	65bd495b-9d81-4d08-a0ec-147af17e18dc	Guadeloupe	312
+birth_country	GU		Guam	bb1e0251-ca6e-40d4-95ee-042775747b53	Guam	316
+birth_country	GT		Guatemala	3e84e827-9815-4186-b8e7-b55eb94e8d53	Guatemala	320
+birth_country	GG		Guernsey	12b2666e-c99e-4de3-9200-f32c99e08c20	Guernsey	831
+birth_country	GN		Guinea	e42badef-ce85-4e62-8ed1-f2e643375d43	Guinea	324
+birth_country	GW		Guinea-Bissau	c8269cd8-716a-40c0-bb4b-c1f4de58196a	Guinea-Bissau	624
+birth_country	GY		Guyana	2dda4fcc-185e-401b-9e6d-5ce6c73c427e	Guyana	328
+birth_country	HT		Haiti	7600909c-35da-4f96-a992-67e440127595	Haiti	332
+birth_country	HM		Heard Island and McDonald Islands	ff520aad-2bdc-4721-ad63-abbf4b3a495c	Heard Island and McDonald Islands	334
+birth_country	VA		Holy See (the)	c42d5e48-a749-4414-97c2-41c5e63922cc	Holy See (the)	336
+birth_country	HN		Honduras	810da538-33ff-4027-85c0-88decc8aa183	Honduras	340
+birth_country	HK		Hong Kong	aa1a0aa4-ea74-4621-b407-fa64ab7a17f0	Hong Kong	344
+birth_country	HU		Hungary	4c733f6e-489e-4815-b0f7-7b50d5ca9fda	Hungary	348
+birth_country	IS		Iceland	e1d5aaa0-3328-4ad3-bba7-3b0d2cc32df1	Iceland	352
+birth_country	IN		India	1e24174b-8de2-45bb-8bc5-2807cfdcf81b	India	356
+birth_country	ID		Indonesia	6307dbf1-436d-46b2-882d-2bb91eb0d799	Indonesia	360
+birth_country	IR		Iran (Islamic Republic of)	90f84822-c4f1-467b-a885-3228566fe390	Iran (Islamic Republic of)	364
+birth_country	IQ		Iraq	59d6ec80-fd32-4f56-b68c-742f5eda3f6c	Iraq	368
+birth_country	IE		Ireland	2709b883-7c4d-41c6-b3b6-201b3f0d2511	Ireland	372
+birth_country	IM		Isle of Man	00e13e51-8223-4455-ad7f-402e6ae9fee0	Isle of Man	833
+birth_country	IL		Israel	51a8a75e-c9cd-486f-ac3e-2b48beece172	Israel	376
+birth_country	IT		Italy	43b7361f-b087-4611-b2a5-fd4e8d5f3964	Italy	380
+birth_country	JM		Jamaica	525107b4-7711-4e80-83b2-7d793795520f	Jamaica	388
+birth_country	JP		Japan	383cc321-c5c2-4d74-a7fe-1a4e4cb34c5e	Japan	392
+birth_country	JE		Jersey	fd9c816e-4793-425e-860a-822ec4e49861	Jersey	832
+birth_country	JO		Jordan	85442263-e5ce-4b90-b31b-04c546990d7f	Jordan	400
+birth_country	KZ		Kazakhstan	7a258fef-fbb4-483c-b991-54ae2e0de501	Kazakhstan	398
+birth_country	KE		Kenya	42c02c7a-b822-4350-8517-ec40f03a94c8	Kenya	404
+birth_country	KI		Kiribati	9ebddf3d-de8d-4ca5-9af4-8ecf129cadb1	Kiribati	296
+birth_country	KP		Korea (the Democratic People's Republic of)	609b7579-898a-4b79-a194-2a44ad5430b5	Korea (the Democratic People's Republic of)	408
+birth_country	KR		Korea (the Republic of)	8eba3e73-f362-422b-8e9d-a01e4b301b2d	Korea (the Republic of)	410
+birth_country	KW		Kuwait	3883a58d-614d-4095-881b-7b7dcfb6063a	Kuwait	414
+birth_country	KG		Kyrgyzstan	aeec9b44-0e75-45dc-8e7f-9ba82f37d87d	Kyrgyzstan	417
+birth_country	LA		Lao People's Democratic Republic (the)	79cde3ce-9d7f-4a2a-bf95-24a481df9a11	Lao People's Democratic Republic (the)	418
+birth_country	LV		Latvia	9973c7ae-ab45-423b-87a3-5eb49c606b33	Latvia	428
+birth_country	LB		Lebanon	d8034019-602a-4f80-8662-e171071c9702	Lebanon	422
+birth_country	LS		Lesotho	61f92326-3acf-4f33-9c3e-a9c2260ea321	Lesotho	426
+birth_country	LR		Liberia	94e87329-2fa4-4daf-854b-ce4cb3d6d5bb	Liberia	430
+birth_country	LY		Libya	4f70fc35-7ba8-4e77-8120-80ea7279c208	Libya	434
+birth_country	LI		Liechtenstein	b44e090c-8350-4c7e-b529-2f171551195a	Liechtenstein	438
+birth_country	LT		Lithuania	038e2ef4-e2b8-4505-909e-1db2282d7aad	Lithuania	440
+birth_country	LU		Luxembourg	a6204fde-a900-4953-9bcf-0aa44be6e14f	Luxembourg	442
+birth_country	MO		Macao	64cd0e19-016a-4280-8ac3-a7521ecfb4bb	Macao	446
+birth_country	MG		Madagascar	77fcdabc-c3a3-496b-b9c5-fa1eb1562c1e	Madagascar	450
+birth_country	MW		Malawi	3675e3a0-2d95-4e0d-a0f2-57bec4ea2708	Malawi	454
+birth_country	MY		Malaysia	641c179c-772a-4614-bdfe-ecb517a4b1a3	Malaysia	458
+birth_country	MV		Maldives	722ef500-9771-41e5-838c-2987a121df62	Maldives	462
+birth_country	ML		Mali	d4604118-f127-407f-84d1-6b9e16ce71ac	Mali	466
+birth_country	MT		Malta	c465b7f2-b233-4792-ba18-f068800daa86	Malta	470
+birth_country	MH		Marshall Islands (the)	bd294bb2-8199-4315-8c81-963de4eefc51	Marshall Islands (the)	584
+birth_country	MQ		Martinique	aed45e14-3e36-451a-940e-d540d4b1e474	Martinique	474
+birth_country	MR		Mauritania	804a8f7e-dbf6-49e7-af17-e73c2ff5a68a	Mauritania	478
+birth_country	MU		Mauritius	2ce39ad0-4b94-4439-9df1-ceb9a03a8f96	Mauritius	480
+birth_country	YT		Mayotte	51bf9a54-2401-4aed-8354-b84a6db0c7cb	Mayotte	175
+birth_country	MX		Mexico	1fef1cf0-f0e2-4b72-ad60-e13464c2d8a2	Mexico	484
+birth_country	FM		Micronesia (Federated States of)	1aa8b581-4edf-4a47-8d5a-84f4ccc82ca5	Micronesia (Federated States of)	583
+birth_country	MD		Moldova (the Republic of)	2f1e74b6-1a18-427b-a4f3-9f147a0114cd	Moldova (the Republic of)	498
+birth_country	MC		Monaco	54db11a8-04ff-4fe7-ad6c-1962860b1a18	Monaco	492
+birth_country	MN		Mongolia	964db203-6f9c-4352-92ed-4ccf80b33070	Mongolia	496
+birth_country	ME		Montenegro	a40d1450-913f-49ac-95f9-f220f9ec89e0	Montenegro	499
+birth_country	MS		Montserrat	4ebd4343-28ad-46c6-ad35-e45f6ee86c6f	Montserrat	500
+birth_country	MA		Morocco	2d90d177-f017-4480-ad0e-2bb2695c445b	Morocco	504
+birth_country	MZ		Mozambique	f5b3979d-d8b3-4f4a-9e4d-07f6bef10cb1	Mozambique	508
+birth_country	MM		Myanmar	97f7a3a0-cd7a-4a4d-8305-37932838f4b8	Myanmar	104
+birth_country	NA		Namibia	cd829a1a-12f0-455b-a8be-8c24c6050684	Namibia	516
+birth_country	NR		Nauru	605e0f35-962c-4866-b4d0-42be2bb5526b	Nauru	520
+birth_country	NP		Nepal	aff74d5d-7dc4-4b77-8b1f-ac6e4450dbfd	Nepal	524
+birth_country	NL		Netherlands (Kingdom of the)	6db2bb93-651f-41b1-8627-acc587c7c45b	Netherlands (Kingdom of the)	528
+birth_country	NC		New Caledonia	bd000cd9-b06e-4789-bdb3-b7b86413cbad	New Caledonia	540
+birth_country	NZ		New Zealand	aa4e1f7f-7e78-4260-ac19-05bcc31bb67b	New Zealand	554
+birth_country	NI		Nicaragua	971e393b-5b55-414e-882a-5357d87552c0	Nicaragua	558
+birth_country	NE		Niger (the)	6633d82e-931d-4bc3-9b03-408821feaad0	Niger (the)	562
+birth_country	NG		Nigeria	d5948736-4f19-4cd1-bc0e-3d7972c74722	Nigeria	566
+birth_country	NU		Niue	8372ff5d-7070-4542-bf9a-010bfda8b133	Niue	570
+birth_country	NF		Norfolk Island	694b5b28-571e-428a-88d5-c2634337e52f	Norfolk Island	574
+birth_country	MK		North Macedonia	dc63dd97-00da-4363-a4ed-002836bc72db	North Macedonia	807
+birth_country	MP		Northern Mariana Islands (the)	23a8f959-93b2-4e38-9195-90fdf617a8f4	Northern Mariana Islands (the)	580
+birth_country	NO		Norway	51b791fd-7fd4-4283-b035-ccd1ca82c582	Norway	578
+birth_country	OM		Oman	1fcd3ed9-d008-4734-865b-d3a796bb7550	Oman	512
+birth_country	PK		Pakistan	962680bc-ef47-4ff2-b98f-ea907a7a2c7d	Pakistan	586
+birth_country	PW		Palau	1c92d117-7604-4d0d-9131-f49b808f5221	Palau	585
+birth_country	PS		Palestine, State of	e2fcff99-73bf-4de5-a7df-678e317a8a34	Palestine, State of	275
+birth_country	PA		Panama	e8aae3fb-095c-4f43-808f-aa50e8130f6e	Panama	591
+birth_country	PG		Papua New Guinea	fdabfcc4-816e-4fa1-a05d-3fcd95e6c7a1	Papua New Guinea	598
+birth_country	PY		Paraguay	270be0d1-bf78-4240-91f4-6fe9d8a47cee	Paraguay	600
+birth_country	PE		Peru	f772bc97-8508-49b5-9125-c5c501999060	Peru	604
+birth_country	PH		Philippines (the)	6f7b53b2-de24-435b-81d0-ec6be847f032	Philippines (the)	608
+birth_country	PN		Pitcairn	79bc9f22-3746-4e28-b11d-4fb33a8e7ff4	Pitcairn	612
+birth_country	PL		Poland	479105ca-019a-4a47-bb83-224c28388748	Poland	616
+birth_country	PT		Portugal	3526a128-ca12-41a9-b1e6-234867709e09	Portugal	620
+birth_country	PR		Puerto Rico	ddbc58a2-add5-4b18-87be-4c44a5545eba	Puerto Rico	630
+birth_country	QA		Qatar	f57eaf65-7d61-4a59-9ce9-5c2d4e85f3a0	Qatar	634
+birth_country	RO		Romania	b8a5e8b7-cbff-4d25-be76-5a5c05fa1bd8	Romania	642
+birth_country	RU		Russian Federation (the)	2676fc18-7d02-4369-bb5d-42553c19dfc5	Russian Federation (the)	643
+birth_country	RW		Rwanda	2c57fdba-39e3-4f5b-bce7-99c5e18a0d01	Rwanda	646
+birth_country	RE		Réunion	a12f1a04-c18c-4c3f-a91c-1311694c2823	Réunion	638
+birth_country	BL		Saint Barthélemy	f7cfe8e8-821a-467c-9d74-3bc1ac8746df	Saint Barthélemy	652
+birth_country	SH		Saint Helena, Ascension and Tristan da Cunha	957d7b68-b597-491f-86f1-a2122b549f21	Saint Helena, Ascension and Tristan da Cunha	654
+birth_country	KN		Saint Kitts and Nevis	acd8101a-8dba-49b9-8a25-1db4679d9ce0	Saint Kitts and Nevis	659
+birth_country	LC		Saint Lucia	51cc5518-28d3-4c94-9b4a-c343bf52d528	Saint Lucia	662
+birth_country	MF		Saint Martin (French part)	705f2e31-f8d4-41e3-92aa-171483a51769	Saint Martin (French part)	663
+birth_country	PM		Saint Pierre and Miquelon	a22d3077-9542-4289-98f7-695ab4875873	Saint Pierre and Miquelon	666
+birth_country	VC		Saint Vincent and the Grenadines	87009fd1-bf7d-4ed5-9a37-4d53d7f8eab1	Saint Vincent and the Grenadines	670
+birth_country	WS		Samoa	fd0973af-2f01-4026-a1ec-ac7864faefbb	Samoa	882
+birth_country	SM		San Marino	a5d2509f-7490-445b-89ff-39b19c596556	San Marino	674
+birth_country	ST		Sao Tome and Principe	832ccdd3-662f-4453-9495-bfc69fef5dd5	Sao Tome and Principe	678
+birth_country	SA		Saudi Arabia	bf2f1438-71ac-49c7-b638-3ef57c45d84f	Saudi Arabia	682
+birth_country	SN		Senegal	a115b90c-2024-40c6-bd06-26f6b35d46f7	Senegal	686
+birth_country	RS		Serbia	464a7952-2135-40a1-a178-f47ea54e6f20	Serbia	688
+birth_country	SC		Seychelles	1cf5fbf7-dd99-40b5-b256-32b62dbe42be	Seychelles	690
+birth_country	SL		Sierra Leone	6bce1de7-f9c2-4eda-af88-4683a4194926	Sierra Leone	694
+birth_country	SG		Singapore	95b245b2-4241-4245-841c-2e8514cd4af1	Singapore	702
+birth_country	SX		Sint Maarten (Dutch part)	94b6fb73-b6ae-4f66-b4c4-40324f30489a	Sint Maarten (Dutch part)	534
+birth_country	SK		Slovakia	0dd44c0e-d975-47c3-b630-9095bfa59c9a	Slovakia	703
+birth_country	SI		Slovenia	9342e15b-6a06-4d55-b92e-df7d674573d6	Slovenia	705
+birth_country	SB		Solomon Islands	90e1aebb-aba1-430e-b18b-d8d0060472f1	Solomon Islands	90
+birth_country	SO		Somalia	1347ad1c-b5c1-460c-91d3-53da3360992a	Somalia	706
+birth_country	ZA		South Africa	1a10da85-5eec-4e54-bf20-30a3203696e6	South Africa	710
+birth_country	GS		South Georgia and the South Sandwich Islands	78b14845-6ffe-4cc4-8106-7eee5c7cb956	South Georgia and the South Sandwich Islands	239
+birth_country	SS		South Sudan	f246dc28-8b73-43c7-88fb-fc9aa1ae98fb	South Sudan	728
+birth_country	ES		Spain	873306e4-7f7d-4c86-943d-9be64170aee9	Spain	724
+birth_country	LK		Sri Lanka	60c87ca1-7f05-447e-9443-10051a1f2c8d	Sri Lanka	144
+birth_country	SD		Sudan (the)	8d46d886-fab0-4be1-95d5-dba64fadfe72	Sudan (the)	729
+birth_country	SR		Suriname	c5740022-84e7-4fca-a14f-057276d4940d	Suriname	740
+birth_country	SJ		Svalbard and Jan Mayen	a2da381d-36ca-4ac7-8212-b9d8d4578589	Svalbard and Jan Mayen	744
+birth_country	SE		Sweden	a170adf4-13f5-4e67-9d7e-beb0aa83ddfb	Sweden	752
+birth_country	CH		Switzerland	a1c78f46-7f8f-4d1c-9a31-38f7571a8f63	Switzerland	756
+birth_country	SY		Syrian Arab Republic (the)	ad4f0060-34b5-4b82-a184-eacb1764f856	Syrian Arab Republic (the)	760
+birth_country	TW		Taiwan (Province of China)	71731b2d-d409-4faf-a26f-bd3fbeae54ed	Taiwan (Province of China)	158
+birth_country	TJ		Tajikistan	a4af97c8-6d7c-49f1-959b-d31fb3d95d9b	Tajikistan	762
+birth_country	TZ		Tanzania, the United Republic of	312ad3ef-957c-42b5-b627-9c70a5aafefb	Tanzania, the United Republic of	834
+birth_country	TH		Thailand	8d823a7f-009f-4cd7-9271-426ffe54b457	Thailand	764
+birth_country	TL		Timor-Leste	697bb7b8-3fdb-4ca4-8a2e-6e5bf68a9ad5	Timor-Leste	626
+birth_country	TG		Togo	21c002e2-2583-4d03-a398-aa7b669bbe10	Togo	768
+birth_country	TK		Tokelau	c399f1cf-bdd7-4221-9421-45218bf31320	Tokelau	772
+birth_country	TO		Tonga	5f45f6bd-7ac1-4cea-880b-590c3a58ae02	Tonga	776
+birth_country	TT		Trinidad and Tobago	919148fd-e9f4-458e-b3fe-5fd74f217cce	Trinidad and Tobago	780
+birth_country	TN		Tunisia	5439e29b-6f19-4859-b2ef-0d26c82c026e	Tunisia	788
+birth_country	TM		Turkmenistan	20c1f3a3-2cc6-422a-a9b7-d4da7ec6a1c7	Turkmenistan	795
+birth_country	TC		Turks and Caicos Islands (the)	05f41263-4fb7-4b70-b642-9053bb556d25	Turks and Caicos Islands (the)	796
+birth_country	TV		Tuvalu	c5be640e-5711-4a75-bc24-7d255fe4ef46	Tuvalu	798
+birth_country	TR		Türkiye	ed86aa8e-e410-4deb-a1df-076131889eeb	Türkiye	792
+birth_country	UG		Uganda	6afbbf83-a1a2-4ec3-863f-6a9cdc397a2f	Uganda	800
+birth_country	UA		Ukraine	2e56e7e9-40f2-4f55-9fb2-0d0b8f7a19f0	Ukraine	804
+birth_country	AE		United Arab Emirates (the)	e6660eb3-e5eb-4cd7-9325-246605ecf2be	United Arab Emirates (the)	784
+birth_country	GB		United Kingdom of Great Britain and Northern Ireland (the)	20f745c4-f4f2-4a3d-ba93-c3476f876350	United Kingdom of Great Britain and Northern Ireland (the)	826
+birth_country	UM		United States Minor Outlying Islands (the)	c5c06b28-71b0-4335-baaa-c39ac53bb40d	United States Minor Outlying Islands (the)	581
+birth_country	US		United States of America (the)	5e1b8a4a-a9a3-4d9b-b7f4-f16be579db24	United States of America (the)	840
+birth_country	UY		Uruguay	23bc91da-c2a4-423e-b7a1-b178aa524bfc	Uruguay	858
+birth_country	UZ		Uzbekistan	b120f4eb-3607-4772-bd4b-cdba5bd22986	Uzbekistan	860
+birth_country	VU		Vanuatu	01a50526-b110-496f-9a70-2a72dd7270a5	Vanuatu	548
+birth_country	VE		Venezuela (Bolivarian Republic of)	a4e0d60a-1e1c-47e3-a8af-e32534d17636	Venezuela (Bolivarian Republic of)	862
+birth_country	VN		Viet Nam	f480308e-15be-42c5-a88c-7212928c1be7	Viet Nam	704
+birth_country	VG		Virgin Islands (British)	4d2c5814-3d2d-492d-bb13-1a55c1724694	Virgin Islands (British)	92
+birth_country	VI		Virgin Islands (U.S.)	f7407861-18ac-48db-9e3d-513e8cf1e09f	Virgin Islands (U.S.)	850
+birth_country	WF		Wallis and Futuna	b66b0031-0abc-43d9-a156-e9af3df95065	Wallis and Futuna	876
+birth_country	EH		Western Sahara*	8d535efb-476d-4f3c-a08a-df19b40332b4	Western Sahara*	732
+birth_country	YE		Yemen	d518b92c-566a-497a-8ea5-2990ad107800	Yemen	887
+birth_country	ZM		Zambia	c6e97ead-491c-4e35-9297-372cafe444e4	Zambia	894
+birth_country	ZW		Zimbabwe	89aacbf6-4e4b-4998-82cf-7e521b03c422	Zimbabwe	716
+birth_country	AX		Åland Islands	fb2900ae-b8d4-461a-9691-d3cfe20b2fca	Åland Islands	248
+brain_tissue_weight_type						
+brain_tissue_weight_type	Fresh whole brain		A whole brain specimen that has not been frozen or fixed -- i.e., a whole brain that has not yet been treated by a preserving method.	068d9668-a98c-48d7-9653-6de0118842e9		
+brain_tissue_weight_type	Fixed whole brain		A whole brain specimen that has been treated for preservation (typically by formalin).	0f130a6f-ba87-4c81-b094-926bd0a19a55		
+brain_tissue_weight_type	Fresh hemibrain		A hemibrain specimen that has not been frozen or fixed -- i.e., a whole brain that has not yet been treated by a preserving method.	ad110c7a-6ebb-4731-ac11-999b239363c3		
+brain_tissue_weight_type	Fixed hemibrain		A hemibrain specimen that has been treated for preservation (typically by formalin).	c31e1e96-8f60-423a-bab1-085595aa2538		
+brain_tissue_weight_type	Unknown			2ad05d12-18a3-43b9-8165-7710c53dd357		
+cause_of_death						
+cause_of_death	All Causes			7671143d-1ab8-42e0-9b99-686598708bf3		A00-Y89
+cause_of_death	Communicable, maternal, perinatal and nutritional conditions			51e947ed-655d-44a5-b880-24b47891b6d2		A00-B99, D50-D53, D64.9, E00-E02, E40-E46, E50-E64, G00-G04, G14, H65-H66, J00-J22, N70-N73, O00-O99, P00-P96, U04, U07.1, U07.2, U09.9, U10.9
+cause_of_death	Infectious and parasitic diseases			34c1760e-2bb1-43f7-a89d-be08bc91d9e2		A00-B99, G00-G04, G14, N70-N73, P37.3, P37.4
+cause_of_death	Tuberculosis			454aa36b-7eb8-4a5b-b2ba-234661925676		A15-A19, B90
+cause_of_death	STDs excluding HIV			960de7ba-dda0-490a-868d-8a8fc1ac42f1		A50-A64, N70-N73
+cause_of_death	Syphilis			6c4ed460-632f-40e2-ac7d-a4156af39cb6		A50-A53
+cause_of_death	Chlamydia			09dc374d-a84f-4451-bf2c-ce55e4bf2051		A55-A56
+cause_of_death	Gonorrhoea			4a0ca057-db97-4090-ae2a-580191352b3c		A54
+cause_of_death	Other STDs			b57c1f4c-9a6b-4f18-9597-a1f6d22a51c7		A57-A64, N70-N73
+cause_of_death	HIV/AIDS			affa09c6-0f2f-4042-ad53-08aaf7532381		B20-B24
+cause_of_death	Diarrhoeal diseases			6986871e-bbbc-46b1-9c9c-4e4a601e3483		A00, A01,A03, A04, A06-A09
+cause_of_death	Childhood-cluster diseases			c5486d47-5e49-4474-8bd9-8d7aa2f2837c		A33-A37, A80, B05, B91, G14
+cause_of_death	Pertussis			6d67a748-da3c-4720-bb1f-ba8252919bbc		A37
+cause_of_death	Poliomyelitis			89aa3745-130c-4d8d-954d-5d639323258e		A80, B91, G14
+cause_of_death	Diphtheria			8ac1dbad-ae43-4bf5-9c93-73b1373cacdf		A36
+cause_of_death	Measles			05d405e3-3b02-45c7-9c35-e0ade7fb7af7		B05
+cause_of_death	Tetanus			5a562d05-5a79-4172-9678-96bf361430a9		A33-A35
+cause_of_death	Meningitis			c8beec89-f890-48e9-a077-2d3914ce9989		A39, G00, G03
+cause_of_death	Hepatitis B			a0cd410e-2304-4597-8e7e-d5e1429cc566		B16-B19 (minus B17.1, B18.2)
+cause_of_death	Hepatitis C			d289705d-35f7-4dc8-a5dc-9bdc89b70e6f		B17.1, B18.2
+cause_of_death	Malaria			25097400-d023-428f-98ee-d2f9e0015e4b		B50-B54, P37.3, P37.4
+cause_of_death	Tropical-cluster diseases			79db5d68-3e0b-4b58-82f9-3aec7a3f0609		B55-B57, B65, B73, B74.0-B74.2
+cause_of_death	Trypanosomiasis			3170bd60-0c62-4ea4-9335-ac535b10c1b1		B56
+cause_of_death	Chagas disease			a18d2bc9-7e46-437f-ab34-d948ef486bd9		B57
+cause_of_death	Schistosomiasis			0bdd7219-8bbb-45f4-8820-ae455f9c4bdd		B65
+cause_of_death	Leishmaniasis			e2ad35f5-4a10-47de-961b-8f9c2992db71		B55
+cause_of_death	Lymphatic filariasis			55f50cab-51e9-4a04-a055-cb20ccf5559d		B74.0-B74.2
+cause_of_death	Onchocerciasis			6d8f1896-7b37-4a7d-b800-2cca1f0e6122		B73
+cause_of_death	Leprosy			96893b76-bb30-4eaa-a9c5-d17f6bb9fb61		A30
+cause_of_death	Dengue			6651e478-8e2a-42d9-b11a-2df942acd28d		A90-A91, A97
+cause_of_death	Japanese encephalitis			173b1603-7c93-4c46-9974-671630ad9e1b		A83.0
+cause_of_death	Trachoma			dcce0c95-7355-4914-9041-fb64ba34086f		A71
+cause_of_death	Intestinal nematode infections			6f98463b-5458-4587-a1c7-2928300e2e46		B76-B81
+cause_of_death	Ascariasis			e4aaebc4-17a8-46b1-b138-2f16113b9184		B77
+cause_of_death	Trichuriasis			ce572a59-cd51-431b-86ff-ef85ce2da5ca		B79
+cause_of_death	Hookworm disease			fdc8141a-4995-4f5c-9197-ce16038d8ae7		B76
+cause_of_death	Other intestinal infections			75af2ddd-2993-4282-ad13-023f7ce68705		B78, B80,B81
+cause_of_death	Other infectious diseases			4946b72b-07a1-4553-9e5a-eaee4562d685		A02,A05,A20-A28,A31,A32,A38,A40-A49,A65-A70,A74-A79,A81,A82,A83.1-A83.9,A84-A89,A92-A99,B00-B04,B06-B15,B25-B49,B58-B60,B64,B66-B72,B74.3-B74.9,B75,B82-B89,B92-B99, G04
+cause_of_death	Respiratory infections			ee86227e-4753-4beb-bbde-dcc0490d60b3		H65-H66, J00-J22, P23, U04, U07.1, U07.2, U09.9, U10.9
+cause_of_death	Lower respiratory infections			9f163665-37d3-43ec-b1b0-54a2017d957f		J09-J22, P23, U04
+cause_of_death	COVID-19			0c16dc9e-2468-4e82-aef7-9dcdfc47cd5c		U07.1, U07.2, U09.9, U10.9
+cause_of_death	Upper respiratory infections			0d5f2beb-96f1-4bcc-8342-f4a0978cd547		J00-J06
+cause_of_death	Otitis media			3a2f4669-d3ea-401f-86a0-a86e0ebdeb25		H65-H66
+cause_of_death	Maternal conditions			bcb2d17e-57eb-4586-aff9-81f6ddea6844		O00-O99
+cause_of_death	Maternal haemorrhage			9b7c4876-aa5f-468f-93eb-26b8594acdd8		O44-O46, O67, O72
+cause_of_death	Maternal sepsis			c5ebc4ef-9354-4cf5-8078-1c03b610afef		O85-O86
+cause_of_death	Hypertensive disorders			df36709f-83ac-4233-bbff-35f44b5fcca5		O10-O16
+cause_of_death	Obstructed labour			7d6dc227-4086-4abe-be21-5b20d5cdc4d3		O64-O66
+cause_of_death	Abortion			62ede8f9-cabc-4a51-abff-2a9c5baf1a09		O00-O07
+cause_of_death	Other maternal conditions			8186d25e-97e9-46e3-a71f-0dec9a91966f		O20-O43,O47-O63,O68-O71,O73-O75,O87-O99
+cause_of_death	Perinatal conditions			2eaf9b91-63f3-40d5-bd59-d938f2b1b408		P00-P96 (minus P23, P37.3, P37.4)
+cause_of_death	Low birth weight			2dec6be3-4540-44fc-a591-73e281409f28		P05, P07, P22, P27-P28
+cause_of_death	Birth asphyxia and birth trauma			521cad05-c76c-4217-ab8d-bafd4f54a431		P03, P10-P15, P20-P21, P24-P26, P29
+cause_of_death	Other perinatal conditions			8298c142-ea27-4f86-a01a-a366cc2ff066		P00-P02, P04, P08, P35-P96
+cause_of_death	Nutritional deficiencies			dae7477a-6293-4c9d-975e-77732c6fb6df		E00-E02, E40-E46, E50, D50-D53,D64.9, E51-E64
+cause_of_death	Protein-energy malnutrition			0fb01800-412e-42ed-b1df-ea6daa0fc0f7		E40-E46
+cause_of_death	Iodine deficiency			31803eeb-f586-4820-8085-027c7e6da772		E00-E02
+cause_of_death	Vitamin A deficiency			93876f38-a8f2-4b27-95d9-60eb261ca586		E50
+cause_of_death	Iron-deficiency anaemia			0825ed6d-98d8-46a7-8680-6b8ee341e58d		D50, D64.9
+cause_of_death	Other nutritional disorders			2ebd300e-d405-473a-a7b7-aee746061bf2		D51-D53, E51-E64
+cause_of_death	Noncommunicable diseases			1381f42e-b8c0-4994-b817-ff3ec4c5b5d7		C00-C97, D00-D48, D55-D64 (minus D 64.9) D65-D89, E03-E07, E10-E34, E65-E88, F01-F99, G06-G98 (minus G14), H00-H61, H68-H93, I00-I99, J30-J98, K00-K92, L00-L98, M00-M99, N00-N64, N75-N98, Q00-Q99, R95, U07.0, X41, X42, X44, X45
+cause_of_death	Malignant neoplasms			ebe47a96-bf02-457f-ad23-1952ae1d5def		C00-C97
+cause_of_death	Mouth and oropharynx cancers			46fadd78-8b2b-4ce5-a7ca-bfb2a3556800		C00-C14
+cause_of_death	a. Lip and oral cavity cancers			9718ae9a-74c6-43d0-8db0-60cbab932f49		C00-C08
+cause_of_death	b. Nasopharynx cancers			b66dac17-3865-4b79-83ca-fb3a796a49de		C11
+cause_of_death	c. Other pharynx cancer			3a8d26d3-f38c-4291-a1c2-bce55fe747a4		C09-C10, C12-C14
+cause_of_death	Oesophagus cancer			951dded5-30d0-4a7f-9315-01c52500bc0e		C15
+cause_of_death	Stomach cancer			1ca98146-09ce-483e-bfd2-4d82c7eb45e2		C16
+cause_of_death	Colon and rectum cancers			ee4494fd-606d-48dd-9d9c-b1341da714fe		C18-C21
+cause_of_death	Liver cancer			c3f6c149-736d-43d1-8c1d-5e9c912c776d		C22
+cause_of_death	Pancreas cancer			b088bbdc-fed7-412b-abc0-cd776d1dfe28		C25
+cause_of_death	Trachea, bronchus, lung cancers			cd5725e1-ca03-4df0-b3c6-bb648e6764e8		C33-C34
+cause_of_death	Melanoma and other skin cancers			c77df523-bb4b-4517-bf3f-b8feecfd75b5		C43-C44
+cause_of_death	a. Malignant skin melanoma			704d489b-2d33-4755-ae59-4c1d0f0a2874		C43
+cause_of_death	b. Non-melanoma skin cancer			8843b431-35c6-4635-b834-7f74c4e499ec		C44
+cause_of_death	Breast cancer			a007d46e-3b5a-4d3d-843a-d439ae62be39		C50
+cause_of_death	Cervix uteri cancer			4ee2c9d8-bf0c-47ea-91fe-a3a688975c24		C53
+cause_of_death	Corpus uteri cancer			d9120c4c-16b5-46d1-9282-17982af403b1		C54-C55
+cause_of_death	Ovary cancer			c1b2127c-381e-49a6-b3c7-72f775c4fe3a		C56
+cause_of_death	Prostate cancer			14b0d324-e260-47c9-9150-b80b29367ee8		C61
+cause_of_death	Testicular cancer			d570e6b8-f272-460f-bdc1-77d1bc52fe3b		C62
+cause_of_death	Kidney cancer			71676ec3-8637-401e-acb2-0ca474970164		C64-C66
+cause_of_death	Bladder cancer			73298863-df37-442f-81a6-679239ca8ae0		C67
+cause_of_death	Brain and nervous system cancers			13731da3-9d56-4312-beab-c122913b4226		C70-C72
+cause_of_death	Gallbladder and biliary tract cancer			22c15e5c-c1ab-4eb7-a4bc-79bfb993530f		C23-C24
+cause_of_death	Larynx cancer			0de0a5f9-22f0-41f9-a291-90c274e31df0		C32
+cause_of_death	Thyroid cancer			b108ed2c-e3c8-4c5e-a838-caad092bdf0f		C73
+cause_of_death	Mesothelioma			474f7875-74b1-4bed-96cf-796a5fb3eb84		C45
+cause_of_death	Lymphomas, multiple myeloma			91c15d19-7f6d-4550-9cd5-efb9d3917a0f		C81-C90, C96
+cause_of_death	a. Hodgkin lymphoma			090a1be7-68b2-49b5-8215-5085a24bce03		C81
+cause_of_death	b. Non-Hodgkin lymphoma			b031e10b-8b35-49ae-ab64-1601e0215a48		C82-C85, C96
+cause_of_death	c. Multiple myeloma			191f3924-2312-41ae-aace-2908b1ab32fa		C88, C90
+cause_of_death	Leukaemia			31610956-bd73-45ab-ac65-024b19ed9ea8		C91-C95
+cause_of_death	Ill-defined malignant neoplasms			b402bdfa-cf5b-42e3-aa69-f6da072ff67e		C76, C80, C97
+cause_of_death	Other malignant neoplasms			2aeaccef-87fc-4062-9695-a98700f68c48		C17, C26-C31, C37-C41, C46-C49, C51,C52, C57-C60, C63, C68, C69, C74-C75, C77- C79
+cause_of_death	Other neoplasms			f05d893f-e70c-453e-8915-d412b2e92d46		D00-D48
+cause_of_death	Diabetes mellitus and endocrine disorders			84da33cf-87a9-42b0-8a0c-f16e049096f7		E10-E14, D55-D64 (minus D64.9),D65-D89, E03-E07, E15-E16, E20-E34, E65-E88
+cause_of_death	Diabetes mellitus			779943ed-f789-4f95-a91b-e970c5c42067		E10-E14
+cause_of_death	Endocrine disorders			36a87cf1-338e-43a3-bbf1-4fc6fb3d5d7c		D55-D64 (minus D64.9),D65-D89, E03-E07, E15-E16, E20-E34, E65-E88
+cause_of_death	Neuropsychiatric conditions			9de2e196-50c0-4f7e-926d-875202d2e802		F01-F99, G06-G98 (minus G14), U07.0, X41, X42, X44, X45
+cause_of_death	Unipolar depressive disorders			79cdeab0-0484-444b-b546-cecbdbc2895f		F32-F33
+cause_of_death	Bipolar disorder			57559edb-f6a8-4fff-98c5-8f330430a41b		F30-F31
+cause_of_death	Schizophrenia			f69b9ef1-7312-46e8-8f1e-247f3f429975		F20-F29
+cause_of_death	Epilepsy			816be8c4-ae3e-4fb0-838f-8616d25af92e		G40-G41
+cause_of_death	Alcohol use disorders			51a6d82d-25dc-4f2d-8b64-3cd9dca9f43a		F10, X45
+cause_of_death	Alzheimer and other dementias			9356c715-89ee-416c-a4e5-36887cc151a3		F01, F03, G30-G31
+cause_of_death	Parkinson disease			3e773891-f746-4fc4-b357-903582d0994a		G20-G21
+cause_of_death	Multiple sclerosis			994a56c6-69c4-485f-9497-fe76d458a758		G35
+cause_of_death	Drug use disorders			9f0c2b5d-953c-4822-ab84-e39b9915a07c		F11-F16, F18-F19, X41-X42, X44
+cause_of_death	Post-traumatic stress disorder			dcd75429-f28a-4063-ace0-0528b7bcf5af		F43.1
+cause_of_death	Obsessive-compulsive disorder			f8b53aad-788f-4f82-84b4-4fd0e18548c2		F42
+cause_of_death	Panic disorder			3f09ef12-7e58-43ac-aa2f-108927ba2fdf		F40.0, F41.0
+cause_of_death	Insomnia (primary)			734b4346-9ab8-4f17-aed4-e3cae665d4b8		F51
+cause_of_death	Migraine			915de9f6-9778-45ac-b0f5-3d9c99684f2d		G43
+cause_of_death	Mental Retardation			368ba771-f7bf-40a4-b651-66ec7c0d58e5		F70-F79
+cause_of_death	Other neuropsychiatric disorders			309c3743-bec2-4c96-8ec8-38a96a7e061f		F04-F09, F17, F34-F39, F401-F409, F411-F419, F43(minus F43.1), F44-F50, F52-F69, F80-F99, G06-G12, G23-G25, G36,G37, G44-G98, U07.0
+cause_of_death	Sense organ diseases			a58c2eba-112b-4a64-8849-3c12adbfa895		H00-H61, H68-H93
+cause_of_death	Glaucoma			b0e7f258-3c5b-45a6-a69a-6fd9feabc01e		H40
+cause_of_death	Cataracts			5a05a75f-cd72-4e50-8ed5-15de96c8de41		H25-H26
+cause_of_death	Vision disorders, age-related			432483ed-15ae-4ce9-8ba0-cdc062598399		H524
+cause_of_death	Hearing loss, adult onset			fac51257-e4d1-4a9b-abb1-a42802112e93		H90-H91
+cause_of_death	Other sense organ disorders			8fa8e28e-c403-4ab1-ac58-104f96d19648		H00-H21,H27-H35, H43-H61(minus H524),H68-H83, H92-H93
+cause_of_death	Cardiovascular diseases			ecd8f6cb-56ba-4aee-8a45-13d0095a7ea6		I00-I99
+cause_of_death	Rheumatic heart disease			3b27725c-7b10-45c4-a704-9e9c0322d003		I01-I09
+cause_of_death	Hypertensive heart disease			aa4a0497-d0e0-41a7-a5ad-e0bce1ed7956		I11-I15
+cause_of_death	Ischaemic heart disease			750b0cf1-9763-4c8b-8c31-5a4e05c6ebc5		I20-I25
+cause_of_death	Cerebrovascular disease			8807897a-0a03-4006-9c9b-bda1e9cd17d5		I60-I69
+cause_of_death	Inflammatory heart diseases			bbc3829b-9e91-46c1-b7c4-7e4f5cccabd7		I30-I33, I38, I40, I42
+cause_of_death	Ill-defined circulatory diseases			5c64f64e-cc89-4a38-9bd9-7c4a353598d6		I10, I46, I47.2, I49.0, I50, I51.4, I51.5, I51.6, I51.9, I70.9
+cause_of_death	Other circulatory diseases			85af2cab-e8d6-41a2-828b-e7566d57264d		I00, I26-I28, I34-I37, I44-I45, I47 (minus I47.2), I48, I49 (minus I49.0), I51.0-I51.3, I51.7-I51.8, I70 (minus I70.9), I71-I99
+cause_of_death	Respiratory diseases			6a36edbe-8aa8-4ac3-9dfe-314882d71765		J30-J98
+cause_of_death	Chronic obstructive pulmonary disease			4ca1fcad-fc2c-4654-a425-d2b23cb65e69		J40-J44
+cause_of_death	Asthma			d3525ed5-4921-47a4-9481-44ac3fda48da		J45-J46
+cause_of_death	Other respiratory diseases			98afde79-a785-4163-bfca-ba4163405f70		J30-J39,J47-J98
+cause_of_death	Digestive diseases			39e129b1-8ade-4353-b448-6f60bb1a60a0		K20-K92
+cause_of_death	Peptic ulcer disease			7c92e322-e5d1-4250-8c64-9ea61b6a783b		K25-K27
+cause_of_death	Cirrhosis of the liver			608f0029-1411-4231-9939-70425822bdc7		K70, K74
+cause_of_death	Appendicitis			1723cf26-293d-4392-97da-f4f1ccd9e61d		K35-K37
+cause_of_death	Gastritis and duodenitis			9afc73ad-3d2d-4d45-aa88-330987b51867		K29
+cause_of_death	Paralytic ileus and intestinal obstruction			41c58a81-4408-4444-8bc7-9b74547b3d9d		K56
+cause_of_death	Inflammatory bowel disease			a3f77eb6-ded7-4a16-97eb-4b70aa73da3b		K50-K52, K580
+cause_of_death	Gallbladder and biliary diseases			a9e8aa25-2a97-4d8d-9910-0a25c452c7af		K80-K83
+cause_of_death	Pancreatitis			a950f7f9-8fd1-44d0-ab1e-4a2a030ccf27		K85-K86
+cause_of_death	Other digestive diseases			e493828c-6861-4775-ac23-8ca5859eb2b9		K20-K22, K28, K30-K31, K38, K40-K46, K55, K57, K589, K59-K66, K71-K73, K75-K76, K90-K92
+cause_of_death	Genitourinary diseases			22c9d0da-ee8b-4df8-be4b-3443d2732918		N00-N64, N75-N98
+cause_of_death	Nephritis and nephrosis			5ebcc7df-5da6-4101-ac52-48b07aaec02e		N00-N19
+cause_of_death	Benign prostatic hypertrophy			74d0ae0e-773c-4407-9104-32f3bf693d37		N40
+cause_of_death	Other genitourinary system diseases			1288cc87-836e-41f2-b3d2-39ce45c0200a		N20-N39, N41-N64, N75-N98
+cause_of_death	Skin diseases			2527b873-f09f-4e75-ada7-70eb9fb392f3		L00-L98
+cause_of_death	Musculoskeletal diseases			0c284010-02c6-4116-bc71-85f44debedf2		M00-M99
+cause_of_death	Rheumatoid arthritis			680528e6-5b5b-47f1-b500-3de5fc54c378		M05-M06
+cause_of_death	Osteoarthritis			4b8a3084-4eba-4899-a58e-ebf2585e8a6c		M15-M19
+cause_of_death	Gout			868878d2-945f-4426-a464-1101e72fc2cf		M10
+cause_of_death	Back pain			582fc3e2-7b58-4513-81bd-e929d675f1a8		M45-M48, M54 (minus M54.2)
+cause_of_death	Other musculoskeletal disorders			6e988636-58d5-4dab-8024-3d866e5c3707		M00-M02, M08, M11-M13, M20-M43, M50-M53, M54.2, M55-M99
+cause_of_death	Congenital anomalies			b569300a-2cc4-407a-9194-c2941d5c1652		Q00-Q99
+cause_of_death	Abdominal wall defect			277de6fd-d048-4ea9-91ba-acc71856c6b1		Q79.2-Q79.5
+cause_of_death	Anencephaly			4ae2e1ed-ee6b-4cd1-9a9e-bc54d40e0283		Q00
+cause_of_death	Anorectal atresia			1a528b71-7d1c-4a09-ac77-819e63d559f6		Q42
+cause_of_death	Cleft lip			0aa1ea66-7862-47bd-97fa-97a9cb7a3af2		Q36
+cause_of_death	Cleft palate			ee97b103-0278-4497-ae39-611f1edb1602		Q35, Q37
+cause_of_death	Oesophageal atresia			c86bd40a-b828-41e7-9c1f-6b9085add8a2		Q39.0-Q39.1
+cause_of_death	Renal agenesis			57d9d122-1ada-4aad-9bc8-ca96415f778b		Q60
+cause_of_death	Down syndrome			e5cb28bc-eea6-4d1f-b510-ab1adb883b21		Q90
+cause_of_death	Congenital heart anomalies			0ed30a96-601e-4313-86a6-59fc4e0a50da		Q20-Q28
+cause_of_death	Spina bifida			573e97ec-e5e0-4f4b-9dfa-490ea18c5dca		Q05
+cause_of_death	Other Congenital anomalies			a0e428ad-6058-41ec-b19a-e487db53a0ef		Q01-Q04, Q06-Q18, Q30-Q34, Q38, Q392-Q399, Q40-Q41, Q43-Q56, Q61-Q78, Q790, Q791, Q796, Q798, Q799, Q80-Q89, Q91-Q99
+cause_of_death	Oral conditions			b7c8176e-76ca-41db-b274-d79ea32311ee		K00-K14
+cause_of_death	Dental caries			d18049ff-b33c-4173-9d13-d0909a5af577		K02
+cause_of_death	Periodontal disease			d8995ac9-b9a0-4d52-b198-4c607ea86e5b		K05
+cause_of_death	Edentulism			fda4231e-924d-4cce-8bc6-87a09bfd3d23		-
+cause_of_death	Other oral diseases			8062b8d4-a87b-41a6-aab1-6ee9db8e67cf		K00, K01,K03,K04,K06-K14
+cause_of_death	Sudden infant death syndrome			dc8d4dfa-b372-4be4-92b0-ab89c97b1582		R95
+cause_of_death	Injuries			743ba40b-2318-4c81-9073-5ab5555a431f		V01-Y89 (minus X41-X42, X44-X45), U12.9
+cause_of_death	Unintentional injuries			f5ae4ef0-6605-4659-99cf-dc1c2769d5bf		V01-X59, Y40-Y86, Y88, Y89 (minus X41-X42, X44-X45), U12.9
+cause_of_death	Road traffic accidents			086e4676-4b95-4614-bc57-ee8cd58b0363		V01-V04, V06 (.1-.9), V09 (.2-.3), V10- V14 (.3-.9), V15-V19 (.4-.9), V20-V28 (.3-.9), V29- V79 (.4-.9), V80 (.3-.5), V81.1, V82 (.1, .8-.9), V83-V86 (.0-.3), V87 (.0-.9), V89 (.2-.3, .9), V99, Y85.0
+cause_of_death	Poisonings			9b4f0709-d20f-492d-a645-e3aaf765fb45		X40, X43, X46-X49
+cause_of_death	Falls			af88bc64-5dd0-4184-ad82-a48f54fa6f99		W00-W19
+cause_of_death	Fires			f63849b3-0f87-42f5-ab39-ecacef8fb305		X00-X09
+cause_of_death	Drownings			95a359a9-45e2-40a5-a92c-25b02793608f		W65-W74
+cause_of_death	Exposure to mechanical forces			90d22f12-e3e1-4938-8aa7-69e792df0407		W20-W38, W40-W43, W45, W46, W49-W52, W75, W76
+cause_of_death	Natural disasters			464d509d-6e91-44ff-bba6-e5fb986ca5a2		X33-X39
+cause_of_death	Other unintentional injuries			a64956ec-9935-4f2d-b48e-a3523a170066		Rest of V, W39, W44, W53-W64, W77-W99, X10-X32, X50-X59, Y40-Y84, Y859, Y86, Y88-Y89, U12.9
+cause_of_death	Intentional injuries			eb130d8a-cac8-411d-ba0e-609dd7371b41		X60-Y09, Y35-Y36, Y870, Y871
+cause_of_death	Self-inflicted injuries			2aa17127-c986-4945-bcdc-b47e559053ac		X60-X84, Y870
+cause_of_death	Violence			aa0cf1a5-9a48-400e-82f5-a5c08064dcb3		X85-Y09, Y871
+cause_of_death	War			36c7f61b-dff0-447b-b439-90dd432a800d		Y36
+cause_of_death	Other intentional injuries			67e7354a-3e05-453b-b24b-bd73f98697d0		Y35
+cause_of_death	Ill-defined injuries/accidents			a040391a-5d45-4619-a7c4-f41f22df2fe4		Y10-Y34, Y872
+cause_of_death	Ill-defined diseases			ac62c511-d2ee-48fc-b935-c9df2d4ecd22		R00-R94, R96-R99
+condition_type						
+condition_type	Alzheimers disease	MONDO:0004975	A progressive, neurodegenerative disease characterized by loss of function and death of nerve cells in several areas of the brain leading to loss of cognitive function such as memory and language.	3a9b02d6-ddc1-422f-a329-48561942acd5	AD	PV000259
+condition_type	amyotrophic lateral sclerosis (ALS)	MONDO:0004976	Amyotrophic lateral sclerosis (ALS) is a neurodegenerative disease characterized by progressive muscular paralysis reflecting degeneration of motor neurons in the primary motor cortex, corticospinal tracts, brainstem and spinal cord.	ef6045ec-7297-4c74-8e7a-3bee4a625bf7	ALS	PV000260
+condition_type	ataxia	MONDO:0100308	A central nervous system disease that consists of gait impairment, unclear (“scanning”) speech, visual blurring due to nystagmus, hand incoordination, and tremor with movement.	2c5be254-566a-4ee3-8ebd-20473416bad4		PV000261
+condition_type	autism	MONDO:0005260	Persistent deficits in social interaction and communication and interaction as well as a markedly restricted repertoire of activity and interest as well as repetitive patterns of behavior.	4b62cdf4-5ae1-4582-9d9f-6161aed2589b	ASD	PV000262
+condition_type	bi-polar disorder	MONDO:0004985	A disorder of the brain that causes unusual shifts in mood, energy, activity levels and the ability to carry out day-to-day tasks. Often these moods range and shift from periods of elation and energized behavior to those of hopelessness and depression.	4db6fd3e-ee0e-4f5b-9bdd-4cf24f1c2baf		PV000263
+condition_type	brain aneurysm	MONDO:0005291	A congenital or acquired aneurysm within the cranium.	0b15bc5c-c935-4add-9340-0a4763f91569		PV000265
+condition_type	cancer	MONDO:0004992	A tumor composed of atypical neoplastic, often pleomorphic cells that invade other tissues. Malignant neoplasms often metastasize to distant anatomic sites and may recur after excision. The most common malignant neoplasms are carcinomas (adenocarcinomas or squamous cell carcinomas), Hodgkin and non-Hodgkin lymphomas, leukemias, melanomas, and sarcomas.	adf0447c-a8f6-42a0-936b-b5158d38f760		PV000266
+condition_type	dementia	MONDO:0001627	Loss of intellectual abilities interfering with an individual's social and occupational functions. Causes include Alzheimer's disease, brain injuries, brain tumors, and vascular disorders.	f079ab3c-ec8a-470e-ad5a-376aad0fa746		PV000270
+condition_type	depression	MONDO:0002050	A melancholy feeling of sadness and despair.	869333ed-4e19-4bb5-846c-b2deee279469		PV000271
+condition_type	diabetes mellitus	MONDO:0005015	A metabolic disorder characterized by abnormally high blood sugar levels due to diminished production of insulin or insulin resistance/desensitization.	de0f03ab-7b95-4b9c-b849-b6ef76c99220		PV000272
+condition_type	dystonia	MONDO:0003441	A movement disorder characterized by sustained or intermittent muscle contractions, resulting in abnormal movements and/or postures.	cfb86869-7bb1-43ba-a498-107d7a432816		PV000273
+condition_type	epilepsy	MONDO:0005027	A brain disorder characterized by episodes of abnormally increased neuronal discharge resulting in transient episodes of sensory or motor neurological dysfunction, or psychic dysfunction. These episodes may or may not be associated with loss of consciousness or convulsions.	11c40b8e-3580-419f-990b-73b7be1d9317		PV000274
+condition_type	heart disease	MONDO:0005267	A disease involving the heart and/or pericardium.	efe550ed-7eca-42eb-87a5-eafc52466165	cardiovascular disease|CVD	PV000276
+condition_type	hypertension	MONDO:0005044	Persistently high systemic arterial blood pressure. Based on multiple readings (blood pressure determination), hypertension is currently defined as when systolic pressure is consistently greater than 140 mm Hg or when diastolic pressure is consistently 90 mm Hg or more.	db0f7205-51c0-40be-aa85-2f10c4a43171		PV000295
+condition_type	memory loss	MONDO:0001152	Systematic and extensive loss of memory caused by organic or psychological factors. The loss may be temporary or permanent, and may involve old or recent memories.	c64ccf32-3f48-498c-93ab-77bdd654597e		PV000281
+condition_type	migraines	MONDO:0005277	A common, severe type of vascular headache often associated with increased sympathetic activity, resulting in nausea, vomiting, and light sensitivity.	b7933e53-b01e-49bb-8898-94cd568b45b3		PV000282
+condition_type	multiple sclerosis	MONDO:0005301	A progressive autoimmune disorder affecting the central nervous system resulting in demyelination. Patients develop physical and cognitive impairments that correspond with the affected nerve fibers.	fd652115-dca2-40e6-983c-f6dd37d6f743	MS	PV000284
+condition_type	muscle disease	MONDO:0003939	A disease involving the muscle tissue.	2d547118-1ea0-4307-9289-d0ed1b6ee8fb		PV000285
+condition_type	Parkinson's disease	MONDO:0005180	A progressive degenerative disorder of the central nervous system characterized by loss of dopamine producing neurons in the substantia nigra and the presence of Lewy bodies in the substantia nigra and locus coeruleus. Signs and symptoms include tremor which is most pronounced during rest, muscle rigidity, slowing of the voluntary movements, a tendency to fall back, and a mask-like facial expression.	88612b0e-462f-44a6-8ea9-20a65d6ad270		PV000286
+condition_type	schizophrenia	MONDO:0005090	A major psychotic disorder characterized by abnormalities in the perception or expression of reality. It affects the cognitive and psychomotor functions. Common clinical signs and symptoms include delusions, hallucinations, disorganized thinking, and retreat from reality.	01b5ae50-5b50-4a86-bdac-a31240a6fc47		PV000288
+condition_type	stroke	MONDO:0005098	A sudden loss of neurological function secondary to hemorrhage or ischemia in the brain parenchyma due to a vascular event. Stroke includes two main types, hemorrhagic and ischemic. Both types of stroke can cause acute seizures at the time of the acute event, as well as epilepsy as a long-term complication. In the elderly, cerebrovascular disease and stroke are the most common cause of acute seizures and epilepsy.	9bbea7b0-d3cf-44e9-bc4e-b11d50ad6fa7		PV000290
+condition_type	suicide or suicide attempt	EFO:0007623	Any behaviour related to suicide, including suicide ideation and self-harm	ef1593bc-e2ad-4317-9c78-b8ca93385589		PV000292
+condition_type	tourette syndrome	MONDO:0007661	A neurologic disorder caused by defective metabolism of the neurotransmitters in the brain. It is characterized by repeated involuntary movements (motor tics) and uncontrollable vocal sounds (vocal tics). The symptoms are usually manifested before the age of eighteen.	3ef79d52-bb01-475f-890c-febc35298ac1		PV000293
+condition_type	other (specify)			aeafa654-a739-4bf4-90b5-efbc553e812f		PV000294
+confidence_level						
+confidence_level	confirmed diagnosis		Sufficient evidence exists to: 1) make a clinical diagnosis based on medical history and neuropathological exam or genetic data or 2) make a clinical diagnosis by the consensus of expert clinicians or 3) confirm the absence of any brain-related diagnoses (i.e. Unaffected Control)	c394c675-8db2-4ec0-999a-9fb1854bc3d1		
+confidence_level	investigator impression		Diagnosis is based on the clinical impressions of the clinician reviewing the available information but that information is insufficient to render a confirmed diagnosis	ed5cb4a2-407f-4554-b907-47339dca694c		
+confidence_level	insufficient data		The available information is insufficient to form a reasonable impression of or to exclude any brain-related diagnoses	eb2ac5c8-af02-4e62-879d-edf1c47262cb		
+donor_source						
+donor_source	BICAN-NBB			2be2e2cb-31da-418c-87af-4a2f7947bd77		
+donor_source	Donor from NIH NeuroBioBank			246fb3ca-5a38-4650-b230-57da75407326		
+donor_source	BICAN-UM1			f0263900-1ccc-406f-bc20-20c0d4c16c1b		
+donor_source	Other			f9102ff1-4866-4be4-b359-25aa5cdb1d1d		
+drugs_found						
+drugs_found	10-Hydroxycarbazepine			553e4a14-74cb-4452-bdef-9057c32a760b		1
+drugs_found	2-Furanylfentanyl			529a1474-c772-4a1f-9019-14b18876b5b5		2
+drugs_found	4-ANPP			ba81f75f-c1e0-48af-be71-13e7cd41f1f6		3
+drugs_found	6-Beta-Naltrexol - Free			73e501fc-ff69-4ef9-a11b-b802e565a1f3		4
+drugs_found	6-Monoacetylmorphine			b3b376e6-62f8-49ac-9863-58c33e0322c1		5
+drugs_found	7-Amino Clonazepam			e8262711-f8f7-47f6-9a7f-9b6d2eae6f55		6
+drugs_found	7-Amino Flunitrazepam			6a54435a-ea93-48b2-897b-89fc7892ee05		7
+drugs_found	9-Hydroxyrisperidone			4a57e99b-c24c-4300-aa9d-8ae323d8e47d		8
+drugs_found	Acetaminophen			4d571c26-646e-4e3a-ac37-c989b91c02b7		9
+drugs_found	Acetone			e076e718-cef8-44cc-9ef1-00e3371ded41		10
+drugs_found	Acetyl Fentanyl			01030237-2438-46e0-bf9a-047635bcf041		11
+drugs_found	Acrylfentanyl			aa928716-e8fc-4843-93d8-6e6ccb74f477		12
+drugs_found	Alfentanil			3a61f00f-5cf5-4b27-a356-1c035e3ecd2f		13
+drugs_found	Alpha-Hydroxyalprazolam			0992fc66-490e-4725-b214-4693c1461b0c		14
+drugs_found	Alpha-Hydroxyetizolam			8d24ea91-30ae-404f-87ef-2d90aebf5843		15
+drugs_found	Alprazolam			278cb89c-5fa8-4033-a606-5cd6f50a0f47		16
+drugs_found	Amitriptyline			c9dd0268-9965-4771-86bc-5669c6a771d9		17
+drugs_found	Amlodipine			69453cdf-cbf2-4533-b633-c8f2adec5849		18
+drugs_found	Amoxapine			0d9ae4e9-d1e3-4eaa-a524-53b035040260		19
+drugs_found	Amphetamine			f1d52bd9-5485-4a86-9196-44396c3034ef		20
+drugs_found	Aripiprazole			41f80e56-9e7e-494a-8b0e-5175d471a2f4		21
+drugs_found	Atomoxetine			07bad7b0-2fcf-4bb0-9c91-3e1cc0df0daa		22
+drugs_found	Atropine			2ac1445d-a7ad-464b-8cc8-e44891808f55		23
+drugs_found	Barbiturates			12a5f027-37fe-44b8-82ec-7531970691f7		24
+drugs_found	Benzodiazepines			a4be6ddf-181f-4b05-b87d-f816a6bc2385		25
+drugs_found	Benzoylecgonine			2dbf4caf-9f34-44bc-bd52-30fd1594f72d		26
+drugs_found	Benztropine			97dce28b-2608-435c-ab68-8d1438703c1d		27
+drugs_found	Bromazepam			cb9459b5-ff5a-4420-93af-3fa4933da6de		28
+drugs_found	Brompheniramine			dab47752-dee4-4301-8c7a-cdf286177e8f		29
+drugs_found	Buprenorphine			f77a0459-8550-4d7b-8145-8e0c5c334ad3		30
+drugs_found	Buprenorphine / Metabolite			6fff386e-b387-4d3c-89db-b7ee97d61abe		31
+drugs_found	Bupropion			bd9b7438-8ef5-4deb-9c3d-45b9c839f986		32
+drugs_found	Bupropion Metabolite			c1f8b1c6-ad41-469e-91a0-54eb970ef7b0		33
+drugs_found	Buspirone			76910bfb-3508-42da-abcb-c9b6053d94f9		34
+drugs_found	Butalbital			961cb1e3-7ce6-4296-b880-396c9fd27918		35
+drugs_found	Butorphanol			6e4dbce5-f8ef-46fb-8687-6068005f562c		36
+drugs_found	Butylone			640bc468-b0e7-4a15-8802-8200e70093e5		37
+drugs_found	Butyrylfentanyl			705916d6-d344-437d-8bee-0ba2e1ad3dd6		38
+drugs_found	Caffeine			6b975b24-f2d4-4d97-a25f-1d6f08d2eca7		39
+drugs_found	Cannabinoids			d5ecefb1-f627-4b13-aa45-ac065d11062c		40
+drugs_found	Carbamazepine			fbd6fa0d-4348-4d2a-8cd3-3e39c9228b2f		41
+drugs_found	Carbamazepine-10,11-Epoxide			f1d715ac-9bd2-46a8-8714-4ae55769c186		42
+drugs_found	Carfentanil			753e3cd9-e4ab-458d-99b5-18f44fc65fe8		43
+drugs_found	Carisoprodol			3d0b6adf-0138-4623-9049-eee064197f23		44
+drugs_found	Chlordiazepoxide			3e160475-922e-48b6-abf4-f22e7031b06d		45
+drugs_found	Chlorpheniramine			19c3c7bc-5e21-4d6c-b83e-41f60c03727a		46
+drugs_found	Chlorpromazine			7740180a-c527-42a8-8a58-0673131454d7		47
+drugs_found	Citalopram / Escitalopram			5c3259b7-7b08-4b03-89f2-767c67d9d45d		48
+drugs_found	Clobazam			8d5c03b1-4833-4445-9cc4-619740bb5315		49
+drugs_found	Clomipramine			f486547b-f793-43d8-ae21-091503f3363e		50
+drugs_found	Clonazepam			7ea73240-75d8-43fe-ab9d-ec58233a3026		51
+drugs_found	Clonazolam			19ddcc30-d7bc-4f64-a6ae-eb3bb99c30d2		52
+drugs_found	Clonidine			d21583c6-0d41-4f06-adad-6c91ceeade18		53
+drugs_found	Clozapine			a7cb5a45-e78e-4fdb-b25b-92805c2759e1		54
+drugs_found	Cocaethylene			16df1941-2056-4ffe-9380-d223e618ef1d		55
+drugs_found	Cocaine			95199246-6261-4a91-bfb0-cdbd31518fde		56
+drugs_found	Cocaine / Metabolites			932880f1-8992-43a2-8428-cc1f3e8d2663		57
+drugs_found	Codeine			c88d3e18-c8c3-44c0-8894-eed0046f7659		58
+drugs_found	Cotinine			20f08490-c96a-4180-9f29-42f30d773dd1		59
+drugs_found	Cyclobenzaprine			ff5c17f0-4dd3-4dcc-97b5-e5cbff88bfc0		60
+drugs_found	Cyclopropylfentanyl			cb440efd-523b-4ded-860c-44ee1610bb4a		61
+drugs_found	Delorazepam			478797e5-8e09-4c01-a247-6763e11ac4b0		62
+drugs_found	Desalkylflurazepam			a4b92e58-d650-4407-a8a8-e94227c48a08		63
+drugs_found	Descarboethoxyloratadine			70f10425-5720-470b-81f4-e494349148b7		64
+drugs_found	Desipramine			b184a863-1929-4e74-8126-7781edffa7a6		65
+drugs_found	Desmethylcitalopram			6e8f5746-a487-4bf7-83ac-49a92732dde9		66
+drugs_found	Desmethylclomipramine			01dc101e-039e-48d7-baef-9ec217ad3426		67
+drugs_found	Desmethyldoxepin			b4d1a090-8614-43a4-a6e2-821161f75b4e		68
+drugs_found	Desmethylloperamide			ace84882-f74f-4fa8-b76f-e410d6e1faba		69
+drugs_found	Desmethylmirtazapine			f9d421eb-dd5e-4b4c-8a1d-fcbc46b7140e		70
+drugs_found	Desmethylsertraline			4abb1d07-a1f8-4d8c-a8be-497d0df1ae0f		71
+drugs_found	Desmethyltrimipramine			78761872-1c16-4a9d-b272-210cd4dd546b		72
+drugs_found	Dextro / Levo Methorphan			b96f62ac-5318-4f79-9941-380642acc10c		73
+drugs_found	Dextrorphan / Levorphanol			b5974058-9ca9-4afd-bba2-ef103a890f7e		74
+drugs_found	Diazepam			52838915-f436-44fa-87b2-e8d324e1883f		75
+drugs_found	Dibutylone			bff43521-ec1a-4c25-a5ca-d02e2b1ca690		76
+drugs_found	Dicyclomine			ba7bd2c8-312c-47d5-a41c-bfa3b2a49cc6		77
+drugs_found	Dihydrocodeine / Hydrocodol			06af4a0b-c043-4ced-88a4-9fad731ad875		78
+drugs_found	Diltiazem			f185ec6f-b3d2-47a3-bfc3-d220e26a400c		79
+drugs_found	Diphenhydramine			e81ac6e2-7aa8-42bf-9507-99a3b6813890		80
+drugs_found	Donepezil			319d0874-21c7-440d-8927-76abdc9d4a45		81
+drugs_found	Doxepin			3386e2d8-eff8-49bb-97c3-4a8dbaf2b230		82
+drugs_found	Doxylamine			9ff60630-2b30-4895-854b-eef22f2bd5df		83
+drugs_found	Duloxetine			38246ac9-967b-4475-9944-3816cf867c23		84
+drugs_found	Duloxetine Breakdown Product			113687f3-572c-44e4-b8ca-e246352dded3		85
+drugs_found	EDDP			bb330559-56b6-4d9b-8d29-bbd748629d52		86
+drugs_found	Ephedrine			1b36cdd1-5a8c-4894-9a7f-b1ff2a6aefe4		87
+drugs_found	Ephedrine / Pseudoephedrine			799079f2-0fc0-44b7-9db7-df01a5244dd5		88
+drugs_found	Estazolam			f0921d93-9854-41b1-bce9-ef1d01038626		89
+drugs_found	Eszopiclone / Zopiclone			c5beb789-8730-4604-8155-1d762eedb9d8		90
+drugs_found	Eszopiclone / Zopiclone Breakdown			2faa52a6-d316-4d5b-9ff2-9ba7f10abd98		91
+drugs_found	Ethanol			d9351134-0651-4c2a-bb01-ca982356a7cf		92
+drugs_found	Ethinamate			2a85e022-260d-4411-bb8a-a763ff6915f2		93
+drugs_found	Ethosuximide			b6a549f9-61eb-49cc-83cd-3aa237fe2488		94
+drugs_found	Ethotoin			484de15c-2a79-4f79-9f20-3f2a0efe980d		95
+drugs_found	Ethylmorphine			8688c935-def0-4a64-ac5f-301887af4d52		96
+drugs_found	Etizolam			64f629e5-56b4-4e2a-ac6a-e6b782b77fb6		97
+drugs_found	Felbamate			c00a13ac-8230-4908-864f-db7eace0f80e		98
+drugs_found	Fentanyl			f03f16e2-aea3-4ff0-a5e1-7aa4af6c73ba		99
+drugs_found	Flecainide			7b51ad64-3f6b-482b-b6a9-bcf925824a85		100
+drugs_found	Flubromazepam			ed812ea7-6198-4849-ad1e-778234b30d90		101
+drugs_found	Flubromazolam			8e612200-3a64-40eb-af61-5b328caa5e80		102
+drugs_found	Fluconazole			905ed5e8-1521-4de1-bb5b-cfc5fa7d4925		103
+drugs_found	Flunitrazepam			7c9d5570-6f09-411b-afa6-e621b434864b		104
+drugs_found	Fluoxetine			f6fa32ca-ab54-4998-8be5-fa66b7d96b2f		105
+drugs_found	Fluphenazine			a0afd50a-a48e-49c7-9321-e39d2a417680		106
+drugs_found	Flurazepam			78abb9e1-092c-4932-8038-3154df6ed3e3		107
+drugs_found	Fluvoxamine			d09aec37-c6ba-495c-b2f9-716d8d3deac2		108
+drugs_found	Gabapentin			1b439b66-759b-4b01-8950-9bd85bb0eda8		109
+drugs_found	Gabapentin Breakdown Product			3addb8f9-88ec-468d-a18e-afca6cec806d		110
+drugs_found	Guaifenesin			84987f69-855c-4950-9abd-ab57cfcd6253		111
+drugs_found	Haloperidol			98cab2fb-1276-46ef-a175-076b2cef12a4		112
+drugs_found	Hexobarbital			0f4ba022-94bc-48c3-8b34-9b157e118b6a		113
+drugs_found	Hydrocodone			736da9b6-9411-4a23-a9b5-09742f6e8db2		114
+drugs_found	Hydromorphone			ef27fd42-5da5-4a71-8c12-9389976b943e		115
+drugs_found	Hydroxybupropion			db64cd4f-08b5-45cf-8001-97b8cb7f4219		116
+drugs_found	Hydroxychloroquine			f07e172f-3b7a-46d9-96ad-907ff6c244e9		117
+drugs_found	Hydroxyethylflurazepam			e06ba011-b8dc-4de5-abd4-96130c038f77		118
+drugs_found	Hydroxytriazolam			9dbd3ff8-0c0b-4792-b24b-5cb15487940b		119
+drugs_found	Hydroxyzine			97efafcd-ed39-46d2-b8f5-3856c4cfa46d		120
+drugs_found	Ibuprofen			cea1f8a8-4dfc-4f7e-a89f-f81f72ed6490		121
+drugs_found	Iloperidone			a2b5d268-a83b-4873-a144-f06ffbf0664c		122
+drugs_found	Imipramine			20d4550f-c344-455b-8128-4ea5200d76b5		123
+drugs_found	Isopropanol			29feebf4-131b-4132-a88e-6a00096abdbb		124
+drugs_found	Ketamine			0119435f-5689-4386-bfe3-4ec66691f84a		125
+drugs_found	LSD			46615c8e-a024-4438-b0df-be00800119ed		126
+drugs_found	Lacosamide			24e87633-5302-4d1c-b83d-fa45cde5ec7d		127
+drugs_found	Lamotrigine			129a8655-9056-40b9-862b-d97121861a64		128
+drugs_found	Levamisole			62e0cfca-5aa1-43e6-8b75-1eebc3bf43ee		129
+drugs_found	Levetiracetam			0a0cbff6-ed4d-495b-bb0a-340e91351f94		130
+drugs_found	Lidocaine			f72444be-2427-4c8b-8b5d-89c3180017ab		131
+drugs_found	Loperamide			22583943-a0cf-49ec-8327-3da0f3202c4c		132
+drugs_found	Loratadine			6f59b3af-16e4-4bb5-9def-f3b965d90867		133
+drugs_found	Lorazepam			538e1ebc-36af-40ef-888c-58f12cf722f4		134
+drugs_found	Loxapine			ce8c942a-3e9b-4893-9d83-7413a226e8a1		135
+drugs_found	MDA			86ec7e4d-ba0d-4ce4-a401-4ef45c3ef16f		136
+drugs_found	MDEA			1af8ae41-cca2-47ea-a287-f56caec6ddac		137
+drugs_found	MDMA			b195b5c1-238e-4b72-b706-cd476a922585		138
+drugs_found	Meclizine			c3340e0f-c68b-42e2-9480-48f80168738b		139
+drugs_found	Memantine			64a0bc78-c80e-46b2-8f06-0b8e2f889f35		140
+drugs_found	Meperidine			e096f3af-d804-41bc-bdf0-a26774bf6558		141
+drugs_found	Mepivacaine			b7bf8d13-9a9d-41ba-a899-6af69c019f10		142
+drugs_found	Meprobamate			c9f22ccb-e507-45e2-98f3-5a76f6cd4fbf		143
+drugs_found	Mescaline			ff8380e1-9cf7-4e84-b26c-d2716abc4728		144
+drugs_found	Mesoridazine			92f2efcd-5743-4aa3-944a-529f1201b61e		145
+drugs_found	Metaxalone			4ff7cf89-2b82-465b-b668-1840a9474401		146
+drugs_found	Methadone			0e2e6066-06e2-4551-82f2-28a99098efd9		147
+drugs_found	Methamphetamine			a1d4d5ef-9632-4fcd-991e-704dcb69bd2e		148
+drugs_found	Methanol			eb469bbe-9112-4521-9e52-c51e8a720d95		149
+drugs_found	Methaqualone			cdd71beb-ddd5-4c0c-9906-dc6a77628070		150
+drugs_found	Methocarbamol			caa0e1f5-1209-41d2-8561-f31b53bda9b0		151
+drugs_found	Methoxetamine			7c597b95-2b34-412a-a27a-3c39725a99d6		152
+drugs_found	Methylphenidate			5a09d59e-f322-4372-b115-f4780504bd2b		153
+drugs_found	Metoprolol			2de1a10f-02f8-4521-a918-719e422d3b5f		154
+drugs_found	Metronidazole			fc82a6c7-680b-4500-941a-164e95fa6304		155
+drugs_found	Midazolam			edcffcda-0aef-4cd9-b0c8-1bc3700eeac4		156
+drugs_found	Milnacipran			bb97bcb6-5d17-4cb0-96c3-efc6e1cc9f85		157
+drugs_found	Mirtazapine			862001a5-be68-4b7e-90c5-40081ccf8f81		158
+drugs_found	Mitragynine			558f3a6e-af71-43ff-9a92-3e1fe634312d		159
+drugs_found	Monoethylglycinexylidide (MEGX)			115bbdb6-c8e6-402b-8de9-a3e97b5ed190		160
+drugs_found	Morphine			ca10cd79-7ec4-4918-9478-f18d02f42c94		161
+drugs_found	N-Acetylprocainamide			3f1a9272-1fe5-47dc-9d69-fa0c1a607e71		162
+drugs_found	N-ethyl Pentylone			7ea62c4a-cc56-4f7a-92eb-49c7a0a72a2f		163
+drugs_found	Nalbuphine			8c1bfdb7-9a24-43d9-9e90-7cb43e90da7a		164
+drugs_found	Naloxone			d4e11199-d883-4552-95c4-54b5264c61f3		165
+drugs_found	Naltrexone			c39f69da-514e-4c70-9a78-a1345e9c6fe5		166
+drugs_found	Naltrexone - Free			2588d6b0-4740-4b99-b039-2a2e1500fec3		167
+drugs_found	Naproxen			102a51e3-666c-4bf2-9d47-7d4258208b07		168
+drugs_found	Naproxen Breakdown Product			1ff7d66a-52e9-4163-b927-35c4e3ff4748		169
+drugs_found	Nicotine			2c74bd57-7a35-4bf7-bc89-a49ed1203cf9		170
+drugs_found	Norbuprenorphine - Free			43cb3275-27a0-4a72-bc68-70023625f543		171
+drugs_found	Norclozapine			b4ce5015-f9c5-44e3-b24f-a8dbf110b192		172
+drugs_found	Norcodeine			64184e24-3fbf-4ce4-b0dd-3442a8cf0977		173
+drugs_found	Norcyclobenzaprine			f4d7e559-9850-4b7a-9e4d-bd0debef01bf		174
+drugs_found	Nordiazepam			78fa025e-1b2c-4795-b955-d4bb90968612		175
+drugs_found	Norfentanyl			776a76d0-afd2-4a51-9755-f406911a6106		176
+drugs_found	Norflunitrazepam			af4c386b-214a-460a-ad89-b40afe0ef3c5		177
+drugs_found	Norfluoxetine			5653cc0d-a74d-4697-8a2b-59e108bb6daa		178
+drugs_found	Norhydroxyzine			83ba2276-e0c5-4db2-8c44-36990c7f6561		179
+drugs_found	Norketamine			729ab87b-258b-47ac-ae5a-02a58e30adca		180
+drugs_found	Normeperidine			79754abc-18bd-4f7f-8b36-5b4b8ff98aec		181
+drugs_found	Norpropoxyphene			bc37d223-9905-41dd-86b2-07e509c26128		182
+drugs_found	Norpseudoephedrine			2d185a83-e639-47ed-9500-d122b1e0bf4a		183
+drugs_found	Norpseudoephedrine / Phenylpropanolamine			01d7a03e-9ed4-4ed5-98ba-6914d4d2e8ad		184
+drugs_found	Nortriptyline			bfafd188-8b5b-4b22-9ffd-a85c0d3ee5db		185
+drugs_found	O-Desmethyltramadol			969205d5-6378-432f-bc5d-b06ca4d56b58		186
+drugs_found	O-Desmethylvenlafaxine			c5c1476b-72db-4629-98bb-50e310106cb7		187
+drugs_found	Olanzapine			85130532-f73b-4c67-8d43-796b38e5ec84		188
+drugs_found	Ondansetron			ebe413c2-ed74-4244-8bb9-6f13c34b77cd		189
+drugs_found	Opiates			74fc156d-ece0-4dd6-9403-43b27c450829		190
+drugs_found	Other Findings			dcd98589-bce1-4a69-a723-2d66421d51f4		191
+drugs_found	Oxazepam			7bf671e7-f8e6-4f5c-a4d8-6ac71ce18708		192
+drugs_found	Oxycodone			f568782f-ec18-433b-881e-bfc16eefa13a		193
+drugs_found	Oxycodone / Oxymorphone			8df579a9-8584-48f6-a0a9-be77a4f2c939		194
+drugs_found	Oxymorphone			17ec59e9-8ebb-4403-be8c-312b941f6a1b		195
+drugs_found	Papaverine			f1ba5f19-b8f3-41bd-b2f7-f82224f3cb66		196
+drugs_found	Paroxetine			6affad7c-904b-4484-8c64-b40501e3e378		197
+drugs_found	Pentazocine			ee110235-45fa-4f42-9aa2-f0c4db0de35c		198
+drugs_found	Pentobarbital			8b1eaba9-c9b7-4843-a2d0-7ff1fa20a370		199
+drugs_found	Perphenazine			b0b6274e-1608-4b65-aec0-76bc0df85230		200
+drugs_found	Phenazepam			d773d2dd-0f93-4ce2-bf40-18c1e552a1de		201
+drugs_found	Phencyclidine			0e539184-2c8a-435c-af54-b33ecf37e4bc		202
+drugs_found	Pheniramine			cc5eec12-ff2b-4282-a3f8-6eb06bd29801		203
+drugs_found	Phenobarbital			899564fa-fa12-4899-ae0b-eec58c4c1d11		204
+drugs_found	Phensuximide			5689be1a-570d-41d9-abcc-5c34a93e1d4c		205
+drugs_found	Phentermine			30a57db8-bd27-433f-8e6f-94c08a5ab33a		206
+drugs_found	Phenylethylmalonamide (PEMA)			9a1db754-ec07-4fff-929a-0cb4f1138e87		207
+drugs_found	Phenylpropanolamine			d808660d-8727-46c7-8439-4801ce6c20b1		208
+drugs_found	Phenyltoloxamine			82ee306f-516e-4e83-915d-9bb2ea365c72		209
+drugs_found	Phenytoin			40e003db-662d-4edd-9aa4-90d1680a01ea		210
+drugs_found	Primidone			8b49c454-4a7c-4ec1-a758-bdcef9bb0102		211
+drugs_found	Procainamide			76bf2f40-dd5b-4635-a468-100c49cca3d8		212
+drugs_found	Prochlorperazine			15ca00a5-8b04-4fbf-9fdd-72d098e11a16		213
+drugs_found	Promazine			55e6d137-a51a-4e1e-92d8-02c7049bef93		214
+drugs_found	Promethazine			f1801537-2dbf-40fc-a105-3371b0f91613		215
+drugs_found	Propofol			2c717c7e-d88c-4636-b14a-d3adc4a6ba1f		216
+drugs_found	Propoxyphene			cd99f7db-5322-480d-b6a9-0204173dad3d		217
+drugs_found	Protriptyline			c1894351-aacb-4e5e-ae6d-92b87ae00c82		218
+drugs_found	Pseudoephedrine			d23f80f4-933e-4c64-833b-b9342c3bac77		219
+drugs_found	Psilocin			4f5134b0-2db3-475e-b771-954fd556da58		220
+drugs_found	Pyrilamine			26d06bdf-bc0d-4922-a59b-1479885fb75e		221
+drugs_found	Quetiapine			e85351d5-0984-4edb-9322-4a1c68f42c90		222
+drugs_found	Quinidine			da9c4283-04ab-4e4b-b220-1624cc1bb157		223
+drugs_found	Quinine			43702f04-ac3d-44a8-a11d-068493a058b6		224
+drugs_found	Risperidone			b5f7e30f-b2ac-43f2-b45d-c9ffa64ecbf6		225
+drugs_found	Rufinamide			55a1261c-63c6-48bf-be44-e95cb17f2767		226
+drugs_found	Salicylates			ae5d5d0a-0627-454a-9e3b-be80803b7a83		227
+drugs_found	Scope Statement			2a816962-be21-48e8-ab7b-3644978c1444		228
+drugs_found	Secobarbital			92b211f6-7f53-4515-8e5e-9c5ead37263e		229
+drugs_found	Sertraline			8f43aebc-407a-4485-964a-13d3a7d22d9b		230
+drugs_found	Sildenafil			c498c23f-038b-49b9-8abf-53b7fdcd474c		231
+drugs_found	Strychnine			3bce1455-6822-4c3a-8657-8c728d8c3af7		232
+drugs_found	Sufentanil			dfe30446-37e5-4b4a-a498-226be5b36fd5		233
+drugs_found	Tadalafil			0ba808a6-adff-4ebb-91e1-b7cc10585919		234
+drugs_found	Tapentadol			5b5ec8c3-267d-4309-a47c-4f17f2869761		235
+drugs_found	Temazepam			e5655b7e-585a-40ef-b901-0cda8415091c		236
+drugs_found	Tetrahydrozoline			be978d1f-5923-4055-b348-7c414be82ed2		237
+drugs_found	Theobromine			0ff3fe10-4bf5-4844-a6f5-395f6c168795		238
+drugs_found	Theophylline			2d14843a-f63f-420b-862d-1b17b7a07557		239
+drugs_found	Thioridazine			7d6c2e25-79d9-4589-8a1b-5c47e45b88ae		240
+drugs_found	Thiothixene			d7593a39-9063-442c-9ae4-98a9a792d2b5		241
+drugs_found	Ticlopidine			d8603331-36fe-4b7e-815f-c703a56ec105		242
+drugs_found	Topiramate			18000c0a-4991-4106-b09a-8d72484d1075		243
+drugs_found	Topiramate Breakdown Product			7fc6c0db-cc7c-4cc8-9458-79ce427c2161		244
+drugs_found	Tramadol			2fcc0664-29a7-4d37-b954-b763c88fbd4d		245
+drugs_found	Tramadol Metabolite			78129803-2af5-4347-a066-b9339e6df8a8		246
+drugs_found	Trazodone			fb9f79c8-4b92-4093-b988-639a299eddcc		247
+drugs_found	Triazolam			49c14442-890a-45ba-8861-de38426a2ad7		248
+drugs_found	Trifluoperazine			c6ac2b5a-5367-4618-92fd-78c343517d15		249
+drugs_found	Trimethoprim			b4af75e1-b227-4b07-8d9a-985f8459a93d		250
+drugs_found	Trimipramine			c6fc8b75-f50a-411b-bd78-1afd82cd7e5b		251
+drugs_found	Triprolidine			b80004ff-5869-4969-896a-89bc15b13f0b		252
+drugs_found	U-47700			6e54c513-5e78-4f32-82cc-c5d6bb5aa552		253
+drugs_found	Valerylfentanyl			c555641d-ce0d-4207-bce5-f1a199e1c53a		254
+drugs_found	Vardenafil			a9415ba0-6dea-4e9a-b875-1fdf73fbe9f8		255
+drugs_found	Venlafaxine			826277fb-d664-4c2c-9347-efe6448518cb		256
+drugs_found	Venlafaxine Metabolite			1930d32c-7d7e-4058-b251-967935a2cd45		257
+drugs_found	Verapamil			4d262bcd-a4b6-468b-8077-25687b7559b4		258
+drugs_found	Warfarin			e05b71e7-723c-43c6-8a49-fe91ac75cdb0		259
+drugs_found	Xylazine			f45d32a3-189a-4912-b4a6-570eb182b5c1		260
+drugs_found	Yohimbine			ba152415-10d6-4739-8d7d-932d3e4274d5		261
+drugs_found	Zaleplon			c3c95a47-2fe7-4594-a46e-2a35ae576e3e		262
+drugs_found	Ziprasidone			b5525ae8-744c-4fb9-adfe-5f66d111e0e4		263
+drugs_found	Zolpidem			62aacc2b-da7f-4fb9-b939-140c6b1eef26		264
+drugs_found	Zonisamide			3bb28ab8-a1aa-4805-90ac-066ae2bfd8ef		265
+drugs_found	alpha-PVP			98c06f7e-9fed-44e3-834a-54fe56c9ecf6		266
+drugs_found	cis-3-Methylfentanyl			564bf8da-095b-43b0-8f27-28d7bddd7058		267
+drugs_found	mCPP			71c4626f-6e2f-464a-a235-142491688a6a		268
+drugs_found	para-Fluoroisobutyrylfentanyl			b24f8219-e52a-45d1-81bb-6b06dcadf13e		269
+drugs_found	trans-3-Methylfentanyl			6a98b26d-5c99-4150-a1f0-1eed106e50d6		270
+drugs_found	Other findings, specify			8ba92891-301d-4a74-abcb-01dc475dd440		271
+ethnicity						
+ethnicity	Hispanic or Latino		A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin, regardless of race. The term, "Spanish origin" can be used in addition to "Hispanic or Latino".	761cf032-a7f6-4af9-b4df-3e86773083ab		PV000034|C17459
+ethnicity	Not Hispanic or Latino		A person not of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin, regardless of race.	60faca22-f181-4a1d-82fb-7b8e48a52933		PV000035|C41222
+ethnicity	Prefer not to answer		A response indicating that an individual prefers or preferred not to answer.	f3428664-1ee8-47ad-a371-76241297f4fd		C132222
+ethnicity	Unknown		Not known, observed, recorded; or reported as unknown by the data contributor.	41782dac-8c83-4cf2-9f05-2666ba41926b		PV000036|C17998
+ethnicity	Not reported		Not provided or available.	57384390-8623-4180-afe4-4f698744de97		PV000037
+gender						
+gender	male	OMRSE:00000008	The gender identity of male self-identified by the subject/participant.	fd642ff8-e0fa-43f6-a9be-0b5830b15c19		1
+gender	female	OMRSE:00000009	The gender identity of female self-identified by the subject/participant.	c5544e92-fdd2-44e4-bf0c-5347609fc945		2
+gender	transgender male	GSSO:000372	The gender identify of transgender male self-identified by the subject/participant.	0b19ae84-a51c-42db-9b3c-718d06ba0775		3
+gender	transgender female	GSSO:000384	The gender identity of transgender female self-identified by the subject/participant.	edafced9-dcbd-4f9d-8f7e-9c6c2ed0c2c5		4
+gender	non-binary	GSSO:000395	The gender identity of non-binary self-identified by the subject/participant.	6a74ed4a-7ce2-4dbc-af58-efeada6d3084		5
+gender	gender fluid	GSSO:000406	The gender identity of gender fluid self-identified by the subject/participant.	94fb062b-8e04-4c0b-b182-a2ef4356c302		6
+gender	other, specify		A gender identity of a type not included in this list.	984b82ea-e381-43b4-a18c-051d68c08ae3		7
+gender	unknown		Not known, observed, recorded; or reported as unknown by the data contributor.	15802c7f-a3c7-4c0c-8807-ae42f8e986d3		8
+gender	not reported		Gender identity not reported.	6df7e5d7-24ec-46c9-9aa9-0cedcaf907e6		9
+handedness						
+handedness	left	PATO:0002202	Handedness where the organism preferentially uses the left hand or foot for tasks requiring the use of a single hand or foot or a dominant hand or foot	4d77c04d-91dc-4a9d-9314-d3dd1f2ba2e1	left handedness	1
+handedness	right	PATO:0002203	Handedness where the organism preferentially uses the right hand or foot for tasks requiring the use of a single hand or foot or a dominant hand or foot.	4ac0f259-3b6e-4e99-aaef-386c04b7dc92	right handedness	2
+handedness	either	PATO:0002204	Handedness where the organism exhibits no overall dominance in the use of right or left hand or foot in the performance of tasks that require one hand or foot or a dominant hand or foot.	a070df0f-e37d-4dc5-8fdc-13cb9c2aac46	ambidextrous handedness	3
+hemisphere						
+hemisphere	left		A cerebral hemisphere that is in the left side of a brain.	2e66a216-9734-4112-9064-d7733efd5c33	left hemisphere	left
+hemisphere	right		A cerebral hemisphere that is in the right side of a brain.	2a2b5f83-fd16-49e9-a7d7-64bf07e60987	right hemisphere	right
+hemisphere	both		Part of the telencephalon consisting of both of the two smooth, elongated halves of the cerebrum.	ceb5d79f-b148-4ac6-9690-7da8363f9d6a	both hemispheres	both
+hemisphere	unknown			0b47cf88-cead-47a2-802e-89c5394214c6	unknown hemisphere	unknown
+income_range						
+income_range	Under $15000		Annual income under 15000 USD	694dc11a-ae69-41c2-877d-c8a4263fe81f		PV000858
+income_range	$15000 to $24999		Annual income between 15000 and 24999 USD	9d25c615-e7ef-4bcd-b27f-8ef71c70d2fc		PV000850
+income_range	$25000 to $34999		Annual income between 25000 and 34999 USD	4bf57ed5-adeb-4cad-b9f2-c9681100681c		PV000851
+income_range	$35000 to $49999		Annual income between 35000 and 49999 USD	2a051377-be2f-4b1f-87ee-2cca8009d5db		PV000852
+income_range	$50000 to $74999		Annual income between 50000 and 74999 USD	4111b12f-62a0-4cf4-972f-aed54b5d840a		PV000853
+income_range	$75000 to $99999		Annual income between 75000 and 99999 USD	bb1bed89-233a-4ae2-9bbe-a4876cc06960		PV000854
+income_range	$100000 and over		Annual income greater than 100000 USD	e8285d1f-c5a0-4533-aecd-f0309021ab38		PV000855
+income_range	Refused		Annual income disclosure refused.	681f5486-f1b2-4e08-8928-8aeee26fa533		PV000856
+income_range	Unknown		Annual income unknown.	e731d8dd-3126-405e-926f-3553a9f71ecf		PV000857
+informant_relationship						
+informant_relationship	child		A person who is either the progeny of the subject or the adoptive child of the subject.	f6afbbd1-1c51-46d7-85d2-6e1250a9bb47		1
+informant_relationship	friend/neighbor		Either one of a friend of the subject or a person who lives near the subject.	0e11f6ca-4173-497f-b900-171c3e46c964		2
+informant_relationship	parent	GSSO:001953	A caretaker and/or immediate progenitor of a child.	1bfa6e01-20ae-46cd-b32d-0c78487ad272		5
+informant_relationship	professional caregiver		A person who bears the caretaker role for the subject.	c952f03e-8c9d-46a8-9780-b84d250278f5		6
+informant_relationship	themself		A person who is identical to the subject, i.e., the subject themselves.	f8845e9a-100a-4b5e-914f-dce9f28e469a		7
+informant_relationship	sibling	GSSO:001955	A person who shares a parent.	76289f02-03e2-4dc5-8110-a05a331d5f72		8
+informant_relationship	spouse/partner	GSSO:001968	A partner in marriage.	160b05bf-500d-4f6d-a943-b8bd6043ed21		9
+informant_relationship	teammate		A person who is a member of a team whose membership includes the subject.	518097c5-cde7-404c-9dde-51a114c7a421		10
+informant_relationship	other relative (specify)			d24f78e2-9821-4e72-a1a7-87e6959769b4		3
+informant_relationship	other (specify)			f3b07435-48bf-4cbb-9bbd-e11c9f1e6b9f		4
+language						
+language	aar		Afar	78787899-371b-4a3b-b142-88d8336f8e06		
+language	abk		Abkhazian	780ff3b4-82c4-453d-a5b5-84b84105fd04		
+language	ace		Achinese	486fd804-786f-4ba1-8fe3-7c6c6c338cef		
+language	ach		Acoli	7ce5d5b5-78f6-4293-9029-9c062fdf1589		
+language	ada		Adangme	7ac30736-6c7d-46b8-b796-2d6f7b1efaf3		
+language	ady		Adyghe; Adygei	77d6d369-1244-42be-8148-3463bc9b29e5		
+language	afa		Afro-Asiatic languages	810b8528-28fa-4474-a59d-7efad1d96e0e		
+language	afh		Afrihili	9f19a5e3-8191-42bf-bc9f-083606dee107		
+language	afr		Afrikaans	67ae2556-8bef-4702-9059-16ecc9b16bd0		
+language	ain		Ainu	7c1be3bc-706a-489d-af77-df1483cacd17		
+language	aka		Akan	39d0608b-c476-46da-8cd5-7e1116c20161		
+language	akk		Akkadian	d88a434b-6623-47e2-98e5-64a8695bceb6		
+language	alb (B)		Albanian	34d9f01c-b92e-4ac4-80a4-f9751c452ad2		
+language	sqi (T)			a202e578-1ced-44e8-aee4-c043c74659b1		
+language	ale		Aleut	135495ab-1336-491f-a746-c64cad44a69a		
+language	alg		Algonquian languages	1e3aa835-3b98-4fbb-8d33-88d9f4c5e7b2		
+language	alt		Southern Altai	a95868c6-0f8d-49eb-8573-ecf4f8948bd3		
+language	amh		Amharic	07fca9c8-7c8d-4a2f-9585-dcc03127943f		
+language	ang		English, Old (ca.450-1100)	addf244f-0956-4d40-a25e-7e659bc98104		
+language	anp		Angika	e1594098-39cf-461f-8905-24675a5562a1		
+language	apa		Apache languages	b923013e-e632-410b-9ef7-e464e6aaf360		
+language	ara		Arabic	3cfd1458-74bf-4013-ae31-c044ba65663b		
+language	arc		Official Aramaic (700-300 BCE); Imperial Aramaic (700-300 BCE)	742bc82f-fac2-40b1-9bca-242888ac1cce		
+language	arg		Aragonese	298478a5-60e5-4b4e-8c84-481550b9bfe9		
+language	arm (B)		Armenian	092b988f-1b05-4622-888e-9d2eef520823		
+language	hye (T)			53e43bbd-416e-459c-bc72-80306d1f18b5		
+language	arn		Mapudungun; Mapuche	03816ec8-ceed-469a-9ecc-359bf58a1bb1		
+language	arp		Arapaho	2ffd6f5c-eb4c-46bd-8e95-2de7d507fdaa		
+language	art		Artificial languages	393e08d0-2d0f-403d-a801-58589c4d8406		
+language	arw		Arawak	49f2a50c-1538-419f-88b6-c67f38354251		
+language	asm		Assamese	00b53bdc-51b1-49ce-888f-fed09c84e87a		
+language	ast		Asturian; Bable; Leonese; Asturleonese	6faf5a43-2f02-425c-a74c-f606878df36e		
+language	ath		Athapascan languages	1e69bc9a-c5a6-4d45-938f-997e7a845bf2		
+language	aus		Australian languages	e27e4f48-d194-4719-bb00-ba15a4f9d12f		
+language	ava		Avaric	5b2ff1a5-4c7c-45a0-9d1a-3111b91eeadd		
+language	ave		Avestan	8a23f476-c38b-4465-af75-c699910caf61		
+language	awa		Awadhi	b6b23acf-33a3-454c-92fd-9e8c8c3b4aa5		
+language	aym		Aymara	6e8a7af6-6682-4618-8212-35527f441651		
+language	aze		Azerbaijani	a150b53a-ccaf-4a19-af36-1f287cf69d72		
+language	bad		Banda languages	52a11d13-1ef5-4cc2-b257-40f342343ca8		
+language	bai		Bamileke languages	ec004ba2-dc80-458e-be64-18d1ee8288ec		
+language	bak		Bashkir	f1ea90ee-651c-4270-80a3-da65fe91101b		
+language	bal		Baluchi	ce345bf3-4b02-4570-b1f8-3b5a28f99005		
+language	bam		Bambara	dda427f7-cb68-4757-9357-8445149ba847		
+language	ban		Balinese	3c936049-5c1f-4010-970c-0ec2367c6cad		
+language	baq (B)		Basque	642ac599-f056-4d9c-876e-a68e2615ea08		
+language	eus (T)			1e3725fd-916e-4110-86b1-458100b46f76		
+language	bas		Basa	acb0cd6e-92f2-4259-b19a-1cb0da90ec64		
+language	bat		Baltic languages	8e5795bc-d6d0-4b5b-934a-e102b9f12b2f		
+language	bej		Beja; Bedawiyet	05eee4c4-b384-4410-ad6a-6bc04a22be55		
+language	bel		Belarusian	197c5038-5c7b-4a32-9a42-753ab159b57e		
+language	bem		Bemba	4699b272-a150-4bb6-b32e-c35ce0206453		
+language	ben		Bengali	0ea20bab-57c8-4bb5-8c6c-6576b80a2366		
+language	ber		Berber languages	31db3288-92c8-45ce-8b5d-f2ccd877fc92		
+language	bho		Bhojpuri	c72c7b07-0651-4887-87a7-3eeef1a181cb		
+language	bih		Bihari languages	cc7a4fbe-527f-4758-a0b1-dbc6fb9d89e6		
+language	bik		Bikol	87cb06e2-c3ea-47e2-a291-4172f21176a3		
+language	bin		Bini; Edo	3f38cb85-bc1c-407e-9cc6-59b4b03e1dcc		
+language	bis		Bislama	a2a465f0-4c6a-4284-86a1-49c949cdb4fe		
+language	bla		Siksika	da9d3505-0b25-4672-9ad0-d8ad288c1def		
+language	bnt		Bantu languages	15915fec-5e5b-457b-93d4-f2ccb12f7fce		
+language	tib (B)		Tibetan	1638d1ea-d2e7-45ab-853e-0aed3e2ffbe2		
+language	bod (T)			e060ad2c-ba11-4de3-a99f-9be98a5dabe3		
+language	bos		Bosnian	ceef8c27-1bec-4f39-a63c-d236af4a60cd		
+language	bra		Braj	f4683e7c-26a8-46b0-b70e-cdbfd0b3d20f		
+language	bre		Breton	37598f12-b2de-427e-8185-bbc405003ae0		
+language	btk		Batak languages	f17e4244-4a57-4c42-9180-4ced937b4843		
+language	bua		Buriat	de3f96ba-b40d-46cf-ba08-4500ace04f01		
+language	bug		Buginese	a1500683-73f9-4b73-9cad-5f78d6e30475		
+language	bul		Bulgarian	debe8327-7991-49cb-af1b-3c3470ac2a11		
+language	bur (B)		Burmese	4a7f9c65-a030-42eb-97f2-4f9dbf21e614		
+language	mya (T)			aa94fce0-0672-435a-b57b-a158777d4956		
+language	byn		Blin; Bilin	cf05e4f3-3dc7-4e5d-9147-05a30277dfda		
+language	cad		Caddo	f450dff4-69ef-443e-86fd-e131c89fedd5		
+language	cai		Central American Indian languages	8a76ce94-a230-4951-b4b0-1e7aa82b1a52		
+language	car		Galibi Carib	76da0581-ba7a-4893-8e2d-5c973a448ab1		
+language	cat		Catalan; Valencian	2cc60649-a129-4e8b-8324-b9bc93b556c4		
+language	cau		Caucasian languages	59f64dcd-a6e2-4437-a916-9ecf0029ef9f		
+language	ceb		Cebuano	9c3af940-72dc-4e91-84e9-a63f49f7ba23		
+language	cel		Celtic languages	91424b9e-c3fe-4e86-8f21-9faf2c5c7c7c		
+language	cze (B)		Czech	85ee9be0-0f16-46a5-9ada-eb7e5a88471d		
+language	ces (T)			f0591c5e-04ec-46ae-af77-60ff085e2845		
+language	cha		Chamorro	34e5aeeb-efef-4696-b8a7-c12db128ca30		
+language	chb		Chibcha	7615ac8e-6ff7-42dd-8c37-97eade8a1d2d		
+language	che		Chechen	3daff904-0ad5-4b66-b6aa-5037130d1ee9		
+language	chg		Chagatai	182e8667-ba05-4311-a3c6-47990e66da88		
+language	chi (B)		Chinese	6eb7a20f-8618-4dd7-a924-675e9a5215f0		
+language	zho (T)			2c7b5dee-b0ff-46f7-ae7c-b9f4ad48ec24		
+language	chk		Chuukese	4b7355e5-0374-4ec5-b208-dceaea3931cc		
+language	chm		Mari	72aeaceb-8f76-469c-9346-2ac1e7fed031		
+language	chn		Chinook jargon	3a41d909-12f6-4f41-80da-ccd448f50a1b		
+language	cho		Choctaw	0210f6aa-0681-40b4-9338-c2d5c5eb1cc1		
+language	chp		Chipewyan; Dene Suline	ff27c91c-764e-4d8f-a2de-6470669564d7		
+language	chr		Cherokee	bef6f2f4-d725-4dc2-b61a-7f64fac2f1a6		
+language	chu		Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic	7a2e37ca-0df2-4965-ad48-3659f215ae87		
+language	chv		Chuvash	1526e9e5-5836-4aac-817b-94c2ba99289a		
+language	chy		Cheyenne	06b73c6c-2392-483f-8e06-c9ddc1f9d4f9		
+language	cmc		Chamic languages	d216704e-fd3c-47cf-9162-44777e485a40		
+language	cnr		Montenegrin	5312f6d1-6949-4002-ad52-0613049620a7		
+language	cop		Coptic	0ca6394c-8b63-4d4c-8cab-c5ebd335a77a		
+language	cor		Cornish	6d62a99d-7c26-48b9-93f7-6237046dfe9b		
+language	cos		Corsican	54a585a8-559c-4b31-938c-a3190ce5f0d7		
+language	cpe		Creoles and pidgins, English based	a362cf75-7ea6-486f-b6b0-2819241448da		
+language	cpf		Creoles and pidgins, French-based	6694f1de-1bec-4fea-ad2b-89f05f776676		
+language	cpp		Creoles and pidgins, Portuguese-based	f0791192-e521-41cf-83f7-8a6dcf67b136		
+language	cre		Cree	32caf39e-56fd-4e53-a77f-8efe04dc2f46		
+language	crh		Crimean Tatar; Crimean Turkish	277db374-de54-4c10-b6e2-9835d6311fe3		
+language	crp		Creoles and pidgins	0809e7b5-8d08-49cc-bc3e-2922276edcee		
+language	csb		Kashubian	b3876fce-f233-4f07-aa0c-f6f66708e9e1		
+language	cus		Cushitic languages	9ce14e2b-d7eb-4e05-ac4c-f63816776274		
+language	wel (B)		Welsh	076841b8-1d4c-49f3-9070-8b506ea27624		
+language	cym (T)			b8967c36-3421-460e-adb3-e353892859b1		
+language	cze (B)		Czech	512c3e1a-6f5e-4874-b2e0-6271b9dbfd8a		
+language	ces (T)			5c6453fa-98a7-4eba-b9ce-6c61482538f8		
+language	dak		Dakota	cd0ce577-e924-4eae-9c2e-e0ec2ce5192f		
+language	dan		Danish	285ed6c7-c389-40f8-842c-39fd9e153a0c		
+language	dar		Dargwa	9b21e863-396e-4b41-b15a-743d04002682		
+language	day		Land Dayak languages	5c8ce588-4899-40f2-8866-b63ee4d1094a		
+language	del		Delaware	a3983b98-ec32-4c73-bc95-704bfadbd6a2		
+language	den		Slave (Athapascan)	f423fb4a-81b6-4ac3-a414-1dce7a162060		
+language	ger (B)		German	7d299164-8f65-49a9-8812-10ef14e98402		
+language	deu (T)			2fedd1f2-8db4-4287-9146-efbee8e33f8d		
+language	dgr		Dogrib	7144a68f-0c0a-444a-ba54-f77e9b9ab528		
+language	din		Dinka	451996fc-4219-4a05-b6ff-74687cd75331		
+language	div		Divehi; Dhivehi; Maldivian	58ab5bca-b202-47f9-a181-9a1e274943d9		
+language	doi		Dogri	8fef64b4-402d-4e05-9f4a-5c103b124dd6		
+language	dra		Dravidian languages	161f1f35-d494-4c91-b87e-ad9486365394		
+language	dsb		Lower Sorbian	79ff4e9d-b621-408f-a71a-20f20f998ec3		
+language	dua		Duala	3255c163-4f56-45e8-9a2f-c0804332ab3a		
+language	dum		Dutch, Middle (ca.1050-1350)	26145bb3-8047-4cb1-a6a5-86b0fc04b13e		
+language	dut (B)		Dutch; Flemish	3bf617c3-8404-48d7-9d71-0c38e7d5a765		
+language	nld (T)			89a6bddc-32be-46a0-bd4c-18265430b610		
+language	dyu		Dyula	091ca949-60af-4826-8b8c-d9d116c005df		
+language	dzo		Dzongkha	acb78621-5dd0-42b1-adc1-fdab4fb125d0		
+language	efi		Efik	cce9f39b-dee3-42b3-a854-f3b82a8ad804		
+language	egy		Egyptian (Ancient)	566493c8-6195-4cf1-962f-2455044e76a5		
+language	eka		Ekajuk	e48f0368-fdf9-4f21-ab7d-358897900022		
+language	gre (B)		Greek, Modern (1453-)	6d16cbd3-7f75-4a46-81da-9789e1a3c5de		
+language	ell (T)			4fb55ee0-41ca-447a-aed1-c114560d91db		
+language	elx		Elamite	16c18f4b-fb49-4b88-a70d-b4a2bbfb98ed		
+language	eng		English	65e9e79f-220c-4f12-8409-86ccda4b5111		
+language	enm		English, Middle (1100-1500)	e2d6959d-e1f8-4b26-95a8-86556b5b6c70		
+language	epo		Esperanto	d16be295-aa1e-42a1-8d93-7a3f4301e446		
+language	est		Estonian	14eb5bdf-b658-43de-b6f7-2ddf50e3f2e8		
+language	baq (B)		Basque	59bdd4a4-c498-417d-81f2-b8dcafe5b623		
+language	eus (T)			461410cb-7bd3-4b14-9e4a-1f029246e3e7		
+language	ewe		Ewe	30479d19-c25d-4ae8-b290-57a89d218d51		
+language	ewo		Ewondo	6e96852a-7727-4647-b593-377b0caafde0		
+language	fan		Fang	1e3f7f18-3a99-4196-8b3e-9fa90e72f9ee		
+language	fao		Faroese	76cb1790-2c1d-415f-a83d-5cb77755d4eb		
+language	per (B)		Persian	143be644-2e95-47f5-889f-7b09fcb53152		
+language	fas (T)			8f49c569-d90b-4091-96d1-2e6f775d84d4		
+language	fat		Fanti	2af8978a-50e4-4749-93cc-c54b27f5e109		
+language	fij		Fijian	058b5b54-e3c2-4b19-b409-e0d39bf7b7f2		
+language	fil		Filipino; Pilipino	64041acf-cd9a-4473-899e-5b9669db4cce		
+language	fin		Finnish	8304c076-0979-4a9e-a619-417e6fa9cf88		
+language	fiu		Finno-Ugrian languages	916eaf4b-804d-4b0c-9453-55f08309295a		
+language	fon		Fon	05e15856-0ca3-4b79-80ca-0a407b5abc51		
+language	fre (B)		French	5420442a-a1b8-449a-85fc-1aee27d423c0		
+language	fra (T)			8abc4230-de99-47f5-ad47-b9a92dc96ad8		
+language	fre (B)		French	ee4895b3-0b83-4453-a07d-85582b190f4e		
+language	fra (T)			a9b866d0-e0ab-4019-b7c4-19695302b5aa		
+language	frm		French, Middle (ca.1400-1600)	5c7eb825-1093-46b9-972d-e96764b65a72		
+language	fro		French, Old (842-ca.1400)	cc958c01-f07a-43dc-bb0d-fea69638ccfd		
+language	frr		Northern Frisian	9237f914-943b-4d28-b675-281d203245a1		
+language	frs		Eastern Frisian	488dc3fa-4e0d-407c-806b-2fabc9886013		
+language	fry		Western Frisian	87bd3668-a0dd-4e94-ad39-8ce32740e94d		
+language	ful		Fulah	4cf1acd1-5e39-4de9-99ae-441b398b1085		
+language	fur		Friulian	42bbc258-f0b1-4234-8b6f-b7d2d94a3a76		
+language	gaa		Ga	0c1460d1-27e7-4023-b871-6b04409e7db3		
+language	gay		Gayo	3b6d2f0e-5e40-4462-82a0-7ebb371a4965		
+language	gba		Gbaya	dac697cc-0a6a-4840-816f-52f47156de2b		
+language	gem		Germanic languages	69473152-db67-46bb-b724-22d37b2a8436		
+language	geo (B)		Georgian	42ae9045-c128-4335-bc2f-02845d988615		
+language	kat (T)			858f0ad3-9d5f-4fbe-90d7-19a2e2574000		
+language	ger (B)		German	ee111922-2ea8-491c-8688-4b78f7462ecc		
+language	deu (T)			b825e9c8-a2bd-41ad-9421-1ecd37f74c03		
+language	gez		Geez	21bc911f-c2f9-4117-9f5f-751f8a47b483		
+language	gil		Gilbertese	1a972595-f83b-4c2f-8436-314324f73892		
+language	gla		Gaelic; Scottish Gaelic	0cdcaba4-b237-403f-8a79-f6927855c8d3		
+language	gle		Irish	33f64383-6e87-4913-8465-6ba3a84053a6		
+language	glg		Galician	88409f71-ca01-4259-b82d-1e6ca4c6441d		
+language	glv		Manx	46253ef2-0a40-4c70-8c2b-5d73f1708c81		
+language	gmh		German, Middle High (ca.1050-1500)	28152b71-7264-44ec-902b-00f474b168d6		
+language	goh		German, Old High (ca.750-1050)	42616f85-5e2d-48e2-8221-c5a203722722		
+language	gon		Gondi	33c91b3f-7b7e-4554-bc0f-dedc71c6dadf		
+language	gor		Gorontalo	7a179eb7-1661-48a6-a707-4409c0537770		
+language	got		Gothic	01e62ba7-d0bb-420b-93c6-fcc1d33256b8		
+language	grb		Grebo	d1e3b738-ea51-4fa2-ae79-019dd90e11b6		
+language	grc		Greek, Ancient (to 1453)	a3d915a6-9a44-4ca9-aaad-6c788220cbcc		
+language	gre (B)		Greek, Modern (1453-)	3d2d17c0-a2ed-4136-96f8-5c221f668e13		
+language	ell (T)			df8d089c-4567-4a4f-842f-9eed2540f75a		
+language	grn		Guarani	ab4f66d6-52ff-4b27-9b3b-7a706bab2e7c		
+language	gsw		Swiss German; Alemannic; Alsatian	2cb0be15-4022-4aa9-8870-08132abf519a		
+language	guj		Gujarati	e7e27e27-051d-46a0-b496-28022390f4bd		
+language	gwi		Gwich'in	9ea0f4aa-b866-4aa7-8c81-e72e7d30feb7		
+language	hai		Haida	b48e5bda-37e2-414e-ba63-7e731732dc42		
+language	hat		Haitian; Haitian Creole	bce8c745-acc1-41f8-af96-2d4730743118		
+language	hau		Hausa	87185389-e741-4118-8877-4f8a34c6317e		
+language	haw		Hawaiian	21020966-fa67-4d75-aa19-f50f1d160a63		
+language	heb		Hebrew	33a8225f-8a88-46ff-a30a-b9d22b244020		
+language	her		Herero	cdd05fb8-df79-4484-b494-376a7b3e6c4a		
+language	hil		Hiligaynon	8e7f8d27-b7d8-439b-8f72-4192b39dd62e		
+language	him		Himachali languages; Western Pahari languages	84076fc0-4bd2-483b-94bf-ec28efb93501		
+language	hin		Hindi	ce278843-5ade-4969-995f-1a45187d0f3b		
+language	hit		Hittite	a487621f-60f7-40e2-a930-42061b531131		
+language	hmn		Hmong; Mong	5445a2fe-bfcb-436d-bacb-b31ee6fce124		
+language	hmo		Hiri Motu	ca3adf13-2821-41b3-841a-e4383077a4f6		
+language	hrv		Croatian	bbdf3352-3a1b-4f40-940e-26a045202e41		
+language	hsb		Upper Sorbian	971460de-ebeb-42e9-9bb6-ba8c8580ca9b		
+language	hun		Hungarian	104aad16-4e50-414e-bd3d-f90b6f4d1d91		
+language	hup		Hupa	56372e33-bfa3-40e1-9536-46f5c7da5399		
+language	arm (B)		Armenian	5aee4b97-eeb7-4594-bbf4-a2d9b303cc02		
+language	hye (T)			5a738fd9-6b63-4208-bc10-65e3d09377fd		
+language	iba		Iban	6ff2553a-e203-4901-bbb5-8e7d4d53ca9f		
+language	ibo		Igbo	2bb78bfc-4731-4715-ae68-e6c3993a6833		
+language	ice (B)		Icelandic	a2e9d154-5a3d-46ad-9310-e233b5282ebc		
+language	isl (T)			b25931d0-7df3-4ede-9b14-1935baed08db		
+language	ido		Ido	e64c17ca-7789-4d99-b9a6-1050adf1a593		
+language	iii		Sichuan Yi; Nuosu	9f85d80c-3eb7-4e3f-b50e-67beb8bf4e3b		
+language	ijo		Ijo languages	a0b10f17-5710-44d1-88c5-edb08613d950		
+language	iku		Inuktitut	59d858d7-4199-4164-825a-0e4e9930dd4c		
+language	ile		Interlingue; Occidental	9609c3bf-1144-40f7-b457-8284d2692fe0		
+language	ilo		Iloko	60f22fe3-5953-44ee-a1ff-6051de8fdbee		
+language	ina		Interlingua (International Auxiliary Language Association)	0891427f-3a21-4eba-936c-cc5b1147cc0f		
+language	inc		Indic languages	047a0196-76ab-4415-8f34-8455b73aeb62		
+language	ind		Indonesian	652011c5-3d28-4ab3-9a35-e9ecb11e86ae		
+language	ine		Indo-European languages	5eb3e303-0dce-4d3a-9e8f-666b6d7fd336		
+language	inh		Ingush	ad2c27a3-8d38-4407-9767-8e3700ed52b2		
+language	ipk		Inupiaq	263cc94c-f18a-4c2a-98db-79edd7dca7ce		
+language	ira		Iranian languages	9da17d17-f3da-4028-bc0d-7e85e27d43ae		
+language	iro		Iroquoian languages	8035748c-9d7c-4e7f-802d-519ea61308da		
+language	ice (B)		Icelandic	58f81f3e-1ef5-423a-be82-948598227652		
+language	isl (T)			401703f0-2caa-41e5-9371-224f720cf21b		
+language	ita		Italian	e66ee3b4-cdf2-40da-8668-eae304ea6d3a		
+language	jav		Javanese	08420230-e83a-44b5-b6f6-beac1bbfca0f		
+language	jbo		Lojban	a89e5bcf-5d71-4a46-8823-3af1dfae896e		
+language	jpn		Japanese	d0147c8e-db2d-4ca6-a3c0-552ab7216bb0		
+language	jpr		Judeo-Persian	3d55cca2-31f9-41c5-bdbf-f3845c0b4db4		
+language	jrb		Judeo-Arabic	7543523b-8b2d-4d46-a5aa-932b6453afae		
+language	kaa		Kara-Kalpak	b8d6bd59-6199-4925-971c-833dbad87807		
+language	kab		Kabyle	2b3812bc-e22b-4691-96f4-8e24f1c0c6eb		
+language	kac		Kachin; Jingpho	d0a4b62e-b96b-4d4e-a576-5bc6a031d3fe		
+language	kal		Kalaallisut; Greenlandic	0a41f0e2-41bc-4fc7-a747-c4cd869b5031		
+language	kam		Kamba	40bcb05e-7b03-4a40-9a78-400ccd528a82		
+language	kan		Kannada	a3ba44fe-2264-4334-84cd-69c83805eddd		
+language	kar		Karen languages	8a77134c-77a2-42fd-b774-147a0ba0d1b6		
+language	kas		Kashmiri	e0a3989a-2414-4490-a31c-50fb7051fd77		
+language	geo (B)		Georgian	2c3e8cdd-45db-4c39-9c5a-ed4c28f9b5fd		
+language	kat (T)			8d105f50-a0db-45ff-8779-9af99fa6cf2e		
+language	kau		Kanuri	1ce1e46a-de02-4442-98d6-dfebfc4f0627		
+language	kaw		Kawi	b04e8c01-9532-4642-ae3d-9bb074645d3e		
+language	kaz		Kazakh	d327ae8d-8e19-4249-a5db-b7065196e867		
+language	kbd		Kabardian	3659ef28-fb18-4831-97f7-780173da9e5f		
+language	kha		Khasi	327d3015-7320-497f-a1df-31fd25e9bc6c		
+language	khi		Khoisan languages	1171c923-1207-44a7-a36c-7033d7f3a452		
+language	khm		Central Khmer	2b865129-8672-4cab-afc3-c294a80a93d3		
+language	kho		Khotanese; Sakan	89a92ce7-d9d7-47ca-aa0e-bc076a6608fe		
+language	kik		Kikuyu; Gikuyu	93d5bb4a-8a19-40f6-8d56-efe118a43129		
+language	kin		Kinyarwanda	14e978a5-1531-4a5a-a5e9-65436253b918		
+language	kir		Kirghiz; Kyrgyz	dfec39dc-7406-451e-886a-da3399c9f040		
+language	kmb		Kimbundu	d8a58d1c-18f1-403c-8807-854edf54e7b6		
+language	kok		Konkani	632eb812-2147-4fc6-9a31-83226101802f		
+language	kom		Komi	fc23916d-99d6-43ac-9dc9-208fe6496e01		
+language	kon		Kongo	37a88346-2cba-4a74-b6af-1506fd90d14e		
+language	kor		Korean	9b76c534-aa3c-4cea-a7ec-59fef3a06ea7		
+language	kos		Kosraean	31c4c4f1-a650-4024-90e8-544643308917		
+language	kpe		Kpelle	9c2afb93-c28b-4e84-b1d7-f914a0f27df8		
+language	krc		Karachay-Balkar	8116bafb-79b7-4689-9a7c-0f8fc2c1c907		
+language	krl		Karelian	4ea1414d-4d16-4025-a180-4fe78051b5d4		
+language	kro		Kru languages	5f24a4c4-901b-4fb0-8464-11207c3e6a4d		
+language	kru		Kurukh	6035a46c-cd7b-4af6-a987-fb306aec2c4c		
+language	kua		Kuanyama; Kwanyama	936c2de3-d61c-4a60-97fc-6c01337571fc		
+language	kum		Kumyk	93f3c865-e0e6-4043-9b27-30f3713a7c6c		
+language	kur		Kurdish	702804d8-d864-42e6-a30d-77cb5ac86236		
+language	kut		Kutenai	c5ac601a-e40e-465a-abc6-17ce4f210b67		
+language	lad		Ladino	89e592f4-30ab-49eb-84c4-b63400289685		
+language	lah		Lahnda	86b7e53a-531a-4fa4-a9f8-d9615375069c		
+language	lam		Lamba	b31d0d65-82b7-4c48-a3f9-22db65f9d379		
+language	lao		Lao	68166135-9388-4123-bf35-7244590fb78e		
+language	lat		Latin	25352b1e-1b3c-4396-b5b4-1fb1ff7cc3fd		
+language	lav		Latvian	b19f0b17-5027-4a19-896f-6c6893233b2f		
+language	lez		Lezghian	f385ea71-94cf-44a4-ac0f-1f8c4d47df86		
+language	lim		Limburgan; Limburger; Limburgish	bdcb1fd7-363f-4703-b89c-27b300314214		
+language	lin		Lingala	a44d05a9-c9e7-4666-ac20-35ab8fe84fc1		
+language	lit		Lithuanian	b5b67879-d7af-498b-8879-316a982dbdda		
+language	lol		Mongo	be2e029f-a08c-49e1-a30e-908ff417e980		
+language	loz		Lozi	700ef574-172c-46fb-a041-0f5effc5f07d		
+language	ltz		Luxembourgish; Letzeburgesch	74f2ad94-aa31-4fd4-93ce-2f945e09bcb0		
+language	lua		Luba-Lulua	e5f221a6-d8a7-4360-a306-c6eae15c0db1		
+language	lub		Luba-Katanga	b5800feb-1c75-463d-881d-1f823148e63d		
+language	lug		Ganda	65d0dd4b-7267-4a17-9fdf-e96fd1a5430b		
+language	lui		Luiseno	49cf1cb3-1a29-4ecb-a739-33dab402f631		
+language	lun		Lunda	c73ddbd6-db8e-499c-9a53-5c06790c63d3		
+language	luo		Luo (Kenya and Tanzania)	91c5ae34-f5ff-4235-bb60-a20ea78dd33f		
+language	lus		Lushai	0272eea4-a536-4b22-9baf-0e697b13ebb2		
+language	mac (B)		Macedonian	56e56d91-1d46-48c9-949e-7f0ae047dac9		
+language	mkd (T)			92b5d6b4-3350-45b4-b594-2a355bd0239e		
+language	mad		Madurese	b1ea480d-3fe1-44ba-9395-df899cc8edf0		
+language	mag		Magahi	d7fc9fd2-a316-4d82-bec5-834e0d066d66		
+language	mah		Marshallese	feef57ad-c453-43e3-8c84-2097c8a05198		
+language	mai		Maithili	1eb6a51e-85c2-4560-94bb-d864b5694d9b		
+language	mak		Makasar	2a67b616-2dae-44e3-b3a6-25450c5cceaa		
+language	mal		Malayalam	35ae8ee2-ff5c-4658-aee2-e0f60a5e7e50		
+language	man		Mandingo	1ca9202e-d4b3-42d4-a3b0-4c2d08736ff8		
+language	mao (B)		Maori	256a9084-af5a-4a3a-b618-c549fbb4a836		
+language	mri (T)			811da459-b12c-47b1-985c-4792a2f680c9		
+language	map		Austronesian languages	8d23aa87-6c76-4601-807f-f792a0364bad		
+language	mar		Marathi	5b288dd3-ba0d-41a5-ac8e-b5c86e0610ca		
+language	mas		Masai	e1edd67b-7251-4135-b7c0-77b61bee16ef		
+language	may (B)		Malay	445f89ed-587d-4cdf-a3cb-d339a2bb853b		
+language	msa (T)			a88d8f32-e9cd-4c7b-b4bb-69e3a21ec46c		
+language	mdf		Moksha	2acbf2f8-c1eb-4254-aa89-73b83a13615c		
+language	mdr		Mandar	a93b3007-9d94-402d-aa49-509f786e8c76		
+language	men		Mende	b7385ec8-737f-47e0-8e8d-1bd7cca5db61		
+language	mga		Irish, Middle (900-1200)	02e7598c-7d0e-44a7-bfcc-8ac3a3b74e38		
+language	mic		Mi'kmaq; Micmac	0edacb00-3d7c-488f-be6d-2ef0801125c2		
+language	min		Minangkabau	2e518f1b-841f-441b-b3b0-6f8a1c9e1cd9		
+language	mis		Uncoded languages	a55dcecd-8ca9-4821-8fff-d0cde40a58c1		
+language	mac (B)		Macedonian	66e35398-d92c-45fc-bae3-e43dce32c3a0		
+language	mkd (T)			625936a8-4c9a-455d-8864-97733c681f0d		
+language	mkh		Mon-Khmer languages	1eff88f3-e481-41cd-bd45-f39ee846ca1f		
+language	mlg		Malagasy	2b5f7fca-885a-4847-8c6b-c3f7e848d0e6		
+language	mlt		Maltese	7610a5d1-de56-411d-911a-851889cc7a11		
+language	mnc		Manchu	e077d884-305f-4714-a7e4-3379e0f02944		
+language	mni		Manipuri	51dad339-bae1-4d1e-8fb3-8887067c873d		
+language	mno		Manobo languages	5a32c932-19f5-422c-aaa3-af21c8e73d97		
+language	moh		Mohawk	b84ab66b-bef3-4be5-b219-d561a725b1e6		
+language	mon		Mongolian	db007f9a-7995-4e52-be32-c9ad6018a99f		
+language	mos		Mossi	e29de135-43ba-4ec4-83e8-fe56db4b24b1		
+language	mao (B)		Maori	6381d273-4a78-4628-b1cd-7a69c24fc810		
+language	mri (T)			fd8c037a-6865-4a6d-8237-e83f82759622		
+language	may (B)		Malay	184edfd7-adcf-47a4-90af-227d71855497		
+language	msa (T)			da13a2d3-f6a1-4ecf-bfa5-6971404ddf63		
+language	mul		Multiple languages	9b77be28-16f5-4db8-a8e9-acb608165c9e		
+language	mun		Munda languages	3071980b-d7ec-4769-96e5-17844f1c2174		
+language	mus		Creek	73964856-7177-46b1-93bb-df72f2907cc0		
+language	mwl		Mirandese	24982a0a-f4e0-4241-9887-a7aa2794bc69		
+language	mwr		Marwari	679a5f8f-7ff6-41de-a7a6-7aa23c1dca22		
+language	bur (B)		Burmese	c43ed706-eb98-43a7-b413-b65d44c2c2d3		
+language	mya (T)			7a352cd3-a295-4fdc-a372-51a9da2fceb5		
+language	myn		Mayan languages	8881b2e5-6461-4f94-b6e3-36cb8b3c12de		
+language	myv		Erzya	305ec46f-1469-4195-b03f-0c8320638470		
+language	nah		Nahuatl languages	5094d599-ee63-4e91-8165-c5a76f131cee		
+language	nai		North American Indian languages	d19e0c99-c6c2-4652-b4e9-5117f59f84b9		
+language	nap		Neapolitan	619c4a71-404f-4c38-8ebf-ee2e312dbd18		
+language	nau		Nauru	dd241478-2ca7-4897-8f5b-dca1e5751075		
+language	nav		Navajo; Navaho	59f81cee-8038-490b-b421-42dcebc342aa		
+language	nbl		Ndebele, South; South Ndebele	067d1f5c-1010-4684-a482-7452f97a028e		
+language	nde		Ndebele, North; North Ndebele	79c9b2b2-dc70-473f-876d-7a4ee4ab9fb1		
+language	ndo		Ndonga	ba2986ef-8b5c-4adb-bd24-c1ada993484d		
+language	nds		Low German; Low Saxon; German, Low; Saxon, Low	58b13965-2ab6-487f-b158-c926a751a58e		
+language	nep		Nepali	1da4108f-84b5-4cea-892b-a7fa99cdda55		
+language	new		Nepal Bhasa; Newari	a9b262dc-9145-4050-8d4b-15bc683c8715		
+language	nia		Nias	f36827d1-ff93-47e3-8390-8781ef175d6e		
+language	nic		Niger-Kordofanian languages	2eb3e102-8fc0-444b-859a-cdbc80aaf0c3		
+language	niu		Niuean	9816fa1e-f51c-4d7e-b68a-c0e6cf280bd6		
+language	dut (B)		Dutch; Flemish	91826ea7-d4a6-4022-be6e-461fa6c44ca6		
+language	nld (T)			0e29cd1b-2f8c-4ac0-86f2-91357d4647d0		
+language	nno		Norwegian Nynorsk; Nynorsk, Norwegian	bae8ee2e-176c-44b9-8d2b-34d9a36cdb18		
+language	nob		Bokmål, Norwegian; Norwegian Bokmål	7cb75653-4bdc-419c-baa7-d916da65a2c7		
+language	nog		Nogai	cc757d1a-ba47-433f-b9cb-e1dc08f1b296		
+language	non		Norse, Old	030bff34-6c1c-4a68-8744-1a6dbf16b643		
+language	nor		Norwegian	2a38ae04-c9b5-4bcd-94cd-b3b6319f0257		
+language	nqo		N'Ko	06173cf4-4848-4d52-b32e-dc3e3a197200		
+language	nso		Pedi; Sepedi; Northern Sotho	0e31ca97-4efb-4a22-ad70-9fa19eb02c7b		
+language	nub		Nubian languages	8e6fbc2b-dc12-4ab9-9483-5f1b90652408		
+language	nwc		Classical Newari; Old Newari; Classical Nepal Bhasa	33b1c08e-d09a-4350-ae26-cec3db942d58		
+language	nya		Chichewa; Chewa; Nyanja	d85c3d9b-052d-4a0d-ab07-cb32361f4958		
+language	nym		Nyamwezi	6f814135-46c5-41a7-b262-88439493bf61		
+language	nyn		Nyankole	b3d90baf-69e0-4ddf-b907-f551b6874ea8		
+language	nyo		Nyoro	ede5c09f-5cf1-4f1c-b852-0db89f5a9231		
+language	nzi		Nzima	e8b812fd-f17c-4a97-b6da-bab6a87c86ba		
+language	oci		Occitan (post 1500)	b49c0ba1-0ba0-4e55-9518-8c74155c4c1b		
+language	oji		Ojibwa	d748907d-a846-4652-86bd-d50e5d6cfdfb		
+language	ori		Oriya	02f6953c-94bf-4716-8fe7-a1143a6dc5f8		
+language	orm		Oromo	11974229-5640-4183-8c4d-db3eee98bcd7		
+language	osa		Osage	773eb971-66c9-4c0b-bd59-c6845b89baf6		
+language	oss		Ossetian; Ossetic	3a49b23e-4bb5-486b-8f6d-7d1a8644317b		
+language	ota		Turkish, Ottoman (1500-1928)	07907669-6612-4059-9e13-10169e8142d4		
+language	oto		Otomian languages	8abaf5b0-5682-47c3-a994-cb8b37bb7032		
+language	paa		Papuan languages	ef38730d-4f75-4fd4-a28c-8206ba2b69f7		
+language	pag		Pangasinan	e39a6c45-4f38-486e-97cd-9ad4286e3755		
+language	pal		Pahlavi	bf6c8818-52e5-4648-b888-c4e6ddfad457		
+language	pam		Pampanga; Kapampangan	216793a3-18cb-4d9d-9d50-53ce59962b32		
+language	pan		Panjabi; Punjabi	62a900af-d227-4873-a398-7775740393f4		
+language	pap		Papiamento	f7df2fb5-67f2-45d6-a6ea-93ee5c5d29b1		
+language	pau		Palauan	d91a50e9-8447-4bb8-8391-bfcd60b1173c		
+language	peo		Persian, Old (ca.600-400 B.C.)	d0fdc2ae-441f-4352-832d-0493d4fbe14d		
+language	per (B)		Persian	33f9d862-e315-470a-88cd-fa480a250b49		
+language	fas (T)			7dce55af-e705-4cc6-b83a-ab0eaddb3592		
+language	phi		Philippine languages	0f7b8b3b-d0ef-4812-a209-b65fdbd30e8b		
+language	phn		Phoenician	67a49436-f88d-438f-9b20-ff3b29120736		
+language	pli		Pali	b52b6794-1d2e-4319-a007-c32351883299		
+language	pol		Polish	134bfb70-8473-4d8e-8df2-0c1243ab8dd4		
+language	pon		Pohnpeian	2258fbc8-b59f-4ba9-8741-05294e0038c6		
+language	por		Portuguese	f1dbd090-b2e4-48a2-ba51-867c48a20773		
+language	pra		Prakrit languages	c276257c-0123-4f6f-a290-afbf5af553fa		
+language	pro		Provençal, Old (to 1500);Occitan, Old (to 1500)	891724d5-1f1c-47fd-b966-4ee02d15b984		
+language	pus		Pushto; Pashto	b6efbf08-a8f6-4794-8bbd-928fb668b49d		
+language	qaa-qtz		Reserved for local use	7df23141-cd18-4f65-a2c5-835cf3749643		
+language	que		Quechua	e04eafe0-855b-4678-ab29-77c8fd9a443d		
+language	raj		Rajasthani	092eed03-ed39-45d0-b110-0aafce9f3ee7		
+language	rap		Rapanui	a76945c8-3db0-4237-9278-8bc823fb0ba3		
+language	rar		Rarotongan; Cook Islands Maori	85aea465-fd52-4a16-b20d-1264d911a7f4		
+language	roa		Romance languages	c6e37fa9-3af8-4afe-ab8a-480e1312cd05		
+language	roh		Romansh	320cbbb3-42a6-4ddd-9110-393553a39c83		
+language	rom		Romany	0c48d784-ad2e-4cdc-bcce-93cb9069e191		
+language	rum (B)		Romanian; Moldavian; Moldovan	1bad674e-6858-479d-8429-572915c542f3		
+language	ron (T)			1147ee1f-5d1c-41a1-a9f3-8ea1d9bce19a		
+language	rum (B)		Romanian; Moldavian; Moldovan	8e898a0c-55cd-4da0-b623-adbcc4774244		
+language	ron (T)			8921a1fe-7a32-4dba-9927-6b8642454658		
+language	run		Rundi	6e1dd7b2-d520-4c0b-b71f-07541d91765f		
+language	rup		Aromanian; Arumanian; Macedo-Romanian	878777cc-7235-467a-84fd-035702912afd		
+language	rus		Russian	72174f70-9d59-43d8-9249-1ca4d8404912		
+language	sad		Sandawe	d5548ca6-f653-4d88-b547-563d8366612d		
+language	sag		Sango	823091ab-ed9b-4e75-8de5-1dfac5cc2afc		
+language	sah		Yakut	54310bbf-fc17-4ff2-9a3c-9c288a8603ed		
+language	sai		South American Indian languages	4f61467f-14bd-4f1d-8a3e-cde0a7cbfc10		
+language	sal		Salishan languages	b8b31e6c-86df-412b-bbaf-b4ac2d327d60		
+language	sam		Samaritan Aramaic	5d774547-4173-420d-8d74-894e0fa90546		
+language	san		Sanskrit	364cdcf9-4632-45f5-82bb-c1abab9d0165		
+language	sas		Sasak	a877c992-4cf2-46c6-a30e-3a2eab484cee		
+language	sat		Santali	08d560ed-4bc7-40ef-98d5-712047e7eef4		
+language	scn		Sicilian	3142f61e-ee88-4db3-8208-88ae9f590e5c		
+language	sco		Scots	ae2e5c4d-22c2-459a-bc87-175873f59bb5		
+language	sel		Selkup	04dd6576-647e-4e0a-82de-950e29010ac3		
+language	sem		Semitic languages	b6575c08-ad3a-4e74-ae46-88f14e3b413f		
+language	sga		Irish, Old (to 900)	21897a47-04db-4b17-8441-ca04b3c1926a		
+language	sgn		Sign Languages	4752b128-0cda-4b4f-984d-3910edb514b8		
+language	shn		Shan	9cfe7da5-fd83-4574-bce6-c41c6cc90c72		
+language	sid		Sidamo	931f6281-550f-4e44-a129-d32876ac4796		
+language	sin		Sinhala; Sinhalese	40a36adb-b9e7-47ba-8d7b-753038485c56		
+language	sio		Siouan languages	6f84ccf2-a3f5-426e-bdab-32843c4ad762		
+language	sit		Sino-Tibetan languages	76d1c544-7112-4e4a-baca-04cc6db6d709		
+language	sla		Slavic languages	cb4adef4-bb19-4cf7-8497-9c593c8b5594		
+language	slo (B)		Slovak	4cf9cf1f-e99f-4266-96e9-c9b5b50facdf		
+language	slk (T)			fd9e0ae3-d724-49d8-81fc-ec391a4eff00		
+language	slo (B)		Slovak	6cbebeb9-5090-4f55-b957-c0233d69ddad		
+language	slk (T)			e2c3b5e0-6825-4e7f-bbbc-7dba9c9e5f6d		
+language	slv		Slovenian	a88dfd2c-aed3-4519-926f-0cdef59d0261		
+language	sma		Southern Sami	aa608643-96ec-49b7-a69d-3b882bafcd80		
+language	sme		Northern Sami	d81b5eda-196f-4245-9689-7644e6b36ca5		
+language	smi		Sami languages	f8a90d12-2e5b-4664-bae4-1a9f2fe2dc45		
+language	smj		Lule Sami	d7ae0ffa-a6b8-49e0-9f57-06c01cc6b9d7		
+language	smn		Inari Sami	3fe596ff-74c4-4c49-840c-ff244b23292d		
+language	smo		Samoan	d655a3bf-60f0-4009-8b15-8f1f5673d1e1		
+language	sms		Skolt Sami	4d631c5a-d5dd-4121-9096-1ddf7c7d476c		
+language	sna		Shona	3d4ee2df-3afd-4f93-b4eb-2018b130e991		
+language	snd		Sindhi	9e3fa899-0c44-40f4-ac99-aff93c64ad10		
+language	snk		Soninke	744ab819-0fec-4675-8c95-025690806701		
+language	sog		Sogdian	67485916-ef72-47f2-b999-695032477e62		
+language	som		Somali	335ab21c-889b-4601-8b9b-f781afb1817f		
+language	son		Songhai languages	2c729a4a-61cb-40fc-84d7-468f92c02970		
+language	sot		Sotho, Southern	6bf3ecd3-6c34-4f44-be2e-8eb3c24093f6		
+language	spa		Spanish; Castilian	5a6619c6-bb3c-464f-8d02-a7fc6d3d4ded		
+language	alb (B)		Albanian	9bda8f65-c0e8-4d38-8fb3-e9cd5b467285		
+language	sqi (T)			1772d296-5b96-4ae4-813c-6ba2b51e32cc		
+language	srd		Sardinian	284e34ce-c531-4ae0-9c71-a3a637135777		
+language	srn		Sranan Tongo	f6241893-ebab-4f59-8914-39bb5932aa2f		
+language	srp		Serbian	c23147c1-325f-4f6f-bd27-8f0aa28e8b6c		
+language	srr		Serer	9ebd8598-e5e7-44c6-b7d7-9fb68c2c1172		
+language	ssa		Nilo-Saharan languages	8ea093f5-61bb-4281-8a38-75ef728ff290		
+language	ssw		Swati	7badff49-a493-4595-a44f-43d4c898ef50		
+language	suk		Sukuma	7f034a18-5a44-4301-ba7e-2e210fe9c029		
+language	sun		Sundanese	ab503369-bb0e-4ae2-9722-29b85863d493		
+language	sus		Susu	e9f5a83b-6997-4469-9032-528d19d4e628		
+language	sux		Sumerian	d522750e-af28-4fe5-b665-5db42848ea75		
+language	swa		Swahili	8a4142fe-b292-4b11-afeb-05d6f4d7a7c6		
+language	swe		Swedish	79295f40-22d0-49dc-ba14-55e83e4a4469		
+language	syc		Classical Syriac	97a5cdc3-2488-4752-b52d-39bf0b71fb81		
+language	syr		Syriac	5de64d04-c9ac-4981-b736-13ceaad3db54		
+language	tah		Tahitian	550fa6a8-80e7-407c-a8cf-9f92de5b7d7c		
+language	tai		Tai languages	32d112ea-0bcf-4efe-813d-055d453b1040		
+language	tam		Tamil	7d479f27-f9bc-4a67-bd7e-a4b8f55ad0a5		
+language	tat		Tatar	d03e03b3-427b-4209-887e-37c26cb53d29		
+language	tel		Telugu	d78ffee3-233b-4fe0-b58b-668c3e97ebfc		
+language	tem		Timne	a85c65ae-7924-4796-a9c4-9dc61be7ba2f		
+language	ter		Tereno	351a6565-65cd-49ee-884e-9ef249cc2abb		
+language	tet		Tetum	351cbac4-b6f1-4b6b-bbc0-651e819118f0		
+language	tgk		Tajik	18542932-bdd0-4226-b6b7-c6f218b07d8c		
+language	tgl		Tagalog	1ec064ba-87fe-4d44-8a96-601ccbf98352		
+language	tha		Thai	e1a3bd7b-2299-4e95-adb5-a53b8a423a7a		
+language	tib (B)		Tibetan	c434311c-e69c-4c68-aecd-64eeb9ad8358		
+language	bod (T)			e0bbc6b8-91ae-4652-a9cd-42e16988e006		
+language	tig		Tigre	44776d0a-fb25-405a-b15d-3d4f856f38bc		
+language	tir		Tigrinya	9116f8d0-a761-45b8-ad9f-7330df44242e		
+language	tiv		Tiv	07b2e2c7-3bb1-47a2-ade9-595feb552fb5		
+language	tkl		Tokelau	24f464cb-edba-4dc4-bfa9-3d95037504c7		
+language	tlh		Klingon; tlhIngan-Hol	3920e98f-2bee-495b-b4fe-65536761fb13		
+language	tli		Tlingit	ea874009-87a2-42b5-9740-ec98269e1e75		
+language	tmh		Tamashek	3ec6fabc-e3cd-4fb0-807b-7193600f9563		
+language	tog		Tonga (Nyasa)	0f113014-6608-47ea-bec7-e20edd1d81e1		
+language	ton		Tonga (Tonga Islands)	a08b5da6-03cb-411a-8a55-3c90d25c680e		
+language	tpi		Tok Pisin	67986030-79fa-4e1c-913a-4e862846a2e3		
+language	tsi		Tsimshian	27b69661-41de-429f-bf0b-d6438c6d4a2d		
+language	tsn		Tswana	ae0d4700-c48e-4239-b3a8-c24ad12ba8b6		
+language	tso		Tsonga	259199b9-ed18-41e6-b371-c9d67db1a78a		
+language	tuk		Turkmen	f60f79da-ae05-48b0-a333-01ff4a92d580		
+language	tum		Tumbuka	a0a526e6-e6d0-42a2-b2f4-f063c6c826cf		
+language	tup		Tupi languages	df7e428b-e3d6-4075-8db6-97a23b364bbb		
+language	tur		Turkish	e6688810-7d64-4f0b-9278-809d4e3e48f0		
+language	tut		Altaic languages	07ad4b2b-25fc-4b47-926f-67782223f2ee		
+language	tvl		Tuvalu	1145c194-914a-412d-8bb8-e4ccc7bca2f5		
+language	twi		Twi	e27b4f43-f1b3-466e-bc84-371e671f3395		
+language	tyv		Tuvinian	2715e700-4f3f-4871-a3f4-d5859637fca9		
+language	udm		Udmurt	8d5c9586-af46-44bc-8e83-38e6264f5a83		
+language	uga		Ugaritic	34e01d9c-eef4-4e5f-a116-c60a76263894		
+language	uig		Uighur; Uyghur	01eb58d6-e680-4ee9-b7cd-f69fd251f33f		
+language	ukr		Ukrainian	9495c95d-155e-47a3-875b-b4098a70733e		
+language	umb		Umbundu	5a65eba0-8f94-446d-910f-dda7a25864c2		
+language	und		Undetermined	1ef32d3a-f913-4e3f-a95a-46aba80a0162		
+language	urd		Urdu	2e1d4c7b-cab6-4139-a2b7-09c9babefee2		
+language	uzb		Uzbek	fcb00043-8802-4968-8ee6-b176ab578a9b		
+language	vai		Vai	8ce8fbfe-f268-4441-a5df-0875b3cd0907		
+language	ven		Venda	071e84ed-b493-4b80-af4d-ba6ae0ccb2eb		
+language	vie		Vietnamese	b36301fb-020c-4c19-bf09-64de2bf83167		
+language	vol		Volapük	7ab78212-2b91-4489-8588-acc5620208f1		
+language	vot		Votic	cf083375-747a-4b6f-aadb-3623e99ea794		
+language	wak		Wakashan languages	1602ce50-8592-4e42-be4a-c72825325abd		
+language	wal		Wolaitta; Wolaytta	fafc34a9-fb5a-4f6a-9c12-ded5c1424527		
+language	war		Waray	e9a7baca-740b-4e4b-a691-581186f5b023		
+language	was		Washo	45230491-9319-4c3f-a7b2-f3e034f3186a		
+language	wel (B)		Welsh	6753bf96-6991-46e1-9fae-2344df9b6cbb		
+language	cym (T)			c8f440ab-9015-4025-b8a0-ef6efed40a84		
+language	wen		Sorbian languages	50cf30dd-ed19-43c6-a0f2-5e649959a46b		
+language	wln		Walloon	1d8deaef-d774-4ea9-9295-fb0558f8f175		
+language	wol		Wolof	e8da4a42-bac5-4780-b1e5-363f6435d78e		
+language	xal		Kalmyk; Oirat	cc03f013-5765-4c43-bf5b-eb347af4d57d		
+language	xho		Xhosa	3005c511-1b2c-47f0-a2ef-f84a40e2f6af		
+language	yao		Yao	f001128e-e03b-41d4-98a8-23249a7f0169		
+language	yap		Yapese	ac2c25c5-e05a-437b-859f-758c8feb925a		
+language	yid		Yiddish	b0b7fe46-67de-4d7e-9342-c99833403d9f		
+language	yor		Yoruba	65f2c5fd-a6a2-4c1b-be7c-26640c02ac49		
+language	ypk		Yupik languages	1ecf67ed-7880-4eac-9db4-06b985b7593a		
+language	zap		Zapotec	198a07ba-5f0f-4281-bd00-824b2189315c		
+language	zbl		Blissymbols; Blissymbolics; Bliss	533aaadb-21f4-4cb1-aff0-9ae73f25f2ee		
+language	zen		Zenaga	8f7a5a7c-70cc-4268-b54b-9cdcdaf8a9a9		
+language	zgh		Standard Moroccan Tamazight	fdf089ac-c20c-43dd-b81e-fd3740a2bed3		
+language	zha		Zhuang; Chuang	1da8d36e-e24b-4d9f-9f13-29bddf9676ba		
+language	chi (B)		Chinese	00cb3432-6b93-4d69-9349-eafd3b73f105		
+language	zho (T)			4a61ecd4-2b33-410b-85f6-b98cc538de08		
+language	znd		Zande languages	366694d2-4679-4f69-8e19-3920349bf081		
+language	zul		Zulu	cf7d834c-6835-4bff-9fb4-847c5248d9e3		
+language	zun		Zuni	f072cac8-839c-4abb-a1c5-c58ff3a63cb3		
+language	zxx		No linguistic content; Not applicable	fa42d869-c179-4a13-bf7f-f11fc0fd8300		
+language	zza		Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki	8144b9f3-4f9f-45c8-a16f-27acd69dd6da		
+manner_of_death						
+manner_of_death	not deceased			998533fe-c3a1-47d0-8439-09e54095bbee		0
+manner_of_death	accidental		A manner of death in which death is caused by inadvertent chance happening(s).	30e9feff-a89b-4c23-943b-b22161440f57		1
+manner_of_death	homicide		A manner of death in which death is caused by a person's intentional action to kill or harm another.	599fdfc8-73d7-4851-873d-d738f9183ee7		2
+manner_of_death	suicide		A manner of death in which death is caused by self-inflicted injurty with evidence of intent to die.	ac0541ae-effe-4704-9d2b-b31c6dc5b0eb		3
+manner_of_death	natural		A manner of death in which death is caused solely by disease or natural process.	9e7c4516-8ba3-4e42-9813-4fbfb1449e0d		4
+manner_of_death	manner of death undetermined		A manner of death where little information is known about the circumstances surrounding death or where information equally supports and/or conflicts with more than one manner of death.	645dadd1-0f0e-4f43-a55f-14fb381781f3		5
+manner_of_death	unknown if subject is deceased or not			8bd0c07b-27ca-4382-ac30-3467e0c3dda7		9
+marital_status						
+marital_status	never married	NCIT:C51774	A person who has never been married or whose only marriages have been annulled.	a3b2f1ae-e08f-4921-8e61-2507e993f5d2		PV000093
+marital_status	married	NCIT:C51773	A person currently joined in matrimony. Classify common law marriage as married. Includes married couples living together and not living together.	c62ca7e2-ba67-4fa6-86bc-80c7d781d07d		PV000094
+marital_status	domestic partnership	NCIT:C53262	A person who is a member of an unmarried couple, including same sex couples, living together in longstanding relationships, that are registered or unregistered.	7a997184-45f1-4312-9a30-66429ff8bbd0		PV000095
+marital_status	divorced	NCIT:C51776	A person whose marriage has been legally dissolved and has not remarried.	5b522d1b-9983-400c-bc54-fd32d9ef4cb3		PV000096
+marital_status	separated	NCIT:C156541	A person living apart from his/her spouse by legal arrangement.	99dd99f6-4867-4386-9ba0-f1ac5685b29f		PV000097
+marital_status	widowed	NCIT:C51775	A person who is no longer married because of the death of his/her spouse and who has not remarried.	7c72655f-cbdb-4fc3-ae2b-4c099de3b963		PV000098
+neoplastic_type						
+neoplastic_type	intrinsic	PATO:0002132	A disposition inhering in a tumour by virtue of the bearer's disposition not to invade surrounding tissues.	8863ca3b-1625-4405-afdf-2e007ba52c98		1
+neoplastic_type	metastasis	PATO:0002098	A disposition inhering in a tumour by virtue of the bearer's disposition to spread and invade distant tissues.	fb118f9a-2c4c-4867-9313-c7dfdaa611be		2
+neoplastic_type	other (specify)	PATO:0002011	A structural quality which is held by a bearer when the latter's disposition the presence of abnormally proliferating masses of cells.	d1585163-54f7-408c-be01-ad219d628b06		3
+neurodegenerative_type						
+neurodegenerative_type	beta amyloid	CHEBI:64645	A peptide of 36-43 amino acids that is processed from the amyloid precursor protein. Appears to be the main constituent of amyloid plaques (deposits found in the brains of Alzheimer's disease patients).	cb95893f-e367-4a9a-931c-63776caa5610		
+neurodegenerative_type	pTau	PR:000026989	A microtubule-associated protein tau that includes at least one phosphorylated residue.	f0c1e00e-f35a-43ae-872b-d9060caac45c	microtubule-associated protein tau phosphorylated form|MAPT/PhosRes+	
+neurodegenerative_type	pTDP-43	PR:000016057	A protein that is a translation product of the human TARDBP gene or a 1:1 ortholog thereof.	5f77b204-1d3e-49e1-a855-f575d96dd429	TAR DNA-binding protein 43	
+neurodegenerative_type	alpha-synuclein	PR:000015322	A protein that is a translation product of the human SNCA gene or a 1:1 ortholog thereof.	f4d8e65b-5c80-4eb0-9b5e-55745bba5337		
+neurodegenerative_type	Other (specify)			3f2f72a3-6462-4a4b-b093-5c5207b5ac38		
+perinatal_event						
+perinatal_event	subdural hemorrhage	MP:0031117	Bleeding into the subdural space, the potential space between the dura and arachnoid mater of the meninges around the brain.	de173650-12ea-40a0-b8f8-41531d6149e5		PV001060
+perinatal_event	subarachnoid hemorrhage	MONDO:0005099	Intracranial hemorrhage into the subarachnoid space.	a1cb167e-d31c-4c9a-8cff-e9834ab9c44d		PV001054
+perinatal_event	intraparenchymal hemorrhage		Bleeding into the intraparenchymal space.	05cbbd6d-a591-4d82-825b-b73cedb38950		PV001055
+perinatal_event	intraventricular hemorrhage	MP:0001917	Bleeding into the brain ventricles.	96835720-a301-41f6-a818-1dadbf16bf4c		PV001056
+perinatal_event	hypoxia	MP:0005039	Reduced oxygenation of body tissues resulting in the decreased pressure of this component of body gases; commonly due to hypoxemia.	3e8d7ad6-8923-4826-b10b-a3c5ea774437		PV001057
+perinatal_event	other (specify)			d065afa0-6045-4bda-b61b-fab94b018987		PV001058
+perinatal_event	none			bef67277-9e1a-4040-88f7-0b4e5d8c97c5		PV001059
+postmortem_MRI						
+postmortem_MRI	cadaveric		A piece of tissue or a sample that is taken from a dead body (cadaver).	80e0cd79-1a7d-4661-9e1f-5296e93f36de		1
+postmortem_MRI	fresh ex vivo		A piece of tissue or a sample that is taken from a living organism and not fixed.	a54af4e5-8474-4abc-a4c3-f457ba2a9cc3		2
+postmortem_MRI	fixed ex vivo		A piece of tissue or a sample that is taken from a living organism and fixed.	623a176d-3ac3-4aff-ac73-381326f40d2e		3
+preparation						
+preparation	formalin fixed	NCIT:C200862	A tissue sample that has been fixed with formalin.	7ba2f1de-c161-4a39-ab91-e48139b7b558		1
+preparation	4% paraformaldehyde fixed		A tissue sample that has been fixed with 4% paraformaldehyde.	e23c450f-23f3-4213-aa40-c074ba258393		2
+preparation	frozen		A tissue sample that has been frozen.	0a139c84-c7a1-4cc9-b39b-17ae52691146		3
+preparation	other		A tissue sample that has been fixed by some other method.	2c24878b-93e7-4779-928e-0744299ac68b		4
+preparation	hemisphere not available			30a3efee-116a-4a93-bbfc-79dcd5dc12a6		9
+race						
+race	American Indian or Alaska Native	NCIT:C41259	A person having origins in any of the original peoples of North and South America (including Central America) and who maintains tribal affiliation or community attachment.	0445cf83-2e03-42b6-9e4f-4dd5eb90bf10		PV000062
+race	Asian	NCIT:C41260	A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent, including for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam.	4f0bc5f3-ee8b-4c03-a9ec-b0ae9468de15		PV000063
+race	Black or African American	NCIT:C16352	A person having origins in any of the Black racial groups of Africa. Terms such as "Haitian" or "Negro" can be used in addition to "Black or African American".	3707849d-d072-4d63-b638-96287eed1ca2		PV000064
+race	Native Hawaiian or Other Pacific Islander	NCIT:C41219	A person having origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands.	72643b90-a818-4a9f-b41a-575ab5f69e23		PV000065
+race	White	NCIT:C41261	A person having origins in any of the original peoples of Europe, the Middle East, or North Africa.	6b16b856-869c-4c13-a43a-18363ee62b71		PV000066
+race	More than one race	NCIT:C67109	Having ancestors of several or various races.	e42458bf-7b08-40a5-b13d-36f640018c10	multiracial	
+race	Other Race	NCIT:C104495	Individuals who do not necessarily identify with any particular race or others who do not wish to self select into a racial category(ies).	fe20ff01-b1a1-4bbe-870c-077fc8b3878a		
+race	Prefer not to Answer		A response indicating that an individual prefers or preferred not to answer.	b4dab1eb-2f99-441e-a9e3-f05f5fb7ba24		PV000068
+race	Unknown		Not known, observed, recorded; or reported as unknown by the data contributor.	9032339c-044a-49c8-8032-24349084bf30		PV000067
+relative_type						
+relative_type	biological mother	NCIT:C96580	A female who contributes to the genetic makeup of her offspring from the fertilization of her ovum.	5bad77e9-487e-4215-9740-7d48b588f5da		
+relative_type	biological father	NCIT:C96572	A male who contributes to the genetic makeup of his offspring through the fertilization of an ovum by his sperm.	fdb9658a-c666-451d-8a9a-728e93612c15		
+relative_type	full sibling	NCIT:C71390	A sibling with whom one shares both parents.	485512d7-d007-4e9b-8d4b-91292dc16f37		
+relative_type	half sibling	NCIT:C71391	A sibling with whom one shares a single parent.	e2172cc9-8b1d-4be9-b2ba-3d19578f8322		
+relative_type	child	NCIT:C42708	A first-generation, biological descendant of any age.	02a2bbef-5b40-40e8-be5f-38af0ca5c54f	offspring	
+relative_type	maternal grandmother	NCIT:C96578	A female relative who is the biological mother of the biological mother.	83186918-fb36-469c-83bd-3fc32ae0abf7	biological maternal grandmother	
+relative_type	paternal grandmother	NCIT:C96584	A female relative who is the biological mother of the biological father.	3222c494-3898-4628-aa86-1188d8b0e3c9	biological paternal grandmother	
+relative_type	maternal grandfather	NCIT:C96577	A male relative who is the biological father of the biological mother.	4b42c443-d09c-4812-9100-a6fa29c05e02	biological maternal grandfather	
+relative_type	paternal grandfather	NCIT:C96583	A male relative who is the biological father of the biological father.	7e87f7a9-3409-400a-9704-6b42cd6c5ae3	biological paternal grandfather	
+relative_type	maternal aunt	NCIT:C96575	A female relative who is a sibling of the biological mother, and who both share a common ancestor.	2c473298-9f9c-4d34-8672-2984ed821596	biological maternal aunt	
+relative_type	paternal aunt	NCIT:C96581	A female relative who is a sibling of the biological father, and who both share a common ancestor.	b6c3f103-42ee-4fc3-a0f1-f77a9b8614c4	biological paternal aunt	
+relative_type	maternal uncle	NCIT:C96579	A male relative who is a sibling of the biological mother, and who both share a common ancestor.	1d4fbac1-f3d8-472a-a1d0-2fa45c72130b	biological maternal uncle	
+relative_type	paternal uncle	NCIT:C96585	A male relative who is a sibling of the biological father, and who both share a common ancestor.	22e98fcb-6a44-4f4f-8545-0ec725ae2204	biological paternal uncle	
+relative_type	maternal niece/nephew		A son or daughter of one's female biological sibling.	9a341278-9b47-4dc8-9ade-1db5471e57fe		
+relative_type	paternal niece/nephew		A son or daughter of one's male biological sibling.	f185febc-e4e4-41e8-be82-ab6d4ca1f463		
+relative_type	maternal cousin	NCIT:C96576	A relative who is the offspring of a sibling of the biological mother and thus sharing a common ancestor.	19b03c4c-9c70-4a6c-a9bf-57c68259c0ab	biological maternal cousin	
+relative_type	paternal cousin	NCIT:C96582	A relative who is the offspring of a sibling of the biological father and thus sharing a common ancestor.	e964a08a-9a8a-4c8c-a1af-5201d5bcf2eb	biological paternal cousin	
+relative_type	grandchild	NCIT:C71397	A child of one's son or daughter.	2096595a-bd35-483b-88cb-c142e55be8d9		
+relative_type	great-grandchild	NCIT:C165847	A child of one's grandchild.	81aba55b-dea4-4d77-84c8-333e776ca3c7		
+relative_type	other (specify)			f19d7f1a-ce76-4c28-a8ab-936b8cc7691d		
+repository						
+repository	TBD			8a641dd8-10b8-4f24-b8a7-75012dfe739c		1
+repository	Miami			295e3824-80d9-41ce-afe5-c0cc86c233f6		2
+repository	Mt. Sinai			9e18aca6-8bca-4a1e-b850-4fe770edaf1b		3
+repository	Sepulveda			259b038f-dea7-4f6e-a9de-dcda5b26c102		4
+repository	Harvard			35d4f7fd-dfb0-4bbb-801b-0972706bd359		5
+repository	Maryland Psychiatric			0e67fb7a-fa6d-435f-bf93-a353ddb06205		8
+repository	HBCC			a132e1a3-ff0c-4cd1-b81f-7ab121900fa7		9
+repository	Maryland			ceb0ab10-f79e-48d9-9c6a-794ad26d4954		7
+repository	Pittsburgh			9cde7830-8c40-43fa-881c-faa20fed49c3		6
+repository	UCLA			f8f2c80d-53af-448f-92d7-564ca3016278		10
+sex						
+sex	male	PATO:0000384	A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both.	ee6075b7-4199-4682-845a-34d80bb000ac		C20197
+sex	female	PATO:0000383	A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both.	082d0b49-805a-46c4-b076-da51b45860bb		C16576
+sex	intersex	PATO:0001340	A person (one of unisexual specimens) who is born with genitalia and/or secondary sexual characteristics of indeterminate sex, or which combine features of both sexes.	2c6e5679-1408-44b4-a311-607f026ff98e		C45908
+sex	none of these describe me		Suggested Definition: A response indicating that an individual feels that no option listed is a good description for them.	18cdf7d7-3e09-41cc-9915-385dc48560e3		C177109
+sex	prefer not to answer		A response indicating that an individual prefers or preferred not to answer.	59c01950-e17f-4e3f-963c-eec10693f67c		C132222
+sex	unknown		Not known, observed, recorded; or reported as unknown by the data contributor.	1599da85-e565-4ca8-afd8-f3ec8533252d		C17998
+sexual_orientation						
+sexual_orientation	bisexual	GSSO:001590	Historically, bisexual referred to attraction to persons of two gender identities, typically, but not always, defined as male and female. In modern use, it is usually used to refer to persons who are sexually and/or romantically attracted to persons with a gender or genders like theirs and those with a gender or genders unlike theirs. Note that sometimes bisexual may be used as a synonym of pansexual.	ce30ab49-2b2c-4444-819b-6411bccac4ac		3
+sexual_orientation	homosexual (gay/lesbian)	GSSO:000398	A person who is attracted solely or primarily to others of the same gender (or sex, depending on precise usage), i.e. being either a male androphile or a female gynephile.	f1434f08-3ac4-4da4-9686-fcb39f291c18		2
+sexual_orientation	heterosexual	GSSO:001592	Sexually attracted to a person defined as being of the "opposite" sex (i.e. male attracted to female or female attracted to male); more broadly, attracted to a gender that is not one's own.	aee12239-ee2e-4806-9772-48da79db4650		1
+sexual_orientation	not reported		Not provided or available.	dd962a38-815c-48a5-ab39-eb3c384846bb		9
+sexual_orientation	other		A sexual orientation that is not present in this list.	471e39a5-fa1e-4596-9e26-bfd9a841083d		7
+sexual_orientation	unknown		Not known, observed, recorded; or reported as unknown by the data contributor.	2701412a-13bd-408f-a856-78c608ca825b		8
+sexual_orientation	asexual	GSSO:000387	A person who identifies as asexual.	9ea78323-2fa4-4f71-bdea-44954d8a84f0		4
+sexual_orientation	prefer not to say			9dc314cd-da34-47a3-b66c-3bbd5d76ad89		
+sexual_orientation	do not know			17e6c6b3-b8bb-4c8b-afef-f8e93bfa1137		
+test_name						
+test_name	Hepatitis A			82b9b8fd-5286-4220-8ec6-cefb4f52491d		
+test_name	Hepatitis C Antibody			ca81368c-8f7f-4ec4-b9ce-dce050beb8e7		1
+test_name	Hepatitis B Surface Antigen			3bf6f40f-8d27-4f62-b4fb-213d201a80ed		2
+test_name	Hepatitis B Surface Antibody			23d1de9d-648b-4f0e-935b-ab0943891ebb		3
+test_name	Hepatitis B Core Antibody			175eac95-1799-4d43-9bab-e94b997e8251		4
+test_name	HIV-1/HIV-2 Plus O Antibody			23c0dd34-19cd-49c0-b862-7e2864ed34cf		5
+test_name	HIV-1/HIV-2			7c13ad95-d4fe-414b-9d8f-d97d6886598d		6
+test_name	HIV-1 Antibody			258d80be-6951-494f-935d-c7bfa640ab20		7
+test_name	COVID-19 Virus (RT-PCR)			67faed1e-8ab6-4350-bd72-655ccd94b6a7		8
+test_name	Other (specify)			ed0ec2e1-08bb-4534-bba2-0334cb558223		9
+tissue_collection_state						
+tissue_collection_state	autopsy	GSSO:006664	A postmortem examination of the body that includes an examination of the internal organs and structures after dissection to determine the cause of death and the nature of pathological changes.	4fd5004e-d302-49d3-a1de-8c7f21e08da0		
+tissue_collection_state	surgery	OAE:0000067	Surgery is a medical procedure that uses operative manual and instrumental techniques on a patient to investigate and/or treat a pathological condition such as disease or injury, to help improve bodily function or appearance. The key difference between a surgery and a general procedure is the need for an incision. Making an incision, or cutting into the skin to gain access to the body’s deeper tissues or organs, is a defining characteristic of surgery.	f9a468bd-5ef3-4098-93b9-4aee2fc7d6c1		
+tissue						
+tissue	adipose	UBERON:0001013	Portion of connective tissue composed of adipocytes enmeshed in areolar tissue.	e3fe815b-3a7e-415c-8982-bfcb8fcadeeb	integumentary	1
+tissue	adrenal	UBERON:0018303	Tissue that is part of some adrenal gland.	59c5626b-2e2f-4f18-b9c2-779d945bfabb	endocrine	2
+tissue	anus	UBERON:0001245	Orifice at the opposite end of an animal's digestive tract from the mouth. Its function is to expel feces, unwanted semi-solid matter produced during digestion, which, depending on the type of animal, may be one or more of: matter which the animal cannot digest, such as bones; food material after all the nutrients have been extracted, for example cellulose or lignin; ingested matter which would be toxic if it remained in the digestive tract; and dead or excess gut bacteria and other endosymbionts.	1abe59f9-48b5-45de-b00f-1ae49c0fb18e	gastrointestinal	3
+tissue	aorta	UBERON:0000947	The main trunk of the systemic arterial system that carries blood from the heart to all the organs and other structures of the body, bringing oxygenated blood to all parts of the body in the systemic circulation.	4f6fd9a1-902b-44db-876d-3d072ffb164a	cardiovascular	4
+tissue	appendix	UBERON:0001154	A blind-ended tube connected to the cecum, from which it develops embryologically.	3ad722f9-acd6-49b5-91a3-c676899460c0	gastrointestinal	5
+tissue	artery	UBERON:0001637	An epithelial tube or tree of tibes that transports blood away from the heart.	9c68f217-3b3e-4c33-bb3f-b832c8d4b075	cardiovascular	6
+tissue	ascending colon	UBERON:0001156	Section of colon which is distal to the cecum and proximal to the transversecolon.	d2e9032f-fd8a-4662-9760-8119d8420ccc		7
+tissue	astrocytes	CL:0000127	A class of large neuroglial (macroglial) cells in the central nervous system - the largest and most numerous neuroglial cells in the brain and spinal cord. Astrocytes (from 'star' cells) are irregularly shaped with many long processes, including those with 'end feet' which form the glial (limiting) membrane and directly and indirectly contribute to the blood-brain barrier. They regulate the extracellular ionic and chemical environment, and 'reactive astrocytes' (along with microglia) respond to injury. Astrocytes are reportedly CD68-negative, CD121a-positive, CD184-positive, CD192-positive, CRF-positive, EGFR-positive, GFAP-positive, GLUT1-positive, MBP-negative, and NGFR-positive.	1cecad6c-a12c-4829-b38e-e16b6ee9d8f2	other	8
+tissue	bladder	UBERON:0001255	Distensible musculomembranous organ situated in the anterior part of the pelvic cavity in which urine collects before excretion.	1751738e-12d2-4044-b630-e8d1a2e7b982	urinary	9
+tissue	bone rib	UBERON:0002228	An intersegmental rod-shaped bone that forms in the peritoneal membrane and attach to the vertebral parapophyses.	73029fb6-9901-4265-9017-90249d37c9b1	musculo skeletal	10
+tissue	breast	UBERON:0000310	The upper ventral region of the torso of an organism.	caa1fa16-7a7e-4152-a0d6-33f7d19e681c	endocrine	11
+tissue	bronchus	UBERON:0002185	The upper conducting airways of the lung; these airways arise from the terminus of the trachea.	7567747b-fef3-462d-b319-17e1de85583d	respiratory	12
+tissue	cervical spinal cord	UBERON:0002726	A spinal cord segment that adjacent_to a cervical region.	29420213-3d55-41d1-b548-6e9455f21ee9		13
+tissue	colon ascending	UBERON:0001156	Section of colon which is distal to the cecum and proximal to the transversecolon.	3a005db5-46fd-4457-ba32-8a3e98274a28	gastrointestinal	14
+tissue	colon descending	UBERON:0001158	The portion of the colon between the left colic flexure and the sigmoid colon at the pelvic brim; the portion of the descending colon lying in the left iliac fossa is sometimes called the iliac colon.	bf777a25-5982-472e-8c73-fea0fb3962af	gastrointestinal	15
+tissue	CSF	UBERON:0001359	A clear, colorless, bodily fluid, that occupies the subarachnoid space and the ventricular system around and inside the brain and spinal cord.	be443751-226f-46a2-80e7-6d24d69299d4		16
+tissue	DRG cervical	UBERON:0002834	A group of nerve cell bodies located on the dorsal spinal roots within the vertebral column at the level of the cervical vertebrae.	a842995d-01fd-4a79-a01e-c0702e670dba		17
+tissue	DRG sacral	UBERON:0002837	A group of nerve cell bodies located on the dorsal spinal roots within the vertebral column at the level of the sacral vertebrae.	f6fcce87-d3a7-40ed-a4b1-f7e7f75dd559		18
+tissue	DRG thoracic	UBERON:0002835	A dorsal root ganglion that is part of a thorax.	696cd43f-21c1-4697-8e3c-99cb9dc36c00		19
+tissue	diaphragm	UBERON:0001103	A thin musculomebranous barrier that separates the abdominal and thoracic cavities. Often used for breathing control.	60c8fdd3-9a0b-4912-99eb-2c3f2ea23699	musculo skeletal	20
+tissue	DNA	NCIT:C449	A long linear double-stranded polymer formed from nucleotides attached to a deoxyribose backbone and found in the nucleus of a cell; associated with the transmission of genetic information.	5cdaa7bf-0c84-4f39-b02f-b1730a01767b	other	21
+tissue	DRG lumbar	UBERON:0002836	The group of nerve cell bodies located on the dorsal spinal roots within the vertebral column at the level of the lumbar vertebrae.	515925b4-8ceb-4b2f-b536-4be0a900bf20		22
+tissue	duodenum	UBERON:0002114	The first part of the small intestine. At the junction of the stomach and the duodenum the alimentary canal is inflected. The duodenum first goes anteriorly for a short distance, turns dorsally, and eventually caudally, thus it is a U-shaped structure with two horizontal sections (a ventral and a dorsal one).	e71d9891-eecd-4214-8b13-b5dcc8abd211	gastrointestinal	23
+tissue	esophagus	UBERON:0001043	Tube that connects the pharynx to the stomach. In mammals, the oesophagus connects the buccal cavity with the stomach. The stratified squamous non-keratinised epithelium lining the buccal cavity is continued through the pharynx down into the oesophagus. The lowest part of the oesophagus (ca. 2 cm) is lined with gastric mucosa and covered by peritoneum. The main body of the oesophagus is lined with small, simple mucous glands. Each gland opens into the lumen by a long duct which pierces the muscularis mucosae (Wilson and Washington, 1989). A sphincter is situated at the point where the oesophagus enters the stomach to prevent gastro-oesophageal reflux, i.e. to prevent acidic gastric contents from reaching stratified epithelia of the oesophagus, where they can cause inflammation and irritation (Wilson and Washington, 1989; Brown et al., 1993).	7592dd9b-ab28-41ca-b51a-b4b824f02485		24
+tissue	eyes	UBERON:0000970	An organ that detects light.	fe2cdd37-b15e-42ad-bcb3-8cc722e579e3	other	25
+tissue	fallopian tube	UBERON:0003889	Initial section of the oviduct through which the ova pass from the ovary to the uterus.	8175a95f-a33d-429a-8dd2-75ad85e62853	genital	26
+tissue	fibroblasts	CL:0000057	A connective tissue cell which secretes an extracellular matrix rich in collagen and other macromolecules. Flattened and irregular in outline with branching processes; appear fusiform or spindle-shaped. These cells may be vimentin-positive, fibronectin-positive, fsp1-positive, MMP-1-positive, collagen I-positive, collagen III-positive, and alpha-SMA-negative.	8ab54b02-b462-41fa-a30e-407143632792	other	27
+tissue	gallbladder	UBERON:0002110	An organ that aids digestion and stores bile produced by the liver. Rats do not have a gallbladder, but produce bile. The bile flows directly from the liver through the (hepatic) bile duct into the small intestine (Hebel and Stromberg, 1988).	c646fec7-d61c-4ea8-b360-5fa4828676ab	gastrointestinal	28
+tissue	hair	UBERON:0001037	A filament, mostly protein, that grows from follicles found in the dermis.	1fe63997-1971-45d4-aae6-6dfc84692951	integumentary	29
+tissue	heart	UBERON:0000948	A myogenic muscular circulatory organ found in the vertebrate cardiovascular system composed of chambers of cardiac muscle. It is the primary circulatory organ. Taxon notes:" the ascidian tube-like heart lacks chambers....The ascidian heart is formed after metamorphosis as a simple tube-like structure with a single-layered myoepithelium that is continuous with a single-layered pericar- dial wall. It lacks chambers and endocardium.... The innovation of the chambered heart was a key event in vertebrate evolution, because the chambered heart generates one-way blood flow with high pressure, a critical requirement for the efficient blood supply of large-body vertebrates... all extant vertebrates have hearts with two or more chambers (Moorman and Christoffels 2003)" DOI:10.1101/gad.1485706	59ba9168-74c9-4ef8-87a1-294597f44141	cardiovascular	30
+tissue	ileum	UBERON:0002116	The portion of the small intestine that extends from the jejunum to the colon.	d46a39d8-bf75-4741-971d-62bacca95721	gastrointestinal	31
+tissue	jejunum	UBERON:0002115	The portion of the small intestine that extends from the duodenum to the ileum.	e9963645-0698-4fcb-9e38-465efaa293b9	gastrointestinal	32
+tissue	kidney	UBERON:0002113	A paired organ of the urinary tract that produces urine and maintains bodily fluid homeostasis, blood pressure, pH levels, red blood cell production and skeleton mineralization.	08409084-0397-4871-b099-6f51a7ddf797	urinary	33
+tissue	liver	UBERON:0002107	An exocrine gland which secretes bile and functions in metabolism of protein and carbohydrate and fat, synthesizes substances involved in the clotting of the blood, synthesizes vitamin A, detoxifies poisonous substances, stores glycogen, and breaks down worn-out erythrocytes.	6c29cbc1-06ec-4de6-b6cc-936c4fa2d0fb	gastrointestinal	34
+tissue	long bone	UBERON:0002495	A long bone is a bone that has a shaft and 2 ends and is longer than it is wide. Long bones have a thick outside layer of compact bone and an inner medullary cavity containing bone marrow. The ends of a long bone contain spongy bone and an epiphyseal plate or line depending on the stage of development. The epiphyseal plate is a hyaline cartilage, where new bone growth takes place, lengthening the bone prior to adulthood. Bone lengthening ceases when this cartilage is lost, leaving a remnant referred to as an epiphyseal line.	81bb6f32-d214-471b-8dbc-12b08a2df84f	musculo skeletal	35
+tissue	lumbar spinal cord	UBERON:0002792		aba15dbc-b50a-4abd-b2b7-06da46757b7f		36
+tissue	lung	UBERON:0002048	Respiration organ that develops as an outpocketing of the esophagus.	4bbfd7f7-2651-49ba-a637-4d5096ec9072	respiratory	37
+tissue	lymph node	UBERON:0000029	Any of the rounded masses of lymphoid tissue that are surrounded by a capsule of connective tissue, are distributed along the lymphatic vessels, and contain numerous lymphocytes which filter the flow of lymph.	cd486e5f-7e3d-4377-bec6-932620081c8a	hematopoietic	38
+tissue	middle ear bone	UBERON:0001686	One of 3 small bones contained within the middle ear space and serve to transmit sounds from the air to the fluid-filled labyrinth. The absence of the auditory ossicles would constitute a moderate-to-severe hearing loss. The term 'ossicles' literally means 'tiny bones' and commonly refers to the auditory ossicles, though the term may refer to any small bone throughout the body.	a572b85e-9e5a-4696-95d3-2f144a9e22cc		39
+tissue	nail	UBERON:0001705	A horn-like keratin structure covering the dorsal aspect of the terminal phalanges of fingers and toes.	f23cdf42-905c-4a7e-8d69-a317a763d9cf	integumentary	40
+tissue	ovary	UBERON:0000992	The gonad of a female organism which contains germ cells.	ad587d59-6730-46cf-8fb6-428b2981d14a	genital	41
+tissue	pancreas	UBERON:0001264	An endoderm derived structure that produces precursors of digestive enzymes and blood glucose regulating hormones.	2c928628-f6ed-4400-b4a2-efa01567d92f	gastrointestinal	42
+tissue	peripheral nerve	UBERON:0001021	An enclosed, cable-like bundle of axons in the peripheral nervous system originating in a nerve root in the central nervous system (or a condensed nervous structure) connecting with peripheral structures.	8034e007-b341-45ba-815c-c87a376019d0	spinal cord	43
+tissue	pineal	UBERON:0001905	A midline, cone like structure located in the dorso-caudal roof of the 3rd ventricle, attached by peduncles to the habenular and posterior commissures. The stalk contains nerve fibers, blood vessels, connective tissue and parenchymal cells (Paxinos, The Rat Central Nervous System, 2nd ed, pg 399).	64bddad2-5ada-4599-809a-999948d0f836	endocrine	44
+tissue	pituitary	UBERON:0000007	The pituitary gland is an endocrine gland that secretes hormones that regulate many other glands.	1e430fdd-cf62-4e80-b6fc-9d175dc9da32	endocrine	45
+tissue	placenta	UBERON:0001987	Organ of metabolic interchange between fetus and mother, partly of embryonic origin and partly of maternal origin[GO]. The fetal portion of the placenta is known as the villous chorion. The maternal portion is known as the decidua basalis. The two portions are held together by anchoring villi that are anchored to the decidua basalis by the cytotrophoblastic shell. Marsupials possess only a rudimentary yolk-type placenta, with reduced nutrient and oxygen exchanging capabilities.	37eddae1-72d1-4760-a784-38bae20da9dd	other	46
+tissue	plasma	UBERON:0001969	The liquid component of blood, in which erythrocytes are suspended.	02817533-4c06-4f7c-980d-59fd42e22581	body fluids	47
+tissue	prostate	UBERON:0002367	The prostate gland is a partly muscular, partly glandular body that is situated near the base of the mammalian male urethra and secretes an alkaline viscid fluid which is a major constituent of the ejaculatory fluid.	0945a1c4-432a-4fad-9888-ff73bbf0d087		48
+tissue	psoas muscle	UBERON:0008450	A powerful flexor of the thigh at the hip joint (psoas major) and a weak flexor of the trunk and lumbar spinal column (psoas minor). Psoas is derived from the Greek 'psoa', the plural meaning 'muscles of the loin'. It is a common site of infection manifesting as abscess (PSOAS ABSCESS). The psoas muscles and their fibers are also used frequently in experiments in muscle physiology.	ae5c4602-2fac-4e4d-8ec6-db6b521fe176		49
+tissue	RBC	CL:0000232	A red blood cell. In mammals, mature erythrocytes are biconcave disks containing hemoglobin whose function is to transport oxygen.	8beaa88c-c1e5-4a12-a135-1f4f280acfd6	body fluids	50
+tissue	RNA	CHEBI:33697	High molecular weight, linear polymers, composed of nucleotides containing ribose and linked by phosphodiester bonds; RNA is central to the synthesis of proteins.	a059c7de-8c3e-4f47-85e2-10fea731eab3	other	51
+tissue	sacral spinal cord	UBERON:0005843	A spinal cord segment that adjacent_to a sacral region.	e285896e-adf8-4491-b3b8-fdd136391ef7		52
+tissue	serum	UBERON:0001977	The portion of blood plasma that excludes clotting factors.	78e34126-1719-43a6-b192-5c1afdb5ad7a	body fluids	53
+tissue	skin	UBERON:0002097	The organ covering the body that consists of the dermis and epidermis.	9e25d9ee-ac9d-4b23-924c-9ab1a406e529	integumentary	54
+tissue	spleen	UBERON:0002106	The organ that functions to filter blood and to store red corpuscles and platelets.	2dd9e93a-a069-4c29-b9a8-b9f020e35fa5	hematopoietic	55
+tissue	stomach	UBERON:0000945	An expanded region of the vertebrate alimentary tract that serves as a food storage compartment and digestive organ. A stomach is lined, in whole or in part by a glandular epithelium.	9573ce93-148e-478b-96ff-f61c9939442e	gastrointestinal	56
+tissue	systemic tissue	UBERON:0002384	Tissue with cells that deposit non-polarized extracellular matrix including connective tissue fibers and ground substance.	09ec1910-2797-4595-9a0f-92a74ce97afa		57
+tissue	temporalis muscle	UBERON:0001598	Pharyngeal arch 1 muscle that is innervated by the deep temporal branches of the trigeminal nerve and attaches to the wall of the braincase (including the cranial vault) and mandible.	ccce41cd-6ad3-4552-aa70-9ebeba566fe8		58
+tissue	testicle	UBERON:0000473	A typically paired male reproductive gland that produces sperm and that in most mammals is contained within the scrotum at sexual maturity.	c9ed5cd5-e107-40a0-a135-ba837fe86fc3	genital	59
+tissue	thoracic spinal cord	UBERON:0003038	The thoracic nerves are the spinal nerves emerging from the thoracic vertebrae.	b1c7a684-c704-40bf-9312-c5ad88d5fd99		60
+tissue	thymus	UBERON:0002370	Anatomical structure of largely lymphoid tissue that functions in cell-mediated immunity by being the site where T cells develop.	8ad399d8-672f-4a50-96ff-73bccbc19070	hematopoietic	61
+tissue	thyroid	UBERON:0002046	A two-lobed endocrine gland found in all vertebrates, located in front of and on either side of the trachea in humans, and producing various hormones, such as triiodothyronine and calcitonin.	3fe81928-0ac1-49b2-beb2-a7350a371f29	endocrine	62
+tissue	tissue	UBERON:0000479	Multicellular anatomical structure that consists of many cells of one or a few types, arranged in an extracellular matrix such that their long-range organisation is at least partly a repetition of their short-range organisation.	7c1d9509-9dfa-493f-8cf2-3799a8672ee1		63
+tissue	tissue-other			a927db01-95f6-4153-aeac-7f211da31300		64
+tissue	tongue	UBERON:0001723	A fleshy movable process of the floor of the mouths of most vertebrates that bears sensory end organs and small glands and functions especially in taking and swallowing food and in humans as a speech organ.	c161c545-a0ac-4aa0-a273-7e94c581fc94	gastrointestinal	65
+tissue	tonsil	UBERON:0002372	Either of the two small almond-shaped masses of lymph tissue found on either side of the oropharynx.	659acfd5-6779-4360-a57d-b353a673bb60	hematopoietic	66
+tissue	trachea	UBERON:0003126	The trachea is the portion of the airway that attaches to the bronchi as it branches.	b2b979a5-1e24-4457-a2f3-e1eb6a61db66	respiratory	67
+tissue	umbilical cord	UBERON:0002331	The connecting cord from the developing embryo to the placenta.	89cdc357-569e-4f97-ad80-bcdaf18becc2	other	68
+tissue	ureter	UBERON:0000056	Muscular duct that propels urine from the kidneys to the urinary bladder, or related organs.	67c2d520-53f3-4318-b615-b30a62d080e3	urinary	69
+tissue	urinary bladder	UBERON:0001255	Distensible musculomembranous organ situated in the anterior part of the pelvic cavity in which urine collects before excretion.	b801f477-3cd9-4cfe-9144-d30b8e105146		70
+tissue	urine	UBERON:0001088	Excretion that is the output of a kidney.	5d322cb6-3ccf-432c-ba15-397a9726c50f	body fluids	71
+tissue	uterus	UBERON:0000995	The female muscular organ of gestation in which the developing embryo or fetus is nourished until birth.	678922e4-05e2-423c-b456-b75f3e057cd0	genital	72
+tissue	vein	UBERON:0001638	Any of the tubular branching vessels that carry blood from the capillaries toward the heart.	7e421aba-4093-4549-886c-b7f15a7aeabf	cardiovascular	73
+tissue	vitreous			a8e8f803-4543-4904-aaa8-0facad5c6e88	body fluids	74
+tissue	vitreous humor	UBERON:0001797	A transparent, semigelatinous substance that fills the cavity behind the crystalline lens of the eye and in front of the retina.	d1838d7a-95b0-40b6-9086-7d8d4eb01ed5		75
+tissue	whole blood	CL:0000738	An achromatic cell of the myeloid or lymphoid lineages capable of ameboid movement, found in blood or other tissue.	5e302075-2415-409a-9b5d-d737a8ec0d42		76
+tissue_source						
+tissue_source	whole blood	UBERON:0000178	A fluid that is composed of blood plasma and erythrocytes.	19070bbb-ee7a-4b82-b316-602dc300559a		1
+tissue_source	plasma	UBERON:0001969	The liquid component of blood, in which erythrocytes are suspended.	a2c4e948-7342-4885-abaf-76b58404f775		2
+tissue_source	brain	UBERON:0000955	The brain is the center of the nervous system in all vertebrate, and most invertebrate, animals. Some primitive animals such as jellyfish and starfish have a decentralized nervous system without a brain, while sponges lack any nervous system at all. In vertebrates, the brain is located in the head, protected by the skull and close to the primary sensory apparatus of vision, hearing, balance, taste, and smell.	f67a424d-3c67-4401-88b5-5f50abe7a7ca		3
+tissue_source	nasal swab	OBI:0000917	A specimen obtained using a cotton swab on a stick, passed up the nostril to obtain a sample of exudate and epithelial debris for microbiological or cellular examination.	c90194ff-2685-4df2-b500-191857544ee3		4
+tissue_source	serum	UBERON:0001977	The portion of blood plasma that excludes clotting factors.	443abec1-354e-4531-9f49-18f6649845f4		5
+tissue_source	other			659489dd-f77e-4012-84f0-f0b2b5ec13a0		6
+tissue_source	unknown			7dd40494-b360-4ee5-b2a8-b44ac68efde6		7
+traumatic_type						
+traumatic_type	contusion	MP:0009275	An injury to biological tissue in which the capillaries are damaged, allowing blood to seep into the surrounding tissue	88945d9a-cb60-42b5-8e13-b947358bc69e		1
+traumatic_type	chronic traumatic encephalopathy	DOID:0081291	A tauopathy that is characterized by an abundance of hyperphosphorylated tau protein in neurons, astrocytes and cell processes around blood vessels and that is associated with repetitive head impacts or exposure to blast waves.	4801e714-1f53-48f8-aa0b-0337ab9960b7	CTE	2
+traumatic_type	other (specify)			bb06d676-6728-42b1-b3ea-4504b418efcf		3
+vascular_type						
+vascular_type	acute infarct	EFO:0004277	Tissue necrosis in any area of the brain, including the cerebral hemispheres, the cerebellum, and the brain stem. Brain infarction is the result of a cascade of events initiated by inadequate blood flow through the brain that is followed by hypoxia and hypoglycemia in brain tissue. Damage may be temporary, permanent, selective or pan-necrosis.	8f5eaa9e-2609-4f23-9ff5-0820a8f0e1f2		1
+vascular_type	chronic infarct	EFO:0004277	Tissue necrosis in any area of the brain, including the cerebral hemispheres, the cerebellum, and the brain stem. Brain infarction is the result of a cascade of events initiated by inadequate blood flow through the brain that is followed by hypoxia and hypoglycemia in brain tissue. Damage may be temporary, permanent, selective or pan-necrosis.	4717d354-5570-4f3f-95ab-cbbe7fce4ddc		2
+vascular_type	hemorrhage	MP:0001914	Loss of blood from the vascular compartment to the exterior or into nonvascular body space as a result of rupture or severance of the blood vessels.	9e5a8c19-1b15-4352-90b0-bd04d634132a		3
+vascular_type	other (specify)			de4259b5-2847-4c56-8e33-ee2dc25e46bf		4

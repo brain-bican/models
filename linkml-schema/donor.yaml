@@ -1,0 +1,4128 @@
+name: Donor
+description: The BICAN Donor Metadata schema specifies the metadata relating to donors
+  in BICAN. These metadata reflect the metadata needed to accurately track donors
+  and related entities from the brain banks through the specimen portal.
+title: Donor Schema
+id: https://w3id.org/brain-bicandonor
+imports:
+- bican_biolink
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  bican: https://identifiers.org/brain-bican/vocab/
+  spdx: http://spdx.org/rdf/terms#
+  schema: http://schema.org/
+  ncbi: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi
+  NIMP: http://example.org/NIMP/
+default_prefix: bican
+default_range: string
+enums:
+  aging_type:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      pTau:
+        description: A microtubule-associated protein tau that includes at least one
+          phosphorylated residue.
+        meaning: PR:000026989
+      pTDP-43:
+        description: A protein that is a translation product of the human TARDBP gene
+          or a 1:1 ortholog thereof.
+        meaning: PR:000016057
+      atherosclerosis:
+        description: Build-up of fatty material and calcium deposition in the arterial
+          wall resulting in partial or complete occlusion of the arterial lumen.
+        meaning: MONDO:0005311
+      arteriolosclerosis:
+        description: The thickening of the wall of the small arteries and arterioles.
+          It is caused by deposition of hyaline material in the wall or concentric
+          smooth muscle wall hypertrophy. It results in lumen narrowing and tissue
+          ischemia.
+        meaning: MONDO:0006658
+      Other (specify): {}
+  artifact_type:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      'gross: brain removal/dissection':
+        description: A planned process that separates and isolates the brain or tissues
+          thereof for surgical purposes, or for the analysis of their structures.
+      'microscopic: autolysis':
+        description: A programmed cell death process observed in bacteria and filamentous
+          fungi and leading to spontaneous death by lysis. Examples are lysis of the
+          mother cell during sporulation of Bacillus subtilis and self-degradation
+          of fungal cells in Aspergillus nidulans. Autolysis is also involved in bacterial
+          biofilm formation. [GO]
+        meaning: GO:0001896
+      Other (specify): {}
+  birth_country:
+    description: Namibia
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      AF:
+        description: Afghanistan
+        meaning: GAZ:00006882
+      AL:
+        description: Albania
+      DZ:
+        description: Algeria
+      AS:
+        description: American Samoa
+      AD:
+        description: Andorra
+      AO:
+        description: Angola
+      AI:
+        description: Anguilla
+      AQ:
+        description: Antarctica
+      AG:
+        description: Antigua and Barbuda
+      AR:
+        description: Argentina
+      AM:
+        description: Armenia
+      AW:
+        description: Aruba
+      AU:
+        description: Australia
+      AT:
+        description: Austria
+      AZ:
+        description: Azerbaijan
+      BS:
+        description: Bahamas (the)
+      BH:
+        description: Bahrain
+      BD:
+        description: Bangladesh
+      BB:
+        description: Barbados
+      BY:
+        description: Belarus
+      BE:
+        description: Belgium
+      BZ:
+        description: Belize
+      BJ:
+        description: Benin
+      BM:
+        description: Bermuda
+      BT:
+        description: Bhutan
+      BO:
+        description: Bolivia (Plurinational State of)
+      BQ:
+        description: Bonaire, Sint Eustatius and Saba
+      BA:
+        description: Bosnia and Herzegovina
+      BW:
+        description: Botswana
+      BV:
+        description: Bouvet Island
+      BR:
+        description: Brazil
+      IO:
+        description: British Indian Ocean Territory (the)
+      BN:
+        description: Brunei Darussalam
+      BG:
+        description: Bulgaria
+      BF:
+        description: Burkina Faso
+      BI:
+        description: Burundi
+      CV:
+        description: Cabo Verde
+      KH:
+        description: Cambodia
+      CM:
+        description: Cameroon
+      CA:
+        description: Canada
+      KY:
+        description: Cayman Islands (the)
+      CF:
+        description: Central African Republic (the)
+      TD:
+        description: Chad
+      CL:
+        description: Chile
+      CN:
+        description: China
+      CX:
+        description: Christmas Island
+      CC:
+        description: Cocos (Keeling) Islands (the)
+      CO:
+        description: Colombia
+      KM:
+        description: Comoros (the)
+      CD:
+        description: Congo (the Democratic Republic of the)
+      CG:
+        description: Congo (the)
+      CK:
+        description: Cook Islands (the)
+      CR:
+        description: Costa Rica
+      HR:
+        description: Croatia
+      CU:
+        description: Cuba
+      CW:
+        description: "Cura\xE7ao"
+      CY:
+        description: Cyprus
+      CZ:
+        description: Czechia
+      CI:
+        description: "C\xF4te d'Ivoire"
+      DK:
+        description: Denmark
+      DJ:
+        description: Djibouti
+      DM:
+        description: Dominica
+      DO:
+        description: Dominican Republic (the)
+      EC:
+        description: Ecuador
+      EG:
+        description: Egypt
+      SV:
+        description: El Salvador
+      GQ:
+        description: Equatorial Guinea
+      ER:
+        description: Eritrea
+      EE:
+        description: Estonia
+      SZ:
+        description: Eswatini
+      ET:
+        description: Ethiopia
+      FK:
+        description: Falkland Islands (the) [Malvinas]
+      FO:
+        description: Faroe Islands (the)
+      FJ:
+        description: Fiji
+      FI:
+        description: Finland
+      FR:
+        description: France
+      GF:
+        description: French Guiana
+      PF:
+        description: French Polynesia
+      TF:
+        description: French Southern Territories (the)
+      GA:
+        description: Gabon
+      GM:
+        description: Gambia (the)
+      GE:
+        description: Georgia
+      DE:
+        description: Germany
+      GH:
+        description: Ghana
+      GI:
+        description: Gibraltar
+      GR:
+        description: Greece
+      GL:
+        description: Greenland
+      GD:
+        description: Grenada
+      GP:
+        description: Guadeloupe
+      GU:
+        description: Guam
+      GT:
+        description: Guatemala
+      GG:
+        description: Guernsey
+      GN:
+        description: Guinea
+      GW:
+        description: Guinea-Bissau
+      GY:
+        description: Guyana
+      HT:
+        description: Haiti
+      HM:
+        description: Heard Island and McDonald Islands
+      VA:
+        description: Holy See (the)
+      HN:
+        description: Honduras
+      HK:
+        description: Hong Kong
+      HU:
+        description: Hungary
+      IS:
+        description: Iceland
+      IN:
+        description: India
+      ID:
+        description: Indonesia
+      IR:
+        description: Iran (Islamic Republic of)
+      IQ:
+        description: Iraq
+      IE:
+        description: Ireland
+      IM:
+        description: Isle of Man
+      IL:
+        description: Israel
+      IT:
+        description: Italy
+      JM:
+        description: Jamaica
+      JP:
+        description: Japan
+      JE:
+        description: Jersey
+      JO:
+        description: Jordan
+      KZ:
+        description: Kazakhstan
+      KE:
+        description: Kenya
+      KI:
+        description: Kiribati
+      KP:
+        description: Korea (the Democratic People's Republic of)
+      KR:
+        description: Korea (the Republic of)
+      KW:
+        description: Kuwait
+      KG:
+        description: Kyrgyzstan
+      LA:
+        description: Lao People's Democratic Republic (the)
+      LV:
+        description: Latvia
+      LB:
+        description: Lebanon
+      LS:
+        description: Lesotho
+      LR:
+        description: Liberia
+      LY:
+        description: Libya
+      LI:
+        description: Liechtenstein
+      LT:
+        description: Lithuania
+      LU:
+        description: Luxembourg
+      MO:
+        description: Macao
+      MG:
+        description: Madagascar
+      MW:
+        description: Malawi
+      MY:
+        description: Malaysia
+      MV:
+        description: Maldives
+      ML:
+        description: Mali
+      MT:
+        description: Malta
+      MH:
+        description: Marshall Islands (the)
+      MQ:
+        description: Martinique
+      MR:
+        description: Mauritania
+      MU:
+        description: Mauritius
+      YT:
+        description: Mayotte
+      MX:
+        description: Mexico
+      FM:
+        description: Micronesia (Federated States of)
+      MD:
+        description: Moldova (the Republic of)
+      MC:
+        description: Monaco
+      MN:
+        description: Mongolia
+      ME:
+        description: Montenegro
+      MS:
+        description: Montserrat
+      MA:
+        description: Morocco
+      MZ:
+        description: Mozambique
+      MM:
+        description: Myanmar
+      NR:
+        description: Nauru
+      NP:
+        description: Nepal
+      NL:
+        description: Netherlands (Kingdom of the)
+      NC:
+        description: New Caledonia
+      NZ:
+        description: New Zealand
+      NI:
+        description: Nicaragua
+      NE:
+        description: Niger (the)
+      NG:
+        description: Nigeria
+      NU:
+        description: Niue
+      NF:
+        description: Norfolk Island
+      MK:
+        description: North Macedonia
+      MP:
+        description: Northern Mariana Islands (the)
+      'NO':
+        description: Norway
+      OM:
+        description: Oman
+      PK:
+        description: Pakistan
+      PW:
+        description: Palau
+      PS:
+        description: Palestine, State of
+      PA:
+        description: Panama
+      PG:
+        description: Papua New Guinea
+      PY:
+        description: Paraguay
+      PE:
+        description: Peru
+      PH:
+        description: Philippines (the)
+      PN:
+        description: Pitcairn
+      PL:
+        description: Poland
+      PT:
+        description: Portugal
+      PR:
+        description: Puerto Rico
+      QA:
+        description: Qatar
+      RO:
+        description: Romania
+      RU:
+        description: Russian Federation (the)
+      RW:
+        description: Rwanda
+      RE:
+        description: "R\xE9union"
+      BL:
+        description: "Saint Barth\xE9lemy"
+      SH:
+        description: Saint Helena, Ascension and Tristan da Cunha
+      KN:
+        description: Saint Kitts and Nevis
+      LC:
+        description: Saint Lucia
+      MF:
+        description: Saint Martin (French part)
+      PM:
+        description: Saint Pierre and Miquelon
+      VC:
+        description: Saint Vincent and the Grenadines
+      WS:
+        description: Samoa
+      SM:
+        description: San Marino
+      ST:
+        description: Sao Tome and Principe
+      SA:
+        description: Saudi Arabia
+      SN:
+        description: Senegal
+      RS:
+        description: Serbia
+      SC:
+        description: Seychelles
+      SL:
+        description: Sierra Leone
+      SG:
+        description: Singapore
+      SX:
+        description: Sint Maarten (Dutch part)
+      SK:
+        description: Slovakia
+      SI:
+        description: Slovenia
+      SB:
+        description: Solomon Islands
+      SO:
+        description: Somalia
+      ZA:
+        description: South Africa
+      GS:
+        description: South Georgia and the South Sandwich Islands
+      SS:
+        description: South Sudan
+      ES:
+        description: Spain
+      LK:
+        description: Sri Lanka
+      SD:
+        description: Sudan (the)
+      SR:
+        description: Suriname
+      SJ:
+        description: Svalbard and Jan Mayen
+      SE:
+        description: Sweden
+      CH:
+        description: Switzerland
+      SY:
+        description: Syrian Arab Republic (the)
+      TW:
+        description: Taiwan (Province of China)
+      TJ:
+        description: Tajikistan
+      TZ:
+        description: Tanzania, the United Republic of
+      TH:
+        description: Thailand
+      TL:
+        description: Timor-Leste
+      TG:
+        description: Togo
+      TK:
+        description: Tokelau
+      TO:
+        description: Tonga
+      TT:
+        description: Trinidad and Tobago
+      TN:
+        description: Tunisia
+      TM:
+        description: Turkmenistan
+      TC:
+        description: Turks and Caicos Islands (the)
+      TV:
+        description: Tuvalu
+      TR:
+        description: "T\xFCrkiye"
+      UG:
+        description: Uganda
+      UA:
+        description: Ukraine
+      AE:
+        description: United Arab Emirates (the)
+      GB:
+        description: United Kingdom of Great Britain and Northern Ireland (the)
+      UM:
+        description: United States Minor Outlying Islands (the)
+      US:
+        description: United States of America (the)
+      UY:
+        description: Uruguay
+      UZ:
+        description: Uzbekistan
+      VU:
+        description: Vanuatu
+      VE:
+        description: Venezuela (Bolivarian Republic of)
+      VN:
+        description: Viet Nam
+      VG:
+        description: Virgin Islands (British)
+      VI:
+        description: Virgin Islands (U.S.)
+      WF:
+        description: Wallis and Futuna
+      EH:
+        description: Western Sahara*
+      YE:
+        description: Yemen
+      ZM:
+        description: Zambia
+      ZW:
+        description: Zimbabwe
+      AX:
+        description: "\xC5land Islands"
+  brain_tissue_weight_type:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      Fresh whole brain:
+        description: A whole brain specimen that has not been frozen or fixed -- i.e.,
+          a whole brain that has not yet been treated by a preserving method.
+      Fixed whole brain:
+        description: A whole brain specimen that has been treated for preservation
+          (typically by formalin).
+      Fresh hemibrain:
+        description: A hemibrain specimen that has not been frozen or fixed -- i.e.,
+          a whole brain that has not yet been treated by a preserving method.
+      Fixed hemibrain:
+        description: A hemibrain specimen that has been treated for preservation (typically
+          by formalin).
+      Unknown: {}
+  cause_of_death:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      All Causes: {}
+      Communicable, maternal, perinatal and nutritional conditions: {}
+      Infectious and parasitic diseases: {}
+      Tuberculosis: {}
+      STDs excluding HIV: {}
+      Syphilis: {}
+      Chlamydia: {}
+      Gonorrhoea: {}
+      Other STDs: {}
+      HIV/AIDS: {}
+      Diarrhoeal diseases: {}
+      Childhood-cluster diseases: {}
+      Pertussis: {}
+      Poliomyelitis: {}
+      Diphtheria: {}
+      Measles: {}
+      Tetanus: {}
+      Meningitis: {}
+      Hepatitis B: {}
+      Hepatitis C: {}
+      Malaria: {}
+      Tropical-cluster diseases: {}
+      Trypanosomiasis: {}
+      Chagas disease: {}
+      Schistosomiasis: {}
+      Leishmaniasis: {}
+      Lymphatic filariasis: {}
+      Onchocerciasis: {}
+      Leprosy: {}
+      Dengue: {}
+      Japanese encephalitis: {}
+      Trachoma: {}
+      Intestinal nematode infections: {}
+      Ascariasis: {}
+      Trichuriasis: {}
+      Hookworm disease: {}
+      Other intestinal infections: {}
+      Other infectious diseases: {}
+      Respiratory infections: {}
+      Lower respiratory infections: {}
+      COVID-19: {}
+      Upper respiratory infections: {}
+      Otitis media: {}
+      Maternal conditions: {}
+      Maternal haemorrhage: {}
+      Maternal sepsis: {}
+      Hypertensive disorders: {}
+      Obstructed labour: {}
+      Abortion: {}
+      Other maternal conditions: {}
+      Perinatal conditions: {}
+      Low birth weight: {}
+      Birth asphyxia and birth trauma: {}
+      Other perinatal conditions: {}
+      Nutritional deficiencies: {}
+      Protein-energy malnutrition: {}
+      Iodine deficiency: {}
+      Vitamin A deficiency: {}
+      Iron-deficiency anaemia: {}
+      Other nutritional disorders: {}
+      Noncommunicable diseases: {}
+      Malignant neoplasms: {}
+      Mouth and oropharynx cancers: {}
+      a. Lip and oral cavity cancers: {}
+      b. Nasopharynx cancers: {}
+      c. Other pharynx cancer: {}
+      Oesophagus cancer: {}
+      Stomach cancer: {}
+      Colon and rectum cancers: {}
+      Liver cancer: {}
+      Pancreas cancer: {}
+      Trachea, bronchus, lung cancers: {}
+      Melanoma and other skin cancers: {}
+      a. Malignant skin melanoma: {}
+      b. Non-melanoma skin cancer: {}
+      Breast cancer: {}
+      Cervix uteri cancer: {}
+      Corpus uteri cancer: {}
+      Ovary cancer: {}
+      Prostate cancer: {}
+      Testicular cancer: {}
+      Kidney cancer: {}
+      Bladder cancer: {}
+      Brain and nervous system cancers: {}
+      Gallbladder and biliary tract cancer: {}
+      Larynx cancer: {}
+      Thyroid cancer: {}
+      Mesothelioma: {}
+      Lymphomas, multiple myeloma: {}
+      a. Hodgkin lymphoma: {}
+      b. Non-Hodgkin lymphoma: {}
+      c. Multiple myeloma: {}
+      Leukaemia: {}
+      Ill-defined malignant neoplasms: {}
+      Other malignant neoplasms: {}
+      Other neoplasms: {}
+      Diabetes mellitus and endocrine disorders: {}
+      Diabetes mellitus: {}
+      Endocrine disorders: {}
+      Neuropsychiatric conditions: {}
+      Unipolar depressive disorders: {}
+      Bipolar disorder: {}
+      Schizophrenia: {}
+      Epilepsy: {}
+      Alcohol use disorders: {}
+      Alzheimer and other dementias: {}
+      Parkinson disease: {}
+      Multiple sclerosis: {}
+      Drug use disorders: {}
+      Post-traumatic stress disorder: {}
+      Obsessive-compulsive disorder: {}
+      Panic disorder: {}
+      Insomnia (primary): {}
+      Migraine: {}
+      Mental Retardation: {}
+      Other neuropsychiatric disorders: {}
+      Sense organ diseases: {}
+      Glaucoma: {}
+      Cataracts: {}
+      Vision disorders, age-related: {}
+      Hearing loss, adult onset: {}
+      Other sense organ disorders: {}
+      Cardiovascular diseases: {}
+      Rheumatic heart disease: {}
+      Hypertensive heart disease: {}
+      Ischaemic heart disease: {}
+      Cerebrovascular disease: {}
+      Inflammatory heart diseases: {}
+      Ill-defined circulatory diseases: {}
+      Other circulatory diseases: {}
+      Respiratory diseases: {}
+      Chronic obstructive pulmonary disease: {}
+      Asthma: {}
+      Other respiratory diseases: {}
+      Digestive diseases: {}
+      Peptic ulcer disease: {}
+      Cirrhosis of the liver: {}
+      Appendicitis: {}
+      Gastritis and duodenitis: {}
+      Paralytic ileus and intestinal obstruction: {}
+      Inflammatory bowel disease: {}
+      Gallbladder and biliary diseases: {}
+      Pancreatitis: {}
+      Other digestive diseases: {}
+      Genitourinary diseases: {}
+      Nephritis and nephrosis: {}
+      Benign prostatic hypertrophy: {}
+      Other genitourinary system diseases: {}
+      Skin diseases: {}
+      Musculoskeletal diseases: {}
+      Rheumatoid arthritis: {}
+      Osteoarthritis: {}
+      Gout: {}
+      Back pain: {}
+      Other musculoskeletal disorders: {}
+      Congenital anomalies: {}
+      Abdominal wall defect: {}
+      Anencephaly: {}
+      Anorectal atresia: {}
+      Cleft lip: {}
+      Cleft palate: {}
+      Oesophageal atresia: {}
+      Renal agenesis: {}
+      Down syndrome: {}
+      Congenital heart anomalies: {}
+      Spina bifida: {}
+      Other Congenital anomalies: {}
+      Oral conditions: {}
+      Dental caries: {}
+      Periodontal disease: {}
+      Edentulism: {}
+      Other oral diseases: {}
+      Sudden infant death syndrome: {}
+      Injuries: {}
+      Unintentional injuries: {}
+      Road traffic accidents: {}
+      Poisonings: {}
+      Falls: {}
+      Fires: {}
+      Drownings: {}
+      Exposure to mechanical forces: {}
+      Natural disasters: {}
+      Other unintentional injuries: {}
+      Intentional injuries: {}
+      Self-inflicted injuries: {}
+      Violence: {}
+      War: {}
+      Other intentional injuries: {}
+      Ill-defined injuries/accidents: {}
+      Ill-defined diseases: {}
+  condition_type:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      Alzheimers disease:
+        description: A progressive, neurodegenerative disease characterized by loss
+          of function and death of nerve cells in several areas of the brain leading
+          to loss of cognitive function such as memory and language.
+        meaning: MONDO:0004975
+      amyotrophic lateral sclerosis (ALS):
+        description: Amyotrophic lateral sclerosis (ALS) is a neurodegenerative disease
+          characterized by progressive muscular paralysis reflecting degeneration
+          of motor neurons in the primary motor cortex, corticospinal tracts, brainstem
+          and spinal cord.
+        meaning: MONDO:0004976
+      ataxia:
+        description: "A central nervous system disease that consists of gait impairment,\
+          \ unclear (\u201Cscanning\u201D) speech, visual blurring due to nystagmus,\
+          \ hand incoordination, and tremor with movement."
+        meaning: MONDO:0100308
+      autism:
+        description: Persistent deficits in social interaction and communication and
+          interaction as well as a markedly restricted repertoire of activity and
+          interest as well as repetitive patterns of behavior.
+        meaning: MONDO:0005260
+      bi-polar disorder:
+        description: A disorder of the brain that causes unusual shifts in mood, energy,
+          activity levels and the ability to carry out day-to-day tasks. Often these
+          moods range and shift from periods of elation and energized behavior to
+          those of hopelessness and depression.
+        meaning: MONDO:0004985
+      brain aneurysm:
+        description: A congenital or acquired aneurysm within the cranium.
+        meaning: MONDO:0005291
+      cancer:
+        description: A tumor composed of atypical neoplastic, often pleomorphic cells
+          that invade other tissues. Malignant neoplasms often metastasize to distant
+          anatomic sites and may recur after excision. The most common malignant neoplasms
+          are carcinomas (adenocarcinomas or squamous cell carcinomas), Hodgkin and
+          non-Hodgkin lymphomas, leukemias, melanomas, and sarcomas.
+        meaning: MONDO:0004992
+      dementia:
+        description: Loss of intellectual abilities interfering with an individual's
+          social and occupational functions. Causes include Alzheimer's disease, brain
+          injuries, brain tumors, and vascular disorders.
+        meaning: MONDO:0001627
+      depression:
+        description: A melancholy feeling of sadness and despair.
+        meaning: MONDO:0002050
+      diabetes mellitus:
+        description: A metabolic disorder characterized by abnormally high blood sugar
+          levels due to diminished production of insulin or insulin resistance/desensitization.
+        meaning: MONDO:0005015
+      dystonia:
+        description: A movement disorder characterized by sustained or intermittent
+          muscle contractions, resulting in abnormal movements and/or postures.
+        meaning: MONDO:0003441
+      epilepsy:
+        description: A brain disorder characterized by episodes of abnormally increased
+          neuronal discharge resulting in transient episodes of sensory or motor neurological
+          dysfunction, or psychic dysfunction. These episodes may or may not be associated
+          with loss of consciousness or convulsions.
+        meaning: MONDO:0005027
+      heart disease:
+        description: A disease involving the heart and/or pericardium.
+        meaning: MONDO:0005267
+      hypertension:
+        description: Persistently high systemic arterial blood pressure. Based on
+          multiple readings (blood pressure determination), hypertension is currently
+          defined as when systolic pressure is consistently greater than 140 mm Hg
+          or when diastolic pressure is consistently 90 mm Hg or more.
+        meaning: MONDO:0005044
+      memory loss:
+        description: Systematic and extensive loss of memory caused by organic or
+          psychological factors. The loss may be temporary or permanent, and may involve
+          old or recent memories.
+        meaning: MONDO:0001152
+      migraines:
+        description: A common, severe type of vascular headache often associated with
+          increased sympathetic activity, resulting in nausea, vomiting, and light
+          sensitivity.
+        meaning: MONDO:0005277
+      multiple sclerosis:
+        description: A progressive autoimmune disorder affecting the central nervous
+          system resulting in demyelination. Patients develop physical and cognitive
+          impairments that correspond with the affected nerve fibers.
+        meaning: MONDO:0005301
+      muscle disease:
+        description: A disease involving the muscle tissue.
+        meaning: MONDO:0003939
+      Parkinson's disease:
+        description: A progressive degenerative disorder of the central nervous system
+          characterized by loss of dopamine producing neurons in the substantia nigra
+          and the presence of Lewy bodies in the substantia nigra and locus coeruleus.
+          Signs and symptoms include tremor which is most pronounced during rest,
+          muscle rigidity, slowing of the voluntary movements, a tendency to fall
+          back, and a mask-like facial expression.
+        meaning: MONDO:0005180
+      schizophrenia:
+        description: A major psychotic disorder characterized by abnormalities in
+          the perception or expression of reality. It affects the cognitive and psychomotor
+          functions. Common clinical signs and symptoms include delusions, hallucinations,
+          disorganized thinking, and retreat from reality.
+        meaning: MONDO:0005090
+      stroke:
+        description: A sudden loss of neurological function secondary to hemorrhage
+          or ischemia in the brain parenchyma due to a vascular event. Stroke includes
+          two main types, hemorrhagic and ischemic. Both types of stroke can cause
+          acute seizures at the time of the acute event, as well as epilepsy as a
+          long-term complication. In the elderly, cerebrovascular disease and stroke
+          are the most common cause of acute seizures and epilepsy.
+        meaning: MONDO:0005098
+      suicide or suicide attempt:
+        description: Any behaviour related to suicide, including suicide ideation
+          and self-harm
+        meaning: EFO:0007623
+      tourette syndrome:
+        description: A neurologic disorder caused by defective metabolism of the neurotransmitters
+          in the brain. It is characterized by repeated involuntary movements (motor
+          tics) and uncontrollable vocal sounds (vocal tics). The symptoms are usually
+          manifested before the age of eighteen.
+        meaning: MONDO:0007661
+      other (specify): {}
+  confidence_level:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      confirmed diagnosis:
+        description: 'Sufficient evidence exists to: 1) make a clinical diagnosis
+          based on medical history and neuropathological exam or genetic data or 2)
+          make a clinical diagnosis by the consensus of expert clinicians or 3) confirm
+          the absence of any brain-related diagnoses (i.e. Unaffected Control)'
+      investigator impression:
+        description: Diagnosis is based on the clinical impressions of the clinician
+          reviewing the available information but that information is insufficient
+          to render a confirmed diagnosis
+      insufficient data:
+        description: The available information is insufficient to form a reasonable
+          impression of or to exclude any brain-related diagnoses
+  donor_source:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      BICAN-NBB: {}
+      Donor from NIH NeuroBioBank: {}
+      BICAN-UM1: {}
+      Other: {}
+  drugs_found:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      10-Hydroxycarbazepine: {}
+      2-Furanylfentanyl: {}
+      4-ANPP: {}
+      6-Beta-Naltrexol - Free: {}
+      6-Monoacetylmorphine: {}
+      7-Amino Clonazepam: {}
+      7-Amino Flunitrazepam: {}
+      9-Hydroxyrisperidone: {}
+      Acetaminophen: {}
+      Acetone: {}
+      Acetyl Fentanyl: {}
+      Acrylfentanyl: {}
+      Alfentanil: {}
+      Alpha-Hydroxyalprazolam: {}
+      Alpha-Hydroxyetizolam: {}
+      Alprazolam: {}
+      Amitriptyline: {}
+      Amlodipine: {}
+      Amoxapine: {}
+      Amphetamine: {}
+      Aripiprazole: {}
+      Atomoxetine: {}
+      Atropine: {}
+      Barbiturates: {}
+      Benzodiazepines: {}
+      Benzoylecgonine: {}
+      Benztropine: {}
+      Bromazepam: {}
+      Brompheniramine: {}
+      Buprenorphine: {}
+      Buprenorphine / Metabolite: {}
+      Bupropion: {}
+      Bupropion Metabolite: {}
+      Buspirone: {}
+      Butalbital: {}
+      Butorphanol: {}
+      Butylone: {}
+      Butyrylfentanyl: {}
+      Caffeine: {}
+      Cannabinoids: {}
+      Carbamazepine: {}
+      Carbamazepine-10,11-Epoxide: {}
+      Carfentanil: {}
+      Carisoprodol: {}
+      Chlordiazepoxide: {}
+      Chlorpheniramine: {}
+      Chlorpromazine: {}
+      Citalopram / Escitalopram: {}
+      Clobazam: {}
+      Clomipramine: {}
+      Clonazepam: {}
+      Clonazolam: {}
+      Clonidine: {}
+      Clozapine: {}
+      Cocaethylene: {}
+      Cocaine: {}
+      Cocaine / Metabolites: {}
+      Codeine: {}
+      Cotinine: {}
+      Cyclobenzaprine: {}
+      Cyclopropylfentanyl: {}
+      Delorazepam: {}
+      Desalkylflurazepam: {}
+      Descarboethoxyloratadine: {}
+      Desipramine: {}
+      Desmethylcitalopram: {}
+      Desmethylclomipramine: {}
+      Desmethyldoxepin: {}
+      Desmethylloperamide: {}
+      Desmethylmirtazapine: {}
+      Desmethylsertraline: {}
+      Desmethyltrimipramine: {}
+      Dextro / Levo Methorphan: {}
+      Dextrorphan / Levorphanol: {}
+      Diazepam: {}
+      Dibutylone: {}
+      Dicyclomine: {}
+      Dihydrocodeine / Hydrocodol: {}
+      Diltiazem: {}
+      Diphenhydramine: {}
+      Donepezil: {}
+      Doxepin: {}
+      Doxylamine: {}
+      Duloxetine: {}
+      Duloxetine Breakdown Product: {}
+      EDDP: {}
+      Ephedrine: {}
+      Ephedrine / Pseudoephedrine: {}
+      Estazolam: {}
+      Eszopiclone / Zopiclone: {}
+      Eszopiclone / Zopiclone Breakdown: {}
+      Ethanol: {}
+      Ethinamate: {}
+      Ethosuximide: {}
+      Ethotoin: {}
+      Ethylmorphine: {}
+      Etizolam: {}
+      Felbamate: {}
+      Fentanyl: {}
+      Flecainide: {}
+      Flubromazepam: {}
+      Flubromazolam: {}
+      Fluconazole: {}
+      Flunitrazepam: {}
+      Fluoxetine: {}
+      Fluphenazine: {}
+      Flurazepam: {}
+      Fluvoxamine: {}
+      Gabapentin: {}
+      Gabapentin Breakdown Product: {}
+      Guaifenesin: {}
+      Haloperidol: {}
+      Hexobarbital: {}
+      Hydrocodone: {}
+      Hydromorphone: {}
+      Hydroxybupropion: {}
+      Hydroxychloroquine: {}
+      Hydroxyethylflurazepam: {}
+      Hydroxytriazolam: {}
+      Hydroxyzine: {}
+      Ibuprofen: {}
+      Iloperidone: {}
+      Imipramine: {}
+      Isopropanol: {}
+      Ketamine: {}
+      LSD: {}
+      Lacosamide: {}
+      Lamotrigine: {}
+      Levamisole: {}
+      Levetiracetam: {}
+      Lidocaine: {}
+      Loperamide: {}
+      Loratadine: {}
+      Lorazepam: {}
+      Loxapine: {}
+      MDA: {}
+      MDEA: {}
+      MDMA: {}
+      Meclizine: {}
+      Memantine: {}
+      Meperidine: {}
+      Mepivacaine: {}
+      Meprobamate: {}
+      Mescaline: {}
+      Mesoridazine: {}
+      Metaxalone: {}
+      Methadone: {}
+      Methamphetamine: {}
+      Methanol: {}
+      Methaqualone: {}
+      Methocarbamol: {}
+      Methoxetamine: {}
+      Methylphenidate: {}
+      Metoprolol: {}
+      Metronidazole: {}
+      Midazolam: {}
+      Milnacipran: {}
+      Mirtazapine: {}
+      Mitragynine: {}
+      Monoethylglycinexylidide (MEGX): {}
+      Morphine: {}
+      N-Acetylprocainamide: {}
+      N-ethyl Pentylone: {}
+      Nalbuphine: {}
+      Naloxone: {}
+      Naltrexone: {}
+      Naltrexone - Free: {}
+      Naproxen: {}
+      Naproxen Breakdown Product: {}
+      Nicotine: {}
+      Norbuprenorphine - Free: {}
+      Norclozapine: {}
+      Norcodeine: {}
+      Norcyclobenzaprine: {}
+      Nordiazepam: {}
+      Norfentanyl: {}
+      Norflunitrazepam: {}
+      Norfluoxetine: {}
+      Norhydroxyzine: {}
+      Norketamine: {}
+      Normeperidine: {}
+      Norpropoxyphene: {}
+      Norpseudoephedrine: {}
+      Norpseudoephedrine / Phenylpropanolamine: {}
+      Nortriptyline: {}
+      O-Desmethyltramadol: {}
+      O-Desmethylvenlafaxine: {}
+      Olanzapine: {}
+      Ondansetron: {}
+      Opiates: {}
+      Other Findings: {}
+      Oxazepam: {}
+      Oxycodone: {}
+      Oxycodone / Oxymorphone: {}
+      Oxymorphone: {}
+      Papaverine: {}
+      Paroxetine: {}
+      Pentazocine: {}
+      Pentobarbital: {}
+      Perphenazine: {}
+      Phenazepam: {}
+      Phencyclidine: {}
+      Pheniramine: {}
+      Phenobarbital: {}
+      Phensuximide: {}
+      Phentermine: {}
+      Phenylethylmalonamide (PEMA): {}
+      Phenylpropanolamine: {}
+      Phenyltoloxamine: {}
+      Phenytoin: {}
+      Primidone: {}
+      Procainamide: {}
+      Prochlorperazine: {}
+      Promazine: {}
+      Promethazine: {}
+      Propofol: {}
+      Propoxyphene: {}
+      Protriptyline: {}
+      Pseudoephedrine: {}
+      Psilocin: {}
+      Pyrilamine: {}
+      Quetiapine: {}
+      Quinidine: {}
+      Quinine: {}
+      Risperidone: {}
+      Rufinamide: {}
+      Salicylates: {}
+      Scope Statement: {}
+      Secobarbital: {}
+      Sertraline: {}
+      Sildenafil: {}
+      Strychnine: {}
+      Sufentanil: {}
+      Tadalafil: {}
+      Tapentadol: {}
+      Temazepam: {}
+      Tetrahydrozoline: {}
+      Theobromine: {}
+      Theophylline: {}
+      Thioridazine: {}
+      Thiothixene: {}
+      Ticlopidine: {}
+      Topiramate: {}
+      Topiramate Breakdown Product: {}
+      Tramadol: {}
+      Tramadol Metabolite: {}
+      Trazodone: {}
+      Triazolam: {}
+      Trifluoperazine: {}
+      Trimethoprim: {}
+      Trimipramine: {}
+      Triprolidine: {}
+      U-47700: {}
+      Valerylfentanyl: {}
+      Vardenafil: {}
+      Venlafaxine: {}
+      Venlafaxine Metabolite: {}
+      Verapamil: {}
+      Warfarin: {}
+      Xylazine: {}
+      Yohimbine: {}
+      Zaleplon: {}
+      Ziprasidone: {}
+      Zolpidem: {}
+      Zonisamide: {}
+      alpha-PVP: {}
+      cis-3-Methylfentanyl: {}
+      mCPP: {}
+      para-Fluoroisobutyrylfentanyl: {}
+      trans-3-Methylfentanyl: {}
+      Other findings, specify: {}
+  ethnicity:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      Hispanic or Latino:
+        description: A person of Cuban, Mexican, Puerto Rican, South or Central American,
+          or other Spanish culture or origin, regardless of race. The term, "Spanish
+          origin" can be used in addition to "Hispanic or Latino".
+      Not Hispanic or Latino:
+        description: A person not of Cuban, Mexican, Puerto Rican, South or Central
+          American, or other Spanish culture or origin, regardless of race.
+      Prefer not to answer:
+        description: A response indicating that an individual prefers or preferred
+          not to answer.
+      Unknown:
+        description: Not known, observed, recorded; or reported as unknown by the
+          data contributor.
+      Not reported:
+        description: Not provided or available.
+  gender:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      male:
+        description: The gender identity of male self-identified by the subject/participant.
+        meaning: OMRSE:00000008
+      female:
+        description: The gender identity of female self-identified by the subject/participant.
+        meaning: OMRSE:00000009
+      transgender male:
+        description: The gender identify of transgender male self-identified by the
+          subject/participant.
+        meaning: GSSO:000372
+      transgender female:
+        description: The gender identity of transgender female self-identified by
+          the subject/participant.
+        meaning: GSSO:000384
+      non-binary:
+        description: The gender identity of non-binary self-identified by the subject/participant.
+        meaning: GSSO:000395
+      gender fluid:
+        description: The gender identity of gender fluid self-identified by the subject/participant.
+        meaning: GSSO:000406
+      other, specify:
+        description: A gender identity of a type not included in this list.
+      unknown:
+        description: Not known, observed, recorded; or reported as unknown by the
+          data contributor.
+      not reported:
+        description: Gender identity not reported.
+  handedness:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      left:
+        description: Handedness where the organism preferentially uses the left hand
+          or foot for tasks requiring the use of a single hand or foot or a dominant
+          hand or foot
+        meaning: PATO:0002202
+      right:
+        description: Handedness where the organism preferentially uses the right hand
+          or foot for tasks requiring the use of a single hand or foot or a dominant
+          hand or foot.
+        meaning: PATO:0002203
+      either:
+        description: Handedness where the organism exhibits no overall dominance in
+          the use of right or left hand or foot in the performance of tasks that require
+          one hand or foot or a dominant hand or foot.
+        meaning: PATO:0002204
+  hemisphere:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      left:
+        description: A cerebral hemisphere that is in the left side of a brain.
+      right:
+        description: A cerebral hemisphere that is in the right side of a brain.
+      both:
+        description: Part of the telencephalon consisting of both of the two smooth,
+          elongated halves of the cerebrum.
+      unknown: {}
+  income_range:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      Under $15000:
+        description: Annual income under 15000 USD
+      $15000 to $24999:
+        description: Annual income between 15000 and 24999 USD
+      $25000 to $34999:
+        description: Annual income between 25000 and 34999 USD
+      $35000 to $49999:
+        description: Annual income between 35000 and 49999 USD
+      $50000 to $74999:
+        description: Annual income between 50000 and 74999 USD
+      $75000 to $99999:
+        description: Annual income between 75000 and 99999 USD
+      $100000 and over:
+        description: Annual income greater than 100000 USD
+      Refused:
+        description: Annual income disclosure refused.
+      Unknown:
+        description: Annual income unknown.
+  informant_relationship:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      child:
+        description: A person who is either the progeny of the subject or the adoptive
+          child of the subject.
+      friend/neighbor:
+        description: Either one of a friend of the subject or a person who lives near
+          the subject.
+      parent:
+        description: A caretaker and/or immediate progenitor of a child.
+        meaning: GSSO:001953
+      professional caregiver:
+        description: A person who bears the caretaker role for the subject.
+      themself:
+        description: A person who is identical to the subject, i.e., the subject themselves.
+      sibling:
+        description: A person who shares a parent.
+        meaning: GSSO:001955
+      spouse/partner:
+        description: A partner in marriage.
+        meaning: GSSO:001968
+      teammate:
+        description: A person who is a member of a team whose membership includes
+          the subject.
+      other relative (specify): {}
+      other (specify): {}
+  language:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      aar:
+        description: Afar
+      abk:
+        description: Abkhazian
+      ace:
+        description: Achinese
+      ach:
+        description: Acoli
+      ada:
+        description: Adangme
+      ady:
+        description: Adyghe; Adygei
+      afa:
+        description: Afro-Asiatic languages
+      afh:
+        description: Afrihili
+      afr:
+        description: Afrikaans
+      ain:
+        description: Ainu
+      aka:
+        description: Akan
+      akk:
+        description: Akkadian
+      alb (B):
+        description: Albanian
+      sqi (T): {}
+      ale:
+        description: Aleut
+      alg:
+        description: Algonquian languages
+      alt:
+        description: Southern Altai
+      amh:
+        description: Amharic
+      ang:
+        description: English, Old (ca.450-1100)
+      anp:
+        description: Angika
+      apa:
+        description: Apache languages
+      ara:
+        description: Arabic
+      arc:
+        description: Official Aramaic (700-300 BCE); Imperial Aramaic (700-300 BCE)
+      arg:
+        description: Aragonese
+      arm (B):
+        description: Armenian
+      hye (T): {}
+      arn:
+        description: Mapudungun; Mapuche
+      arp:
+        description: Arapaho
+      art:
+        description: Artificial languages
+      arw:
+        description: Arawak
+      asm:
+        description: Assamese
+      ast:
+        description: Asturian; Bable; Leonese; Asturleonese
+      ath:
+        description: Athapascan languages
+      aus:
+        description: Australian languages
+      ava:
+        description: Avaric
+      ave:
+        description: Avestan
+      awa:
+        description: Awadhi
+      aym:
+        description: Aymara
+      aze:
+        description: Azerbaijani
+      bad:
+        description: Banda languages
+      bai:
+        description: Bamileke languages
+      bak:
+        description: Bashkir
+      bal:
+        description: Baluchi
+      bam:
+        description: Bambara
+      ban:
+        description: Balinese
+      baq (B):
+        description: Basque
+      eus (T): {}
+      bas:
+        description: Basa
+      bat:
+        description: Baltic languages
+      bej:
+        description: Beja; Bedawiyet
+      bel:
+        description: Belarusian
+      bem:
+        description: Bemba
+      ben:
+        description: Bengali
+      ber:
+        description: Berber languages
+      bho:
+        description: Bhojpuri
+      bih:
+        description: Bihari languages
+      bik:
+        description: Bikol
+      bin:
+        description: Bini; Edo
+      bis:
+        description: Bislama
+      bla:
+        description: Siksika
+      bnt:
+        description: Bantu languages
+      tib (B):
+        description: Tibetan
+      bod (T): {}
+      bos:
+        description: Bosnian
+      bra:
+        description: Braj
+      bre:
+        description: Breton
+      btk:
+        description: Batak languages
+      bua:
+        description: Buriat
+      bug:
+        description: Buginese
+      bul:
+        description: Bulgarian
+      bur (B):
+        description: Burmese
+      mya (T): {}
+      byn:
+        description: Blin; Bilin
+      cad:
+        description: Caddo
+      cai:
+        description: Central American Indian languages
+      car:
+        description: Galibi Carib
+      cat:
+        description: Catalan; Valencian
+      cau:
+        description: Caucasian languages
+      ceb:
+        description: Cebuano
+      cel:
+        description: Celtic languages
+      cze (B):
+        description: Czech
+      ces (T): {}
+      cha:
+        description: Chamorro
+      chb:
+        description: Chibcha
+      che:
+        description: Chechen
+      chg:
+        description: Chagatai
+      chi (B):
+        description: Chinese
+      zho (T): {}
+      chk:
+        description: Chuukese
+      chm:
+        description: Mari
+      chn:
+        description: Chinook jargon
+      cho:
+        description: Choctaw
+      chp:
+        description: Chipewyan; Dene Suline
+      chr:
+        description: Cherokee
+      chu:
+        description: Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian;
+          Old Church Slavonic
+      chv:
+        description: Chuvash
+      chy:
+        description: Cheyenne
+      cmc:
+        description: Chamic languages
+      cnr:
+        description: Montenegrin
+      cop:
+        description: Coptic
+      cor:
+        description: Cornish
+      cos:
+        description: Corsican
+      cpe:
+        description: Creoles and pidgins, English based
+      cpf:
+        description: Creoles and pidgins, French-based
+      cpp:
+        description: Creoles and pidgins, Portuguese-based
+      cre:
+        description: Cree
+      crh:
+        description: Crimean Tatar; Crimean Turkish
+      crp:
+        description: Creoles and pidgins
+      csb:
+        description: Kashubian
+      cus:
+        description: Cushitic languages
+      wel (B):
+        description: Welsh
+      cym (T): {}
+      dak:
+        description: Dakota
+      dan:
+        description: Danish
+      dar:
+        description: Dargwa
+      day:
+        description: Land Dayak languages
+      del:
+        description: Delaware
+      den:
+        description: Slave (Athapascan)
+      ger (B):
+        description: German
+      deu (T): {}
+      dgr:
+        description: Dogrib
+      din:
+        description: Dinka
+      div:
+        description: Divehi; Dhivehi; Maldivian
+      doi:
+        description: Dogri
+      dra:
+        description: Dravidian languages
+      dsb:
+        description: Lower Sorbian
+      dua:
+        description: Duala
+      dum:
+        description: Dutch, Middle (ca.1050-1350)
+      dut (B):
+        description: Dutch; Flemish
+      nld (T): {}
+      dyu:
+        description: Dyula
+      dzo:
+        description: Dzongkha
+      efi:
+        description: Efik
+      egy:
+        description: Egyptian (Ancient)
+      eka:
+        description: Ekajuk
+      gre (B):
+        description: Greek, Modern (1453-)
+      ell (T): {}
+      elx:
+        description: Elamite
+      eng:
+        description: English
+      enm:
+        description: English, Middle (1100-1500)
+      epo:
+        description: Esperanto
+      est:
+        description: Estonian
+      ewe:
+        description: Ewe
+      ewo:
+        description: Ewondo
+      fan:
+        description: Fang
+      fao:
+        description: Faroese
+      per (B):
+        description: Persian
+      fas (T): {}
+      fat:
+        description: Fanti
+      fij:
+        description: Fijian
+      fil:
+        description: Filipino; Pilipino
+      fin:
+        description: Finnish
+      fiu:
+        description: Finno-Ugrian languages
+      fon:
+        description: Fon
+      fre (B):
+        description: French
+      fra (T): {}
+      frm:
+        description: French, Middle (ca.1400-1600)
+      fro:
+        description: French, Old (842-ca.1400)
+      frr:
+        description: Northern Frisian
+      frs:
+        description: Eastern Frisian
+      fry:
+        description: Western Frisian
+      ful:
+        description: Fulah
+      fur:
+        description: Friulian
+      gaa:
+        description: Ga
+      gay:
+        description: Gayo
+      gba:
+        description: Gbaya
+      gem:
+        description: Germanic languages
+      geo (B):
+        description: Georgian
+      kat (T): {}
+      gez:
+        description: Geez
+      gil:
+        description: Gilbertese
+      gla:
+        description: Gaelic; Scottish Gaelic
+      gle:
+        description: Irish
+      glg:
+        description: Galician
+      glv:
+        description: Manx
+      gmh:
+        description: German, Middle High (ca.1050-1500)
+      goh:
+        description: German, Old High (ca.750-1050)
+      gon:
+        description: Gondi
+      gor:
+        description: Gorontalo
+      got:
+        description: Gothic
+      grb:
+        description: Grebo
+      grc:
+        description: Greek, Ancient (to 1453)
+      grn:
+        description: Guarani
+      gsw:
+        description: Swiss German; Alemannic; Alsatian
+      guj:
+        description: Gujarati
+      gwi:
+        description: Gwich'in
+      hai:
+        description: Haida
+      hat:
+        description: Haitian; Haitian Creole
+      hau:
+        description: Hausa
+      haw:
+        description: Hawaiian
+      heb:
+        description: Hebrew
+      her:
+        description: Herero
+      hil:
+        description: Hiligaynon
+      him:
+        description: Himachali languages; Western Pahari languages
+      hin:
+        description: Hindi
+      hit:
+        description: Hittite
+      hmn:
+        description: Hmong; Mong
+      hmo:
+        description: Hiri Motu
+      hrv:
+        description: Croatian
+      hsb:
+        description: Upper Sorbian
+      hun:
+        description: Hungarian
+      hup:
+        description: Hupa
+      iba:
+        description: Iban
+      ibo:
+        description: Igbo
+      ice (B):
+        description: Icelandic
+      isl (T): {}
+      ido:
+        description: Ido
+      iii:
+        description: Sichuan Yi; Nuosu
+      ijo:
+        description: Ijo languages
+      iku:
+        description: Inuktitut
+      ile:
+        description: Interlingue; Occidental
+      ilo:
+        description: Iloko
+      ina:
+        description: Interlingua (International Auxiliary Language Association)
+      inc:
+        description: Indic languages
+      ind:
+        description: Indonesian
+      ine:
+        description: Indo-European languages
+      inh:
+        description: Ingush
+      ipk:
+        description: Inupiaq
+      ira:
+        description: Iranian languages
+      iro:
+        description: Iroquoian languages
+      ita:
+        description: Italian
+      jav:
+        description: Javanese
+      jbo:
+        description: Lojban
+      jpn:
+        description: Japanese
+      jpr:
+        description: Judeo-Persian
+      jrb:
+        description: Judeo-Arabic
+      kaa:
+        description: Kara-Kalpak
+      kab:
+        description: Kabyle
+      kac:
+        description: Kachin; Jingpho
+      kal:
+        description: Kalaallisut; Greenlandic
+      kam:
+        description: Kamba
+      kan:
+        description: Kannada
+      kar:
+        description: Karen languages
+      kas:
+        description: Kashmiri
+      kau:
+        description: Kanuri
+      kaw:
+        description: Kawi
+      kaz:
+        description: Kazakh
+      kbd:
+        description: Kabardian
+      kha:
+        description: Khasi
+      khi:
+        description: Khoisan languages
+      khm:
+        description: Central Khmer
+      kho:
+        description: Khotanese; Sakan
+      kik:
+        description: Kikuyu; Gikuyu
+      kin:
+        description: Kinyarwanda
+      kir:
+        description: Kirghiz; Kyrgyz
+      kmb:
+        description: Kimbundu
+      kok:
+        description: Konkani
+      kom:
+        description: Komi
+      kon:
+        description: Kongo
+      kor:
+        description: Korean
+      kos:
+        description: Kosraean
+      kpe:
+        description: Kpelle
+      krc:
+        description: Karachay-Balkar
+      krl:
+        description: Karelian
+      kro:
+        description: Kru languages
+      kru:
+        description: Kurukh
+      kua:
+        description: Kuanyama; Kwanyama
+      kum:
+        description: Kumyk
+      kur:
+        description: Kurdish
+      kut:
+        description: Kutenai
+      lad:
+        description: Ladino
+      lah:
+        description: Lahnda
+      lam:
+        description: Lamba
+      lao:
+        description: Lao
+      lat:
+        description: Latin
+      lav:
+        description: Latvian
+      lez:
+        description: Lezghian
+      lim:
+        description: Limburgan; Limburger; Limburgish
+      lin:
+        description: Lingala
+      lit:
+        description: Lithuanian
+      lol:
+        description: Mongo
+      loz:
+        description: Lozi
+      ltz:
+        description: Luxembourgish; Letzeburgesch
+      lua:
+        description: Luba-Lulua
+      lub:
+        description: Luba-Katanga
+      lug:
+        description: Ganda
+      lui:
+        description: Luiseno
+      lun:
+        description: Lunda
+      luo:
+        description: Luo (Kenya and Tanzania)
+      lus:
+        description: Lushai
+      mac (B):
+        description: Macedonian
+      mkd (T): {}
+      mad:
+        description: Madurese
+      mag:
+        description: Magahi
+      mah:
+        description: Marshallese
+      mai:
+        description: Maithili
+      mak:
+        description: Makasar
+      mal:
+        description: Malayalam
+      man:
+        description: Mandingo
+      mao (B):
+        description: Maori
+      mri (T): {}
+      map:
+        description: Austronesian languages
+      mar:
+        description: Marathi
+      mas:
+        description: Masai
+      may (B):
+        description: Malay
+      msa (T): {}
+      mdf:
+        description: Moksha
+      mdr:
+        description: Mandar
+      men:
+        description: Mende
+      mga:
+        description: Irish, Middle (900-1200)
+      mic:
+        description: Mi'kmaq; Micmac
+      min:
+        description: Minangkabau
+      mis:
+        description: Uncoded languages
+      mkh:
+        description: Mon-Khmer languages
+      mlg:
+        description: Malagasy
+      mlt:
+        description: Maltese
+      mnc:
+        description: Manchu
+      mni:
+        description: Manipuri
+      mno:
+        description: Manobo languages
+      moh:
+        description: Mohawk
+      mon:
+        description: Mongolian
+      mos:
+        description: Mossi
+      mul:
+        description: Multiple languages
+      mun:
+        description: Munda languages
+      mus:
+        description: Creek
+      mwl:
+        description: Mirandese
+      mwr:
+        description: Marwari
+      myn:
+        description: Mayan languages
+      myv:
+        description: Erzya
+      nah:
+        description: Nahuatl languages
+      nai:
+        description: North American Indian languages
+      nap:
+        description: Neapolitan
+      nau:
+        description: Nauru
+      nav:
+        description: Navajo; Navaho
+      nbl:
+        description: Ndebele, South; South Ndebele
+      nde:
+        description: Ndebele, North; North Ndebele
+      ndo:
+        description: Ndonga
+      nds:
+        description: Low German; Low Saxon; German, Low; Saxon, Low
+      nep:
+        description: Nepali
+      new:
+        description: Nepal Bhasa; Newari
+      nia:
+        description: Nias
+      nic:
+        description: Niger-Kordofanian languages
+      niu:
+        description: Niuean
+      nno:
+        description: Norwegian Nynorsk; Nynorsk, Norwegian
+      nob:
+        description: "Bokm\xE5l, Norwegian; Norwegian Bokm\xE5l"
+      nog:
+        description: Nogai
+      non:
+        description: Norse, Old
+      nor:
+        description: Norwegian
+      nqo:
+        description: N'Ko
+      nso:
+        description: Pedi; Sepedi; Northern Sotho
+      nub:
+        description: Nubian languages
+      nwc:
+        description: Classical Newari; Old Newari; Classical Nepal Bhasa
+      nya:
+        description: Chichewa; Chewa; Nyanja
+      nym:
+        description: Nyamwezi
+      nyn:
+        description: Nyankole
+      nyo:
+        description: Nyoro
+      nzi:
+        description: Nzima
+      oci:
+        description: Occitan (post 1500)
+      oji:
+        description: Ojibwa
+      ori:
+        description: Oriya
+      orm:
+        description: Oromo
+      osa:
+        description: Osage
+      oss:
+        description: Ossetian; Ossetic
+      ota:
+        description: Turkish, Ottoman (1500-1928)
+      oto:
+        description: Otomian languages
+      paa:
+        description: Papuan languages
+      pag:
+        description: Pangasinan
+      pal:
+        description: Pahlavi
+      pam:
+        description: Pampanga; Kapampangan
+      pan:
+        description: Panjabi; Punjabi
+      pap:
+        description: Papiamento
+      pau:
+        description: Palauan
+      peo:
+        description: Persian, Old (ca.600-400 B.C.)
+      phi:
+        description: Philippine languages
+      phn:
+        description: Phoenician
+      pli:
+        description: Pali
+      pol:
+        description: Polish
+      pon:
+        description: Pohnpeian
+      por:
+        description: Portuguese
+      pra:
+        description: Prakrit languages
+      pro:
+        description: "Proven\xE7al, Old (to 1500);Occitan, Old (to 1500)"
+      pus:
+        description: Pushto; Pashto
+      qaa-qtz:
+        description: Reserved for local use
+      que:
+        description: Quechua
+      raj:
+        description: Rajasthani
+      rap:
+        description: Rapanui
+      rar:
+        description: Rarotongan; Cook Islands Maori
+      roa:
+        description: Romance languages
+      roh:
+        description: Romansh
+      rom:
+        description: Romany
+      rum (B):
+        description: Romanian; Moldavian; Moldovan
+      ron (T): {}
+      run:
+        description: Rundi
+      rup:
+        description: Aromanian; Arumanian; Macedo-Romanian
+      rus:
+        description: Russian
+      sad:
+        description: Sandawe
+      sag:
+        description: Sango
+      sah:
+        description: Yakut
+      sai:
+        description: South American Indian languages
+      sal:
+        description: Salishan languages
+      sam:
+        description: Samaritan Aramaic
+      san:
+        description: Sanskrit
+      sas:
+        description: Sasak
+      sat:
+        description: Santali
+      scn:
+        description: Sicilian
+      sco:
+        description: Scots
+      sel:
+        description: Selkup
+      sem:
+        description: Semitic languages
+      sga:
+        description: Irish, Old (to 900)
+      sgn:
+        description: Sign Languages
+      shn:
+        description: Shan
+      sid:
+        description: Sidamo
+      sin:
+        description: Sinhala; Sinhalese
+      sio:
+        description: Siouan languages
+      sit:
+        description: Sino-Tibetan languages
+      sla:
+        description: Slavic languages
+      slo (B):
+        description: Slovak
+      slk (T): {}
+      slv:
+        description: Slovenian
+      sma:
+        description: Southern Sami
+      sme:
+        description: Northern Sami
+      smi:
+        description: Sami languages
+      smj:
+        description: Lule Sami
+      smn:
+        description: Inari Sami
+      smo:
+        description: Samoan
+      sms:
+        description: Skolt Sami
+      sna:
+        description: Shona
+      snd:
+        description: Sindhi
+      snk:
+        description: Soninke
+      sog:
+        description: Sogdian
+      som:
+        description: Somali
+      son:
+        description: Songhai languages
+      sot:
+        description: Sotho, Southern
+      spa:
+        description: Spanish; Castilian
+      srd:
+        description: Sardinian
+      srn:
+        description: Sranan Tongo
+      srp:
+        description: Serbian
+      srr:
+        description: Serer
+      ssa:
+        description: Nilo-Saharan languages
+      ssw:
+        description: Swati
+      suk:
+        description: Sukuma
+      sun:
+        description: Sundanese
+      sus:
+        description: Susu
+      sux:
+        description: Sumerian
+      swa:
+        description: Swahili
+      swe:
+        description: Swedish
+      syc:
+        description: Classical Syriac
+      syr:
+        description: Syriac
+      tah:
+        description: Tahitian
+      tai:
+        description: Tai languages
+      tam:
+        description: Tamil
+      tat:
+        description: Tatar
+      tel:
+        description: Telugu
+      tem:
+        description: Timne
+      ter:
+        description: Tereno
+      tet:
+        description: Tetum
+      tgk:
+        description: Tajik
+      tgl:
+        description: Tagalog
+      tha:
+        description: Thai
+      tig:
+        description: Tigre
+      tir:
+        description: Tigrinya
+      tiv:
+        description: Tiv
+      tkl:
+        description: Tokelau
+      tlh:
+        description: Klingon; tlhIngan-Hol
+      tli:
+        description: Tlingit
+      tmh:
+        description: Tamashek
+      tog:
+        description: Tonga (Nyasa)
+      ton:
+        description: Tonga (Tonga Islands)
+      tpi:
+        description: Tok Pisin
+      tsi:
+        description: Tsimshian
+      tsn:
+        description: Tswana
+      tso:
+        description: Tsonga
+      tuk:
+        description: Turkmen
+      tum:
+        description: Tumbuka
+      tup:
+        description: Tupi languages
+      tur:
+        description: Turkish
+      tut:
+        description: Altaic languages
+      tvl:
+        description: Tuvalu
+      twi:
+        description: Twi
+      tyv:
+        description: Tuvinian
+      udm:
+        description: Udmurt
+      uga:
+        description: Ugaritic
+      uig:
+        description: Uighur; Uyghur
+      ukr:
+        description: Ukrainian
+      umb:
+        description: Umbundu
+      und:
+        description: Undetermined
+      urd:
+        description: Urdu
+      uzb:
+        description: Uzbek
+      vai:
+        description: Vai
+      ven:
+        description: Venda
+      vie:
+        description: Vietnamese
+      vol:
+        description: "Volap\xFCk"
+      vot:
+        description: Votic
+      wak:
+        description: Wakashan languages
+      wal:
+        description: Wolaitta; Wolaytta
+      war:
+        description: Waray
+      was:
+        description: Washo
+      wen:
+        description: Sorbian languages
+      wln:
+        description: Walloon
+      wol:
+        description: Wolof
+      xal:
+        description: Kalmyk; Oirat
+      xho:
+        description: Xhosa
+      yao:
+        description: Yao
+      yap:
+        description: Yapese
+      yid:
+        description: Yiddish
+      yor:
+        description: Yoruba
+      ypk:
+        description: Yupik languages
+      zap:
+        description: Zapotec
+      zbl:
+        description: Blissymbols; Blissymbolics; Bliss
+      zen:
+        description: Zenaga
+      zgh:
+        description: Standard Moroccan Tamazight
+      zha:
+        description: Zhuang; Chuang
+      znd:
+        description: Zande languages
+      zul:
+        description: Zulu
+      zun:
+        description: Zuni
+      zxx:
+        description: No linguistic content; Not applicable
+      zza:
+        description: Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki
+  manner_of_death:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      not deceased: {}
+      accidental:
+        description: A manner of death in which death is caused by inadvertent chance
+          happening(s).
+      homicide:
+        description: A manner of death in which death is caused by a person's intentional
+          action to kill or harm another.
+      suicide:
+        description: A manner of death in which death is caused by self-inflicted
+          injurty with evidence of intent to die.
+      natural:
+        description: A manner of death in which death is caused solely by disease
+          or natural process.
+      manner of death undetermined:
+        description: A manner of death where little information is known about the
+          circumstances surrounding death or where information equally supports and/or
+          conflicts with more than one manner of death.
+      unknown if subject is deceased or not: {}
+  marital_status:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      never married:
+        description: A person who has never been married or whose only marriages have
+          been annulled.
+        meaning: NCIT:C51774
+      married:
+        description: A person currently joined in matrimony. Classify common law marriage
+          as married. Includes married couples living together and not living together.
+        meaning: NCIT:C51773
+      domestic partnership:
+        description: A person who is a member of an unmarried couple, including same
+          sex couples, living together in longstanding relationships, that are registered
+          or unregistered.
+        meaning: NCIT:C53262
+      divorced:
+        description: A person whose marriage has been legally dissolved and has not
+          remarried.
+        meaning: NCIT:C51776
+      separated:
+        description: A person living apart from his/her spouse by legal arrangement.
+        meaning: NCIT:C156541
+      widowed:
+        description: A person who is no longer married because of the death of his/her
+          spouse and who has not remarried.
+        meaning: NCIT:C51775
+  neoplastic_type:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      intrinsic:
+        description: A disposition inhering in a tumour by virtue of the bearer's
+          disposition not to invade surrounding tissues.
+        meaning: PATO:0002132
+      metastasis:
+        description: A disposition inhering in a tumour by virtue of the bearer's
+          disposition to spread and invade distant tissues.
+        meaning: PATO:0002098
+      other (specify):
+        description: A structural quality which is held by a bearer when the latter's
+          disposition the presence of abnormally proliferating masses of cells.
+        meaning: PATO:0002011
+  neurodegenerative_type:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      beta amyloid:
+        description: A peptide of 36-43 amino acids that is processed from the amyloid
+          precursor protein. Appears to be the main constituent of amyloid plaques
+          (deposits found in the brains of Alzheimer's disease patients).
+        meaning: CHEBI:64645
+      pTau:
+        description: A microtubule-associated protein tau that includes at least one
+          phosphorylated residue.
+        meaning: PR:000026989
+      pTDP-43:
+        description: A protein that is a translation product of the human TARDBP gene
+          or a 1:1 ortholog thereof.
+        meaning: PR:000016057
+      alpha-synuclein:
+        description: A protein that is a translation product of the human SNCA gene
+          or a 1:1 ortholog thereof.
+        meaning: PR:000015322
+      Other (specify): {}
+  perinatal_event:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      subdural hemorrhage:
+        description: Bleeding into the subdural space, the potential space between
+          the dura and arachnoid mater of the meninges around the brain.
+        meaning: MP:0031117
+      subarachnoid hemorrhage:
+        description: Intracranial hemorrhage into the subarachnoid space.
+        meaning: MONDO:0005099
+      intraparenchymal hemorrhage:
+        description: Bleeding into the intraparenchymal space.
+      intraventricular hemorrhage:
+        description: Bleeding into the brain ventricles.
+        meaning: MP:0001917
+      hypoxia:
+        description: Reduced oxygenation of body tissues resulting in the decreased
+          pressure of this component of body gases; commonly due to hypoxemia.
+        meaning: MP:0005039
+      other (specify): {}
+      none: {}
+  postmortem_MRI:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      cadaveric:
+        description: A piece of tissue or a sample that is taken from a dead body
+          (cadaver).
+      fresh ex vivo:
+        description: A piece of tissue or a sample that is taken from a living organism
+          and not fixed.
+      fixed ex vivo:
+        description: A piece of tissue or a sample that is taken from a living organism
+          and fixed.
+  preparation:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      formalin fixed:
+        description: A tissue sample that has been fixed with formalin.
+        meaning: NCIT:C200862
+      4% paraformaldehyde fixed:
+        description: A tissue sample that has been fixed with 4% paraformaldehyde.
+      frozen:
+        description: A tissue sample that has been frozen.
+      other:
+        description: A tissue sample that has been fixed by some other method.
+      hemisphere not available: {}
+  race:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      American Indian or Alaska Native:
+        description: A person having origins in any of the original peoples of North
+          and South America (including Central America) and who maintains tribal affiliation
+          or community attachment.
+        meaning: NCIT:C41259
+      Asian:
+        description: A person having origins in any of the original peoples of the
+          Far East, Southeast Asia, or the Indian subcontinent, including for example,
+          Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine
+          Islands, Thailand, and Vietnam.
+        meaning: NCIT:C41260
+      Black or African American:
+        description: A person having origins in any of the Black racial groups of
+          Africa. Terms such as "Haitian" or "Negro" can be used in addition to "Black
+          or African American".
+        meaning: NCIT:C16352
+      Native Hawaiian or Other Pacific Islander:
+        description: A person having origins in any of the original peoples of Hawaii,
+          Guam, Samoa, or other Pacific Islands.
+        meaning: NCIT:C41219
+      White:
+        description: A person having origins in any of the original peoples of Europe,
+          the Middle East, or North Africa.
+        meaning: NCIT:C41261
+      More than one race:
+        description: Having ancestors of several or various races.
+        meaning: NCIT:C67109
+      Other Race:
+        description: Individuals who do not necessarily identify with any particular
+          race or others who do not wish to self select into a racial category(ies).
+        meaning: NCIT:C104495
+      Prefer not to Answer:
+        description: A response indicating that an individual prefers or preferred
+          not to answer.
+      Unknown:
+        description: Not known, observed, recorded; or reported as unknown by the
+          data contributor.
+  relative_type:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      biological mother:
+        description: A female who contributes to the genetic makeup of her offspring
+          from the fertilization of her ovum.
+        meaning: NCIT:C96580
+      biological father:
+        description: A male who contributes to the genetic makeup of his offspring
+          through the fertilization of an ovum by his sperm.
+        meaning: NCIT:C96572
+      full sibling:
+        description: A sibling with whom one shares both parents.
+        meaning: NCIT:C71390
+      half sibling:
+        description: A sibling with whom one shares a single parent.
+        meaning: NCIT:C71391
+      child:
+        description: A first-generation, biological descendant of any age.
+        meaning: NCIT:C42708
+      maternal grandmother:
+        description: A female relative who is the biological mother of the biological
+          mother.
+        meaning: NCIT:C96578
+      paternal grandmother:
+        description: A female relative who is the biological mother of the biological
+          father.
+        meaning: NCIT:C96584
+      maternal grandfather:
+        description: A male relative who is the biological father of the biological
+          mother.
+        meaning: NCIT:C96577
+      paternal grandfather:
+        description: A male relative who is the biological father of the biological
+          father.
+        meaning: NCIT:C96583
+      maternal aunt:
+        description: A female relative who is a sibling of the biological mother,
+          and who both share a common ancestor.
+        meaning: NCIT:C96575
+      paternal aunt:
+        description: A female relative who is a sibling of the biological father,
+          and who both share a common ancestor.
+        meaning: NCIT:C96581
+      maternal uncle:
+        description: A male relative who is a sibling of the biological mother, and
+          who both share a common ancestor.
+        meaning: NCIT:C96579
+      paternal uncle:
+        description: A male relative who is a sibling of the biological father, and
+          who both share a common ancestor.
+        meaning: NCIT:C96585
+      maternal niece/nephew:
+        description: A son or daughter of one's female biological sibling.
+      paternal niece/nephew:
+        description: A son or daughter of one's male biological sibling.
+      maternal cousin:
+        description: A relative who is the offspring of a sibling of the biological
+          mother and thus sharing a common ancestor.
+        meaning: NCIT:C96576
+      paternal cousin:
+        description: A relative who is the offspring of a sibling of the biological
+          father and thus sharing a common ancestor.
+        meaning: NCIT:C96582
+      grandchild:
+        description: A child of one's son or daughter.
+        meaning: NCIT:C71397
+      great-grandchild:
+        description: A child of one's grandchild.
+        meaning: NCIT:C165847
+      other (specify): {}
+  repository:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      TBD: {}
+      Miami: {}
+      Mt. Sinai: {}
+      Sepulveda: {}
+      Harvard: {}
+      Maryland Psychiatric: {}
+      HBCC: {}
+      Maryland: {}
+      Pittsburgh: {}
+      UCLA: {}
+  sex:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      male:
+        description: A person who belongs to the sex that normally produces sperm.
+          The term is used to indicate biological sex distinctions, cultural gender
+          role distinctions, or both.
+        meaning: PATO:0000384
+      female:
+        description: A person who belongs to the sex that normally produces ova. The
+          term is used to indicate biological sex distinctions, or cultural gender
+          role distinctions, or both.
+        meaning: PATO:0000383
+      intersex:
+        description: A person (one of unisexual specimens) who is born with genitalia
+          and/or secondary sexual characteristics of indeterminate sex, or which combine
+          features of both sexes.
+        meaning: PATO:0001340
+      none of these describe me:
+        description: 'Suggested Definition: A response indicating that an individual
+          feels that no option listed is a good description for them.'
+      prefer not to answer:
+        description: A response indicating that an individual prefers or preferred
+          not to answer.
+      unknown:
+        description: Not known, observed, recorded; or reported as unknown by the
+          data contributor.
+  sexual_orientation:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      bisexual:
+        description: Historically, bisexual referred to attraction to persons of two
+          gender identities, typically, but not always, defined as male and female.
+          In modern use, it is usually used to refer to persons who are sexually and/or
+          romantically attracted to persons with a gender or genders like theirs and
+          those with a gender or genders unlike theirs. Note that sometimes bisexual
+          may be used as a synonym of pansexual.
+        meaning: GSSO:001590
+      homosexual (gay/lesbian):
+        description: A person who is attracted solely or primarily to others of the
+          same gender (or sex, depending on precise usage), i.e. being either a male
+          androphile or a female gynephile.
+        meaning: GSSO:000398
+      heterosexual:
+        description: Sexually attracted to a person defined as being of the "opposite"
+          sex (i.e. male attracted to female or female attracted to male); more broadly,
+          attracted to a gender that is not one's own.
+        meaning: GSSO:001592
+      not reported:
+        description: Not provided or available.
+      other:
+        description: A sexual orientation that is not present in this list.
+      unknown:
+        description: Not known, observed, recorded; or reported as unknown by the
+          data contributor.
+      asexual:
+        description: A person who identifies as asexual.
+        meaning: GSSO:000387
+      prefer not to say: {}
+      do not know: {}
+  test_name:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      Hepatitis A: {}
+      Hepatitis C Antibody: {}
+      Hepatitis B Surface Antigen: {}
+      Hepatitis B Surface Antibody: {}
+      Hepatitis B Core Antibody: {}
+      HIV-1/HIV-2 Plus O Antibody: {}
+      HIV-1/HIV-2: {}
+      HIV-1 Antibody: {}
+      COVID-19 Virus (RT-PCR): {}
+      Other (specify): {}
+  tissue_collection_state:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      autopsy:
+        description: A postmortem examination of the body that includes an examination
+          of the internal organs and structures after dissection to determine the
+          cause of death and the nature of pathological changes.
+        meaning: GSSO:006664
+      surgery:
+        description: "Surgery is a medical procedure that uses operative manual and\
+          \ instrumental techniques on a patient to investigate and/or treat a pathological\
+          \ condition such as disease or injury, to help improve bodily function or\
+          \ appearance. The key difference between a surgery and a general procedure\
+          \ is the need for an incision. Making an incision, or cutting into the skin\
+          \ to gain access to the body\u2019s deeper tissues or organs, is a defining\
+          \ characteristic of surgery."
+        meaning: OAE:0000067
+  tissue:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      adipose:
+        description: Portion of connective tissue composed of adipocytes enmeshed
+          in areolar tissue.
+        meaning: UBERON:0001013
+      adrenal:
+        description: Tissue that is part of some adrenal gland.
+        meaning: UBERON:0018303
+      anus:
+        description: 'Orifice at the opposite end of an animal''s digestive tract
+          from the mouth. Its function is to expel feces, unwanted semi-solid matter
+          produced during digestion, which, depending on the type of animal, may be
+          one or more of: matter which the animal cannot digest, such as bones; food
+          material after all the nutrients have been extracted, for example cellulose
+          or lignin; ingested matter which would be toxic if it remained in the digestive
+          tract; and dead or excess gut bacteria and other endosymbionts.'
+        meaning: UBERON:0001245
+      aorta:
+        description: The main trunk of the systemic arterial system that carries blood
+          from the heart to all the organs and other structures of the body, bringing
+          oxygenated blood to all parts of the body in the systemic circulation.
+        meaning: UBERON:0000947
+      appendix:
+        description: A blind-ended tube connected to the cecum, from which it develops
+          embryologically.
+        meaning: UBERON:0001154
+      artery:
+        description: An epithelial tube or tree of tibes that transports blood away
+          from the heart.
+        meaning: UBERON:0001637
+      ascending colon:
+        description: Section of colon which is distal to the cecum and proximal to
+          the transversecolon.
+        meaning: UBERON:0001156
+      astrocytes:
+        description: A class of large neuroglial (macroglial) cells in the central
+          nervous system - the largest and most numerous neuroglial cells in the brain
+          and spinal cord. Astrocytes (from 'star' cells) are irregularly shaped with
+          many long processes, including those with 'end feet' which form the glial
+          (limiting) membrane and directly and indirectly contribute to the blood-brain
+          barrier. They regulate the extracellular ionic and chemical environment,
+          and 'reactive astrocytes' (along with microglia) respond to injury. Astrocytes
+          are reportedly CD68-negative, CD121a-positive, CD184-positive, CD192-positive,
+          CRF-positive, EGFR-positive, GFAP-positive, GLUT1-positive, MBP-negative,
+          and NGFR-positive.
+        meaning: CL:0000127
+      bladder:
+        description: Distensible musculomembranous organ situated in the anterior
+          part of the pelvic cavity in which urine collects before excretion.
+        meaning: UBERON:0001255
+      bone rib:
+        description: An intersegmental rod-shaped bone that forms in the peritoneal
+          membrane and attach to the vertebral parapophyses.
+        meaning: UBERON:0002228
+      breast:
+        description: The upper ventral region of the torso of an organism.
+        meaning: UBERON:0000310
+      bronchus:
+        description: The upper conducting airways of the lung; these airways arise
+          from the terminus of the trachea.
+        meaning: UBERON:0002185
+      cervical spinal cord:
+        description: A spinal cord segment that adjacent_to a cervical region.
+        meaning: UBERON:0002726
+      colon ascending:
+        description: Section of colon which is distal to the cecum and proximal to
+          the transversecolon.
+        meaning: UBERON:0001156
+      colon descending:
+        description: The portion of the colon between the left colic flexure and the
+          sigmoid colon at the pelvic brim; the portion of the descending colon lying
+          in the left iliac fossa is sometimes called the iliac colon.
+        meaning: UBERON:0001158
+      CSF:
+        description: A clear, colorless, bodily fluid, that occupies the subarachnoid
+          space and the ventricular system around and inside the brain and spinal
+          cord.
+        meaning: UBERON:0001359
+      DRG cervical:
+        description: A group of nerve cell bodies located on the dorsal spinal roots
+          within the vertebral column at the level of the cervical vertebrae.
+        meaning: UBERON:0002834
+      DRG sacral:
+        description: A group of nerve cell bodies located on the dorsal spinal roots
+          within the vertebral column at the level of the sacral vertebrae.
+        meaning: UBERON:0002837
+      DRG thoracic:
+        description: A dorsal root ganglion that is part of a thorax.
+        meaning: UBERON:0002835
+      diaphragm:
+        description: A thin musculomebranous barrier that separates the abdominal
+          and thoracic cavities. Often used for breathing control.
+        meaning: UBERON:0001103
+      DNA:
+        description: A long linear double-stranded polymer formed from nucleotides
+          attached to a deoxyribose backbone and found in the nucleus of a cell; associated
+          with the transmission of genetic information.
+        meaning: NCIT:C449
+      DRG lumbar:
+        description: The group of nerve cell bodies located on the dorsal spinal roots
+          within the vertebral column at the level of the lumbar vertebrae.
+        meaning: UBERON:0002836
+      duodenum:
+        description: The first part of the small intestine. At the junction of the
+          stomach and the duodenum the alimentary canal is inflected. The duodenum
+          first goes anteriorly for a short distance, turns dorsally, and eventually
+          caudally, thus it is a U-shaped structure with two horizontal sections (a
+          ventral and a dorsal one).
+        meaning: UBERON:0002114
+      esophagus:
+        description: Tube that connects the pharynx to the stomach. In mammals, the
+          oesophagus connects the buccal cavity with the stomach. The stratified squamous
+          non-keratinised epithelium lining the buccal cavity is continued through
+          the pharynx down into the oesophagus. The lowest part of the oesophagus
+          (ca. 2 cm) is lined with gastric mucosa and covered by peritoneum. The main
+          body of the oesophagus is lined with small, simple mucous glands. Each gland
+          opens into the lumen by a long duct which pierces the muscularis mucosae
+          (Wilson and Washington, 1989). A sphincter is situated at the point where
+          the oesophagus enters the stomach to prevent gastro-oesophageal reflux,
+          i.e. to prevent acidic gastric contents from reaching stratified epithelia
+          of the oesophagus, where they can cause inflammation and irritation (Wilson
+          and Washington, 1989; Brown et al., 1993).
+        meaning: UBERON:0001043
+      eyes:
+        description: An organ that detects light.
+        meaning: UBERON:0000970
+      fallopian tube:
+        description: Initial section of the oviduct through which the ova pass from
+          the ovary to the uterus.
+        meaning: UBERON:0003889
+      fibroblasts:
+        description: A connective tissue cell which secretes an extracellular matrix
+          rich in collagen and other macromolecules. Flattened and irregular in outline
+          with branching processes; appear fusiform or spindle-shaped. These cells
+          may be vimentin-positive, fibronectin-positive, fsp1-positive, MMP-1-positive,
+          collagen I-positive, collagen III-positive, and alpha-SMA-negative.
+        meaning: CL:0000057
+      gallbladder:
+        description: An organ that aids digestion and stores bile produced by the
+          liver. Rats do not have a gallbladder, but produce bile. The bile flows
+          directly from the liver through the (hepatic) bile duct into the small intestine
+          (Hebel and Stromberg, 1988).
+        meaning: UBERON:0002110
+      hair:
+        description: A filament, mostly protein, that grows from follicles found in
+          the dermis.
+        meaning: UBERON:0001037
+      heart:
+        description: A myogenic muscular circulatory organ found in the vertebrate
+          cardiovascular system composed of chambers of cardiac muscle. It is the
+          primary circulatory organ. Taxon notes:" the ascidian tube-like heart lacks
+          chambers....The ascidian heart is formed after metamorphosis as a simple
+          tube-like structure with a single-layered myoepithelium that is continuous
+          with a single-layered pericar- dial wall. It lacks chambers and endocardium....
+          The innovation of the chambered heart was a key event in vertebrate evolution,
+          because the chambered heart generates one-way blood flow with high pressure,
+          a critical requirement for the efficient blood supply of large-body vertebrates...
+          all extant vertebrates have hearts with two or more chambers (Moorman and
+          Christoffels 2003)" DOI:10.1101/gad.1485706
+        meaning: UBERON:0000948
+      ileum:
+        description: The portion of the small intestine that extends from the jejunum
+          to the colon.
+        meaning: UBERON:0002116
+      jejunum:
+        description: The portion of the small intestine that extends from the duodenum
+          to the ileum.
+        meaning: UBERON:0002115
+      kidney:
+        description: A paired organ of the urinary tract that produces urine and maintains
+          bodily fluid homeostasis, blood pressure, pH levels, red blood cell production
+          and skeleton mineralization.
+        meaning: UBERON:0002113
+      liver:
+        description: An exocrine gland which secretes bile and functions in metabolism
+          of protein and carbohydrate and fat, synthesizes substances involved in
+          the clotting of the blood, synthesizes vitamin A, detoxifies poisonous substances,
+          stores glycogen, and breaks down worn-out erythrocytes.
+        meaning: UBERON:0002107
+      long bone:
+        description: A long bone is a bone that has a shaft and 2 ends and is longer
+          than it is wide. Long bones have a thick outside layer of compact bone and
+          an inner medullary cavity containing bone marrow. The ends of a long bone
+          contain spongy bone and an epiphyseal plate or line depending on the stage
+          of development. The epiphyseal plate is a hyaline cartilage, where new bone
+          growth takes place, lengthening the bone prior to adulthood. Bone lengthening
+          ceases when this cartilage is lost, leaving a remnant referred to as an
+          epiphyseal line.
+        meaning: UBERON:0002495
+      lumbar spinal cord:
+        meaning: UBERON:0002792
+      lung:
+        description: Respiration organ that develops as an outpocketing of the esophagus.
+        meaning: UBERON:0002048
+      lymph node:
+        description: Any of the rounded masses of lymphoid tissue that are surrounded
+          by a capsule of connective tissue, are distributed along the lymphatic vessels,
+          and contain numerous lymphocytes which filter the flow of lymph.
+        meaning: UBERON:0000029
+      middle ear bone:
+        description: One of 3 small bones contained within the middle ear space and
+          serve to transmit sounds from the air to the fluid-filled labyrinth. The
+          absence of the auditory ossicles would constitute a moderate-to-severe hearing
+          loss. The term 'ossicles' literally means 'tiny bones' and commonly refers
+          to the auditory ossicles, though the term may refer to any small bone throughout
+          the body.
+        meaning: UBERON:0001686
+      nail:
+        description: A horn-like keratin structure covering the dorsal aspect of the
+          terminal phalanges of fingers and toes.
+        meaning: UBERON:0001705
+      ovary:
+        description: The gonad of a female organism which contains germ cells.
+        meaning: UBERON:0000992
+      pancreas:
+        description: An endoderm derived structure that produces precursors of digestive
+          enzymes and blood glucose regulating hormones.
+        meaning: UBERON:0001264
+      peripheral nerve:
+        description: An enclosed, cable-like bundle of axons in the peripheral nervous
+          system originating in a nerve root in the central nervous system (or a condensed
+          nervous structure) connecting with peripheral structures.
+        meaning: UBERON:0001021
+      pineal:
+        description: A midline, cone like structure located in the dorso-caudal roof
+          of the 3rd ventricle, attached by peduncles to the habenular and posterior
+          commissures. The stalk contains nerve fibers, blood vessels, connective
+          tissue and parenchymal cells (Paxinos, The Rat Central Nervous System, 2nd
+          ed, pg 399).
+        meaning: UBERON:0001905
+      pituitary:
+        description: The pituitary gland is an endocrine gland that secretes hormones
+          that regulate many other glands.
+        meaning: UBERON:0000007
+      placenta:
+        description: Organ of metabolic interchange between fetus and mother, partly
+          of embryonic origin and partly of maternal origin[GO]. The fetal portion
+          of the placenta is known as the villous chorion. The maternal portion is
+          known as the decidua basalis. The two portions are held together by anchoring
+          villi that are anchored to the decidua basalis by the cytotrophoblastic
+          shell. Marsupials possess only a rudimentary yolk-type placenta, with reduced
+          nutrient and oxygen exchanging capabilities.
+        meaning: UBERON:0001987
+      plasma:
+        description: The liquid component of blood, in which erythrocytes are suspended.
+        meaning: UBERON:0001969
+      prostate:
+        description: The prostate gland is a partly muscular, partly glandular body
+          that is situated near the base of the mammalian male urethra and secretes
+          an alkaline viscid fluid which is a major constituent of the ejaculatory
+          fluid.
+        meaning: UBERON:0002367
+      psoas muscle:
+        description: A powerful flexor of the thigh at the hip joint (psoas major)
+          and a weak flexor of the trunk and lumbar spinal column (psoas minor). Psoas
+          is derived from the Greek 'psoa', the plural meaning 'muscles of the loin'.
+          It is a common site of infection manifesting as abscess (PSOAS ABSCESS).
+          The psoas muscles and their fibers are also used frequently in experiments
+          in muscle physiology.
+        meaning: UBERON:0008450
+      RBC:
+        description: A red blood cell. In mammals, mature erythrocytes are biconcave
+          disks containing hemoglobin whose function is to transport oxygen.
+        meaning: CL:0000232
+      RNA:
+        description: High molecular weight, linear polymers, composed of nucleotides
+          containing ribose and linked by phosphodiester bonds; RNA is central to
+          the synthesis of proteins.
+        meaning: CHEBI:33697
+      sacral spinal cord:
+        description: A spinal cord segment that adjacent_to a sacral region.
+        meaning: UBERON:0005843
+      serum:
+        description: The portion of blood plasma that excludes clotting factors.
+        meaning: UBERON:0001977
+      skin:
+        description: The organ covering the body that consists of the dermis and epidermis.
+        meaning: UBERON:0002097
+      spleen:
+        description: The organ that functions to filter blood and to store red corpuscles
+          and platelets.
+        meaning: UBERON:0002106
+      stomach:
+        description: An expanded region of the vertebrate alimentary tract that serves
+          as a food storage compartment and digestive organ. A stomach is lined, in
+          whole or in part by a glandular epithelium.
+        meaning: UBERON:0000945
+      systemic tissue:
+        description: Tissue with cells that deposit non-polarized extracellular matrix
+          including connective tissue fibers and ground substance.
+        meaning: UBERON:0002384
+      temporalis muscle:
+        description: Pharyngeal arch 1 muscle that is innervated by the deep temporal
+          branches of the trigeminal nerve and attaches to the wall of the braincase
+          (including the cranial vault) and mandible.
+        meaning: UBERON:0001598
+      testicle:
+        description: A typically paired male reproductive gland that produces sperm
+          and that in most mammals is contained within the scrotum at sexual maturity.
+        meaning: UBERON:0000473
+      thoracic spinal cord:
+        description: The thoracic nerves are the spinal nerves emerging from the thoracic
+          vertebrae.
+        meaning: UBERON:0003038
+      thymus:
+        description: Anatomical structure of largely lymphoid tissue that functions
+          in cell-mediated immunity by being the site where T cells develop.
+        meaning: UBERON:0002370
+      thyroid:
+        description: A two-lobed endocrine gland found in all vertebrates, located
+          in front of and on either side of the trachea in humans, and producing various
+          hormones, such as triiodothyronine and calcitonin.
+        meaning: UBERON:0002046
+      tissue:
+        description: Multicellular anatomical structure that consists of many cells
+          of one or a few types, arranged in an extracellular matrix such that their
+          long-range organisation is at least partly a repetition of their short-range
+          organisation.
+        meaning: UBERON:0000479
+      tissue-other: {}
+      tongue:
+        description: A fleshy movable process of the floor of the mouths of most vertebrates
+          that bears sensory end organs and small glands and functions especially
+          in taking and swallowing food and in humans as a speech organ.
+        meaning: UBERON:0001723
+      tonsil:
+        description: Either of the two small almond-shaped masses of lymph tissue
+          found on either side of the oropharynx.
+        meaning: UBERON:0002372
+      trachea:
+        description: The trachea is the portion of the airway that attaches to the
+          bronchi as it branches.
+        meaning: UBERON:0003126
+      umbilical cord:
+        description: The connecting cord from the developing embryo to the placenta.
+        meaning: UBERON:0002331
+      ureter:
+        description: Muscular duct that propels urine from the kidneys to the urinary
+          bladder, or related organs.
+        meaning: UBERON:0000056
+      urinary bladder:
+        description: Distensible musculomembranous organ situated in the anterior
+          part of the pelvic cavity in which urine collects before excretion.
+        meaning: UBERON:0001255
+      urine:
+        description: Excretion that is the output of a kidney.
+        meaning: UBERON:0001088
+      uterus:
+        description: The female muscular organ of gestation in which the developing
+          embryo or fetus is nourished until birth.
+        meaning: UBERON:0000995
+      vein:
+        description: Any of the tubular branching vessels that carry blood from the
+          capillaries toward the heart.
+        meaning: UBERON:0001638
+      vitreous: {}
+      vitreous humor:
+        description: A transparent, semigelatinous substance that fills the cavity
+          behind the crystalline lens of the eye and in front of the retina.
+        meaning: UBERON:0001797
+      whole blood:
+        description: An achromatic cell of the myeloid or lymphoid lineages capable
+          of ameboid movement, found in blood or other tissue.
+        meaning: CL:0000738
+  tissue_source:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      whole blood:
+        description: A fluid that is composed of blood plasma and erythrocytes.
+        meaning: UBERON:0000178
+      plasma:
+        description: The liquid component of blood, in which erythrocytes are suspended.
+        meaning: UBERON:0001969
+      brain:
+        description: The brain is the center of the nervous system in all vertebrate,
+          and most invertebrate, animals. Some primitive animals such as jellyfish
+          and starfish have a decentralized nervous system without a brain, while
+          sponges lack any nervous system at all. In vertebrates, the brain is located
+          in the head, protected by the skull and close to the primary sensory apparatus
+          of vision, hearing, balance, taste, and smell.
+        meaning: UBERON:0000955
+      nasal swab:
+        description: A specimen obtained using a cotton swab on a stick, passed up
+          the nostril to obtain a sample of exudate and epithelial debris for microbiological
+          or cellular examination.
+        meaning: OBI:0000917
+      serum:
+        description: The portion of blood plasma that excludes clotting factors.
+        meaning: UBERON:0001977
+      other: {}
+      unknown: {}
+  traumatic_type:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      contusion:
+        description: An injury to biological tissue in which the capillaries are damaged,
+          allowing blood to seep into the surrounding tissue
+        meaning: MP:0009275
+      chronic traumatic encephalopathy:
+        description: A tauopathy that is characterized by an abundance of hyperphosphorylated
+          tau protein in neurons, astrocytes and cell processes around blood vessels
+          and that is associated with repetitive head impacts or exposure to blast
+          waves.
+        meaning: DOID:0081291
+      other (specify): {}
+  vascular_type:
+    from_schema: https://w3id.org/brain-bicandonor
+    permissible_values:
+      acute infarct:
+        description: Tissue necrosis in any area of the brain, including the cerebral
+          hemispheres, the cerebellum, and the brain stem. Brain infarction is the
+          result of a cascade of events initiated by inadequate blood flow through
+          the brain that is followed by hypoxia and hypoglycemia in brain tissue.
+          Damage may be temporary, permanent, selective or pan-necrosis.
+        meaning: EFO:0004277
+      chronic infarct:
+        description: Tissue necrosis in any area of the brain, including the cerebral
+          hemispheres, the cerebellum, and the brain stem. Brain infarction is the
+          result of a cascade of events initiated by inadequate blood flow through
+          the brain that is followed by hypoxia and hypoglycemia in brain tissue.
+          Damage may be temporary, permanent, selective or pan-necrosis.
+        meaning: EFO:0004277
+      hemorrhage:
+        description: Loss of blood from the vascular compartment to the exterior or
+          into nonvascular body space as a result of rupture or severance of the blood
+          vessels.
+        meaning: MP:0001914
+      other (specify): {}
+slots:
+  donor_nhash_id:
+    from_schema: https://w3id.org/brain-bicandonor
+classes:
+  Donor:
+    description: A person or organism that is the source of a biological sample for
+      scientific study.  Many biological samples are generated from a single donor.
+    from_schema: https://w3id.org/brain-bicandonor
+    exact_mappings:
+    - NIMP:Donor
+    is_a: physical entity
+    mixins:
+    - thing with taxon
+    - ProvEntity
+    slots:
+    - name
+    - xref
+    - donor_nhash_id
+    slot_usage:
+      name:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: donor_local_name
+        description: Donor identifier given by the brain bank or the institution that
+          holds the brain
+        from_schema: bican_biolink
+        exact_mappings:
+        - bican:f8af20f7-e8b8-47b5-8a68-9ec1f913ffdf
+        - NIMP:PD-QLQLFB34
+      xref:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: donor_nhash_id
+        from_schema: bican_biolink
+      donor_nhash_id:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: donor_nhash_id
+        description: NIMP generated globally unique identifier for a Donor
+        from_schema: bican_biolink
+        exact_mappings:
+        - bican:98b28574-f97f-4436-b723-10a6508431b5
+        - NIMP:PD-DEXRDO36
+    attributes:
+      repository:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: repository
+        description: If the brain is from NBB the NBB repository the brain belongs
+          to
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:408682ed-0e27-41e2-b9fa-f05674366d6e
+        - NIMP:PD-NYNYAR61
+        range: repository
+      donor_source:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: donor_source
+        description: The source of the donor brain e.g. NBB/UM1 project/other
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:0d0cf732-0f76-409d-9a73-7a96d829d3d3
+        - NIMP:PD-TPTPPS27
+        range: donor_source
+      ethnicity:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: ethnicity
+        description: Ethnicity of the donor
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:918370df-49f6-4361-9c52-f46b16412980
+        - NIMP:PD-JEJECK48
+        range: ethnicity
+      race:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: race
+        description: Race of the donor
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:e515c009-550e-4f9c-b1b6-fc876a6fb2a8
+        - NIMP:PD-PRPRRP41
+        range: race
+      secondary_race:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: second_race
+        description: Second race if available for the donor
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:192fe5b1-c812-4767-86fb-3178f9914705
+        - NIMP:PD-SESEQB42
+        range: race
+      sex:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: sex
+        description: Donor's sex at birth
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:c819b9d5-2fde-40b2-bf0d-e07b56f96ac9
+        - NIMP:PD-LXUBTM45
+        range: sex
+      gender:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: gender
+        description: Donor's gender at death
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:1c71e775-65aa-442b-a392-1cf9a44e326e
+        - NIMP:PD-KLKLJH33
+        range: gender
+      sex_orientation:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: sex_orientation
+        description: Donor's sexual orientation at death
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:e47e8a2f-72fb-4036-b288-f4580dc2aa4e
+        - NIMP:PD-HKHGTM45
+        range: sexual_orientation
+      age_of_death:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: age_of_death
+        description: Donor's age at death in years
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:14eb923a-161d-45e2-889d-81fea7b632b6
+        - NIMP:PD-FTEMQD38
+        range: integer
+        minimum_value: '0.0'
+        maximum_value: '200.0'
+        unit:
+          descriptive_name: year
+      birth_country_name:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: birth_country_name
+        description: Donor's birth country
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:9c27fd29-b512-492f-a32f-b615c7585ff7
+        - NIMP:PD-SQSQDF25
+        range: birth_country
+      primary_language:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: primary_language
+        description: Donor's primary language
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:abe9edc7-96ca-4c6a-a1ed-c008548cc373
+        - NIMP:PD-ATEVEV39
+        range: language
+      secondary_language:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: secondary_language
+        description: Donor's secondary language
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:37b7495f-b010-4d1c-ae32-9cb19c680950
+        - NIMP:PD-OBIUQB42
+        range: language
+      marital_status:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: marital_status
+        description: Donor's marital or partner status
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:4f0e41c9-dd15-4a37-ae6b-11b7131d7cba
+        - NIMP:PD-JCYJCN35
+        range: marital_status
+      education_years_number:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: education_years_number
+        description: Number of years of education the donor had
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:add3f7fe-ae60-4cc1-bb2e-72bbbe9a1a7d
+        - NIMP:PD-SJSJRC41
+        range: integer
+        minimum_value: '0.0'
+        maximum_value: '30.0'
+        unit:
+          descriptive_name: year
+      handedness:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: handedness
+        description: Donor's handedness
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:82a4087c-d0e3-48ca-8bea-a81eefc683a0
+        - NIMP:PD-WGWGTM45
+        range: handedness
+      confirmed_hbcac:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: confirmed_hbcac
+        description: Confirmation status of meeting inclusion criteria of the Human
+          Brain Cell Atlas Collection at NBB
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:b6cdddf7-6f0b-4855-a0fa-16c2ab29f219
+        - NIMP:PD-YBLATM45
+        range: categorical
+      age_at_death_value:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: age_at_death_value
+        description: Donor's age at death value
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:57e24d3c-c9c7-4ef3-9809-a35802d563ec
+        - NIMP:PD-FTFTCP24
+        range: float
+      age_at_death_unit:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: age_at_death_unit
+        description: The unit of the value mentioned under "age_at_death_value"
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:b5436e99-f0a7-4c30-825d-56b88ee2ac1d
+        - NIMP:PD-AVAVEV39
+        range: categorical
+      age_at_death_reference_point:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: age_at_death_reference_point
+        description: Reference point from which the donor's age at death was calculated
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:3bed1f94-9d82-4ed7-afdf-79d896b24dbb
+        - NIMP:PD-RARAGG39
+        range: categorical
+      donor_species:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: donor_species
+        description: NCBI Taxonomy code of the donor species
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:6837cb02-6bd7-4fb8-838c-9062ead96ba4
+        - NIMP:PD-HEHERP41
+        range: categorical
+      consent_status:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: consent_status
+        description: Whether the type of consent is open or controlled
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:1a53e733-276f-421a-850d-eb46e50db972
+        - NIMP:PD-CBCBWQ40
+        range: categorical
+      positive_test_result:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: positive_test_result
+        description: Whether the donor has had a positive serology test result
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:0ef73629-5172-4517-a1f8-295be1603b80
+        - NIMP:PD-PDZDNL63
+        range: categorical
+      access_level:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: access_level
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:60794406-316a-419b-98a7-5ea49f55392e
+        - NIMP:PD-JQJQFQ31
+        range: categorical
+      data_use_limitation:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: data_use_limitation
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:aea2f9a4-ebc7-4dc6-97d3-cb517774966d
+        - NIMP:PD-DKDKOQ36
+        range: categorical
+      disease_specification:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: disease_specification
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:47003dfa-c6a0-4302-998b-0be0fb64261f
+        - NIMP:PD-DSDSOQ36
+        range: categorical
+      irb_approval_required:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: irb_approval_required
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:71ccc15c-0983-420b-9301-ad79d8372ff1
+        - NIMP:PD-JVJVFQ31
+        range: boolean
+      publication_required:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: publication_required
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:7eb1e5a1-a2f5-4ec7-aef3-e2d56ed56a6f
+        - NIMP:PD-BGBGAD38
+        range: boolean
+      collaboration_required:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: collaboration_required
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:95f7b929-6a9f-496d-9512-693397f48dad
+        - NIMP:PD-ZAZADF25
+        range: boolean
+      not_for_profit:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: not_for_profit
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:0dc07cdf-93a7-445b-9555-17d0249fe349
+        - NIMP:PD-KNSTYJ57
+        range: boolean
+      methods:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: methods
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:97ade474-302f-4f56-bad9-603c28a2a721
+        - NIMP:PD-CRCRPG50
+        range: boolean
+      genetic_study_only:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: genetic_study_only
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:f7935a44-f816-4a61-ab57-96439447c63a
+        - NIMP:PD-LCLCPG50
+        range: boolean
+      gsr_controlled_access:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: gsr_controlled_access
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:3bb3bf75-ec1d-4ab7-a6a4-28d9da85f948
+        - NIMP:PD-LJEAUS44
+        range: boolean
+      donor_project:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: donor_project
+        description: Donor Project
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:cd772fb0-a2fe-4df3-b2dd-b62370be37fc
+        - NIMP:PD-HEHEQB42
+        range: categorical
+      donor_labs:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: donor_labs
+        description: Donor Labs
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:b97c384f-a556-42a2-a3c2-c31e5771f481
+        - NIMP:PD-APAPRP41
+        range: categorical
+      death_causes_data_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: death_causes_data_available
+        description: NIMP indicator for availability of the cause of death
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:e46e9d58-d982-4800-b7de-67f608951211
+        - NIMP:PD-FYUCNY46
+        range: categorical
+      rins_data_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: rins_data_available
+        description: NIMP indicator for availability of RNA Integrity Number
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:d05825e6-b785-42a3-9bdf-c34b30e698b8
+        - NIMP:PD-JRJCAR61
+        range: categorical
+      rines_data_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: rines_data_available
+        description: NIMP indicator for availability of RNA Integrity Number equivalent
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:28a5e912-570b-4a7f-87f2-36bd5db92090
+        - NIMP:PD-CJRWAR61
+        range: categorical
+      hemisphere:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: hemisphere
+        description: Hemisphere of the brain
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:68b7a28b-d695-4ec9-800b-6a27ca206081
+        - NIMP:PD-JRJRFQ31
+        range: hemisphere
+      post_mortem_interval:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: post_mortem_interval
+        description: Post Mortem Interval in hours
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:6fd5c5ac-b128-4a4a-ae98-09eaeba22f92
+        - NIMP:PD-CHCHLC46
+        range: float
+        minimum_value: '0.0'
+        maximum_value: '8888.0'
+        unit:
+          descriptive_name: hour
+      left_hemisphere_preparation:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: left_hemisphere_preparation
+        description: The method of which the left hemisphere of the brain was prepared
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:57d5378f-a451-4bf5-a472-cc88d0d29586
+        - NIMP:PD-JSJSUS44
+        range: preparation
+      left_hemisphere_prep_2:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: left_hemisphere_prep_2
+        description: The second method used to prepare the left hemisphere
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:d76753fb-b30b-419b-b853-d341510d8034
+        - NIMP:PD-ZMPWIB34
+        range: categorical
+      right_hemisphere_preparation:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: right_hemisphere_preparation
+        description: The method of which the right hemisphere of the brain was prepared
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:477c2600-f979-43c5-9c61-ab61fd771584
+        - NIMP:PD-MLMLPG50
+        range: preparation
+      right_hemisphere_prep_2:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: right_hemisphere_prep_2
+        description: The second method used to prepare the right hemisphere
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:b0a52336-fe31-4ac4-8914-b0bb76a8ef5a
+        - NIMP:PD-FWUVWQ40
+        range: categorical
+      rin:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: rin
+        description: RNA Integrity Number
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:cd472c0d-0b64-45c9-a38e-e54d15cea953
+        - NIMP:PD-LPLPSK50
+        range: float
+        minimum_value: '0.0'
+        maximum_value: '99.0'
+      rine:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: rine
+        description: RNA Integrity Number equivalent
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:1210148d-d8fb-45aa-b51a-4b19b6d09bec
+        - NIMP:PD-XCXCRC41
+        range: float
+        minimum_value: '0.0'
+        maximum_value: '99.0'
+      ph:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: ph
+        description: pH value
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:9e67af02-c081-43e1-a42c-bf9603cae616
+        - NIMP:PD-FXFXDK42
+        range: float
+        minimum_value: '0.0'
+        maximum_value: '99.0'
+      brain_weight:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: brain_weight
+        description: The weight of the brain in grams
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:546fc32d-f8a2-4c00-924a-8c4730f11f51
+        - NIMP:PD-WUASWQ40
+        range: integer
+        minimum_value: '0.0'
+        maximum_value: '9998.0'
+        unit:
+          descriptive_name: gram
+      weighed_type:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: weighed_type
+        description: The type of the brain tissue weighed based on the preparation
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:a7463e3f-0c61-4718-a7d0-60fd2116908a
+        - NIMP:PD-FGHMDF25
+        range: brain_tissue_weight_type
+      photo_2d_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: photo_2d_available
+        description: Is a 2D photograph is available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:611beda8-1ac6-4183-a284-04a30bb474f3
+        - NIMP:PD-NINIEV39
+        range: categorical
+      scan_3d_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: scan_3d_available
+        description: Is a 3D scan is available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:658e8a80-e232-438f-8c1e-d5f38724dc55
+        - NIMP:PD-RBRBQB42
+        range: categorical
+      antemortem_mri_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: antemortem_mri_available
+        description: Is an Antemortem MRI is available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:43a04caa-4f28-47ac-8a9d-74c40f10776f
+        - NIMP:PD-RCRCRC24
+        range: categorical
+      postmortem_mri_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: postmortem_mri_available
+        description: Is a Postmortem MRI Available
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:0badd072-0c25-48c6-9357-44d5b5bc0818
+        - NIMP:PD-YNYNEV39
+        range: categorical
+      postmortem_mri_type:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: postmortem_mri_type
+        description: The type of postmortem MRI if it is available.
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:64a607a9-21e6-4c73-8f2e-2d67b0dc51c8
+        - NIMP:PD-BEBEEV39
+        range: postmortem_MRI
+      non_brain_specimen_data_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: non_brain_specimen_data_available
+        description: NIMP indicator for availability of non-brain Specimen data
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:e537aacd-040a-423b-9920-9ce5adecf111
+        - NIMP:PD-JSFGYJ57
+        range: categorical
+      neurologic_events_data_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: neurologic_events_data_available
+        description: NIMP indicator for availability of perinatal neurologic events
+          data
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:27a7df05-5aec-4060-85b9-2b4658ecd1e8
+        - NIMP:PD-SLCHJH85
+        range: categorical
+      infectious_testings_data_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: infectious_testings_data_available
+        description: NIMP indicator for availability of infectious Disease/Serology
+          testing data
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:af034af4-9a8d-49ed-a100-1e87ebe962f5
+        - NIMP:PD-AATACA52
+        range: categorical
+      tox_screening_data_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: tox_screening_data_available
+        description: NIMP indicator for availability of toxicology screening data
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:3730c096-5524-43f4-a3c0-010ccdf80ae1
+        - NIMP:PD-LELMNL63
+        range: categorical
+      nn_diagnoses_data_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: nn_diagnoses_data_available
+        description: NIMP indicator for availability of non-neuropathological diagnoses
+          data
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:87a4e421-4586-4938-91cc-6ae4e6e95dde
+        - NIMP:PD-JXZWYJ57
+        range: categorical
+      non_brain_tissue_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: non_brain_tissue_available
+        description: Are any non-brain tissues available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:3a064c96-a956-4cf3-8b77-056b8e392f99
+        - NIMP:PD-LGLGRZ37
+        range: categorical
+      tissue_type:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: tissue_type
+        description: The type of non-brain tissues
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:33ccbc85-ae35-44d6-8bc6-c2fb91116cf7
+        - NIMP:PD-JLJLCT43
+        range: tissue
+      clinical_brain_diagnosis:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: clinical_brain_diagnosis
+        description: Is any clinical brain diagnosis available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:b49f026b-4f6c-48c8-b170-bf6d24c672ef
+        - NIMP:PD-ICLAGO26
+        range: categorical
+      clinical_brain_diagnosis_confidence_level:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: clinical_brain_diagnosis_confidence_level
+        description: The confidence level of the clinical brain diagnosis
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:2e72b4b9-d5fb-4f0d-897c-1f977ed4fabd
+        - NIMP:PD-LCLCJH33
+        range: confidence_level
+      genetic_diagnosis:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: genetic_diagnosis
+        description: Is any genetic diagnosis available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:f67d3837-159d-4868-9749-aa6c83ded7eb
+        - NIMP:PD-MWMGGE30
+        range: categorical
+      genetic_diagnosis_confidence_level:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: genetic_diagnosis_confidence_level
+        description: The confidence level of the genetic diagnosis
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:cb2b0108-8c07-40e8-92a3-b693b6dc64b4
+        - NIMP:PD-NONORZ37
+        range: confidence_level
+      non_brain_diagnosis:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: non_brain_diagnosis
+        description: Is any non-brain diagnosis available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:009ec58e-32e4-4712-930c-056e72c8d8fa
+        - NIMP:PD-MCRYRZ37
+        range: categorical
+      non_brain_diagnosis_confidence_level:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: non_brain_diagnosis_confidence_level
+        description: The confidence level of the non-brain diagnosis
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:2a7ff937-287b-40a3-a1f6-ebf598683774
+        - NIMP:PD-FGFGUS44
+        range: confidence_level
+      birth_weight_lbs:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: birth_weight_lbs
+        description: Birth weight in pounds
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:69d9a60d-32d5-4c3a-a26a-802d8f030c8d
+        - NIMP:PD-YOVEEV39
+        range: float
+        minimum_value: '0.0'
+        maximum_value: '100.0'
+        unit:
+          descriptive_name: pound
+      birth_weight_oz:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: birth_weight_oz
+        description: Birth weight in ounces
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:b6f30050-f762-4427-8533-31738e737ea2
+        - NIMP:PD-CANPLC46
+        range: float
+        minimum_value: '0.0'
+        maximum_value: '100.0'
+        unit:
+          descriptive_name: ounce
+      apgar_5_minute_score_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: apgar_5_minute_score_available
+        description: Is the APGAR Five Minute Score available? This is a test given
+          to newborns soon after birth
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:e67d93ac-3753-4835-a250-e2ca207b2675
+        - NIMP:PD-JCJYRC24
+        range: categorical
+      apgar_5_minute_score:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: apgar_5_minute_score
+        description: The APGAR Five Minute Score. This is a test given to newborns
+          just after birth
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:3a10dabf-39b0-4eb7-8399-85fd325c5646
+        - NIMP:PD-GLPDCP24
+        range: integer
+        minimum_value: '1.0'
+        maximum_value: '10.0'
+      apgar_10_minute_score_available:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: apgar_10_minute_score_available
+        description: Is the APGAR Ten Minute Score Available? This is a test given
+          to newborns just after birth.
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:3d085ff9-7034-487d-a2b2-b9ae80d55333
+        - NIMP:PD-ZJYZRC24
+        range: categorical
+      apgar_10_minute_score:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: apgar_10_minute_score
+        description: The APGAR Ten Minute Score. This is a test given to newborns
+          just after birth
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:09d512b6-7c20-4693-8894-77824ad7f04d
+        - NIMP:PD-YKRCCP24
+        range: integer
+        minimum_value: '1.0'
+        maximum_value: '10.0'
+      neuropathology_diagnosis:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: neuropathology_diagnosis
+        description: are any neuropathological diagnosis available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:87f6d251-e028-4480-9272-3497655fb9cd
+        - NIMP:PD-OTALRZ37
+        range: categorical
+      artifacts:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: artifacts
+        description: Any artifacts available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:b344b605-21dd-4e06-9104-21005179026f
+        - NIMP:PD-FUFUAD38
+        range: categorical
+      artifacts_type:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: artifacts_type
+        description: The type of artifacts
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:dc217b9b-ed6b-48e2-93b4-4f648dc395f7
+        - NIMP:PD-NCNCRC24
+        range: artifact_type
+      developmental:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: developmental
+        description: Are any developmental neuropathology diagnoses available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:c259cdc2-7c68-48de-ab57-57328f3bddfa
+        - NIMP:PD-MVMVIB34
+        range: categorical
+      inflammatory:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: inflammatory
+        description: Are inflammatory neuropathology diagnoses available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:05e83583-078d-4a1e-892d-e6f611e5a0b8
+        - NIMP:PD-AMAMCA52
+        range: categorical
+      infectious:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: infectious
+        description: Are infectious neuropathology diagnoses available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:266f5fb8-716b-4472-be30-4a94b62f2245
+        - NIMP:PD-CICINY46
+        range: categorical
+      traumatic:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: traumatic
+        description: Are traumatic neuropathology diagnoses available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:a00497c0-376f-4b2e-b60e-d6add2af41dc
+        - NIMP:PD-PIPIRP41
+        range: categorical
+      traumatic_type:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: traumatic_type
+        description: The type of traumatic neuropathology diagnosis
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:01d2f488-f30b-40e0-913f-c9adc6b39b97
+        - NIMP:PD-DRDRCT43
+        range: traumatic_type
+      vascular:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: vascular
+        description: Are vascular neuropathology diagnoses available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:b02d8386-d059-42a8-94cb-751d56b15b3a
+        - NIMP:PD-YIYIKM58
+        range: categorical
+      vascular_type:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: vascular_type
+        description: The type of vascular neuropathology diagnosis
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:5beafa90-ffdb-4cce-a78c-a3b3175210b6
+        - NIMP:PD-RIRITM45
+        range: vascular_type
+      neoplastic:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: neoplastic
+        description: Are neoplastic neuropathology diagnoses available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:3f52a0e9-6469-46d3-8ed5-3cdb8afdc259
+        - NIMP:PD-JBJBCN35
+        range: categorical
+      neoplastic_type:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: neoplastic_type
+        description: The type of neoplastic neuropathology diagnosis
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:a58be8f4-2756-4a66-9d05-1fbf44b4e810
+        - NIMP:PD-NENERZ37
+        range: neoplastic_type
+      aging:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: aging
+        description: Are aging-related neuropathology diagnoses available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:40e3caa7-657b-4137-9879-07e6b29bae14
+        - NIMP:PD-GIGIGO26
+        range: categorical
+      aging_type:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: aging_type
+        description: The type of aging-related neuropathology diagnosis
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:5e31b66f-131e-4d5e-8760-ddd85f5634d5
+        - NIMP:PD-WNWNRC24
+        range: aging_type
+      neurodegenerative:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: neurodegenerative
+        description: Are neurodegenerative neuropathology diagnoses available?
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:764d80ce-7a83-4e68-92df-34a416475e1b
+        - NIMP:PD-CZCZRZ37
+        range: categorical
+      neurodegenerative_type:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: neurodegenerative_type
+        description: The type of neurodegenerative neuropathology diagnosis
+        from_schema: https://w3id.org/brain-bicandonor
+        exact_mappings:
+        - bican:b150b62c-a968-4f5d-9aa3-d1ab5207ff83
+        - NIMP:PD-PEPERZ37
+        range: neurodegenerative_type

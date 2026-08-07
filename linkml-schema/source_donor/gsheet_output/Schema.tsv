@@ -1,0 +1,4 @@
+schema	uri	description	schema prefix	imports	title
+> schema	id	description	default_prefix	imports	title
+>				internal_separator: "|"	
+Donor	https://w3id.org/brain-bicandonor	The BICAN Donor Metadata schema specifies the metadata relating to donors in BICAN. These metadata reflect the metadata needed to accurately track donors and related entities from the brain banks through the specimen portal.	bican	bican_biolink	Donor Schema

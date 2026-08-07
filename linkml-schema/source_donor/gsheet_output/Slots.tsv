@@ -1,0 +1,6 @@
+SubGroup/LinkML Class Name	Proposed BICAN Field	LinkML Slot or Attribute Name	BICAN UUID	Definition	from_schema	NIMP Terminology NHash	NIMP Category	Local Variable Name	Local Variable Name Source	Nullable	Permissible Values	Data Type	Subsets
+> class	ignore	slot	exact_mappings: {curie_prefix: bican}	description	from_schema	exact_mappings: {curie_prefix: NIMP}	ignore	local_names	local_names	ignore	ignore	ignore	ignore
+>								inner_key: local_name_value	inner_key: local_name_source				
+Donor	subject_id	name	f8af20f7-e8b8-47b5-8a68-9ec1f913ffdf	Donor identifier given by the brain bank or the institution that holds the brain	bican_biolink	PD-QLQLFB34	Donor	donor_local_name	NIMP				
+Donor		xref			bican_biolink		Donor	donor_nhash_id	NIMP				
+Donor	donor_nhash_id	donor_nhash_id	98b28574-f97f-4436-b723-10a6508431b5	NIMP generated globally unique identifier for a Donor	bican_biolink	PD-DEXRDO36	Donor	donor_nhash_id	NIMP				
