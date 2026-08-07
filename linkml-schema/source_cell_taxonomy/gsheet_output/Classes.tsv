@@ -1,0 +1,11 @@
+class	Inheritance: is_a	Inheritance: mixin	Subsets	Definition	from_schema	Class URI
+> class	is_a	mixins	in_subset	description	from_schema	class_uri
+>		internal_separator: "|"	internal_separator: "|"			
+Cell	named thing	ProvEntity		A single cell observation in the taxonomy; corresponds to one row in the obs DataFrame of the h5ad file.		
+CellTypeSet	named thing	ProvEntity		A named annotation level in the taxonomy hierarchy (e.g. Class, Subclass) grouping cell type taxons. May represent a taxonomic level or a neighborhood.		
+CellTypeTaxon	named thing	ProvEntity		A node in the cell type taxonomy representing a unit of cell type classification at a specific annotation level. Taxons may be organized into a hierarchy and grouped into neighborhoods.		
+CellTypeTaxonomy	named thing	ProvEntity		A systematic classification of cell types and their hierarchical relationships in the mammalian brain, including annotation levels and their corresponding cell type nodes.		
+ClusterSet	named thing	ProvEntity		The set of clusters produced by a single clustering run. A CellTypeTaxonomy is derived from one or more ClusterSets.		
+Cluster	named thing	ProvEntity		A single cluster resulting from a clustering algorithm; groups cells with similar molecular profiles. Corresponds to one row in cluster_info and one distinct value of cluster_id in obs.		
+ExpressionMatrix	named thing	ProvEntity		A cell-by-gene matrix of molecular measurements. Each row represents a cell and each column represents a gene. May be normalized (X) or raw counts (raw.X).		
+Embedding	named thing	ProvEntity		A dimensionality reduction of the cell-by-gene matrix (e.g. UMAP, PCA, tSNE). Stored as a cell × dim matrix in obsm. No BKE equivalent.		
