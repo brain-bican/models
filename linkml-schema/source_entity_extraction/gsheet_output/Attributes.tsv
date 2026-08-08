@@ -1,0 +1,21 @@
+SubGroup/LinkML Class Name	LinkML Slot or Attribute Name	BICAN UUID	Definition	Identifier	Data Type	Data Examples	Nullable	Multivalued	Permissible Values	Subsets	Notes
+> class	attribute	slot_uri	description	identifier	range	ignore	ignore	multivalued	ignore	in_subset	ignore
+>										internal_separator: "|"	
+ExtractedEntity	id 			TRUE	string						
+ExtractedEntity	term				string						
+ExtractedEntity	label				string						
+ExtractedEntity	ontology_id				uriorcurie						
+ExtractedEntity	ontology_label				string						
+ExtractedEntity	sentence				string						
+ExtractedEntity	start_index				integer						
+ExtractedEntity	end_index				integer						
+ExtractedEntity	judge_score				float						
+ExtractedEntity	remarks				string						
+ExtractedEntity	paper_location				string						
+ExtractedEntity	paper				Paper						
+JudgeExtraction	id 			TRUE	string						
+JudgeExtraction	generated	prov:generated			ExtractedEntity			TRUE			
+JudgeExtraction	startedAtTime	prov:startedAtTime			datetime						
+Paper	id 			TRUE	string						
+Paper	title				string						
+Paper	doi				string						
