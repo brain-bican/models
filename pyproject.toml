@@ -28,7 +28,8 @@ test = [
 ]
 docs = [
     "mkdocs-material",
-    "mkdocs-mermaid2-plugin"
+    "mkdocs-mermaid2-plugin",
+    "mkdocs-panzoom-plugin"
 ]
 
 [project.urls]
