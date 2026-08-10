@@ -1,0 +1,14 @@
+Name	Description
+> subset	description
+data	AIT assigned label to tag attributes representing data.
+assigned_metadata	AIT assigned label to tag attributes representing assigned metadata.
+annotations	AIT assigned label to tag attributes representing annotations.
+tooling	AIT assigned label to tag attributes representing tooling.
+analysis	AIT assigned label to tag attributes representing analysis.
+X	Location within anndata object that stores data.
+raw	Location within anndata object that stores data.
+obs	Location within anndata object that stores cell metadata.
+obsm	Location within anndata object that stores cell-shaped matrices.
+var	Location within anndata object that stores gene metadata.
+varm	Location within anndata object that stores gene-shaped metadata.
+uns	Location within anndata object that stores header and everything else.

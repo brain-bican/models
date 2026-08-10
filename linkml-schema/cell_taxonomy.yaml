@@ -13,6 +13,44 @@ prefixes:
   linkml: https://w3id.org/linkml/
 default_prefix: bican
 default_range: string
+subsets:
+  data:
+    description: AIT assigned label to tag attributes representing data.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  assigned_metadata:
+    description: AIT assigned label to tag attributes representing assigned metadata.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  annotations:
+    description: AIT assigned label to tag attributes representing annotations.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  tooling:
+    description: AIT assigned label to tag attributes representing tooling.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  analysis:
+    description: AIT assigned label to tag attributes representing analysis.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  X:
+    description: Location within anndata object that stores data.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  raw:
+    description: Location within anndata object that stores data.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  obs:
+    description: Location within anndata object that stores cell metadata.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  obsm:
+    description: Location within anndata object that stores cell-shaped matrices.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  var:
+    description: Location within anndata object that stores gene metadata.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  varm:
+    description: Location within anndata object that stores gene-shaped metadata.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  uns:
+    description: Location within anndata object that stores header and everything
+      else.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
 enums:
   SuspensionType:
     from_schema: https://w3id.org/brain-bican/cell-taxonomy

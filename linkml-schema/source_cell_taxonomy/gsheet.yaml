@@ -8,6 +8,8 @@ sheets:
     gid: "103902407"
   - name: "ValueSets"
     gid: "437044893"
+  - name: "Subsets"
+    gid: "185615531"
   - name: "Prefixes"
     gid: "178718282"
   - name: "Schema"
