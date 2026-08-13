@@ -23,16 +23,6 @@ Donor	age_at_death_reference_point	Reference point from which the donor's age at
 Donor	donor_species	NCBI Taxonomy code of the donor species	categorical	6837cb02-6bd7-4fb8-838c-9062ead96ba4	Donor Species				FALSE	PD-HEHERP41	donor_species	NIMP	General Subject Fields
 Donor	consent_status	Whether the type of consent is open or controlled	categorical	1a53e733-276f-421a-850d-eb46e50db972	Consent Status				TRUE	PD-CBCBWQ40	consent_status	NIMP	General Subject Fields
 Donor	positive_test_result	Whether the donor has had a positive serology test result	categorical	0ef73629-5172-4517-a1f8-295be1603b80	The Indicator of Serology Test Positivity				TRUE	PD-PDZDNL63	positive_test_result	NIMP	General Subject Fields
-Donor	access_level		categorical	60794406-316a-419b-98a7-5ea49f55392e	Access Level				TRUE	PD-JQJQFQ31	access_level	NIMP	General Subject Fields
-Donor	data_use_limitation		categorical	aea2f9a4-ebc7-4dc6-97d3-cb517774966d	Data Use Limitation				TRUE	PD-DKDKOQ36	data_use_limitation	NIMP	General Subject Fields
-Donor	disease_specification		categorical	47003dfa-c6a0-4302-998b-0be0fb64261f	Disease Specification				TRUE	PD-DSDSOQ36	disease_specification	NIMP	General Subject Fields
-Donor	irb_approval_required		boolean	71ccc15c-0983-420b-9301-ad79d8372ff1	IRB Approval Required				TRUE	PD-JVJVFQ31	irb_approval_required	NIMP	General Subject Fields
-Donor	publication_required		boolean	7eb1e5a1-a2f5-4ec7-aef3-e2d56ed56a6f	Publication Required				TRUE	PD-BGBGAD38	publication_required	NIMP	General Subject Fields
-Donor	collaboration_required		boolean	95f7b929-6a9f-496d-9512-693397f48dad	Collaboration Required				TRUE	PD-ZAZADF25	collaboration_required	NIMP	General Subject Fields
-Donor	not_for_profit		boolean	0dc07cdf-93a7-445b-9555-17d0249fe349	Not-for-profit Use Only				TRUE	PD-KNSTYJ57	not_for_profit	NIMP	General Subject Fields
-Donor	methods		boolean	97ade474-302f-4f56-bad9-603c28a2a721	Methods				TRUE	PD-CRCRPG50	methods	NIMP	General Subject Fields
-Donor	genetic_study_only		boolean	f7935a44-f816-4a61-ab57-96439447c63a	Genetic Study Only				TRUE	PD-LCLCPG50	genetic_study_only	NIMP	General Subject Fields
-Donor	gsr_controlled_access		boolean	3bb3bf75-ec1d-4ab7-a6a4-28d9da85f948	Genomic Summary Results (GSR) Controlled Access				TRUE	PD-LJEAUS44	gsr_controlled_access	NIMP	General Subject Fields
 Donor	donor_project	Donor Project	categorical	cd772fb0-a2fe-4df3-b2dd-b62370be37fc	Donor Project				FALSE	PD-HEHEQB42	donor_project	NIMP	General Subject Fields
 Donor	donor_labs	Donor Labs	categorical	b97c384f-a556-42a2-a3c2-c31e5771f481	Donor Labs				TRUE	PD-APAPRP41	donor_labs	NIMP	General Subject Fields
 Donor	death_causes_data_available	NIMP indicator for availability of the cause of death	categorical	e46e9d58-d982-4800-b7de-67f608951211	Cause Of Death Data Availability				TRUE	PD-FYUCNY46	death_causes_data_available	NIMP	General Subject Fields
