@@ -3316,7 +3316,7 @@ classes:
         exact_mappings:
         - bican:b6cdddf7-6f0b-4855-a0fa-16c2ab29f219
         - NIMP:PD-YBLATM45
-        range: categorical
+        range: string
       age_at_death_value:
         local_names:
           NIMP:
@@ -3338,7 +3338,7 @@ classes:
         exact_mappings:
         - bican:b5436e99-f0a7-4c30-825d-56b88ee2ac1d
         - NIMP:PD-AVAVEV39
-        range: categorical
+        range: string
       age_at_death_reference_point:
         local_names:
           NIMP:
@@ -3349,7 +3349,7 @@ classes:
         exact_mappings:
         - bican:3bed1f94-9d82-4ed7-afdf-79d896b24dbb
         - NIMP:PD-RARAGG39
-        range: categorical
+        range: string
       donor_species:
         local_names:
           NIMP:
@@ -3360,7 +3360,7 @@ classes:
         exact_mappings:
         - bican:6837cb02-6bd7-4fb8-838c-9062ead96ba4
         - NIMP:PD-HEHERP41
-        range: categorical
+        range: string
       consent_status:
         local_names:
           NIMP:
@@ -3371,7 +3371,7 @@ classes:
         exact_mappings:
         - bican:1a53e733-276f-421a-850d-eb46e50db972
         - NIMP:PD-CBCBWQ40
-        range: categorical
+        range: string
       positive_test_result:
         local_names:
           NIMP:
@@ -3382,7 +3382,7 @@ classes:
         exact_mappings:
         - bican:0ef73629-5172-4517-a1f8-295be1603b80
         - NIMP:PD-PDZDNL63
-        range: categorical
+        range: string
       donor_project:
         local_names:
           NIMP:
@@ -3393,7 +3393,7 @@ classes:
         exact_mappings:
         - bican:cd772fb0-a2fe-4df3-b2dd-b62370be37fc
         - NIMP:PD-HEHEQB42
-        range: categorical
+        range: string
       donor_labs:
         local_names:
           NIMP:
@@ -3404,7 +3404,7 @@ classes:
         exact_mappings:
         - bican:b97c384f-a556-42a2-a3c2-c31e5771f481
         - NIMP:PD-APAPRP41
-        range: categorical
+        range: string
       death_causes_data_available:
         local_names:
           NIMP:
@@ -3415,7 +3415,7 @@ classes:
         exact_mappings:
         - bican:e46e9d58-d982-4800-b7de-67f608951211
         - NIMP:PD-FYUCNY46
-        range: categorical
+        range: string
       rins_data_available:
         local_names:
           NIMP:
@@ -3426,7 +3426,7 @@ classes:
         exact_mappings:
         - bican:d05825e6-b785-42a3-9bdf-c34b30e698b8
         - NIMP:PD-JRJCAR61
-        range: categorical
+        range: string
       rines_data_available:
         local_names:
           NIMP:
@@ -3437,7 +3437,7 @@ classes:
         exact_mappings:
         - bican:28a5e912-570b-4a7f-87f2-36bd5db92090
         - NIMP:PD-CJRWAR61
-        range: categorical
+        range: string
       hemisphere:
         local_names:
           NIMP:
@@ -3485,7 +3485,7 @@ classes:
         exact_mappings:
         - bican:d76753fb-b30b-419b-b853-d341510d8034
         - NIMP:PD-ZMPWIB34
-        range: categorical
+        range: string
       right_hemisphere_preparation:
         local_names:
           NIMP:
@@ -3507,7 +3507,7 @@ classes:
         exact_mappings:
         - bican:b0a52336-fe31-4ac4-8914-b0bb76a8ef5a
         - NIMP:PD-FWUVWQ40
-        range: categorical
+        range: string
       rin:
         local_names:
           NIMP:
@@ -3583,7 +3583,7 @@ classes:
         exact_mappings:
         - bican:611beda8-1ac6-4183-a284-04a30bb474f3
         - NIMP:PD-NINIEV39
-        range: categorical
+        range: string
       scan_3d_available:
         local_names:
           NIMP:
@@ -3594,7 +3594,7 @@ classes:
         exact_mappings:
         - bican:658e8a80-e232-438f-8c1e-d5f38724dc55
         - NIMP:PD-RBRBQB42
-        range: categorical
+        range: string
       antemortem_mri_available:
         local_names:
           NIMP:
@@ -3605,7 +3605,7 @@ classes:
         exact_mappings:
         - bican:43a04caa-4f28-47ac-8a9d-74c40f10776f
         - NIMP:PD-RCRCRC24
-        range: categorical
+        range: string
       postmortem_mri_available:
         local_names:
           NIMP:
@@ -3616,7 +3616,7 @@ classes:
         exact_mappings:
         - bican:0badd072-0c25-48c6-9357-44d5b5bc0818
         - NIMP:PD-YNYNEV39
-        range: categorical
+        range: string
       postmortem_mri_type:
         local_names:
           NIMP:
@@ -3638,7 +3638,7 @@ classes:
         exact_mappings:
         - bican:e537aacd-040a-423b-9920-9ce5adecf111
         - NIMP:PD-JSFGYJ57
-        range: categorical
+        range: string
       neurologic_events_data_available:
         local_names:
           NIMP:
@@ -3650,7 +3650,7 @@ classes:
         exact_mappings:
         - bican:27a7df05-5aec-4060-85b9-2b4658ecd1e8
         - NIMP:PD-SLCHJH85
-        range: categorical
+        range: string
       infectious_testings_data_available:
         local_names:
           NIMP:
@@ -3662,7 +3662,7 @@ classes:
         exact_mappings:
         - bican:af034af4-9a8d-49ed-a100-1e87ebe962f5
         - NIMP:PD-AATACA52
-        range: categorical
+        range: string
       tox_screening_data_available:
         local_names:
           NIMP:
@@ -3673,7 +3673,7 @@ classes:
         exact_mappings:
         - bican:3730c096-5524-43f4-a3c0-010ccdf80ae1
         - NIMP:PD-LELMNL63
-        range: categorical
+        range: string
       nn_diagnoses_data_available:
         local_names:
           NIMP:
@@ -3685,7 +3685,7 @@ classes:
         exact_mappings:
         - bican:87a4e421-4586-4938-91cc-6ae4e6e95dde
         - NIMP:PD-JXZWYJ57
-        range: categorical
+        range: string
       non_brain_tissue_available:
         local_names:
           NIMP:
@@ -3696,7 +3696,7 @@ classes:
         exact_mappings:
         - bican:3a064c96-a956-4cf3-8b77-056b8e392f99
         - NIMP:PD-LGLGRZ37
-        range: categorical
+        range: string
       tissue_type:
         local_names:
           NIMP:
