@@ -7,17 +7,20 @@ The BRAIN Initiative Cell Atlas Network (BICAN) is developing an extensible Brai
 ### 1. Library Generation Model
 The Library Generation Model is a data model designed to represent types and relationships of samples and digital data assets generated during processes that generate multimodal genomic data. The Library Generation Model can be used to formalize relationships between samples generated during processes in the Anatomical Level and Cellular Level conduced by the Specimen Portal and Sequence Library (SeqLib) Portal. The Specimen Portal focuses on tissue management from donors to brain slabs and annotated brain samples. The SeqLib Portal manages the workflow starting from tissue, all the way downstream to track data deposition to assay-dependent, data-modality-specific archives.<br>For further details, reference the [Neuroanatomy-anchored Information Management Platform](https://brain-specimenportal.org/).
 
-### 2. Anatomical Structure Model
-The Anatomical Structure Model is a data model designed to represent types and relationships of anatomical brain structures. The model can be used to formalize relationships between spatial definition, names, and metadata of these structures - and the parcellations they collectively comprise. 
+### 2. Cell Taxonomy Model
+The Cell Taxonomy Model is a data model designed to represent cell type taxonomies and the single-cell data they are derived from. It is based on the Allen Institute Taxonomy ([AIT](https://github.com/AllenInstitute/AllenInstituteTaxonomy)) format, an AnnData-based standard for packaging a taxonomy together with the cell-by-gene measurements, cell set hierarchy, annotations, and embeddings that define it. The model can be used to formalize relationships between a taxonomy, its cell sets and their hierarchical structure, the cells assigned to them, and the marker genes and dimensionality reductions used to characterize them.<br>For further details, reference the [Allen Institute Taxonomy specification](https://github.com/AllenInstitute/AllenInstituteTaxonomy).
 
 ### 3. Genome Annotation Model  
 The Genome Annotation Model is a data model designed to represent types and relationships of an organism's annotated genome. The model can be used to formalize relationships between genes, genome assemblies, and organisms. 
 
-### 4. Assertion Evidence Model 
-The Assertion Evidence Model is a data model designed to represent the structure describing the relationship between a conclusion and the evidence that led to this conclusion. An assertion is the conclusion drawn from reasoning about Evidence. 
+### 4. Anatomical Structure Model
+The Anatomical Structure Model is a data model designed to represent types and relationships of anatomical brain structures. The model can be used to formalize relationships between spatial definition, names, and metadata of these structures - and the parcellations they collectively comprise. 
 
 ### 5. BKE Taxonomy Model
 The BKE Taxonomy Model is a data model designed to represent the structure of the BKE Taxonomy. The BKE Taxonomy is a classifications of cell types and their hierarchical relationships in the mammalian brain.
+
+### 6. Assertion Evidence Model 
+The Assertion Evidence Model is a data model designed to represent the structure describing the relationship between a conclusion and the evidence that led to this conclusion. An assertion is the conclusion drawn from reasoning about Evidence. 
 
 ## Using the Data Models 
 Each data model listed above has a respective module in the Brain Knowledge Base Interaction Toolkit ([bkbit](https://pypi.org/project/bkbit/)). 
