@@ -6,6 +6,7 @@ on:
     paths:
       - 'linkml-schema/donor.yaml'
       - 'linkml-schema/bican_biolink.yaml'
+      - 'linkml-schema/bican_prov.yaml'
 
 permissions:
   contents: write
