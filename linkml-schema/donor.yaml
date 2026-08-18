@@ -6,6 +6,7 @@ title: Donor Schema
 id: https://w3id.org/brain-bicandonor
 imports:
 - bican_biolink
+- bican_prov
 - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
@@ -16,6 +17,11 @@ prefixes:
   NIMP: http://example.org/NIMP/
 default_prefix: bican
 default_range: string
+subsets:
+  Restricted:
+    description: The data stored in this attribute is restricted to people with a
+      required clearence.
+    from_schema: https://w3id.org/brain-bicandonor
 enums:
   aging_type:
     from_schema: https://w3id.org/brain-bicandonor
@@ -3706,13 +3712,15 @@ classes:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: clinical_brain_diagnosis
-        description: Is any clinical brain diagnosis available?
+            local_name_value: clinical_brain_diagnosis_code
+        description: The ICD-10 code of the clinical brain diagnosis
+        in_subset:
+        - Restricted
         from_schema: https://w3id.org/brain-bicandonor
         exact_mappings:
-        - bican:b49f026b-4f6c-48c8-b170-bf6d24c672ef
-        - NIMP:PD-ICLAGO26
-        range: categorical
+        - bican:b7a34c73-ae08-43d3-80d2-d5ef8436e449
+        - NIMP:PD-CLCLXT26
+        range: string
       clinical_brain_diagnosis_confidence_level:
         local_names:
           NIMP:
@@ -3724,17 +3732,19 @@ classes:
         - bican:2e72b4b9-d5fb-4f0d-897c-1f977ed4fabd
         - NIMP:PD-LCLCJH33
         range: confidence_level
-      genetic_diagnosis:
+      genetic_diagnosis_code:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: genetic_diagnosis
-        description: Is any genetic diagnosis available?
+            local_name_value: genetic_diagnosis_code
+        description: The ICD-10 code of the genetic diagnosis
+        in_subset:
+        - Restricted
         from_schema: https://w3id.org/brain-bicandonor
         exact_mappings:
-        - bican:f67d3837-159d-4868-9749-aa6c83ded7eb
-        - NIMP:PD-MWMGGE30
-        range: categorical
+        - bican:7a7916e0-ff79-4426-b49f-58e2f2a8a367
+        - NIMP:PD-KRKRBX30
+        range: string
       genetic_diagnosis_confidence_level:
         local_names:
           NIMP:
@@ -3746,17 +3756,19 @@ classes:
         - bican:cb2b0108-8c07-40e8-92a3-b693b6dc64b4
         - NIMP:PD-NONORZ37
         range: confidence_level
-      non_brain_diagnosis:
+      non_brain_diagnosis_code:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: non_brain_diagnosis
-        description: Is any non-brain diagnosis available?
+            local_name_value: non_brain_diagnosis_code
+        description: The ICD-10 code of the non-brain diagnosis
+        in_subset:
+        - Restricted
         from_schema: https://w3id.org/brain-bicandonor
         exact_mappings:
-        - bican:009ec58e-32e4-4712-930c-056e72c8d8fa
-        - NIMP:PD-MCRYRZ37
-        range: categorical
+        - bican:65e8824e-01d2-44cf-9f47-9962461a65c9
+        - NIMP:PD-DNDNPI37
+        range: string
       non_brain_diagnosis_confidence_level:
         local_names:
           NIMP:
@@ -3798,18 +3810,6 @@ classes:
         maximum_value: '100.0'
         unit:
           descriptive_name: ounce
-      apgar_5_minute_score_available:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: apgar_5_minute_score_available
-        description: Is the APGAR Five Minute Score available? This is a test given
-          to newborns soon after birth
-        from_schema: https://w3id.org/brain-bicandonor
-        exact_mappings:
-        - bican:e67d93ac-3753-4835-a250-e2ca207b2675
-        - NIMP:PD-JCJYRC24
-        range: categorical
       apgar_5_minute_score:
         local_names:
           NIMP:
@@ -3824,18 +3824,6 @@ classes:
         range: integer
         minimum_value: '1.0'
         maximum_value: '10.0'
-      apgar_10_minute_score_available:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: apgar_10_minute_score_available
-        description: Is the APGAR Ten Minute Score Available? This is a test given
-          to newborns just after birth.
-        from_schema: https://w3id.org/brain-bicandonor
-        exact_mappings:
-        - bican:3d085ff9-7034-487d-a2b2-b9ae80d55333
-        - NIMP:PD-ZJYZRC24
-        range: categorical
       apgar_10_minute_score:
         local_names:
           NIMP:
@@ -3850,28 +3838,19 @@ classes:
         range: integer
         minimum_value: '1.0'
         maximum_value: '10.0'
-      neuropathology_diagnosis:
+      neuropathology_diagnosis_code:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: neuropathology_diagnosis
-        description: are any neuropathological diagnosis available?
+            local_name_value: neuropathology_diagnosis_code
+        description: The ICD-10 codes for the neuropathological diagnoses
+        in_subset:
+        - Restricted
         from_schema: https://w3id.org/brain-bicandonor
         exact_mappings:
-        - bican:87f6d251-e028-4480-9272-3497655fb9cd
-        - NIMP:PD-OTALRZ37
-        range: categorical
-      artifacts:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: artifacts
-        description: Any artifacts available?
-        from_schema: https://w3id.org/brain-bicandonor
-        exact_mappings:
-        - bican:b344b605-21dd-4e06-9104-21005179026f
-        - NIMP:PD-FUFUAD38
-        range: categorical
+        - bican:784e9cc1-7258-4535-a6d5-f7f9a4c2da4b
+        - NIMP:PD-NCMNSS51
+        range: string
       artifacts_type:
         local_names:
           NIMP:
@@ -3883,50 +3862,45 @@ classes:
         - bican:dc217b9b-ed6b-48e2-93b4-4f648dc395f7
         - NIMP:PD-NCNCRC24
         range: artifact_type
-      developmental:
+      developmental_type_specify:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: developmental
-        description: Are any developmental neuropathology diagnoses available?
+            local_name_value: developmental_type_specify
+        description: The developmental neuropathology diagnoses specified
+        in_subset:
+        - Restricted
         from_schema: https://w3id.org/brain-bicandonor
         exact_mappings:
-        - bican:c259cdc2-7c68-48de-ab57-57328f3bddfa
-        - NIMP:PD-MVMVIB34
-        range: categorical
-      inflammatory:
+        - bican:bee7d477-2dec-4bf5-878e-a105a0054366
+        - NIMP:PD-TYTYOO47
+        range: string
+      inflammatory_type_specify:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: inflammatory
-        description: Are inflammatory neuropathology diagnoses available?
+            local_name_value: inflammatory_type_specify
+        description: The inflammatory neuropathology diagnoses specified
+        in_subset:
+        - Restricted
         from_schema: https://w3id.org/brain-bicandonor
         exact_mappings:
-        - bican:05e83583-078d-4a1e-892d-e6f611e5a0b8
-        - NIMP:PD-AMAMCA52
-        range: categorical
-      infectious:
+        - bican:616ba8d8-ced3-4f3e-b1ca-7103eb7a2c94
+        - NIMP:PD-MAMATE52
+        range: string
+      infectious_type_specify:
         local_names:
           NIMP:
             local_name_source: NIMP
-            local_name_value: infectious
-        description: Are infectious neuropathology diagnoses available?
+            local_name_value: infectious_type_specify
+        description: The infectious neuropathology diagnoses specified
+        in_subset:
+        - Restricted
         from_schema: https://w3id.org/brain-bicandonor
         exact_mappings:
-        - bican:266f5fb8-716b-4472-be30-4a94b62f2245
-        - NIMP:PD-CICINY46
-        range: categorical
-      traumatic:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: traumatic
-        description: Are traumatic neuropathology diagnoses available?
-        from_schema: https://w3id.org/brain-bicandonor
-        exact_mappings:
-        - bican:a00497c0-376f-4b2e-b60e-d6add2af41dc
-        - NIMP:PD-PIPIRP41
-        range: categorical
+        - bican:c73cea5e-44d1-4dd9-b55e-3c6ef5dd2ef2
+        - NIMP:PD-TYTYTE52
+        range: string
       traumatic_type:
         local_names:
           NIMP:
@@ -3938,17 +3912,6 @@ classes:
         - bican:01d2f488-f30b-40e0-913f-c9adc6b39b97
         - NIMP:PD-DRDRCT43
         range: traumatic_type
-      vascular:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: vascular
-        description: Are vascular neuropathology diagnoses available?
-        from_schema: https://w3id.org/brain-bicandonor
-        exact_mappings:
-        - bican:b02d8386-d059-42a8-94cb-751d56b15b3a
-        - NIMP:PD-YIYIKM58
-        range: categorical
       vascular_type:
         local_names:
           NIMP:
@@ -3960,17 +3923,6 @@ classes:
         - bican:5beafa90-ffdb-4cce-a78c-a3b3175210b6
         - NIMP:PD-RIRITM45
         range: vascular_type
-      neoplastic:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: neoplastic
-        description: Are neoplastic neuropathology diagnoses available?
-        from_schema: https://w3id.org/brain-bicandonor
-        exact_mappings:
-        - bican:3f52a0e9-6469-46d3-8ed5-3cdb8afdc259
-        - NIMP:PD-JBJBCN35
-        range: categorical
       neoplastic_type:
         local_names:
           NIMP:
@@ -3982,17 +3934,6 @@ classes:
         - bican:a58be8f4-2756-4a66-9d05-1fbf44b4e810
         - NIMP:PD-NENERZ37
         range: neoplastic_type
-      aging:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: aging
-        description: Are aging-related neuropathology diagnoses available?
-        from_schema: https://w3id.org/brain-bicandonor
-        exact_mappings:
-        - bican:40e3caa7-657b-4137-9879-07e6b29bae14
-        - NIMP:PD-GIGIGO26
-        range: categorical
       aging_type:
         local_names:
           NIMP:
@@ -4004,17 +3945,6 @@ classes:
         - bican:5e31b66f-131e-4d5e-8760-ddd85f5634d5
         - NIMP:PD-WNWNRC24
         range: aging_type
-      neurodegenerative:
-        local_names:
-          NIMP:
-            local_name_source: NIMP
-            local_name_value: neurodegenerative
-        description: Are neurodegenerative neuropathology diagnoses available?
-        from_schema: https://w3id.org/brain-bicandonor
-        exact_mappings:
-        - bican:764d80ce-7a83-4e68-92df-34a416475e1b
-        - NIMP:PD-CZCZRZ37
-        range: categorical
       neurodegenerative_type:
         local_names:
           NIMP:
