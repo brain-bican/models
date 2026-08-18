@@ -1,0 +1,24 @@
+name: generating other formats for cell_taxonomy
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+    paths:
+      - 'linkml-schema/cell_taxonomy.yaml'
+      - 'linkml-schema/bican_biolink.yaml'
+      - 'linkml-schema/bican_prov.yaml'
+      -  'linkml-schema/bican_core.yaml'
+      - 'linkml-schema/genome_annotation.yaml'
+      - 'linkml-schema/anatomical_structure.yaml'
+
+
+permissions:
+  contents: write
+  pull-requests: write
+
+
+jobs:
+  generate_from_reusable:
+    uses: brain-bican/models/.github/workflows/reusable-generate_other_formats.yaml@main
+    with:
+      model_name: cell_taxonomy

@@ -1,0 +1,20 @@
+Class	Predicate (General)	Predicate (Specific)	Subject	from_schema	Multivalued	Subsets	Slot Definition	AIT Location	Notes
+> class	slot	attribute	range	from_schema	multivalued	in_subset	description	ignore	ignore
+>			internal_separator: "|"			internal_separator: "|"			
+	was_derived_from			bican_prov					
+	has_parent								
+	part_of_set								
+CellTypeTaxonomy	was_derived_from		ClusterSet		TRUE		One or more cluster sets from which this taxonomy was derived.		From BKE CellTypeTaxonomy.was_derived_from
+ClusterSet	was_derived_from		ExpressionMatrix		TRUE				
+Cluster	part_of_set		ClusterSet		FALSE	uns|annotations	The cluster set to which this cluster belongs.	uns	From BKE Cluster.part_of_set
+Cluster	has_parent		CellTypeTaxon		TRUE	obs|uns|annotations		obs.<annotation_level> / cluster_info	Annotation lives on the Cluster→CellTypeTaxon edge; cells inherit label via Cell.part_of_cluster
+CellTypeSet	has_parent		CellTypeSet		FALSE	uns|annotations	The next broader annotation level in the taxonomy hierarchy (e.g. Subclass has_parent Class).	uns.hierarchy	From BKE CellTypeSet.has_parent
+CellTypeSet		part_of_taxonomy	CellTypeTaxonomy		FALSE	uns|annotations	The taxonomy for which this annotation level is defined.	uns.hierarchy	
+CellTypeTaxon	has_parent		CellTypeTaxon		FALSE	uns|annotations	Reference to the parent taxon at the next broader annotation level.	uns.hierarchy	
+CellTypeTaxon	part_of_set		CellTypeSet		FALSE	uns|annotations	The annotation level (CellTypeSet) for which this taxon is a member.	uns.hierarchy	Grounded in AIT uns.hierarchy
+Cell		part_of_cluster	Cluster		FALSE	obs|annotations	The cluster to which this cell has been assigned by the clustering algorithm.	obs.<annotation_level>	Object reference for Cell.cluster_id string value
+CellTypeTaxonomy		has_embedding	Embedding		TRUE	obsm|analysis	One or more dimensionality reductions associated with this taxonomy.	obsm	No BKE equivalent; AIT-specific analysis component
+CellTypeTaxonomy		has_expression_matrix	ExpressionMatrix		TRUE	X|raw|data	One or more cell-by-gene matrices associated with this taxonomy (normalized and/or raw counts).	X / raw.X	
+ExpressionMatrix		has_variable	GeneAnnotation		TRUE	var|assigned_metadata	One of the genes (variables) measured across all cells in this matrix; corresponds to a column in var.	var	From BKE ExpressionMatrix.has_variable
+CellTypeTaxon		curated_markers_to_primates	GeneAnnotation		TRUE		Marker genes in the primate species that are related to the respective cell type.		
+CellTypeTaxon		curated_markers_to_mouse	GeneAnnotation		TRUE		Marker genes in the mouse species that are related to the respective cell type.		
