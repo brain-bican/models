@@ -1,0 +1,36 @@
+name: manual-generate-other-formats
+
+on:
+  workflow_dispatch:
+    inputs:
+      model_name:
+        description: 'Schema/model name to generate other formats for (without the .yaml extension)'
+        required: true
+        type: choice
+        options:
+          - anatomical_structure
+          - assertion_evidence
+          - bke_taxonomy
+          - cell_taxonomy
+          - genome_annotation
+          - library_generation
+      linkml_version:
+        description: 'linkml version to use (optional, by default it uses one from the pyproject.toml)'
+        required: false
+        type: string
+      branch_name:
+        description: 'Branch name to be used for the commit (optional, defaults to committing on the current branch)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate_from_reusable:
+    uses: brain-bican/models/.github/workflows/reusable-generate_other_formats.yaml@main
+    with:
+      model_name: ${{ github.event.inputs.model_name }}
+      linkml_version: ${{ github.event.inputs.linkml_version }}
+      branch_name: ${{ github.event.inputs.branch_name }}
