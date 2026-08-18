@@ -90,3 +90,16 @@ anatomical_structure_diagram = (
     / "anatomical_structure.md"
 )
 fix_diagram(anatomical_structure_yaml, anatomical_structure_diagram)
+
+# 5. FIX CELL TAXONOMY DIAGRAM
+cell_taxonomy_yaml = (
+    pathlib.Path(__file__).parent.resolve()
+    / "../linkml-schema"
+    / "cell_taxonomy.yaml"
+)
+cell_taxonomy_diagram = (
+    pathlib.Path(__file__).parent.resolve()
+    / "../erdiagram-autogen"
+    / "cell_taxonomy.md"
+)
+fix_diagram(cell_taxonomy_yaml, cell_taxonomy_diagram)
