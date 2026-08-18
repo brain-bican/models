@@ -1,0 +1,4 @@
+class	Inheritance: is_a	Inheritance: mixin	Definition	NIMP API Category	Subsets	AIBS LIMS Primary Table
+> class	is_a	mixins	description	exact_mappings: {curie_prefix: NIMP}	in_subset	ignore
+>		internal_separator: "|"			internal_separator: "|"	
+Donor	physical entity	thing with taxon|ProvEntity	A person or organism that is the source of a biological sample for scientific study.  Many biological samples are generated from a single donor.	Donor		aibs:lims:donors

@@ -7,9 +7,11 @@ sheets:
   - name: "Slots"
     gid: "1496475127"
   - name: "ValueSets"
-    gid: "1259479073"
+    gid: "1609301443"
   - name: "Prefixes"
     gid: "2018832318"
+  - name: "Subsets"
+    gid: "518732383"
   - name: "Schema"
     gid: "1640492340"
 
