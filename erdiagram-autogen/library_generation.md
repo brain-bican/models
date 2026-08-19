@@ -342,12 +342,6 @@ LibraryPooling {
     stringList type  
     uriorcurieList xref  
 }
-ProvActivity {
-
-}
-ProvEntity {
-
-}
 TissueDissection {
     string id  
     label_type name  
@@ -384,65 +378,27 @@ TissueSample {
 
 AmplifiedCdna ||--|o BarcodedCellSample : "was_derived_from"
 AmplifiedCdna ||--|o CdnaAmplification : "was_generated_by"
-AmplifiedCdna ||--}o Attribute : "has attribute"
 BarcodedCellSample ||--|o CellBarcoding : "was_generated_by"
-BarcodedCellSample ||--}o Attribute : "has attribute"
-BarcodedCellSample ||--}o ProvEntity : "was_derived_from"
-BrainSlab ||--|o ProvActivity : "was_generated_by"
-BrainSlab ||--|o ProvEntity : "was_derived_from"
-BrainSlab ||--}o Attribute : "has attribute"
 CdnaAmplification ||--|o BarcodedCellSample : "used"
-CdnaAmplification ||--}o Attribute : "has attribute"
-CellBarcoding ||--}o Attribute : "has attribute"
-CellBarcoding ||--}o ProvEntity : "used"
-CellDissociation ||--}o Attribute : "has attribute"
 CellDissociation ||--}o TissueSample : "used"
-CellEnrichment ||--}o Attribute : "has attribute"
 CellEnrichment ||--}o DissociatedCellSample : "used"
 DigitalAsset ||--|o LibraryPool : "was_derived_from"
-DigitalAsset ||--|o ProvActivity : "was_generated_by"
-DigitalAsset ||--}o Attribute : "has attribute"
 DissectionRoiDelineation ||--|o BrainSlab : "used"
-DissectionRoiDelineation ||--}o Attribute : "has attribute"
 DissectionRoiPolygon ||--|o BrainSlab : "annotates"
 DissectionRoiPolygon ||--|o DissectionRoiDelineation : "was_generated_by"
-DissectionRoiPolygon ||--|o ProvEntity : "was_derived_from"
-DissectionRoiPolygon ||--}o Attribute : "has attribute"
 DissociatedCellSample ||--|o CellDissociation : "was_generated_by"
-DissociatedCellSample ||--}o Attribute : "has attribute"
 DissociatedCellSample ||--}o TissueSample : "was_derived_from"
-Donor ||--|o ProvActivity : "was_generated_by"
-Donor ||--|o ProvEntity : "was_derived_from"
-Donor ||--}o Attribute : "has attribute"
 Donor ||--}o OrganismTaxon : "in taxon"
-EnrichedCellSample ||--|o ProvActivity : "was_generated_by"
-EnrichedCellSample ||--}o Attribute : "has attribute"
-EnrichedCellSample ||--}o ProvEntity : "was_derived_from"
 EnrichedCellSampleSplitting ||--|o EnrichedCellSample : "used"
-EnrichedCellSampleSplitting ||--}o Attribute : "has attribute"
 Library ||--|o LibraryConstruction : "was_generated_by"
-Library ||--|o ProvEntity : "was_derived_from"
-Library ||--}o Attribute : "has attribute"
 LibraryAliquot ||--|o Library : "was_derived_from"
-LibraryAliquot ||--|o ProvActivity : "was_generated_by"
-LibraryAliquot ||--}o Attribute : "has attribute"
-LibraryConstruction ||--|o ProvEntity : "used"
-LibraryConstruction ||--}o Attribute : "has attribute"
 LibraryPool ||--|o LibraryPooling : "was_generated_by"
-LibraryPool ||--}o Attribute : "has attribute"
 LibraryPool ||--}o LibraryAliquot : "was_derived_from"
-LibraryPooling ||--}o Attribute : "has attribute"
 LibraryPooling ||--}o LibraryAliquot : "used"
-ProvActivity ||--|o ProvEntity : "used"
-ProvEntity ||--|o ProvActivity : "was_generated_by"
-ProvEntity ||--|o ProvEntity : "was_derived_from"
 TissueDissection ||--|o BrainSlab : "used"
 TissueDissection ||--|o DissectionRoiPolygon : "was_guided_by"
-TissueDissection ||--}o Attribute : "has attribute"
 TissueSample ||--|o DissectionRoiPolygon : "dissection_was_guided_by"
 TissueSample ||--|o Donor : "was_derived_from"
 TissueSample ||--|o TissueDissection : "was_generated_by"
-TissueSample ||--}o Attribute : "has attribute"
 
 ```
-

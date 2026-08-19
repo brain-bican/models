@@ -176,21 +176,12 @@ ParcellationTerminology {
 }
 
 AnatomicalAnnotationSet ||--|o VersionedNamedThing : "revision_of"
-AnatomicalAnnotationSet ||--}o Attribute : "has attribute"
 AnatomicalSpace ||--|o VersionedNamedThing : "revision_of"
-AnatomicalSpace ||--}o Attribute : "has attribute"
 ImageDataset ||--|o VersionedNamedThing : "revision_of"
-ImageDataset ||--}o Attribute : "has attribute"
 ParcellationAtlas ||--|o VersionedNamedThing : "revision_of"
-ParcellationAtlas ||--}o Attribute : "has attribute"
 ParcellationColorScheme ||--|o VersionedNamedThing : "revision_of"
-ParcellationColorScheme ||--}o Attribute : "has attribute"
 ParcellationTerm ||--|o VersionedNamedThing : "revision_of"
-ParcellationTerm ||--}o Attribute : "has attribute"
 ParcellationTermSet ||--|o VersionedNamedThing : "revision_of"
-ParcellationTermSet ||--}o Attribute : "has attribute"
 ParcellationTerminology ||--|o VersionedNamedThing : "revision_of"
-ParcellationTerminology ||--}o Attribute : "has attribute"
 
 ```
-

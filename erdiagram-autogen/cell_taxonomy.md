@@ -162,51 +162,19 @@ ExpressionMatrix {
     stringList type  
     uriorcurieList xref  
 }
-ProvActivity {
-
-}
-ProvEntity {
-
-}
 
 Cell ||--|o Cluster : "part_of_cluster"
-Cell ||--|o ProvActivity : "was_generated_by"
-Cell ||--|o ProvEntity : "was_derived_from"
-Cell ||--}o Attribute : "has attribute"
 CellTypeSet ||--|o CellTypeSet : "has_parent"
 CellTypeSet ||--|o CellTypeTaxonomy : "part_of_taxonomy"
-CellTypeSet ||--|o ProvActivity : "was_generated_by"
-CellTypeSet ||--|o ProvEntity : "was_derived_from"
-CellTypeSet ||--}o Attribute : "has attribute"
 CellTypeTaxon ||--|o CellTypeSet : "part_of_set"
 CellTypeTaxon ||--|o CellTypeTaxon : "has_parent"
-CellTypeTaxon ||--|o ProvActivity : "was_generated_by"
-CellTypeTaxon ||--|o ProvEntity : "was_derived_from"
-CellTypeTaxon ||--}o Attribute : "has attribute"
 CellTypeTaxon ||--}o GeneAnnotation : "curated_markers_to_mouse, curated_markers_to_primates"
-CellTypeTaxonomy ||--|o ProvActivity : "was_generated_by"
-CellTypeTaxonomy ||--}o Attribute : "has attribute"
 CellTypeTaxonomy ||--}o ClusterSet : "was_derived_from"
 CellTypeTaxonomy ||--}o Embedding : "has_embedding"
 CellTypeTaxonomy ||--}o ExpressionMatrix : "has_expression_matrix"
 Cluster ||--|o ClusterSet : "part_of_set"
-Cluster ||--|o ProvActivity : "was_generated_by"
-Cluster ||--|o ProvEntity : "was_derived_from"
-Cluster ||--}o Attribute : "has attribute"
 Cluster ||--}o CellTypeTaxon : "has_parent"
-ClusterSet ||--|o ProvActivity : "was_generated_by"
-ClusterSet ||--}o Attribute : "has attribute"
 ClusterSet ||--}o ExpressionMatrix : "was_derived_from"
-Embedding ||--|o ProvActivity : "was_generated_by"
-Embedding ||--|o ProvEntity : "was_derived_from"
-Embedding ||--}o Attribute : "has attribute"
-ExpressionMatrix ||--|o ProvActivity : "was_generated_by"
-ExpressionMatrix ||--|o ProvEntity : "was_derived_from"
-ExpressionMatrix ||--}o Attribute : "has attribute"
 ExpressionMatrix ||--}o GeneAnnotation : "has_variable"
-ProvActivity ||--|o ProvEntity : "used"
-ProvEntity ||--|o ProvActivity : "was_generated_by"
-ProvEntity ||--|o ProvEntity : "was_derived_from"
 
 ```
-

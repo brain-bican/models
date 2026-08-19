@@ -2,6 +2,26 @@ import pathlib
 import subprocess as sp
 import yaml
 
+# Classes inherited from bican_biolink that add noise without domain value.
+CLASSES_TO_EXCLUDE = {"Attribute", "ProvActivity", "ProvEntity"}
+
+
+def _remove_excluded_classes(diagram_txt: str) -> str:
+    lines = diagram_txt.splitlines()
+    result = []
+    in_excluded_block = False
+    for line in lines:
+        if any(line.startswith(f"{cls} {{") for cls in CLASSES_TO_EXCLUDE):
+            in_excluded_block = True
+        if in_excluded_block:
+            if line.strip() == "}":
+                in_excluded_block = False
+            continue
+        if any(f" {cls} : " in line for cls in CLASSES_TO_EXCLUDE):
+            continue
+        result.append(line)
+    return "\n".join(result)
+
 
 def fix_diagram(yaml_model: pathlib.Path, diagram: pathlib.Path):
     # reading the yaml schema and getting all names of classes
@@ -21,6 +41,9 @@ def fix_diagram(yaml_model: pathlib.Path, diagram: pathlib.Path):
     # reading the diagram file and fixing the names with spaces
     with diagram.open() as f:
         diagram_txt = f.read()
+
+    # remove classes inherited from bican_biolink that add noise to domain diagrams
+    diagram_txt = _remove_excluded_classes(diagram_txt)
 
     to_fix_list = [
         "iri type",
