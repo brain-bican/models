@@ -72,12 +72,8 @@ GenomeAssembly {
 AnnotationCollection ||--}o GeneAnnotation : "annotations"
 AnnotationCollection ||--}o GenomeAnnotation : "genome_annotations"
 AnnotationCollection ||--}o GenomeAssembly : "genome_assemblies"
-GeneAnnotation ||--}o Attribute : "has attribute"
 GeneAnnotation ||--}o OrganismTaxon : "in taxon"
-GenomeAnnotation ||--}o Attribute : "has attribute"
 GenomeAnnotation ||--}o OrganismTaxon : "in taxon"
-GenomeAssembly ||--}o Attribute : "has attribute"
 GenomeAssembly ||--}o OrganismTaxon : "in taxon"
 
 ```
-
