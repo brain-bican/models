@@ -1,0 +1,10 @@
+class	Inheritance: is_a	Inheritance: mixin	Subsets	Definition	Class URI
+> class	is_a	mixins	in_subset	description	class_uri
+>		internal_separator: "|"	internal_separator: "|"		
+DataCollection					
+Grant					
+License					
+Organization				Respresents an organization. This is primarily used in reference to a project creator or funding source/awardee.	
+Person				Represents a person. This is primarily used in reference to a project creator or contributor.	
+Project					
+WebResource					
