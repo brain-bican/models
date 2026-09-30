@@ -188,15 +188,15 @@
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "@vocab": "https://identifiers.org/brain-bican/vocab/",
       "annotations": {
-         "@type": "bican:GeneAnnotation",
+         "@type": "@id",
          "@id": "annotations"
       },
       "genome_annotations": {
-         "@type": "bican:GenomeAnnotation",
+         "@type": "@id",
          "@id": "genome_annotations"
       },
       "genome_assemblies": {
-         "@type": "bican:GenomeAssembly",
+         "@type": "@id",
          "@id": "genome_assemblies"
       },
       "authority": {
@@ -247,7 +247,6 @@
          "@id": "dct:description"
       },
       "digest": {
-         "@type": "@id",
          "@id": "digest"
       },
       "equivalent_identifiers": {
@@ -261,11 +260,9 @@
          "@id": "biolink:full_name"
       },
       "referenced_in": {
-         "@type": "@id",
          "@id": "referenced_in"
       },
       "reference_assembly": {
-         "@type": "@id",
          "@id": "reference_assembly"
       },
       "has_attribute": {
@@ -288,7 +285,7 @@
          "@id": "biolink:has_qualitative_value"
       },
       "has_quantitative_value": {
-         "@type": "biolink:QuantityValue",
+         "@type": "@id",
          "@id": "biolink:has_quantitative_value"
       },
       "has_taxonomic_rank": {
