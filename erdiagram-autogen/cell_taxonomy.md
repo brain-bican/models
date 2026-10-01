@@ -1,5 +1,24 @@
 ```mermaid
 erDiagram
+Abbreviation {
+    string id  
+    AbbreviationEntityType entity_type  
+    string meaning  
+    string term  
+    label_type name  
+    narrative_text description  
+    uriorcurieList category  
+    boolean deprecated  
+    uriorcurieList equivalent_identifiers  
+    label_type full_name  
+    float information_content  
+    iri_type iri  
+    uriorcurieList named_thing_category  
+    stringList provided_by  
+    label_typeList synonym  
+    stringList type  
+    uriorcurieList xref  
+}
 Cell {
     string id  
     string anatomical_region  
@@ -47,7 +66,7 @@ CellTypeTaxon {
     string id  
     string name  
     string accession_id  
-    string cell_type_ontology_term_id  
+    string cell_type_ontology_term  
     integer number_of_cells  
     integer order  
     narrative_text description  
@@ -74,9 +93,11 @@ CellTypeTaxonomy {
     string default_embedding  
     string dendrogram  
     boolean filter  
+    string gene_annotation_version  
     string hierarchy  
     string mode  
     string quality_control_markers  
+    string reference_genome  
     string schema_version  
     string title  
     label_type name  
@@ -113,6 +134,39 @@ Cluster {
 ClusterSet {
     string id  
     string name  
+    narrative_text description  
+    uriorcurieList category  
+    boolean deprecated  
+    uriorcurieList equivalent_identifiers  
+    label_type full_name  
+    float information_content  
+    iri_type iri  
+    uriorcurieList named_thing_category  
+    stringList provided_by  
+    label_typeList synonym  
+    stringList type  
+    uriorcurieList xref  
+}
+ColorPalette {
+    string id  
+    string name  
+    string description  
+    uriorcurieList category  
+    boolean deprecated  
+    uriorcurieList equivalent_identifiers  
+    label_type full_name  
+    float information_content  
+    iri_type iri  
+    uriorcurieList named_thing_category  
+    stringList provided_by  
+    label_typeList synonym  
+    stringList type  
+    uriorcurieList xref  
+}
+DisplayColor {
+    string id  
+    string color_hex_triplet  
+    label_type name  
     narrative_text description  
     uriorcurieList category  
     boolean deprecated  
@@ -163,11 +217,16 @@ ExpressionMatrix {
     uriorcurieList xref  
 }
 
+Abbreviation ||--}o CellTypeTaxon : "denotes_cell_type"
+Abbreviation ||--}o GeneAnnotation : "denotes_gene_annotation"
+Abbreviation ||--}o ParcellationTerm : "denotes_parcellation_term"
 Cell ||--|o Cluster : "part_of_cluster"
 CellTypeSet ||--|o CellTypeSet : "has_parent"
 CellTypeSet ||--|o CellTypeTaxonomy : "part_of_taxonomy"
+CellTypeSet ||--}o Abbreviation : "has_abbreviation"
 CellTypeTaxon ||--|o CellTypeSet : "part_of_set"
 CellTypeTaxon ||--|o CellTypeTaxon : "has_parent"
+CellTypeTaxon ||--}o Abbreviation : "has_abbreviation"
 CellTypeTaxon ||--}o GeneAnnotation : "curated_markers_to_mouse, curated_markers_to_primates"
 CellTypeTaxonomy ||--}o ClusterSet : "was_derived_from"
 CellTypeTaxonomy ||--}o Embedding : "has_embedding"
@@ -175,6 +234,10 @@ CellTypeTaxonomy ||--}o ExpressionMatrix : "has_expression_matrix"
 Cluster ||--|o ClusterSet : "part_of_set"
 Cluster ||--}o CellTypeTaxon : "has_parent"
 ClusterSet ||--}o ExpressionMatrix : "was_derived_from"
+ColorPalette ||--|o CellTypeTaxonomy : "is_palette_for"
+DisplayColor ||--|o CellTypeSet : "is_color_for_set"
+DisplayColor ||--|o CellTypeTaxon : "is_color_for_taxon"
+DisplayColor ||--|o ColorPalette : "part_of_palette"
 ExpressionMatrix ||--}o GeneAnnotation : "has_variable"
 
 ```

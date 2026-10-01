@@ -12,6 +12,214 @@
             "title": "ANATOMICALDIRECTION",
             "type": "string"
         },
+        "Abbreviation": {
+            "additionalProperties": false,
+            "description": "Maps an abbreviation string to its decoded meaning. Optionally the abbreviation can be linked to one or more entities it denotes.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "bican:Abbreviation"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "denotes_cell_type": {
+                    "description": "One of potentially many cell type terms which the abbreviation denotes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "denotes_gene_annotation": {
+                    "description": "One of potentially many gene annotation terms to which the abbreviation denotes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "denotes_parcellation_term": {
+                    "description": "One of potentially many parcellation terms (anatomical structures) to which the abbreviation denotes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "entity_type": {
+                    "$ref": "#/$defs/AbbreviationEntityType",
+                    "description": "The entity type which the abbreviation term denotes."
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unique identifier for this abbreviation entry.",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "meaning": {
+                    "description": "The decoded meaning of the abbreviation term.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "term": {
+                    "description": "An abbreviation term as it appears in a cell type or cell set name.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "was_derived_from": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProvEntity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."
+                },
+                "was_generated_by": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProvActivity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation."
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "Abbreviation",
+            "type": "object"
+        },
+        "AbbreviationEntityType": {
+            "description": "",
+            "enum": [
+                "cell_type",
+                "gene",
+                "anatomical"
+            ],
+            "title": "AbbreviationEntityType",
+            "type": "string"
+        },
         "Activity": {
             "additionalProperties": false,
             "description": "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.",
@@ -1084,6 +1292,16 @@
                         "null"
                     ]
                 },
+                "has_abbreviation": {
+                    "description": "One of potentially many abbreviations that are part of the cell type set name.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -1240,7 +1458,7 @@
                     },
                     "type": "array"
                 },
-                "cell_type_ontology_term_id": {
+                "cell_type_ontology_term": {
                     "description": "CL ontology term for this cell type; use CL:0000003 for native cell if unknown.",
                     "type": [
                         "string",
@@ -1295,6 +1513,16 @@
                     "description": "a long-form human readable name for a thing",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "has_abbreviation": {
+                    "description": "One of potentially many abbreviations that are part of the cell type taxon name.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },
@@ -1543,6 +1771,13 @@
                         "null"
                     ]
                 },
+                "gene_annotation_version": {
+                    "description": "Genome annotation version used during alignment.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "has_attribute": {
                     "description": "connects any entity to an attribute",
                     "items": {
@@ -1624,6 +1859,13 @@
                 },
                 "quality_control_markers": {
                     "description": "Marker gene expression data for patchseq quality control analysis.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "reference_genome": {
+                    "description": "Reference genome assembly used to align the molecular measurements.",
                     "type": [
                         "string",
                         "null"
@@ -2116,6 +2358,163 @@
             "title": "ClusterSet",
             "type": "object"
         },
+        "ColorPalette": {
+            "additionalProperties": false,
+            "description": "A schematic set of display colors that can be applied to individual components of the associated entity set (for example, a taxonomy).",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "bican:ColorPalette"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "Description of the color palette.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unique identifier for this color palette.",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_palette_for": {
+                    "description": "The cell type taxonomy for which the palette provides display color properties.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Name of the color palette.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "was_derived_from": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProvEntity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."
+                },
+                "was_generated_by": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProvActivity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation."
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "ColorPalette",
+            "type": "object"
+        },
         "DISTANCEUNIT": {
             "description": "",
             "enum": [
@@ -2289,6 +2688,184 @@
             ],
             "title": "DigestType",
             "type": "string"
+        },
+        "DisplayColor": {
+            "additionalProperties": false,
+            "description": "One element of a color palette representing the association between a color and an entity.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "bican:DisplayColor"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "color_hex_triplet": {
+                    "description": "A hex string representing the display color for an associated entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unique identifier for this display color entry.",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_color_for_set": {
+                    "description": "The associated cell type set for the specified display color.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_color_for_taxon": {
+                    "description": "The associated cell type taxon for the specified display color.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "part_of_palette": {
+                    "description": "The color palette for which the display color map is part of.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "was_derived_from": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProvEntity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."
+                },
+                "was_generated_by": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProvActivity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation."
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "DisplayColor",
+            "type": "object"
         },
         "Embedding": {
             "additionalProperties": false,

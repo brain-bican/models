@@ -186,6 +186,33 @@
       "schema": "http://schema.org/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "@vocab": "https://identifiers.org/brain-bican/vocab/",
+      "denotes_cell_type": {
+         "@type": "@id",
+         "@id": "denotes_cell_type"
+      },
+      "denotes_gene_annotation": {
+         "@type": "@id",
+         "@id": "denotes_gene_annotation"
+      },
+      "denotes_parcellation_term": {
+         "@type": "@id",
+         "@id": "denotes_parcellation_term"
+      },
+      "entity_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "entity_type"
+      },
+      "meaning": {
+         "@id": "meaning"
+      },
+      "term": {
+         "@id": "term"
+      },
+      "id": "@id",
       "accession_id": {
          "@id": "accession_id"
       },
@@ -256,7 +283,6 @@
          },
          "@id": "suspension_type"
       },
-      "id": "@id",
       "cell_type_set_type": {
          "@context": {
             "text": "skos:notation",
@@ -265,12 +291,15 @@
          },
          "@id": "cell_type_set_type"
       },
+      "has_abbreviation": {
+         "@id": "has_abbreviation"
+      },
       "part_of_taxonomy": {
          "@type": "@id",
          "@id": "part_of_taxonomy"
       },
-      "cell_type_ontology_term_id": {
-         "@id": "cell_type_ontology_term_id"
+      "cell_type_ontology_term": {
+         "@id": "cell_type_ontology_term"
       },
       "curated_markers_to_mouse": {
          "@type": "@id",
@@ -306,6 +335,9 @@
          "@type": "xsd:boolean",
          "@id": "filter"
       },
+      "gene_annotation_version": {
+         "@id": "gene_annotation_version"
+      },
       "has_embedding": {
          "@type": "@id",
          "@id": "has_embedding"
@@ -322,6 +354,9 @@
       },
       "quality_control_markers": {
          "@id": "quality_control_markers"
+      },
+      "reference_genome": {
+         "@id": "reference_genome"
       },
       "schema_version": {
          "@id": "schema_version"
@@ -354,6 +389,10 @@
          "@type": "xsd:integer",
          "@id": "number_of_observations"
       },
+      "is_palette_for": {
+         "@type": "@id",
+         "@id": "is_palette_for"
+      },
       "content_url": {
          "@id": "schema:url"
       },
@@ -370,6 +409,21 @@
       },
       "digest": {
          "@id": "digest"
+      },
+      "color_hex_triplet": {
+         "@id": "color_hex_triplet"
+      },
+      "is_color_for_set": {
+         "@type": "@id",
+         "@id": "is_color_for_set"
+      },
+      "is_color_for_taxon": {
+         "@type": "@id",
+         "@id": "is_color_for_taxon"
+      },
+      "part_of_palette": {
+         "@type": "@id",
+         "@id": "part_of_palette"
       },
       "embedding_key": {
          "@id": "embedding_key"
@@ -634,6 +688,9 @@
          "@type": "xsd:anyURI",
          "@id": "biolink:xref"
       },
+      "Abbreviation": {
+         "@id": "Abbreviation"
+      },
       "Activity": {
          "@id": "biolink:Activity"
       },
@@ -664,6 +721,10 @@
       "CellTypeSet": {
          "@id": "CellTypeSet",
          "@context": {
+            "has_abbreviation": {
+               "@id": "has_abbreviation",
+               "@type": "@id"
+            },
             "has_parent": {
                "@id": "has_parent",
                "@type": "@id"
@@ -673,6 +734,10 @@
       "CellTypeTaxon": {
          "@id": "CellTypeTaxon",
          "@context": {
+            "has_abbreviation": {
+               "@id": "has_abbreviation",
+               "@type": "@id"
+            },
             "has_parent": {
                "@id": "has_parent",
                "@type": "@id"
@@ -714,8 +779,14 @@
       "ClusterSet": {
          "@id": "ClusterSet"
       },
+      "ColorPalette": {
+         "@id": "ColorPalette"
+      },
       "Dataset": {
          "@id": "biolink:Dataset"
+      },
+      "DisplayColor": {
+         "@id": "DisplayColor"
       },
       "Embedding": {
          "@id": "Embedding"
