@@ -1,16 +1,26 @@
-gsheet_id: "1r_iFiBxEakNxvvxOKOF_bk0EysyKrNvxvj6R6QZR0Gs"
+# Cell Taxonomy model source spreadsheet.
+#
+# Repointed 2026-10-01 to the merged AIT/BKE sheet, which supersedes the
+# previous one (gsheet_id 1r_iFiBxEakNxvvxOKOF_bk0EysyKrNvxvj6R6QZR0Gs).
+# The new sheet keeps the same schema identity (name: CellTaxonomy,
+# id: https://w3id.org/brain-bican/cell-taxonomy) and adds the Abbreviation,
+# ColorPalette and DisplayColor classes, per-slot AIT-location/source
+# provenance (as LinkML annotations), and aliases.
+#
+# gids verified 2026-10-01 by exporting each tab and checking its header row.
+gsheet_id: "1AC-jtCCnS78dc1futBW8mwyiixUyEbCOZ0mPfoKAffA"
 sheets:
   - name: "Classes"
-    gid: "1808397989"
-  - name: "Relations"
-    gid: "0" 
+    gid: "0"
   - name: "Slots"
-    gid: "103902407"
+    gid: "2096406242"
+  - name: "Relations"
+    gid: "552403686"
   - name: "ValueSets"
-    gid: "437044893"
+    gid: "148037660"
   - name: "Subsets"
-    gid: "185615531"
+    gid: "1403966825"
   - name: "Prefixes"
-    gid: "178718282"
+    gid: "720076977"
   - name: "Schema"
-    gid: "2001747776"
+    gid: "58611653"
