@@ -24,6 +24,14 @@ jobs:
         run: |
           python -m pip install .[test]
           pip install linkml=="1.11.1" # specify the older version of linkml
+          # pydantic >= 2.12 turns a long-standing warning in bkbit's generated
+          # bke_taxonomy model into a fatal TypeError: SpatialProportions has a
+          # slot literally named `str`, which shadows the builtin, so the
+          # `Optional[str]` annotation on the next field cannot be evaluated.
+          # bkbit/cli.py imports that model eagerly, so every bkbit command
+          # fails -- including schema2model, which does not use it at all.
+          # Real fix (rename the slot): brain-bican/models#228
+          pip install "pydantic<2.12"
           pip install git+https://github.com/brain-bican/bkbit.git
 
       - name: Other installations
