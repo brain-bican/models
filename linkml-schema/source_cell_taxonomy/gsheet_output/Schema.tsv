@@ -1,0 +1,4 @@
+Schema	uri	Description	Schema Prefix	Imports	Title
+> schema	id	description	default_prefix	imports	title
+>				internal_separator: "|"	
+CellTaxonomy	https://w3id.org/brain-bican/cell-taxonomy		bican	bican_biolink|bican_prov|bican_core|genome_annotation|anatomical_structure	Cell Taxonomy Schema

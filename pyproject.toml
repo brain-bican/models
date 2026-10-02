@@ -11,19 +11,20 @@ authors = [
 ]
 description = "A library for brain-bican data models"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
 ]
 license = {text = "Apache 2.0"}
 dependencies = [
-    "linkml==1.8.6",
+    "linkml==1.11.1",
 ]
 
 [project.optional-dependencies]
 test = [
     "pytest",
+    "linkml==1.11.1",
 ]
 docs = [
     "mkdocs-material",

@@ -2,7 +2,7 @@ id: https://identifiers.org/brain-bican/genome-annotation-schema
 name: genome-annotation-schema
 title: Genome Annotation Schema
 description: |-
-  The Genome Annotation Schema is designed to respresent all the genes from a given genome annotation.
+  The Genome Annotation Schema is designed to represent all the genes from a given genome annotation.
   
 prefixes:
   linkml: https://w3id.org/linkml/

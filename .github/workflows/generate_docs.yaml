@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-
+  workflow_dispatch:
+  
 permissions:
   contents: write
 
@@ -18,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.9
+          python-version: "3.10.x"
 
       - name: Install the required python packages
         run: python -m pip install .[docs]
@@ -38,6 +39,7 @@ jobs:
           cp erdiagram-autogen/library_generation.md docs/library_generation.md
           cp erdiagram-autogen/assertion_evidence.md docs/assertion_evidence.md
           cp erdiagram-autogen/bke_taxonomy.md docs/bke_taxonomy.md
+          cp erdiagram-autogen/cell_taxonomy.md docs/cell_taxonomy.md
           gen-doc -d docs linkml-schema/library_generation.yaml
           mv docs/index.md docs/index_library_generation.md
           gen-doc -d docs linkml-schema/anatomical_structure.yaml
@@ -48,6 +50,8 @@ jobs:
           mv docs/index.md docs/index_assertion_evidence.md
           gen-doc -d docs linkml-schema/bke_taxonomy.yaml
           mv docs/index.md docs/index_bke_taxonomy.md
+          gen-doc -d docs linkml-schema/cell_taxonomy.yaml
+          mv docs/index.md docs/index_cell_taxonomy.md
           mv docs/index_main.md docs/index.md
           
 

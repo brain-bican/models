@@ -9,7 +9,7 @@ on:
         type: string
 
 jobs:
-  generate_libgen_yaml:
+  generate_yaml:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repository
@@ -18,12 +18,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.9
+          python-version: "3.10.x"
 
       - name: Install the required python packages
         run: |
           python -m pip install .[test]
-          pip install linkml=="1.8.1" # specify the older version of linkml
+          pip install linkml=="1.11.1" # specify the older version of linkml
           pip install git+https://github.com/brain-bican/bkbit.git
 
       - name: Other installations
@@ -51,7 +51,16 @@ jobs:
       - name: Generate yaml model
         run: |
           cd linkml-schema
-          bkbit schema2model -o ${{ inputs.model }}.yaml --gsheet --gsheet-download-dir source_${{ inputs.model }}/gsheet_output  source_${{ inputs.model }}/gsheet.yaml  --no-inlined
+          # Invoke the converter module directly rather than the `bkbit` console
+          # script. bkbit/cli.py eagerly imports HMBA_annotation_translator ->
+          # bkbit.models.bke_taxonomy, whose SpatialProportions class has a slot
+          # literally named `str`; that shadows the builtin, so `Optional[str]`
+          # on a later field in the class cannot be evaluated and *every* bkbit
+          # command dies at import. schema2model has no dependency on
+          # bke_taxonomy, so going straight to the module sidesteps it entirely
+          # and is not sensitive to the pydantic/Python version combination.
+          # Real fix (rename the slot): brain-bican/models#228
+          python -m bkbit.model_converters.sheets_converter -o ${{ inputs.model }}.yaml --gsheet --gsheet-download-dir source_${{ inputs.model }}/gsheet_output  source_${{ inputs.model }}/gsheet.yaml  --no-inlined
           cd ..
 
       # Generate unique branch name 

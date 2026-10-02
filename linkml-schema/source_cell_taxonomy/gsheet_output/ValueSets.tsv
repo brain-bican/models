@@ -1,0 +1,12 @@
+variable_name	value	title	meaning	description	New
+> enum	permissible_value	title	meaning	description	ignore
+SuspensionType	cell				
+SuspensionType	nucleus				
+SuspensionType	na				
+CellTypeSetType	taxonomic_level			Denotes CellTypeSet is at Taxonomic level.	
+CellTypeSetType	neighborhood			Denotes CellTypeSet is at Neighborhood level.	
+ExpressionMatrixType	normalized			Matrix contains normalized expression values.	
+ExpressionMatrixType	raw_count			Matrix contains raw counts.	
+AbbreviationEntityType	cell_type			Abbreviation denotes a Cell Type entity.	Y
+AbbreviationEntityType	gene			Abbreviation denotes a Gene entity.	Y
+AbbreviationEntityType	anatomical			Abbreviation denotes an Anatomical Structure entity.	Y

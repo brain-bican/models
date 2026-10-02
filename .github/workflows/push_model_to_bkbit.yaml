@@ -18,11 +18,11 @@ jobs:
       - name: Set up Git and cloning repository
         env:
           TARGET_REPO: brain-bican/bkbit
-          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          PUSH_FROM_MODELS_TO_BKBIT: ${{ secrets.PUSH_FROM_MODELS_TO_BKBIT }}
         run: |
           git config --global user.name "puja-trivedi"
           git config --global user.email "xspuja@gmail.com"
-          git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/$TARGET_REPO.git
+          git clone https://x-access-token:${{ secrets.PUSH_FROM_MODELS_TO_BKBIT }}@github.com/$TARGET_REPO.git
 
       - name: Check if the model exists
         run: |
@@ -101,7 +101,7 @@ jobs:
         if: ${{ steps.compare_pydantic.outputs.changed  == 'true' || steps.compare_pydantic.outputs.changed == 'new' || steps.compare_jsonld.outputs.changed  == 'true' || steps.compare_jsonld.outputs.changed == 'new' }}
         env:
           TARGET_REPO: brain-bican/bkbit
-          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          PUSH_FROM_MODELS_TO_BKBIT: ${{ secrets.PUSH_FROM_MODELS_TO_BKBIT }}
         run: |
           cd bkbit
           git push origin ${{ env.branch_name }}
@@ -110,7 +110,7 @@ jobs:
         if: ${{ steps.compare_pydantic.outputs.changed  == 'true' || steps.compare_pydantic.outputs.changed == 'new' || steps.compare_jsonld.outputs.changed  == 'true' || steps.compare_jsonld.outputs.changed == 'new' }}
         env:
           TARGET_REPO: brain-bican/bkbit
-          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          PUSH_FROM_MODELS_TO_BKBIT: ${{ secrets.PUSH_FROM_MODELS_TO_BKBIT }}
         run: |
           # Prepare PR title and body based on what changed
           PR_TITLE="Automated PR from brain-bican/models: updates for model ${{ inputs.model }}"
@@ -128,6 +128,6 @@ jobs:
             PR_BODY="$PR_BODY\n- Updated jsonld-context file"
           fi
           
-          curl -X POST -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
+          curl -X POST -H "Authorization: token ${{ secrets.PUSH_FROM_MODELS_TO_BKBIT }}" \
           -d "{\"title\":\"$PR_TITLE\", \"body\":\"$PR_BODY\", \"head\":\"${{ env.branch_name }}\", \"base\":\"main\"}" \
           https://api.github.com/repos/$TARGET_REPO/pulls
