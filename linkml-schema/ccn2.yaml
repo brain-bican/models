@@ -1,4 +1,4 @@
-id: CCN2 # TODO: what should be here
+id: https://w3id.org/brain-bican/ccn2
 name: CCN2
 prefixes:
   linkml: https://w3id.org/linkml/
@@ -101,7 +101,7 @@ classes:
         description: >-
           Primary identifier of the cell set. This field should be programmatically assigned, not edited.
         required: true
-        readonly: true #todo
+        readonly: Programmatically assigned, not edited.
       cell type name:
         description: >-
           The primary name/symbol to be used for the (provisional) cell type defined by this cell set. This is left optional, but is strongly encouraged for every node that is linked.
