@@ -2136,5 +2136,4 @@ classes:
     - has biological sequence
     class_uri: biolink:Genome
 metamodel_version: 1.7.0
-generation_date: '2025-10-26T21:18:16'
 
