@@ -1,0 +1,82 @@
+name: EntityExtraction
+title: Entity Extraction Schema
+id: https:/w3id.org/brain-bican/entity-extraction
+imports:
+- linkml:types
+prefixes:
+  bican: https://identifiers.org/brain-bican/vocab/
+  prov: https://www.w3.org/TR/prov-o/#
+  linkml: https://w3id.org/linkml/
+default_prefix: bican
+default_range: string
+classes:
+  ExtractedEntity:
+    from_schema: https:/w3id.org/brain-bican/entity-extraction
+    attributes:
+      id:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        identifier: true
+        range: string
+      term:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        range: string
+      label:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        range: string
+      ontology_id:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        range: uriorcurie
+      ontology_label:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        range: string
+      sentence:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        range: string
+      start_index:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        range: integer
+      end_index:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        range: integer
+      judge_score:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        range: float
+      remarks:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        range: string
+      paper_location:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        range: string
+      paper:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        range: Paper
+  JudgeExtraction:
+    from_schema: https:/w3id.org/brain-bican/entity-extraction
+    is_a: Activity
+    attributes:
+      id:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        identifier: true
+        range: string
+      generated:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        slot_uri: prov:generated
+        range: ExtractedEntity
+        multivalued: true
+      startedAtTime:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        slot_uri: prov:startedAtTime
+        range: datetime
+  Paper:
+    from_schema: https:/w3id.org/brain-bican/entity-extraction
+    attributes:
+      id:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        identifier: true
+        range: string
+      title:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        range: string
+      doi:
+        from_schema: https:/w3id.org/brain-bican/entity-extraction
+        range: string
