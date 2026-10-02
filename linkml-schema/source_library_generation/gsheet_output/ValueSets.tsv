@@ -1,5 +1,5 @@
 variable_name	value	description	category	terminology_nhash
-> enum	permissible_value	description	ignore	meaning: {curie_prefix: NIMP}
+> enum	permissible_value	description	ignore	ignore
 amplified_cdna_rna_amplification_pass_fail	Pass	The RNA amplification passed the QA/QC	Amplified cDNA	PD-XXXXFQ31
 amplified_cdna_rna_amplification_pass_fail	Fail	The RNA amplification failed the QA/QC	Amplified cDNA	PD-XXXXFQ31
 amplified_cdna_rna_amplification_pass_fail	Low QC	The RNA amplification low passed the QA/QC	Amplified cDNA	PD-XXXXFQ31
@@ -8,30 +8,37 @@ barcoded_cell_sample_technique	Multiome	Multiome	Barcoded Cell Sample	PD-TDTDDF2
 barcoded_cell_sample_technique	ATACOnly	ATACOnly	Barcoded Cell Sample	PD-TDTDDF25
 barcoded_cell_sample_technique	GEXOnly	GEXOnly	Barcoded Cell Sample	PD-TDTDDF25
 barcoded_cell_sample_technique	snm3C-seq	snm3C-seq	Barcoded Cell Sample	PD-TDTDDF25
+barcoded_cell_sample_technique	Droplet Paired-Tag	Droplet Paired-Tag	Barcoded Cell Sample	PD-TDTDDF26
+barcoded_cell_sample_technique	Slide-tag_std	Slide-tag_std	Barcoded Cell Sample	PD-TDTDDF27
+barcoded_cell_sample_technique	Slide-tag_recon	Slide-tag_recon	Barcoded Cell Sample	PD-TDTDDF28
+barcoded_cell_sample_technique	snmCT-seq	snmCT-seq	Barcoded Cell Sample	PD-TDTDDF29
+barcoded_cell_sample_technique	PatchSeq-SmartSeq	PatchSeq-SmartSeq	Barcoded Cell Sample	PD-TDTDDF30
+barcoded_cell_sample_technique	SmartSeq	SmartSeq	Barcoded Cell Sample	PD-TDTDDF31
+barcoded_cell_sample_technique	DBiT-Seq	DBiT-Seq	Barcoded Cell Sample	PD-TDTDDF32
 dissociated_cell_sample_cell_prep_type	Nuclei	isolated nuclei	Dissociated Cell Sample	PD-RELLGO26
 dissociated_cell_sample_cell_prep_type	Cells	isolated whole cells	Dissociated Cell Sample	PD-RELLGO26
-dissociated_cell_sample_cell_label_barcode	CMO301	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	CMO302	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	CMO303	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	CMO304	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	CMO305	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	CMO306	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	CMO307	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	CMO308	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	CMO309	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	CMO310	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	CMO311	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	CMO312	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	2nt-001	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	2nt-002	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	2nt-003	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	2nt-004	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	3nt-001	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	3nt-002	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	3nt-003	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	3nt-004	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	3nt-005	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
-dissociated_cell_sample_cell_label_barcode	3nt-006	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated Cell Sample	PD-CFCFPS27
+cell_label_barcode	CMO301	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	CMO302	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	CMO303	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	CMO304	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	CMO305	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	CMO306	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	CMO307	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	CMO308	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	CMO309	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	CMO310	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	CMO311	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	CMO312	10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	2nt-001	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	2nt-002	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	2nt-003	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	2nt-004	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	3nt-001	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	3nt-002	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	3nt-003	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	3nt-004	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	3nt-005	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
+cell_label_barcode	3nt-006	Used in conjunction with Histone antibody to capture and tag separate subcomponents of the epigenome. Allows for pooling of enriched cell samples into a single 10x load.	Dissociated/Enriched Cell Sample	PD-CFCFPS27
 library_technique	SMARTSeqSC	SMARTSeqSC	Library	PD-AJAJCN35
 library_technique	SmartSeq3	SmartSeq3	Library	PD-AJAJCN35
 library_technique	10xV3.1	10xV3.1	Library	PD-AJAJCN35
@@ -54,7 +61,27 @@ library_technique	MERFISH	MERFISH	Library	PD-AJAJCN35
 library_technique	Slide-seq MERFISH	Slide-seq MERFISH	Library	PD-AJAJCN35
 library_technique	whole brain MERFISH	whole brain MERFISH	Library	PD-AJAJCN35
 library_technique	DBiT RNA-seq	DBiT RNA-seq	Library	PD-AJAJCN35
-library_technique	DBiT ATAC-seq	DBiT ATAC-seq	Library	PD-AJAJCN35
+library_technique	DBiT ATAC-seq	DBiT ATAC-seq	Library	PD-AJAJCN36
+library_technique	Droplet Paired-Tag; DNA	Droplet Paired-Tag; DNA	Library	PD-AJAJCN37
+library_technique	Droplet Paired-Tag; RNA	Droplet Paired-Tag; RNA	Library	PD-AJAJCN38
+library_technique	Multiplex Droplet Paired-Tag; DNA	Multiplex Droplet Paired-Tag; DNA	Library	PD-AJAJCN39
+library_technique	Multiplex Droplet Paired-Tag; RNA	Multiplex Droplet Paired-Tag; RNA	Library	PD-AJAJCN40
+library_technique	10xV4	10xV4	Library	PD-AJAJCN41
+library_technique	10x_5P_v5.2	10x_5P_v5.2	Library	PD-AJAJCN42
+library_technique	PIPSeq_T2_3P_v4+	PIPSeq_T2_3P_v4+	Library	PD-AJAJCN43
+library_technique	PIPSeq_T20_3P_v4+	PIPSeq_T20_3P_v4+	Library	PD-AJAJCN44
+library_technique	Slide-tag_10x5Pv2;GEX	Slide-tag_10x5Pv2;GEX	Library	PD-AJAJCN45
+library_technique	Slide-tag_10x5Pv2;Spatial	Slide-tag_10x5Pv2;Spatial	Library	PD-AJAJCN46
+library_technique	Slide-tag_PIPSeq_T100_3P_v4+;GEX	Slide-tag_PIPSeq_T100_3P_v4+;GEX	Library	PD-AJAJCN47
+library_technique	Slide-tag_PIPSeq_T100_3P_v4+;Spatial	Slide-tag_PIPSeq_T100_3P_v4+;Spatial	Library	PD-AJAJCN48
+library_technique	Slide-tag_PIPSeq_T20_3P_v4+;GEX	Slide-tag_PIPSeq_T20_3P_v4+;GEX	Library	PD-AJAJCN49
+library_technique	Slide-tag_PIPSeq_T20_3P_v4+;Spatial	Slide-tag_PIPSeq_T20_3P_v4+;Spatial	Library	PD-AJAJCN50
+library_technique	10x5Pv3	10x5Pv3	Library	PD-AJAJCN51
+library_technique	Slide-tag_10xV4;GEX	Slide-tag_10xV4;GEX	Library	PD-AJAJCN52
+library_technique	Slide-tag_10xV4;Spatial	Slide-tag_10xV4;Spatial	Library	PD-AJAJCN53
+library_technique	Slide-tag_TruSeq;Recon	Slide-tag_TruSeq;Recon	Library	PD-AJAJCN54
+library_technique	10xV4_OCM	10xV4_OCM	Library	PD-AJAJCN55
+library_technique	SMARTSeqV4	SMARTSeqV4	Library	PD-AJAJCN56
 library_prep_pass_fail	Pass	Library Prep passed the QA/QC	Library	PD-QHQHQB42
 library_prep_pass_fail	Fail	Library Prep failed the QA/QC	Library	PD-QHQHQB42
 library_prep_pass_fail	Low QC	Library Prep low passed the QA/QC	Library	PD-QHQHQB42
@@ -569,6 +596,36 @@ sex	8	Unknown	Donor	PD-LXUBTM45
 sex	9	Not Reported	Donor	PD-LXUBTM45
 age_at_death_reference_point	birth	birth	Donor	PD-RARAGG39
 age_at_death_reference_point	conception	conception	Donor	PD-RARAGG39
-age_at_death_unit	days	days	Donor	PD-AVAVEV39
-age_at_death_unit	months	months	Donor	PD-AVAVEV39
-age_at_death_unit	years	years	Donor	PD-AVAVEV39
+age_at_death_unit	day	day	Donor	PD-AVAVEV39
+age_at_death_unit	month	month	Donor	PD-AVAVEV39
+age_at_death_unit	year	year	Donor	PD-AVAVEV39
+species	NCBITaxon:9606	Homo sapiens		
+species	NCBITaxon:9483	Callithrix jacchus		
+species	NCBITaxon:10090	Mus musculus		
+species	NCBITaxon:9544	Macaca mulatta		
+species	NCBITaxon:60711	Chlorocebus sabaeus		
+species	NCBITaxon:9999	Urocitellus parryii		
+species	NCBITaxon:9361	Dasypus novemcinctus		
+species	NCBITaxon:9598	Pan troglodytes		
+species	NCBITaxon:9669	Mustela putorius furo		
+species	NCBITaxon:9593	Gorilla gorilla		
+species	NCBITaxon:9545	Macaca nemestrina		
+species	NCBITaxon:13616	Monodelphis domestica		
+species	NCBITaxon:9986	Oryctolagus cuniculus		
+species	NCBITaxon:10116	Rattus norvegicus		
+species	NCBITaxon:9541	Macaca fascicularis		
+species	NCBITaxon:9534	Chlorocebus aethiops		
+species	NCBITaxon:9614	Canis latrans		
+species	NCBITaxon:9555	Papio anubis		
+species	NCBITaxon:27679	Saimiri boliviensis		
+species	NCBITaxon:9521	Saimiri sciureus		
+species	NCBITaxon:30608	Microcebus murinus		
+species	NCBITaxon:37293	Aotus nancymaae		
+species	NCBITaxon:37347	Tupaia belangeri		
+species	NCBITaxon:10181	Heterocephalus glaber		
+species	NCBITaxon:9823	Sus scrofa		
+species	NCBITaxon:9685	Felis catus		
+species	NCBITaxon:9742	Phocoena phocoena		
+fastq_file_alignment_status	1	Pass	LibraryAliquot	PD-KRKRCT43
+fastq_file_alignment_status	2	Pass-Flag	LibraryAliquot	PD-KRKRCT44
+fastq_file_alignment_status	3	Fail_Withhold	LibraryAliquot	PD-KRKRCT45
