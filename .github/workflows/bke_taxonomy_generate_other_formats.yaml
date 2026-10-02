@@ -1,8 +1,9 @@
 name: generating other formats for bke_taxonomy
 
 on:
-  pull_request_target:
-    types: [opened, synchronize]
+  push:
+    branches:
+      - main
     paths:
       - 'linkml-schema/bke_taxonomy.yaml'
       - 'linkml-schema/bican_biolink.yaml'

@@ -4,23 +4,28 @@ on:
   push:
     branches:
       - main
-  pull_request_target:
-    types: [opened, synchronize]
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'linkml-schema/**'
+      - 'lint_config.yaml'
+      - 'pyproject.toml'
+      - '.github/workflows/tests_lint.yaml'
 
 jobs:
   test:
     runs-on: ubuntu-latest
-  strategy:
-    fail-fast: false
-    matrix:
-      python-version: ["3.10", "3.11", "3.12", "3.13"]
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
 
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -28,4 +33,10 @@ jobs:
         run: python -m pip install .[test]
 
       - name: Run linter
-        run: for f in linkml-schema/*.yaml; do linkml-lint --config lint_config.yaml $f --ignore-warnings; done
+        # Lint every schema before failing, so all errors show up in one run
+        run: |
+          status=0
+          for f in linkml-schema/*.yaml; do
+            linkml-lint --config lint_config.yaml "$f" --ignore-warnings || status=1
+          done
+          exit $status

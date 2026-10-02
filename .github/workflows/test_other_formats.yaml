@@ -4,15 +4,16 @@ on:
   push:
     branches:
       - main
-  pull_request_target:
-    types: [opened, synchronize]
-  workflow_run:
-    workflows: [ generating yaml file ]
-    types:
-      - completed
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'linkml-schema/**'
+      - 'utils/**'
+      - 'pyproject.toml'
+      - '.github/workflows/test_other_formats.yaml'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   test:
@@ -20,10 +21,10 @@ jobs:
 
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v7
         with:
           python-version: "3.10.x"
 
@@ -58,7 +59,7 @@ jobs:
               gen-pydantic ${file} > tests_artifacts/models_py-autogen/${name}.py;
               echo "Diff in pydantic model for $name file (comparing to the current version)"
               colordiff ../models_py-autogen/${name}.py tests_artifacts/models_py-autogen/${name}.py || true
-              if [ ${name} = "library_generation" ] || [ ${name} = "genome_annotation" ]; then
+              if [ ${name} = "library_generation" ] || [ ${name} = "genome_annotation" ] || [ ${name} = "bke_taxonomy" ] || [ ${name} = "anatomical_structure" ] || [ ${name} = "cell_taxonomy" ]; then
                 echo "Creating and Fixing diagrams for $name";
                 python ../utils/fix_and_create_erdiagram.py
               else

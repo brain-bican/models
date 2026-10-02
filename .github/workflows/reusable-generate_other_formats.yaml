@@ -26,14 +26,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
           ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v7
         with:
           python-version: "3.10.x"
 
@@ -67,7 +67,7 @@ jobs:
             echo "jsonld-context generated";
             linkml generate pydantic ${name}.yaml > ../models_py-autogen/${name}.py;
             echo "pydantic model generated";
-            if [ ${name} = "library_generation" ] || [ ${name} = "genome_annotation" ] || [ ${name} = "bke_taxonomy" ] || [ ${name} = "anatomical_structure"] || [ ${name} = "cell_taxonomy" ]; then
+            if [ ${name} = "library_generation" ] || [ ${name} = "genome_annotation" ] || [ ${name} = "bke_taxonomy" ] || [ ${name} = "anatomical_structure" ] || [ ${name} = "cell_taxonomy" ]; then
               echo "Fixing erdiagrams for $name";
               python ../utils/fix_and_create_erdiagram.py;
             else
@@ -100,22 +100,26 @@ jobs:
             git add erdiagram-autogen/${name}.md
             git status
           done
-          if ! git diff --cached --quiet; then
-            git status
-            # Stash any remaining local changes (including untracked files) before pulling
-            git stash --include-untracked
-            if git pull --rebase; then
-              git stash pop || echo "No stashed changes to apply"
-              git add .
-              git commit -m "generate another formats for ${models_list} model(s)"
-              git push
-            else
-              echo "Failed to pull --rebase, setting upstream"
-              git stash pop || echo "No stashed changes to apply"
-              git add .
-              git commit -m "generate another formats for ${models_list} model(s)"
-              git push --set-upstream origin $BRANCH_NAME
-            fi
-          else
+          if git diff --cached --quiet; then
             echo "No changes to commit"
+            exit 0
+          fi
+          git status
+          git add .
+          git commit -m "generate another formats for ${models_list} model(s)"
+          if [ -n "$BRANCH_NAME" ]; then
+            git push --set-upstream origin "$BRANCH_NAME"
+          else
+            # Several generate workflows can run at once after a merge to main,
+            # so rebase onto whatever the others pushed and retry.
+            for attempt in 1 2 3 4 5; do
+              if git pull --rebase && git push; then
+                exit 0
+              fi
+              git rebase --abort 2>/dev/null || true
+              echo "Push attempt ${attempt} failed, retrying"
+              sleep $((attempt * 15))
+            done
+            echo "Failed to push after 5 attempts"
+            exit 1
           fi
