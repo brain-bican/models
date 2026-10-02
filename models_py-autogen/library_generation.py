@@ -149,6 +149,20 @@ class BarcodedCellSampleTechnique(str, Enum):
     GEXOnly = "GEXOnly"
     # snm3C-seq
     snm3C_seq = "snm3C-seq"
+    # Droplet Paired-Tag
+    Droplet_Paired_Tag = "Droplet Paired-Tag"
+    # Slide-tag_std
+    Slide_tag_std = "Slide-tag_std"
+    # Slide-tag_recon
+    Slide_tag_recon = "Slide-tag_recon"
+    # snmCT-seq
+    snmCT_seq = "snmCT-seq"
+    # PatchSeq-SmartSeq
+    PatchSeq_SmartSeq = "PatchSeq-SmartSeq"
+    # SmartSeq
+    SmartSeq = "SmartSeq"
+    # DBiT-Seq
+    DBiT_Seq = "DBiT-Seq"
 
 
 class DissociatedCellSampleCellPrepType(str, Enum):
@@ -158,7 +172,7 @@ class DissociatedCellSampleCellPrepType(str, Enum):
     Cells = "Cells"
 
 
-class DissociatedCellSampleCellLabelBarcode(str, Enum):
+class CellLabelBarcode(str, Enum):
     # 10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.
     CMO301 = "CMO301"
     # 10x Cell Plex oligo tag for multiplexing tissue sources into a single 10x load.
@@ -252,6 +266,46 @@ class LibraryTechnique(str, Enum):
     DBiT_RNA_seq = "DBiT RNA-seq"
     # DBiT ATAC-seq
     DBiT_ATAC_seq = "DBiT ATAC-seq"
+    # Droplet Paired-Tag; DNA
+    Droplet_Paired_TagSEMICOLON_DNA = "Droplet Paired-Tag; DNA"
+    # Droplet Paired-Tag; RNA
+    Droplet_Paired_TagSEMICOLON_RNA = "Droplet Paired-Tag; RNA"
+    # Multiplex Droplet Paired-Tag; DNA
+    Multiplex_Droplet_Paired_TagSEMICOLON_DNA = "Multiplex Droplet Paired-Tag; DNA"
+    # Multiplex Droplet Paired-Tag; RNA
+    Multiplex_Droplet_Paired_TagSEMICOLON_RNA = "Multiplex Droplet Paired-Tag; RNA"
+    # 10xV4
+    number_10xV4 = "10xV4"
+    # 10x_5P_v5.2
+    number_10x_5P_v5FULL_STOP2 = "10x_5P_v5.2"
+    # PIPSeq_T2_3P_v4+
+    PIPSeq_T2_3P_v4PLUS_SIGN = "PIPSeq_T2_3P_v4+"
+    # PIPSeq_T20_3P_v4+
+    PIPSeq_T20_3P_v4PLUS_SIGN = "PIPSeq_T20_3P_v4+"
+    # Slide-tag_10x5Pv2;GEX
+    Slide_tag_10x5Pv2SEMICOLONGEX = "Slide-tag_10x5Pv2;GEX"
+    # Slide-tag_10x5Pv2;Spatial
+    Slide_tag_10x5Pv2SEMICOLONSpatial = "Slide-tag_10x5Pv2;Spatial"
+    # Slide-tag_PIPSeq_T100_3P_v4+;GEX
+    Slide_tag_PIPSeq_T100_3P_v4PLUS_SIGNSEMICOLONGEX = "Slide-tag_PIPSeq_T100_3P_v4+;GEX"
+    # Slide-tag_PIPSeq_T100_3P_v4+;Spatial
+    Slide_tag_PIPSeq_T100_3P_v4PLUS_SIGNSEMICOLONSpatial = "Slide-tag_PIPSeq_T100_3P_v4+;Spatial"
+    # Slide-tag_PIPSeq_T20_3P_v4+;GEX
+    Slide_tag_PIPSeq_T20_3P_v4PLUS_SIGNSEMICOLONGEX = "Slide-tag_PIPSeq_T20_3P_v4+;GEX"
+    # Slide-tag_PIPSeq_T20_3P_v4+;Spatial
+    Slide_tag_PIPSeq_T20_3P_v4PLUS_SIGNSEMICOLONSpatial = "Slide-tag_PIPSeq_T20_3P_v4+;Spatial"
+    # 10x5Pv3
+    number_10x5Pv3 = "10x5Pv3"
+    # Slide-tag_10xV4;GEX
+    Slide_tag_10xV4SEMICOLONGEX = "Slide-tag_10xV4;GEX"
+    # Slide-tag_10xV4;Spatial
+    Slide_tag_10xV4SEMICOLONSpatial = "Slide-tag_10xV4;Spatial"
+    # Slide-tag_TruSeq;Recon
+    Slide_tag_TruSeqSEMICOLONRecon = "Slide-tag_TruSeq;Recon"
+    # 10xV4_OCM
+    number_10xV4_OCM = "10xV4_OCM"
+    # SMARTSeqV4
+    SMARTSeqV4 = "SMARTSeqV4"
 
 
 class LibraryPrepPassFail(str, Enum):
@@ -1295,12 +1349,78 @@ class AgeAtDeathReferencePoint(str, Enum):
 
 
 class AgeAtDeathUnit(str, Enum):
-    # days
-    days = "days"
-    # months
-    months = "months"
-    # years
-    years = "years"
+    # day
+    day = "day"
+    # month
+    month = "month"
+    # year
+    year = "year"
+
+
+class Species(str, Enum):
+    # Homo sapiens
+    NCBITaxonCOLON9606 = "NCBITaxon:9606"
+    # Callithrix jacchus
+    NCBITaxonCOLON9483 = "NCBITaxon:9483"
+    # Mus musculus
+    NCBITaxonCOLON10090 = "NCBITaxon:10090"
+    # Macaca mulatta
+    NCBITaxonCOLON9544 = "NCBITaxon:9544"
+    # Chlorocebus sabaeus
+    NCBITaxonCOLON60711 = "NCBITaxon:60711"
+    # Urocitellus parryii
+    NCBITaxonCOLON9999 = "NCBITaxon:9999"
+    # Dasypus novemcinctus
+    NCBITaxonCOLON9361 = "NCBITaxon:9361"
+    # Pan troglodytes
+    NCBITaxonCOLON9598 = "NCBITaxon:9598"
+    # Mustela putorius furo
+    NCBITaxonCOLON9669 = "NCBITaxon:9669"
+    # Gorilla gorilla
+    NCBITaxonCOLON9593 = "NCBITaxon:9593"
+    # Macaca nemestrina
+    NCBITaxonCOLON9545 = "NCBITaxon:9545"
+    # Monodelphis domestica
+    NCBITaxonCOLON13616 = "NCBITaxon:13616"
+    # Oryctolagus cuniculus
+    NCBITaxonCOLON9986 = "NCBITaxon:9986"
+    # Rattus norvegicus
+    NCBITaxonCOLON10116 = "NCBITaxon:10116"
+    # Macaca fascicularis
+    NCBITaxonCOLON9541 = "NCBITaxon:9541"
+    # Chlorocebus aethiops
+    NCBITaxonCOLON9534 = "NCBITaxon:9534"
+    # Canis latrans
+    NCBITaxonCOLON9614 = "NCBITaxon:9614"
+    # Papio anubis
+    NCBITaxonCOLON9555 = "NCBITaxon:9555"
+    # Saimiri boliviensis
+    NCBITaxonCOLON27679 = "NCBITaxon:27679"
+    # Saimiri sciureus
+    NCBITaxonCOLON9521 = "NCBITaxon:9521"
+    # Microcebus murinus
+    NCBITaxonCOLON30608 = "NCBITaxon:30608"
+    # Aotus nancymaae
+    NCBITaxonCOLON37293 = "NCBITaxon:37293"
+    # Tupaia belangeri
+    NCBITaxonCOLON37347 = "NCBITaxon:37347"
+    # Heterocephalus glaber
+    NCBITaxonCOLON10181 = "NCBITaxon:10181"
+    # Sus scrofa
+    NCBITaxonCOLON9823 = "NCBITaxon:9823"
+    # Felis catus
+    NCBITaxonCOLON9685 = "NCBITaxon:9685"
+    # Phocoena phocoena
+    NCBITaxonCOLON9742 = "NCBITaxon:9742"
+
+
+class FastqFileAlignmentStatus(str, Enum):
+    # Pass
+    number_1 = "1"
+    # Pass-Flag
+    number_2 = "2"
+    # Fail_Withhold
+    number_3 = "3"
 
 
 
@@ -1499,7 +1619,6 @@ class Entity(ConfiguredBaseModel):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -1752,7 +1871,6 @@ class NamedThing(Entity):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -1942,7 +2060,6 @@ class NamedThing(Entity):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -2291,7 +2408,6 @@ class Attribute(NamedThing, OntologyClass):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -2420,7 +2536,6 @@ class Attribute(NamedThing, OntologyClass):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -2618,7 +2733,6 @@ class OrganismTaxon(NamedThing):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -2808,7 +2922,6 @@ class OrganismTaxon(NamedThing):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -3034,7 +3147,6 @@ class InformationContentEntity(NamedThing):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -3224,7 +3336,6 @@ class InformationContentEntity(NamedThing):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -3479,7 +3590,6 @@ class StudyResult(InformationContentEntity):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -3669,7 +3779,6 @@ class StudyResult(InformationContentEntity):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -3914,7 +4023,6 @@ class RelativeFrequencyAnalysisResult(StudyResult):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -4104,7 +4212,6 @@ class RelativeFrequencyAnalysisResult(StudyResult):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -4353,7 +4460,6 @@ class Dataset(InformationContentEntity):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -4543,7 +4649,6 @@ class Dataset(InformationContentEntity):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -4815,7 +4920,6 @@ class PhysicalEntity(PhysicalEssence, NamedThing):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -5005,7 +5109,6 @@ class PhysicalEntity(PhysicalEssence, NamedThing):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -5243,7 +5346,6 @@ class Activity(ActivityAndBehavior, NamedThing):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -5433,7 +5535,6 @@ class Activity(ActivityAndBehavior, NamedThing):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -5640,7 +5741,6 @@ class Procedure(ActivityAndBehavior, NamedThing):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -5830,7 +5930,6 @@ class Procedure(ActivityAndBehavior, NamedThing):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -6049,7 +6148,6 @@ class MaterialSample(SubjectOfInvestigation, PhysicalEntity):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -6239,7 +6337,6 @@ class MaterialSample(SubjectOfInvestigation, PhysicalEntity):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -6483,7 +6580,6 @@ class BiologicalEntity(ThingWithTaxon, NamedThing):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -6673,7 +6769,6 @@ class BiologicalEntity(ThingWithTaxon, NamedThing):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -6874,7 +6969,6 @@ class MacromolecularMachineMixin(ConfiguredBaseModel):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -6922,7 +7016,6 @@ class GeneOrGeneProduct(MacromolecularMachineMixin):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -7354,7 +7447,6 @@ class Gene(GeneOrGeneProduct, ChemicalEntityOrGeneOrGeneProduct, GenomicEntity, 
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -7472,7 +7564,6 @@ class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -7662,7 +7753,6 @@ class Genome(GenomicEntity, BiologicalEntity, PhysicalEssence, OntologyClass):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -7905,7 +7995,6 @@ class VersionedNamedThing(NamedThing):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -8095,7 +8184,6 @@ class VersionedNamedThing(NamedThing):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -8307,7 +8395,6 @@ class Checksum(Entity):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -8524,122 +8611,8 @@ class Donor(ProvEntity, ThingWithTaxon, PhysicalEntity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'exact_mappings': ['NIMP:Donor'],
          'from_schema': 'https://identifiers.org/brain-bican/library-generation-schema',
-         'mixins': ['thing with taxon', 'ProvEntity'],
-         'slot_usage': {'name': {'description': 'Name of person or organism that is '
-                                                'the source of a biological sample for '
-                                                'scientific study.  Many biological '
-                                                'samples are generated from a single '
-                                                'donor.',
-                                 'from_schema': 'bican_biolink',
-                                 'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'donor_local_id'}},
-                                 'name': 'name'},
-                        'xref': {'from_schema': 'bican_biolink',
-                                 'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'id'}},
-                                 'name': 'xref'}}})
+         'mixins': ['thing with taxon', 'ProvEntity']})
 
-    name: Optional[str] = Field(default=None, description="""Name of person or organism that is the source of a biological sample for scientific study.  Many biological samples are generated from a single donor.""", json_schema_extra = { "linkml_meta": {'alias': 'name',
-         'aliases': ['label', 'display name', 'title'],
-         'definition_uri': 'https://w3id.org/biolink/vocab/name',
-         'domain': 'entity',
-         'domain_of': ['attribute',
-                       'entity',
-                       'macromolecular machine mixin',
-                       'named thing',
-                       'organism taxon',
-                       'study result',
-                       'relative frequency analysis result',
-                       'information content entity',
-                       'dataset',
-                       'physical entity',
-                       'activity',
-                       'procedure',
-                       'material sample',
-                       'biological entity',
-                       'gene',
-                       'genome',
-                       'Donor',
-                       'BrainSlab',
-                       'TissueSample',
-                       'DissociatedCellSample',
-                       'EnrichedCellSample',
-                       'BarcodedCellSample',
-                       'AmplifiedCdna',
-                       'Library',
-                       'LibraryAliquot',
-                       'LibraryPool',
-                       'DissectionRoiPolygon'],
-         'exact_mappings': ['gff3:Name', 'gpi:DB_Object_Name'],
-         'in_subset': ['translator_minimal', 'samples'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'donor_local_id'}},
-         'mappings': ['rdfs:label'],
-         'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
-         'slot_uri': 'rdfs:label'} })
-    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
-         'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
-         'definition_uri': 'https://w3id.org/biolink/vocab/xref',
-         'domain': 'named thing',
-         'domain_of': ['named thing',
-                       'gene',
-                       'attribute',
-                       'organism taxon',
-                       'study result',
-                       'relative frequency analysis result',
-                       'information content entity',
-                       'dataset',
-                       'physical entity',
-                       'activity',
-                       'procedure',
-                       'material sample',
-                       'biological entity',
-                       'genome',
-                       'Donor',
-                       'BrainSlab',
-                       'TissueSample',
-                       'DissociatedCellSample',
-                       'EnrichedCellSample',
-                       'BarcodedCellSample',
-                       'AmplifiedCdna',
-                       'Library',
-                       'LibraryAliquot',
-                       'LibraryPool',
-                       'DissectionRoiPolygon'],
-         'in_subset': ['translator_minimal'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'id'}},
-         'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
-         'slot_uri': 'biolink:xref'} })
-    biological_sex: Optional[Sex] = Field(default=None, description="""Biological sex of donor at birth""", json_schema_extra = { "linkml_meta": {'alias': 'biological_sex',
-         'domain_of': ['Donor'],
-         'exact_mappings': ['NIMP:PD-LXUBTM45'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'sex'}}} })
-    age_at_death_description: Optional[str] = Field(default=None, description="""Text description of the age of death following typical scientific convention for the species or developmental stage. For example: P56, E11.5""", json_schema_extra = { "linkml_meta": {'alias': 'age_at_death_description',
-         'domain_of': ['Donor'],
-         'exact_mappings': ['NIMP:PD-ZJZJLE33'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'age_at_death_description'}}} })
-    age_at_death_reference_point: Optional[AgeAtDeathReferencePoint] = Field(default=None, description="""The reference point for an age interval; for example, birth or conception.""", json_schema_extra = { "linkml_meta": {'alias': 'age_at_death_reference_point',
-         'domain_of': ['Donor'],
-         'exact_mappings': ['NIMP:PD-RARAGG39'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'age_at_death_reference_point'}}} })
-    age_at_death_unit: Optional[AgeAtDeathUnit] = Field(default=None, description="""The unit used for representing the donor age from the reference point.""", json_schema_extra = { "linkml_meta": {'alias': 'age_at_death_unit',
-         'domain_of': ['Donor'],
-         'exact_mappings': ['NIMP:PD-AVAVEV39'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'age_at_death_unit'}}} })
-    age_at_death_value: Optional[float] = Field(default=None, description="""The value representing the donor age from the reference point.""", json_schema_extra = { "linkml_meta": {'alias': 'age_at_death_value',
-         'domain_of': ['Donor'],
-         'exact_mappings': ['NIMP:PD-FTFTCP24'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'age_at_death'}}} })
-    species: Optional[str] = Field(default=None, description="""Species of donor.""", json_schema_extra = { "linkml_meta": {'alias': 'species',
-         'domain_of': ['Donor'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'donor_species'}}} })
     in_taxon: Optional[List[str]] = Field(default=None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""", json_schema_extra = { "linkml_meta": {'alias': 'in_taxon',
          'aliases': ['instance of',
                      'is organism source of gene product',
@@ -8754,6 +8727,41 @@ class Donor(ProvEntity, ThingWithTaxon, PhysicalEntity):
          'exact_mappings': ['gff3:type', 'gpi:DB_Object_Type'],
          'mappings': ['rdf:type'],
          'slot_uri': 'rdf:type'} })
+    name: Optional[str] = Field(default=None, description="""A human-readable name for an attribute or entity.""", json_schema_extra = { "linkml_meta": {'alias': 'name',
+         'aliases': ['label', 'display name', 'title'],
+         'definition_uri': 'https://w3id.org/biolink/vocab/name',
+         'domain': 'entity',
+         'domain_of': ['attribute',
+                       'entity',
+                       'macromolecular machine mixin',
+                       'named thing',
+                       'organism taxon',
+                       'study result',
+                       'relative frequency analysis result',
+                       'information content entity',
+                       'dataset',
+                       'physical entity',
+                       'activity',
+                       'procedure',
+                       'material sample',
+                       'biological entity',
+                       'gene',
+                       'genome',
+                       'BrainSlab',
+                       'TissueSample',
+                       'DissociatedCellSample',
+                       'EnrichedCellSample',
+                       'BarcodedCellSample',
+                       'AmplifiedCdna',
+                       'Library',
+                       'LibraryAliquot',
+                       'LibraryPool',
+                       'DissectionRoiPolygon'],
+         'exact_mappings': ['gff3:Name', 'gpi:DB_Object_Name'],
+         'in_subset': ['translator_minimal', 'samples'],
+         'mappings': ['rdfs:label'],
+         'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
+         'slot_uri': 'rdfs:label'} })
     description: Optional[str] = Field(default=None, description="""a human-readable description of an entity""", json_schema_extra = { "linkml_meta": {'alias': 'description',
          'aliases': ['definition'],
          'definition_uri': 'https://w3id.org/biolink/vocab/description',
@@ -8910,6 +8918,37 @@ class Donor(ProvEntity, ThingWithTaxon, PhysicalEntity):
                        'genome'],
          'is_a': 'node property',
          'slot_uri': 'biolink:provided_by'} })
+    xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
+         'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
+         'definition_uri': 'https://w3id.org/biolink/vocab/xref',
+         'domain': 'named thing',
+         'domain_of': ['named thing',
+                       'gene',
+                       'attribute',
+                       'organism taxon',
+                       'study result',
+                       'relative frequency analysis result',
+                       'information content entity',
+                       'dataset',
+                       'physical entity',
+                       'activity',
+                       'procedure',
+                       'material sample',
+                       'biological entity',
+                       'genome',
+                       'BrainSlab',
+                       'TissueSample',
+                       'DissociatedCellSample',
+                       'EnrichedCellSample',
+                       'BarcodedCellSample',
+                       'AmplifiedCdna',
+                       'Library',
+                       'LibraryAliquot',
+                       'LibraryPool',
+                       'DissectionRoiPolygon'],
+         'in_subset': ['translator_minimal'],
+         'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
+         'slot_uri': 'biolink:xref'} })
     full_name: Optional[str] = Field(default=None, description="""a long-form human readable name for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'full_name',
          'definition_uri': 'https://w3id.org/biolink/vocab/full_name',
          'domain': 'named thing',
@@ -9015,30 +9054,23 @@ class BrainSlab(ProvEntity, MaterialSample):
          'from_schema': 'https://identifiers.org/brain-bican/library-generation-schema',
          'in_subset': ['bican', 'tissue_specimen'],
          'mixins': ['ProvEntity'],
-         'slot_usage': {'name': {'description': 'Name of a thick flat piece of brain '
-                                                'tissue obtained by slicing a whole '
-                                                'brain, brain hemisphere or '
-                                                'subdivision with a blade at regular '
-                                                'interval.  When multiple brain slabs '
-                                                'are obtained from the slicing '
-                                                'process, an ordinal is assigned to '
-                                                'provide information about the '
-                                                'relative positioning of the slabs.',
+         'slot_usage': {'name': {'description': 'The identifier given to the slab by '
+                                                'the brain bank.',
+                                 'exact_mappings': ['NIMP:PD-WKWKFB34'],
                                  'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'local_name'}},
+                                                          'local_name_value': 'slab_local_name'}},
                                  'name': 'name'},
                         'was_derived_from': {'any_of': [{'range': 'Donor'},
                                                         {'range': 'BrainSlab'}],
                                              'description': 'The donor from which the '
                                                             'brain slab was derived '
                                                             'from.',
-                                             'exact_mappings': ['NIMP:has_parent'],
                                              'from_schema': 'bican_prov',
                                              'name': 'was_derived_from'},
                         'xref': {'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'id'}},
+                                                          'local_name_value': 'slab_nhash_id'}},
                                  'name': 'xref'}}})
 
     was_derived_from: Optional[str] = Field(default=None, description="""The donor from which the brain slab was derived from.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
@@ -9054,9 +9086,8 @@ class BrainSlab(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DigitalAsset'],
-         'exact_mappings': ['NIMP:has_parent'],
          'slot_uri': 'prov:wasDerivedFrom'} })
-    name: Optional[str] = Field(default=None, description="""Name of a thick flat piece of brain tissue obtained by slicing a whole brain, brain hemisphere or subdivision with a blade at regular interval.  When multiple brain slabs are obtained from the slicing process, an ordinal is assigned to provide information about the relative positioning of the slabs.""", json_schema_extra = { "linkml_meta": {'alias': 'name',
+    name: Optional[str] = Field(default=None, description="""The identifier given to the slab by the brain bank.""", json_schema_extra = { "linkml_meta": {'alias': 'name',
          'aliases': ['label', 'display name', 'title'],
          'definition_uri': 'https://w3id.org/biolink/vocab/name',
          'domain': 'entity',
@@ -9076,7 +9107,6 @@ class BrainSlab(ProvEntity, MaterialSample):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -9087,10 +9117,10 @@ class BrainSlab(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DissectionRoiPolygon'],
-         'exact_mappings': ['gff3:Name', 'gpi:DB_Object_Name'],
+         'exact_mappings': ['NIMP:PD-WKWKFB34'],
          'in_subset': ['translator_minimal', 'samples'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'local_name'}},
+                                  'local_name_value': 'slab_local_name'}},
          'mappings': ['rdfs:label'],
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
          'slot_uri': 'rdfs:label'} })
@@ -9112,7 +9142,6 @@ class BrainSlab(ProvEntity, MaterialSample):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -9125,7 +9154,7 @@ class BrainSlab(ProvEntity, MaterialSample):
                        'DissectionRoiPolygon'],
          'in_subset': ['translator_minimal'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'id'}},
+                                  'local_name_value': 'slab_nhash_id'}},
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
@@ -9469,16 +9498,15 @@ class TissueSample(ProvEntity, MaterialSample):
                                                 'prep.  This piece of tissue will be '
                                                 'used in dissociation and has an ROI '
                                                 'associated with it.',
-                                 'exact_mappings': ['NIMP:PD-LJCRCC35'],
+                                 'exact_mappings': ['bican:2e4ca2fc-2d77-4d19-af45-d0fb7bbc2269',
+                                                    'NIMP:PD-LJCRCC35'],
                                  'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'tissue_sample_local_name'}},
-                                 'name': 'name',
-                                 'slot_uri': 'bican:2e4ca2fc-2d77-4d19-af45-d0fb7bbc2269'},
+                                 'name': 'name'},
                         'was_derived_from': {'description': 'The donor or brain slab '
                                                             'from which the tissue '
                                                             'sample was derived from.',
-                                             'exact_mappings': ['NIMP:has_parent'],
                                              'from_schema': 'bican_prov',
                                              'name': 'was_derived_from',
                                              'range': 'Donor'},
@@ -9490,7 +9518,7 @@ class TissueSample(ProvEntity, MaterialSample):
                                              'range': 'TissueDissection'},
                         'xref': {'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'id'}},
+                                                          'local_name_value': 'tissue_nhash_id'}},
                                  'name': 'xref'}}})
 
     was_derived_from: Optional[str] = Field(default=None, description="""The donor or brain slab from which the tissue sample was derived from.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
@@ -9505,7 +9533,6 @@ class TissueSample(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DigitalAsset'],
-         'exact_mappings': ['NIMP:has_parent'],
          'slot_uri': 'prov:wasDerivedFrom'} })
     was_generated_by: Optional[str] = Field(default=None, description="""The dissection process from which the tissue sample was generated by.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
          'domain_of': ['ProvEntity',
@@ -9538,7 +9565,6 @@ class TissueSample(ProvEntity, MaterialSample):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -9549,13 +9575,14 @@ class TissueSample(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DissectionRoiPolygon'],
-         'exact_mappings': ['NIMP:PD-LJCRCC35'],
+         'exact_mappings': ['bican:2e4ca2fc-2d77-4d19-af45-d0fb7bbc2269',
+                            'NIMP:PD-LJCRCC35'],
          'in_subset': ['translator_minimal', 'samples'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'tissue_sample_local_name'}},
          'mappings': ['rdfs:label'],
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
-         'slot_uri': 'bican:2e4ca2fc-2d77-4d19-af45-d0fb7bbc2269'} })
+         'slot_uri': 'rdfs:label'} })
     xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
@@ -9574,7 +9601,6 @@ class TissueSample(ProvEntity, MaterialSample):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -9587,14 +9613,13 @@ class TissueSample(ProvEntity, MaterialSample):
                        'DissectionRoiPolygon'],
          'in_subset': ['translator_minimal'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'id'}},
+                                  'local_name_value': 'tissue_nhash_id'}},
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
-    dissection_was_guided_by: Optional[str] = Field(default=None, description="""The dissection ROI polygon that was used to guide the dissection.""", json_schema_extra = { "linkml_meta": {'alias': 'dissection_was_guided_by',
+    dissection_was_guided_by: Optional[str] = Field(default=None, description="""The dissection ROI polygon that was used to guide the dissection.""", json_schema_extra = { "linkml_meta": {'alias': 'dissection_was_guided_by', 'domain_of': ['TissueSample']} })
+    structure: Optional[List[str]] = Field(default=None, description="""The code referring to a structure in a brain atlas that the tissue was found to be associated with.""", json_schema_extra = { "linkml_meta": {'alias': 'structure',
          'domain_of': ['TissueSample'],
-         'exact_mappings': ['NIMP:has_parent']} })
-    structure: Optional[List[str]] = Field(default=None, description="""Structure of tissue sample.""", json_schema_extra = { "linkml_meta": {'alias': 'structure',
-         'domain_of': ['TissueSample'],
+         'exact_mappings': ['bican:missing_TS_structure', 'NIMP:PD-NLNONY46'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'structure'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
@@ -9925,17 +9950,16 @@ class DissociatedCellSample(ProvEntity, MaterialSample):
          'slot_usage': {'name': {'description': 'Name of a collection of dissociated '
                                                 'cells or nuclei derived from '
                                                 'dissociation of a tissue sample.',
-                                 'exact_mappings': ['NIMP:PD-RQRWHS40'],
+                                 'exact_mappings': ['bican:65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2',
+                                                    'NIMP:PD-RQRWHS40'],
                                  'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'dissociated_cell_sample_local_name'}},
-                                 'name': 'name',
-                                 'slot_uri': 'bican:65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2'},
+                                 'name': 'name'},
                         'was_derived_from': {'description': 'The input tissue '
                                                             'sample(s) from which '
                                                             'dissociated cell sample '
                                                             'was derived from.',
-                                             'exact_mappings': ['NIMP:has_parent'],
                                              'from_schema': 'bican_prov',
                                              'multivalued': True,
                                              'name': 'was_derived_from',
@@ -9949,7 +9973,7 @@ class DissociatedCellSample(ProvEntity, MaterialSample):
                                              'range': 'CellDissociation'},
                         'xref': {'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'id'}},
+                                                          'local_name_value': 'dissociated_cell_sample_nhash_id'}},
                                  'name': 'xref'}}})
 
     was_generated_by: Optional[str] = Field(default=None, description="""The cell dissociation process from which the dissociated cell sample was generated by.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
@@ -9975,7 +9999,6 @@ class DissociatedCellSample(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DigitalAsset'],
-         'exact_mappings': ['NIMP:has_parent'],
          'slot_uri': 'prov:wasDerivedFrom'} })
     name: Optional[str] = Field(default=None, description="""Name of a collection of dissociated cells or nuclei derived from dissociation of a tissue sample.""", json_schema_extra = { "linkml_meta": {'alias': 'name',
          'aliases': ['label', 'display name', 'title'],
@@ -9997,7 +10020,6 @@ class DissociatedCellSample(ProvEntity, MaterialSample):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -10008,13 +10030,14 @@ class DissociatedCellSample(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DissectionRoiPolygon'],
-         'exact_mappings': ['NIMP:PD-RQRWHS40'],
+         'exact_mappings': ['bican:65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2',
+                            'NIMP:PD-RQRWHS40'],
          'in_subset': ['translator_minimal', 'samples'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'dissociated_cell_sample_local_name'}},
          'mappings': ['rdfs:label'],
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
-         'slot_uri': 'bican:65e2c7da-9eb4-45b2-8ccb-d69ef9785ee2'} })
+         'slot_uri': 'rdfs:label'} })
     xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
@@ -10033,7 +10056,6 @@ class DissociatedCellSample(ProvEntity, MaterialSample):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -10046,20 +10068,39 @@ class DissociatedCellSample(ProvEntity, MaterialSample):
                        'DissectionRoiPolygon'],
          'in_subset': ['translator_minimal'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'id'}},
+                                  'local_name_value': 'dissociated_cell_sample_nhash_id'}},
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
+    preparation_date: Optional[date] = Field(default=None, description="""Date of cell dissociation process.""", json_schema_extra = { "linkml_meta": {'alias': 'preparation_date',
+         'domain_of': ['DissociatedCellSample',
+                       'EnrichedCellSample',
+                       'BarcodedCellSample',
+                       'AmplifiedCdna',
+                       'Library',
+                       'LibraryPool'],
+         'exact_mappings': ['bican:c508b63d-a1b4-42de-9b22-9c4736deac6e',
+                            'NIMP:PD-BUBUFE27'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'dissociated_cell_sample_preparation_date'}}} })
     cell_prep_type: Optional[DissociatedCellSampleCellPrepType] = Field(default=None, description="""The type of cell preparation. For example: Cells, Nuclei. This is a property of dissociated_cell_sample.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_prep_type',
          'domain_of': ['DissociatedCellSample'],
-         'exact_mappings': ['NIMP:PD-RELLGO26'],
+         'exact_mappings': ['bican:baae4ac3-f959-4594-b943-3a82ec19bd34',
+                            'NIMP:PD-RELLGO26'],
          'in_subset': ['analysis', 'tracking'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'dissociated_cell_sample_cell_prep_type'}}} })
-    dissociated_cell_oligo_name: Optional[DissociatedCellSampleCellLabelBarcode] = Field(default=None, description="""Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the dissociated cell sample and allows separate dissociated cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source dissociated cell sample.""", json_schema_extra = { "linkml_meta": {'alias': 'dissociated_cell_oligo_name',
-         'domain_of': ['DissociatedCellSample'],
-         'exact_mappings': ['NIMP:PD-CFCFPS27'],
+    cell_label_barcode: Optional[CellLabelBarcode] = Field(default=None, description="""Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the dissociated cell sample and allows separate dissociated cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source dissociated cell sample.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_label_barcode',
+         'domain_of': ['DissociatedCellSample', 'EnrichedCellSample'],
+         'exact_mappings': ['bican:0c8628d0-809b-458c-b4b3-686131dceef8',
+                            'NIMP:PD-CFCFPS27'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'dissociated_cell_sample_cell_label_barcode'}}} })
+    patched_cell_structure: Optional[str] = Field(default=None, description="""Ontological structure assigned to a single patched cell. This is typically assigned and confirmed after imaging.""", json_schema_extra = { "linkml_meta": {'alias': 'patched_cell_structure',
+         'domain_of': ['DissociatedCellSample'],
+         'exact_mappings': ['bican:7636b4c8-12f6-4b33-bdc6-c2f1a3b1c953',
+                            'NIMP:PD-RCRCEV39'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'patched_cell_structure'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -10390,18 +10431,17 @@ class EnrichedCellSample(ProvEntity, MaterialSample):
                                                 '(usually via FACS using the '
                                                 'Enrichment Plan) applied to '
                                                 'dissociated_cell_sample.',
-                                 'exact_mappings': ['NIMP:PD-BERWTM41'],
+                                 'exact_mappings': ['bican:bb3fc701-23a7-45c1-890d-7471730e0ec1',
+                                                    'NIMP:PD-BERWTM41'],
                                  'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'enriched_cell_sample_local_name'}},
-                                 'name': 'name',
-                                 'slot_uri': 'bican:bb3fc701-23a7-45c1-890d-7471730e0ec1'},
+                                 'name': 'name'},
                         'was_derived_from': {'description': 'The dissociated or '
                                                             'enriched cell sample(s) '
                                                             'from which the enriched '
                                                             'cell sample was derived '
                                                             'from.',
-                                             'exact_mappings': ['NIMP:has_parent'],
                                              'exactly_one_of': [{'range': 'DissociatedCellSample'},
                                                                 {'range': 'EnrichedCellSample'}],
                                              'from_schema': 'bican_prov',
@@ -10418,7 +10458,7 @@ class EnrichedCellSample(ProvEntity, MaterialSample):
                                              'name': 'was_generated_by'},
                         'xref': {'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'id'}},
+                                                          'local_name_value': 'enriched_cell_sample_nhash_id'}},
                                  'name': 'xref'}}})
 
     was_generated_by: Optional[str] = Field(default=None, description="""The cell enrichment or sample splitting process from which the enriched cell sample was generated by.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
@@ -10446,7 +10486,6 @@ class EnrichedCellSample(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DigitalAsset'],
-         'exact_mappings': ['NIMP:has_parent'],
          'exactly_one_of': [{'range': 'DissociatedCellSample'},
                             {'range': 'EnrichedCellSample'}],
          'slot_uri': 'prov:wasDerivedFrom'} })
@@ -10470,7 +10509,6 @@ class EnrichedCellSample(ProvEntity, MaterialSample):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -10481,13 +10519,14 @@ class EnrichedCellSample(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DissectionRoiPolygon'],
-         'exact_mappings': ['NIMP:PD-BERWTM41'],
+         'exact_mappings': ['bican:bb3fc701-23a7-45c1-890d-7471730e0ec1',
+                            'NIMP:PD-BERWTM41'],
          'in_subset': ['translator_minimal', 'samples'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'enriched_cell_sample_local_name'}},
          'mappings': ['rdfs:label'],
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
-         'slot_uri': 'bican:bb3fc701-23a7-45c1-890d-7471730e0ec1'} })
+         'slot_uri': 'rdfs:label'} })
     xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
@@ -10506,7 +10545,6 @@ class EnrichedCellSample(ProvEntity, MaterialSample):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -10519,23 +10557,37 @@ class EnrichedCellSample(ProvEntity, MaterialSample):
                        'DissectionRoiPolygon'],
          'in_subset': ['translator_minimal'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'id'}},
+                                  'local_name_value': 'enriched_cell_sample_nhash_id'}},
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
+    preparation_date: Optional[date] = Field(default=None, description="""Date of cell enrichment process.""", json_schema_extra = { "linkml_meta": {'alias': 'preparation_date',
+         'domain_of': ['DissociatedCellSample',
+                       'EnrichedCellSample',
+                       'BarcodedCellSample',
+                       'AmplifiedCdna',
+                       'Library',
+                       'LibraryPool'],
+         'exact_mappings': ['bican:e2fd2d84-3999-4cc4-8f41-e0e2a708f407',
+                            'NIMP:PD-PFPFFC28'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'enriched_cell_sample_preparation_date'}}} })
     enrichment_population: Optional[str] = Field(default=None, description="""Actual percentage of cells as a result of using set of fluorescent marker label(s) to enrich dissociated_cell_sample with desired mix of cell populations.  This plan can also be used to describe 'No FACS' where no enrichment was performed.  This is a property of enriched_cell_prep_container.""", json_schema_extra = { "linkml_meta": {'alias': 'enrichment_population',
          'domain_of': ['EnrichedCellSample'],
-         'exact_mappings': ['NIMP:PD-TZTZPI37'],
+         'exact_mappings': ['bican:875f1c70-f5aa-45e3-94b9-5e482f6c4830',
+                            'NIMP:PD-TZTZPI37'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'enrichment_population'}}} })
-    enriched_cell_oligo_name: Optional[str] = Field(default=None, description="""Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the enriched cell sample and allows separate enriched cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source enriched cell sample.""", json_schema_extra = { "linkml_meta": {'alias': 'enriched_cell_oligo_name',
-         'domain_of': ['EnrichedCellSample'],
-         'exact_mappings': ['NIMP:PD-CFCFPS27'],
+    cell_label_barcode: Optional[CellLabelBarcode] = Field(default=None, description="""Name of molecular barcode used to individual Enriched Cell Source to allow for pooling of Enriched Cell Sources before 10x load (Barcoding Cell step) [aka 1st round barcodes]""", json_schema_extra = { "linkml_meta": {'alias': 'cell_label_barcode',
+         'domain_of': ['DissociatedCellSample', 'EnrichedCellSample'],
+         'exact_mappings': ['bican:bdd5e2bf-c6fa-43e6-a5ac-6878fcf814d6',
+                            'NIMP:PD-CTCTTK28'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'enriched_cell_sample_cell_label_barcode'}}} })
     histone_modification_marker: Optional[str] = Field(default=None, description="""Histone modification marker antibodies (eg H3K27ac, H3K27me3, H3K9me3) used in conjunction with an Enriched Cell Source Barcode in order to combine multiple Enriched Cell Populations before Barcoded Cell Sample step for 10xMultiome method. Each of the Histone antibodies captures an essential part of the epigenome.""", json_schema_extra = { "linkml_meta": {'alias': 'histone_modification_marker',
          'domain_of': ['EnrichedCellSample'],
-         'exact_mappings': ['NIMP:PD-ESESLW44'],
+         'exact_mappings': ['bican:a2ef2228-e438-4260-95e5-22eb3b35b5a9',
+                            'NIMP:PD-ESESLW44'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'histone_modification_marker'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
@@ -10872,18 +10924,17 @@ class BarcodedCellSample(ProvEntity, MaterialSample):
                                                 'dissociated_cell_sample or '
                                                 'enriched_cell_sample can lead to '
                                                 'multiple barcoded_cell_samples.',
-                                 'exact_mappings': ['NIMP:PD-XEMDJF38'],
+                                 'exact_mappings': ['bican:4c0e6380-e53f-4173-a474-d41e836fefe3',
+                                                    'NIMP:PD-XEMDJF38'],
                                  'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'barcoded_cell_sample_local_name'}},
-                                 'name': 'name',
-                                 'slot_uri': 'bican:4c0e6380-e53f-4173-a474-d41e836fefe3'},
+                                 'name': 'name'},
                         'was_derived_from': {'description': 'The input dissociated or '
                                                             'enriched cell sample(s) '
                                                             'from which the barcoded '
                                                             'cell sample was derived '
                                                             'from.',
-                                             'exact_mappings': ['NIMP:has_parent'],
                                              'exactly_one_of': [{'range': 'DissociatedCellSample'},
                                                                 {'range': 'EnrichedCellSample'}],
                                              'from_schema': 'bican_prov',
@@ -10898,7 +10949,7 @@ class BarcodedCellSample(ProvEntity, MaterialSample):
                                              'range': 'CellBarcoding'},
                         'xref': {'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'id'}},
+                                                          'local_name_value': 'barcoded_cell_sample_nhash_id'}},
                                  'name': 'xref'}}})
 
     was_generated_by: Optional[str] = Field(default=None, description="""The barcoding process from which the barcoded cell sample is generated from.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
@@ -10924,7 +10975,6 @@ class BarcodedCellSample(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DigitalAsset'],
-         'exact_mappings': ['NIMP:has_parent'],
          'exactly_one_of': [{'range': 'DissociatedCellSample'},
                             {'range': 'EnrichedCellSample'}],
          'slot_uri': 'prov:wasDerivedFrom'} })
@@ -10948,7 +10998,6 @@ class BarcodedCellSample(ProvEntity, MaterialSample):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -10959,13 +11008,14 @@ class BarcodedCellSample(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DissectionRoiPolygon'],
-         'exact_mappings': ['NIMP:PD-XEMDJF38'],
+         'exact_mappings': ['bican:4c0e6380-e53f-4173-a474-d41e836fefe3',
+                            'NIMP:PD-XEMDJF38'],
          'in_subset': ['translator_minimal', 'samples'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'barcoded_cell_sample_local_name'}},
          'mappings': ['rdfs:label'],
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
-         'slot_uri': 'bican:4c0e6380-e53f-4173-a474-d41e836fefe3'} })
+         'slot_uri': 'rdfs:label'} })
     xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
@@ -10984,7 +11034,6 @@ class BarcodedCellSample(ProvEntity, MaterialSample):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -10997,15 +11046,51 @@ class BarcodedCellSample(ProvEntity, MaterialSample):
                        'DissectionRoiPolygon'],
          'in_subset': ['translator_minimal'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'id'}},
+                                  'local_name_value': 'barcoded_cell_sample_nhash_id'}},
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
     number_of_expected_cells: Optional[int] = Field(default=None, description="""Expected number of cells/nuclei of a barcoded_cell_sample that will be barcoded and available for sequencing.  This is a derived number from 'Barcoded cell input quantity count' that is dependent on the \"capture rate\" of the barcoding method.  It is usually a calculated fraction of the 'Barcoded cell input quantity count' going into the barcoding method.""", json_schema_extra = { "linkml_meta": {'alias': 'number_of_expected_cells',
          'domain_of': ['BarcodedCellSample'],
-         'exact_mappings': ['NIMP:PD-ONONEV39'],
+         'exact_mappings': ['bican:f10e928d-5a2b-4943-af18-d8fe5d05528d',
+                            'NIMP:PD-ONONEV39'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'barcoded_cell_sample_number_of_expected_cells'}}} })
+    port_well: Optional[str] = Field(default=None, description="""Specific position of the loaded port of the 10x chip.  An Enriched or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded Cell Sample). Can be left null for non-10x methods.""", json_schema_extra = { "linkml_meta": {'alias': 'port_well',
+         'domain_of': ['BarcodedCellSample'],
+         'exact_mappings': ['bican:aca38100-d245-4be4-9be3-ba27192779fe',
+                            'NIMP:PD-KJKJZK32'],
+         'in_subset': ['analysis'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'barcoded_cell_sample_port_well'}}} })
+    input_quantity_count: Optional[int] = Field(default=None, description="""Number of enriched or dissociated cells/nuclei going into the barcoding process.""", json_schema_extra = { "linkml_meta": {'alias': 'input_quantity_count',
+         'domain_of': ['BarcodedCellSample'],
+         'exact_mappings': ['bican:aa534269-7c9b-4b63-b990-eea8cda56d0e',
+                            'NIMP:PD-ZZZZWQ40'],
+         'in_subset': ['analysis'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'barcoded_cell_input_quantity_count'}}} })
+    tag_local_name: Optional[str] = Field(default=None, description="""Barcoded Cell Sample tags can be used to group a set of barcoded cell samples so that the tag can be used to obtain all the members of the cohort""", json_schema_extra = { "linkml_meta": {'alias': 'tag_local_name',
+         'domain_of': ['BarcodedCellSample'],
+         'exact_mappings': ['bican:8877f8f0-3939-4062-84c9-414bdcdd04ca'],
+         'in_subset': ['analysis', 'tracking'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'barcoded_cell_sample_tag_local_name'}}} })
+    preparation_date: Optional[date] = Field(default=None, description="""Date of cell barcoding process.""", json_schema_extra = { "linkml_meta": {'alias': 'preparation_date',
+         'domain_of': ['DissociatedCellSample',
+                       'EnrichedCellSample',
+                       'BarcodedCellSample',
+                       'AmplifiedCdna',
+                       'Library',
+                       'LibraryPool'],
+         'exact_mappings': ['bican:missing_BCS_preparation_date', 'NIMP:PD-SHSHZS25'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'barcoded_cell_sample_preparation_date'}}} })
+    technique: Optional[BarcodedCellSampleTechnique] = Field(default=None, description="""Required standardized nomenclature to describe the general method used to barcode individual cells. This method (eg Multiome, ATAConly, GEXonly) will be more general than the Library Method (which is specific for alignment) and could be used for general classification of Barcoded Cell Samples.""", json_schema_extra = { "linkml_meta": {'alias': 'technique',
+         'domain_of': ['BarcodedCellSample', 'Library'],
+         'exact_mappings': ['bican:missing_BCS_technique', 'NIMP:PD-TDTDDF25'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'barcoded_cell_sample_technique'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -11341,17 +11426,16 @@ class AmplifiedCdna(ProvEntity, MaterialSample):
                                                 'from the cell barcoding step.  This '
                                                 'is a necessary step for GEX methods '
                                                 'but is not used for ATAC methods.',
-                                 'exact_mappings': ['NIMP:PD-YAAGGG39'],
+                                 'exact_mappings': ['bican:e2606a11-114e-472f-9e05-33f9b6fc3089',
+                                                    'NIMP:PD-YAAGGG39'],
                                  'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'amplified_cdna_local_name'}},
-                                 'name': 'name',
-                                 'slot_uri': 'bican:e2606a11-114e-472f-9e05-33f9b6fc3089'},
+                                 'name': 'name'},
                         'was_derived_from': {'description': 'The input barcoded cell '
                                                             'sample from which '
                                                             'amplified cDNA was '
                                                             'derived from.',
-                                             'exact_mappings': ['NIMP:has_parent'],
                                              'from_schema': 'bican_prov',
                                              'name': 'was_derived_from',
                                              'range': 'BarcodedCellSample'},
@@ -11364,7 +11448,7 @@ class AmplifiedCdna(ProvEntity, MaterialSample):
                                              'range': 'CdnaAmplification'},
                         'xref': {'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'id'}},
+                                                          'local_name_value': 'amplified_cdna_nhash_id'}},
                                  'name': 'xref'}}})
 
     was_generated_by: Optional[str] = Field(default=None, description="""The cDNA amplification process from which the amplified cDNA was generated by.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
@@ -11390,7 +11474,6 @@ class AmplifiedCdna(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DigitalAsset'],
-         'exact_mappings': ['NIMP:has_parent'],
          'slot_uri': 'prov:wasDerivedFrom'} })
     name: Optional[str] = Field(default=None, description="""Name of a collection of cDNA molecules derived and amplified from an input barcoded_cell_sample.  These cDNA molecules represent the gene expression of each cell, with all cDNA molecules from a given cell retaining that cell's unique barcode from the cell barcoding step.  This is a necessary step for GEX methods but is not used for ATAC methods.""", json_schema_extra = { "linkml_meta": {'alias': 'name',
          'aliases': ['label', 'display name', 'title'],
@@ -11412,7 +11495,6 @@ class AmplifiedCdna(ProvEntity, MaterialSample):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -11423,13 +11505,14 @@ class AmplifiedCdna(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DissectionRoiPolygon'],
-         'exact_mappings': ['NIMP:PD-YAAGGG39'],
+         'exact_mappings': ['bican:e2606a11-114e-472f-9e05-33f9b6fc3089',
+                            'NIMP:PD-YAAGGG39'],
          'in_subset': ['translator_minimal', 'samples'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'amplified_cdna_local_name'}},
          'mappings': ['rdfs:label'],
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
-         'slot_uri': 'bican:e2606a11-114e-472f-9e05-33f9b6fc3089'} })
+         'slot_uri': 'rdfs:label'} })
     xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
@@ -11448,7 +11531,6 @@ class AmplifiedCdna(ProvEntity, MaterialSample):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -11461,27 +11543,55 @@ class AmplifiedCdna(ProvEntity, MaterialSample):
                        'DissectionRoiPolygon'],
          'in_subset': ['translator_minimal'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'id'}},
+                                  'local_name_value': 'amplified_cdna_nhash_id'}},
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
     amplified_cDNA_quantity_ng: Optional[float] = Field(default=None, description="""Amount of cDNA produced after cDNA amplification measured in nanograms.""", json_schema_extra = { "linkml_meta": {'alias': 'amplified_cDNA_quantity_ng',
          'domain_of': ['AmplifiedCdna'],
-         'exact_mappings': ['NIMP:PD-TITIIC26'],
+         'exact_mappings': ['bican:0db79d05-8612-4896-b9d3-eb1558841449',
+                            'NIMP:PD-TITIIC26'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'amplified_cdna_amplified_quantity_ng'}}} })
     amplified_cDNA_result: Optional[AmplifiedCdnaRnaAmplificationPassFail] = Field(default=None, description="""Pass or Fail result based on qualitative assessment of cDNA yield and size.""", json_schema_extra = { "linkml_meta": {'alias': 'amplified_cDNA_result',
          'domain_of': ['AmplifiedCdna'],
-         'exact_mappings': ['NIMP:PD-XXXXFQ31'],
+         'exact_mappings': ['bican:bc62bdb2-7dc8-4404-bb84-ce0bbcae59e5',
+                            'NIMP:PD-XXXXFQ31'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'amplified_cdna_rna_amplification_pass_fail'}}} })
     percent_cdna_longer_than_400bp: Optional[float] = Field(default=None, description="""QC metric to measure mRNA degradation of cDNA.  Higher % is higher quality starting material.  Over 400bp is used as a universal cutoff for intact (full length) vs degraded cDNA and is a common output from Bioanalyzer and Fragment Analyzer elecropheragrams.""", json_schema_extra = { "linkml_meta": {'alias': 'percent_cdna_longer_than_400bp',
          'domain_of': ['AmplifiedCdna'],
-         'exact_mappings': ['NIMP:PD-JJJJWD35'],
+         'exact_mappings': ['bican:8d150467-f69e-461c-b54c-bcfd22f581e5',
+                            'NIMP:PD-JJJJWD35'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'amplified_cdna_percent_cdna_longer_than_400bp'}}} })
+    pcr_cycles: Optional[int] = Field(default=None, description="""Number of PCR cycles used during cDNA amplification for this cDNA.""", json_schema_extra = { "linkml_meta": {'alias': 'pcr_cycles',
+         'domain_of': ['AmplifiedCdna'],
+         'exact_mappings': ['bican:3827634c-3f8f-4760-b358-86ce4b030238',
+                            'NIMP:PD-OKOKQD38'],
+         'in_subset': ['analysis'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'amplified_cdna_pcr_cycles'}}} })
+    preparation_date: Optional[date] = Field(default=None, description="""Date of cDNA amplification.""", json_schema_extra = { "linkml_meta": {'alias': 'preparation_date',
+         'domain_of': ['DissociatedCellSample',
+                       'EnrichedCellSample',
+                       'BarcodedCellSample',
+                       'AmplifiedCdna',
+                       'Library',
+                       'LibraryPool'],
+         'exact_mappings': ['bican:6cc333e7-9b98-497f-b7b1-eae904db2400',
+                            'NIMP:PD-BYBYBY24'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'amplified_cdna_preparation_date'}}} })
+    cdna_amplification_set: Optional[str] = Field(default=None, description="""cDNA amplification set, containing multiple amplified_cDNA_names that were processed at the same time.""", json_schema_extra = { "linkml_meta": {'alias': 'cdna_amplification_set',
+         'domain_of': ['AmplifiedCdna'],
+         'exact_mappings': ['bican:42e98a88-50b3-4ea2-871b-2142f6a0dfdd',
+                            'NIMP:PD-SCSCTM41'],
+         'in_subset': ['analysis'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'cdna_amplification_set'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -11815,19 +11925,18 @@ class Library(ProvEntity, MaterialSample):
                                                 'identification of library origin to '
                                                 'allow libraries to be pooled together '
                                                 'for sequencing.',
-                                 'exact_mappings': ['NIMP:PD-AJJUCC35'],
+                                 'exact_mappings': ['bican:f717e254-3630-4342-be7b-4d56376e7afe',
+                                                    'NIMP:PD-AJJUCC35'],
                                  'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'library_local_name'}},
-                                 'name': 'name',
-                                 'slot_uri': 'bican:f717e254-3630-4342-be7b-4d56376e7afe'},
+                                 'name': 'name'},
                         'was_derived_from': {'any_of': [{'range': 'BarcodedCellSample'},
                                                         {'range': 'AmplifiedCdna'}],
                                              'description': 'The input barcoded cell '
                                                             'sample or amplified cDNA '
                                                             'from which the library '
                                                             'was derived from.',
-                                             'exact_mappings': ['NIMP:has_parent'],
                                              'from_schema': 'bican_prov',
                                              'name': 'was_derived_from'},
                         'was_generated_by': {'description': 'The library construction '
@@ -11838,7 +11947,7 @@ class Library(ProvEntity, MaterialSample):
                                              'range': 'LibraryConstruction'},
                         'xref': {'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'id'}},
+                                                          'local_name_value': 'library_nhash_id'}},
                                  'name': 'xref'}}})
 
     was_generated_by: Optional[str] = Field(default=None, description="""The library construction process from which the library was generated by.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
@@ -11865,7 +11974,6 @@ class Library(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DigitalAsset'],
-         'exact_mappings': ['NIMP:has_parent'],
          'slot_uri': 'prov:wasDerivedFrom'} })
     name: Optional[str] = Field(default=None, description="""Name of a library, which is a collection of fragmented and barcode-indexed DNA molecules for sequencing.  An index or barcode is typically introduced to enable identification of library origin to allow libraries to be pooled together for sequencing.""", json_schema_extra = { "linkml_meta": {'alias': 'name',
          'aliases': ['label', 'display name', 'title'],
@@ -11887,7 +11995,6 @@ class Library(ProvEntity, MaterialSample):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -11898,13 +12005,14 @@ class Library(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DissectionRoiPolygon'],
-         'exact_mappings': ['NIMP:PD-AJJUCC35'],
+         'exact_mappings': ['bican:f717e254-3630-4342-be7b-4d56376e7afe',
+                            'NIMP:PD-AJJUCC35'],
          'in_subset': ['translator_minimal', 'samples'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'library_local_name'}},
          'mappings': ['rdfs:label'],
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
-         'slot_uri': 'bican:f717e254-3630-4342-be7b-4d56376e7afe'} })
+         'slot_uri': 'rdfs:label'} })
     xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
@@ -11923,7 +12031,6 @@ class Library(ProvEntity, MaterialSample):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -11936,43 +12043,81 @@ class Library(ProvEntity, MaterialSample):
                        'DissectionRoiPolygon'],
          'in_subset': ['translator_minimal'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'id'}},
+                                  'local_name_value': 'library_nhash_id'}},
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
     average_size_bp: Optional[int] = Field(default=None, description="""Average size of the library in terms of base pairs.  This is used to calculate the molarity before pooling and sequencing.""", json_schema_extra = { "linkml_meta": {'alias': 'average_size_bp',
          'domain_of': ['Library'],
-         'exact_mappings': ['NIMP:PD-VJVJLC46'],
+         'exact_mappings': ['bican:f851eba9-56d1-4472-9d0c-d7f8bc33000a',
+                            'NIMP:PD-VJVJLC46'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'library_avg_size_bp'}}} })
     concentration_nm: Optional[float] = Field(default=None, description="""Concentration of library in terms of nM (nMol/L).  Number of molecules is needed for accurate pooling of the libraries and for generating the number of target reads/cell in sequencing.""", json_schema_extra = { "linkml_meta": {'alias': 'concentration_nm',
          'domain_of': ['Library'],
-         'exact_mappings': ['NIMP:PD-DCDCLD43'],
+         'exact_mappings': ['bican:90805b3f-f380-4f23-b159-e7eaa0c8f052',
+                            'NIMP:PD-DCDCLD43'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'library_concentration_nm'}}} })
     library_result: Optional[LibraryPrepPassFail] = Field(default=None, description="""Pass or Fail result based on qualitative assessment of library yield and size.""", json_schema_extra = { "linkml_meta": {'alias': 'library_result',
          'domain_of': ['Library'],
-         'exact_mappings': ['NIMP:PD-QHQHQB42'],
+         'exact_mappings': ['bican:6817ede2-7ead-402d-9dbc-131aca627c6c',
+                            'NIMP:PD-QHQHQB42'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'library_prep_pass_fail'}}} })
     quantity_fmol: Optional[float] = Field(default=None, description="""Amount of library generated in terms of femtomoles""", json_schema_extra = { "linkml_meta": {'alias': 'quantity_fmol',
          'domain_of': ['Library'],
-         'exact_mappings': ['NIMP:PD-JYJYDK42'],
+         'exact_mappings': ['bican:4c09ada7-c116-48bc-8fb1-0dcf5c4b939a',
+                            'NIMP:PD-JYJYDK42'],
          'in_subset': ['analysis'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'library_quantification_fmol'}}} })
     library_quantity_ng: Optional[float] = Field(default=None, description="""Amount of library generated in terms of nanograms""", json_schema_extra = { "linkml_meta": {'alias': 'library_quantity_ng',
          'domain_of': ['Library'],
-         'exact_mappings': ['NIMP:PD-TNTNXP37'],
+         'exact_mappings': ['bican:318b2d3a-dae7-4c63-bfbb-93862b92f63e',
+                            'NIMP:PD-TNTNXP37'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'library_quantification_ng'}}} })
     r1_r2_index: Optional[LibraryR1R2Index] = Field(default=None, description="""Name of the pair of library indexes used for sequencing.  Indexes allow libraries to be pooled together for sequencing.  Sequencing output (fastq) are demultiplexed by using the indexes for each library.  The name will be associated with the sequences of i7, i5, and i5as, which are needed by SeqCores for demultiplexing.  The required direction of the sequence (sense or antisense) of the index can differ depending on sequencing instruments.""", json_schema_extra = { "linkml_meta": {'alias': 'r1_r2_index',
          'domain_of': ['Library'],
-         'exact_mappings': ['NIMP:PD-VLLMWZ60'],
+         'exact_mappings': ['bican:c94b5d8a-e92d-47af-8c0e-ea3b58be4d06',
+                            'NIMP:PD-VLLMWZ60'],
          'in_subset': ['analysis', 'tracking'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'library_r1_r2_index'}}} })
+    technique: Optional[LibraryTechnique] = Field(default=None, description="""Standardized nomenclature to describe the specific library method used.  This specifies the alignment method required for the library.  For example, 10xV3.1 (for RNASeq single assay), 10xMult-GEX (for RNASeq multiome assay), and 10xMult-ATAC (for ATACSeq multiome assay).""", json_schema_extra = { "linkml_meta": {'alias': 'technique',
+         'domain_of': ['BarcodedCellSample', 'Library'],
+         'exact_mappings': ['bican:7b60d59e-fdd7-4b27-a2d4-cae9b69103a6',
+                            'NIMP:PD-AJAJCN35'],
+         'in_subset': ['analysis', 'tracking', 'alignment'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'library_technique'}}} })
+    preparation_date: Optional[date] = Field(default=None, description="""Date of library construction.""", json_schema_extra = { "linkml_meta": {'alias': 'preparation_date',
+         'domain_of': ['DissociatedCellSample',
+                       'EnrichedCellSample',
+                       'BarcodedCellSample',
+                       'AmplifiedCdna',
+                       'Library',
+                       'LibraryPool'],
+         'exact_mappings': ['bican:9c2f575d-1b64-451d-894f-656861afe07a',
+                            'NIMP:PD-JCJCNM35'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'library_preparation_date'}}} })
+    input_ng: Optional[float] = Field(default=None, description="""Amount of cDNA going into library construction in nanograms.""", json_schema_extra = { "linkml_meta": {'alias': 'input_ng',
+         'domain_of': ['Library'],
+         'exact_mappings': ['bican:e4d31d97-722d-4771-a0e4-e6062190f2c1',
+                            'NIMP:PD-AFAFXP37'],
+         'in_subset': ['analysis'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'library_input_ng'}}} })
+    prep_set: Optional[str] = Field(default=None, description="""Library set, containing multiple library_names that were processed at the same time.""", json_schema_extra = { "linkml_meta": {'alias': 'prep_set',
+         'domain_of': ['Library'],
+         'exact_mappings': ['bican:b124ffa9-9134-4a61-a30d-bb191b2fc7fa',
+                            'NIMP:PD-PCPCVR50'],
+         'in_subset': ['analysis'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'library_prep_set'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -12308,22 +12453,21 @@ class LibraryAliquot(ProvEntity, MaterialSample):
                                                 'of demultiplexing.  The resulting '
                                                 'demultiplexed fastq files will '
                                                 'include the library_aliquot_name.',
-                                 'exact_mappings': ['NIMP:PD-XCXCCC35'],
+                                 'exact_mappings': ['bican:34191bad-d167-4335-8224-ade897d3728e',
+                                                    'NIMP:PD-XCXCCC35'],
                                  'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'library_aliquot_local_name'}},
-                                 'name': 'name',
-                                 'slot_uri': 'bican:34191bad-d167-4335-8224-ade897d3728e'},
+                                 'name': 'name'},
                         'was_derived_from': {'description': 'The input library from '
                                                             'which the library aliquot '
                                                             'was derived from.',
-                                             'exact_mappings': ['NIMP:has_parent'],
                                              'from_schema': 'bican_prov',
                                              'name': 'was_derived_from',
                                              'range': 'Library'},
                         'xref': {'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'id'}},
+                                                          'local_name_value': 'library_pool_nhash_id'}},
                                  'name': 'xref'}}})
 
     was_derived_from: Optional[str] = Field(default=None, description="""The input library from which the library aliquot was derived from.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
@@ -12338,7 +12482,6 @@ class LibraryAliquot(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DigitalAsset'],
-         'exact_mappings': ['NIMP:has_parent'],
          'slot_uri': 'prov:wasDerivedFrom'} })
     name: Optional[str] = Field(default=None, description="""One library in the library pool.  Each Library_aliquot_name in a library pool will have a unique R1/R2 index to allow for sequencing together then separating the sequencing output by originating library aliquot through the process of demultiplexing.  The resulting demultiplexed fastq files will include the library_aliquot_name.""", json_schema_extra = { "linkml_meta": {'alias': 'name',
          'aliases': ['label', 'display name', 'title'],
@@ -12360,7 +12503,6 @@ class LibraryAliquot(ProvEntity, MaterialSample):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -12371,13 +12513,14 @@ class LibraryAliquot(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DissectionRoiPolygon'],
-         'exact_mappings': ['NIMP:PD-XCXCCC35'],
+         'exact_mappings': ['bican:34191bad-d167-4335-8224-ade897d3728e',
+                            'NIMP:PD-XCXCCC35'],
          'in_subset': ['translator_minimal', 'samples'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'library_aliquot_local_name'}},
          'mappings': ['rdfs:label'],
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
-         'slot_uri': 'bican:34191bad-d167-4335-8224-ade897d3728e'} })
+         'slot_uri': 'rdfs:label'} })
     xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
@@ -12396,7 +12539,6 @@ class LibraryAliquot(ProvEntity, MaterialSample):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -12409,9 +12551,16 @@ class LibraryAliquot(ProvEntity, MaterialSample):
                        'DissectionRoiPolygon'],
          'in_subset': ['translator_minimal'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'id'}},
+                                  'local_name_value': 'library_pool_nhash_id'}},
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
+    fastq_file_alignment_status: Optional[FastqFileAlignmentStatus] = Field(default=None, description="""The FASTQ file alignment status as reported by the Library Lab""", json_schema_extra = { "linkml_meta": {'alias': 'fastq_file_alignment_status',
+         'domain_of': ['LibraryAliquot'],
+         'exact_mappings': ['bican:834a0e66-fd81-4d9c-b379-146372c3a629',
+                            'NIMP:PD-KRKRCT43'],
+         'in_subset': ['alignment'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'fastq_file_alignment_status'}}} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
          'domain_of': ['ProvEntity',
                        'TissueSample',
@@ -12750,7 +12899,7 @@ class LibraryPool(ProvEntity, MaterialSample):
          'mixins': ['ProvEntity'],
          'slot_usage': {'name': {'description': "Library lab's library pool name.  For "
                                                 'some labs this may be the same as '
-                                                '"Libray pool tube local name".   '
+                                                '"Library pool tube local name".   '
                                                 'Other labs distinguish between the '
                                                 'local tube label of the library pool '
                                                 'and the library pool name provided to '
@@ -12758,16 +12907,15 @@ class LibraryPool(ProvEntity, MaterialSample):
                                                 'Name is used to communicate '
                                                 'sequencing status between SeqCore and '
                                                 'Library Labs.',
-                                 'exact_mappings': ['NIMP:PD-KKIAPA48'],
+                                 'exact_mappings': ['bican:29e0578b-6427-4c93-b29b-bde27fbadeec',
+                                                    'NIMP:PD-KKIAPA48'],
                                  'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'library_pool_local_name'}},
-                                 'name': 'name',
-                                 'slot_uri': 'bican:29e0578b-6427-4c93-b29b-bde27fbadeec'},
+                                 'name': 'name'},
                         'was_derived_from': {'description': 'The input aliquot(s) from '
                                                             'which the library pool '
                                                             'was derived from.',
-                                             'exact_mappings': ['NIMP:has_parent'],
                                              'from_schema': 'bican_prov',
                                              'multivalued': True,
                                              'name': 'was_derived_from',
@@ -12780,7 +12928,7 @@ class LibraryPool(ProvEntity, MaterialSample):
                                              'range': 'LibraryPooling'},
                         'xref': {'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'id'}},
+                                                          'local_name_value': 'library_pool_nhash_id'}},
                                  'name': 'xref'}}})
 
     was_generated_by: Optional[str] = Field(default=None, description="""The pooling process from which the library pool was generated by.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
@@ -12806,9 +12954,8 @@ class LibraryPool(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DigitalAsset'],
-         'exact_mappings': ['NIMP:has_parent'],
          'slot_uri': 'prov:wasDerivedFrom'} })
-    name: Optional[str] = Field(default=None, description="""Library lab's library pool name.  For some labs this may be the same as \"Libray pool tube local name\".   Other labs distinguish between the local tube label of the library pool and the library pool name provided to SeqCore for tracking.  Local Pool Name is used to communicate sequencing status between SeqCore and Library Labs.""", json_schema_extra = { "linkml_meta": {'alias': 'name',
+    name: Optional[str] = Field(default=None, description="""Library lab's library pool name.  For some labs this may be the same as \"Library pool tube local name\".   Other labs distinguish between the local tube label of the library pool and the library pool name provided to SeqCore for tracking.  Local Pool Name is used to communicate sequencing status between SeqCore and Library Labs.""", json_schema_extra = { "linkml_meta": {'alias': 'name',
          'aliases': ['label', 'display name', 'title'],
          'definition_uri': 'https://w3id.org/biolink/vocab/name',
          'domain': 'entity',
@@ -12828,7 +12975,6 @@ class LibraryPool(ProvEntity, MaterialSample):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -12839,13 +12985,14 @@ class LibraryPool(ProvEntity, MaterialSample):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DissectionRoiPolygon'],
-         'exact_mappings': ['NIMP:PD-KKIAPA48'],
+         'exact_mappings': ['bican:29e0578b-6427-4c93-b29b-bde27fbadeec',
+                            'NIMP:PD-KKIAPA48'],
          'in_subset': ['translator_minimal', 'samples'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'library_pool_local_name'}},
          'mappings': ['rdfs:label'],
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
-         'slot_uri': 'bican:29e0578b-6427-4c93-b29b-bde27fbadeec'} })
+         'slot_uri': 'rdfs:label'} })
     xref: Optional[List[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'alias': 'xref',
          'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
@@ -12864,7 +13011,6 @@ class LibraryPool(ProvEntity, MaterialSample):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -12877,15 +13023,39 @@ class LibraryPool(ProvEntity, MaterialSample):
                        'DissectionRoiPolygon'],
          'in_subset': ['translator_minimal'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'id'}},
+                                  'local_name_value': 'library_pool_nhash_id'}},
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
-    tube_internal_label: Optional[str] = Field(default=None, description="""Library Pool Tube local name.  Label of the tube containing the library pool, which is made up of multiple library_aliquots.  This is a Library Lab local tube name, before the pool is aliquoted to the Seq Core provided tube 'Library Pool Tube Name'.""", json_schema_extra = { "linkml_meta": {'alias': 'tube_internal_label',
+    local_tube_id: Optional[str] = Field(default=None, description="""Library Pool Tube local name.  Label of the tube containing the library pool, which is made up of multiple library_aliquots.  This is a Library Lab local tube name, before the pool is aliquoted to the Seq Core provided tube 'Library Pool Tube Name'.""", json_schema_extra = { "linkml_meta": {'alias': 'local_tube_id',
          'domain_of': ['LibraryPool'],
-         'exact_mappings': ['NIMP:PD-WNYWPA48'],
+         'exact_mappings': ['bican:f1fdea98-7849-4def-a62f-a04cbbf98922',
+                            'NIMP:PD-WNYWPA48'],
          'in_subset': ['analysis', 'tracking'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'library_pool_local_tube_id'}}} })
+    preparation_date: Optional[date] = Field(default=None, description="""Date of library pooling process.""", json_schema_extra = { "linkml_meta": {'alias': 'preparation_date',
+         'domain_of': ['DissociatedCellSample',
+                       'EnrichedCellSample',
+                       'BarcodedCellSample',
+                       'AmplifiedCdna',
+                       'Library',
+                       'LibraryPool'],
+         'exact_mappings': ['bican:ef950ca1-2a62-4fce-a826-6c27d94d3be3',
+                            'NIMP:PD-XUXUNM35'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'library_pool_preparation_date'}}} })
+    tube_barcode: Optional[str] = Field(default=None, description="""Library Pool tube name as provided by the SeqCore (often a barcode). This tube is provided from the SeqCore and is part of the SeqCore tracking system.""", json_schema_extra = { "linkml_meta": {'alias': 'tube_barcode',
+         'domain_of': ['LibraryPool'],
+         'exact_mappings': ['bican:da02a0ee-9abf-45ef-abb1-981f1aaba6b2',
+                            'NIMP:PD-KNKNCC35'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'library_pool_tube_barcode'}}} })
+    flowcell: Optional[str] = Field(default=None, description="""The Flowcell is a unique identifer of the sequencing cartridge (provided by the sequencing instrument manufacturer) used and consumed when sequencing Library Pools on an Illumina sequencing instrument. A flowcell can be different sizes with different number of lanes. The flowcell size determines the number of total reads it will produce. Typically one Flowcell is used to run one Library Pool across all lanes. Multiple pools, however, can be run on a single flowcell as long as the pools are partitioned onto separate lanes of the flowcell. Each lane from a flowcell will produce fastq files for all Library Aliquots within the Library Pool applied to a given lane.""", json_schema_extra = { "linkml_meta": {'alias': 'flowcell',
+         'domain_of': ['LibraryPool'],
+         'exact_mappings': ['bican:4c8d7ac8-d3e3-4177-a93d-18ec2302c392',
+                            'NIMP:PD-MOMODO36'],
+         'local_names': {'NIMP': {'local_name_source': 'NIMP',
+                                  'local_name_value': 'flowcell'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -13312,7 +13482,6 @@ class DissectionRoiDelineation(ProvActivity, Procedure):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -13502,7 +13671,6 @@ class DissectionRoiDelineation(ProvActivity, Procedure):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -13723,7 +13891,6 @@ class TissueDissection(ProvActivity, Procedure):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -13913,7 +14080,6 @@ class TissueDissection(ProvActivity, Procedure):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -14051,11 +14217,6 @@ class CellDissociation(ProvActivity, Procedure):
                        'LibraryConstruction',
                        'LibraryPooling'],
          'slot_uri': 'prov:used'} })
-    cell_dissociation_process_date: Optional[str] = Field(default=None, description="""Date of cell dissociation process.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_dissociation_process_date',
-         'domain_of': ['CellDissociation'],
-         'exact_mappings': ['NIMP:PD-BUBUFE27'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'dissociated_cell_sample_preparation_date'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -14140,7 +14301,6 @@ class CellDissociation(ProvActivity, Procedure):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -14330,7 +14490,6 @@ class CellDissociation(ProvActivity, Procedure):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -14468,11 +14627,6 @@ class CellEnrichment(ProvActivity, Procedure):
                        'LibraryConstruction',
                        'LibraryPooling'],
          'slot_uri': 'prov:used'} })
-    cell_enrichment_process_date: Optional[str] = Field(default=None, description="""Date of cell enrichment process.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_enrichment_process_date',
-         'domain_of': ['CellEnrichment'],
-         'exact_mappings': ['NIMP:PD-PFPFFC28'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'enriched_cell_sample_preparation_date'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -14557,7 +14711,6 @@ class CellEnrichment(ProvActivity, Procedure):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -14747,7 +14900,6 @@ class CellEnrichment(ProvActivity, Procedure):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -14968,7 +15120,6 @@ class EnrichedCellSampleSplitting(ProvActivity, Procedure):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -15158,7 +15309,6 @@ class EnrichedCellSampleSplitting(ProvActivity, Procedure):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -15300,28 +15450,6 @@ class CellBarcoding(ProvActivity, Procedure):
          'exactly_one_of': [{'range': 'DissociatedCellSample'},
                             {'range': 'EnrichedCellSample'}],
          'slot_uri': 'prov:used'} })
-    port_well: Optional[str] = Field(default=None, description="""Specific position of the loaded port of the 10x chip.  An Enriched or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded Cell Sample). Can be left null for non-10x methods.""", json_schema_extra = { "linkml_meta": {'alias': 'port_well',
-         'domain_of': ['CellBarcoding'],
-         'exact_mappings': ['NIMP:PD-KJKJZK32'],
-         'in_subset': ['analysis'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'barcoded_cell_sample_port_well'}}} })
-    input_quantity: Optional[int] = Field(default=None, description="""Number of enriched or dissociated cells/nuclei going into the barcoding process.""", json_schema_extra = { "linkml_meta": {'alias': 'input_quantity',
-         'domain_of': ['CellBarcoding'],
-         'exact_mappings': ['NIMP:PD-ZZZZWQ40'],
-         'in_subset': ['analysis'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'barcoded_cell_input_quantity_count'}}} })
-    cell_barcoding_process_date: Optional[str] = Field(default=None, description="""Date of cell barcoding process.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_barcoding_process_date',
-         'domain_of': ['CellBarcoding'],
-         'exact_mappings': ['NIMP:PD-SHSHZS25'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'barcoded_cell_sample_preparation_date'}}} })
-    cell_barcoding_method: Optional[BarcodedCellSampleTechnique] = Field(default=None, description="""Standardized nomenclature to describe the general barcoding method used.  For example: Multiome, ATAC Only, GEX Only or snm3C-seq.""", json_schema_extra = { "linkml_meta": {'alias': 'cell_barcoding_method',
-         'domain_of': ['CellBarcoding'],
-         'exact_mappings': ['NIMP:PD-TDTDDF25'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'barcoded_cell_sample_technique'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -15406,7 +15534,6 @@ class CellBarcoding(ProvActivity, Procedure):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -15596,7 +15723,6 @@ class CellBarcoding(ProvActivity, Procedure):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -15733,23 +15859,6 @@ class CdnaAmplification(ProvActivity, Procedure):
                        'LibraryConstruction',
                        'LibraryPooling'],
          'slot_uri': 'prov:used'} })
-    pcr_cycles: Optional[int] = Field(default=None, description="""Number of PCR cycles used during cDNA amplification for this cDNA.""", json_schema_extra = { "linkml_meta": {'alias': 'pcr_cycles',
-         'domain_of': ['CdnaAmplification'],
-         'exact_mappings': ['NIMP:PD-OKOKQD38'],
-         'in_subset': ['analysis'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'amplified_cdna_pcr_cycles'}}} })
-    cDNA_amplification_process_date: Optional[date] = Field(default=None, description="""Date of cDNA amplification.""", json_schema_extra = { "linkml_meta": {'alias': 'cDNA_amplification_process_date',
-         'domain_of': ['CdnaAmplification'],
-         'exact_mappings': ['NIMP:PD-BYBYBY24'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'amplified_cdna_preparation_date'}}} })
-    cDNA_amplification_set: Optional[str] = Field(default=None, description="""cDNA amplification set, containing multiple amplified_cDNA_names that were processed at the same time.""", json_schema_extra = { "linkml_meta": {'alias': 'cDNA_amplification_set',
-         'domain_of': ['CdnaAmplification'],
-         'exact_mappings': ['NIMP:PD-SCSCTM41'],
-         'in_subset': ['analysis'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'cdna_amplification_set'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -15834,7 +15943,6 @@ class CdnaAmplification(ProvActivity, Procedure):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -16024,7 +16132,6 @@ class CdnaAmplification(ProvActivity, Procedure):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -16163,29 +16270,6 @@ class LibraryConstruction(ProvActivity, Procedure):
                        'LibraryConstruction',
                        'LibraryPooling'],
          'slot_uri': 'prov:used'} })
-    library_construction_method: Optional[LibraryTechnique] = Field(default=None, description="""Standardized nomenclature to describe the specific library method used.  This specifies the alignment method required for the library.  For example, 10xV3.1 (for RNASeq single assay), 10xMult-GEX (for RNASeq multiome assay), and 10xMult-ATAC (for ATACSeq multiome assay).""", json_schema_extra = { "linkml_meta": {'alias': 'library_construction_method',
-         'domain_of': ['LibraryConstruction'],
-         'exact_mappings': ['NIMP:PD-AJAJCN35'],
-         'in_subset': ['analysis', 'tracking', 'alignment'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_technique'}}} })
-    library_construction_process_date: Optional[date] = Field(default=None, description="""Date of library construction.""", json_schema_extra = { "linkml_meta": {'alias': 'library_construction_process_date',
-         'domain_of': ['LibraryConstruction'],
-         'exact_mappings': ['NIMP:PD-JCJCNM35'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_preparation_date'}}} })
-    input_quantity_ng: Optional[float] = Field(default=None, description="""Amount of cDNA going into library construction in nanograms.""", json_schema_extra = { "linkml_meta": {'alias': 'input_quantity_ng',
-         'domain_of': ['LibraryConstruction'],
-         'exact_mappings': ['NIMP:PD-AFAFXP37'],
-         'in_subset': ['analysis'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_input_ng'}}} })
-    library_construction_set: Optional[str] = Field(default=None, description="""Library set, containing multiple library_names that were processed at the same time.""", json_schema_extra = { "linkml_meta": {'alias': 'library_construction_set',
-         'domain_of': ['LibraryConstruction'],
-         'exact_mappings': ['NIMP:PD-PCPCVR50'],
-         'in_subset': ['analysis'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_prep_set'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -16270,7 +16354,6 @@ class LibraryConstruction(ProvActivity, Procedure):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -16460,7 +16543,6 @@ class LibraryConstruction(ProvActivity, Procedure):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -16597,11 +16679,6 @@ class LibraryPooling(ProvActivity, Procedure):
                        'LibraryConstruction',
                        'LibraryPooling'],
          'slot_uri': 'prov:used'} })
-    process_date: Optional[str] = Field(default=None, description="""Date of library pooling process.""", json_schema_extra = { "linkml_meta": {'alias': 'process_date',
-         'domain_of': ['LibraryPooling'],
-         'exact_mappings': ['NIMP:PD-XUXUNM35'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'library_pool_preparation_date'}}} })
     id: str = Field(default=..., description="""A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI""", json_schema_extra = { "linkml_meta": {'alias': 'id',
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -16686,7 +16763,6 @@ class LibraryPooling(ProvActivity, Procedure):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -16876,7 +16952,6 @@ class LibraryPooling(ProvActivity, Procedure):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -16991,7 +17066,7 @@ class DissectionRoiPolygon(ProvEntity, Entity):
     """
     A polygon annotated on a brain slab image delineating a region of interest (ROI) for a tissue sample dissectioning.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'exact_mappings': ['NIMP:Specimen%20Dissected%20ROI'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'exact_mappings': ['NIMP:ROI'],
          'from_schema': 'https://identifiers.org/brain-bican/library-generation-schema',
          'in_subset': ['bican', 'tissue_specimen'],
          'mixins': ['ProvEntity'],
@@ -16999,6 +17074,7 @@ class DissectionRoiPolygon(ProvEntity, Entity):
                                                 'brain slab image delineating a region '
                                                 'of interest (ROI) for a tissue sample '
                                                 'dissectioning.',
+                                 'exact_mappings': ['NIMP:PD-RPRPTM41'],
                                  'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                                           'local_name_value': 'local_name'}},
@@ -17012,7 +17088,7 @@ class DissectionRoiPolygon(ProvEntity, Entity):
                                              'range': 'DissectionRoiDelineation'},
                         'xref': {'from_schema': 'bican_biolink',
                                  'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'id'}},
+                                                          'local_name_value': 'roi_nhash_id'}},
                                  'name': 'xref'}}})
 
     was_generated_by: Optional[str] = Field(default=None, description="""The delineation process from which the dissection ROI polygon was generated by.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
@@ -17046,7 +17122,6 @@ class DissectionRoiPolygon(ProvEntity, Entity):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -17057,7 +17132,7 @@ class DissectionRoiPolygon(ProvEntity, Entity):
                        'LibraryAliquot',
                        'LibraryPool',
                        'DissectionRoiPolygon'],
-         'exact_mappings': ['gff3:Name', 'gpi:DB_Object_Name'],
+         'exact_mappings': ['NIMP:PD-RPRPTM41'],
          'in_subset': ['translator_minimal', 'samples'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
                                   'local_name_value': 'local_name'}},
@@ -17082,7 +17157,6 @@ class DissectionRoiPolygon(ProvEntity, Entity):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -17095,12 +17169,10 @@ class DissectionRoiPolygon(ProvEntity, Entity):
                        'DissectionRoiPolygon'],
          'in_subset': ['translator_minimal'],
          'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'id'}},
+                                  'local_name_value': 'roi_nhash_id'}},
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
-    annotates: Optional[str] = Field(default=None, description="""The brain slab that was annotated by the delineation process.""", json_schema_extra = { "linkml_meta": {'alias': 'annotates',
-         'domain_of': ['DissectionRoiPolygon'],
-         'exact_mappings': ['NIMP:has_parent']} })
+    annotates: Optional[str] = Field(default=None, description="""The brain slab that was annotated by the delineation process.""", json_schema_extra = { "linkml_meta": {'alias': 'annotates', 'domain_of': ['DissectionRoiPolygon']} })
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'alias': 'was_derived_from',
          'domain_of': ['ProvEntity',
                        'BrainSlab',
@@ -17349,13 +17421,13 @@ class DigitalAsset(ProvEntity, Dataset):
                        'LibraryPool',
                        'DigitalAsset'],
          'slot_uri': 'prov:wasDerivedFrom'} })
+    content_url: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'content_url',
+         'domain_of': ['DigitalAsset'],
+         'slot_uri': 'schema:url'} })
     digest: Optional[List[Union[Checksum, str]]] = Field(default=None, description="""Stores checksum information.""", json_schema_extra = { "linkml_meta": {'alias': 'digest',
          'any_of': [{'range': 'checksum'}, {'range': 'string'}],
          'domain_of': ['DigitalAsset'],
          'slot_uri': 'bican:digest'} })
-    content_url: Optional[List[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'alias': 'content_url',
-         'domain_of': ['DigitalAsset'],
-         'slot_uri': 'schema:url'} })
     data_type: Optional[str] = Field(default=None, description="""The type of data in the file.""", json_schema_extra = { "linkml_meta": {'alias': 'data_type', 'domain_of': ['DigitalAsset']} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'alias': 'was_generated_by',
          'domain_of': ['ProvEntity',
@@ -17452,7 +17524,6 @@ class DigitalAsset(ProvEntity, Dataset):
                        'biological entity',
                        'gene',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',
@@ -17642,7 +17713,6 @@ class DigitalAsset(ProvEntity, Dataset):
                        'material sample',
                        'biological entity',
                        'genome',
-                       'Donor',
                        'BrainSlab',
                        'TissueSample',
                        'DissociatedCellSample',

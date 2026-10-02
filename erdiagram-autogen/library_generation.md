@@ -109,7 +109,6 @@ CellDissociation {
     uriorcurieList xref  
 }
 CellEnrichment {
-    string cell_enrichment_process_date  
     string id  
     label_type name  
     narrative_text description  
@@ -221,6 +220,7 @@ EnrichedCellSample {
     string enrichment_population  
     string histone_modification_marker  
     uriorcurieList xref  
+    fastq_file_alignment_status fastq_file_alignment_status  
     string id  
     narrative_text description  
     uriorcurieList category  
