@@ -2506,7 +2506,7 @@ classes:
         - range: BarcodedCellSample
         - range: AmplifiedCdna
   LibraryPooling:
-    description: The process of constructing of a libray pool by combining library
+    description: The process of constructing of a library pool by combining library
       aliquots from a set of input libraries. Each library aliquot in a library pool
       will have a unique R1/R2 index to allow for sequencing together then separating
       the sequencing output by originating library aliquot through the process of
