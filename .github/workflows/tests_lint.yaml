@@ -5,7 +5,12 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'linkml-schema/**'
+      - 'lint_config.yaml'
+      - 'pyproject.toml'
+      - '.github/workflows/tests_lint.yaml'
 
 jobs:
   test:

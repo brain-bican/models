@@ -5,7 +5,12 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'linkml-schema/**'
+      - 'tests/**'
+      - 'pyproject.toml'
+      - '.github/workflows/tests_models.yaml'
 
 jobs:
   test:
