@@ -11,10 +11,6 @@ on:
       - 'utils/**'
       - 'pyproject.toml'
       - '.github/workflows/test_other_formats.yaml'
-  workflow_run:
-    workflows: [ generating yaml file ]
-    types:
-      - completed
 
 permissions:
   contents: read
@@ -25,10 +21,10 @@ jobs:
 
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v7
         with:
           python-version: "3.10.x"
 
