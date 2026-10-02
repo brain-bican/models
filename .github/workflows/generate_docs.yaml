@@ -5,12 +5,30 @@ on:
     branches:
       - main
   workflow_dispatch:
+  # Rebuild after the generate workflows commit regenerated diagrams to main
+  # (their commits use GITHUB_TOKEN, so they don't trigger the push event above).
+  workflow_run:
+    workflows:
+      - generating other formats for anatomical_structure
+      - generating other formats for assertion_evidence
+      - generating other formats for bke_taxonomy
+      - generating other formats for cell_taxonomy
+      - generating other formats for genome_annotation
+      - generating other formats for library_generation
+    types: [completed]
+    branches: [main]
   
 permissions:
   contents: write
 
+# Only the latest pending docs build matters, so intermediate ones can be dropped.
+concurrency:
+  group: generate-docs
+  cancel-in-progress: false
+
 jobs:
   generate:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repository
