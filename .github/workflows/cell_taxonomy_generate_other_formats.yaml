@@ -19,6 +19,8 @@ permissions:
 
 jobs:
   generate_from_reusable:
+    # Skip PRs from forks: pull_request_target must not run fork code with write access
+    if: github.event.pull_request.head.repo.full_name == github.repository
     uses: brain-bican/models/.github/workflows/reusable-generate_other_formats.yaml@main
     with:
       model_name: cell_taxonomy
