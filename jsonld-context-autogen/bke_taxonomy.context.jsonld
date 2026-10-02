@@ -224,23 +224,21 @@
          "@id": "accession_id"
       },
       "parameterizes": {
-         "@type": "@id",
          "@id": "parameterizes"
       },
       "measures": {
-         "@type": "@id",
          "@id": "measures"
       },
       "annotations": {
-         "@type": "bican:GeneAnnotation",
+         "@type": "@id",
          "@id": "annotations"
       },
       "genome_annotations": {
-         "@type": "bican:GenomeAnnotation",
+         "@type": "@id",
          "@id": "genome_annotations"
       },
       "genome_assemblies": {
-         "@type": "bican:GenomeAssembly",
+         "@type": "@id",
          "@id": "genome_assemblies"
       },
       "authority": {
@@ -355,7 +353,6 @@
          "@id": "dct:description"
       },
       "digest": {
-         "@type": "@id",
          "@id": "digest"
       },
       "color_hex_triplet": {
@@ -384,11 +381,9 @@
          "@id": "biolink:full_name"
       },
       "referenced_in": {
-         "@type": "@id",
          "@id": "referenced_in"
       },
       "reference_assembly": {
-         "@type": "@id",
          "@id": "reference_assembly"
       },
       "has_attribute": {
@@ -411,7 +406,7 @@
          "@id": "biolink:has_qualitative_value"
       },
       "has_quantitative_value": {
-         "@type": "biolink:QuantityValue",
+         "@type": "@id",
          "@id": "biolink:has_quantitative_value"
       },
       "has_taxonomic_rank": {
@@ -547,7 +542,6 @@
          "@id": "internal_identifier"
       },
       "part_of_anatomical_annotation_set": {
-         "@type": "@id",
          "@id": "part_of_anatomical_annotation_set"
       },
       "voxel_count": {
@@ -555,53 +549,42 @@
          "@id": "voxel_count"
       },
       "subject_parcellation_annotation": {
-         "@type": "@id",
          "@id": "subject_parcellation_annotation"
       },
       "has_anatomical_annotation_set": {
-         "@type": "@id",
          "@id": "has_anatomical_annotation_set"
       },
       "has_anatomical_space": {
-         "@type": "@id",
          "@id": "has_anatomical_space"
       },
       "has_parcellation_terminology": {
-         "@type": "@id",
          "@id": "has_parcellation_terminology"
       },
       "specialization_of": {
-         "@type": "@id",
          "@id": "specialization_of"
       },
       "color": {
          "@id": "color"
       },
       "part_of_parcellation_color_scheme": {
-         "@type": "@id",
          "@id": "part_of_parcellation_color_scheme"
       },
       "subject_parcellation_terminology": {
-         "@type": "@id",
          "@id": "subject_parcellation_terminology"
       },
       "has_parent_parcellation_term": {
-         "@type": "@id",
          "@id": "has_parent_parcellation_term"
       },
       "part_of_parcellation_term_set": {
-         "@type": "@id",
          "@id": "part_of_parcellation_term_set"
       },
       "symbol": {
          "@id": "biolink:symbol"
       },
       "has_parent_parcellation_term_set": {
-         "@type": "@id",
          "@id": "has_parent_parcellation_term_set"
       },
       "part_of_parcellation_terminology": {
-         "@type": "@id",
          "@id": "part_of_parcellation_terminology"
       },
       "part_of_taxonomy": {
@@ -653,7 +636,6 @@
          "@id": "strain"
       },
       "subject_parcellation_term": {
-         "@type": "@id",
          "@id": "subject_parcellation_term"
       },
       "synonym": {
@@ -663,18 +645,18 @@
          "@id": "rdf:type"
       },
       "used": {
-         "@type": "prov:Entity",
+         "@type": "@id",
          "@id": "prov:used"
       },
       "version": {
          "@id": "biolink:version"
       },
       "was_derived_from": {
-         "@type": "prov:Entity",
+         "@type": "@id",
          "@id": "prov:wasDerivedFrom"
       },
       "was_generated_by": {
-         "@type": "prov:Activity",
+         "@type": "@id",
          "@id": "prov:wasGeneratedBy"
       },
       "xref": {
