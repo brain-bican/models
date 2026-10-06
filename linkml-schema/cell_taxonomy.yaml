@@ -128,9 +128,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.index
-          note:
-            tag: note
-            value: 'explain: barcode_Cell_sample+barcode'
           source:
             tag: source
             value: ait
@@ -146,10 +143,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.cluster_id
-          note:
-            tag: note
-            value: "String value; one per annotation level column; for object modeling\
-              \ derive via Cell.part_of_cluster \u2192 Cluster.annotated_as"
           source:
             tag: source
             value: ait
@@ -165,10 +158,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.load_id
-          note:
-            tag: note
-            value: it should be pointing to BarcodedCellSample, and the slot name
-              should also change; nhash id should be used
           source:
             tag: source
             value: ait
@@ -282,6 +271,10 @@ classes:
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
         range: boolean
       part_of_cluster:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: the Cluster named by obs.cluster_id)'
         description: The cluster to which this cell has been assigned by the clustering
           algorithm.
         in_subset:
@@ -348,6 +341,10 @@ classes:
         - annotations
         range: integer
       has_parent:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: the preceding level in uns.hierarchy, by order)'
         description: The next broader annotation level in the taxonomy hierarchy (e.g.
           Subclass has_parent Class).
         in_subset:
@@ -355,6 +352,13 @@ classes:
         - annotations
         range: CellTypeSet
       has_abbreviation:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.tokens_<level> (data only)
+          ait_separator:
+            tag: ait_separator
+            value: '|'
         description: One of potentially many abbreviations that are part of the cell
           type set name.
         in_subset:
@@ -375,25 +379,11 @@ classes:
         - annotations
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
         range: CellTypeSetType
-      has_abbreviation:
+      part_of_taxonomy:
         annotations:
           ait_location:
             tag: ait_location
-            value: uns.cluster_info.tokens_<level> (data only)
-          note:
-            tag: note
-            value: New; from BKE CellTypeSet.has_abbreviation
-          source:
-            tag: source
-            value: bke
-        description: One of potentially many abbreviations that are part of the cell
-          type set name.
-        in_subset:
-        - uns
-        - annotations
-        from_schema: https://w3id.org/brain-bican/cell-taxonomy
-        range: Abbreviation
-      part_of_taxonomy:
+            value: '(derived: the single taxonomy described by this file)'
         description: The taxonomy for which this annotation level is defined.
         in_subset:
         - uns
@@ -422,13 +412,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          note:
-            tag: note
-            value: Minted by the pipeline; no AIT source. ID strategy NOT YET DECIDED
-              -- bkbit's existing taxonomy2jsonld uses a deterministic hash of the
-              object's attributes (generate_object_id), which keeps ids stable across
-              re-runs. Whatever is chosen must be deterministic, or re-ingesting the
-              same file produces different ids.
           source:
             tag: source
             value: bke
@@ -479,6 +462,11 @@ classes:
         - annotations
         range: integer
       has_parent:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: the taxon at the preceding uns.hierarchy level, same
+              uns.cluster_info row)'
         description: Reference to the parent taxon at the next broader annotation
           level.
         in_subset:
@@ -486,6 +474,11 @@ classes:
         - annotations
         range: CellTypeTaxon
       part_of_set:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: the uns.hierarchy level whose uns.cluster_info column
+              this taxon came from)'
         description: The annotation level (CellTypeSet) for which this taxon is a
           member.
         in_subset:
@@ -493,6 +486,13 @@ classes:
         - annotations
         range: CellTypeSet
       has_abbreviation:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.tokens_<level> (data only)
+          ait_separator:
+            tag: ait_separator
+            value: '|'
         description: One of potentially many abbreviations that are part of the cell
           type taxon name.
         in_subset:
@@ -506,15 +506,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cluster_info.CL:ID_<level> (data only)
-          note:
-            tag: note
-            value: 'DECISION NEEDED. AIT_schema.csv spells this ''cell_type_ontology_term''
-              (no _id); README uses ''_id'' -- alias records the README form. The
-              documented obs.cell_type_ontology_term exists but is uniformly CL:0000003
-              across all 388 Macaque clusters, i.e. carries no information; real per-taxon
-              grounding is the data-only CL:ID_<level> (29 distinct at Group, 7 at
-              Class). Choose: (a) one taxon-level slot pointing at CL:ID_<level> as
-              here, or (b) add a separate Cell-level slot for the documented obs field.'
           source:
             tag: source
             value: ait
@@ -527,18 +518,12 @@ classes:
         aliases:
         - cell_type_ontology_term_id
         range: string
+        pattern: ^CL:\d{7}$
       number_of_cells:
         annotations:
           ait_location:
             tag: ait_location
             value: '(derived: count obs rows grouped by obs.<annotation_level>)'
-          note:
-            tag: note
-            value: 'NOT STORED. No cell-count column exists in uns.cluster_info in
-              any of the 3 species. Compute from obs: group the 548,281 obs rows by
-              the level column (Neighborhood/Class/Subclass/Group) and count. Requires
-              reading obs, so it is NOT available from cluster_info alone -- a parser
-              run with load_obs=False cannot populate this.'
           source:
             tag: source
             value: bke
@@ -548,33 +533,62 @@ classes:
         - annotations
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
         range: integer
-      has_abbreviation:
+      literature_support:
         annotations:
           ait_location:
             tag: ait_location
-            value: uns.cluster_info.tokens_<level> (data only)
-          note:
-            tag: note
-            value: New; from BKE CellTypeTaxon.has_abbreviation
+            value: uns.cluster_info.literature_support
           source:
             tag: source
-            value: bke
-        description: One of potentially many abbreviations that are part of the cell
-          type taxon name.
+            value: ait
+        description: Published study in which this cell type was previously described.
+          The value "Novel" indicates no prior published description.
         in_subset:
         - uns
         - annotations
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
-        range: Abbreviation
-      curated_markers_to_primates:
-        description: Marker genes in the primate species that are related to the respective
-          cell type.
+        range: string
+      literature_name_short:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.literature_name_short
+          source:
+            tag: source
+            value: ait
+        description: Short name used for this cell type in the supporting literature.
+        in_subset:
+        - uns
+        - annotations
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
-        range: GeneAnnotation
-        multivalued: true
-      curated_markers_to_mouse:
-        description: Marker genes in the mouse species that are related to the respective
-          cell type.
+        range: string
+      literature_name_long:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.literature_name_long
+          source:
+            tag: source
+            value: ait
+        description: Full name used for this cell type in the supporting literature.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      curated_markers:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.curated_markers
+          ait_separator:
+            tag: ait_separator
+            value: ','
+        description: Marker genes curated as characteristic of this cell type. One
+          set per taxon; the AIT consensus taxonomy does not split these by species.
+        in_subset:
+        - uns
+        - annotations
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
         range: GeneAnnotation
         multivalued: true
@@ -597,13 +611,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          note:
-            tag: note
-            value: Minted by the pipeline; no AIT source. ID strategy NOT YET DECIDED
-              -- bkbit's existing taxonomy2jsonld uses a deterministic hash of the
-              object's attributes (generate_object_id), which keeps ids stable across
-              re-runs. Whatever is chosen must be deterministic, or re-ingesting the
-              same file produces different ids.
           source:
             tag: source
             value: bke
@@ -623,10 +630,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.dataset_purl
-          note:
-            tag: note
-            value: Value in all 3 HMBA files is the literal string 'BICAN_s3_bucket',
-              which is not a URI -- a uri-typed slot will fail validation.
           source:
             tag: source
             value: both
@@ -649,9 +652,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.title
-          note:
-            tag: note
-            value: BKE equivalent is name (e.g. AIT21.0)
           source:
             tag: source
             value: both
@@ -683,9 +683,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.batch_condition
-          note:
-            tag: note
-            value: Multivalued list of obs column names; no BKE equivalent
           source:
             tag: source
             value: ait
@@ -701,9 +698,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.dendrogram
-          note:
-            tag: note
-            value: RECOMMENDED in AIT_schema.csv but absent from all 3 HMBA files.
           source:
             tag: source
             value: ait
@@ -719,10 +713,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.hierarchy
-          note:
-            tag: note
-            value: Stored as dict; overlaps with CellTypeSet.order; retained for tooling
-              convenience
           source:
             tag: source
             value: ait
@@ -738,9 +728,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.mode
-          note:
-            tag: note
-            value: 'Computed for analysis; Jeremy: folks can ignore'
           source:
             tag: source
             value: ait
@@ -756,9 +743,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.filter
-          note:
-            tag: note
-            value: 'Multivalued; computed for analysis; Jeremy: folks can ignore'
           source:
             tag: source
             value: ait
@@ -774,9 +758,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cluster_algorithm
-          note:
-            tag: note
-            value: Stored as dict
           source:
             tag: source
             value: ait
@@ -792,10 +773,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cluster_info
-          note:
-            tag: note
-            value: 'Stored as dict; Jeremy: effectively the obs table saved per cluster;
-              what people call the "Google Sheet" of cell type annotations'
           source:
             tag: source
             value: ait
@@ -811,10 +788,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.default_embedding
-          note:
-            tag: note
-            value: String key matching Embedding.embedding_key of the default embedding
-              to display
           source:
             tag: source
             value: ait
@@ -830,9 +803,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cellannotation_schema
-          note:
-            tag: note
-            value: RECOMMENDED in AIT_schema.csv but absent from all 3 HMBA files.
           source:
             tag: source
             value: ait
@@ -848,12 +818,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.qualty_control_markers
-          note:
-            tag: note
-            value: AIT_schema.csv misspells the key as 'qualty_control_markers' (both
-              shipped CSVs); README spells it correctly. Location follows the CSV
-              because that is what scrattch uses. Absent from all 3 HMBA files. REPORTED
-              UPSTREAM -- revisit if fixed.
           source:
             tag: source
             value: ait
@@ -870,13 +834,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.reference_genome
-          note:
-            tag: note
-            value: 'DECISION NEEDED: class placement. Documented in AIT_schema.csv
-              (uns, RECOMMENDED) and present in all 3 files, but value is ''GRCh38''
-              for Macaque and Marmoset too -- consistent with a cross-species consensus
-              taxonomy; confirm with AIT. May belong on a GenomeAnnotation class instead
-              (unresolved in tmp_ait/open_questions.md).'
           source:
             tag: source
             value: ait
@@ -891,10 +848,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.gene_annotation_version
-          note:
-            tag: note
-            value: 'DECISION NEEDED: class placement (see reference_genome). Present
-              in all 3 files but the value is an empty string in every one.'
           source:
             tag: source
             value: ait
@@ -905,6 +858,10 @@ classes:
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
         range: string
       has_embedding:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: one Embedding per obsm key)'
         description: One or more dimensionality reductions associated with this taxonomy.
         in_subset:
         - obsm
@@ -913,6 +870,10 @@ classes:
         range: Embedding
         multivalued: true
       has_expression_matrix:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: one ExpressionMatrix per X / raw.X group present)'
         description: One or more cell-by-gene matrices associated with this taxonomy
           (normalized and/or raw counts).
         in_subset:
@@ -939,13 +900,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          note:
-            tag: note
-            value: Minted by the pipeline; no AIT source. ID strategy NOT YET DECIDED
-              -- bkbit's existing taxonomy2jsonld uses a deterministic hash of the
-              object's attributes (generate_object_id), which keeps ids stable across
-              re-runs. Whatever is chosen must be deterministic, or re-ingesting the
-              same file produces different ids.
           source:
             tag: source
             value: bke
@@ -989,13 +943,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          note:
-            tag: note
-            value: Minted by the pipeline; no AIT source. ID strategy NOT YET DECIDED
-              -- bkbit's existing taxonomy2jsonld uses a deterministic hash of the
-              object's attributes (generate_object_id), which keeps ids stable across
-              re-runs. Whatever is chosen must be deterministic, or re-ingesting the
-              same file produces different ids.
           source:
             tag: source
             value: bke
@@ -1023,12 +970,21 @@ classes:
         from_schema: bican_biolink
         range: string
       part_of_set:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: the single synthesized ClusterSet for this file)'
         description: The cluster set to which this cluster belongs.
         in_subset:
         - uns
         - annotations
         range: ClusterSet
       has_parent:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: taxa at the levels above cluster_id in uns.hierarchy;
+              read per row of uns.cluster_info)'
         in_subset:
         - obs
         - uns
@@ -1041,12 +997,6 @@ classes:
           ait_location:
             tag: ait_location
             value: '(derived: count obs rows grouped by obs.cluster_id)'
-          note:
-            tag: note
-            value: 'NOT STORED. The previously claimed cluster_info.n_cells does not
-              exist in any species. Compute from obs by grouping on cluster_id. Same
-              caveat as number_of_cells: needs obs, not available from cluster_info
-              alone.'
           source:
             tag: source
             value: bke
@@ -1076,13 +1026,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          note:
-            tag: note
-            value: Minted by the pipeline; no AIT source. ID strategy NOT YET DECIDED
-              -- bkbit's existing taxonomy2jsonld uses a deterministic hash of the
-              object's attributes (generate_object_id), which keeps ids stable across
-              re-runs. Whatever is chosen must be deterministic, or re-ingesting the
-              same file produces different ids.
           source:
             tag: source
             value: bke
@@ -1094,9 +1037,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.dataset_purl
-          note:
-            tag: note
-            value: Corresponds to AIT dataset_purl; BKE ExpressionMatrix.content_url
           source:
             tag: source
             value: both
@@ -1115,12 +1055,6 @@ classes:
           ait_location:
             tag: ait_location
             value: '(derived: normalized if read from X, raw_count if read from raw.X)'
-          note:
-            tag: note
-            value: 'NOT STORED as a value. AIT encodes it structurally: X holds normalized
-              expression, raw.X holds counts. The enum value follows from which group
-              the matrix was read from. In all 3 HMBA files X is present (csr_matrix)
-              and raw exists.'
           source:
             tag: source
             value: ait
@@ -1133,6 +1067,10 @@ classes:
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
         range: ExpressionMatrixType
       has_variable:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: one GeneAnnotation per var row)'
         description: One of the genes (variables) measured across all cells in this
           matrix; corresponds to a column in var.
         in_subset:
@@ -1156,13 +1094,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          note:
-            tag: note
-            value: Minted by the pipeline; no AIT source. ID strategy NOT YET DECIDED
-              -- bkbit's existing taxonomy2jsonld uses a deterministic hash of the
-              object's attributes (generate_object_id), which keeps ids stable across
-              re-runs. Whatever is chosen must be deterministic, or re-ingesting the
-              same file produces different ids.
           source:
             tag: source
             value: bke
@@ -1215,13 +1146,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          note:
-            tag: note
-            value: Minted by the pipeline; no AIT source. ID strategy NOT YET DECIDED
-              -- bkbit's existing taxonomy2jsonld uses a deterministic hash of the
-              object's attributes (generate_object_id), which keeps ids stable across
-              re-runs. Whatever is chosen must be deterministic, or re-ingesting the
-              same file produces different ids.
           source:
             tag: source
             value: bke
@@ -1237,12 +1161,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cluster_info.tokens_<level> (data only)
-          note:
-            tag: note
-            value: 'Pipe-separated name tokens, e.g. ''STRv|D1 MSN'', ''CN|LGE|GABA''.
-              Present in all 3 files. DERIVATION: split the cell value on ''|'' and
-              mint one Abbreviation per distinct token; the token is the term. The
-              expansion (meaning) is not in the file -- see Abbreviation.meaning.'
           source:
             tag: source
             value: bke
@@ -1255,10 +1173,6 @@ classes:
         range: string
       meaning:
         annotations:
-          note:
-            tag: note
-            value: No AIT source anywhere -- tokens give the term only, never its
-              expansion. Fill from a BKE-side lookup.
           source:
             tag: source
             value: bke
@@ -1270,9 +1184,6 @@ classes:
         range: string
       entity_type:
         annotations:
-          note:
-            tag: note
-            value: No AIT source.
           source:
             tag: source
             value: bke
@@ -1326,13 +1237,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          note:
-            tag: note
-            value: Minted by the pipeline; no AIT source. ID strategy NOT YET DECIDED
-              -- bkbit's existing taxonomy2jsonld uses a deterministic hash of the
-              object's attributes (generate_object_id), which keeps ids stable across
-              re-runs. Whatever is chosen must be deterministic, or re-ingesting the
-              same file produces different ids.
           source:
             tag: source
             value: bke
@@ -1344,12 +1248,6 @@ classes:
         range: string
       name:
         annotations:
-          note:
-            tag: note
-            value: 'CANDIDATE (unconfirmed): Human uns carries AIT117_/AIT193_MapMyCells_<Level>_label_colors
-              -- named hex lists, per taxonomy version and level. Absent from Macaque
-              and Marmoset. Whether the uns key name is the palette name is an inference,
-              so no location is asserted here.'
           source:
             tag: source
             value: bke
@@ -1361,9 +1259,6 @@ classes:
         range: string
       description:
         annotations:
-          note:
-            tag: note
-            value: From BKE ColorPalette.description
           source:
             tag: source
             value: bke
@@ -1397,13 +1292,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          note:
-            tag: note
-            value: Minted by the pipeline; no AIT source. ID strategy NOT YET DECIDED
-              -- bkbit's existing taxonomy2jsonld uses a deterministic hash of the
-              object's attributes (generate_object_id), which keeps ids stable across
-              re-runs. Whatever is chosen must be deterministic, or re-ingesting the
-              same file produces different ids.
           source:
             tag: source
             value: bke
@@ -1419,10 +1307,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cluster_info.color_hex_<level> (data only)
-          note:
-            tag: note
-            value: Populated in all 3 files (56 distinct hex in Macaque). Note color_<level>
-              also exists but is entirely empty.
           source:
             tag: source
             value: bke
