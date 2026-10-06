@@ -4,7 +4,10 @@ AmplifiedCdna {
     label_type name  
     float amplified_cDNA_quantity_ng  
     amplified_cdna_rna_amplification_pass_fail amplified_cDNA_result  
+    string cdna_amplification_set  
+    integer pcr_cycles  
     float percent_cdna_longer_than_400bp  
+    date preparation_date  
     uriorcurieList xref  
     string id  
     narrative_text description  
@@ -21,7 +24,12 @@ AmplifiedCdna {
 }
 BarcodedCellSample {
     label_type name  
+    integer input_quantity_count  
     integer number_of_expected_cells  
+    string port_well  
+    date preparation_date  
+    string tag_local_name  
+    barcoded_cell_sample_technique technique  
     uriorcurieList xref  
     string id  
     narrative_text description  
@@ -53,9 +61,6 @@ BrainSlab {
     stringList type  
 }
 CdnaAmplification {
-    date cDNA_amplification_process_date  
-    string cDNA_amplification_set  
-    integer pcr_cycles  
     string id  
     label_type name  
     narrative_text description  
@@ -72,10 +77,6 @@ CdnaAmplification {
     uriorcurieList xref  
 }
 CellBarcoding {
-    barcoded_cell_sample_technique cell_barcoding_method  
-    string cell_barcoding_process_date  
-    integer input_quantity  
-    string port_well  
     string id  
     label_type name  
     narrative_text description  
@@ -92,7 +93,6 @@ CellBarcoding {
     uriorcurieList xref  
 }
 CellDissociation {
-    string cell_dissociation_process_date  
     string id  
     label_type name  
     narrative_text description  
@@ -175,8 +175,10 @@ DissectionRoiPolygon {
 }
 DissociatedCellSample {
     label_type name  
+    cell_label_barcode cell_label_barcode  
     dissociated_cell_sample_cell_prep_type cell_prep_type  
-    dissociated_cell_sample_cell_label_barcode dissociated_cell_oligo_name  
+    string patched_cell_structure  
+    date preparation_date  
     uriorcurieList xref  
     string id  
     narrative_text description  
@@ -192,15 +194,8 @@ DissociatedCellSample {
     stringList type  
 }
 Donor {
-    label_type name  
-    string age_at_death_description  
-    age_at_death_reference_point age_at_death_reference_point  
-    age_at_death_unit age_at_death_unit  
-    float age_at_death_value  
-    sex biological_sex  
-    string species  
-    uriorcurieList xref  
     string id  
+    label_type name  
     narrative_text description  
     uriorcurieList category  
     boolean deprecated  
@@ -213,14 +208,15 @@ Donor {
     stringList provided_by  
     label_typeList synonym  
     stringList type  
+    uriorcurieList xref  
 }
 EnrichedCellSample {
     label_type name  
-    string enriched_cell_oligo_name  
+    cell_label_barcode cell_label_barcode  
     string enrichment_population  
     string histone_modification_marker  
+    date preparation_date  
     uriorcurieList xref  
-    fastq_file_alignment_status fastq_file_alignment_status  
     string id  
     narrative_text description  
     uriorcurieList category  
@@ -254,10 +250,14 @@ Library {
     label_type name  
     integer average_size_bp  
     float concentration_nm  
+    float input_ng  
     float library_quantity_ng  
     library_prep_pass_fail library_result  
+    string prep_set  
+    date preparation_date  
     float quantity_fmol  
     library_r1_r2_index r1_r2_index  
+    library_technique technique  
     uriorcurieList xref  
     string id  
     narrative_text description  
@@ -274,6 +274,7 @@ Library {
 }
 LibraryAliquot {
     label_type name  
+    fastq_file_alignment_status fastq_file_alignment_status  
     uriorcurieList xref  
     string id  
     narrative_text description  
@@ -289,10 +290,6 @@ LibraryAliquot {
     stringList type  
 }
 LibraryConstruction {
-    float input_quantity_ng  
-    library_technique library_construction_method  
-    date library_construction_process_date  
-    string library_construction_set  
     string id  
     label_type name  
     narrative_text description  
@@ -310,7 +307,10 @@ LibraryConstruction {
 }
 LibraryPool {
     label_type name  
-    string tube_internal_label  
+    string flowcell  
+    string local_tube_id  
+    date preparation_date  
+    string tube_barcode  
     uriorcurieList xref  
     string id  
     narrative_text description  
@@ -326,7 +326,6 @@ LibraryPool {
     stringList type  
 }
 LibraryPooling {
-    string process_date  
     string id  
     label_type name  
     narrative_text description  

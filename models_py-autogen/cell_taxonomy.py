@@ -11453,9 +11453,6 @@ class Cell(ProvEntity, NamedThing):
          'mixins': ['ProvEntity'],
          'slot_usage': {'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': 'obs.index'},
-                                               'note': {'tag': 'note',
-                                                        'value': 'explain: '
-                                                                 'barcode_Cell_sample+barcode'},
                                                'source': {'tag': 'source',
                                                           'value': 'ait'}},
                                'description': 'Unique identifier for each individual '
@@ -11466,8 +11463,6 @@ class Cell(ProvEntity, NamedThing):
                                'range': 'string'}}})
 
     id: str = Field(default=..., description="""Unique identifier for each individual cell.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location', 'value': 'obs.index'},
-                         'note': {'tag': 'note',
-                                  'value': 'explain: barcode_Cell_sample+barcode'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -11504,21 +11499,11 @@ class Cell(ProvEntity, NamedThing):
          'slot_uri': 'biolink:id'} })
     cluster_id: Optional[str] = Field(default=None, description="""Human-readable cluster label for the cluster assigned to this cell at a given annotation level.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'obs.cluster_id'},
-                         'note': {'tag': 'note',
-                                  'value': 'String value; one per annotation level '
-                                           'column; for object modeling derive via '
-                                           'Cell.part_of_cluster → '
-                                           'Cluster.annotated_as'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['Cell'],
          'in_subset': ['obs', 'annotations']} })
     load_id: Optional[str] = Field(default=None, description="""Identifier for the sequencing library from which molecular measurements were derived.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'obs.load_id'},
-                         'note': {'tag': 'note',
-                                  'value': 'it should be pointing to '
-                                           'BarcodedCellSample, and the slot name '
-                                           'should also change; nhash id should be '
-                                           'used'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['Cell'],
          'in_subset': ['obs', 'assigned_metadata']} })
@@ -11556,7 +11541,11 @@ class Cell(ProvEntity, NamedThing):
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['Cell'],
          'in_subset': ['obs', 'assigned_metadata']} })
-    part_of_cluster: Optional[str] = Field(default=None, description="""The cluster to which this cell has been assigned by the clustering algorithm.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Cell'], 'in_subset': ['obs', 'annotations']} })
+    part_of_cluster: Optional[str] = Field(default=None, description="""The cluster to which this cell has been assigned by the clustering algorithm.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': '(derived: the Cluster named by '
+                                                   'obs.cluster_id)'}},
+         'domain_of': ['Cell'],
+         'in_subset': ['obs', 'annotations']} })
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity', 'CellTypeTaxonomy', 'ClusterSet'],
          'slot_uri': 'prov:wasDerivedFrom'} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity'], 'slot_uri': 'prov:wasGeneratedBy'} })
@@ -11899,7 +11888,13 @@ class CellTypeSet(ProvEntity, NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/cell-taxonomy',
          'mixins': ['ProvEntity'],
-         'slot_usage': {'has_abbreviation': {'description': 'One of potentially many '
+         'slot_usage': {'has_abbreviation': {'annotations': {'ait_location': {'tag': 'ait_location',
+                                                                              'value': 'uns.cluster_info.tokens_<level> '
+                                                                                       '(data '
+                                                                                       'only)'},
+                                                             'ait_separator': {'tag': 'ait_separator',
+                                                                               'value': '|'}},
+                                             'description': 'One of potentially many '
                                                             'abbreviations that are '
                                                             'part of the cell type set '
                                                             'name.',
@@ -11907,7 +11902,16 @@ class CellTypeSet(ProvEntity, NamedThing):
                                              'multivalued': True,
                                              'name': 'has_abbreviation',
                                              'range': 'Abbreviation'},
-                        'has_parent': {'description': 'The next broader annotation '
+                        'has_parent': {'annotations': {'ait_location': {'tag': 'ait_location',
+                                                                        'value': '(derived: '
+                                                                                 'the '
+                                                                                 'preceding '
+                                                                                 'level '
+                                                                                 'in '
+                                                                                 'uns.hierarchy, '
+                                                                                 'by '
+                                                                                 'order)'}},
+                                       'description': 'The next broader annotation '
                                                       'level in the taxonomy hierarchy '
                                                       '(e.g. Subclass has_parent '
                                                       'Class).',
@@ -12026,21 +12030,25 @@ class CellTypeSet(ProvEntity, NamedThing):
                          'source': {'tag': 'source', 'value': 'both'}},
          'domain_of': ['CellTypeSet', 'CellTypeTaxon'],
          'in_subset': ['uns', 'annotations']} })
-    has_parent: Optional[str] = Field(default=None, description="""The next broader annotation level in the taxonomy hierarchy (e.g. Subclass has_parent Class).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeSet', 'CellTypeTaxon', 'Cluster'],
+    has_parent: Optional[str] = Field(default=None, description="""The next broader annotation level in the taxonomy hierarchy (e.g. Subclass has_parent Class).""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': '(derived: the preceding level in '
+                                                   'uns.hierarchy, by order)'}},
+         'domain_of': ['CellTypeSet', 'CellTypeTaxon', 'Cluster'],
          'in_subset': ['uns', 'annotations']} })
     has_abbreviation: Optional[list[str]] = Field(default=None, description="""One of potentially many abbreviations that are part of the cell type set name.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_info.tokens_<level> '
                                                    '(data only)'},
-                         'note': {'tag': 'note',
-                                  'value': 'New; from BKE '
-                                           'CellTypeSet.has_abbreviation'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                         'ait_separator': {'tag': 'ait_separator', 'value': '|'}},
          'domain_of': ['CellTypeSet', 'CellTypeTaxon'],
          'in_subset': ['uns', 'annotations']} })
     cell_type_set_type: Optional[CellTypeSetType] = Field(default=None, description="""A tag denoting whether this grouping represents a taxonomic level or neighborhood.""", json_schema_extra = { "linkml_meta": {'annotations': {'source': {'tag': 'source', 'value': 'bke'}},
          'domain_of': ['CellTypeSet'],
          'in_subset': ['uns', 'annotations']} })
-    part_of_taxonomy: Optional[str] = Field(default=None, description="""The taxonomy for which this annotation level is defined.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeSet'], 'in_subset': ['uns', 'annotations']} })
+    part_of_taxonomy: Optional[str] = Field(default=None, description="""The taxonomy for which this annotation level is defined.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': '(derived: the single taxonomy '
+                                                   'described by this file)'}},
+         'domain_of': ['CellTypeSet'],
+         'in_subset': ['uns', 'annotations']} })
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity', 'CellTypeTaxonomy', 'ClusterSet'],
          'slot_uri': 'prov:wasDerivedFrom'} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity'], 'slot_uri': 'prov:wasGeneratedBy'} })
@@ -12367,7 +12375,13 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                                          'in_subset': ['uns', 'annotations'],
                                          'name': 'accession_id',
                                          'range': 'string'},
-                        'has_abbreviation': {'description': 'One of potentially many '
+                        'has_abbreviation': {'annotations': {'ait_location': {'tag': 'ait_location',
+                                                                              'value': 'uns.cluster_info.tokens_<level> '
+                                                                                       '(data '
+                                                                                       'only)'},
+                                                             'ait_separator': {'tag': 'ait_separator',
+                                                                               'value': '|'}},
+                                             'description': 'One of potentially many '
                                                             'abbreviations that are '
                                                             'part of the cell type '
                                                             'taxon name.',
@@ -12375,7 +12389,19 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                                              'multivalued': True,
                                              'name': 'has_abbreviation',
                                              'range': 'Abbreviation'},
-                        'has_parent': {'description': 'Reference to the parent taxon '
+                        'has_parent': {'annotations': {'ait_location': {'tag': 'ait_location',
+                                                                        'value': '(derived: '
+                                                                                 'the '
+                                                                                 'taxon '
+                                                                                 'at '
+                                                                                 'the '
+                                                                                 'preceding '
+                                                                                 'uns.hierarchy '
+                                                                                 'level, '
+                                                                                 'same '
+                                                                                 'uns.cluster_info '
+                                                                                 'row)'}},
+                                       'description': 'Reference to the parent taxon '
                                                       'at the next broader annotation '
                                                       'level.',
                                        'in_subset': ['uns', 'annotations'],
@@ -12383,25 +12409,6 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                                        'range': 'CellTypeTaxon'},
                         'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': '(synthesized)'},
-                                               'note': {'tag': 'note',
-                                                        'value': 'Minted by the '
-                                                                 'pipeline; no AIT '
-                                                                 'source. ID strategy '
-                                                                 'NOT YET DECIDED -- '
-                                                                 "bkbit's existing "
-                                                                 'taxonomy2jsonld uses '
-                                                                 'a deterministic hash '
-                                                                 "of the object's "
-                                                                 'attributes '
-                                                                 '(generate_object_id), '
-                                                                 'which keeps ids '
-                                                                 'stable across '
-                                                                 're-runs. Whatever is '
-                                                                 'chosen must be '
-                                                                 'deterministic, or '
-                                                                 're-ingesting the '
-                                                                 'same file produces '
-                                                                 'different ids.'},
                                                'source': {'tag': 'source',
                                                           'value': 'bke'}},
                                'description': 'Unique identifier for this cell type '
@@ -12432,7 +12439,19 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                                   'in_subset': ['uns', 'annotations'],
                                   'name': 'order',
                                   'range': 'integer'},
-                        'part_of_set': {'description': 'The annotation level '
+                        'part_of_set': {'annotations': {'ait_location': {'tag': 'ait_location',
+                                                                         'value': '(derived: '
+                                                                                  'the '
+                                                                                  'uns.hierarchy '
+                                                                                  'level '
+                                                                                  'whose '
+                                                                                  'uns.cluster_info '
+                                                                                  'column '
+                                                                                  'this '
+                                                                                  'taxon '
+                                                                                  'came '
+                                                                                  'from)'}},
+                                        'description': 'The annotation level '
                                                        '(CellTypeSet) for which this '
                                                        'taxon is a member.',
                                         'in_subset': ['uns', 'annotations'],
@@ -12441,16 +12460,6 @@ class CellTypeTaxon(ProvEntity, NamedThing):
 
     id: str = Field(default=..., description="""Unique identifier for this cell type taxon.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(synthesized)'},
-                         'note': {'tag': 'note',
-                                  'value': 'Minted by the pipeline; no AIT source. ID '
-                                           "strategy NOT YET DECIDED -- bkbit's "
-                                           'existing taxonomy2jsonld uses a '
-                                           "deterministic hash of the object's "
-                                           'attributes (generate_object_id), which '
-                                           'keeps ids stable across re-runs. Whatever '
-                                           'is chosen must be deterministic, or '
-                                           're-ingesting the same file produces '
-                                           'different ids.'},
                          'source': {'tag': 'source', 'value': 'bke'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -12529,57 +12538,57 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                          'source': {'tag': 'source', 'value': 'bke'}},
          'domain_of': ['CellTypeSet', 'CellTypeTaxon'],
          'in_subset': ['uns', 'annotations']} })
-    has_parent: Optional[str] = Field(default=None, description="""Reference to the parent taxon at the next broader annotation level.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeSet', 'CellTypeTaxon', 'Cluster'],
+    has_parent: Optional[str] = Field(default=None, description="""Reference to the parent taxon at the next broader annotation level.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': '(derived: the taxon at the '
+                                                   'preceding uns.hierarchy level, '
+                                                   'same uns.cluster_info row)'}},
+         'domain_of': ['CellTypeSet', 'CellTypeTaxon', 'Cluster'],
          'in_subset': ['uns', 'annotations']} })
-    part_of_set: Optional[str] = Field(default=None, description="""The annotation level (CellTypeSet) for which this taxon is a member.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeTaxon', 'Cluster'], 'in_subset': ['uns', 'annotations']} })
+    part_of_set: Optional[str] = Field(default=None, description="""The annotation level (CellTypeSet) for which this taxon is a member.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': '(derived: the uns.hierarchy level '
+                                                   'whose uns.cluster_info column this '
+                                                   'taxon came from)'}},
+         'domain_of': ['CellTypeTaxon', 'Cluster'],
+         'in_subset': ['uns', 'annotations']} })
     has_abbreviation: Optional[list[str]] = Field(default=None, description="""One of potentially many abbreviations that are part of the cell type taxon name.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_info.tokens_<level> '
                                                    '(data only)'},
-                         'note': {'tag': 'note',
-                                  'value': 'New; from BKE '
-                                           'CellTypeTaxon.has_abbreviation'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                         'ait_separator': {'tag': 'ait_separator', 'value': '|'}},
          'domain_of': ['CellTypeSet', 'CellTypeTaxon'],
          'in_subset': ['uns', 'annotations']} })
     cell_type_ontology_term: Optional[str] = Field(default=None, description="""CL ontology term for this cell type; use CL:0000003 for native cell if unknown.""", json_schema_extra = { "linkml_meta": {'aliases': ['cell_type_ontology_term_id'],
          'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_info.CL:ID_<level> '
                                                    '(data only)'},
-                         'note': {'tag': 'note',
-                                  'value': 'DECISION NEEDED. AIT_schema.csv spells '
-                                           "this 'cell_type_ontology_term' (no _id); "
-                                           "README uses '_id' -- alias records the "
-                                           'README form. The documented '
-                                           'obs.cell_type_ontology_term exists but is '
-                                           'uniformly CL:0000003 across all 388 '
-                                           'Macaque clusters, i.e. carries no '
-                                           'information; real per-taxon grounding is '
-                                           'the data-only CL:ID_<level> (29 distinct '
-                                           'at Group, 7 at Class). Choose: (a) one '
-                                           'taxon-level slot pointing at CL:ID_<level> '
-                                           'as here, or (b) add a separate Cell-level '
-                                           'slot for the documented obs field.'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['CellTypeTaxon'],
          'in_subset': ['obs', 'annotations']} })
     number_of_cells: Optional[int] = Field(default=None, description="""The aggregated number of cells that defines this cell type taxon.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(derived: count obs rows grouped '
                                                    'by obs.<annotation_level>)'},
-                         'note': {'tag': 'note',
-                                  'value': 'NOT STORED. No cell-count column exists in '
-                                           'uns.cluster_info in any of the 3 species. '
-                                           'Compute from obs: group the 548,281 obs '
-                                           'rows by the level column '
-                                           '(Neighborhood/Class/Subclass/Group) and '
-                                           'count. Requires reading obs, so it is NOT '
-                                           'available from cluster_info alone -- a '
-                                           'parser run with load_obs=False cannot '
-                                           'populate this.'},
                          'source': {'tag': 'source', 'value': 'bke'}},
          'domain_of': ['CellTypeTaxon'],
          'in_subset': ['uns', 'annotations']} })
-    curated_markers_to_primates: Optional[list[str]] = Field(default=None, description="""Marker genes in the primate species that are related to the respective cell type.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeTaxon']} })
-    curated_markers_to_mouse: Optional[list[str]] = Field(default=None, description="""Marker genes in the mouse species that are related to the respective cell type.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeTaxon']} })
+    literature_support: Optional[str] = Field(default=None, description="""Published study in which this cell type was previously described. The value \"Novel\" indicates no prior published description.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': 'uns.cluster_info.literature_support'},
+                         'source': {'tag': 'source', 'value': 'ait'}},
+         'domain_of': ['CellTypeTaxon'],
+         'in_subset': ['uns', 'annotations']} })
+    literature_name_short: Optional[str] = Field(default=None, description="""Short name used for this cell type in the supporting literature.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': 'uns.cluster_info.literature_name_short'},
+                         'source': {'tag': 'source', 'value': 'ait'}},
+         'domain_of': ['CellTypeTaxon'],
+         'in_subset': ['uns', 'annotations']} })
+    literature_name_long: Optional[str] = Field(default=None, description="""Full name used for this cell type in the supporting literature.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': 'uns.cluster_info.literature_name_long'},
+                         'source': {'tag': 'source', 'value': 'ait'}},
+         'domain_of': ['CellTypeTaxon'],
+         'in_subset': ['uns', 'annotations']} })
+    curated_markers: Optional[list[str]] = Field(default=None, description="""Marker genes curated as characteristic of this cell type. One set per taxon; the AIT consensus taxonomy does not split these by species.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': 'uns.cluster_info.curated_markers'},
+                         'ait_separator': {'tag': 'ait_separator', 'value': ','}},
+         'domain_of': ['CellTypeTaxon'],
+         'in_subset': ['uns', 'annotations']} })
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity', 'CellTypeTaxonomy', 'ClusterSet'],
          'slot_uri': 'prov:wasDerivedFrom'} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity'], 'slot_uri': 'prov:wasGeneratedBy'} })
@@ -12886,6 +12895,19 @@ class CellTypeTaxon(ProvEntity, NamedThing):
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
 
+    @field_validator('cell_type_ontology_term')
+    def pattern_cell_type_ontology_term(cls, v):
+        pattern=re.compile(r"^CL:\d{7}$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid cell_type_ontology_term format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid cell_type_ontology_term format: {v}"
+            raise ValueError(err_msg)
+        return v
+
 
 class CellTypeTaxonomy(ProvEntity, NamedThing):
     """
@@ -12903,20 +12925,6 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
                         'content_url': {'aliases': ['dataset_purl'],
                                         'annotations': {'ait_location': {'tag': 'ait_location',
                                                                          'value': 'uns.dataset_purl'},
-                                                        'note': {'tag': 'note',
-                                                                 'value': 'Value in '
-                                                                          'all 3 HMBA '
-                                                                          'files is '
-                                                                          'the literal '
-                                                                          'string '
-                                                                          "'BICAN_s3_bucket', "
-                                                                          'which is '
-                                                                          'not a URI '
-                                                                          '-- a '
-                                                                          'uri-typed '
-                                                                          'slot will '
-                                                                          'fail '
-                                                                          'validation.'},
                                                         'source': {'tag': 'source',
                                                                    'value': 'both'}},
                                         'description': 'Permanent URL to molecular '
@@ -12928,25 +12936,6 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
                                         'range': 'uri'},
                         'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': '(synthesized)'},
-                                               'note': {'tag': 'note',
-                                                        'value': 'Minted by the '
-                                                                 'pipeline; no AIT '
-                                                                 'source. ID strategy '
-                                                                 'NOT YET DECIDED -- '
-                                                                 "bkbit's existing "
-                                                                 'taxonomy2jsonld uses '
-                                                                 'a deterministic hash '
-                                                                 "of the object's "
-                                                                 'attributes '
-                                                                 '(generate_object_id), '
-                                                                 'which keeps ids '
-                                                                 'stable across '
-                                                                 're-runs. Whatever is '
-                                                                 'chosen must be '
-                                                                 'deterministic, or '
-                                                                 're-ingesting the '
-                                                                 'same file produces '
-                                                                 'different ids.'},
                                                'source': {'tag': 'source',
                                                           'value': 'bke'}},
                                'description': 'Unique identifier for this taxonomy.',
@@ -12962,16 +12951,6 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
 
     id: str = Field(default=..., description="""Unique identifier for this taxonomy.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(synthesized)'},
-                         'note': {'tag': 'note',
-                                  'value': 'Minted by the pipeline; no AIT source. ID '
-                                           "strategy NOT YET DECIDED -- bkbit's "
-                                           'existing taxonomy2jsonld uses a '
-                                           "deterministic hash of the object's "
-                                           'attributes (generate_object_id), which '
-                                           'keeps ids stable across re-runs. Whatever '
-                                           'is chosen must be deterministic, or '
-                                           're-ingesting the same file produces '
-                                           'different ids.'},
                          'source': {'tag': 'source', 'value': 'bke'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -13012,11 +12991,6 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
     content_url: Optional[list[str]] = Field(default=None, description="""Permanent URL to molecular data if the expression matrix is not embedded in the file.""", json_schema_extra = { "linkml_meta": {'aliases': ['dataset_purl'],
          'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.dataset_purl'},
-                         'note': {'tag': 'note',
-                                  'value': 'Value in all 3 HMBA files is the literal '
-                                           "string 'BICAN_s3_bucket', which is not a "
-                                           'URI -- a uri-typed slot will fail '
-                                           'validation.'},
                          'source': {'tag': 'source', 'value': 'both'}},
          'domain_of': ['GenomeAnnotation', 'CellTypeTaxonomy', 'ExpressionMatrix'],
          'in_subset': ['uns', 'data'],
@@ -13025,8 +12999,6 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
          'slot_uri': 'prov:wasDerivedFrom'} })
     title: Optional[str] = Field(default=None, description="""Description differentiating this taxonomy from others in the same collection; should be unique within a collection.""", json_schema_extra = { "linkml_meta": {'aliases': ['name'],
          'annotations': {'ait_location': {'tag': 'ait_location', 'value': 'uns.title'},
-                         'note': {'tag': 'note',
-                                  'value': 'BKE equivalent is name (e.g. AIT21.0)'},
                          'source': {'tag': 'source', 'value': 'both'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
@@ -13037,117 +13009,73 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
          'in_subset': ['uns', 'tooling']} })
     batch_condition: Optional[str] = Field(default=None, description="""Cell metadata key(s) in obs that define batches for normalization or integration.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.batch_condition'},
-                         'note': {'tag': 'note',
-                                  'value': 'Multivalued list of obs column names; no '
-                                           'BKE equivalent'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
     dendrogram: Optional[str] = Field(default=None, description="""JSON-formatted hierarchical clustering dendrogram encoding the taxonomy hierarchy.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.dendrogram'},
-                         'note': {'tag': 'note',
-                                  'value': 'RECOMMENDED in AIT_schema.csv but absent '
-                                           'from all 3 HMBA files.'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'annotations']} })
     hierarchy: Optional[str] = Field(default=None, description="""Ordered mapping of annotation level names to integer ranks; lower rank means broader type.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.hierarchy'},
-                         'note': {'tag': 'note',
-                                  'value': 'Stored as dict; overlaps with '
-                                           'CellTypeSet.order; retained for tooling '
-                                           'convenience'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'annotations']} })
     mode: Optional[str] = Field(default=None, description="""Active taxonomy mode controlling which subset of cells and analysis components to use.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location', 'value': 'uns.mode'},
-                         'note': {'tag': 'note',
-                                  'value': 'Computed for analysis; Jeremy: folks can '
-                                           'ignore'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
     filter: Optional[bool] = Field(default=None, description="""Per-mode boolean flags indicating cells to exclude (True means exclude).""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location', 'value': 'uns.filter'},
-                         'note': {'tag': 'note',
-                                  'value': 'Multivalued; computed for analysis; '
-                                           'Jeremy: folks can ignore'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
     cluster_algorithm: Optional[str] = Field(default=None, description="""Full description of clustering algorithm and parameters used to produce cluster assignments.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_algorithm'},
-                         'note': {'tag': 'note', 'value': 'Stored as dict'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
     cluster_info: Optional[str] = Field(default=None, description="""Summary table of cluster-level metadata including cluster sizes and representative metadata.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_info'},
-                         'note': {'tag': 'note',
-                                  'value': 'Stored as dict; Jeremy: effectively the '
-                                           'obs table saved per cluster; what people '
-                                           'call the "Google Sheet" of cell type '
-                                           'annotations'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'annotations']} })
     default_embedding: Optional[str] = Field(default=None, description="""Key in obsm of the embedding to display by default; must match an X_-prefixed entry.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.default_embedding'},
-                         'note': {'tag': 'note',
-                                  'value': 'String key matching '
-                                           'Embedding.embedding_key of the default '
-                                           'embedding to display'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
     cellannotation_schema: Optional[str] = Field(default=None, description="""CAS annotation schema stored as JSON encoding labelset and annotation metadata.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cellannotation_schema'},
-                         'note': {'tag': 'note',
-                                  'value': 'RECOMMENDED in AIT_schema.csv but absent '
-                                           'from all 3 HMBA files.'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
     quality_control_markers: Optional[str] = Field(default=None, description="""Marker gene expression data for patchseq quality control analysis.""", json_schema_extra = { "linkml_meta": {'aliases': ['quality_control_markers'],
          'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.qualty_control_markers'},
-                         'note': {'tag': 'note',
-                                  'value': 'AIT_schema.csv misspells the key as '
-                                           "'qualty_control_markers' (both shipped "
-                                           'CSVs); README spells it correctly. '
-                                           'Location follows the CSV because that is '
-                                           'what scrattch uses. Absent from all 3 HMBA '
-                                           'files. REPORTED UPSTREAM -- revisit if '
-                                           'fixed.'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'analysis']} })
     reference_genome: Optional[str] = Field(default=None, description="""Reference genome assembly used to align the molecular measurements.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.reference_genome'},
-                         'note': {'tag': 'note',
-                                  'value': 'DECISION NEEDED: class placement. '
-                                           'Documented in AIT_schema.csv (uns, '
-                                           'RECOMMENDED) and present in all 3 files, '
-                                           "but value is 'GRCh38' for Macaque and "
-                                           'Marmoset too -- consistent with a '
-                                           'cross-species consensus taxonomy; confirm '
-                                           'with AIT. May belong on a GenomeAnnotation '
-                                           'class instead (unresolved in '
-                                           'tmp_ait/open_questions.md).'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'assigned_metadata']} })
     gene_annotation_version: Optional[str] = Field(default=None, description="""Genome annotation version used during alignment.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.gene_annotation_version'},
-                         'note': {'tag': 'note',
-                                  'value': 'DECISION NEEDED: class placement (see '
-                                           'reference_genome). Present in all 3 files '
-                                           'but the value is an empty string in every '
-                                           'one.'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'assigned_metadata']} })
-    has_embedding: Optional[list[str]] = Field(default=None, description="""One or more dimensionality reductions associated with this taxonomy.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeTaxonomy'], 'in_subset': ['obsm', 'analysis']} })
-    has_expression_matrix: Optional[list[str]] = Field(default=None, description="""One or more cell-by-gene matrices associated with this taxonomy (normalized and/or raw counts).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeTaxonomy'], 'in_subset': ['X', 'raw', 'data']} })
+    has_embedding: Optional[list[str]] = Field(default=None, description="""One or more dimensionality reductions associated with this taxonomy.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': '(derived: one Embedding per obsm '
+                                                   'key)'}},
+         'domain_of': ['CellTypeTaxonomy'],
+         'in_subset': ['obsm', 'analysis']} })
+    has_expression_matrix: Optional[list[str]] = Field(default=None, description="""One or more cell-by-gene matrices associated with this taxonomy (normalized and/or raw counts).""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': '(derived: one ExpressionMatrix per '
+                                                   'X / raw.X group present)'}},
+         'domain_of': ['CellTypeTaxonomy'],
+         'in_subset': ['X', 'raw', 'data']} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity'], 'slot_uri': 'prov:wasGeneratedBy'} })
     iri: Optional[str] = Field(default=None, description="""An IRI for an entity. This is determined by the id using expansion rules.""", json_schema_extra = { "linkml_meta": {'definition_uri': 'https://w3id.org/biolink/vocab/iri',
          'domain_of': ['attribute',
@@ -13490,25 +13418,6 @@ class ClusterSet(ProvEntity, NamedThing):
          'mixins': ['ProvEntity'],
          'slot_usage': {'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': '(synthesized)'},
-                                               'note': {'tag': 'note',
-                                                        'value': 'Minted by the '
-                                                                 'pipeline; no AIT '
-                                                                 'source. ID strategy '
-                                                                 'NOT YET DECIDED -- '
-                                                                 "bkbit's existing "
-                                                                 'taxonomy2jsonld uses '
-                                                                 'a deterministic hash '
-                                                                 "of the object's "
-                                                                 'attributes '
-                                                                 '(generate_object_id), '
-                                                                 'which keeps ids '
-                                                                 'stable across '
-                                                                 're-runs. Whatever is '
-                                                                 'chosen must be '
-                                                                 'deterministic, or '
-                                                                 're-ingesting the '
-                                                                 'same file produces '
-                                                                 'different ids.'},
                                                'source': {'tag': 'source',
                                                           'value': 'bke'}},
                                'description': 'Unique identifier for this cluster set.',
@@ -13531,16 +13440,6 @@ class ClusterSet(ProvEntity, NamedThing):
 
     id: str = Field(default=..., description="""Unique identifier for this cluster set.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(synthesized)'},
-                         'note': {'tag': 'note',
-                                  'value': 'Minted by the pipeline; no AIT source. ID '
-                                           "strategy NOT YET DECIDED -- bkbit's "
-                                           'existing taxonomy2jsonld uses a '
-                                           "deterministic hash of the object's "
-                                           'attributes (generate_object_id), which '
-                                           'keeps ids stable across re-runs. Whatever '
-                                           'is chosen must be deterministic, or '
-                                           're-ingesting the same file produces '
-                                           'different ids.'},
                          'source': {'tag': 'source', 'value': 'bke'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -13918,31 +13817,27 @@ class Cluster(ProvEntity, NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/cell-taxonomy',
          'mixins': ['ProvEntity'],
-         'slot_usage': {'has_parent': {'in_subset': ['obs', 'uns', 'annotations'],
+         'slot_usage': {'has_parent': {'annotations': {'ait_location': {'tag': 'ait_location',
+                                                                        'value': '(derived: '
+                                                                                 'taxa '
+                                                                                 'at '
+                                                                                 'the '
+                                                                                 'levels '
+                                                                                 'above '
+                                                                                 'cluster_id '
+                                                                                 'in '
+                                                                                 'uns.hierarchy; '
+                                                                                 'read '
+                                                                                 'per '
+                                                                                 'row '
+                                                                                 'of '
+                                                                                 'uns.cluster_info)'}},
+                                       'in_subset': ['obs', 'uns', 'annotations'],
                                        'multivalued': True,
                                        'name': 'has_parent',
                                        'range': 'CellTypeTaxon'},
                         'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': '(synthesized)'},
-                                               'note': {'tag': 'note',
-                                                        'value': 'Minted by the '
-                                                                 'pipeline; no AIT '
-                                                                 'source. ID strategy '
-                                                                 'NOT YET DECIDED -- '
-                                                                 "bkbit's existing "
-                                                                 'taxonomy2jsonld uses '
-                                                                 'a deterministic hash '
-                                                                 "of the object's "
-                                                                 'attributes '
-                                                                 '(generate_object_id), '
-                                                                 'which keeps ids '
-                                                                 'stable across '
-                                                                 're-runs. Whatever is '
-                                                                 'chosen must be '
-                                                                 'deterministic, or '
-                                                                 're-ingesting the '
-                                                                 'same file produces '
-                                                                 'different ids.'},
                                                'source': {'tag': 'source',
                                                           'value': 'bke'}},
                                'description': 'Unique identifier for this cluster.',
@@ -13961,7 +13856,16 @@ class Cluster(ProvEntity, NamedThing):
                                  'in_subset': ['obs', 'uns', 'annotations'],
                                  'name': 'name',
                                  'range': 'string'},
-                        'part_of_set': {'description': 'The cluster set to which this '
+                        'part_of_set': {'annotations': {'ait_location': {'tag': 'ait_location',
+                                                                         'value': '(derived: '
+                                                                                  'the '
+                                                                                  'single '
+                                                                                  'synthesized '
+                                                                                  'ClusterSet '
+                                                                                  'for '
+                                                                                  'this '
+                                                                                  'file)'}},
+                                        'description': 'The cluster set to which this '
                                                        'cluster belongs.',
                                         'in_subset': ['uns', 'annotations'],
                                         'name': 'part_of_set',
@@ -13969,16 +13873,6 @@ class Cluster(ProvEntity, NamedThing):
 
     id: str = Field(default=..., description="""Unique identifier for this cluster.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(synthesized)'},
-                         'note': {'tag': 'note',
-                                  'value': 'Minted by the pipeline; no AIT source. ID '
-                                           "strategy NOT YET DECIDED -- bkbit's "
-                                           'existing taxonomy2jsonld uses a '
-                                           "deterministic hash of the object's "
-                                           'attributes (generate_object_id), which '
-                                           'keeps ids stable across re-runs. Whatever '
-                                           'is chosen must be deterministic, or '
-                                           're-ingesting the same file produces '
-                                           'different ids.'},
                          'source': {'tag': 'source', 'value': 'bke'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -14045,19 +13939,20 @@ class Cluster(ProvEntity, NamedThing):
          'mappings': ['rdfs:label'],
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
          'slot_uri': 'rdfs:label'} })
-    part_of_set: Optional[str] = Field(default=None, description="""The cluster set to which this cluster belongs.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeTaxon', 'Cluster'], 'in_subset': ['uns', 'annotations']} })
-    has_parent: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeSet', 'CellTypeTaxon', 'Cluster'],
+    part_of_set: Optional[str] = Field(default=None, description="""The cluster set to which this cluster belongs.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': '(derived: the single synthesized '
+                                                   'ClusterSet for this file)'}},
+         'domain_of': ['CellTypeTaxon', 'Cluster'],
+         'in_subset': ['uns', 'annotations']} })
+    has_parent: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': '(derived: taxa at the levels above '
+                                                   'cluster_id in uns.hierarchy; read '
+                                                   'per row of uns.cluster_info)'}},
+         'domain_of': ['CellTypeSet', 'CellTypeTaxon', 'Cluster'],
          'in_subset': ['obs', 'uns', 'annotations']} })
     number_of_observations: Optional[int] = Field(default=None, description="""Number of cells assigned to this cluster.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(derived: count obs rows grouped '
                                                    'by obs.cluster_id)'},
-                         'note': {'tag': 'note',
-                                  'value': 'NOT STORED. The previously claimed '
-                                           'cluster_info.n_cells does not exist in any '
-                                           'species. Compute from obs by grouping on '
-                                           'cluster_id. Same caveat as '
-                                           'number_of_cells: needs obs, not available '
-                                           'from cluster_info alone.'},
                          'source': {'tag': 'source', 'value': 'bke'}},
          'domain_of': ['Cluster'],
          'in_subset': ['uns', 'annotations']} })
@@ -14378,12 +14273,6 @@ class ExpressionMatrix(ProvEntity, NamedThing):
          'slot_usage': {'content_url': {'aliases': ['dataset_purl'],
                                         'annotations': {'ait_location': {'tag': 'ait_location',
                                                                          'value': 'uns.dataset_purl'},
-                                                        'note': {'tag': 'note',
-                                                                 'value': 'Corresponds '
-                                                                          'to AIT '
-                                                                          'dataset_purl; '
-                                                                          'BKE '
-                                                                          'ExpressionMatrix.content_url'},
                                                         'source': {'tag': 'source',
                                                                    'value': 'both'}},
                                         'description': 'URL to the matrix file if the '
@@ -14395,25 +14284,6 @@ class ExpressionMatrix(ProvEntity, NamedThing):
                                         'range': 'uri'},
                         'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': '(synthesized)'},
-                                               'note': {'tag': 'note',
-                                                        'value': 'Minted by the '
-                                                                 'pipeline; no AIT '
-                                                                 'source. ID strategy '
-                                                                 'NOT YET DECIDED -- '
-                                                                 "bkbit's existing "
-                                                                 'taxonomy2jsonld uses '
-                                                                 'a deterministic hash '
-                                                                 "of the object's "
-                                                                 'attributes '
-                                                                 '(generate_object_id), '
-                                                                 'which keeps ids '
-                                                                 'stable across '
-                                                                 're-runs. Whatever is '
-                                                                 'chosen must be '
-                                                                 'deterministic, or '
-                                                                 're-ingesting the '
-                                                                 'same file produces '
-                                                                 'different ids.'},
                                                'source': {'tag': 'source',
                                                           'value': 'bke'}},
                                'description': 'Unique identifier for this expression '
@@ -14424,16 +14294,6 @@ class ExpressionMatrix(ProvEntity, NamedThing):
 
     id: str = Field(default=..., description="""Unique identifier for this expression matrix.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(synthesized)'},
-                         'note': {'tag': 'note',
-                                  'value': 'Minted by the pipeline; no AIT source. ID '
-                                           "strategy NOT YET DECIDED -- bkbit's "
-                                           'existing taxonomy2jsonld uses a '
-                                           "deterministic hash of the object's "
-                                           'attributes (generate_object_id), which '
-                                           'keeps ids stable across re-runs. Whatever '
-                                           'is chosen must be deterministic, or '
-                                           're-ingesting the same file produces '
-                                           'different ids.'},
                          'source': {'tag': 'source', 'value': 'bke'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -14471,9 +14331,6 @@ class ExpressionMatrix(ProvEntity, NamedThing):
     content_url: Optional[list[str]] = Field(default=None, description="""URL to the matrix file if the matrix is not embedded directly in the h5ad file.""", json_schema_extra = { "linkml_meta": {'aliases': ['dataset_purl'],
          'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.dataset_purl'},
-                         'note': {'tag': 'note',
-                                  'value': 'Corresponds to AIT dataset_purl; BKE '
-                                           'ExpressionMatrix.content_url'},
                          'source': {'tag': 'source', 'value': 'both'}},
          'domain_of': ['GenomeAnnotation', 'CellTypeTaxonomy', 'ExpressionMatrix'],
          'in_subset': ['uns', 'data'],
@@ -14481,17 +14338,14 @@ class ExpressionMatrix(ProvEntity, NamedThing):
     matrix_type: Optional[ExpressionMatrixType] = Field(default=None, description="""Whether this matrix contains normalized expression values or raw counts.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(derived: normalized if read from '
                                                    'X, raw_count if read from raw.X)'},
-                         'note': {'tag': 'note',
-                                  'value': 'NOT STORED as a value. AIT encodes it '
-                                           'structurally: X holds normalized '
-                                           'expression, raw.X holds counts. The enum '
-                                           'value follows from which group the matrix '
-                                           'was read from. In all 3 HMBA files X is '
-                                           'present (csr_matrix) and raw exists.'},
                          'source': {'tag': 'source', 'value': 'ait'}},
          'domain_of': ['ExpressionMatrix'],
          'in_subset': ['X', 'raw', 'data']} })
-    has_variable: Optional[list[str]] = Field(default=None, description="""One of the genes (variables) measured across all cells in this matrix; corresponds to a column in var.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExpressionMatrix'], 'in_subset': ['var', 'assigned_metadata']} })
+    has_variable: Optional[list[str]] = Field(default=None, description="""One of the genes (variables) measured across all cells in this matrix; corresponds to a column in var.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': '(derived: one GeneAnnotation per '
+                                                   'var row)'}},
+         'domain_of': ['ExpressionMatrix'],
+         'in_subset': ['var', 'assigned_metadata']} })
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity', 'CellTypeTaxonomy', 'ClusterSet'],
          'slot_uri': 'prov:wasDerivedFrom'} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity'], 'slot_uri': 'prov:wasGeneratedBy'} })
@@ -14836,25 +14690,6 @@ class Embedding(ProvEntity, NamedThing):
          'mixins': ['ProvEntity'],
          'slot_usage': {'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': '(synthesized)'},
-                                               'note': {'tag': 'note',
-                                                        'value': 'Minted by the '
-                                                                 'pipeline; no AIT '
-                                                                 'source. ID strategy '
-                                                                 'NOT YET DECIDED -- '
-                                                                 "bkbit's existing "
-                                                                 'taxonomy2jsonld uses '
-                                                                 'a deterministic hash '
-                                                                 "of the object's "
-                                                                 'attributes '
-                                                                 '(generate_object_id), '
-                                                                 'which keeps ids '
-                                                                 'stable across '
-                                                                 're-runs. Whatever is '
-                                                                 'chosen must be '
-                                                                 'deterministic, or '
-                                                                 're-ingesting the '
-                                                                 'same file produces '
-                                                                 'different ids.'},
                                                'source': {'tag': 'source',
                                                           'value': 'bke'}},
                                'description': 'Unique identifier for this embedding.',
@@ -14864,16 +14699,6 @@ class Embedding(ProvEntity, NamedThing):
 
     id: str = Field(default=..., description="""Unique identifier for this embedding.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(synthesized)'},
-                         'note': {'tag': 'note',
-                                  'value': 'Minted by the pipeline; no AIT source. ID '
-                                           "strategy NOT YET DECIDED -- bkbit's "
-                                           'existing taxonomy2jsonld uses a '
-                                           "deterministic hash of the object's "
-                                           'attributes (generate_object_id), which '
-                                           'keeps ids stable across re-runs. Whatever '
-                                           'is chosen must be deterministic, or '
-                                           're-ingesting the same file produces '
-                                           'different ids.'},
                          'source': {'tag': 'source', 'value': 'bke'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -15262,25 +15087,6 @@ class Abbreviation(ProvEntity, NamedThing):
          'mixins': ['ProvEntity'],
          'slot_usage': {'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': '(synthesized)'},
-                                               'note': {'tag': 'note',
-                                                        'value': 'Minted by the '
-                                                                 'pipeline; no AIT '
-                                                                 'source. ID strategy '
-                                                                 'NOT YET DECIDED -- '
-                                                                 "bkbit's existing "
-                                                                 'taxonomy2jsonld uses '
-                                                                 'a deterministic hash '
-                                                                 "of the object's "
-                                                                 'attributes '
-                                                                 '(generate_object_id), '
-                                                                 'which keeps ids '
-                                                                 'stable across '
-                                                                 're-runs. Whatever is '
-                                                                 'chosen must be '
-                                                                 'deterministic, or '
-                                                                 're-ingesting the '
-                                                                 'same file produces '
-                                                                 'different ids.'},
                                                'source': {'tag': 'source',
                                                           'value': 'bke'}},
                                'description': 'Unique identifier for this abbreviation '
@@ -15292,16 +15098,6 @@ class Abbreviation(ProvEntity, NamedThing):
 
     id: str = Field(default=..., description="""Unique identifier for this abbreviation entry.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(synthesized)'},
-                         'note': {'tag': 'note',
-                                  'value': 'Minted by the pipeline; no AIT source. ID '
-                                           "strategy NOT YET DECIDED -- bkbit's "
-                                           'existing taxonomy2jsonld uses a '
-                                           "deterministic hash of the object's "
-                                           'attributes (generate_object_id), which '
-                                           'keeps ids stable across re-runs. Whatever '
-                                           'is chosen must be deterministic, or '
-                                           're-ingesting the same file produces '
-                                           'different ids.'},
                          'source': {'tag': 'source', 'value': 'bke'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -15339,26 +15135,13 @@ class Abbreviation(ProvEntity, NamedThing):
     term: Optional[str] = Field(default=None, description="""An abbreviation term as it appears in a cell type or cell set name.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_info.tokens_<level> '
                                                    '(data only)'},
-                         'note': {'tag': 'note',
-                                  'value': "Pipe-separated name tokens, e.g. 'STRv|D1 "
-                                           "MSN', 'CN|LGE|GABA'. Present in all 3 "
-                                           'files. DERIVATION: split the cell value on '
-                                           "'|' and mint one Abbreviation per distinct "
-                                           'token; the token is the term. The '
-                                           'expansion (meaning) is not in the file -- '
-                                           'see Abbreviation.meaning.'},
                          'source': {'tag': 'source', 'value': 'bke'}},
          'domain_of': ['Abbreviation'],
          'in_subset': ['uns', 'annotations']} })
-    meaning: Optional[str] = Field(default=None, description="""The decoded meaning of the abbreviation term.""", json_schema_extra = { "linkml_meta": {'annotations': {'note': {'tag': 'note',
-                                  'value': 'No AIT source anywhere -- tokens give the '
-                                           'term only, never its expansion. Fill from '
-                                           'a BKE-side lookup.'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+    meaning: Optional[str] = Field(default=None, description="""The decoded meaning of the abbreviation term.""", json_schema_extra = { "linkml_meta": {'annotations': {'source': {'tag': 'source', 'value': 'bke'}},
          'domain_of': ['Abbreviation'],
          'in_subset': ['uns', 'annotations']} })
-    entity_type: Optional[AbbreviationEntityType] = Field(default=None, description="""The entity type which the abbreviation term denotes.""", json_schema_extra = { "linkml_meta": {'annotations': {'note': {'tag': 'note', 'value': 'No AIT source.'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+    entity_type: Optional[AbbreviationEntityType] = Field(default=None, description="""The entity type which the abbreviation term denotes.""", json_schema_extra = { "linkml_meta": {'annotations': {'source': {'tag': 'source', 'value': 'bke'}},
          'domain_of': ['Abbreviation'],
          'in_subset': ['uns', 'annotations']} })
     denotes_gene_annotation: Optional[list[str]] = Field(default=None, description="""One of potentially many gene annotation terms to which the abbreviation denotes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Abbreviation'], 'in_subset': ['uns', 'annotations']} })
@@ -15706,10 +15489,7 @@ class ColorPalette(ProvEntity, NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/cell-taxonomy',
          'mixins': ['ProvEntity'],
-         'slot_usage': {'description': {'annotations': {'note': {'tag': 'note',
-                                                                 'value': 'From BKE '
-                                                                          'ColorPalette.description'},
-                                                        'source': {'tag': 'source',
+         'slot_usage': {'description': {'annotations': {'source': {'tag': 'source',
                                                                    'value': 'bke'}},
                                         'description': 'Description of the color '
                                                        'palette.',
@@ -15719,25 +15499,6 @@ class ColorPalette(ProvEntity, NamedThing):
                                         'range': 'string'},
                         'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': '(synthesized)'},
-                                               'note': {'tag': 'note',
-                                                        'value': 'Minted by the '
-                                                                 'pipeline; no AIT '
-                                                                 'source. ID strategy '
-                                                                 'NOT YET DECIDED -- '
-                                                                 "bkbit's existing "
-                                                                 'taxonomy2jsonld uses '
-                                                                 'a deterministic hash '
-                                                                 "of the object's "
-                                                                 'attributes '
-                                                                 '(generate_object_id), '
-                                                                 'which keeps ids '
-                                                                 'stable across '
-                                                                 're-runs. Whatever is '
-                                                                 'chosen must be '
-                                                                 'deterministic, or '
-                                                                 're-ingesting the '
-                                                                 'same file produces '
-                                                                 'different ids.'},
                                                'source': {'tag': 'source',
                                                           'value': 'bke'}},
                                'description': 'Unique identifier for this color '
@@ -15746,24 +15507,7 @@ class ColorPalette(ProvEntity, NamedThing):
                                'in_subset': ['uns', 'tooling'],
                                'name': 'id',
                                'range': 'string'},
-                        'name': {'annotations': {'note': {'tag': 'note',
-                                                          'value': 'CANDIDATE '
-                                                                   '(unconfirmed): '
-                                                                   'Human uns carries '
-                                                                   'AIT117_/AIT193_MapMyCells_<Level>_label_colors '
-                                                                   '-- named hex '
-                                                                   'lists, per '
-                                                                   'taxonomy version '
-                                                                   'and level. Absent '
-                                                                   'from Macaque and '
-                                                                   'Marmoset. Whether '
-                                                                   'the uns key name '
-                                                                   'is the palette '
-                                                                   'name is an '
-                                                                   'inference, so no '
-                                                                   'location is '
-                                                                   'asserted here.'},
-                                                 'source': {'tag': 'source',
+                        'name': {'annotations': {'source': {'tag': 'source',
                                                             'value': 'bke'}},
                                  'description': 'Name of the color palette.',
                                  'from_schema': 'bican_biolink',
@@ -15773,16 +15517,6 @@ class ColorPalette(ProvEntity, NamedThing):
 
     id: str = Field(default=..., description="""Unique identifier for this color palette.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(synthesized)'},
-                         'note': {'tag': 'note',
-                                  'value': 'Minted by the pipeline; no AIT source. ID '
-                                           "strategy NOT YET DECIDED -- bkbit's "
-                                           'existing taxonomy2jsonld uses a '
-                                           "deterministic hash of the object's "
-                                           'attributes (generate_object_id), which '
-                                           'keeps ids stable across re-runs. Whatever '
-                                           'is chosen must be deterministic, or '
-                                           're-ingesting the same file produces '
-                                           'different ids.'},
                          'source': {'tag': 'source', 'value': 'bke'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -15818,15 +15552,7 @@ class ColorPalette(ProvEntity, NamedThing):
          'in_subset': ['uns', 'tooling'],
          'slot_uri': 'biolink:id'} })
     name: Optional[str] = Field(default=None, description="""Name of the color palette.""", json_schema_extra = { "linkml_meta": {'aliases': ['label', 'display name', 'title'],
-         'annotations': {'note': {'tag': 'note',
-                                  'value': 'CANDIDATE (unconfirmed): Human uns carries '
-                                           'AIT117_/AIT193_MapMyCells_<Level>_label_colors '
-                                           '-- named hex lists, per taxonomy version '
-                                           'and level. Absent from Macaque and '
-                                           'Marmoset. Whether the uns key name is the '
-                                           'palette name is an inference, so no '
-                                           'location is asserted here.'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+         'annotations': {'source': {'tag': 'source', 'value': 'bke'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/name',
          'domain': 'entity',
          'domain_of': ['attribute',
@@ -15856,9 +15582,7 @@ class ColorPalette(ProvEntity, NamedThing):
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
          'slot_uri': 'rdfs:label'} })
     description: Optional[str] = Field(default=None, description="""Description of the color palette.""", json_schema_extra = { "linkml_meta": {'aliases': ['definition'],
-         'annotations': {'note': {'tag': 'note',
-                                  'value': 'From BKE ColorPalette.description'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+         'annotations': {'source': {'tag': 'source', 'value': 'bke'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/description',
          'domain_of': ['entity',
                        'attribute',
@@ -16174,25 +15898,6 @@ class DisplayColor(ProvEntity, NamedThing):
          'mixins': ['ProvEntity'],
          'slot_usage': {'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': '(synthesized)'},
-                                               'note': {'tag': 'note',
-                                                        'value': 'Minted by the '
-                                                                 'pipeline; no AIT '
-                                                                 'source. ID strategy '
-                                                                 'NOT YET DECIDED -- '
-                                                                 "bkbit's existing "
-                                                                 'taxonomy2jsonld uses '
-                                                                 'a deterministic hash '
-                                                                 "of the object's "
-                                                                 'attributes '
-                                                                 '(generate_object_id), '
-                                                                 'which keeps ids '
-                                                                 'stable across '
-                                                                 're-runs. Whatever is '
-                                                                 'chosen must be '
-                                                                 'deterministic, or '
-                                                                 're-ingesting the '
-                                                                 'same file produces '
-                                                                 'different ids.'},
                                                'source': {'tag': 'source',
                                                           'value': 'bke'}},
                                'description': 'Unique identifier for this display '
@@ -16204,16 +15909,6 @@ class DisplayColor(ProvEntity, NamedThing):
 
     id: str = Field(default=..., description="""Unique identifier for this display color entry.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(synthesized)'},
-                         'note': {'tag': 'note',
-                                  'value': 'Minted by the pipeline; no AIT source. ID '
-                                           "strategy NOT YET DECIDED -- bkbit's "
-                                           'existing taxonomy2jsonld uses a '
-                                           "deterministic hash of the object's "
-                                           'attributes (generate_object_id), which '
-                                           'keeps ids stable across re-runs. Whatever '
-                                           'is chosen must be deterministic, or '
-                                           're-ingesting the same file produces '
-                                           'different ids.'},
                          'source': {'tag': 'source', 'value': 'bke'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
@@ -16251,10 +15946,6 @@ class DisplayColor(ProvEntity, NamedThing):
     color_hex_triplet: Optional[str] = Field(default=None, description="""A hex string representing the display color for an associated entity.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_info.color_hex_<level> '
                                                    '(data only)'},
-                         'note': {'tag': 'note',
-                                  'value': 'Populated in all 3 files (56 distinct hex '
-                                           'in Macaque). Note color_<level> also '
-                                           'exists but is entirely empty.'},
                          'source': {'tag': 'source', 'value': 'bke'}},
          'domain_of': ['DisplayColor'],
          'in_subset': ['uns', 'tooling']} })

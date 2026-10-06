@@ -291,9 +291,6 @@
          },
          "@id": "cell_type_set_type"
       },
-      "has_abbreviation": {
-         "@id": "has_abbreviation"
-      },
       "part_of_taxonomy": {
          "@type": "@id",
          "@id": "part_of_taxonomy"
@@ -301,13 +298,18 @@
       "cell_type_ontology_term": {
          "@id": "cell_type_ontology_term"
       },
-      "curated_markers_to_mouse": {
+      "curated_markers": {
          "@type": "@id",
-         "@id": "curated_markers_to_mouse"
+         "@id": "curated_markers"
       },
-      "curated_markers_to_primates": {
-         "@type": "@id",
-         "@id": "curated_markers_to_primates"
+      "literature_name_long": {
+         "@id": "literature_name_long"
+      },
+      "literature_name_short": {
+         "@id": "literature_name_short"
+      },
+      "literature_support": {
+         "@id": "literature_support"
       },
       "number_of_cells": {
          "@type": "xsd:integer",
@@ -490,6 +492,9 @@
       "has_unit": {
          "@type": "UO:0000000",
          "@id": "biolink:has_unit"
+      },
+      "has_abbreviation": {
+         "@id": "has_abbreviation"
       },
       "has_parent": {
          "@id": "has_parent"
@@ -721,12 +726,12 @@
       "CellTypeSet": {
          "@id": "CellTypeSet",
          "@context": {
-            "has_abbreviation": {
-               "@id": "has_abbreviation",
-               "@type": "@id"
-            },
             "has_parent": {
                "@id": "has_parent",
+               "@type": "@id"
+            },
+            "has_abbreviation": {
+               "@id": "has_abbreviation",
                "@type": "@id"
             }
          }
@@ -734,16 +739,16 @@
       "CellTypeTaxon": {
          "@id": "CellTypeTaxon",
          "@context": {
-            "has_abbreviation": {
-               "@id": "has_abbreviation",
-               "@type": "@id"
-            },
             "has_parent": {
                "@id": "has_parent",
                "@type": "@id"
             },
             "part_of_set": {
                "@id": "part_of_set",
+               "@type": "@id"
+            },
+            "has_abbreviation": {
+               "@id": "has_abbreviation",
                "@type": "@id"
             }
          }

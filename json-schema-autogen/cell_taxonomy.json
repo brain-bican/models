@@ -1460,23 +1460,14 @@
                 },
                 "cell_type_ontology_term": {
                     "description": "CL ontology term for this cell type; use CL:0000003 for native cell if unknown.",
+                    "pattern": "^CL:\\d{7}$",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "curated_markers_to_mouse": {
-                    "description": "Marker genes in the mouse species that are related to the respective cell type.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "curated_markers_to_primates": {
-                    "description": "Marker genes in the primate species that are related to the respective cell type.",
+                "curated_markers": {
+                    "description": "Marker genes curated as characteristic of this cell type. One set per taxon; the AIT consensus taxonomy does not split these by species.",
                     "items": {
                         "type": "string"
                     },
@@ -1556,6 +1547,27 @@
                 },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "literature_name_long": {
+                    "description": "Full name used for this cell type in the supporting literature.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "literature_name_short": {
+                    "description": "Short name used for this cell type in the supporting literature.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "literature_support": {
+                    "description": "Published study in which this cell type was previously described. The value \"Novel\" indicates no prior published description.",
                     "type": [
                         "string",
                         "null"

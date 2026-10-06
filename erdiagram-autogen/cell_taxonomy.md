@@ -67,6 +67,9 @@ CellTypeTaxon {
     string name  
     string accession_id  
     string cell_type_ontology_term  
+    string literature_name_long  
+    string literature_name_short  
+    string literature_support  
     integer number_of_cells  
     integer order  
     narrative_text description  
@@ -227,7 +230,7 @@ CellTypeSet ||--}o Abbreviation : "has_abbreviation"
 CellTypeTaxon ||--|o CellTypeSet : "part_of_set"
 CellTypeTaxon ||--|o CellTypeTaxon : "has_parent"
 CellTypeTaxon ||--}o Abbreviation : "has_abbreviation"
-CellTypeTaxon ||--}o GeneAnnotation : "curated_markers_to_mouse, curated_markers_to_primates"
+CellTypeTaxon ||--}o GeneAnnotation : "curated_markers"
 CellTypeTaxonomy ||--}o ClusterSet : "was_derived_from"
 CellTypeTaxonomy ||--}o Embedding : "has_embedding"
 CellTypeTaxonomy ||--}o ExpressionMatrix : "has_expression_matrix"
