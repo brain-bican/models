@@ -1,5 +1,5 @@
 Class	Predicate (General)	Predicate (Specific)	Subject	from_schema	Multivalued	Slot Definition	ExactlyOneOf	Quasi-formalism	BKE Local Name	Local Name Source
-> class	slot	attribute	range	from_schema	multivalued	description	ignore	ignore	local_names	local_names
+> class	slot	attribute	range	ignore	multivalued	description	ignore	ignore	local_names	local_names
 >			internal_separator: "|"						inner_key: local_name_value	inner_key: local_name_source
 	part_of_taxonomy		CellTypeTaxonomy		FALSE		TRUE			
 	has_parent		named thing		FALSE		FALSE			
