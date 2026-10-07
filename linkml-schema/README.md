@@ -91,13 +91,3 @@ The BICAN Prov schema contains a subset of classes from the Prov Data Model (PRO
 ##### Updates
 The model has been created directly in the YAML format, and all the updates can be done by editing the file directly.
 
-
-## Deprecated models
-
-These are models that are no longer used, but are kept for reference.
-
-### [ccn2](ccn2.yaml)
-A depreciated model, initial attempt to convert a CCN2 model to LinkML.
-
-### [figure1](figure1.yaml)
-A depreciated model, initial attempt to provide a schema for data presented on Figure1 from [Yao, Z. et al., _Nature_ 624 (2023)](https://www.nature.com/articles/s41586-023-06812-z#citeas).
