@@ -83,10 +83,6 @@ enums:
         description: Abbreviation denotes an Anatomical Structure entity.
 slots:
   accession_id:
-    annotations:
-      source:
-        tag: source
-        value: bke
     description: A provider-assigned accession identifier for a given entity.
     in_subset:
     - uns
@@ -97,9 +93,6 @@ slots:
       ait_location:
         tag: ait_location
         value: uns.cluster_info.display_order_<level> (data only)
-      source:
-        tag: source
-        value: bke
     description: The priority or display order of an entity among all other entities
       of the same type.
     in_subset:
@@ -128,9 +121,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.index
-          source:
-            tag: source
-            value: ait
         description: Unique identifier for each individual cell.
         in_subset:
         - obs
@@ -143,9 +133,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.cluster_id
-          source:
-            tag: source
-            value: ait
         description: Human-readable cluster label for the cluster assigned to this
           cell at a given annotation level.
         in_subset:
@@ -158,9 +145,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.load_id
-          source:
-            tag: source
-            value: ait
         description: Identifier for the sequencing library from which molecular measurements
           were derived.
         in_subset:
@@ -173,9 +157,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.assay
-          source:
-            tag: source
-            value: ait
         description: Human-readable sequencing modality (e.g. 10x 3' v3).
         in_subset:
         - obs
@@ -187,9 +168,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.assay_ontology_term_id
-          source:
-            tag: source
-            value: ait
         description: EFO ontology term for assay (e.g. EFO:0009922 for 10x 3' v3).
         in_subset:
         - obs
@@ -201,9 +179,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.anatomical_region
-          source:
-            tag: source
-            value: ait
         description: Human-readable name for the anatomical region from which the
           cell was collected.
         in_subset:
@@ -216,9 +191,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.anatomical_region_ontology_term_id
-          source:
-            tag: source
-            value: ait
         description: UBERON ontology term for anatomical region (e.g. UBERON:0000955
           for brain).
         in_subset:
@@ -231,9 +203,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.brain_region_ontology_term_id
-          source:
-            tag: source
-            value: ait
         description: Brain atlas region ID from DHBA/HBA/MBA for the anatomical region.
         in_subset:
         - obs
@@ -245,9 +214,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.suspension_type
-          source:
-            tag: source
-            value: ait
         description: Whether the measurement was performed on intact cells, nuclei,
           or is not applicable.
         in_subset:
@@ -260,9 +226,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.is_primary_data
-          source:
-            tag: source
-            value: ait
         description: True if this is the canonical instance of this cellular observation;
           False for reanalysis or secondary views.
         in_subset:
@@ -301,9 +264,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.hierarchy (key)
-          source:
-            tag: source
-            value: both
         description: Unique identifier for this annotation level.
         in_subset:
         - uns
@@ -315,9 +275,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.hierarchy (key) / obs (column name)
-          source:
-            tag: source
-            value: both
         description: Name of this annotation level used as column header in obs (e.g.
           Class, Subclass).
         in_subset:
@@ -331,9 +288,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.hierarchy (value)
-          source:
-            tag: source
-            value: both
         description: Integer rank of this annotation level in the hierarchy; lower
           values are broader types.
         in_subset:
@@ -368,10 +322,6 @@ classes:
         multivalued: true
     attributes:
       cell_type_set_type:
-        annotations:
-          source:
-            tag: source
-            value: bke
         description: A tag denoting whether this grouping represents a taxonomic level
           or neighborhood.
         in_subset:
@@ -412,9 +362,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          source:
-            tag: source
-            value: bke
         description: Unique identifier for this cell type taxon.
         from_schema: bican_biolink
         range: string
@@ -423,9 +370,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.<annotation_level>
-          source:
-            tag: source
-            value: both
         description: Human-readable label for this cell type taxon at the given annotation
           level (e.g. Glutamatergic).
         in_subset:
@@ -438,9 +382,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cluster_info.accession_<level> (data only)
-          source:
-            tag: source
-            value: bke
         description: Stable cross-version identifier for this cell type taxon (e.g.
           CS20230722_CLAS_11).
         in_subset:
@@ -452,9 +393,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cluster_info.display_order_<level> (data only)
-          source:
-            tag: source
-            value: bke
         description: The priority or display order of this taxon among all taxons
           in the taxonomy.
         in_subset:
@@ -506,9 +444,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cluster_info.CL:ID_<level> (data only)
-          source:
-            tag: source
-            value: ait
         description: CL ontology term for this cell type; use CL:0000003 for native
           cell if unknown.
         in_subset:
@@ -524,9 +459,6 @@ classes:
           ait_location:
             tag: ait_location
             value: '(derived: count obs rows grouped by obs.<annotation_level>)'
-          source:
-            tag: source
-            value: bke
         description: The aggregated number of cells that defines this cell type taxon.
         in_subset:
         - uns
@@ -538,9 +470,9 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cluster_info.literature_support
-          source:
-            tag: source
-            value: ait
+          ait_separator:
+            tag: ait_separator
+            value: '|'
         description: Published study in which this cell type was previously described.
           The value "Novel" indicates no prior published description.
         in_subset:
@@ -548,34 +480,37 @@ classes:
         - annotations
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
         range: string
+        multivalued: true
       literature_name_short:
         annotations:
           ait_location:
             tag: ait_location
             value: uns.cluster_info.literature_name_short
-          source:
-            tag: source
-            value: ait
+          ait_separator:
+            tag: ait_separator
+            value: '|'
         description: Short name used for this cell type in the supporting literature.
         in_subset:
         - uns
         - annotations
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
         range: string
+        multivalued: true
       literature_name_long:
         annotations:
           ait_location:
             tag: ait_location
             value: uns.cluster_info.literature_name_long
-          source:
-            tag: source
-            value: ait
+          ait_separator:
+            tag: ait_separator
+            value: '|'
         description: Full name used for this cell type in the supporting literature.
         in_subset:
         - uns
         - annotations
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
         range: string
+        multivalued: true
       curated_markers:
         annotations:
           ait_location:
@@ -611,17 +546,10 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          source:
-            tag: source
-            value: bke
         description: Unique identifier for this taxonomy.
         from_schema: bican_biolink
         range: string
       accession_id:
-        annotations:
-          source:
-            tag: source
-            value: bke
         description: Provider-assigned accession identifier for this taxonomy (e.g.
           CCN20230722).
         range: string
@@ -630,9 +558,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.dataset_purl
-          source:
-            tag: source
-            value: both
         description: Permanent URL to molecular data if the expression matrix is not
           embedded in the file.
         in_subset:
@@ -652,9 +577,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.title
-          source:
-            tag: source
-            value: both
         description: Description differentiating this taxonomy from others in the
           same collection; should be unique within a collection.
         in_subset:
@@ -669,9 +591,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.schema_version
-          source:
-            tag: source
-            value: ait
         description: Version of the AIT schema used to produce this file (e.g. 1.0.0).
         in_subset:
         - uns
@@ -683,9 +602,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.batch_condition
-          source:
-            tag: source
-            value: ait
         description: Cell metadata key(s) in obs that define batches for normalization
           or integration.
         in_subset:
@@ -698,9 +614,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.dendrogram
-          source:
-            tag: source
-            value: ait
         description: JSON-formatted hierarchical clustering dendrogram encoding the
           taxonomy hierarchy.
         in_subset:
@@ -713,9 +626,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.hierarchy
-          source:
-            tag: source
-            value: ait
         description: Ordered mapping of annotation level names to integer ranks; lower
           rank means broader type.
         in_subset:
@@ -728,9 +638,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.mode
-          source:
-            tag: source
-            value: ait
         description: Active taxonomy mode controlling which subset of cells and analysis
           components to use.
         in_subset:
@@ -743,9 +650,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.filter
-          source:
-            tag: source
-            value: ait
         description: Per-mode boolean flags indicating cells to exclude (True means
           exclude).
         in_subset:
@@ -758,9 +662,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cluster_algorithm
-          source:
-            tag: source
-            value: ait
         description: Full description of clustering algorithm and parameters used
           to produce cluster assignments.
         in_subset:
@@ -773,9 +674,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cluster_info
-          source:
-            tag: source
-            value: ait
         description: Summary table of cluster-level metadata including cluster sizes
           and representative metadata.
         in_subset:
@@ -788,9 +686,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.default_embedding
-          source:
-            tag: source
-            value: ait
         description: Key in obsm of the embedding to display by default; must match
           an X_-prefixed entry.
         in_subset:
@@ -803,9 +698,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cellannotation_schema
-          source:
-            tag: source
-            value: ait
         description: CAS annotation schema stored as JSON encoding labelset and annotation
           metadata.
         in_subset:
@@ -818,9 +710,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.qualty_control_markers
-          source:
-            tag: source
-            value: ait
         description: Marker gene expression data for patchseq quality control analysis.
         in_subset:
         - uns
@@ -834,9 +723,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.reference_genome
-          source:
-            tag: source
-            value: ait
         description: Reference genome assembly used to align the molecular measurements.
         in_subset:
         - uns
@@ -848,9 +734,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.gene_annotation_version
-          source:
-            tag: source
-            value: ait
         description: Genome annotation version used during alignment.
         in_subset:
         - uns
@@ -900,9 +783,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          source:
-            tag: source
-            value: bke
         description: Unique identifier for this cluster set.
         in_subset:
         - uns
@@ -910,10 +790,6 @@ classes:
         from_schema: bican_biolink
         range: string
       name:
-        annotations:
-          source:
-            tag: source
-            value: bke
         description: Human-readable name for this cluster set (e.g. the name of the
           clustering run).
         in_subset:
@@ -943,9 +819,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          source:
-            tag: source
-            value: bke
         description: Unique identifier for this cluster.
         in_subset:
         - obs
@@ -958,9 +831,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obs.cluster_id
-          source:
-            tag: source
-            value: both
         description: Human-readable label for this cluster; corresponds to cluster_id
           values in obs.
         in_subset:
@@ -997,9 +867,6 @@ classes:
           ait_location:
             tag: ait_location
             value: '(derived: count obs rows grouped by obs.cluster_id)'
-          source:
-            tag: source
-            value: bke
         description: Number of cells assigned to this cluster.
         in_subset:
         - uns
@@ -1026,9 +893,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          source:
-            tag: source
-            value: bke
         description: Unique identifier for this expression matrix.
         from_schema: bican_biolink
         range: string
@@ -1037,9 +901,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.dataset_purl
-          source:
-            tag: source
-            value: both
         description: URL to the matrix file if the matrix is not embedded directly
           in the h5ad file.
         in_subset:
@@ -1055,9 +916,6 @@ classes:
           ait_location:
             tag: ait_location
             value: '(derived: normalized if read from X, raw_count if read from raw.X)'
-          source:
-            tag: source
-            value: ait
         description: Whether this matrix contains normalized expression values or
           raw counts.
         in_subset:
@@ -1094,9 +952,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          source:
-            tag: source
-            value: bke
         description: Unique identifier for this embedding.
         from_schema: bican_biolink
         range: string
@@ -1106,9 +961,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obsm.X_<embedding> (key)
-          source:
-            tag: source
-            value: ait
         description: Key used to store the embedding in obsm; must be prefixed with
           X_ (e.g. X_umap, X_pca).
         in_subset:
@@ -1121,9 +973,6 @@ classes:
           ait_location:
             tag: ait_location
             value: obsm.X_<embedding> (value)
-          source:
-            tag: source
-            value: ait
         description: "N-dimensional matrix of shape n_cells \xD7 n_dims representing\
           \ the low-dimensional projection."
         in_subset:
@@ -1146,9 +995,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          source:
-            tag: source
-            value: bke
         description: Unique identifier for this abbreviation entry.
         in_subset:
         - uns
@@ -1161,9 +1007,9 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cluster_info.tokens_<level> (data only)
-          source:
-            tag: source
-            value: bke
+          ait_separator:
+            tag: ait_separator
+            value: '|'
         description: An abbreviation term as it appears in a cell type or cell set
           name.
         in_subset:
@@ -1172,10 +1018,6 @@ classes:
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
         range: string
       meaning:
-        annotations:
-          source:
-            tag: source
-            value: bke
         description: The decoded meaning of the abbreviation term.
         in_subset:
         - uns
@@ -1183,10 +1025,6 @@ classes:
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
         range: string
       entity_type:
-        annotations:
-          source:
-            tag: source
-            value: bke
         description: The entity type which the abbreviation term denotes.
         in_subset:
         - uns
@@ -1237,9 +1075,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          source:
-            tag: source
-            value: bke
         description: Unique identifier for this color palette.
         in_subset:
         - uns
@@ -1247,10 +1082,6 @@ classes:
         from_schema: bican_biolink
         range: string
       name:
-        annotations:
-          source:
-            tag: source
-            value: bke
         description: Name of the color palette.
         in_subset:
         - uns
@@ -1258,10 +1089,6 @@ classes:
         from_schema: bican_biolink
         range: string
       description:
-        annotations:
-          source:
-            tag: source
-            value: bke
         description: Description of the color palette.
         in_subset:
         - uns
@@ -1292,9 +1119,6 @@ classes:
           ait_location:
             tag: ait_location
             value: (synthesized)
-          source:
-            tag: source
-            value: bke
         description: Unique identifier for this display color entry.
         in_subset:
         - uns
@@ -1307,9 +1131,6 @@ classes:
           ait_location:
             tag: ait_location
             value: uns.cluster_info.color_hex_<level> (data only)
-          source:
-            tag: source
-            value: bke
         description: A hex string representing the display color for an associated
           entity.
         in_subset:
