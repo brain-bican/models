@@ -11455,7 +11455,6 @@ class Cell(ProvEntity, NamedThing):
                                                                 'value': 'obs.index'}},
                                'description': 'Unique identifier for each individual '
                                               'cell.',
-                               'from_schema': 'bican_biolink',
                                'in_subset': ['obs', 'assigned_metadata'],
                                'name': 'id',
                                'range': 'string'}}})
@@ -11911,7 +11910,6 @@ class CellTypeSet(ProvEntity, NamedThing):
                                                                          '(key)'}},
                                'description': 'Unique identifier for this annotation '
                                               'level.',
-                               'from_schema': 'bican_biolink',
                                'in_subset': ['uns', 'annotations'],
                                'name': 'id',
                                'range': 'string'},
@@ -11924,7 +11922,6 @@ class CellTypeSet(ProvEntity, NamedThing):
                                  'description': 'Name of this annotation level used as '
                                                 'column header in obs (e.g. Class, '
                                                 'Subclass).',
-                                 'from_schema': 'bican_biolink',
                                  'in_subset': ['obs', 'uns', 'annotations'],
                                  'name': 'name',
                                  'range': 'string'},
@@ -12386,7 +12383,6 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                                                                 'value': '(synthesized)'}},
                                'description': 'Unique identifier for this cell type '
                                               'taxon.',
-                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'name': {'annotations': {'ait_location': {'tag': 'ait_location',
@@ -12394,7 +12390,6 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                                  'description': 'Human-readable label for this cell '
                                                 'type taxon at the given annotation '
                                                 'level (e.g. Glutamatergic).',
-                                 'from_schema': 'bican_biolink',
                                  'in_subset': ['obs', 'annotations'],
                                  'name': 'name',
                                  'range': 'string'},
@@ -12889,14 +12884,12 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
                                         'description': 'Permanent URL to molecular '
                                                        'data if the expression matrix '
                                                        'is not embedded in the file.',
-                                        'from_schema': 'bican_core',
                                         'in_subset': ['uns', 'data'],
                                         'name': 'content_url',
                                         'range': 'uri'},
                         'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': '(synthesized)'}},
                                'description': 'Unique identifier for this taxonomy.',
-                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'was_derived_from': {'description': 'One or more cluster sets '
@@ -13359,14 +13352,12 @@ class ClusterSet(ProvEntity, NamedThing):
          'slot_usage': {'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': '(synthesized)'}},
                                'description': 'Unique identifier for this cluster set.',
-                               'from_schema': 'bican_biolink',
                                'in_subset': ['uns', 'annotations'],
                                'name': 'id',
                                'range': 'string'},
                         'name': {'description': 'Human-readable name for this cluster '
                                                 'set (e.g. the name of the clustering '
                                                 'run).',
-                                 'from_schema': 'bican_biolink',
                                  'in_subset': ['uns', 'annotations'],
                                  'name': 'name',
                                  'range': 'string'},
@@ -13773,7 +13764,6 @@ class Cluster(ProvEntity, NamedThing):
                         'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': '(synthesized)'}},
                                'description': 'Unique identifier for this cluster.',
-                               'from_schema': 'bican_biolink',
                                'in_subset': ['obs', 'uns', 'annotations'],
                                'name': 'id',
                                'range': 'string'},
@@ -13782,7 +13772,6 @@ class Cluster(ProvEntity, NamedThing):
                                  'description': 'Human-readable label for this '
                                                 'cluster; corresponds to cluster_id '
                                                 'values in obs.',
-                                 'from_schema': 'bican_biolink',
                                  'in_subset': ['obs', 'uns', 'annotations'],
                                  'name': 'name',
                                  'range': 'string'},
@@ -14203,7 +14192,6 @@ class ExpressionMatrix(ProvEntity, NamedThing):
                                         'description': 'URL to the matrix file if the '
                                                        'matrix is not embedded '
                                                        'directly in the h5ad file.',
-                                        'from_schema': 'bican_core',
                                         'in_subset': ['uns', 'data'],
                                         'name': 'content_url',
                                         'range': 'uri'},
@@ -14211,7 +14199,6 @@ class ExpressionMatrix(ProvEntity, NamedThing):
                                                                 'value': '(synthesized)'}},
                                'description': 'Unique identifier for this expression '
                                               'matrix.',
-                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'}}})
 
@@ -14611,7 +14598,6 @@ class Embedding(ProvEntity, NamedThing):
          'slot_usage': {'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': '(synthesized)'}},
                                'description': 'Unique identifier for this embedding.',
-                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'}}})
 
@@ -15004,7 +14990,6 @@ class Abbreviation(ProvEntity, NamedThing):
                                                                 'value': '(synthesized)'}},
                                'description': 'Unique identifier for this abbreviation '
                                               'entry.',
-                               'from_schema': 'bican_biolink',
                                'in_subset': ['uns', 'annotations'],
                                'name': 'id',
                                'range': 'string'}}})
@@ -15399,7 +15384,6 @@ class ColorPalette(ProvEntity, NamedThing):
          'mixins': ['ProvEntity'],
          'slot_usage': {'description': {'description': 'Description of the color '
                                                        'palette.',
-                                        'from_schema': 'bican_biolink',
                                         'in_subset': ['uns', 'tooling'],
                                         'name': 'description',
                                         'range': 'string'},
@@ -15407,12 +15391,10 @@ class ColorPalette(ProvEntity, NamedThing):
                                                                 'value': '(synthesized)'}},
                                'description': 'Unique identifier for this color '
                                               'palette.',
-                               'from_schema': 'bican_biolink',
                                'in_subset': ['uns', 'tooling'],
                                'name': 'id',
                                'range': 'string'},
                         'name': {'description': 'Name of the color palette.',
-                                 'from_schema': 'bican_biolink',
                                  'in_subset': ['uns', 'tooling'],
                                  'name': 'name',
                                  'range': 'string'}}})
@@ -15799,7 +15781,6 @@ class DisplayColor(ProvEntity, NamedThing):
                                                                 'value': '(synthesized)'}},
                                'description': 'Unique identifier for this display '
                                               'color entry.',
-                               'from_schema': 'bican_biolink',
                                'in_subset': ['uns', 'tooling'],
                                'name': 'id',
                                'range': 'string'}}})
