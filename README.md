@@ -15,15 +15,11 @@ Here are the BICAN LinkML knowledgebase schemas and their statuses.
 | [Anatomical Structure Model]                                                                                               | Types and relationships of anatomical brain structures.                                                                    | 0.1.0                       |  |
 | [Genome Annotation Model]                                                                                                  | Types and relationships of an organism's annotated genome.                                                                 | 0.2.0                       |  |
 | [BICAN BioLink]                                                                                                            | BICAN subset of classes from the Biolink model.                                                                            | 0.2.0                       |  |
-| [CCN2]                                                                                                                     |                                                                                                                            | 0.1.0                       | deprecated |
-| [Figure1]                                                                                                                  |                                                                                                                            | 0.1.0                       | deprecated | |                | |
 
 [BKE Taxonomy Model]: linkml-schema/bke_taxonomy.yaml
 [Assertion Evidence Model]: linkml-schema/assertion_evidence.yaml
 
 [BICAN BioLink]: linkml-schema/bican_biolink.yaml
-
-[CCN2]: linkml-schema/ccn2.yaml
 
 [Genome Annotation Model]: linkml-schema/genome_annotation.yaml
 
@@ -31,7 +27,6 @@ Here are the BICAN LinkML knowledgebase schemas and their statuses.
 
 [Anatomical Structure Model]: linkml-schema/anatomical_structure.yaml
 
-[Figure1]: linkml-schema/figure1.yaml
 
 ## Structure of the Repository
 
