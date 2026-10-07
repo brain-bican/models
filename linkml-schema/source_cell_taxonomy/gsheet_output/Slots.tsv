@@ -1,5 +1,5 @@
 LinkML Class Name	LinkML Slot	Attribute Name	from_schema	Data Type	Subsets	Definition	Nullable	Permissible Values	AIT Location	Notes	Source	New	Alias	AIT Separator	Pattern	Multivalued
-> class	slot	attribute	from_schema	range	in_subset	description	ignore	ignore	annotations	ignore	ignore	ignore	aliases	annotations	pattern	multivalued
+> class	slot	attribute	ignore	range	in_subset	description	ignore	ignore	annotations	ignore	ignore	ignore	aliases	annotations	pattern	multivalued
 >					internal_separator: "|"				inner_key: ait_location				internal_separator: "|"	inner_key: ait_separator		
 	accession_id			string	uns	A provider-assigned accession identifier for a given entity.	FALSE				bke					
 	order			integer	uns	The priority or display order of an entity among all other entities of the same type.	TRUE		uns.cluster_info.display_order_<level> (data only)		bke					

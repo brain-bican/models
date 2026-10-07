@@ -1,5 +1,5 @@
 class	Inheritance: is_a	Inheritance: mixin	Subsets	Definition	from_schema	Class URI	Alias	New
-> class	is_a	mixins	in_subset	description	from_schema	class_uri	aliases	ignore
+> class	is_a	mixins	in_subset	description	ignore	class_uri	aliases	ignore
 >		internal_separator: "|"	internal_separator: "|"				internal_separator: "|"	
 Cell	named thing	ProvEntity		A single cell observation in the taxonomy; corresponds to one row in the obs DataFrame of the h5ad file.				
 CellTypeSet	named thing	ProvEntity		A named annotation level in the taxonomy hierarchy (e.g. Class, Subclass) grouping cell type taxons. May represent a taxonomic level or a neighborhood.				
