@@ -190,11 +190,9 @@
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "@vocab": "https://identifiers.org/brain-bican/vocab/",
       "parameterizes": {
-         "@type": "@id",
          "@id": "parameterizes"
       },
       "measures": {
-         "@type": "@id",
          "@id": "measures"
       },
       "category": {
@@ -212,6 +210,16 @@
       "value": {
          "@id": "value"
       },
+      "chembl_chirality": {
+         "@id": "biolink:chembl_chirality"
+      },
+      "chembl_drug_warning": {
+         "@id": "biolink:chembl_drug_warning"
+      },
+      "chembl_prodrug": {
+         "@type": "xsd:boolean",
+         "@id": "biolink:chembl_prodrug"
+      },
       "content_url": {
          "@id": "schema:url"
       },
@@ -227,8 +235,11 @@
          "@id": "dct:description"
       },
       "digest": {
-         "@type": "@id",
          "@id": "digest"
+      },
+      "equivalent_identifiers": {
+         "@type": "xsd:anyURI",
+         "@id": "biolink:equivalent_identifiers"
       },
       "format": {
          "@id": "biolink:format"
@@ -256,7 +267,7 @@
          "@id": "biolink:has_qualitative_value"
       },
       "has_quantitative_value": {
-         "@type": "biolink:QuantityValue",
+         "@type": "@id",
          "@id": "biolink:has_quantitative_value"
       },
       "has_taxonomic_rank": {
@@ -331,8 +342,11 @@
       "in_taxon_label": {
          "@id": "biolink:in_taxon_label"
       },
+      "information_content": {
+         "@type": "xsd:float",
+         "@id": "biolink:information_content"
+      },
       "iri": {
-         "@type": "xsd:anyURI",
          "@id": "biolink:iri"
       },
       "license": {
@@ -352,7 +366,6 @@
          "@id": "internal_identifier"
       },
       "part_of_anatomical_annotation_set": {
-         "@type": "@id",
          "@id": "part_of_anatomical_annotation_set"
       },
       "voxel_count": {
@@ -360,53 +373,42 @@
          "@id": "voxel_count"
       },
       "subject_parcellation_annotation": {
-         "@type": "@id",
          "@id": "subject_parcellation_annotation"
       },
       "has_anatomical_annotation_set": {
-         "@type": "@id",
          "@id": "has_anatomical_annotation_set"
       },
       "has_anatomical_space": {
-         "@type": "@id",
          "@id": "has_anatomical_space"
       },
       "has_parcellation_terminology": {
-         "@type": "@id",
          "@id": "has_parcellation_terminology"
       },
       "specialization_of": {
-         "@type": "@id",
          "@id": "specialization_of"
       },
       "color": {
          "@id": "color"
       },
       "part_of_parcellation_color_scheme": {
-         "@type": "@id",
          "@id": "part_of_parcellation_color_scheme"
       },
       "subject_parcellation_terminology": {
-         "@type": "@id",
          "@id": "subject_parcellation_terminology"
       },
       "has_parent_parcellation_term": {
-         "@type": "@id",
          "@id": "has_parent_parcellation_term"
       },
       "part_of_parcellation_term_set": {
-         "@type": "@id",
          "@id": "part_of_parcellation_term_set"
       },
       "symbol": {
          "@id": "biolink:symbol"
       },
       "has_parent_parcellation_term_set": {
-         "@type": "@id",
          "@id": "has_parent_parcellation_term_set"
       },
       "part_of_parcellation_terminology": {
-         "@type": "@id",
          "@id": "part_of_parcellation_terminology"
       },
       "provided_by": {
@@ -428,7 +430,6 @@
          "@id": "biolink:rights"
       },
       "subject_parcellation_term": {
-         "@type": "@id",
          "@id": "subject_parcellation_term"
       },
       "synonym": {
@@ -551,6 +552,12 @@
       },
       "QuantityValue": {
          "@id": "biolink:QuantityValue"
+      },
+      "RelativeFrequencyAnalysisResult": {
+         "@id": "biolink:RelativeFrequencyAnalysisResult"
+      },
+      "StudyResult": {
+         "@id": "biolink:StudyResult"
       },
       "SubjectOfInvestigation": {
          "@id": "biolink:SubjectOfInvestigation"
