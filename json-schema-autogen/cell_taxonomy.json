@@ -1554,22 +1554,31 @@
                 },
                 "literature_name_long": {
                     "description": "Full name used for this cell type in the supporting literature.",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 },
                 "literature_name_short": {
                     "description": "Short name used for this cell type in the supporting literature.",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 },
                 "literature_support": {
                     "description": "Published study in which this cell type was previously described. The value \"Novel\" indicates no prior published description.",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 },

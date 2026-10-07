@@ -11452,9 +11452,7 @@ class Cell(ProvEntity, NamedThing):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/cell-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'id': {'annotations': {'ait_location': {'tag': 'ait_location',
-                                                                'value': 'obs.index'},
-                                               'source': {'tag': 'source',
-                                                          'value': 'ait'}},
+                                                                'value': 'obs.index'}},
                                'description': 'Unique identifier for each individual '
                                               'cell.',
                                'from_schema': 'bican_biolink',
@@ -11462,8 +11460,7 @@ class Cell(ProvEntity, NamedThing):
                                'name': 'id',
                                'range': 'string'}}})
 
-    id: str = Field(default=..., description="""Unique identifier for each individual cell.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location', 'value': 'obs.index'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+    id: str = Field(default=..., description="""Unique identifier for each individual cell.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location', 'value': 'obs.index'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
          'domain_of': ['ontology class',
@@ -11498,47 +11495,38 @@ class Cell(ProvEntity, NamedThing):
          'in_subset': ['obs', 'assigned_metadata'],
          'slot_uri': 'biolink:id'} })
     cluster_id: Optional[str] = Field(default=None, description="""Human-readable cluster label for the cluster assigned to this cell at a given annotation level.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'obs.cluster_id'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'obs.cluster_id'}},
          'domain_of': ['Cell'],
          'in_subset': ['obs', 'annotations']} })
     load_id: Optional[str] = Field(default=None, description="""Identifier for the sequencing library from which molecular measurements were derived.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'obs.load_id'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'obs.load_id'}},
          'domain_of': ['Cell'],
          'in_subset': ['obs', 'assigned_metadata']} })
-    assay: Optional[str] = Field(default=None, description="""Human-readable sequencing modality (e.g. 10x 3' v3).""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location', 'value': 'obs.assay'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+    assay: Optional[str] = Field(default=None, description="""Human-readable sequencing modality (e.g. 10x 3' v3).""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location', 'value': 'obs.assay'}},
          'domain_of': ['Cell'],
          'in_subset': ['obs', 'assigned_metadata']} })
     assay_ontology_term_id: Optional[str] = Field(default=None, description="""EFO ontology term for assay (e.g. EFO:0009922 for 10x 3' v3).""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'obs.assay_ontology_term_id'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'obs.assay_ontology_term_id'}},
          'domain_of': ['Cell'],
          'in_subset': ['obs', 'assigned_metadata']} })
     anatomical_region: Optional[str] = Field(default=None, description="""Human-readable name for the anatomical region from which the cell was collected.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'obs.anatomical_region'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'obs.anatomical_region'}},
          'domain_of': ['Cell'],
          'in_subset': ['obs', 'assigned_metadata']} })
     anatomical_region_ontology_term_id: Optional[str] = Field(default=None, description="""UBERON ontology term for anatomical region (e.g. UBERON:0000955 for brain).""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'obs.anatomical_region_ontology_term_id'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'obs.anatomical_region_ontology_term_id'}},
          'domain_of': ['Cell'],
          'in_subset': ['obs', 'assigned_metadata']} })
     brain_region_ontology_term_id: Optional[str] = Field(default=None, description="""Brain atlas region ID from DHBA/HBA/MBA for the anatomical region.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'obs.brain_region_ontology_term_id'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'obs.brain_region_ontology_term_id'}},
          'domain_of': ['Cell'],
          'in_subset': ['obs', 'assigned_metadata']} })
     suspension_type: Optional[SuspensionType] = Field(default=None, description="""Whether the measurement was performed on intact cells, nuclei, or is not applicable.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'obs.suspension_type'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'obs.suspension_type'}},
          'domain_of': ['Cell'],
          'in_subset': ['obs', 'assigned_metadata']} })
     is_primary_data: Optional[bool] = Field(default=None, description="""True if this is the canonical instance of this cellular observation; False for reanalysis or secondary views.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'obs.is_primary_data'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'obs.is_primary_data'}},
          'domain_of': ['Cell'],
          'in_subset': ['obs', 'assigned_metadata']} })
     part_of_cluster: Optional[str] = Field(default=None, description="""The cluster to which this cell has been assigned by the clustering algorithm.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
@@ -11920,9 +11908,7 @@ class CellTypeSet(ProvEntity, NamedThing):
                                        'range': 'CellTypeSet'},
                         'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': 'uns.hierarchy '
-                                                                         '(key)'},
-                                               'source': {'tag': 'source',
-                                                          'value': 'both'}},
+                                                                         '(key)'}},
                                'description': 'Unique identifier for this annotation '
                                               'level.',
                                'from_schema': 'bican_biolink',
@@ -11934,9 +11920,7 @@ class CellTypeSet(ProvEntity, NamedThing):
                                                                            '(key) / '
                                                                            'obs '
                                                                            '(column '
-                                                                           'name)'},
-                                                 'source': {'tag': 'source',
-                                                            'value': 'both'}},
+                                                                           'name)'}},
                                  'description': 'Name of this annotation level used as '
                                                 'column header in obs (e.g. Class, '
                                                 'Subclass).',
@@ -11946,9 +11930,7 @@ class CellTypeSet(ProvEntity, NamedThing):
                                  'range': 'string'},
                         'order': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                    'value': 'uns.hierarchy '
-                                                                            '(value)'},
-                                                  'source': {'tag': 'source',
-                                                             'value': 'both'}},
+                                                                            '(value)'}},
                                   'description': 'Integer rank of this annotation '
                                                  'level in the hierarchy; lower values '
                                                  'are broader types.',
@@ -11957,8 +11939,7 @@ class CellTypeSet(ProvEntity, NamedThing):
                                   'range': 'integer'}}})
 
     id: str = Field(default=..., description="""Unique identifier for this annotation level.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.hierarchy (key)'},
-                         'source': {'tag': 'source', 'value': 'both'}},
+                                          'value': 'uns.hierarchy (key)'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
          'domain_of': ['ontology class',
@@ -11995,8 +11976,7 @@ class CellTypeSet(ProvEntity, NamedThing):
     name: Optional[str] = Field(default=None, description="""Name of this annotation level used as column header in obs (e.g. Class, Subclass).""", json_schema_extra = { "linkml_meta": {'aliases': ['label', 'display name', 'title'],
          'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.hierarchy (key) / obs (column '
-                                                   'name)'},
-                         'source': {'tag': 'source', 'value': 'both'}},
+                                                   'name)'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/name',
          'domain': 'entity',
          'domain_of': ['attribute',
@@ -12026,8 +12006,7 @@ class CellTypeSet(ProvEntity, NamedThing):
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
          'slot_uri': 'rdfs:label'} })
     order: Optional[int] = Field(default=None, description="""Integer rank of this annotation level in the hierarchy; lower values are broader types.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.hierarchy (value)'},
-                         'source': {'tag': 'source', 'value': 'both'}},
+                                          'value': 'uns.hierarchy (value)'}},
          'domain_of': ['CellTypeSet', 'CellTypeTaxon'],
          'in_subset': ['uns', 'annotations']} })
     has_parent: Optional[str] = Field(default=None, description="""The next broader annotation level in the taxonomy hierarchy (e.g. Subclass has_parent Class).""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
@@ -12041,9 +12020,7 @@ class CellTypeSet(ProvEntity, NamedThing):
                          'ait_separator': {'tag': 'ait_separator', 'value': '|'}},
          'domain_of': ['CellTypeSet', 'CellTypeTaxon'],
          'in_subset': ['uns', 'annotations']} })
-    cell_type_set_type: Optional[CellTypeSetType] = Field(default=None, description="""A tag denoting whether this grouping represents a taxonomic level or neighborhood.""", json_schema_extra = { "linkml_meta": {'annotations': {'source': {'tag': 'source', 'value': 'bke'}},
-         'domain_of': ['CellTypeSet'],
-         'in_subset': ['uns', 'annotations']} })
+    cell_type_set_type: Optional[CellTypeSetType] = Field(default=None, description="""A tag denoting whether this grouping represents a taxonomic level or neighborhood.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeSet'], 'in_subset': ['uns', 'annotations']} })
     part_of_taxonomy: Optional[str] = Field(default=None, description="""The taxonomy for which this annotation level is defined.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(derived: the single taxonomy '
                                                    'described by this file)'}},
@@ -12365,9 +12342,7 @@ class CellTypeTaxon(ProvEntity, NamedThing):
          'slot_usage': {'accession_id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                           'value': 'uns.cluster_info.accession_<level> '
                                                                                    '(data '
-                                                                                   'only)'},
-                                                         'source': {'tag': 'source',
-                                                                    'value': 'bke'}},
+                                                                                   'only)'}},
                                          'description': 'Stable cross-version '
                                                         'identifier for this cell type '
                                                         'taxon (e.g. '
@@ -12408,18 +12383,14 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                                        'name': 'has_parent',
                                        'range': 'CellTypeTaxon'},
                         'id': {'annotations': {'ait_location': {'tag': 'ait_location',
-                                                                'value': '(synthesized)'},
-                                               'source': {'tag': 'source',
-                                                          'value': 'bke'}},
+                                                                'value': '(synthesized)'}},
                                'description': 'Unique identifier for this cell type '
                                               'taxon.',
                                'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'name': {'annotations': {'ait_location': {'tag': 'ait_location',
-                                                                  'value': 'obs.<annotation_level>'},
-                                                 'source': {'tag': 'source',
-                                                            'value': 'both'}},
+                                                                  'value': 'obs.<annotation_level>'}},
                                  'description': 'Human-readable label for this cell '
                                                 'type taxon at the given annotation '
                                                 'level (e.g. Glutamatergic).',
@@ -12430,9 +12401,7 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                         'order': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                    'value': 'uns.cluster_info.display_order_<level> '
                                                                             '(data '
-                                                                            'only)'},
-                                                  'source': {'tag': 'source',
-                                                             'value': 'bke'}},
+                                                                            'only)'}},
                                   'description': 'The priority or display order of '
                                                  'this taxon among all taxons in the '
                                                  'taxonomy.',
@@ -12459,8 +12428,7 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                                         'range': 'CellTypeSet'}}})
 
     id: str = Field(default=..., description="""Unique identifier for this cell type taxon.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': '(synthesized)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                                          'value': '(synthesized)'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
          'domain_of': ['ontology class',
@@ -12496,8 +12464,7 @@ class CellTypeTaxon(ProvEntity, NamedThing):
          'slot_uri': 'biolink:id'} })
     name: Optional[str] = Field(default=None, description="""Human-readable label for this cell type taxon at the given annotation level (e.g. Glutamatergic).""", json_schema_extra = { "linkml_meta": {'aliases': ['label', 'display name', 'title'],
          'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'obs.<annotation_level>'},
-                         'source': {'tag': 'source', 'value': 'both'}},
+                                          'value': 'obs.<annotation_level>'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/name',
          'domain': 'entity',
          'domain_of': ['attribute',
@@ -12528,14 +12495,12 @@ class CellTypeTaxon(ProvEntity, NamedThing):
          'slot_uri': 'rdfs:label'} })
     accession_id: Optional[str] = Field(default=None, description="""Stable cross-version identifier for this cell type taxon (e.g. CS20230722_CLAS_11).""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_info.accession_<level> '
-                                                   '(data only)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                                                   '(data only)'}},
          'domain_of': ['CellTypeTaxon', 'CellTypeTaxonomy'],
          'in_subset': ['uns', 'annotations']} })
     order: Optional[int] = Field(default=None, description="""The priority or display order of this taxon among all taxons in the taxonomy.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_info.display_order_<level> '
-                                                   '(data only)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                                                   '(data only)'}},
          'domain_of': ['CellTypeSet', 'CellTypeTaxon'],
          'in_subset': ['uns', 'annotations']} })
     has_parent: Optional[str] = Field(default=None, description="""Reference to the parent taxon at the next broader annotation level.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
@@ -12559,29 +12524,27 @@ class CellTypeTaxon(ProvEntity, NamedThing):
     cell_type_ontology_term: Optional[str] = Field(default=None, description="""CL ontology term for this cell type; use CL:0000003 for native cell if unknown.""", json_schema_extra = { "linkml_meta": {'aliases': ['cell_type_ontology_term_id'],
          'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_info.CL:ID_<level> '
-                                                   '(data only)'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                                   '(data only)'}},
          'domain_of': ['CellTypeTaxon'],
          'in_subset': ['obs', 'annotations']} })
     number_of_cells: Optional[int] = Field(default=None, description="""The aggregated number of cells that defines this cell type taxon.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(derived: count obs rows grouped '
-                                                   'by obs.<annotation_level>)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                                                   'by obs.<annotation_level>)'}},
          'domain_of': ['CellTypeTaxon'],
          'in_subset': ['uns', 'annotations']} })
-    literature_support: Optional[str] = Field(default=None, description="""Published study in which this cell type was previously described. The value \"Novel\" indicates no prior published description.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+    literature_support: Optional[list[str]] = Field(default=None, description="""Published study in which this cell type was previously described. The value \"Novel\" indicates no prior published description.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_info.literature_support'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                         'ait_separator': {'tag': 'ait_separator', 'value': '|'}},
          'domain_of': ['CellTypeTaxon'],
          'in_subset': ['uns', 'annotations']} })
-    literature_name_short: Optional[str] = Field(default=None, description="""Short name used for this cell type in the supporting literature.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+    literature_name_short: Optional[list[str]] = Field(default=None, description="""Short name used for this cell type in the supporting literature.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_info.literature_name_short'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                         'ait_separator': {'tag': 'ait_separator', 'value': '|'}},
          'domain_of': ['CellTypeTaxon'],
          'in_subset': ['uns', 'annotations']} })
-    literature_name_long: Optional[str] = Field(default=None, description="""Full name used for this cell type in the supporting literature.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+    literature_name_long: Optional[list[str]] = Field(default=None, description="""Full name used for this cell type in the supporting literature.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_info.literature_name_long'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                         'ait_separator': {'tag': 'ait_separator', 'value': '|'}},
          'domain_of': ['CellTypeTaxon'],
          'in_subset': ['uns', 'annotations']} })
     curated_markers: Optional[list[str]] = Field(default=None, description="""Marker genes curated as characteristic of this cell type. One set per taxon; the AIT consensus taxonomy does not split these by species.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
@@ -12915,18 +12878,14 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/cell-taxonomy',
          'mixins': ['ProvEntity'],
-         'slot_usage': {'accession_id': {'annotations': {'source': {'tag': 'source',
-                                                                    'value': 'bke'}},
-                                         'description': 'Provider-assigned accession '
+         'slot_usage': {'accession_id': {'description': 'Provider-assigned accession '
                                                         'identifier for this taxonomy '
                                                         '(e.g. CCN20230722).',
                                          'name': 'accession_id',
                                          'range': 'string'},
                         'content_url': {'aliases': ['dataset_purl'],
                                         'annotations': {'ait_location': {'tag': 'ait_location',
-                                                                         'value': 'uns.dataset_purl'},
-                                                        'source': {'tag': 'source',
-                                                                   'value': 'both'}},
+                                                                         'value': 'uns.dataset_purl'}},
                                         'description': 'Permanent URL to molecular '
                                                        'data if the expression matrix '
                                                        'is not embedded in the file.',
@@ -12935,9 +12894,7 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
                                         'name': 'content_url',
                                         'range': 'uri'},
                         'id': {'annotations': {'ait_location': {'tag': 'ait_location',
-                                                                'value': '(synthesized)'},
-                                               'source': {'tag': 'source',
-                                                          'value': 'bke'}},
+                                                                'value': '(synthesized)'}},
                                'description': 'Unique identifier for this taxonomy.',
                                'from_schema': 'bican_biolink',
                                'name': 'id',
@@ -12950,8 +12907,7 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
                                              'range': 'ClusterSet'}}})
 
     id: str = Field(default=..., description="""Unique identifier for this taxonomy.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': '(synthesized)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                                          'value': '(synthesized)'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
          'domain_of': ['ontology class',
@@ -12985,85 +12941,69 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
          'exact_mappings': ['AGRKB:primaryId', 'gff3:ID', 'gpi:DB_Object_ID'],
          'in_subset': ['translator_minimal'],
          'slot_uri': 'biolink:id'} })
-    accession_id: Optional[str] = Field(default=None, description="""Provider-assigned accession identifier for this taxonomy (e.g. CCN20230722).""", json_schema_extra = { "linkml_meta": {'annotations': {'source': {'tag': 'source', 'value': 'bke'}},
-         'domain_of': ['CellTypeTaxon', 'CellTypeTaxonomy'],
-         'in_subset': ['uns']} })
+    accession_id: Optional[str] = Field(default=None, description="""Provider-assigned accession identifier for this taxonomy (e.g. CCN20230722).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CellTypeTaxon', 'CellTypeTaxonomy'], 'in_subset': ['uns']} })
     content_url: Optional[list[str]] = Field(default=None, description="""Permanent URL to molecular data if the expression matrix is not embedded in the file.""", json_schema_extra = { "linkml_meta": {'aliases': ['dataset_purl'],
          'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.dataset_purl'},
-                         'source': {'tag': 'source', 'value': 'both'}},
+                                          'value': 'uns.dataset_purl'}},
          'domain_of': ['GenomeAnnotation', 'CellTypeTaxonomy', 'ExpressionMatrix'],
          'in_subset': ['uns', 'data'],
          'slot_uri': 'schema:url'} })
     was_derived_from: Optional[list[str]] = Field(default=None, description="""One or more cluster sets from which this taxonomy was derived.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity', 'CellTypeTaxonomy', 'ClusterSet'],
          'slot_uri': 'prov:wasDerivedFrom'} })
     title: Optional[str] = Field(default=None, description="""Description differentiating this taxonomy from others in the same collection; should be unique within a collection.""", json_schema_extra = { "linkml_meta": {'aliases': ['name'],
-         'annotations': {'ait_location': {'tag': 'ait_location', 'value': 'uns.title'},
-                         'source': {'tag': 'source', 'value': 'both'}},
+         'annotations': {'ait_location': {'tag': 'ait_location', 'value': 'uns.title'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
     schema_version: Optional[str] = Field(default=None, description="""Version of the AIT schema used to produce this file (e.g. 1.0.0).""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.schema_version'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'uns.schema_version'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
     batch_condition: Optional[str] = Field(default=None, description="""Cell metadata key(s) in obs that define batches for normalization or integration.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.batch_condition'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'uns.batch_condition'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
     dendrogram: Optional[str] = Field(default=None, description="""JSON-formatted hierarchical clustering dendrogram encoding the taxonomy hierarchy.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.dendrogram'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'uns.dendrogram'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'annotations']} })
     hierarchy: Optional[str] = Field(default=None, description="""Ordered mapping of annotation level names to integer ranks; lower rank means broader type.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.hierarchy'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'uns.hierarchy'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'annotations']} })
-    mode: Optional[str] = Field(default=None, description="""Active taxonomy mode controlling which subset of cells and analysis components to use.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location', 'value': 'uns.mode'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+    mode: Optional[str] = Field(default=None, description="""Active taxonomy mode controlling which subset of cells and analysis components to use.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location', 'value': 'uns.mode'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
-    filter: Optional[bool] = Field(default=None, description="""Per-mode boolean flags indicating cells to exclude (True means exclude).""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location', 'value': 'uns.filter'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+    filter: Optional[bool] = Field(default=None, description="""Per-mode boolean flags indicating cells to exclude (True means exclude).""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': 'uns.filter'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
     cluster_algorithm: Optional[str] = Field(default=None, description="""Full description of clustering algorithm and parameters used to produce cluster assignments.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.cluster_algorithm'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'uns.cluster_algorithm'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
     cluster_info: Optional[str] = Field(default=None, description="""Summary table of cluster-level metadata including cluster sizes and representative metadata.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.cluster_info'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'uns.cluster_info'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'annotations']} })
     default_embedding: Optional[str] = Field(default=None, description="""Key in obsm of the embedding to display by default; must match an X_-prefixed entry.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.default_embedding'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'uns.default_embedding'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
     cellannotation_schema: Optional[str] = Field(default=None, description="""CAS annotation schema stored as JSON encoding labelset and annotation metadata.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.cellannotation_schema'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'uns.cellannotation_schema'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'tooling']} })
     quality_control_markers: Optional[str] = Field(default=None, description="""Marker gene expression data for patchseq quality control analysis.""", json_schema_extra = { "linkml_meta": {'aliases': ['quality_control_markers'],
          'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.qualty_control_markers'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'uns.qualty_control_markers'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'analysis']} })
     reference_genome: Optional[str] = Field(default=None, description="""Reference genome assembly used to align the molecular measurements.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.reference_genome'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'uns.reference_genome'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'assigned_metadata']} })
     gene_annotation_version: Optional[str] = Field(default=None, description="""Genome annotation version used during alignment.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.gene_annotation_version'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'uns.gene_annotation_version'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'assigned_metadata']} })
     has_embedding: Optional[list[str]] = Field(default=None, description="""One or more dimensionality reductions associated with this taxonomy.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
@@ -13417,17 +13357,13 @@ class ClusterSet(ProvEntity, NamedThing):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/cell-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'id': {'annotations': {'ait_location': {'tag': 'ait_location',
-                                                                'value': '(synthesized)'},
-                                               'source': {'tag': 'source',
-                                                          'value': 'bke'}},
+                                                                'value': '(synthesized)'}},
                                'description': 'Unique identifier for this cluster set.',
                                'from_schema': 'bican_biolink',
                                'in_subset': ['uns', 'annotations'],
                                'name': 'id',
                                'range': 'string'},
-                        'name': {'annotations': {'source': {'tag': 'source',
-                                                            'value': 'bke'}},
-                                 'description': 'Human-readable name for this cluster '
+                        'name': {'description': 'Human-readable name for this cluster '
                                                 'set (e.g. the name of the clustering '
                                                 'run).',
                                  'from_schema': 'bican_biolink',
@@ -13439,8 +13375,7 @@ class ClusterSet(ProvEntity, NamedThing):
                                              'range': 'ExpressionMatrix'}}})
 
     id: str = Field(default=..., description="""Unique identifier for this cluster set.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': '(synthesized)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                                          'value': '(synthesized)'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
          'domain_of': ['ontology class',
@@ -13475,7 +13410,6 @@ class ClusterSet(ProvEntity, NamedThing):
          'in_subset': ['uns', 'annotations'],
          'slot_uri': 'biolink:id'} })
     name: Optional[str] = Field(default=None, description="""Human-readable name for this cluster set (e.g. the name of the clustering run).""", json_schema_extra = { "linkml_meta": {'aliases': ['label', 'display name', 'title'],
-         'annotations': {'source': {'tag': 'source', 'value': 'bke'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/name',
          'domain': 'entity',
          'domain_of': ['attribute',
@@ -13837,18 +13771,14 @@ class Cluster(ProvEntity, NamedThing):
                                        'name': 'has_parent',
                                        'range': 'CellTypeTaxon'},
                         'id': {'annotations': {'ait_location': {'tag': 'ait_location',
-                                                                'value': '(synthesized)'},
-                                               'source': {'tag': 'source',
-                                                          'value': 'bke'}},
+                                                                'value': '(synthesized)'}},
                                'description': 'Unique identifier for this cluster.',
                                'from_schema': 'bican_biolink',
                                'in_subset': ['obs', 'uns', 'annotations'],
                                'name': 'id',
                                'range': 'string'},
                         'name': {'annotations': {'ait_location': {'tag': 'ait_location',
-                                                                  'value': 'obs.cluster_id'},
-                                                 'source': {'tag': 'source',
-                                                            'value': 'both'}},
+                                                                  'value': 'obs.cluster_id'}},
                                  'description': 'Human-readable label for this '
                                                 'cluster; corresponds to cluster_id '
                                                 'values in obs.',
@@ -13872,8 +13802,7 @@ class Cluster(ProvEntity, NamedThing):
                                         'range': 'ClusterSet'}}})
 
     id: str = Field(default=..., description="""Unique identifier for this cluster.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': '(synthesized)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                                          'value': '(synthesized)'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
          'domain_of': ['ontology class',
@@ -13909,8 +13838,7 @@ class Cluster(ProvEntity, NamedThing):
          'slot_uri': 'biolink:id'} })
     name: Optional[str] = Field(default=None, description="""Human-readable label for this cluster; corresponds to cluster_id values in obs.""", json_schema_extra = { "linkml_meta": {'aliases': ['label', 'display name', 'title'],
          'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'obs.cluster_id'},
-                         'source': {'tag': 'source', 'value': 'both'}},
+                                          'value': 'obs.cluster_id'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/name',
          'domain': 'entity',
          'domain_of': ['attribute',
@@ -13952,8 +13880,7 @@ class Cluster(ProvEntity, NamedThing):
          'in_subset': ['obs', 'uns', 'annotations']} })
     number_of_observations: Optional[int] = Field(default=None, description="""Number of cells assigned to this cluster.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(derived: count obs rows grouped '
-                                                   'by obs.cluster_id)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                                                   'by obs.cluster_id)'}},
          'domain_of': ['Cluster'],
          'in_subset': ['uns', 'annotations']} })
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity', 'CellTypeTaxonomy', 'ClusterSet'],
@@ -14272,9 +14199,7 @@ class ExpressionMatrix(ProvEntity, NamedThing):
          'mixins': ['ProvEntity'],
          'slot_usage': {'content_url': {'aliases': ['dataset_purl'],
                                         'annotations': {'ait_location': {'tag': 'ait_location',
-                                                                         'value': 'uns.dataset_purl'},
-                                                        'source': {'tag': 'source',
-                                                                   'value': 'both'}},
+                                                                         'value': 'uns.dataset_purl'}},
                                         'description': 'URL to the matrix file if the '
                                                        'matrix is not embedded '
                                                        'directly in the h5ad file.',
@@ -14283,9 +14208,7 @@ class ExpressionMatrix(ProvEntity, NamedThing):
                                         'name': 'content_url',
                                         'range': 'uri'},
                         'id': {'annotations': {'ait_location': {'tag': 'ait_location',
-                                                                'value': '(synthesized)'},
-                                               'source': {'tag': 'source',
-                                                          'value': 'bke'}},
+                                                                'value': '(synthesized)'}},
                                'description': 'Unique identifier for this expression '
                                               'matrix.',
                                'from_schema': 'bican_biolink',
@@ -14293,8 +14216,7 @@ class ExpressionMatrix(ProvEntity, NamedThing):
                                'range': 'string'}}})
 
     id: str = Field(default=..., description="""Unique identifier for this expression matrix.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': '(synthesized)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                                          'value': '(synthesized)'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
          'domain_of': ['ontology class',
@@ -14330,15 +14252,13 @@ class ExpressionMatrix(ProvEntity, NamedThing):
          'slot_uri': 'biolink:id'} })
     content_url: Optional[list[str]] = Field(default=None, description="""URL to the matrix file if the matrix is not embedded directly in the h5ad file.""", json_schema_extra = { "linkml_meta": {'aliases': ['dataset_purl'],
          'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.dataset_purl'},
-                         'source': {'tag': 'source', 'value': 'both'}},
+                                          'value': 'uns.dataset_purl'}},
          'domain_of': ['GenomeAnnotation', 'CellTypeTaxonomy', 'ExpressionMatrix'],
          'in_subset': ['uns', 'data'],
          'slot_uri': 'schema:url'} })
     matrix_type: Optional[ExpressionMatrixType] = Field(default=None, description="""Whether this matrix contains normalized expression values or raw counts.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': '(derived: normalized if read from '
-                                                   'X, raw_count if read from raw.X)'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                                   'X, raw_count if read from raw.X)'}},
          'domain_of': ['ExpressionMatrix'],
          'in_subset': ['X', 'raw', 'data']} })
     has_variable: Optional[list[str]] = Field(default=None, description="""One of the genes (variables) measured across all cells in this matrix; corresponds to a column in var.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
@@ -14689,17 +14609,14 @@ class Embedding(ProvEntity, NamedThing):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/cell-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'id': {'annotations': {'ait_location': {'tag': 'ait_location',
-                                                                'value': '(synthesized)'},
-                                               'source': {'tag': 'source',
-                                                          'value': 'bke'}},
+                                                                'value': '(synthesized)'}},
                                'description': 'Unique identifier for this embedding.',
                                'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'}}})
 
     id: str = Field(default=..., description="""Unique identifier for this embedding.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': '(synthesized)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                                          'value': '(synthesized)'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
          'domain_of': ['ontology class',
@@ -14734,13 +14651,11 @@ class Embedding(ProvEntity, NamedThing):
          'in_subset': ['translator_minimal'],
          'slot_uri': 'biolink:id'} })
     embedding_key: Optional[str] = Field(default=None, description="""Key used to store the embedding in obsm; must be prefixed with X_ (e.g. X_umap, X_pca).""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'obsm.X_<embedding> (key)'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'obsm.X_<embedding> (key)'}},
          'domain_of': ['Embedding'],
          'in_subset': ['obsm', 'analysis']} })
     embedding_matrix: Optional[float] = Field(default=None, description="""N-dimensional matrix of shape n_cells × n_dims representing the low-dimensional projection.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'obsm.X_<embedding> (value)'},
-                         'source': {'tag': 'source', 'value': 'ait'}},
+                                          'value': 'obsm.X_<embedding> (value)'}},
          'domain_of': ['Embedding'],
          'in_subset': ['obsm', 'analysis']} })
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity', 'CellTypeTaxonomy', 'ClusterSet'],
@@ -15086,9 +15001,7 @@ class Abbreviation(ProvEntity, NamedThing):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/cell-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'id': {'annotations': {'ait_location': {'tag': 'ait_location',
-                                                                'value': '(synthesized)'},
-                                               'source': {'tag': 'source',
-                                                          'value': 'bke'}},
+                                                                'value': '(synthesized)'}},
                                'description': 'Unique identifier for this abbreviation '
                                               'entry.',
                                'from_schema': 'bican_biolink',
@@ -15097,8 +15010,7 @@ class Abbreviation(ProvEntity, NamedThing):
                                'range': 'string'}}})
 
     id: str = Field(default=..., description="""Unique identifier for this abbreviation entry.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': '(synthesized)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                                          'value': '(synthesized)'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
          'domain_of': ['ontology class',
@@ -15135,15 +15047,11 @@ class Abbreviation(ProvEntity, NamedThing):
     term: Optional[str] = Field(default=None, description="""An abbreviation term as it appears in a cell type or cell set name.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_info.tokens_<level> '
                                                    '(data only)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                         'ait_separator': {'tag': 'ait_separator', 'value': '|'}},
          'domain_of': ['Abbreviation'],
          'in_subset': ['uns', 'annotations']} })
-    meaning: Optional[str] = Field(default=None, description="""The decoded meaning of the abbreviation term.""", json_schema_extra = { "linkml_meta": {'annotations': {'source': {'tag': 'source', 'value': 'bke'}},
-         'domain_of': ['Abbreviation'],
-         'in_subset': ['uns', 'annotations']} })
-    entity_type: Optional[AbbreviationEntityType] = Field(default=None, description="""The entity type which the abbreviation term denotes.""", json_schema_extra = { "linkml_meta": {'annotations': {'source': {'tag': 'source', 'value': 'bke'}},
-         'domain_of': ['Abbreviation'],
-         'in_subset': ['uns', 'annotations']} })
+    meaning: Optional[str] = Field(default=None, description="""The decoded meaning of the abbreviation term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Abbreviation'], 'in_subset': ['uns', 'annotations']} })
+    entity_type: Optional[AbbreviationEntityType] = Field(default=None, description="""The entity type which the abbreviation term denotes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Abbreviation'], 'in_subset': ['uns', 'annotations']} })
     denotes_gene_annotation: Optional[list[str]] = Field(default=None, description="""One of potentially many gene annotation terms to which the abbreviation denotes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Abbreviation'], 'in_subset': ['uns', 'annotations']} })
     denotes_parcellation_term: Optional[list[str]] = Field(default=None, description="""One of potentially many parcellation terms (anatomical structures) to which the abbreviation denotes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Abbreviation'], 'in_subset': ['uns', 'annotations']} })
     denotes_cell_type: Optional[list[str]] = Field(default=None, description="""One of potentially many cell type terms which the abbreviation denotes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Abbreviation'], 'in_subset': ['uns', 'annotations']} })
@@ -15489,35 +15397,28 @@ class ColorPalette(ProvEntity, NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/cell-taxonomy',
          'mixins': ['ProvEntity'],
-         'slot_usage': {'description': {'annotations': {'source': {'tag': 'source',
-                                                                   'value': 'bke'}},
-                                        'description': 'Description of the color '
+         'slot_usage': {'description': {'description': 'Description of the color '
                                                        'palette.',
                                         'from_schema': 'bican_biolink',
                                         'in_subset': ['uns', 'tooling'],
                                         'name': 'description',
                                         'range': 'string'},
                         'id': {'annotations': {'ait_location': {'tag': 'ait_location',
-                                                                'value': '(synthesized)'},
-                                               'source': {'tag': 'source',
-                                                          'value': 'bke'}},
+                                                                'value': '(synthesized)'}},
                                'description': 'Unique identifier for this color '
                                               'palette.',
                                'from_schema': 'bican_biolink',
                                'in_subset': ['uns', 'tooling'],
                                'name': 'id',
                                'range': 'string'},
-                        'name': {'annotations': {'source': {'tag': 'source',
-                                                            'value': 'bke'}},
-                                 'description': 'Name of the color palette.',
+                        'name': {'description': 'Name of the color palette.',
                                  'from_schema': 'bican_biolink',
                                  'in_subset': ['uns', 'tooling'],
                                  'name': 'name',
                                  'range': 'string'}}})
 
     id: str = Field(default=..., description="""Unique identifier for this color palette.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': '(synthesized)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                                          'value': '(synthesized)'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
          'domain_of': ['ontology class',
@@ -15552,7 +15453,6 @@ class ColorPalette(ProvEntity, NamedThing):
          'in_subset': ['uns', 'tooling'],
          'slot_uri': 'biolink:id'} })
     name: Optional[str] = Field(default=None, description="""Name of the color palette.""", json_schema_extra = { "linkml_meta": {'aliases': ['label', 'display name', 'title'],
-         'annotations': {'source': {'tag': 'source', 'value': 'bke'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/name',
          'domain': 'entity',
          'domain_of': ['attribute',
@@ -15582,7 +15482,6 @@ class ColorPalette(ProvEntity, NamedThing):
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
          'slot_uri': 'rdfs:label'} })
     description: Optional[str] = Field(default=None, description="""Description of the color palette.""", json_schema_extra = { "linkml_meta": {'aliases': ['definition'],
-         'annotations': {'source': {'tag': 'source', 'value': 'bke'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/description',
          'domain_of': ['entity',
                        'attribute',
@@ -15897,9 +15796,7 @@ class DisplayColor(ProvEntity, NamedThing):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/cell-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'id': {'annotations': {'ait_location': {'tag': 'ait_location',
-                                                                'value': '(synthesized)'},
-                                               'source': {'tag': 'source',
-                                                          'value': 'bke'}},
+                                                                'value': '(synthesized)'}},
                                'description': 'Unique identifier for this display '
                                               'color entry.',
                                'from_schema': 'bican_biolink',
@@ -15908,8 +15805,7 @@ class DisplayColor(ProvEntity, NamedThing):
                                'range': 'string'}}})
 
     id: str = Field(default=..., description="""Unique identifier for this display color entry.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': '(synthesized)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                                          'value': '(synthesized)'}},
          'definition_uri': 'https://w3id.org/biolink/vocab/id',
          'domain': 'entity',
          'domain_of': ['ontology class',
@@ -15945,8 +15841,7 @@ class DisplayColor(ProvEntity, NamedThing):
          'slot_uri': 'biolink:id'} })
     color_hex_triplet: Optional[str] = Field(default=None, description="""A hex string representing the display color for an associated entity.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.cluster_info.color_hex_<level> '
-                                                   '(data only)'},
-                         'source': {'tag': 'source', 'value': 'bke'}},
+                                                   '(data only)'}},
          'domain_of': ['DisplayColor'],
          'in_subset': ['uns', 'tooling']} })
     part_of_palette: Optional[str] = Field(default=None, description="""The color palette for which the display color map is part of.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DisplayColor'], 'in_subset': ['uns', 'tooling']} })

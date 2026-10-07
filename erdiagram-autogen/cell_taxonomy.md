@@ -67,9 +67,9 @@ CellTypeTaxon {
     string name  
     string accession_id  
     string cell_type_ontology_term  
-    string literature_name_long  
-    string literature_name_short  
-    string literature_support  
+    stringList literature_name_long  
+    stringList literature_name_short  
+    stringList literature_support  
     integer number_of_cells  
     integer order  
     narrative_text description  
