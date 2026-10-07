@@ -138,7 +138,7 @@ classes:
         in_subset:
         - obs
         - assigned_metadata
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
     attributes:
       cluster_id:
@@ -315,7 +315,7 @@ classes:
         in_subset:
         - uns
         - annotations
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       name:
         annotations:
@@ -331,7 +331,7 @@ classes:
         - obs
         - uns
         - annotations
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       order:
         annotations:
@@ -433,7 +433,7 @@ classes:
             tag: source
             value: bke
         description: Unique identifier for this cell type taxon.
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       name:
         annotations:
@@ -448,7 +448,7 @@ classes:
         in_subset:
         - obs
         - annotations
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       accession_id:
         annotations:
@@ -608,7 +608,7 @@ classes:
             tag: source
             value: bke
         description: Unique identifier for this taxonomy.
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       accession_id:
         annotations:
@@ -635,7 +635,7 @@ classes:
         in_subset:
         - uns
         - data
-        from_schema: https://identifiers.org/brain-bican/bican-core-schema
+        from_schema: bican_core
         aliases:
         - dataset_purl
         range: uri
@@ -953,7 +953,7 @@ classes:
         in_subset:
         - uns
         - annotations
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       name:
         annotations:
@@ -965,7 +965,7 @@ classes:
         in_subset:
         - uns
         - annotations
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       was_derived_from:
         range: ExpressionMatrix
@@ -1004,7 +1004,7 @@ classes:
         - obs
         - uns
         - annotations
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       name:
         annotations:
@@ -1020,7 +1020,7 @@ classes:
         - obs
         - uns
         - annotations
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       part_of_set:
         description: The cluster set to which this cluster belongs.
@@ -1087,7 +1087,7 @@ classes:
             tag: source
             value: bke
         description: Unique identifier for this expression matrix.
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       content_url:
         annotations:
@@ -1105,7 +1105,7 @@ classes:
         in_subset:
         - uns
         - data
-        from_schema: https://identifiers.org/brain-bican/bican-core-schema
+        from_schema: bican_core
         aliases:
         - dataset_purl
         range: uri
@@ -1167,7 +1167,7 @@ classes:
             tag: source
             value: bke
         description: Unique identifier for this embedding.
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
     attributes:
       embedding_key:
@@ -1229,7 +1229,7 @@ classes:
         in_subset:
         - uns
         - annotations
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
     attributes:
       term:
@@ -1340,7 +1340,7 @@ classes:
         in_subset:
         - uns
         - tooling
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       name:
         annotations:
@@ -1357,7 +1357,7 @@ classes:
         in_subset:
         - uns
         - tooling
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       description:
         annotations:
@@ -1371,7 +1371,7 @@ classes:
         in_subset:
         - uns
         - tooling
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
     attributes:
       is_palette_for:
@@ -1411,7 +1411,7 @@ classes:
         in_subset:
         - uns
         - tooling
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
     attributes:
       color_hex_triplet:

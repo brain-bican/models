@@ -95,7 +95,7 @@ classes:
       used:
         description: One of potentially many input cluster sets from which the cell
           type taxonomy is derived.
-        from_schema: https://identifiers.org/brain-bican/bican-prov-schema
+        from_schema: bican_prov
         range: ClusterSet
         multivalued: true
   CellTypeTaxonomy:
@@ -120,12 +120,12 @@ classes:
       was_generated_by:
         description: The analysis process from which the cell types taxonomy was generated
           by.
-        from_schema: https://identifiers.org/brain-bican/bican-prov-schema
+        from_schema: bican_prov
         range: CellTypeTaxonomyCreationProcess
       was_derived_from:
         description: One of potentially many input clusters set from which the cell
           type taxonomy is derived.
-        from_schema: https://identifiers.org/brain-bican/bican-prov-schema
+        from_schema: bican_prov
         range: ClusterSet
         multivalued: true
       is_revision_of:
@@ -134,11 +134,11 @@ classes:
         range: CellTypeTaxonomy
       id:
         description: ( database GUID)
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       creation date:
         description: The creation date of the cell type taxonomy.
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
       accession_id:
         description: A provider assigned accession identifier for the taxonomy.
         examples:
@@ -148,18 +148,18 @@ classes:
         description: Name of the cell type taxonomy.
         examples:
         - value: AIT21.0
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       description:
         description: Description of the cell type taxonomy.
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
   CellTypeSet:
     description: A grouping of cell type taxons. The grouping may represent a specific
       taxonomic level (rank) or cell type neighborhood.
@@ -191,7 +191,7 @@ classes:
         multivalued: true
       id:
         description: ( database GUID)
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       accession_id:
         description: A provider assigned accession identifier for the cell type set.
@@ -202,7 +202,7 @@ classes:
         description: Name of the cell type set taxonomy.
         examples:
         - value: class
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       description:
         description: Description of the cell type set.
@@ -211,7 +211,7 @@ classes:
             It is primarily determined by broad brain region and neurotransmitter
             type. All cells within a subclass belong to the same class. Class provides
             a broader categorization of cell types.
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       order:
         local_names:
@@ -229,7 +229,7 @@ classes:
           allen:
             local_name_source: allen
             local_name_value: unique_id
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
     attributes:
       contains_taxon:
         description: One of potentially many cell types taxons which together defines
@@ -284,7 +284,7 @@ classes:
         multivalued: true
       id:
         description: ( database GUID)
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       accession_id:
         description: A provider assigned accession identifier for the cell type taxon.
@@ -309,14 +309,14 @@ classes:
         minimum_value: '0.0'
       description:
         description: Description of the cell type taxon (optional).
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
     attributes:
       contains_cluster:
         description: One of potentially cell clusters which together defines the cell
@@ -374,7 +374,7 @@ classes:
       used:
         description: One of potentially many input observation matrices from which
           clusters are derived.
-        from_schema: https://identifiers.org/brain-bican/bican-prov-schema
+        from_schema: bican_prov
         range: ObservationMatrix
         multivalued: true
   ClusterSet:
@@ -397,12 +397,12 @@ classes:
     slot_usage:
       was_generated_by:
         description: The analysis process from which clusters was generated by.
-        from_schema: https://identifiers.org/brain-bican/bican-prov-schema
+        from_schema: bican_prov
         range: ClusteringProcess
       was_derived_from:
         description: One of potentially many input observation matrices from which
           clusters are derived.
-        from_schema: https://identifiers.org/brain-bican/bican-prov-schema
+        from_schema: bican_prov
         range: ObservationMatrix
         multivalued: true
       is_revision_of:
@@ -411,28 +411,28 @@ classes:
         range: ClusterSet
       id:
         description: ( database GUID)
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       accession_id:
         description: A provider assigned accession identifier for the cluster set.
         range: string
       name:
         description: Name of the cluster set.
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       description:
         description: Description of the cluster set.
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
       creation date:
         description: The creation date of the cluster set.
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
   Cluster:
     description: One specific cluster from the set of clusters determined by a clustering
       process. A cluster is defined by set of observations which has been grouped
@@ -449,7 +449,7 @@ classes:
     slot_usage:
       id:
         description: ( database GUID)
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       accession_id:
         description: A provider assigned accession identifier for the cluster which
@@ -461,14 +461,14 @@ classes:
         description: Name of the cluster.
         examples:
         - value: '1019'
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
     attributes:
       part_of_set:
         description: The cluster set from which the cluster is part of.
@@ -518,12 +518,12 @@ classes:
       was_generated_by:
         description: The aggregation process from which a observation matrix was generated
           by.
-        from_schema: https://identifiers.org/brain-bican/bican-prov-schema
+        from_schema: bican_prov
         range: ObservationMatrixCreationProcess
       was_derived_from:
         description: One of many cell specimens from which observations in the matrix
           was derived from.
-        from_schema: https://identifiers.org/brain-bican/bican-prov-schema
+        from_schema: bican_prov
         range: CellSpecimen
         multivalued: true
       content_url:
@@ -531,13 +531,13 @@ classes:
           allen:
             local_name_source: allen
             local_name_value: url
-        from_schema: https://identifiers.org/brain-bican/bican-core-schema
+        from_schema: bican_core
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
     attributes:
       represented_by:
         description: One of potentially matrix files which together represents the
@@ -564,14 +564,14 @@ classes:
     slot_usage:
       was_derived_from:
         description: The cell specimen from which the observation was derived from.
-        from_schema: https://identifiers.org/brain-bican/bican-prov-schema
+        from_schema: bican_prov
         range: CellSpecimen
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
     attributes:
       part_of_matrix:
         description: The observation matrix for which is observation row is part of.
@@ -602,14 +602,14 @@ classes:
     slot_usage:
       id:
         description: ( database GUID)
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
     attributes:
       denotes_gene_annotation:
         local_names:
@@ -675,13 +675,13 @@ classes:
           allen:
             local_name_source: allen
             local_name_value: url
-        from_schema: https://identifiers.org/brain-bican/bican-core-schema
+        from_schema: bican_core
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
   ColorPalette:
     description: A schematic set of display colors that can be applied to individual
       components of the associated entity set (for example, a taxonomy).
@@ -697,22 +697,22 @@ classes:
     slot_usage:
       id:
         description: ( database GUID)
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       name:
         description: Name of the color palette.
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       description:
         description: Description of the color palette.
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
     attributes:
       is_palette_for:
         description: The cell types taxonomy for which the palette provides display
@@ -732,14 +732,14 @@ classes:
     slot_usage:
       id:
         description: ( database GUID)
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
         range: string
       xref:
         local_names:
           allen:
             local_name_source: allen
             local_name_value: unique_id
-        from_schema: https://w3id.org/biolink/bican-biolink-schema
+        from_schema: bican_biolink
     attributes:
       part_of_palette:
         description: The color palette for which the display color map is part of.
