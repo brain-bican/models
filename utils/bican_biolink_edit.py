@@ -18,6 +18,9 @@ def bican_biolink_edit(schema_yaml: str) -> None:
     schema_dict["slots"]["category"]["range"] = "curie"
     schema_dict["slots"]["category"]["pattern"] = r"^bican:[A-Z][A-Za-z]+$"
     schema_dict["slots"]["category"]["description"] = schema_dict["slots"]["category"]["description"] + ". NOTE: The category slot was modified to have a curie range and a pattern for bican categories."
+    # The trimmer writes generation_date without a timezone, which is not a valid
+    # xsd:dateTime and fails linkml-lint; it is only metadata, so drop it.
+    schema_dict.pop("generation_date", None)
 
     with schema_yaml_path.open("w") as f:
         f.write(yaml.dump(schema_dict, sort_keys=False))
