@@ -1,5 +1,5 @@
 Class	Predicate (General)	Predicate (Specific)	Subject	from_schema	Multivalued	Subsets	Slot Definition	AIT Location	Notes	Source	New	AIT Separator
-> class	slot	attribute	range	from_schema	multivalued	in_subset	description	annotations	ignore	ignore	ignore	annotations
+> class	slot	attribute	range	ignore	multivalued	in_subset	description	annotations	ignore	ignore	ignore	annotations
 >			internal_separator: "|"			internal_separator: "|"		inner_key: ait_location				inner_key: ait_separator
 	was_derived_from			bican_prov						bke		
 	has_parent									bke		
