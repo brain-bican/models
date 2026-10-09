@@ -22,6 +22,33 @@ def bican_biolink_edit(schema_yaml: str) -> None:
     # xsd:dateTime and fails linkml-lint; it is only metadata, so drop it.
     schema_dict.pop("generation_date", None)
 
+    # Add a SKOS exact-match slot to "organism taxon" so a taxon can be linked to
+    # its NCBI Taxonomy term as a *node* rather than a literal (biolink:xref stays
+    # as it is: a database identifier, range uriorcurie, serialised as a literal).
+    #
+    # This is declared here rather than inherited from the OntologyMappable mixin in
+    # bican_core, because bican_core imports bican_biolink and not the other way
+    # round; linkml-lint runs over each schema on its own, so bican_biolink has to
+    # resolve without bican_core. "ontology class" is biolink's own class for a term
+    # in an external vocabulary (exact_mappings: owl:Class) and carries the
+    # "id" identifier slot, which is what makes the generated JSON-LD context emit
+    # "@type": "@id". Keep the name and slot_uri in step with OntologyMappable.
+    schema_dict["prefixes"]["skos"] = {
+        "prefix_prefix": "skos",
+        "prefix_reference": "http://www.w3.org/2004/02/skos/core#",
+    }
+    schema_dict["slots"]["exact match"] = {
+        "name": "exact match",
+        "description": (
+            "An external concept that is interchangeable with this entity. "
+            "Symmetric and transitive, so it chains through third-party mappings."
+        ),
+        "slot_uri": "skos:exactMatch",
+        "range": "ontology class",
+        "multivalued": True,
+    }
+    schema_dict["classes"]["organism taxon"]["slots"].append("exact match")
+
     with schema_yaml_path.open("w") as f:
         f.write(yaml.dump(schema_dict, sort_keys=False))
 
