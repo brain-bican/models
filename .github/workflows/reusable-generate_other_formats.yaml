@@ -64,6 +64,9 @@ jobs:
             # generating jsonld context and removing generation_date field to avoid constant updates
             linkml generate jsonld-context ${name}.yaml > ../jsonld-context-autogen/${name}.context.jsonld;
             sed -i "/generation_date/d" ../jsonld-context-autogen/${name}.context.jsonld;
+            # "@prefix" is a JSON-LD 1.1 keyword; without "@version" a 1.0-mode
+            # processor silently misreads every CURIE whose namespace ends in "_"
+            python ../utils/add_context_version.py ../jsonld-context-autogen/${name}.context.jsonld;
             echo "jsonld-context generated";
             linkml generate pydantic ${name}.yaml > ../models_py-autogen/${name}.py;
             echo "pydantic model generated";

@@ -54,6 +54,7 @@ jobs:
               # generating jsonld context and removing generation_date field to avoid constant updates
               gen-jsonld-context ${file} > tests_artifacts/jsonld-context-autogen/${name}.context.jsonld;
               sed -i "/generation_date/d" tests_artifacts/jsonld-context-autogen/${name}.context.jsonld;
+              python ../utils/add_context_version.py tests_artifacts/jsonld-context-autogen/${name}.context.jsonld;
               echo "Diff in jsonld context for $name file (comparing to the current version)"
               colordiff ../jsonld-context-autogen/${name}.context.jsonld tests_artifacts/jsonld-context-autogen/${name}.context.jsonld || true
               gen-pydantic ${file} > tests_artifacts/models_py-autogen/${name}.py;
