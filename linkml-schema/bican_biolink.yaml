@@ -408,6 +408,9 @@ prefixes:
   PMC:
     prefix_prefix: PMC
     prefix_reference: http://europepmc.org/articles/PMC
+  skos:
+    prefix_prefix: skos
+    prefix_reference: http://www.w3.org/2004/02/skos/core#
 emit_prefixes:
 - rdf
 - rdfs
@@ -1395,6 +1398,14 @@ slots:
     is_usage_slot: true
     usage_slot_name: name
     range: symbol type
+  exact match:
+    name: exact match
+    description: 'An external concept that is interchangeable with this entity. Symmetric
+      and transitive, so it chains through third-party mappings. NOTE: this slot was
+      added by bican (utils/bican_biolink_edit.py); it is not part of the Biolink Model.'
+    slot_uri: skos:exactMatch
+    range: ontology class
+    multivalued: true
 classes:
   ontology class:
     name: ontology class
@@ -1599,6 +1610,7 @@ classes:
     - equivalent identifiers
     - named thing_category
     - has taxonomic rank
+    - exact match
     slot_usage:
       has taxonomic rank:
         name: has taxonomic rank

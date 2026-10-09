@@ -10,7 +10,7 @@ prefixes:
   schema: http://schema.org/
   NCBIAssembly: http://identifiers.org/assembly/
   NCBIGene: http://identifiers.org/ncbigene/ 
-  NCBITaxon: http://identifiers.org/taxonomy/
+  NCBITaxon: http://purl.obolibrary.org/obo/NCBITaxon_
 
 imports:
   - linkml:types
