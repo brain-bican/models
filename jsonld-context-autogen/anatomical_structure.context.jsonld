@@ -242,6 +242,10 @@
          "@type": "xsd:anyURI",
          "@id": "biolink:equivalent_identifiers"
       },
+      "exact_match": {
+         "@type": "@id",
+         "@id": "skos:exactMatch"
+      },
       "format": {
          "@id": "biolink:format"
       },
@@ -358,6 +362,26 @@
       },
       "node_property": {
          "@id": "biolink:node_property"
+      },
+      "broad_match": {
+         "@type": "@id",
+         "@id": "skos:broadMatch"
+      },
+      "close_match": {
+         "@type": "@id",
+         "@id": "skos:closeMatch"
+      },
+      "mapping_relation": {
+         "@type": "@id",
+         "@id": "skos:mappingRelation"
+      },
+      "narrow_match": {
+         "@type": "@id",
+         "@id": "skos:narrowMatch"
+      },
+      "related_match": {
+         "@type": "@id",
+         "@id": "skos:relatedMatch"
       },
       "ordinal": {
          "@type": "xsd:integer",
@@ -511,6 +535,9 @@
       },
       "OntologyClass": {
          "@id": "biolink:OntologyClass"
+      },
+      "OntologyMappable": {
+         "@id": "OntologyMappable"
       },
       "OrganismTaxon": {
          "@id": "biolink:OrganismTaxon"
