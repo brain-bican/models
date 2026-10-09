@@ -94,7 +94,10 @@
       },
       "NBO-PROPERTY": "http://purl.obolibrary.org/obo/nbo#",
       "NCBIGene": "http://identifiers.org/ncbigene/",
-      "NCBITaxon": "http://identifiers.org/taxonomy/",
+      "NCBITaxon": {
+         "@id": "http://purl.obolibrary.org/obo/NCBITaxon_",
+         "@prefix": true
+      },
       "NCIT": {
          "@id": "http://purl.obolibrary.org/obo/NCIT_",
          "@prefix": true
@@ -375,6 +378,10 @@
          "@type": "xsd:anyURI",
          "@id": "biolink:equivalent_identifiers"
       },
+      "exact_match": {
+         "@type": "@id",
+         "@id": "skos:exactMatch"
+      },
       "format": {
          "@id": "biolink:format"
       },
@@ -530,6 +537,26 @@
       "represented_in": {
          "@type": "@id",
          "@id": "represented_in"
+      },
+      "broad_match": {
+         "@type": "@id",
+         "@id": "skos:broadMatch"
+      },
+      "close_match": {
+         "@type": "@id",
+         "@id": "skos:closeMatch"
+      },
+      "mapping_relation": {
+         "@type": "@id",
+         "@id": "skos:mappingRelation"
+      },
+      "narrow_match": {
+         "@type": "@id",
+         "@id": "skos:narrowMatch"
+      },
+      "related_match": {
+         "@type": "@id",
+         "@id": "skos:relatedMatch"
       },
       "order": {
          "@type": "xsd:integer",
@@ -786,6 +813,9 @@
       },
       "OntologyClass": {
          "@id": "biolink:OntologyClass"
+      },
+      "OntologyMappable": {
+         "@id": "OntologyMappable"
       },
       "OrganismTaxon": {
          "@id": "biolink:OrganismTaxon"

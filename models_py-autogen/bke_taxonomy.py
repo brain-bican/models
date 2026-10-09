@@ -29,7 +29,7 @@ from pydantic import (
 )
 
 
-metamodel_version = "1.11.0"
+metamodel_version = "1.12.0"
 version = "None"
 
 
@@ -1785,6 +1785,7 @@ class OrganismTaxon(NamedThing):
          'is_a': 'node property',
          'mappings': ['WIKIDATA:P105'],
          'slot_uri': 'biolink:has_taxonomic_rank'} })
+    exact_match: Optional[list[str]] = Field(default=None, description="""An external concept that is interchangeable with this entity. Symmetric and transitive, so it chains through third-party mappings. NOTE: this slot was added by bican (utils/bican_biolink_edit.py); it is not part of the Biolink Model.""", json_schema_extra = { "linkml_meta": {'domain_of': ['organism taxon'], 'slot_uri': 'skos:exactMatch'} })
 
 
 class InformationContentEntity(NamedThing):
@@ -7258,6 +7259,23 @@ class Checksum(Entity):
          'slot_uri': 'biolink:deprecated'} })
 
 
+class OntologyMappable(ConfiguredBaseModel):
+    """
+    Mixin for entities that map to concepts in external vocabularies, using the SKOS mapping predicates.
+    Choose by cardinality and confidence. All of these are sub-properties of skos:mappingRelation, so a weaker claim can be tightened later without contradicting what was already published. Note that close_match is NOT a more general form of broad_match: they are siblings asserting different things (similarity at the same level vs. a hierarchy).
+    Every range is biolink's \"ontology class\" (exact_mappings: owl:Class) -- a term in an external vocabulary, identified by a CURIE and not described anywhere in our documents. It is used because it carries an identifier slot, which is what makes the generated JSON-LD context emit \"@type\": \"@id\" and therefore produce a node reference rather than a literal. A uriorcurie range cannot do this.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/bican-core-schema',
+         'mixin': True})
+
+    mapping_relation: Optional[list[str]] = Field(default=None, description="""A mapping of unspecified kind. The honest choice when the relationship is not established: it entails nothing, being neither symmetric nor transitive and carrying no direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:mappingRelation'} })
+    exact_match: Optional[list[str]] = Field(default=None, description="""The external concept is interchangeable with this entity. Symmetric AND transitive, so it chains through third-party mappings. Do not use where several of our entities map to one external concept: the entailment would then assert that those entities are equivalent to each other.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:exactMatch'} })
+    close_match: Optional[list[str]] = Field(default=None, description="""Close enough to be used interchangeably in some applications. Symmetric but not transitive. Asserts similarity at the same level, so it is not a substitute for broad_match where a hierarchy exists.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:closeMatch'} })
+    broad_match: Optional[list[str]] = Field(default=None, description="""The external concept is broader than this entity. Use where several of our entities map to a single external concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:broadMatch'} })
+    narrow_match: Optional[list[str]] = Field(default=None, description="""The external concept is narrower than this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:narrowMatch'} })
+    related_match: Optional[list[str]] = Field(default=None, description="""Associatively related. Note that this positively asserts that the concepts are NOT equivalent and NOT hierarchically related, so it is a claim in its own right rather than a neutral fallback.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:relatedMatch'} })
+
+
 class GeneAnnotation(Gene):
     """
     Represents a single gene. Includes metadata about the gene, such as its molecular type and the genome annotation it was referenced from.
@@ -8926,6 +8944,45 @@ class ImageDataset(VersionedNamedThing):
          'is_a': 'type',
          'is_class_field': True,
          'slot_uri': 'biolink:category'} })
+
+    @field_validator('x_resolution')
+    def pattern_x_resolution(cls, v):
+        pattern=re.compile(r"^(?:\{PositiveFloat\})$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid x_resolution format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid x_resolution format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('y_resolution')
+    def pattern_y_resolution(cls, v):
+        pattern=re.compile(r"^(?:\{PositiveFloat\})$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid y_resolution format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid y_resolution format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('z_resolution')
+    def pattern_z_resolution(cls, v):
+        pattern=re.compile(r"^(?:\{PositiveFloat\})$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid z_resolution format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid z_resolution format: {v}"
+            raise ValueError(err_msg)
+        return v
 
 
 class AnatomicalSpace(VersionedNamedThing):
@@ -10938,6 +10995,19 @@ class ParcellationColorAssignment(ConfiguredBaseModel):
     color: Optional[str] = Field(default=None, description="""A string representing to hex triplet code of a color""", json_schema_extra = { "linkml_meta": {'domain_of': ['ParcellationColorAssignment'],
          'structured_pattern': {'syntax': '{ColorHexTriplet}'}} })
 
+    @field_validator('color')
+    def pattern_color(cls, v):
+        pattern=re.compile(r"^(?:\{ColorHexTriplet\})$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid color format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid color format: {v}"
+            raise ValueError(err_msg)
+        return v
+
 
 class AnatomicalAnnotationSet(VersionedNamedThing):
     """
@@ -11774,7 +11844,6 @@ class CellTypeTaxonomyCreationProcess(ProvActivity, Procedure):
          'slot_usage': {'used': {'description': 'One of potentially many input cluster '
                                                 'sets from which the cell type '
                                                 'taxonomy is derived.',
-                                 'from_schema': 'bican_prov',
                                  'multivalued': True,
                                  'name': 'used',
                                  'range': 'ClusterSet'}}})
@@ -12175,15 +12244,12 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
                                          'range': 'string'},
                         'creation date': {'description': 'The creation date of the '
                                                          'cell type taxonomy.',
-                                          'from_schema': 'bican_biolink',
                                           'name': 'creation date'},
                         'description': {'description': 'Description of the cell type '
                                                        'taxonomy.',
-                                        'from_schema': 'bican_biolink',
                                         'name': 'description',
                                         'range': 'string'},
                         'id': {'description': '( database GUID)',
-                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'is_revision_of': {'description': 'The previous version for '
@@ -12193,14 +12259,12 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
                                            'range': 'CellTypeTaxonomy'},
                         'name': {'description': 'Name of the cell type taxonomy.',
                                  'examples': [{'value': 'AIT21.0'}],
-                                 'from_schema': 'bican_biolink',
                                  'name': 'name',
                                  'range': 'string'},
                         'was_derived_from': {'description': 'One of potentially many '
                                                             'input clusters set from '
                                                             'which the cell type '
                                                             'taxonomy is derived.',
-                                             'from_schema': 'bican_prov',
                                              'multivalued': True,
                                              'name': 'was_derived_from',
                                              'range': 'ClusterSet'},
@@ -12208,11 +12272,9 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
                                                             'which the cell types '
                                                             'taxonomy was generated '
                                                             'by.',
-                                             'from_schema': 'bican_prov',
                                              'name': 'was_generated_by',
                                              'range': 'CellTypeTaxonomyCreationProcess'},
-                        'xref': {'from_schema': 'bican_biolink',
-                                 'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -12655,7 +12717,6 @@ class CellTypeSet(ProvEntity, NamedThing):
                                                                'provides a broader '
                                                                'categorization of cell '
                                                                'types.'}],
-                                        'from_schema': 'bican_biolink',
                                         'name': 'description',
                                         'range': 'string'},
                         'has_abbreviation': {'description': 'One of many abbreviation '
@@ -12671,12 +12732,10 @@ class CellTypeSet(ProvEntity, NamedThing):
                                        'name': 'has_parent',
                                        'range': 'CellTypeSet'},
                         'id': {'description': '( database GUID)',
-                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'name': {'description': 'Name of the cell type set taxonomy.',
                                  'examples': [{'value': 'class'}],
-                                 'from_schema': 'bican_biolink',
                                  'name': 'name',
                                  'range': 'string'},
                         'order': {'description': 'The priority or display order of the '
@@ -12693,8 +12752,7 @@ class CellTypeSet(ProvEntity, NamedThing):
                                                             'set is part of.',
                                              'name': 'part_of_taxonomy',
                                              'range': 'CellTypeTaxonomy'},
-                        'xref': {'from_schema': 'bican_biolink',
-                                 'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -13129,7 +13187,6 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                                          'range': 'string'},
                         'description': {'description': 'Description of the cell type '
                                                        'taxon (optional).',
-                                        'from_schema': 'bican_biolink',
                                         'name': 'description',
                                         'range': 'string'},
                         'has_abbreviation': {'description': 'One of many abbreviation '
@@ -13146,7 +13203,6 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                                        'name': 'has_parent',
                                        'range': 'CellTypeTaxon'},
                         'id': {'description': '( database GUID)',
-                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'name': {'description': 'Name of the cell type taxon.',
@@ -13167,8 +13223,7 @@ class CellTypeTaxon(ProvEntity, NamedThing):
                                                             'taxon is part of.',
                                              'name': 'part_of_taxonomy',
                                              'range': 'CellTypeTaxonomy'},
-                        'xref': {'from_schema': 'bican_biolink',
-                                 'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -13595,7 +13650,6 @@ class ClusteringProcess(ProvActivity, Procedure):
          'slot_usage': {'used': {'description': 'One of potentially many input '
                                                 'observation matrices from which '
                                                 'clusters are derived.',
-                                 'from_schema': 'bican_prov',
                                  'multivalued': True,
                                  'name': 'used',
                                  'range': 'ObservationMatrix'}}})
@@ -13996,15 +14050,12 @@ class ClusterSet(ProvEntity, NamedThing):
                                          'range': 'string'},
                         'creation date': {'description': 'The creation date of the '
                                                          'cluster set.',
-                                          'from_schema': 'bican_biolink',
                                           'name': 'creation date'},
                         'description': {'description': 'Description of the cluster '
                                                        'set.',
-                                        'from_schema': 'bican_biolink',
                                         'name': 'description',
                                         'range': 'string'},
                         'id': {'description': '( database GUID)',
-                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'is_revision_of': {'description': 'The previous version for '
@@ -14013,25 +14064,21 @@ class ClusterSet(ProvEntity, NamedThing):
                                            'name': 'is_revision_of',
                                            'range': 'ClusterSet'},
                         'name': {'description': 'Name of the cluster set.',
-                                 'from_schema': 'bican_biolink',
                                  'name': 'name',
                                  'range': 'string'},
                         'was_derived_from': {'description': 'One of potentially many '
                                                             'input observation '
                                                             'matrices from which '
                                                             'clusters are derived.',
-                                             'from_schema': 'bican_prov',
                                              'multivalued': True,
                                              'name': 'was_derived_from',
                                              'range': 'ObservationMatrix'},
                         'was_generated_by': {'description': 'The analysis process from '
                                                             'which clusters was '
                                                             'generated by.',
-                                             'from_schema': 'bican_prov',
                                              'name': 'was_generated_by',
                                              'range': 'ClusteringProcess'},
-                        'xref': {'from_schema': 'bican_biolink',
-                                 'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -14459,16 +14506,13 @@ class Cluster(ProvEntity, NamedThing):
                                          'name': 'accession_id',
                                          'range': 'string'},
                         'id': {'description': '( database GUID)',
-                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'name': {'description': 'Name of the cluster.',
                                  'examples': [{'value': '1019'}],
-                                 'from_schema': 'bican_biolink',
                                  'name': 'name',
                                  'range': 'string'},
-                        'xref': {'from_schema': 'bican_biolink',
-                                 'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -15271,26 +15315,22 @@ class ObservationMatrix(ProvEntity, NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
-         'slot_usage': {'content_url': {'from_schema': 'bican_core',
-                                        'local_names': {'allen': {'local_name_source': 'allen',
+         'slot_usage': {'content_url': {'local_names': {'allen': {'local_name_source': 'allen',
                                                                   'local_name_value': 'url'}},
                                         'name': 'content_url'},
                         'was_derived_from': {'description': 'One of many cell '
                                                             'specimens from which '
                                                             'observations in the '
                                                             'matrix was derived from.',
-                                             'from_schema': 'bican_prov',
                                              'multivalued': True,
                                              'name': 'was_derived_from',
                                              'range': 'CellSpecimen'},
                         'was_generated_by': {'description': 'The aggregation process '
                                                             'from which a observation '
                                                             'matrix was generated by.',
-                                             'from_schema': 'bican_prov',
                                              'name': 'was_generated_by',
                                              'range': 'ObservationMatrixCreationProcess'},
-                        'xref': {'from_schema': 'bican_biolink',
-                                 'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -15701,11 +15741,9 @@ class ObservationRow(ProvEntity, NamedThing):
          'slot_usage': {'was_derived_from': {'description': 'The cell specimen from '
                                                             'which the observation was '
                                                             'derived from.',
-                                             'from_schema': 'bican_prov',
                                              'name': 'was_derived_from',
                                              'range': 'CellSpecimen'},
-                        'xref': {'from_schema': 'bican_biolink',
-                                 'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -16508,11 +16546,9 @@ class Abbreviation(ProvEntity, NamedThing):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'id': {'description': '( database GUID)',
-                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
-                        'xref': {'from_schema': 'bican_biolink',
-                                 'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -16928,12 +16964,10 @@ class MatrixFile(ProvEntity, NamedThing):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
-         'slot_usage': {'content_url': {'from_schema': 'bican_core',
-                                        'local_names': {'allen': {'local_name_source': 'allen',
+         'slot_usage': {'content_url': {'local_names': {'allen': {'local_name_source': 'allen',
                                                                   'local_name_value': 'url'}},
                                         'name': 'content_url'},
-                        'xref': {'from_schema': 'bican_biolink',
-                                 'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -17341,19 +17375,15 @@ class ColorPalette(ProvEntity, NamedThing):
          'mixins': ['ProvEntity'],
          'slot_usage': {'description': {'description': 'Description of the color '
                                                        'palette.',
-                                        'from_schema': 'bican_biolink',
                                         'name': 'description',
                                         'range': 'string'},
                         'id': {'description': '( database GUID)',
-                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
                         'name': {'description': 'Name of the color palette.',
-                                 'from_schema': 'bican_biolink',
                                  'name': 'name',
                                  'range': 'string'},
-                        'xref': {'from_schema': 'bican_biolink',
-                                 'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -17757,11 +17787,9 @@ class DisplayColor(ProvEntity, NamedThing):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/bke-taxonomy',
          'mixins': ['ProvEntity'],
          'slot_usage': {'id': {'description': '( database GUID)',
-                               'from_schema': 'bican_biolink',
                                'name': 'id',
                                'range': 'string'},
-                        'xref': {'from_schema': 'bican_biolink',
-                                 'local_names': {'allen': {'local_name_source': 'allen',
+                        'xref': {'local_names': {'allen': {'local_name_source': 'allen',
                                                            'local_name_value': 'unique_id'}},
                                  'name': 'xref'}}})
 
@@ -18643,6 +18671,7 @@ ProvActivity.model_rebuild()
 ProvEntity.model_rebuild()
 VersionedNamedThing.model_rebuild()
 Checksum.model_rebuild()
+OntologyMappable.model_rebuild()
 GeneAnnotation.model_rebuild()
 GenomeAnnotation.model_rebuild()
 GenomeAssembly.model_rebuild()
