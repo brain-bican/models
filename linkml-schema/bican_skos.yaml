@@ -1,0 +1,85 @@
+id: https://identifiers.org/brain-bican/bican-skos-schema
+name: bican-skos-schema
+title: BICAN SKOS Schema
+description: |-
+  The BICAN SKOS schema contains the SKOS mapping properties, for linking BICAN entities to concepts in external vocabularies.
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  bican: https://identifiers.org/brain-bican/vocab/
+  skos: http://www.w3.org/2004/02/skos/core#
+
+imports:
+  - linkml:types
+  - bican_biolink
+
+default_range: string
+default_prefix: bican
+
+classes:
+  OntologyMappable:
+    mixin: true
+    description: >-
+      A mixin for entities that map to concepts in external vocabularies.
+
+      Choose the property by cardinality and confidence. All of them are
+      sub-properties of skos:mappingRelation, so a weaker claim can be
+      tightened later without contradicting what was already published.
+      Note that close_match is NOT a more general form of broad_match: they
+      are siblings asserting different things (similarity at the same level
+      vs. a hierarchy), and the neutral fallback is mapping_relation.
+    slots:
+      - mapping_relation
+      - exact_match
+      - close_match
+      - broad_match
+      - narrow_match
+      - related_match
+
+slots:
+  mapping_relation:
+    description: >-
+      A mapping of unspecified kind. The honest choice when the relationship
+      is not established: it entails nothing, being neither symmetric nor
+      transitive and carrying no direction.
+    slot_uri: skos:mappingRelation
+    range: ontology class
+    multivalued: true
+  exact_match:
+    description: >-
+      The external concept is interchangeable with this entity. Symmetric AND
+      transitive, so it chains through third-party mappings. Do not use where
+      several of our entities map to one external concept: the entailment
+      would then assert that those entities are equivalent to each other.
+    slot_uri: skos:exactMatch
+    range: ontology class
+    multivalued: true
+  close_match:
+    description: >-
+      Close enough to be used interchangeably in some applications. Symmetric
+      but not transitive. Asserts similarity at the same level, so it is not
+      a substitute for broad_match where a hierarchy exists.
+    slot_uri: skos:closeMatch
+    range: ontology class
+    multivalued: true
+  broad_match:
+    description: >-
+      The external concept is broader than this entity. Use where several of
+      our entities map to a single external concept.
+    slot_uri: skos:broadMatch
+    range: ontology class
+    multivalued: true
+  narrow_match:
+    description: >-
+      The external concept is narrower than this entity.
+    slot_uri: skos:narrowMatch
+    range: ontology class
+    multivalued: true
+  related_match:
+    description: >-
+      Associatively related. Note that this positively asserts that the
+      concepts are NOT equivalent and NOT hierarchically related, so it is a
+      claim in its own right rather than a neutral fallback.
+    slot_uri: skos:relatedMatch
+    range: ontology class
+    multivalued: true
