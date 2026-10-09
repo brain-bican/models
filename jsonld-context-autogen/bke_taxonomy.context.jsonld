@@ -538,26 +538,6 @@
          "@type": "@id",
          "@id": "represented_in"
       },
-      "broad_match": {
-         "@type": "@id",
-         "@id": "skos:broadMatch"
-      },
-      "close_match": {
-         "@type": "@id",
-         "@id": "skos:closeMatch"
-      },
-      "mapping_relation": {
-         "@type": "@id",
-         "@id": "skos:mappingRelation"
-      },
-      "narrow_match": {
-         "@type": "@id",
-         "@id": "skos:narrowMatch"
-      },
-      "related_match": {
-         "@type": "@id",
-         "@id": "skos:relatedMatch"
-      },
       "order": {
          "@type": "xsd:integer",
          "@id": "order"
@@ -813,9 +793,6 @@
       },
       "OntologyClass": {
          "@id": "biolink:OntologyClass"
-      },
-      "OntologyMappable": {
-         "@id": "OntologyMappable"
       },
       "OrganismTaxon": {
          "@id": "biolink:OrganismTaxon"

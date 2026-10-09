@@ -7,6 +7,7 @@ on:
     paths:
       - 'linkml-schema/bke_taxonomy.yaml'
       - 'linkml-schema/bican_biolink.yaml'
+      - 'linkml-schema/bican_core.yaml'
       - 'linkml-schema/bican_prov.yaml'
       - 'linkml-schema/genome_annotation.yaml'
       - 'linkml-schema/anatomical_structure.yaml'
