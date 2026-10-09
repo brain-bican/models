@@ -8,7 +8,6 @@ prefixes:
   linkml: https://w3id.org/linkml/
   bican: https://identifiers.org/brain-bican/vocab/
   spdx: http://spdx.org/rdf/terms#
-  skos: http://www.w3.org/2004/02/skos/core#
 
 imports:
   - linkml:types
@@ -38,73 +37,6 @@ classes:
     attributes:
       value: 
         description: The checksum value obtained from a specific cryotographic hash function.
-
-  OntologyMappable:
-    mixin: true
-    description: >-
-      Mixin for entities that map to concepts in external vocabularies, using
-      the SKOS mapping predicates.
-
-      Choose by cardinality and confidence. All of these are sub-properties of
-      skos:mappingRelation, so a weaker claim can be tightened later without
-      contradicting what was already published. Note that close_match is NOT a
-      more general form of broad_match: they are siblings asserting different
-      things (similarity at the same level vs. a hierarchy).
-
-      Every range is biolink's "ontology class" (exact_mappings: owl:Class) --
-      a term in an external vocabulary, identified by a CURIE and not described
-      anywhere in our documents. It is used because it carries an identifier
-      slot, which is what makes the generated JSON-LD context emit
-      "@type": "@id" and therefore produce a node reference rather than a
-      literal. A uriorcurie range cannot do this.
-    attributes:
-      mapping_relation:
-        slot_uri: skos:mappingRelation
-        description: >-
-          A mapping of unspecified kind. The honest choice when the
-          relationship is not established: it entails nothing, being neither
-          symmetric nor transitive and carrying no direction.
-        range: ontology class
-        multivalued: true
-      exact_match:
-        slot_uri: skos:exactMatch
-        description: >-
-          The external concept is interchangeable with this entity. Symmetric
-          AND transitive, so it chains through third-party mappings. Do not
-          use where several of our entities map to one external concept: the
-          entailment would then assert that those entities are equivalent to
-          each other.
-        range: ontology class
-        multivalued: true
-      close_match:
-        slot_uri: skos:closeMatch
-        description: >-
-          Close enough to be used interchangeably in some applications.
-          Symmetric but not transitive. Asserts similarity at the same level,
-          so it is not a substitute for broad_match where a hierarchy exists.
-        range: ontology class
-        multivalued: true
-      broad_match:
-        slot_uri: skos:broadMatch
-        description: >-
-          The external concept is broader than this entity. Use where several
-          of our entities map to a single external concept.
-        range: ontology class
-        multivalued: true
-      narrow_match:
-        slot_uri: skos:narrowMatch
-        description: >-
-          The external concept is narrower than this entity.
-        range: ontology class
-        multivalued: true
-      related_match:
-        slot_uri: skos:relatedMatch
-        description: >-
-          Associatively related. Note that this positively asserts that the
-          concepts are NOT equivalent and NOT hierarchically related, so it is
-          a claim in its own right rather than a neutral fallback.
-        range: ontology class
-        multivalued: true
 
 slots:
   revision_of:
