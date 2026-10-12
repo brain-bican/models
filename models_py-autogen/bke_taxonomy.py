@@ -7259,23 +7259,6 @@ class Checksum(Entity):
          'slot_uri': 'biolink:deprecated'} })
 
 
-class OntologyMappable(ConfiguredBaseModel):
-    """
-    Mixin for entities that map to concepts in external vocabularies, using the SKOS mapping predicates.
-    Choose by cardinality and confidence. All of these are sub-properties of skos:mappingRelation, so a weaker claim can be tightened later without contradicting what was already published. Note that close_match is NOT a more general form of broad_match: they are siblings asserting different things (similarity at the same level vs. a hierarchy).
-    Every range is biolink's \"ontology class\" (exact_mappings: owl:Class) -- a term in an external vocabulary, identified by a CURIE and not described anywhere in our documents. It is used because it carries an identifier slot, which is what makes the generated JSON-LD context emit \"@type\": \"@id\" and therefore produce a node reference rather than a literal. A uriorcurie range cannot do this.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/bican-core-schema',
-         'mixin': True})
-
-    mapping_relation: Optional[list[str]] = Field(default=None, description="""A mapping of unspecified kind. The honest choice when the relationship is not established: it entails nothing, being neither symmetric nor transitive and carrying no direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:mappingRelation'} })
-    exact_match: Optional[list[str]] = Field(default=None, description="""The external concept is interchangeable with this entity. Symmetric AND transitive, so it chains through third-party mappings. Do not use where several of our entities map to one external concept: the entailment would then assert that those entities are equivalent to each other.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:exactMatch'} })
-    close_match: Optional[list[str]] = Field(default=None, description="""Close enough to be used interchangeably in some applications. Symmetric but not transitive. Asserts similarity at the same level, so it is not a substitute for broad_match where a hierarchy exists.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:closeMatch'} })
-    broad_match: Optional[list[str]] = Field(default=None, description="""The external concept is broader than this entity. Use where several of our entities map to a single external concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:broadMatch'} })
-    narrow_match: Optional[list[str]] = Field(default=None, description="""The external concept is narrower than this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:narrowMatch'} })
-    related_match: Optional[list[str]] = Field(default=None, description="""Associatively related. Note that this positively asserts that the concepts are NOT equivalent and NOT hierarchically related, so it is a claim in its own right rather than a neutral fallback.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:relatedMatch'} })
-
-
 class GeneAnnotation(Gene):
     """
     Represents a single gene. Includes metadata about the gene, such as its molecular type and the genome annotation it was referenced from.
@@ -18671,7 +18654,6 @@ ProvActivity.model_rebuild()
 ProvEntity.model_rebuild()
 VersionedNamedThing.model_rebuild()
 Checksum.model_rebuild()
-OntologyMappable.model_rebuild()
 GeneAnnotation.model_rebuild()
 GenomeAnnotation.model_rebuild()
 GenomeAssembly.model_rebuild()
