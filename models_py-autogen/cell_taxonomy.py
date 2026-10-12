@@ -72,11 +72,18 @@ linkml_meta = LinkMLMeta({'default_prefix': 'bican',
      'imports': ['bican_biolink',
                  'bican_prov',
                  'bican_core',
+                 'bican_skos',
                  'genome_annotation',
                  'anatomical_structure',
                  'linkml:types'],
      'name': 'CellTaxonomy',
-     'prefixes': {'bican': {'prefix_prefix': 'bican',
+     'prefixes': {'CL': {'prefix_prefix': 'CL',
+                         'prefix_reference': 'http://purl.obolibrary.org/obo/CL_'},
+                  'DHBA': {'prefix_prefix': 'DHBA',
+                           'prefix_reference': 'https://purl.brain-bican.org/ontology/dhbao/DHBA_'},
+                  'UBERON': {'prefix_prefix': 'UBERON',
+                             'prefix_reference': 'http://purl.obolibrary.org/obo/UBERON_'},
+                  'bican': {'prefix_prefix': 'bican',
                             'prefix_reference': 'https://identifiers.org/brain-bican/vocab/'},
                   'linkml': {'prefix_prefix': 'linkml',
                              'prefix_reference': 'https://w3id.org/linkml/'}},
@@ -7081,6 +7088,22 @@ class Checksum(Entity):
          'slot_uri': 'biolink:deprecated'} })
 
 
+class OntologyMappable(ConfiguredBaseModel):
+    """
+    A mixin for entities that map to concepts in external vocabularies.
+    Choose the property by cardinality and confidence. All of them are sub-properties of skos:mappingRelation, so a weaker claim can be tightened later without contradicting what was already published. Note that close_match is NOT a more general form of broad_match: they are siblings asserting different things (similarity at the same level vs. a hierarchy), and the neutral fallback is mapping_relation.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://identifiers.org/brain-bican/bican-skos-schema',
+         'mixin': True})
+
+    mapping_relation: Optional[list[str]] = Field(default=None, description="""A mapping of unspecified kind. The honest choice when the relationship is not established: it entails nothing, being neither symmetric nor transitive and carrying no direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:mappingRelation'} })
+    exact_match: Optional[list[str]] = Field(default=None, description="""The external concept is interchangeable with this entity. Symmetric AND transitive, so it chains through third-party mappings. Do not use where several of our entities map to one external concept: the entailment would then assert that those entities are equivalent to each other.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:exactMatch'} })
+    close_match: Optional[list[str]] = Field(default=None, description="""Close enough to be used interchangeably in some applications. Symmetric but not transitive. Asserts similarity at the same level, so it is not a substitute for broad_match where a hierarchy exists.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:closeMatch'} })
+    broad_match: Optional[list[str]] = Field(default=None, description="""The external concept is broader than this entity. Use where several of our entities map to a single external concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:broadMatch'} })
+    narrow_match: Optional[list[str]] = Field(default=None, description="""The external concept is narrower than this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:narrowMatch'} })
+    related_match: Optional[list[str]] = Field(default=None, description="""Associatively related. Note that this positively asserts that the concepts are NOT equivalent and NOT hierarchically related, so it is a claim in its own right rather than a neutral fallback.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:relatedMatch'} })
+
+
 class GeneAnnotation(Gene):
     """
     Represents a single gene. Includes metadata about the gene, such as its molecular type and the genome annotation it was referenced from.
@@ -12383,12 +12406,12 @@ class CellTypeSet(ProvEntity, NamedThing):
          'slot_uri': 'biolink:category'} })
 
 
-class CellTypeTaxon(ProvEntity, NamedThing):
+class CellTypeTaxon(OntologyMappable, ProvEntity, NamedThing):
     """
     A node in the cell type taxonomy representing a unit of cell type classification at a specific annotation level. Taxons may be organized into a hierarchy and grouped into neighborhoods.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/cell-taxonomy',
-         'mixins': ['ProvEntity'],
+         'mixins': ['ProvEntity', 'OntologyMappable'],
          'slot_usage': {'accession_id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                           'value': 'uns.cluster_info.accession_<level> '
                                                                                    '(data '
@@ -12603,6 +12626,12 @@ class CellTypeTaxon(ProvEntity, NamedThing):
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity', 'CellTypeTaxonomy', 'ClusterSet'],
          'slot_uri': 'prov:wasDerivedFrom'} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity'], 'slot_uri': 'prov:wasGeneratedBy'} })
+    mapping_relation: Optional[list[str]] = Field(default=None, description="""A mapping of unspecified kind. The honest choice when the relationship is not established: it entails nothing, being neither symmetric nor transitive and carrying no direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:mappingRelation'} })
+    exact_match: Optional[list[str]] = Field(default=None, description="""The external concept is interchangeable with this entity. Symmetric AND transitive, so it chains through third-party mappings. Do not use where several of our entities map to one external concept: the entailment would then assert that those entities are equivalent to each other.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:exactMatch'} })
+    close_match: Optional[list[str]] = Field(default=None, description="""Close enough to be used interchangeably in some applications. Symmetric but not transitive. Asserts similarity at the same level, so it is not a substitute for broad_match where a hierarchy exists.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:closeMatch'} })
+    broad_match: Optional[list[str]] = Field(default=None, description="""The external concept is broader than this entity. Use where several of our entities map to a single external concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:broadMatch'} })
+    narrow_match: Optional[list[str]] = Field(default=None, description="""The external concept is narrower than this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:narrowMatch'} })
+    related_match: Optional[list[str]] = Field(default=None, description="""Associatively related. Note that this positively asserts that the concepts are NOT equivalent and NOT hierarchically related, so it is a claim in its own right rather than a neutral fallback.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:relatedMatch'} })
     iri: Optional[str] = Field(default=None, description="""An IRI for an entity. This is determined by the id using expansion rules.""", json_schema_extra = { "linkml_meta": {'definition_uri': 'https://w3id.org/biolink/vocab/iri',
          'domain_of': ['attribute',
                        'entity',
@@ -15033,12 +15062,12 @@ class Embedding(ProvEntity, NamedThing):
          'slot_uri': 'biolink:category'} })
 
 
-class Abbreviation(ProvEntity, NamedThing):
+class Abbreviation(OntologyMappable, ProvEntity, NamedThing):
     """
     Maps an abbreviation string to its decoded meaning. Optionally the abbreviation can be linked to one or more entities it denotes.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/brain-bican/cell-taxonomy',
-         'mixins': ['ProvEntity'],
+         'mixins': ['ProvEntity', 'OntologyMappable'],
          'slot_usage': {'id': {'annotations': {'ait_location': {'tag': 'ait_location',
                                                                 'value': '(synthesized)'}},
                                'description': 'Unique identifier for this abbreviation '
@@ -15096,6 +15125,12 @@ class Abbreviation(ProvEntity, NamedThing):
     was_derived_from: Optional[str] = Field(default=None, description="""A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity', 'CellTypeTaxonomy', 'ClusterSet'],
          'slot_uri': 'prov:wasDerivedFrom'} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity'], 'slot_uri': 'prov:wasGeneratedBy'} })
+    mapping_relation: Optional[list[str]] = Field(default=None, description="""A mapping of unspecified kind. The honest choice when the relationship is not established: it entails nothing, being neither symmetric nor transitive and carrying no direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:mappingRelation'} })
+    exact_match: Optional[list[str]] = Field(default=None, description="""The external concept is interchangeable with this entity. Symmetric AND transitive, so it chains through third-party mappings. Do not use where several of our entities map to one external concept: the entailment would then assert that those entities are equivalent to each other.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:exactMatch'} })
+    close_match: Optional[list[str]] = Field(default=None, description="""Close enough to be used interchangeably in some applications. Symmetric but not transitive. Asserts similarity at the same level, so it is not a substitute for broad_match where a hierarchy exists.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:closeMatch'} })
+    broad_match: Optional[list[str]] = Field(default=None, description="""The external concept is broader than this entity. Use where several of our entities map to a single external concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:broadMatch'} })
+    narrow_match: Optional[list[str]] = Field(default=None, description="""The external concept is narrower than this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:narrowMatch'} })
+    related_match: Optional[list[str]] = Field(default=None, description="""Associatively related. Note that this positively asserts that the concepts are NOT equivalent and NOT hierarchically related, so it is a claim in its own right rather than a neutral fallback.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OntologyMappable'], 'slot_uri': 'skos:relatedMatch'} })
     iri: Optional[str] = Field(default=None, description="""An IRI for an entity. This is determined by the id using expansion rules.""", json_schema_extra = { "linkml_meta": {'definition_uri': 'https://w3id.org/biolink/vocab/iri',
          'domain_of': ['attribute',
                        'entity',
@@ -16252,6 +16287,7 @@ ProvActivity.model_rebuild()
 ProvEntity.model_rebuild()
 VersionedNamedThing.model_rebuild()
 Checksum.model_rebuild()
+OntologyMappable.model_rebuild()
 GeneAnnotation.model_rebuild()
 GenomeAnnotation.model_rebuild()
 GenomeAssembly.model_rebuild()

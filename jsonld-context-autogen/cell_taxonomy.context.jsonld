@@ -26,7 +26,15 @@
          "@prefix": true
       },
       "CHEMBL.TARGET": "http://identifiers.org/chembl.target/",
+      "CL": {
+         "@id": "http://purl.obolibrary.org/obo/CL_",
+         "@prefix": true
+      },
       "CPT": "https://www.ama-assn.org/practice-management/cpt/",
+      "DHBA": {
+         "@id": "https://purl.brain-bican.org/ontology/dhbao/DHBA_",
+         "@prefix": true
+      },
       "DRUGBANK": "http://identifiers.org/drugbank/",
       "EDAM-DATA": {
          "@id": "http://edamontology.org/data_",
@@ -246,6 +254,10 @@
          },
          "@id": "authority"
       },
+      "broad_match": {
+         "@type": "@id",
+         "@id": "skos:broadMatch"
+      },
       "category": {
          "@type": "xsd:anyURI",
          "@id": "biolink:category"
@@ -390,6 +402,10 @@
       "chembl_prodrug": {
          "@type": "xsd:boolean",
          "@id": "biolink:chembl_prodrug"
+      },
+      "close_match": {
+         "@type": "@id",
+         "@id": "skos:closeMatch"
       },
       "number_of_observations": {
          "@type": "xsd:integer",
@@ -580,11 +596,19 @@
       "license": {
          "@id": "biolink:license"
       },
+      "mapping_relation": {
+         "@type": "@id",
+         "@id": "skos:mappingRelation"
+      },
       "molecular_type": {
          "@id": "molecular_type"
       },
       "name": {
          "@id": "rdfs:label"
+      },
+      "narrow_match": {
+         "@type": "@id",
+         "@id": "skos:narrowMatch"
       },
       "node_property": {
          "@id": "biolink:node_property"
@@ -659,6 +683,10 @@
       "related_to_at_instance_level": {
          "@type": "@id",
          "@id": "biolink:related_to_at_instance_level"
+      },
+      "related_match": {
+         "@type": "@id",
+         "@id": "skos:relatedMatch"
       },
       "revision_of": {
          "@type": "@id",
@@ -857,6 +885,9 @@
       },
       "OntologyClass": {
          "@id": "biolink:OntologyClass"
+      },
+      "OntologyMappable": {
+         "@id": "OntologyMappable"
       },
       "OrganismTaxon": {
          "@id": "biolink:OrganismTaxon"
