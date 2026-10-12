@@ -8,7 +8,8 @@ on:
       - 'linkml-schema/cell_taxonomy.yaml'
       - 'linkml-schema/bican_biolink.yaml'
       - 'linkml-schema/bican_prov.yaml'
-      -  'linkml-schema/bican_core.yaml'
+      - 'linkml-schema/bican_core.yaml'
+      - 'linkml-schema/bican_skos.yaml'
       - 'linkml-schema/genome_annotation.yaml'
       - 'linkml-schema/anatomical_structure.yaml'
 
