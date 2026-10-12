@@ -5,11 +5,15 @@ imports:
 - bican_biolink
 - bican_prov
 - bican_core
+- bican_skos
 - genome_annotation
 - anatomical_structure
 - linkml:types
 prefixes:
   bican: https://identifiers.org/brain-bican/vocab/
+  UBERON: http://purl.obolibrary.org/obo/UBERON_
+  CL: http://purl.obolibrary.org/obo/CL_
+  DHBA: https://purl.brain-bican.org/ontology/dhbao/DHBA_
   linkml: https://w3id.org/linkml/
 default_prefix: bican
 default_range: string
@@ -345,6 +349,7 @@ classes:
     is_a: named thing
     mixins:
     - ProvEntity
+    - OntologyMappable
     slots:
     - id
     - name
@@ -973,6 +978,7 @@ classes:
     is_a: named thing
     mixins:
     - ProvEntity
+    - OntologyMappable
     slots:
     - id
     slot_usage:
