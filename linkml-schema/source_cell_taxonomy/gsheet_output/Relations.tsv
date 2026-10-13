@@ -2,8 +2,9 @@ Class	Predicate (General)	Predicate (Specific)	Subject	from_schema	Multivalued	S
 > class	slot	attribute	range	ignore	multivalued	in_subset	description	annotations	ignore	ignore	ignore	annotations
 >			internal_separator: "|"			internal_separator: "|"		inner_key: ait_location				inner_key: ait_separator
 	was_derived_from			bican_prov						bke		
-	has_parent									bke		
-	part_of_set									bke		
+	has_parent		named thing							bke		
+	part_of_set		named thing							bke		
+	has_abbreviation		Abbreviation									
 CellTypeTaxonomy	was_derived_from		ClusterSet		TRUE		One or more cluster sets from which this taxonomy was derived.		From BKE CellTypeTaxonomy.was_derived_from	bke		
 ClusterSet	was_derived_from		ExpressionMatrix		TRUE					bke		
 Cluster	part_of_set		ClusterSet		FALSE	uns|annotations	The cluster set to which this cluster belongs.	(derived: the single synthesized ClusterSet for this file)	From BKE Cluster.part_of_set	both		
@@ -19,9 +20,6 @@ ExpressionMatrix		has_variable	GeneAnnotation		TRUE	var|assigned_metadata	One of
 CellTypeTaxon		curated_markers	GeneAnnotation		TRUE	uns|annotations	Marker genes curated as characteristic of this cell type. One set per taxon; the AIT consensus taxonomy does not split these by species.	uns.cluster_info.curated_markers	Replaces curated_markers_to_primates / curated_markers_to_mouse (BKE draft). The AIT files carry one species-independent column: verified identical across Human, Macaque and Marmoset for all 53 Groups present in all three. Group-level annotation, repeated on every cluster row.	both		,
 CellTypeSet	has_abbreviation		Abbreviation		TRUE	uns|annotations	One of potentially many abbreviations that are part of the cell type set name.	uns.cluster_info.tokens_<level> (data only)	New; from BKE CellTypeSet.has_abbreviation	bke	Y	|
 CellTypeTaxon	has_abbreviation		Abbreviation		TRUE	uns|annotations	One of potentially many abbreviations that are part of the cell type taxon name.	uns.cluster_info.tokens_<level> (data only)	New; from BKE CellTypeTaxon.has_abbreviation	bke	Y	|
-Abbreviation		denotes_gene_annotation	GeneAnnotation		TRUE	uns|annotations	One of potentially many gene annotation terms to which the abbreviation denotes.		From BKE Abbreviation.denotes_gene_annotation	bke	Y	
-Abbreviation		denotes_parcellation_term	ParcellationTerm		TRUE	uns|annotations	One of potentially many parcellation terms (anatomical structures) to which the abbreviation denotes.		From BKE Abbreviation.denotes_parcellation_term	bke	Y	
-Abbreviation		denotes_cell_type	CellTypeTaxon		TRUE	uns|annotations	One of potentially many cell type terms which the abbreviation denotes.		From BKE Abbreviation.denotes_cell_type	bke	Y	
 ColorPalette		is_palette_for	CellTypeTaxonomy		FALSE	uns|tooling	The cell type taxonomy for which the palette provides display color properties.		From BKE ColorPalette.is_palette_for	bke	Y	
 DisplayColor		part_of_palette	ColorPalette		FALSE	uns|tooling	The color palette for which the display color map is part of.		From BKE DisplayColor.part_of_palette	bke	Y	
 DisplayColor		is_color_for_taxon	CellTypeTaxon		FALSE	uns|tooling	The associated cell type taxon for the specified display color.		From BKE DisplayColor.is_color_for_taxon	bke	Y	
