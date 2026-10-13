@@ -198,18 +198,6 @@
       "schema": "http://schema.org/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "@vocab": "https://identifiers.org/brain-bican/vocab/",
-      "denotes_cell_type": {
-         "@type": "@id",
-         "@id": "denotes_cell_type"
-      },
-      "denotes_gene_annotation": {
-         "@type": "@id",
-         "@id": "denotes_gene_annotation"
-      },
-      "denotes_parcellation_term": {
-         "@type": "@id",
-         "@id": "denotes_parcellation_term"
-      },
       "entity_type": {
          "@context": {
             "text": "skos:notation",
@@ -518,9 +506,11 @@
          "@id": "biolink:has_unit"
       },
       "has_abbreviation": {
+         "@type": "@id",
          "@id": "has_abbreviation"
       },
       "has_parent": {
+         "@type": "@id",
          "@id": "has_parent"
       },
       "unit": {
@@ -671,6 +661,7 @@
          "@id": "part_of_parcellation_terminology"
       },
       "part_of_set": {
+         "@type": "@id",
          "@id": "part_of_set"
       },
       "provided_by": {
@@ -760,34 +751,10 @@
          "@id": "Cell"
       },
       "CellTypeSet": {
-         "@id": "CellTypeSet",
-         "@context": {
-            "has_parent": {
-               "@id": "has_parent",
-               "@type": "@id"
-            },
-            "has_abbreviation": {
-               "@id": "has_abbreviation",
-               "@type": "@id"
-            }
-         }
+         "@id": "CellTypeSet"
       },
       "CellTypeTaxon": {
-         "@id": "CellTypeTaxon",
-         "@context": {
-            "has_parent": {
-               "@id": "has_parent",
-               "@type": "@id"
-            },
-            "part_of_set": {
-               "@id": "part_of_set",
-               "@type": "@id"
-            },
-            "has_abbreviation": {
-               "@id": "has_abbreviation",
-               "@type": "@id"
-            }
-         }
+         "@id": "CellTypeTaxon"
       },
       "CellTypeTaxonomy": {
          "@id": "CellTypeTaxonomy",
@@ -805,17 +772,7 @@
          "@id": "biolink:ChemicalEntityOrGeneOrGeneProduct"
       },
       "Cluster": {
-         "@id": "Cluster",
-         "@context": {
-            "part_of_set": {
-               "@id": "part_of_set",
-               "@type": "@id"
-            },
-            "has_parent": {
-               "@id": "has_parent",
-               "@type": "@id"
-            }
-         }
+         "@id": "Cluster"
       },
       "ClusterSet": {
          "@id": "ClusterSet"

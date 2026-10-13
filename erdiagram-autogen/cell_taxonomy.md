@@ -220,10 +220,7 @@ ExpressionMatrix {
     uriorcurieList xref  
 }
 
-Abbreviation ||--}o CellTypeTaxon : "denotes_cell_type"
-Abbreviation ||--}o GeneAnnotation : "denotes_gene_annotation"
 Abbreviation ||--}o OntologyClass : "broad_match, close_match, exact_match, mapping_relation, narrow_match, related_match"
-Abbreviation ||--}o ParcellationTerm : "denotes_parcellation_term"
 Cell ||--|o Cluster : "part_of_cluster"
 CellTypeSet ||--|o CellTypeSet : "has_parent"
 CellTypeSet ||--|o CellTypeTaxonomy : "part_of_taxonomy"

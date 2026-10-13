@@ -46,36 +46,6 @@
                         "null"
                     ]
                 },
-                "denotes_cell_type": {
-                    "description": "One of potentially many cell type terms which the abbreviation denotes.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "denotes_gene_annotation": {
-                    "description": "One of potentially many gene annotation terms to which the abbreviation denotes.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "denotes_parcellation_term": {
-                    "description": "One of potentially many parcellation terms (anatomical structures) to which the abbreviation denotes.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
                     "type": [
