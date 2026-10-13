@@ -105,10 +105,13 @@ slots:
     range: integer
   has_parent:
     from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    range: named thing
   part_of_set:
     from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    range: named thing
   has_abbreviation:
     from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    range: Abbreviation
 classes:
   Cell:
     description: A single cell observation in the taxonomy; corresponds to one row
@@ -1022,33 +1025,6 @@ classes:
         - annotations
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
         range: AbbreviationEntityType
-      denotes_gene_annotation:
-        description: One of potentially many gene annotation terms to which the abbreviation
-          denotes.
-        in_subset:
-        - uns
-        - annotations
-        from_schema: https://w3id.org/brain-bican/cell-taxonomy
-        range: GeneAnnotation
-        multivalued: true
-      denotes_parcellation_term:
-        description: One of potentially many parcellation terms (anatomical structures)
-          to which the abbreviation denotes.
-        in_subset:
-        - uns
-        - annotations
-        from_schema: https://w3id.org/brain-bican/cell-taxonomy
-        range: ParcellationTerm
-        multivalued: true
-      denotes_cell_type:
-        description: One of potentially many cell type terms which the abbreviation
-          denotes.
-        in_subset:
-        - uns
-        - annotations
-        from_schema: https://w3id.org/brain-bican/cell-taxonomy
-        range: CellTypeTaxon
-        multivalued: true
   ColorPalette:
     description: A schematic set of display colors that can be applied to individual
       components of the associated entity set (for example, a taxonomy).
