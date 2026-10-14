@@ -710,7 +710,7 @@ classes:
         annotations:
           ait_location:
             tag: ait_location
-            value: uns.qualty_control_markers
+            value: uns.quality_control_markers
         description: Marker gene expression data for patchseq quality control analysis.
         in_subset:
         - uns
@@ -718,6 +718,18 @@ classes:
         from_schema: https://w3id.org/brain-bican/cell-taxonomy
         aliases:
         - quality_control_markers
+        range: string
+      cluster_id_mean_expr:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: varm.cluster_id_mean_expr
+        description: "Gene-by-cluster expression summary for the taxonomy hierarchy\
+          \ (genes \xD7 clusters)."
+        in_subset:
+        - varm
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
         range: string
       reference_genome:
         annotations:
