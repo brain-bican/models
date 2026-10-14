@@ -13070,9 +13070,13 @@ class CellTypeTaxonomy(ProvEntity, NamedThing):
          'in_subset': ['uns', 'tooling']} })
     quality_control_markers: Optional[str] = Field(default=None, description="""Marker gene expression data for patchseq quality control analysis.""", json_schema_extra = { "linkml_meta": {'aliases': ['quality_control_markers'],
          'annotations': {'ait_location': {'tag': 'ait_location',
-                                          'value': 'uns.qualty_control_markers'}},
+                                          'value': 'uns.quality_control_markers'}},
          'domain_of': ['CellTypeTaxonomy'],
          'in_subset': ['uns', 'analysis']} })
+    cluster_id_mean_expr: Optional[str] = Field(default=None, description="""Gene-by-cluster expression summary for the taxonomy hierarchy (genes × clusters).""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
+                                          'value': 'varm.cluster_id_mean_expr'}},
+         'domain_of': ['CellTypeTaxonomy'],
+         'in_subset': ['varm', 'annotations']} })
     reference_genome: Optional[str] = Field(default=None, description="""Reference genome assembly used to align the molecular measurements.""", json_schema_extra = { "linkml_meta": {'annotations': {'ait_location': {'tag': 'ait_location',
                                           'value': 'uns.reference_genome'}},
          'domain_of': ['CellTypeTaxonomy'],

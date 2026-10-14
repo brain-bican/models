@@ -91,6 +91,7 @@ CellTypeTaxonomy {
     string batch_condition  
     string cellannotation_schema  
     string cluster_algorithm  
+    string cluster_id_mean_expr  
     string cluster_info  
     uriList content_url  
     string default_embedding  

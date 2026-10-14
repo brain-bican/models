@@ -328,6 +328,9 @@
       "cluster_algorithm": {
          "@id": "cluster_algorithm"
       },
+      "cluster_id_mean_expr": {
+         "@id": "cluster_id_mean_expr"
+      },
       "cluster_info": {
          "@id": "cluster_info"
       },

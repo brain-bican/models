@@ -1812,6 +1812,13 @@
                         "null"
                     ]
                 },
+                "cluster_id_mean_expr": {
+                    "description": "Gene-by-cluster expression summary for the taxonomy hierarchy (genes \u00d7 clusters).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "cluster_info": {
                     "description": "Summary table of cluster-level metadata including cluster sizes and representative metadata.",
                     "type": [
