@@ -1906,7 +1906,7 @@
                     ]
                 },
                 "digest": {
-                    "description": "Stores checksum information.",
+                    "description": "NeMO Aliquot Fastq Public URL",
                     "items": {
                         "anyOf": [
                             {
