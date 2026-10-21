@@ -1407,16 +1407,22 @@ classes:
         - range: BrainSlab
       name:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Slab
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: slab_local_name
         description: The identifier given to the slab by the brain bank.
         exact_mappings:
         - NIMP:PD-WKWKFB34
       xref:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Slab
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: slab_nhash_id
   TissueSample:
     description: The final intact piece of tissue before cell or nuclei prep. This
@@ -1447,8 +1453,11 @@ classes:
         range: TissueDissection
       name:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Tissue
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: tissue_sample_local_name
         description: Identifier name for final intact piece of tissue before cell
           or nuclei prep.  This piece of tissue will be used in dissociation and has
@@ -1458,8 +1467,11 @@ classes:
         - NIMP:PD-LJCRCC35
       xref:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Tissue
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: tissue_nhash_id
     attributes:
       dissection_was_guided_by:
@@ -1468,14 +1480,16 @@ classes:
         range: DissectionRoiPolygon
       structure:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Tissue
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: structure
         description: The code referring to a structure in a brain atlas that the tissue
           was found to be associated with.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
-        - bican:missing_TS_structure
         - NIMP:PD-NLNONY46
         range: string
         multivalued: true
@@ -1508,8 +1522,11 @@ classes:
         multivalued: true
       name:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Dissociated Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: dissociated_cell_sample_local_name
         description: Name of a collection of dissociated cells or nuclei derived from
           dissociation of a tissue sample.
@@ -1518,14 +1535,20 @@ classes:
         - NIMP:PD-RQRWHS40
       xref:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Dissociated Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: dissociated_cell_sample_nhash_id
     attributes:
       preparation_date:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Dissociated Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: dissociated_cell_sample_preparation_date
         description: Date of cell dissociation process.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
@@ -1535,8 +1558,11 @@ classes:
         range: date
       cell_prep_type:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Dissociated Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: dissociated_cell_sample_cell_prep_type
         description: 'The type of cell preparation. For example: Cells, Nuclei. This
           is a property of dissociated_cell_sample.'
@@ -1550,8 +1576,11 @@ classes:
         range: dissociated_cell_sample_cell_prep_type
       cell_label_barcode:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Dissociated Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: dissociated_cell_sample_cell_label_barcode
         description: Name of cell source oligo used in cell plexing.  The oligo molecularly
           tags all the cells in the dissociated cell sample and allows separate dissociated
@@ -1566,8 +1595,11 @@ classes:
         range: cell_label_barcode
       patched_cell_structure:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Dissociated Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: patched_cell_structure
         description: Ontological structure assigned to a single patched cell. This
           is typically assigned and confirmed after imaging.
@@ -1609,8 +1641,11 @@ classes:
         - range: EnrichedCellSample
       name:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Enriched Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: enriched_cell_sample_local_name
         description: Name of collection of enriched cells or nuclei after enrichment
           process (usually via FACS using the Enrichment Plan) applied to dissociated_cell_sample.
@@ -1619,14 +1654,20 @@ classes:
         - NIMP:PD-BERWTM41
       xref:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Enriched Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: enriched_cell_sample_nhash_id
     attributes:
       preparation_date:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Enriched Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: enriched_cell_sample_preparation_date
         description: Date of cell enrichment process.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
@@ -1636,8 +1677,11 @@ classes:
         range: date
       enrichment_population:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Enriched Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: enrichment_population
         description: Actual percentage of cells as a result of using set of fluorescent
           marker label(s) to enrich dissociated_cell_sample with desired mix of cell
@@ -1652,8 +1696,11 @@ classes:
         range: string
       cell_label_barcode:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Enriched Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: enriched_cell_sample_cell_label_barcode
         description: Name of molecular barcode used to individual Enriched Cell Source
           to allow for pooling of Enriched Cell Sources before 10x load (Barcoding
@@ -1665,8 +1712,11 @@ classes:
         range: cell_label_barcode
       histone_modification_marker:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Enriched Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: histone_modification_marker
         description: Histone modification marker antibodies (eg H3K27ac, H3K27me3,
           H3K9me3) used in conjunction with an Enriched Cell Source Barcode in order
@@ -1714,8 +1764,11 @@ classes:
         - range: EnrichedCellSample
       name:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Barcoded Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: barcoded_cell_sample_local_name
         description: Name of a collection of barcoded cells.  Input will be either
           dissociated_cell_sample or enriched_cell_sample.  Cell barcodes are only
@@ -1726,14 +1779,20 @@ classes:
         - NIMP:PD-XEMDJF38
       xref:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Barcoded Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: barcoded_cell_sample_nhash_id
     attributes:
       number_of_expected_cells:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Barcoded Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: barcoded_cell_sample_number_of_expected_cells
         description: Expected number of cells/nuclei of a barcoded_cell_sample that
           will be barcoded and available for sequencing.  This is a derived number
@@ -1749,8 +1808,11 @@ classes:
         range: integer
       port_well:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Barcoded Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: barcoded_cell_sample_port_well
         description: Specific position of the loaded port of the 10x chip.  An Enriched
           or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded
@@ -1764,8 +1826,11 @@ classes:
         range: string
       input_quantity_count:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Barcoded Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: barcoded_cell_input_quantity_count
         description: Number of enriched or dissociated cells/nuclei going into the
           barcoding process.
@@ -1778,8 +1843,11 @@ classes:
         range: integer
       tag_local_name:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Barcoded Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: barcoded_cell_sample_tag_local_name
         description: Barcoded Cell Sample tags can be used to group a set of barcoded
           cell samples so that the tag can be used to obtain all the members of the
@@ -1793,19 +1861,24 @@ classes:
         range: string
       preparation_date:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Barcoded Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: barcoded_cell_sample_preparation_date
         description: Date of cell barcoding process.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
-        - bican:missing_BCS_preparation_date
         - NIMP:PD-SHSHZS25
         range: date
       technique:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Barcoded Cell Sample
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: barcoded_cell_sample_technique
         description: Required standardized nomenclature to describe the general method
           used to barcode individual cells. This method (eg Multiome, ATAConly, GEXonly)
@@ -1813,7 +1886,6 @@ classes:
           and could be used for general classification of Barcoded Cell Samples.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
-        - bican:missing_BCS_technique
         - NIMP:PD-TDTDDF25
         range: barcoded_cell_sample_technique
   AmplifiedCdna:
@@ -1847,8 +1919,11 @@ classes:
         range: BarcodedCellSample
       name:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Amplified cDNA
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: amplified_cdna_local_name
         description: Name of a collection of cDNA molecules derived and amplified
           from an input barcoded_cell_sample.  These cDNA molecules represent the
@@ -1860,14 +1935,20 @@ classes:
         - NIMP:PD-YAAGGG39
       xref:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Amplified cDNA
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: amplified_cdna_nhash_id
     attributes:
       amplified_cDNA_quantity_ng:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Amplified cDNA
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: amplified_cdna_amplified_quantity_ng
         description: Amount of cDNA produced after cDNA amplification measured in
           nanograms.
@@ -1880,8 +1961,11 @@ classes:
         range: float
       amplified_cDNA_result:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Amplified cDNA
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: amplified_cdna_rna_amplification_pass_fail
         description: Pass or Fail result based on qualitative assessment of cDNA yield
           and size.
@@ -1894,8 +1978,11 @@ classes:
         range: amplified_cdna_rna_amplification_pass_fail
       percent_cdna_longer_than_400bp:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Amplified cDNA
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: amplified_cdna_percent_cdna_longer_than_400bp
         description: QC metric to measure mRNA degradation of cDNA.  Higher % is higher
           quality starting material.  Over 400bp is used as a universal cutoff for
@@ -1910,8 +1997,11 @@ classes:
         range: float
       pcr_cycles:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Amplified cDNA
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: amplified_cdna_pcr_cycles
         description: Number of PCR cycles used during cDNA amplification for this
           cDNA.
@@ -1924,8 +2014,11 @@ classes:
         range: integer
       preparation_date:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Amplified cDNA
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: amplified_cdna_preparation_date
         description: Date of cDNA amplification.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
@@ -1935,8 +2028,11 @@ classes:
         range: date
       cdna_amplification_set:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Amplified cDNA
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: cdna_amplification_set
         description: cDNA amplification set, containing multiple amplified_cDNA_names
           that were processed at the same time.
@@ -1978,8 +2074,11 @@ classes:
         - range: AmplifiedCdna
       name:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_local_name
         description: Name of a library, which is a collection of fragmented and barcode-indexed
           DNA molecules for sequencing.  An index or barcode is typically introduced
@@ -1990,14 +2089,20 @@ classes:
         - NIMP:PD-AJJUCC35
       xref:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_nhash_id
     attributes:
       average_size_bp:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_avg_size_bp
         description: Average size of the library in terms of base pairs.  This is
           used to calculate the molarity before pooling and sequencing.
@@ -2010,8 +2115,11 @@ classes:
         range: integer
       concentration_nm:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_concentration_nm
         description: Concentration of library in terms of nM (nMol/L).  Number of
           molecules is needed for accurate pooling of the libraries and for generating
@@ -2023,8 +2131,11 @@ classes:
         range: float
       library_result:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_prep_pass_fail
         description: Pass or Fail result based on qualitative assessment of library
           yield and size.
@@ -2037,8 +2148,11 @@ classes:
         range: library_prep_pass_fail
       quantity_fmol:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_quantification_fmol
         description: Amount of library generated in terms of femtomoles
         in_subset:
@@ -2050,8 +2164,11 @@ classes:
         range: float
       library_quantity_ng:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_quantification_ng
         description: Amount of library generated in terms of nanograms
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
@@ -2061,8 +2178,11 @@ classes:
         range: float
       r1_r2_index:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_r1_r2_index
         description: Name of the pair of library indexes used for sequencing.  Indexes
           allow libraries to be pooled together for sequencing.  Sequencing output
@@ -2080,8 +2200,11 @@ classes:
         range: library_r1_r2_index
       technique:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_technique
         description: Standardized nomenclature to describe the specific library method
           used.  This specifies the alignment method required for the library.  For
@@ -2098,8 +2221,11 @@ classes:
         range: library_technique
       preparation_date:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_preparation_date
         description: Date of library construction.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
@@ -2109,8 +2235,11 @@ classes:
         range: date
       input_ng:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_input_ng
         description: Amount of cDNA going into library construction in nanograms.
         in_subset:
@@ -2122,8 +2251,11 @@ classes:
         range: float
       prep_set:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_prep_set
         description: Library set, containing multiple library_names that were processed
           at the same time.
@@ -2162,8 +2294,11 @@ classes:
         range: Library
       name:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library Aliquot
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_aliquot_local_name
         description: One library in the library pool.  Each Library_aliquot_name in
           a library pool will have a unique R1/R2 index to allow for sequencing together
@@ -2175,14 +2310,20 @@ classes:
         - NIMP:PD-XCXCCC35
       xref:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library Pool
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_pool_nhash_id
     attributes:
       fastq_file_alignment_status:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: LibraryAliquot
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: fastq_file_alignment_status
         description: The FASTQ file alignment status as reported by the Library Lab
         in_subset:
@@ -2223,8 +2364,11 @@ classes:
         multivalued: true
       name:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library Pool
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_pool_local_name
         description: Library lab's library pool name.  For some labs this may be the
           same as "Library pool tube local name".   Other labs distinguish between
@@ -2236,14 +2380,20 @@ classes:
         - NIMP:PD-KKIAPA48
       xref:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library Pool
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_pool_nhash_id
     attributes:
       local_tube_id:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library Pool
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_pool_local_tube_id
         description: Library Pool Tube local name.  Label of the tube containing the
           library pool, which is made up of multiple library_aliquots.  This is a
@@ -2259,8 +2409,11 @@ classes:
         range: string
       preparation_date:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library Pool
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_pool_preparation_date
         description: Date of library pooling process.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
@@ -2270,8 +2423,11 @@ classes:
         range: date
       tube_barcode:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library Pool
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: library_pool_tube_barcode
         description: Library Pool tube name as provided by the SeqCore (often a barcode).
           This tube is provided from the SeqCore and is part of the SeqCore tracking
@@ -2283,8 +2439,11 @@ classes:
         range: string
       flowcell:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: Library Pool
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: flowcell
         description: The Flowcell is a unique identifer of the sequencing cartridge
           (provided by the sequencing instrument manufacturer) used and consumed when
@@ -2507,8 +2666,11 @@ classes:
         range: DissectionRoiDelineation
       name:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: ROI
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: local_name
         description: Name of a polygon annotated on a brain slab image delineating
           a region of interest (ROI) for a tissue sample dissectioning.
@@ -2516,8 +2678,11 @@ classes:
         - NIMP:PD-RPRPTM41
       xref:
         local_names:
-          NIMP:
-            local_name_source: NIMP
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: ROI
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: roi_nhash_id
     attributes:
       annotates:
@@ -2535,9 +2700,19 @@ classes:
     - digest
     slot_usage:
       was_derived_from:
-        range: LibraryPool
-      content_url: {}
-      digest: {}
+        range: LibraryAliquot
+      content_url:
+        local_names:
+          NIMP_resource_type:
+            local_name_source: NIMP_resource_type
+            local_name_value: LibraryAliquot
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: nemo_aliquot_fastq_public_url
+        exact_mappings:
+        - NIMP:PD-DADALW44
+      digest:
+        description: NeMO Aliquot Fastq Public URL
     attributes:
       data_type:
         description: The type of data in the file.
