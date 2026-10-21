@@ -1,8 +1,8 @@
 SubGroup/LinkML Class Name	Proposed BICAN Field	LinkML Slot or Attribute Name	BICAN UUID	Aliases	Definition	from_schema	Nullable	Permissible Values	Data Type	Data Examples	Min Value	Max Value	Unit	Statistical Type	Subsets	Notes	NIMP Terminology NHash	NIMP Category	Local Variable Name	Local Variable Name Source
-> class	ignore	slot	exact_mappings: {curie_prefix: bican}	ignore	description	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	exact_mappings: {curie_prefix: NIMP}	ignore	local_names	local_names
->																			inner_key: local_name_value	inner_key: local_name_source
-DigitalAsset		content_url				bican_core														
-DigitalAsset		digest				bican_core														
+> class	ignore	slot	exact_mappings: {curie_prefix: bican}	ignore	description	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	ignore	exact_mappings: {curie_prefix: NIMP}	local_names	local_names	local_names
+>																		inner_key: resource_type	inner_key: variable_name	inner_key: source
+DigitalAsset		content_url				bican_core											PD-DADALW44	LibraryAliquot	nemo_aliquot_fastq_public_url	NIMP
+DigitalAsset		digest			NeMO Aliquot Fastq Public URL	bican_core														
 AmplifiedCdna	amplified cDNA label	name	e2606a11-114e-472f-9e05-33f9b6fc3089	amplified cdna name	Name of a collection of cDNA molecules derived and amplified from an input barcoded_cell_sample.  These cDNA molecules represent the gene expression of each cell, with all cDNA molecules from a given cell retaining that cell's unique barcode from the cell barcoding step.  This is a necessary step for GEX methods but is not used for ATAC methods.	bican_biolink	TRUE		Text						analysis		PD-YAAGGG39	Amplified cDNA	amplified_cdna_local_name	NIMP
 BarcodedCellSample	barcoded cell sample label	name	4c0e6380-e53f-4173-a474-d41e836fefe3	barcoded cell sample name	Name of a collection of barcoded cells.  Input will be either dissociated_cell_sample or enriched_cell_sample.  Cell barcodes are only guaranteed to be unique within this one collection. One dissociated_cell_sample or enriched_cell_sample can lead to multiple barcoded_cell_samples.	bican_biolink	FALSE		Text						analysis, tracking, alignment		PD-XEMDJF38	Barcoded Cell Sample	barcoded_cell_sample_local_name	NIMP
 BrainSlab		name			The identifier given to the slab by the brain bank.	bican_biolink											PD-WKWKFB34	Slab	slab_local_name	NIMP
