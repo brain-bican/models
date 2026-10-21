@@ -1475,7 +1475,6 @@ classes:
           was found to be associated with.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
-        - bican:missing_TS_structure
         - NIMP:PD-NLNONY46
         range: string
         multivalued: true
@@ -1799,7 +1798,6 @@ classes:
         description: Date of cell barcoding process.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
-        - bican:missing_BCS_preparation_date
         - NIMP:PD-SHSHZS25
         range: date
       technique:
@@ -1813,7 +1811,6 @@ classes:
           and could be used for general classification of Barcoded Cell Samples.
         from_schema: https://identifiers.org/brain-bican/library-generation-schema
         exact_mappings:
-        - bican:missing_BCS_technique
         - NIMP:PD-TDTDDF25
         range: barcoded_cell_sample_technique
   AmplifiedCdna:
@@ -2192,6 +2189,16 @@ classes:
         - bican:834a0e66-fd81-4d9c-b379-146372c3a629
         - NIMP:PD-KRKRCT43
         range: fastq_file_alignment_status
+      nemo_aliquot_fastq_public_url:
+        local_names:
+          NIMP:
+            local_name_source: NIMP
+            local_name_value: nemo_aliquot_fastq_public_url
+        description: NeMO Aliquot Fastq Public URL
+        from_schema: https://identifiers.org/brain-bican/library-generation-schema
+        exact_mappings:
+        - NIMP:PD-DADALW44
+        range: string
   LibraryPool:
     description: A library pool is made up of library aliquots from multiple libraries.
       Each library aliquot in a library pool will have a unique R1/R2 index to allow
