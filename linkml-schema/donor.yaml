@@ -3,7 +3,7 @@ description: The BICAN Donor Metadata schema specifies the metadata relating to 
   in BICAN. These metadata reflect the metadata needed to accurately track donors
   and related entities from the brain banks through the specimen portal.
 title: Donor Schema
-id: https://w3id.org/brain-bicandonor
+id: https://w3id.org/brain-bican/donor
 imports:
 - bican_biolink
 - bican_prov
@@ -21,10 +21,10 @@ subsets:
   Restricted:
     description: The data stored in this attribute is restricted to people with a
       required clearence.
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
 enums:
   aging_type:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       pTau:
         description: A microtubule-associated protein tau that includes at least one
@@ -46,7 +46,7 @@ enums:
         meaning: MONDO:0006658
       Other (specify): {}
   artifact_type:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       'gross: brain removal/dissection':
         description: A planned process that separates and isolates the brain or tissues
@@ -61,7 +61,7 @@ enums:
       Other (specify): {}
   birth_country:
     description: Namibia
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       AF:
         description: Afghanistan
@@ -561,7 +561,7 @@ enums:
       AX:
         description: "\xC5land Islands"
   brain_tissue_weight_type:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       Fresh whole brain:
         description: A whole brain specimen that has not been frozen or fixed -- i.e.,
@@ -577,7 +577,7 @@ enums:
           by formalin).
       Unknown: {}
   cause_of_death:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       All Causes: {}
       Communicable, maternal, perinatal and nutritional conditions: {}
@@ -770,7 +770,7 @@ enums:
       Ill-defined injuries/accidents: {}
       Ill-defined diseases: {}
   condition_type:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       Alzheimers disease:
         description: A progressive, neurodegenerative disease characterized by loss
@@ -892,7 +892,7 @@ enums:
         meaning: MONDO:0007661
       other (specify): {}
   confidence_level:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       confirmed diagnosis:
         description: 'Sufficient evidence exists to: 1) make a clinical diagnosis
@@ -907,14 +907,14 @@ enums:
         description: The available information is insufficient to form a reasonable
           impression of or to exclude any brain-related diagnoses
   donor_source:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       BICAN-NBB: {}
       Donor from NIH NeuroBioBank: {}
       BICAN-UM1: {}
       Other: {}
   drugs_found:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       10-Hydroxycarbazepine: {}
       2-Furanylfentanyl: {}
@@ -1188,7 +1188,7 @@ enums:
       trans-3-Methylfentanyl: {}
       Other findings, specify: {}
   ethnicity:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       Hispanic or Latino:
         description: A person of Cuban, Mexican, Puerto Rican, South or Central American,
@@ -1206,7 +1206,7 @@ enums:
       Not reported:
         description: Not provided or available.
   gender:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       male:
         description: The gender identity of male self-identified by the subject/participant.
@@ -1236,7 +1236,7 @@ enums:
       not reported:
         description: Gender identity not reported.
   handedness:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       left:
         description: Handedness where the organism preferentially uses the left hand
@@ -1254,7 +1254,7 @@ enums:
           one hand or foot or a dominant hand or foot.
         meaning: PATO:0002204
   hemisphere:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       left:
         description: A cerebral hemisphere that is in the left side of a brain.
@@ -1265,7 +1265,7 @@ enums:
           elongated halves of the cerebrum.
       unknown: {}
   income_range:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       Under $15000:
         description: Annual income under 15000 USD
@@ -1286,7 +1286,7 @@ enums:
       Unknown:
         description: Annual income unknown.
   informant_relationship:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       child:
         description: A person who is either the progeny of the subject or the adoptive
@@ -1313,7 +1313,7 @@ enums:
       other relative (specify): {}
       other (specify): {}
   language:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       aar:
         description: Afar
@@ -2311,7 +2311,7 @@ enums:
       zza:
         description: Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki
   manner_of_death:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       not deceased: {}
       accidental:
@@ -2332,7 +2332,7 @@ enums:
           conflicts with more than one manner of death.
       unknown if subject is deceased or not: {}
   marital_status:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       never married:
         description: A person who has never been married or whose only marriages have
@@ -2359,7 +2359,7 @@ enums:
           spouse and who has not remarried.
         meaning: NCIT:C51775
   neoplastic_type:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       intrinsic:
         description: A disposition inhering in a tumour by virtue of the bearer's
@@ -2374,7 +2374,7 @@ enums:
           disposition the presence of abnormally proliferating masses of cells.
         meaning: PATO:0002011
   neurodegenerative_type:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       beta amyloid:
         description: A peptide of 36-43 amino acids that is processed from the amyloid
@@ -2395,7 +2395,7 @@ enums:
         meaning: PR:000015322
       Other (specify): {}
   perinatal_event:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       subdural hemorrhage:
         description: Bleeding into the subdural space, the potential space between
@@ -2416,7 +2416,7 @@ enums:
       other (specify): {}
       none: {}
   postmortem_MRI:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       cadaveric:
         description: A piece of tissue or a sample that is taken from a dead body
@@ -2428,7 +2428,7 @@ enums:
         description: A piece of tissue or a sample that is taken from a living organism
           and fixed.
   preparation:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       formalin fixed:
         description: A tissue sample that has been fixed with formalin.
@@ -2441,7 +2441,7 @@ enums:
         description: A tissue sample that has been fixed by some other method.
       hemisphere not available: {}
   race:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       American Indian or Alaska Native:
         description: A person having origins in any of the original peoples of North
@@ -2481,7 +2481,7 @@ enums:
         description: Not known, observed, recorded; or reported as unknown by the
           data contributor.
   relative_type:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       biological mother:
         description: A female who contributes to the genetic makeup of her offspring
@@ -2552,7 +2552,7 @@ enums:
         meaning: NCIT:C165847
       other (specify): {}
   repository:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       TBD: {}
       Miami: {}
@@ -2565,7 +2565,7 @@ enums:
       Pittsburgh: {}
       UCLA: {}
   sex:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       male:
         description: A person who belongs to the sex that normally produces sperm.
@@ -2592,7 +2592,7 @@ enums:
         description: Not known, observed, recorded; or reported as unknown by the
           data contributor.
   sexual_orientation:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       bisexual:
         description: Historically, bisexual referred to attraction to persons of two
@@ -2625,7 +2625,7 @@ enums:
       prefer not to say: {}
       do not know: {}
   test_name:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       Hepatitis A: {}
       Hepatitis C Antibody: {}
@@ -2638,7 +2638,7 @@ enums:
       COVID-19 Virus (RT-PCR): {}
       Other (specify): {}
   tissue_collection_state:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       autopsy:
         description: A postmortem examination of the body that includes an examination
@@ -2655,7 +2655,7 @@ enums:
           \ characteristic of surgery."
         meaning: OAE:0000067
   tissue:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       adipose:
         description: Portion of connective tissue composed of adipocytes enmeshed
@@ -3021,7 +3021,7 @@ enums:
           of ameboid movement, found in blood or other tissue.
         meaning: CL:0000738
   tissue_source:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       whole blood:
         description: A fluid that is composed of blood plasma and erythrocytes.
@@ -3048,7 +3048,7 @@ enums:
       other: {}
       unknown: {}
   traumatic_type:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       contusion:
         description: An injury to biological tissue in which the capillaries are damaged,
@@ -3062,7 +3062,7 @@ enums:
         meaning: DOID:0081291
       other (specify): {}
   vascular_type:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     permissible_values:
       acute infarct:
         description: Tissue necrosis in any area of the brain, including the cerebral
@@ -3086,12 +3086,12 @@ enums:
       other (specify): {}
 slots:
   donor_nhash_id:
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
 classes:
   Donor:
     description: A person or organism that is the source of a biological sample for
       scientific study.  Many biological samples are generated from a single donor.
-    from_schema: https://w3id.org/brain-bicandonor
+    from_schema: https://w3id.org/brain-bican/donor
     exact_mappings:
     - NIMP:Donor
     is_a: physical entity
@@ -3110,7 +3110,6 @@ classes:
             local_name_value: donor_local_name
         description: Donor identifier given by the brain bank or the institution that
           holds the brain
-        from_schema: bican_biolink
         exact_mappings:
         - bican:f8af20f7-e8b8-47b5-8a68-9ec1f913ffdf
         - NIMP:PD-QLQLFB34
@@ -3119,14 +3118,12 @@ classes:
           NIMP:
             local_name_source: NIMP
             local_name_value: donor_nhash_id
-        from_schema: bican_biolink
       donor_nhash_id:
         local_names:
           NIMP:
             local_name_source: NIMP
             local_name_value: donor_nhash_id
         description: NIMP generated globally unique identifier for a Donor
-        from_schema: bican_biolink
         exact_mappings:
         - bican:98b28574-f97f-4436-b723-10a6508431b5
         - NIMP:PD-DEXRDO36
@@ -3138,7 +3135,7 @@ classes:
             local_name_value: repository
         description: If the brain is from NBB the NBB repository the brain belongs
           to
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:408682ed-0e27-41e2-b9fa-f05674366d6e
         - NIMP:PD-NYNYAR61
@@ -3149,7 +3146,7 @@ classes:
             local_name_source: NIMP
             local_name_value: donor_source
         description: The source of the donor brain e.g. NBB/UM1 project/other
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:0d0cf732-0f76-409d-9a73-7a96d829d3d3
         - NIMP:PD-TPTPPS27
@@ -3160,7 +3157,7 @@ classes:
             local_name_source: NIMP
             local_name_value: ethnicity
         description: Ethnicity of the donor
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:918370df-49f6-4361-9c52-f46b16412980
         - NIMP:PD-JEJECK48
@@ -3171,7 +3168,7 @@ classes:
             local_name_source: NIMP
             local_name_value: race
         description: Race of the donor
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:e515c009-550e-4f9c-b1b6-fc876a6fb2a8
         - NIMP:PD-PRPRRP41
@@ -3182,7 +3179,7 @@ classes:
             local_name_source: NIMP
             local_name_value: second_race
         description: Second race if available for the donor
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:192fe5b1-c812-4767-86fb-3178f9914705
         - NIMP:PD-SESEQB42
@@ -3193,7 +3190,7 @@ classes:
             local_name_source: NIMP
             local_name_value: sex
         description: Donor's sex at birth
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:c819b9d5-2fde-40b2-bf0d-e07b56f96ac9
         - NIMP:PD-LXUBTM45
@@ -3204,7 +3201,7 @@ classes:
             local_name_source: NIMP
             local_name_value: gender
         description: Donor's gender at death
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:1c71e775-65aa-442b-a392-1cf9a44e326e
         - NIMP:PD-KLKLJH33
@@ -3215,7 +3212,7 @@ classes:
             local_name_source: NIMP
             local_name_value: sex_orientation
         description: Donor's sexual orientation at death
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:e47e8a2f-72fb-4036-b288-f4580dc2aa4e
         - NIMP:PD-HKHGTM45
@@ -3226,7 +3223,7 @@ classes:
             local_name_source: NIMP
             local_name_value: age_of_death
         description: Donor's age at death in years
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:14eb923a-161d-45e2-889d-81fea7b632b6
         - NIMP:PD-FTEMQD38
@@ -3241,7 +3238,7 @@ classes:
             local_name_source: NIMP
             local_name_value: birth_country_name
         description: Donor's birth country
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:9c27fd29-b512-492f-a32f-b615c7585ff7
         - NIMP:PD-SQSQDF25
@@ -3252,7 +3249,7 @@ classes:
             local_name_source: NIMP
             local_name_value: primary_language
         description: Donor's primary language
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:abe9edc7-96ca-4c6a-a1ed-c008548cc373
         - NIMP:PD-ATEVEV39
@@ -3263,7 +3260,7 @@ classes:
             local_name_source: NIMP
             local_name_value: secondary_language
         description: Donor's secondary language
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:37b7495f-b010-4d1c-ae32-9cb19c680950
         - NIMP:PD-OBIUQB42
@@ -3274,7 +3271,7 @@ classes:
             local_name_source: NIMP
             local_name_value: marital_status
         description: Donor's marital or partner status
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:4f0e41c9-dd15-4a37-ae6b-11b7131d7cba
         - NIMP:PD-JCYJCN35
@@ -3285,7 +3282,7 @@ classes:
             local_name_source: NIMP
             local_name_value: education_years_number
         description: Number of years of education the donor had
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:add3f7fe-ae60-4cc1-bb2e-72bbbe9a1a7d
         - NIMP:PD-SJSJRC41
@@ -3300,7 +3297,7 @@ classes:
             local_name_source: NIMP
             local_name_value: handedness
         description: Donor's handedness
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:82a4087c-d0e3-48ca-8bea-a81eefc683a0
         - NIMP:PD-WGWGTM45
@@ -3312,7 +3309,7 @@ classes:
             local_name_value: confirmed_hbcac
         description: Confirmation status of meeting inclusion criteria of the Human
           Brain Cell Atlas Collection at NBB
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:b6cdddf7-6f0b-4855-a0fa-16c2ab29f219
         - NIMP:PD-YBLATM45
@@ -3323,7 +3320,7 @@ classes:
             local_name_source: NIMP
             local_name_value: age_at_death_value
         description: Donor's age at death value
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:57e24d3c-c9c7-4ef3-9809-a35802d563ec
         - NIMP:PD-FTFTCP24
@@ -3334,7 +3331,7 @@ classes:
             local_name_source: NIMP
             local_name_value: age_at_death_unit
         description: The unit of the value mentioned under "age_at_death_value"
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:b5436e99-f0a7-4c30-825d-56b88ee2ac1d
         - NIMP:PD-AVAVEV39
@@ -3345,7 +3342,7 @@ classes:
             local_name_source: NIMP
             local_name_value: age_at_death_reference_point
         description: Reference point from which the donor's age at death was calculated
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:3bed1f94-9d82-4ed7-afdf-79d896b24dbb
         - NIMP:PD-RARAGG39
@@ -3356,7 +3353,7 @@ classes:
             local_name_source: NIMP
             local_name_value: donor_species
         description: NCBI Taxonomy code of the donor species
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:6837cb02-6bd7-4fb8-838c-9062ead96ba4
         - NIMP:PD-HEHERP41
@@ -3367,7 +3364,7 @@ classes:
             local_name_source: NIMP
             local_name_value: consent_status
         description: Whether the type of consent is open or controlled
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:1a53e733-276f-421a-850d-eb46e50db972
         - NIMP:PD-CBCBWQ40
@@ -3378,7 +3375,7 @@ classes:
             local_name_source: NIMP
             local_name_value: positive_test_result
         description: Whether the donor has had a positive serology test result
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:0ef73629-5172-4517-a1f8-295be1603b80
         - NIMP:PD-PDZDNL63
@@ -3389,7 +3386,7 @@ classes:
             local_name_source: NIMP
             local_name_value: donor_project
         description: Donor Project
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:cd772fb0-a2fe-4df3-b2dd-b62370be37fc
         - NIMP:PD-HEHEQB42
@@ -3400,7 +3397,7 @@ classes:
             local_name_source: NIMP
             local_name_value: donor_labs
         description: Donor Labs
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:b97c384f-a556-42a2-a3c2-c31e5771f481
         - NIMP:PD-APAPRP41
@@ -3411,7 +3408,7 @@ classes:
             local_name_source: NIMP
             local_name_value: death_causes_data_available
         description: NIMP indicator for availability of the cause of death
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:e46e9d58-d982-4800-b7de-67f608951211
         - NIMP:PD-FYUCNY46
@@ -3422,7 +3419,7 @@ classes:
             local_name_source: NIMP
             local_name_value: rins_data_available
         description: NIMP indicator for availability of RNA Integrity Number
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:d05825e6-b785-42a3-9bdf-c34b30e698b8
         - NIMP:PD-JRJCAR61
@@ -3433,7 +3430,7 @@ classes:
             local_name_source: NIMP
             local_name_value: rines_data_available
         description: NIMP indicator for availability of RNA Integrity Number equivalent
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:28a5e912-570b-4a7f-87f2-36bd5db92090
         - NIMP:PD-CJRWAR61
@@ -3444,7 +3441,7 @@ classes:
             local_name_source: NIMP
             local_name_value: hemisphere
         description: Hemisphere of the brain
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:68b7a28b-d695-4ec9-800b-6a27ca206081
         - NIMP:PD-JRJRFQ31
@@ -3455,7 +3452,7 @@ classes:
             local_name_source: NIMP
             local_name_value: post_mortem_interval
         description: Post Mortem Interval in hours
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:6fd5c5ac-b128-4a4a-ae98-09eaeba22f92
         - NIMP:PD-CHCHLC46
@@ -3470,7 +3467,7 @@ classes:
             local_name_source: NIMP
             local_name_value: left_hemisphere_preparation
         description: The method of which the left hemisphere of the brain was prepared
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:57d5378f-a451-4bf5-a472-cc88d0d29586
         - NIMP:PD-JSJSUS44
@@ -3481,7 +3478,7 @@ classes:
             local_name_source: NIMP
             local_name_value: left_hemisphere_prep_2
         description: The second method used to prepare the left hemisphere
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:d76753fb-b30b-419b-b853-d341510d8034
         - NIMP:PD-ZMPWIB34
@@ -3492,7 +3489,7 @@ classes:
             local_name_source: NIMP
             local_name_value: right_hemisphere_preparation
         description: The method of which the right hemisphere of the brain was prepared
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:477c2600-f979-43c5-9c61-ab61fd771584
         - NIMP:PD-MLMLPG50
@@ -3503,7 +3500,7 @@ classes:
             local_name_source: NIMP
             local_name_value: right_hemisphere_prep_2
         description: The second method used to prepare the right hemisphere
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:b0a52336-fe31-4ac4-8914-b0bb76a8ef5a
         - NIMP:PD-FWUVWQ40
@@ -3514,7 +3511,7 @@ classes:
             local_name_source: NIMP
             local_name_value: rin
         description: RNA Integrity Number
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:cd472c0d-0b64-45c9-a38e-e54d15cea953
         - NIMP:PD-LPLPSK50
@@ -3527,7 +3524,7 @@ classes:
             local_name_source: NIMP
             local_name_value: rine
         description: RNA Integrity Number equivalent
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:1210148d-d8fb-45aa-b51a-4b19b6d09bec
         - NIMP:PD-XCXCRC41
@@ -3540,7 +3537,7 @@ classes:
             local_name_source: NIMP
             local_name_value: ph
         description: pH value
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:9e67af02-c081-43e1-a42c-bf9603cae616
         - NIMP:PD-FXFXDK42
@@ -3553,7 +3550,7 @@ classes:
             local_name_source: NIMP
             local_name_value: brain_weight
         description: The weight of the brain in grams
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:546fc32d-f8a2-4c00-924a-8c4730f11f51
         - NIMP:PD-WUASWQ40
@@ -3568,7 +3565,7 @@ classes:
             local_name_source: NIMP
             local_name_value: weighed_type
         description: The type of the brain tissue weighed based on the preparation
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:a7463e3f-0c61-4718-a7d0-60fd2116908a
         - NIMP:PD-FGHMDF25
@@ -3579,7 +3576,7 @@ classes:
             local_name_source: NIMP
             local_name_value: photo_2d_available
         description: Is a 2D photograph is available?
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:611beda8-1ac6-4183-a284-04a30bb474f3
         - NIMP:PD-NINIEV39
@@ -3590,7 +3587,7 @@ classes:
             local_name_source: NIMP
             local_name_value: scan_3d_available
         description: Is a 3D scan is available?
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:658e8a80-e232-438f-8c1e-d5f38724dc55
         - NIMP:PD-RBRBQB42
@@ -3601,7 +3598,7 @@ classes:
             local_name_source: NIMP
             local_name_value: antemortem_mri_available
         description: Is an Antemortem MRI is available?
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:43a04caa-4f28-47ac-8a9d-74c40f10776f
         - NIMP:PD-RCRCRC24
@@ -3612,7 +3609,7 @@ classes:
             local_name_source: NIMP
             local_name_value: postmortem_mri_available
         description: Is a Postmortem MRI Available
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:0badd072-0c25-48c6-9357-44d5b5bc0818
         - NIMP:PD-YNYNEV39
@@ -3623,7 +3620,7 @@ classes:
             local_name_source: NIMP
             local_name_value: postmortem_mri_type
         description: The type of postmortem MRI if it is available.
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:64a607a9-21e6-4c73-8f2e-2d67b0dc51c8
         - NIMP:PD-BEBEEV39
@@ -3634,7 +3631,7 @@ classes:
             local_name_source: NIMP
             local_name_value: non_brain_specimen_data_available
         description: NIMP indicator for availability of non-brain Specimen data
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:e537aacd-040a-423b-9920-9ce5adecf111
         - NIMP:PD-JSFGYJ57
@@ -3646,7 +3643,7 @@ classes:
             local_name_value: neurologic_events_data_available
         description: NIMP indicator for availability of perinatal neurologic events
           data
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:27a7df05-5aec-4060-85b9-2b4658ecd1e8
         - NIMP:PD-SLCHJH85
@@ -3658,7 +3655,7 @@ classes:
             local_name_value: infectious_testings_data_available
         description: NIMP indicator for availability of infectious Disease/Serology
           testing data
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:af034af4-9a8d-49ed-a100-1e87ebe962f5
         - NIMP:PD-AATACA52
@@ -3669,7 +3666,7 @@ classes:
             local_name_source: NIMP
             local_name_value: tox_screening_data_available
         description: NIMP indicator for availability of toxicology screening data
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:3730c096-5524-43f4-a3c0-010ccdf80ae1
         - NIMP:PD-LELMNL63
@@ -3681,7 +3678,7 @@ classes:
             local_name_value: nn_diagnoses_data_available
         description: NIMP indicator for availability of non-neuropathological diagnoses
           data
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:87a4e421-4586-4938-91cc-6ae4e6e95dde
         - NIMP:PD-JXZWYJ57
@@ -3692,7 +3689,7 @@ classes:
             local_name_source: NIMP
             local_name_value: non_brain_tissue_available
         description: Are any non-brain tissues available?
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:3a064c96-a956-4cf3-8b77-056b8e392f99
         - NIMP:PD-LGLGRZ37
@@ -3703,7 +3700,7 @@ classes:
             local_name_source: NIMP
             local_name_value: tissue_type
         description: The type of non-brain tissues
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:33ccbc85-ae35-44d6-8bc6-c2fb91116cf7
         - NIMP:PD-JLJLCT43
@@ -3716,7 +3713,7 @@ classes:
         description: The ICD-10 code of the clinical brain diagnosis
         in_subset:
         - Restricted
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:b7a34c73-ae08-43d3-80d2-d5ef8436e449
         - NIMP:PD-CLCLXT26
@@ -3727,7 +3724,7 @@ classes:
             local_name_source: NIMP
             local_name_value: clinical_brain_diagnosis_confidence_level
         description: The confidence level of the clinical brain diagnosis
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:2e72b4b9-d5fb-4f0d-897c-1f977ed4fabd
         - NIMP:PD-LCLCJH33
@@ -3740,7 +3737,7 @@ classes:
         description: The ICD-10 code of the genetic diagnosis
         in_subset:
         - Restricted
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:7a7916e0-ff79-4426-b49f-58e2f2a8a367
         - NIMP:PD-KRKRBX30
@@ -3751,7 +3748,7 @@ classes:
             local_name_source: NIMP
             local_name_value: genetic_diagnosis_confidence_level
         description: The confidence level of the genetic diagnosis
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:cb2b0108-8c07-40e8-92a3-b693b6dc64b4
         - NIMP:PD-NONORZ37
@@ -3764,7 +3761,7 @@ classes:
         description: The ICD-10 code of the non-brain diagnosis
         in_subset:
         - Restricted
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:65e8824e-01d2-44cf-9f47-9962461a65c9
         - NIMP:PD-DNDNPI37
@@ -3775,7 +3772,7 @@ classes:
             local_name_source: NIMP
             local_name_value: non_brain_diagnosis_confidence_level
         description: The confidence level of the non-brain diagnosis
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:2a7ff937-287b-40a3-a1f6-ebf598683774
         - NIMP:PD-FGFGUS44
@@ -3786,7 +3783,7 @@ classes:
             local_name_source: NIMP
             local_name_value: birth_weight_lbs
         description: Birth weight in pounds
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:69d9a60d-32d5-4c3a-a26a-802d8f030c8d
         - NIMP:PD-YOVEEV39
@@ -3801,7 +3798,7 @@ classes:
             local_name_source: NIMP
             local_name_value: birth_weight_oz
         description: Birth weight in ounces
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:b6f30050-f762-4427-8533-31738e737ea2
         - NIMP:PD-CANPLC46
@@ -3817,7 +3814,7 @@ classes:
             local_name_value: apgar_5_minute_score
         description: The APGAR Five Minute Score. This is a test given to newborns
           just after birth
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:3a10dabf-39b0-4eb7-8399-85fd325c5646
         - NIMP:PD-GLPDCP24
@@ -3831,7 +3828,7 @@ classes:
             local_name_value: apgar_10_minute_score
         description: The APGAR Ten Minute Score. This is a test given to newborns
           just after birth
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:09d512b6-7c20-4693-8894-77824ad7f04d
         - NIMP:PD-YKRCCP24
@@ -3846,7 +3843,7 @@ classes:
         description: The ICD-10 codes for the neuropathological diagnoses
         in_subset:
         - Restricted
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:784e9cc1-7258-4535-a6d5-f7f9a4c2da4b
         - NIMP:PD-NCMNSS51
@@ -3857,7 +3854,7 @@ classes:
             local_name_source: NIMP
             local_name_value: artifacts_type
         description: The type of artifacts
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:dc217b9b-ed6b-48e2-93b4-4f648dc395f7
         - NIMP:PD-NCNCRC24
@@ -3870,7 +3867,7 @@ classes:
         description: The developmental neuropathology diagnoses specified
         in_subset:
         - Restricted
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:bee7d477-2dec-4bf5-878e-a105a0054366
         - NIMP:PD-TYTYOO47
@@ -3883,7 +3880,7 @@ classes:
         description: The inflammatory neuropathology diagnoses specified
         in_subset:
         - Restricted
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:616ba8d8-ced3-4f3e-b1ca-7103eb7a2c94
         - NIMP:PD-MAMATE52
@@ -3896,7 +3893,7 @@ classes:
         description: The infectious neuropathology diagnoses specified
         in_subset:
         - Restricted
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:c73cea5e-44d1-4dd9-b55e-3c6ef5dd2ef2
         - NIMP:PD-TYTYTE52
@@ -3907,7 +3904,7 @@ classes:
             local_name_source: NIMP
             local_name_value: traumatic_type
         description: The type of traumatic neuropathology diagnosis
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:01d2f488-f30b-40e0-913f-c9adc6b39b97
         - NIMP:PD-DRDRCT43
@@ -3918,7 +3915,7 @@ classes:
             local_name_source: NIMP
             local_name_value: vascular_type
         description: The type of vascular neuropathology diagnosis
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:5beafa90-ffdb-4cce-a78c-a3b3175210b6
         - NIMP:PD-RIRITM45
@@ -3929,7 +3926,7 @@ classes:
             local_name_source: NIMP
             local_name_value: neoplastic_type
         description: The type of neoplastic neuropathology diagnosis
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:a58be8f4-2756-4a66-9d05-1fbf44b4e810
         - NIMP:PD-NENERZ37
@@ -3940,7 +3937,7 @@ classes:
             local_name_source: NIMP
             local_name_value: aging_type
         description: The type of aging-related neuropathology diagnosis
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:5e31b66f-131e-4d5e-8760-ddd85f5634d5
         - NIMP:PD-WNWNRC24
@@ -3951,7 +3948,7 @@ classes:
             local_name_source: NIMP
             local_name_value: neurodegenerative_type
         description: The type of neurodegenerative neuropathology diagnosis
-        from_schema: https://w3id.org/brain-bicandonor
+        from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
         - bican:b150b62c-a968-4f5d-9aa3-d1ab5207ff83
         - NIMP:PD-PEPERZ37
