@@ -1,0 +1,4638 @@
+{
+    "$defs": {
+        "Activity": {
+            "additionalProperties": false,
+            "description": "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:Activity"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "Activity",
+            "type": "object"
+        },
+        "ActivityAndBehavior": {
+            "additionalProperties": false,
+            "description": "Activity or behavior of any independent integral living, organization or mechanical actor in the world",
+            "title": "ActivityAndBehavior",
+            "type": "object"
+        },
+        "AgingType": {
+            "description": "",
+            "enum": [
+                "pTau",
+                "pTDP-43",
+                "atherosclerosis",
+                "arteriolosclerosis",
+                "Other (specify)"
+            ],
+            "title": "AgingType",
+            "type": "string"
+        },
+        "Annotation": {
+            "additionalProperties": false,
+            "description": "Biolink Model root class for entity annotations.",
+            "title": "Annotation",
+            "type": "object"
+        },
+        "ArtifactType": {
+            "description": "",
+            "enum": [
+                "gross: brain removal/dissection",
+                "microscopic: autolysis",
+                "Other (specify)"
+            ],
+            "title": "ArtifactType",
+            "type": "string"
+        },
+        "Attribute": {
+            "additionalProperties": false,
+            "description": "A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:Attribute"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_attribute_type": {
+                    "description": "connects an attribute to a class that describes it",
+                    "type": "string"
+                },
+                "has_qualitative_value": {
+                    "description": "connects an attribute to a value",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_quantitative_value": {
+                    "description": "connects an attribute to a value",
+                    "items": {
+                        "$ref": "#/$defs/QuantityValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The human-readable 'attribute name' can be set to a string which reflects its context of interpretation, e.g. SEPIO evidence/provenance/confidence annotation or it can default to the name associated with the 'has attribute type' slot ontology term.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "has_attribute_type",
+                "category"
+            ],
+            "title": "Attribute",
+            "type": "object"
+        },
+        "BiologicalEntity": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:BiologicalEntity"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "in_taxon": {
+                    "description": "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "in_taxon_label": {
+                    "description": "The human readable scientific name for the taxon of the entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "BiologicalEntity",
+            "type": "object"
+        },
+        "BirthCountry": {
+            "description": "Namibia",
+            "enum": [
+                "AF",
+                "AL",
+                "DZ",
+                "AS",
+                "AD",
+                "AO",
+                "AI",
+                "AQ",
+                "AG",
+                "AR",
+                "AM",
+                "AW",
+                "AU",
+                "AT",
+                "AZ",
+                "BS",
+                "BH",
+                "BD",
+                "BB",
+                "BY",
+                "BE",
+                "BZ",
+                "BJ",
+                "BM",
+                "BT",
+                "BO",
+                "BQ",
+                "BA",
+                "BW",
+                "BV",
+                "BR",
+                "IO",
+                "BN",
+                "BG",
+                "BF",
+                "BI",
+                "CV",
+                "KH",
+                "CM",
+                "CA",
+                "KY",
+                "CF",
+                "TD",
+                "CL",
+                "CN",
+                "CX",
+                "CC",
+                "CO",
+                "KM",
+                "CD",
+                "CG",
+                "CK",
+                "CR",
+                "HR",
+                "CU",
+                "CW",
+                "CY",
+                "CZ",
+                "CI",
+                "DK",
+                "DJ",
+                "DM",
+                "DO",
+                "EC",
+                "EG",
+                "SV",
+                "GQ",
+                "ER",
+                "EE",
+                "SZ",
+                "ET",
+                "FK",
+                "FO",
+                "FJ",
+                "FI",
+                "FR",
+                "GF",
+                "PF",
+                "TF",
+                "GA",
+                "GM",
+                "GE",
+                "DE",
+                "GH",
+                "GI",
+                "GR",
+                "GL",
+                "GD",
+                "GP",
+                "GU",
+                "GT",
+                "GG",
+                "GN",
+                "GW",
+                "GY",
+                "HT",
+                "HM",
+                "VA",
+                "HN",
+                "HK",
+                "HU",
+                "IS",
+                "IN",
+                "ID",
+                "IR",
+                "IQ",
+                "IE",
+                "IM",
+                "IL",
+                "IT",
+                "JM",
+                "JP",
+                "JE",
+                "JO",
+                "KZ",
+                "KE",
+                "KI",
+                "KP",
+                "KR",
+                "KW",
+                "KG",
+                "LA",
+                "LV",
+                "LB",
+                "LS",
+                "LR",
+                "LY",
+                "LI",
+                "LT",
+                "LU",
+                "MO",
+                "MG",
+                "MW",
+                "MY",
+                "MV",
+                "ML",
+                "MT",
+                "MH",
+                "MQ",
+                "MR",
+                "MU",
+                "YT",
+                "MX",
+                "FM",
+                "MD",
+                "MC",
+                "MN",
+                "ME",
+                "MS",
+                "MA",
+                "MZ",
+                "MM",
+                "NR",
+                "NP",
+                "NL",
+                "NC",
+                "NZ",
+                "NI",
+                "NE",
+                "NG",
+                "NU",
+                "NF",
+                "MK",
+                "MP",
+                "NO",
+                "OM",
+                "PK",
+                "PW",
+                "PS",
+                "PA",
+                "PG",
+                "PY",
+                "PE",
+                "PH",
+                "PN",
+                "PL",
+                "PT",
+                "PR",
+                "QA",
+                "RO",
+                "RU",
+                "RW",
+                "RE",
+                "BL",
+                "SH",
+                "KN",
+                "LC",
+                "MF",
+                "PM",
+                "VC",
+                "WS",
+                "SM",
+                "ST",
+                "SA",
+                "SN",
+                "RS",
+                "SC",
+                "SL",
+                "SG",
+                "SX",
+                "SK",
+                "SI",
+                "SB",
+                "SO",
+                "ZA",
+                "GS",
+                "SS",
+                "ES",
+                "LK",
+                "SD",
+                "SR",
+                "SJ",
+                "SE",
+                "CH",
+                "SY",
+                "TW",
+                "TJ",
+                "TZ",
+                "TH",
+                "TL",
+                "TG",
+                "TK",
+                "TO",
+                "TT",
+                "TN",
+                "TM",
+                "TC",
+                "TV",
+                "TR",
+                "UG",
+                "UA",
+                "AE",
+                "GB",
+                "UM",
+                "US",
+                "UY",
+                "UZ",
+                "VU",
+                "VE",
+                "VN",
+                "VG",
+                "VI",
+                "WF",
+                "EH",
+                "YE",
+                "ZM",
+                "ZW",
+                "AX"
+            ],
+            "title": "BirthCountry",
+            "type": "string"
+        },
+        "BrainTissueWeightType": {
+            "description": "",
+            "enum": [
+                "Fresh whole brain",
+                "Fixed whole brain",
+                "Fresh hemibrain",
+                "Fixed hemibrain",
+                "Unknown"
+            ],
+            "title": "BrainTissueWeightType",
+            "type": "string"
+        },
+        "CauseOfDeath": {
+            "description": "",
+            "enum": [
+                "All Causes",
+                "Communicable, maternal, perinatal and nutritional conditions",
+                "Infectious and parasitic diseases",
+                "Tuberculosis",
+                "STDs excluding HIV",
+                "Syphilis",
+                "Chlamydia",
+                "Gonorrhoea",
+                "Other STDs",
+                "HIV/AIDS",
+                "Diarrhoeal diseases",
+                "Childhood-cluster diseases",
+                "Pertussis",
+                "Poliomyelitis",
+                "Diphtheria",
+                "Measles",
+                "Tetanus",
+                "Meningitis",
+                "Hepatitis B",
+                "Hepatitis C",
+                "Malaria",
+                "Tropical-cluster diseases",
+                "Trypanosomiasis",
+                "Chagas disease",
+                "Schistosomiasis",
+                "Leishmaniasis",
+                "Lymphatic filariasis",
+                "Onchocerciasis",
+                "Leprosy",
+                "Dengue",
+                "Japanese encephalitis",
+                "Trachoma",
+                "Intestinal nematode infections",
+                "Ascariasis",
+                "Trichuriasis",
+                "Hookworm disease",
+                "Other intestinal infections",
+                "Other infectious diseases",
+                "Respiratory infections",
+                "Lower respiratory infections",
+                "COVID-19",
+                "Upper respiratory infections",
+                "Otitis media",
+                "Maternal conditions",
+                "Maternal haemorrhage",
+                "Maternal sepsis",
+                "Hypertensive disorders",
+                "Obstructed labour",
+                "Abortion",
+                "Other maternal conditions",
+                "Perinatal conditions",
+                "Low birth weight",
+                "Birth asphyxia and birth trauma",
+                "Other perinatal conditions",
+                "Nutritional deficiencies",
+                "Protein-energy malnutrition",
+                "Iodine deficiency",
+                "Vitamin A deficiency",
+                "Iron-deficiency anaemia",
+                "Other nutritional disorders",
+                "Noncommunicable diseases",
+                "Malignant neoplasms",
+                "Mouth and oropharynx cancers",
+                "a. Lip and oral cavity cancers",
+                "b. Nasopharynx cancers",
+                "c. Other pharynx cancer",
+                "Oesophagus cancer",
+                "Stomach cancer",
+                "Colon and rectum cancers",
+                "Liver cancer",
+                "Pancreas cancer",
+                "Trachea, bronchus, lung cancers",
+                "Melanoma and other skin cancers",
+                "a. Malignant skin melanoma",
+                "b. Non-melanoma skin cancer",
+                "Breast cancer",
+                "Cervix uteri cancer",
+                "Corpus uteri cancer",
+                "Ovary cancer",
+                "Prostate cancer",
+                "Testicular cancer",
+                "Kidney cancer",
+                "Bladder cancer",
+                "Brain and nervous system cancers",
+                "Gallbladder and biliary tract cancer",
+                "Larynx cancer",
+                "Thyroid cancer",
+                "Mesothelioma",
+                "Lymphomas, multiple myeloma",
+                "a. Hodgkin lymphoma",
+                "b. Non-Hodgkin lymphoma",
+                "c. Multiple myeloma",
+                "Leukaemia",
+                "Ill-defined malignant neoplasms",
+                "Other malignant neoplasms",
+                "Other neoplasms",
+                "Diabetes mellitus and endocrine disorders",
+                "Diabetes mellitus",
+                "Endocrine disorders",
+                "Neuropsychiatric conditions",
+                "Unipolar depressive disorders",
+                "Bipolar disorder",
+                "Schizophrenia",
+                "Epilepsy",
+                "Alcohol use disorders",
+                "Alzheimer and other dementias",
+                "Parkinson disease",
+                "Multiple sclerosis",
+                "Drug use disorders",
+                "Post-traumatic stress disorder",
+                "Obsessive-compulsive disorder",
+                "Panic disorder",
+                "Insomnia (primary)",
+                "Migraine",
+                "Mental Retardation",
+                "Other neuropsychiatric disorders",
+                "Sense organ diseases",
+                "Glaucoma",
+                "Cataracts",
+                "Vision disorders, age-related",
+                "Hearing loss, adult onset",
+                "Other sense organ disorders",
+                "Cardiovascular diseases",
+                "Rheumatic heart disease",
+                "Hypertensive heart disease",
+                "Ischaemic heart disease",
+                "Cerebrovascular disease",
+                "Inflammatory heart diseases",
+                "Ill-defined circulatory diseases",
+                "Other circulatory diseases",
+                "Respiratory diseases",
+                "Chronic obstructive pulmonary disease",
+                "Asthma",
+                "Other respiratory diseases",
+                "Digestive diseases",
+                "Peptic ulcer disease",
+                "Cirrhosis of the liver",
+                "Appendicitis",
+                "Gastritis and duodenitis",
+                "Paralytic ileus and intestinal obstruction",
+                "Inflammatory bowel disease",
+                "Gallbladder and biliary diseases",
+                "Pancreatitis",
+                "Other digestive diseases",
+                "Genitourinary diseases",
+                "Nephritis and nephrosis",
+                "Benign prostatic hypertrophy",
+                "Other genitourinary system diseases",
+                "Skin diseases",
+                "Musculoskeletal diseases",
+                "Rheumatoid arthritis",
+                "Osteoarthritis",
+                "Gout",
+                "Back pain",
+                "Other musculoskeletal disorders",
+                "Congenital anomalies",
+                "Abdominal wall defect",
+                "Anencephaly",
+                "Anorectal atresia",
+                "Cleft lip",
+                "Cleft palate",
+                "Oesophageal atresia",
+                "Renal agenesis",
+                "Down syndrome",
+                "Congenital heart anomalies",
+                "Spina bifida",
+                "Other Congenital anomalies",
+                "Oral conditions",
+                "Dental caries",
+                "Periodontal disease",
+                "Edentulism",
+                "Other oral diseases",
+                "Sudden infant death syndrome",
+                "Injuries",
+                "Unintentional injuries",
+                "Road traffic accidents",
+                "Poisonings",
+                "Falls",
+                "Fires",
+                "Drownings",
+                "Exposure to mechanical forces",
+                "Natural disasters",
+                "Other unintentional injuries",
+                "Intentional injuries",
+                "Self-inflicted injuries",
+                "Violence",
+                "War",
+                "Other intentional injuries",
+                "Ill-defined injuries/accidents",
+                "Ill-defined diseases"
+            ],
+            "title": "CauseOfDeath",
+            "type": "string"
+        },
+        "ChemicalEntityOrGeneOrGeneProduct": {
+            "additionalProperties": false,
+            "description": "A union of chemical entities and children, and gene or gene product. This mixin is helpful to use when searching across chemical entities that must include genes and their children as chemical entities.",
+            "title": "ChemicalEntityOrGeneOrGeneProduct",
+            "type": "object"
+        },
+        "ConditionType": {
+            "description": "",
+            "enum": [
+                "Alzheimers disease",
+                "amyotrophic lateral sclerosis (ALS)",
+                "ataxia",
+                "autism",
+                "bi-polar disorder",
+                "brain aneurysm",
+                "cancer",
+                "dementia",
+                "depression",
+                "diabetes mellitus",
+                "dystonia",
+                "epilepsy",
+                "heart disease",
+                "hypertension",
+                "memory loss",
+                "migraines",
+                "multiple sclerosis",
+                "muscle disease",
+                "Parkinson's disease",
+                "schizophrenia",
+                "stroke",
+                "suicide or suicide attempt",
+                "tourette syndrome",
+                "other (specify)"
+            ],
+            "title": "ConditionType",
+            "type": "string"
+        },
+        "ConfidenceLevel": {
+            "description": "",
+            "enum": [
+                "confirmed diagnosis",
+                "investigator impression",
+                "insufficient data"
+            ],
+            "title": "ConfidenceLevel",
+            "type": "string"
+        },
+        "Dataset": {
+            "additionalProperties": false,
+            "description": "an item that refers to a collection of data from a data source.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:Dataset"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "creation_date": {
+                    "description": "date on which an entity was created. This can be applied to nodes or edges",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "format": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "license": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rights": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "Dataset",
+            "type": "object"
+        },
+        "Donor": {
+            "additionalProperties": false,
+            "description": "A person or organism that is the source of a biological sample for scientific study.  Many biological samples are generated from a single donor.",
+            "properties": {
+                "age_at_death_reference_point": {
+                    "description": "Reference point from which the donor's age at death was calculated",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "age_at_death_unit": {
+                    "description": "The unit of the value mentioned under \"age_at_death_value\"",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "age_at_death_value": {
+                    "description": "Donor's age at death value",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "age_of_death": {
+                    "description": "Donor's age at death in years",
+                    "maximum": "200.0",
+                    "minimum": "0.0",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "aging_type": {
+                    "$ref": "#/$defs/AgingType",
+                    "description": "The type of aging-related neuropathology diagnosis"
+                },
+                "antemortem_mri_available": {
+                    "description": "Is an Antemortem MRI is available?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "apgar_10_minute_score": {
+                    "description": "The APGAR Ten Minute Score. This is a test given to newborns just after birth",
+                    "maximum": "10.0",
+                    "minimum": "1.0",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "apgar_5_minute_score": {
+                    "description": "The APGAR Five Minute Score. This is a test given to newborns just after birth",
+                    "maximum": "10.0",
+                    "minimum": "1.0",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "artifacts_type": {
+                    "$ref": "#/$defs/ArtifactType",
+                    "description": "The type of artifacts"
+                },
+                "birth_country_name": {
+                    "$ref": "#/$defs/BirthCountry",
+                    "description": "Donor's birth country"
+                },
+                "birth_weight_lbs": {
+                    "description": "Birth weight in pounds",
+                    "maximum": "100.0",
+                    "minimum": "0.0",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "birth_weight_oz": {
+                    "description": "Birth weight in ounces",
+                    "maximum": "100.0",
+                    "minimum": "0.0",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "brain_weight": {
+                    "description": "The weight of the brain in grams",
+                    "maximum": "9998.0",
+                    "minimum": "0.0",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "bican:Donor"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "clinical_brain_diagnosis": {
+                    "description": "The ICD-10 code of the clinical brain diagnosis",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "clinical_brain_diagnosis_confidence_level": {
+                    "$ref": "#/$defs/ConfidenceLevel",
+                    "description": "The confidence level of the clinical brain diagnosis"
+                },
+                "confirmed_hbcac": {
+                    "description": "Confirmation status of meeting inclusion criteria of the Human Brain Cell Atlas Collection at NBB",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "consent_status": {
+                    "description": "Whether the type of consent is open or controlled",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "death_causes_data_available": {
+                    "description": "NIMP indicator for availability of the cause of death",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "developmental_type_specify": {
+                    "description": "The developmental neuropathology diagnoses specified",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "donor_labs": {
+                    "description": "Donor Labs",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "donor_nhash_id": {
+                    "description": "NIMP generated globally unique identifier for a Donor",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "donor_project": {
+                    "description": "Donor Project",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "donor_source": {
+                    "$ref": "#/$defs/DonorSource",
+                    "description": "The source of the donor brain e.g. NBB/UM1 project/other"
+                },
+                "donor_species": {
+                    "description": "NCBI Taxonomy code of the donor species",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "education_years_number": {
+                    "description": "Number of years of education the donor had",
+                    "maximum": "30.0",
+                    "minimum": "0.0",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "ethnicity": {
+                    "$ref": "#/$defs/Ethnicity",
+                    "description": "Ethnicity of the donor"
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gender": {
+                    "$ref": "#/$defs/Gender",
+                    "description": "Donor's gender at death"
+                },
+                "genetic_diagnosis_code": {
+                    "description": "The ICD-10 code of the genetic diagnosis",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "genetic_diagnosis_confidence_level": {
+                    "$ref": "#/$defs/ConfidenceLevel",
+                    "description": "The confidence level of the genetic diagnosis"
+                },
+                "handedness": {
+                    "$ref": "#/$defs/Handedness",
+                    "description": "Donor's handedness"
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "hemisphere": {
+                    "$ref": "#/$defs/Hemisphere",
+                    "description": "Hemisphere of the brain"
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "in_taxon": {
+                    "description": "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "in_taxon_label": {
+                    "description": "The human readable scientific name for the taxon of the entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "infectious_testings_data_available": {
+                    "description": "NIMP indicator for availability of infectious Disease/Serology testing data",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "infectious_type_specify": {
+                    "description": "The infectious neuropathology diagnoses specified",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "inflammatory_type_specify": {
+                    "description": "The inflammatory neuropathology diagnoses specified",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "left_hemisphere_prep_2": {
+                    "description": "The second method used to prepare the left hemisphere",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "left_hemisphere_preparation": {
+                    "$ref": "#/$defs/Preparation",
+                    "description": "The method of which the left hemisphere of the brain was prepared"
+                },
+                "marital_status": {
+                    "$ref": "#/$defs/MaritalStatus",
+                    "description": "Donor's marital or partner status"
+                },
+                "name": {
+                    "description": "Donor identifier given by the brain bank or the institution that holds the brain",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "neoplastic_type": {
+                    "$ref": "#/$defs/NeoplasticType",
+                    "description": "The type of neoplastic neuropathology diagnosis"
+                },
+                "neurodegenerative_type": {
+                    "$ref": "#/$defs/NeurodegenerativeType",
+                    "description": "The type of neurodegenerative neuropathology diagnosis"
+                },
+                "neurologic_events_data_available": {
+                    "description": "NIMP indicator for availability of perinatal neurologic events data",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "neuropathology_diagnosis_code": {
+                    "description": "The ICD-10 codes for the neuropathological diagnoses",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "nn_diagnoses_data_available": {
+                    "description": "NIMP indicator for availability of non-neuropathological diagnoses data",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "non_brain_diagnosis_code": {
+                    "description": "The ICD-10 code of the non-brain diagnosis",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "non_brain_diagnosis_confidence_level": {
+                    "$ref": "#/$defs/ConfidenceLevel",
+                    "description": "The confidence level of the non-brain diagnosis"
+                },
+                "non_brain_specimen_data_available": {
+                    "description": "NIMP indicator for availability of non-brain Specimen data",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "non_brain_tissue_available": {
+                    "description": "Are any non-brain tissues available?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "ph": {
+                    "description": "pH value",
+                    "maximum": "99.0",
+                    "minimum": "0.0",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "photo_2d_available": {
+                    "description": "Is a 2D photograph is available?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "positive_test_result": {
+                    "description": "Whether the donor has had a positive serology test result",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "post_mortem_interval": {
+                    "description": "Post Mortem Interval in hours",
+                    "maximum": "8888.0",
+                    "minimum": "0.0",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "postmortem_mri_available": {
+                    "description": "Is a Postmortem MRI Available",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "postmortem_mri_type": {
+                    "$ref": "#/$defs/PostmortemMRI",
+                    "description": "The type of postmortem MRI if it is available."
+                },
+                "primary_language": {
+                    "$ref": "#/$defs/Language",
+                    "description": "Donor's primary language"
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "race": {
+                    "$ref": "#/$defs/Race",
+                    "description": "Race of the donor"
+                },
+                "repository": {
+                    "$ref": "#/$defs/Repository",
+                    "description": "If the brain is from NBB the NBB repository the brain belongs to"
+                },
+                "right_hemisphere_prep_2": {
+                    "description": "The second method used to prepare the right hemisphere",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "right_hemisphere_preparation": {
+                    "$ref": "#/$defs/Preparation",
+                    "description": "The method of which the right hemisphere of the brain was prepared"
+                },
+                "rin": {
+                    "description": "RNA Integrity Number",
+                    "maximum": "99.0",
+                    "minimum": "0.0",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "rine": {
+                    "description": "RNA Integrity Number equivalent",
+                    "maximum": "99.0",
+                    "minimum": "0.0",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "rines_data_available": {
+                    "description": "NIMP indicator for availability of RNA Integrity Number equivalent",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "rins_data_available": {
+                    "description": "NIMP indicator for availability of RNA Integrity Number",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "scan_3d_available": {
+                    "description": "Is a 3D scan is available?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "secondary_language": {
+                    "$ref": "#/$defs/Language",
+                    "description": "Donor's secondary language"
+                },
+                "secondary_race": {
+                    "$ref": "#/$defs/Race",
+                    "description": "Second race if available for the donor"
+                },
+                "sex": {
+                    "$ref": "#/$defs/Sex",
+                    "description": "Donor's sex at birth"
+                },
+                "sex_orientation": {
+                    "$ref": "#/$defs/SexualOrientation",
+                    "description": "Donor's sexual orientation at death"
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "tissue_type": {
+                    "$ref": "#/$defs/Tissue",
+                    "description": "The type of non-brain tissues"
+                },
+                "tox_screening_data_available": {
+                    "description": "NIMP indicator for availability of toxicology screening data",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "traumatic_type": {
+                    "$ref": "#/$defs/TraumaticType",
+                    "description": "The type of traumatic neuropathology diagnosis"
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "vascular_type": {
+                    "$ref": "#/$defs/VascularType",
+                    "description": "The type of vascular neuropathology diagnosis"
+                },
+                "was_derived_from": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProvEntity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."
+                },
+                "was_generated_by": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProvActivity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation."
+                },
+                "weighed_type": {
+                    "$ref": "#/$defs/BrainTissueWeightType",
+                    "description": "The type of the brain tissue weighed based on the preparation"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "Donor",
+            "type": "object"
+        },
+        "DonorSource": {
+            "description": "",
+            "enum": [
+                "BICAN-NBB",
+                "Donor from NIH NeuroBioBank",
+                "BICAN-UM1",
+                "Other"
+            ],
+            "title": "DonorSource",
+            "type": "string"
+        },
+        "DrugsFound": {
+            "description": "",
+            "enum": [
+                "10-Hydroxycarbazepine",
+                "2-Furanylfentanyl",
+                "4-ANPP",
+                "6-Beta-Naltrexol - Free",
+                "6-Monoacetylmorphine",
+                "7-Amino Clonazepam",
+                "7-Amino Flunitrazepam",
+                "9-Hydroxyrisperidone",
+                "Acetaminophen",
+                "Acetone",
+                "Acetyl Fentanyl",
+                "Acrylfentanyl",
+                "Alfentanil",
+                "Alpha-Hydroxyalprazolam",
+                "Alpha-Hydroxyetizolam",
+                "Alprazolam",
+                "Amitriptyline",
+                "Amlodipine",
+                "Amoxapine",
+                "Amphetamine",
+                "Aripiprazole",
+                "Atomoxetine",
+                "Atropine",
+                "Barbiturates",
+                "Benzodiazepines",
+                "Benzoylecgonine",
+                "Benztropine",
+                "Bromazepam",
+                "Brompheniramine",
+                "Buprenorphine",
+                "Buprenorphine / Metabolite",
+                "Bupropion",
+                "Bupropion Metabolite",
+                "Buspirone",
+                "Butalbital",
+                "Butorphanol",
+                "Butylone",
+                "Butyrylfentanyl",
+                "Caffeine",
+                "Cannabinoids",
+                "Carbamazepine",
+                "Carbamazepine-10,11-Epoxide",
+                "Carfentanil",
+                "Carisoprodol",
+                "Chlordiazepoxide",
+                "Chlorpheniramine",
+                "Chlorpromazine",
+                "Citalopram / Escitalopram",
+                "Clobazam",
+                "Clomipramine",
+                "Clonazepam",
+                "Clonazolam",
+                "Clonidine",
+                "Clozapine",
+                "Cocaethylene",
+                "Cocaine",
+                "Cocaine / Metabolites",
+                "Codeine",
+                "Cotinine",
+                "Cyclobenzaprine",
+                "Cyclopropylfentanyl",
+                "Delorazepam",
+                "Desalkylflurazepam",
+                "Descarboethoxyloratadine",
+                "Desipramine",
+                "Desmethylcitalopram",
+                "Desmethylclomipramine",
+                "Desmethyldoxepin",
+                "Desmethylloperamide",
+                "Desmethylmirtazapine",
+                "Desmethylsertraline",
+                "Desmethyltrimipramine",
+                "Dextro / Levo Methorphan",
+                "Dextrorphan / Levorphanol",
+                "Diazepam",
+                "Dibutylone",
+                "Dicyclomine",
+                "Dihydrocodeine / Hydrocodol",
+                "Diltiazem",
+                "Diphenhydramine",
+                "Donepezil",
+                "Doxepin",
+                "Doxylamine",
+                "Duloxetine",
+                "Duloxetine Breakdown Product",
+                "EDDP",
+                "Ephedrine",
+                "Ephedrine / Pseudoephedrine",
+                "Estazolam",
+                "Eszopiclone / Zopiclone",
+                "Eszopiclone / Zopiclone Breakdown",
+                "Ethanol",
+                "Ethinamate",
+                "Ethosuximide",
+                "Ethotoin",
+                "Ethylmorphine",
+                "Etizolam",
+                "Felbamate",
+                "Fentanyl",
+                "Flecainide",
+                "Flubromazepam",
+                "Flubromazolam",
+                "Fluconazole",
+                "Flunitrazepam",
+                "Fluoxetine",
+                "Fluphenazine",
+                "Flurazepam",
+                "Fluvoxamine",
+                "Gabapentin",
+                "Gabapentin Breakdown Product",
+                "Guaifenesin",
+                "Haloperidol",
+                "Hexobarbital",
+                "Hydrocodone",
+                "Hydromorphone",
+                "Hydroxybupropion",
+                "Hydroxychloroquine",
+                "Hydroxyethylflurazepam",
+                "Hydroxytriazolam",
+                "Hydroxyzine",
+                "Ibuprofen",
+                "Iloperidone",
+                "Imipramine",
+                "Isopropanol",
+                "Ketamine",
+                "LSD",
+                "Lacosamide",
+                "Lamotrigine",
+                "Levamisole",
+                "Levetiracetam",
+                "Lidocaine",
+                "Loperamide",
+                "Loratadine",
+                "Lorazepam",
+                "Loxapine",
+                "MDA",
+                "MDEA",
+                "MDMA",
+                "Meclizine",
+                "Memantine",
+                "Meperidine",
+                "Mepivacaine",
+                "Meprobamate",
+                "Mescaline",
+                "Mesoridazine",
+                "Metaxalone",
+                "Methadone",
+                "Methamphetamine",
+                "Methanol",
+                "Methaqualone",
+                "Methocarbamol",
+                "Methoxetamine",
+                "Methylphenidate",
+                "Metoprolol",
+                "Metronidazole",
+                "Midazolam",
+                "Milnacipran",
+                "Mirtazapine",
+                "Mitragynine",
+                "Monoethylglycinexylidide (MEGX)",
+                "Morphine",
+                "N-Acetylprocainamide",
+                "N-ethyl Pentylone",
+                "Nalbuphine",
+                "Naloxone",
+                "Naltrexone",
+                "Naltrexone - Free",
+                "Naproxen",
+                "Naproxen Breakdown Product",
+                "Nicotine",
+                "Norbuprenorphine - Free",
+                "Norclozapine",
+                "Norcodeine",
+                "Norcyclobenzaprine",
+                "Nordiazepam",
+                "Norfentanyl",
+                "Norflunitrazepam",
+                "Norfluoxetine",
+                "Norhydroxyzine",
+                "Norketamine",
+                "Normeperidine",
+                "Norpropoxyphene",
+                "Norpseudoephedrine",
+                "Norpseudoephedrine / Phenylpropanolamine",
+                "Nortriptyline",
+                "O-Desmethyltramadol",
+                "O-Desmethylvenlafaxine",
+                "Olanzapine",
+                "Ondansetron",
+                "Opiates",
+                "Other Findings",
+                "Oxazepam",
+                "Oxycodone",
+                "Oxycodone / Oxymorphone",
+                "Oxymorphone",
+                "Papaverine",
+                "Paroxetine",
+                "Pentazocine",
+                "Pentobarbital",
+                "Perphenazine",
+                "Phenazepam",
+                "Phencyclidine",
+                "Pheniramine",
+                "Phenobarbital",
+                "Phensuximide",
+                "Phentermine",
+                "Phenylethylmalonamide (PEMA)",
+                "Phenylpropanolamine",
+                "Phenyltoloxamine",
+                "Phenytoin",
+                "Primidone",
+                "Procainamide",
+                "Prochlorperazine",
+                "Promazine",
+                "Promethazine",
+                "Propofol",
+                "Propoxyphene",
+                "Protriptyline",
+                "Pseudoephedrine",
+                "Psilocin",
+                "Pyrilamine",
+                "Quetiapine",
+                "Quinidine",
+                "Quinine",
+                "Risperidone",
+                "Rufinamide",
+                "Salicylates",
+                "Scope Statement",
+                "Secobarbital",
+                "Sertraline",
+                "Sildenafil",
+                "Strychnine",
+                "Sufentanil",
+                "Tadalafil",
+                "Tapentadol",
+                "Temazepam",
+                "Tetrahydrozoline",
+                "Theobromine",
+                "Theophylline",
+                "Thioridazine",
+                "Thiothixene",
+                "Ticlopidine",
+                "Topiramate",
+                "Topiramate Breakdown Product",
+                "Tramadol",
+                "Tramadol Metabolite",
+                "Trazodone",
+                "Triazolam",
+                "Trifluoperazine",
+                "Trimethoprim",
+                "Trimipramine",
+                "Triprolidine",
+                "U-47700",
+                "Valerylfentanyl",
+                "Vardenafil",
+                "Venlafaxine",
+                "Venlafaxine Metabolite",
+                "Verapamil",
+                "Warfarin",
+                "Xylazine",
+                "Yohimbine",
+                "Zaleplon",
+                "Ziprasidone",
+                "Zolpidem",
+                "Zonisamide",
+                "alpha-PVP",
+                "cis-3-Methylfentanyl",
+                "mCPP",
+                "para-Fluoroisobutyrylfentanyl",
+                "trans-3-Methylfentanyl",
+                "Other findings, specify"
+            ],
+            "title": "DrugsFound",
+            "type": "string"
+        },
+        "Entity": {
+            "additionalProperties": false,
+            "description": "Root Biolink Model class for all things and informational relationships, real or imagined.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:Entity"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Entity",
+            "type": "object"
+        },
+        "Ethnicity": {
+            "description": "",
+            "enum": [
+                "Hispanic or Latino",
+                "Not Hispanic or Latino",
+                "Prefer not to answer",
+                "Unknown",
+                "Not reported"
+            ],
+            "title": "Ethnicity",
+            "type": "string"
+        },
+        "Gender": {
+            "description": "",
+            "enum": [
+                "male",
+                "female",
+                "transgender male",
+                "transgender female",
+                "non-binary",
+                "gender fluid",
+                "other, specify",
+                "unknown",
+                "not reported"
+            ],
+            "title": "Gender",
+            "type": "string"
+        },
+        "Gene": {
+            "additionalProperties": false,
+            "description": "A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene locus may include regulatory regions, transcribed regions and/or other functional sequence regions.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:Gene"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_biological_sequence": {
+                    "description": "connects a genomic feature to its sequence",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "in_taxon": {
+                    "description": "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "in_taxon_label": {
+                    "description": "The human readable scientific name for the taxon of the entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "symbol": {
+                    "description": "Symbol for a particular thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "Gene",
+            "type": "object"
+        },
+        "GeneOrGeneProduct": {
+            "additionalProperties": false,
+            "description": "A union of gene loci or gene products. Frequently an identifier for one will be used as proxy for another",
+            "properties": {
+                "name": {
+                    "description": "genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "GeneOrGeneProduct",
+            "type": "object"
+        },
+        "Genome": {
+            "additionalProperties": false,
+            "description": "A genome is the sum of genetic material within a cell or virion.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:Genome"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_biological_sequence": {
+                    "description": "connects a genomic feature to its sequence",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "in_taxon": {
+                    "description": "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "in_taxon_label": {
+                    "description": "The human readable scientific name for the taxon of the entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "Genome",
+            "type": "object"
+        },
+        "GenomicEntity": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "has_biological_sequence": {
+                    "description": "connects a genomic feature to its sequence",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "GenomicEntity",
+            "type": "object"
+        },
+        "Handedness": {
+            "description": "",
+            "enum": [
+                "left",
+                "right",
+                "either"
+            ],
+            "title": "Handedness",
+            "type": "string"
+        },
+        "Hemisphere": {
+            "description": "",
+            "enum": [
+                "left",
+                "right",
+                "both",
+                "unknown"
+            ],
+            "title": "Hemisphere",
+            "type": "string"
+        },
+        "IncomeRange": {
+            "description": "",
+            "enum": [
+                "Under $15000",
+                "$15000 to $24999",
+                "$25000 to $34999",
+                "$35000 to $49999",
+                "$50000 to $74999",
+                "$75000 to $99999",
+                "$100000 and over",
+                "Refused",
+                "Unknown"
+            ],
+            "title": "IncomeRange",
+            "type": "string"
+        },
+        "InformantRelationship": {
+            "description": "",
+            "enum": [
+                "child",
+                "friend/neighbor",
+                "parent",
+                "professional caregiver",
+                "themself",
+                "sibling",
+                "spouse/partner",
+                "teammate",
+                "other relative (specify)",
+                "other (specify)"
+            ],
+            "title": "InformantRelationship",
+            "type": "string"
+        },
+        "InformationContentEntity": {
+            "additionalProperties": false,
+            "description": "a piece of information that typically describes some topic of discourse or is used as support.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:InformationContentEntity"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "creation_date": {
+                    "description": "date on which an entity was created. This can be applied to nodes or edges",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "format": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "license": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rights": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "InformationContentEntity",
+            "type": "object"
+        },
+        "Language": {
+            "description": "",
+            "enum": [
+                "aar",
+                "abk",
+                "ace",
+                "ach",
+                "ada",
+                "ady",
+                "afa",
+                "afh",
+                "afr",
+                "ain",
+                "aka",
+                "akk",
+                "alb (B)",
+                "sqi (T)",
+                "ale",
+                "alg",
+                "alt",
+                "amh",
+                "ang",
+                "anp",
+                "apa",
+                "ara",
+                "arc",
+                "arg",
+                "arm (B)",
+                "hye (T)",
+                "arn",
+                "arp",
+                "art",
+                "arw",
+                "asm",
+                "ast",
+                "ath",
+                "aus",
+                "ava",
+                "ave",
+                "awa",
+                "aym",
+                "aze",
+                "bad",
+                "bai",
+                "bak",
+                "bal",
+                "bam",
+                "ban",
+                "baq (B)",
+                "eus (T)",
+                "bas",
+                "bat",
+                "bej",
+                "bel",
+                "bem",
+                "ben",
+                "ber",
+                "bho",
+                "bih",
+                "bik",
+                "bin",
+                "bis",
+                "bla",
+                "bnt",
+                "tib (B)",
+                "bod (T)",
+                "bos",
+                "bra",
+                "bre",
+                "btk",
+                "bua",
+                "bug",
+                "bul",
+                "bur (B)",
+                "mya (T)",
+                "byn",
+                "cad",
+                "cai",
+                "car",
+                "cat",
+                "cau",
+                "ceb",
+                "cel",
+                "cze (B)",
+                "ces (T)",
+                "cha",
+                "chb",
+                "che",
+                "chg",
+                "chi (B)",
+                "zho (T)",
+                "chk",
+                "chm",
+                "chn",
+                "cho",
+                "chp",
+                "chr",
+                "chu",
+                "chv",
+                "chy",
+                "cmc",
+                "cnr",
+                "cop",
+                "cor",
+                "cos",
+                "cpe",
+                "cpf",
+                "cpp",
+                "cre",
+                "crh",
+                "crp",
+                "csb",
+                "cus",
+                "wel (B)",
+                "cym (T)",
+                "dak",
+                "dan",
+                "dar",
+                "day",
+                "del",
+                "den",
+                "ger (B)",
+                "deu (T)",
+                "dgr",
+                "din",
+                "div",
+                "doi",
+                "dra",
+                "dsb",
+                "dua",
+                "dum",
+                "dut (B)",
+                "nld (T)",
+                "dyu",
+                "dzo",
+                "efi",
+                "egy",
+                "eka",
+                "gre (B)",
+                "ell (T)",
+                "elx",
+                "eng",
+                "enm",
+                "epo",
+                "est",
+                "ewe",
+                "ewo",
+                "fan",
+                "fao",
+                "per (B)",
+                "fas (T)",
+                "fat",
+                "fij",
+                "fil",
+                "fin",
+                "fiu",
+                "fon",
+                "fre (B)",
+                "fra (T)",
+                "frm",
+                "fro",
+                "frr",
+                "frs",
+                "fry",
+                "ful",
+                "fur",
+                "gaa",
+                "gay",
+                "gba",
+                "gem",
+                "geo (B)",
+                "kat (T)",
+                "gez",
+                "gil",
+                "gla",
+                "gle",
+                "glg",
+                "glv",
+                "gmh",
+                "goh",
+                "gon",
+                "gor",
+                "got",
+                "grb",
+                "grc",
+                "grn",
+                "gsw",
+                "guj",
+                "gwi",
+                "hai",
+                "hat",
+                "hau",
+                "haw",
+                "heb",
+                "her",
+                "hil",
+                "him",
+                "hin",
+                "hit",
+                "hmn",
+                "hmo",
+                "hrv",
+                "hsb",
+                "hun",
+                "hup",
+                "iba",
+                "ibo",
+                "ice (B)",
+                "isl (T)",
+                "ido",
+                "iii",
+                "ijo",
+                "iku",
+                "ile",
+                "ilo",
+                "ina",
+                "inc",
+                "ind",
+                "ine",
+                "inh",
+                "ipk",
+                "ira",
+                "iro",
+                "ita",
+                "jav",
+                "jbo",
+                "jpn",
+                "jpr",
+                "jrb",
+                "kaa",
+                "kab",
+                "kac",
+                "kal",
+                "kam",
+                "kan",
+                "kar",
+                "kas",
+                "kau",
+                "kaw",
+                "kaz",
+                "kbd",
+                "kha",
+                "khi",
+                "khm",
+                "kho",
+                "kik",
+                "kin",
+                "kir",
+                "kmb",
+                "kok",
+                "kom",
+                "kon",
+                "kor",
+                "kos",
+                "kpe",
+                "krc",
+                "krl",
+                "kro",
+                "kru",
+                "kua",
+                "kum",
+                "kur",
+                "kut",
+                "lad",
+                "lah",
+                "lam",
+                "lao",
+                "lat",
+                "lav",
+                "lez",
+                "lim",
+                "lin",
+                "lit",
+                "lol",
+                "loz",
+                "ltz",
+                "lua",
+                "lub",
+                "lug",
+                "lui",
+                "lun",
+                "luo",
+                "lus",
+                "mac (B)",
+                "mkd (T)",
+                "mad",
+                "mag",
+                "mah",
+                "mai",
+                "mak",
+                "mal",
+                "man",
+                "mao (B)",
+                "mri (T)",
+                "map",
+                "mar",
+                "mas",
+                "may (B)",
+                "msa (T)",
+                "mdf",
+                "mdr",
+                "men",
+                "mga",
+                "mic",
+                "min",
+                "mis",
+                "mkh",
+                "mlg",
+                "mlt",
+                "mnc",
+                "mni",
+                "mno",
+                "moh",
+                "mon",
+                "mos",
+                "mul",
+                "mun",
+                "mus",
+                "mwl",
+                "mwr",
+                "myn",
+                "myv",
+                "nah",
+                "nai",
+                "nap",
+                "nau",
+                "nav",
+                "nbl",
+                "nde",
+                "ndo",
+                "nds",
+                "nep",
+                "new",
+                "nia",
+                "nic",
+                "niu",
+                "nno",
+                "nob",
+                "nog",
+                "non",
+                "nor",
+                "nqo",
+                "nso",
+                "nub",
+                "nwc",
+                "nya",
+                "nym",
+                "nyn",
+                "nyo",
+                "nzi",
+                "oci",
+                "oji",
+                "ori",
+                "orm",
+                "osa",
+                "oss",
+                "ota",
+                "oto",
+                "paa",
+                "pag",
+                "pal",
+                "pam",
+                "pan",
+                "pap",
+                "pau",
+                "peo",
+                "phi",
+                "phn",
+                "pli",
+                "pol",
+                "pon",
+                "por",
+                "pra",
+                "pro",
+                "pus",
+                "qaa-qtz",
+                "que",
+                "raj",
+                "rap",
+                "rar",
+                "roa",
+                "roh",
+                "rom",
+                "rum (B)",
+                "ron (T)",
+                "run",
+                "rup",
+                "rus",
+                "sad",
+                "sag",
+                "sah",
+                "sai",
+                "sal",
+                "sam",
+                "san",
+                "sas",
+                "sat",
+                "scn",
+                "sco",
+                "sel",
+                "sem",
+                "sga",
+                "sgn",
+                "shn",
+                "sid",
+                "sin",
+                "sio",
+                "sit",
+                "sla",
+                "slo (B)",
+                "slk (T)",
+                "slv",
+                "sma",
+                "sme",
+                "smi",
+                "smj",
+                "smn",
+                "smo",
+                "sms",
+                "sna",
+                "snd",
+                "snk",
+                "sog",
+                "som",
+                "son",
+                "sot",
+                "spa",
+                "srd",
+                "srn",
+                "srp",
+                "srr",
+                "ssa",
+                "ssw",
+                "suk",
+                "sun",
+                "sus",
+                "sux",
+                "swa",
+                "swe",
+                "syc",
+                "syr",
+                "tah",
+                "tai",
+                "tam",
+                "tat",
+                "tel",
+                "tem",
+                "ter",
+                "tet",
+                "tgk",
+                "tgl",
+                "tha",
+                "tig",
+                "tir",
+                "tiv",
+                "tkl",
+                "tlh",
+                "tli",
+                "tmh",
+                "tog",
+                "ton",
+                "tpi",
+                "tsi",
+                "tsn",
+                "tso",
+                "tuk",
+                "tum",
+                "tup",
+                "tur",
+                "tut",
+                "tvl",
+                "twi",
+                "tyv",
+                "udm",
+                "uga",
+                "uig",
+                "ukr",
+                "umb",
+                "und",
+                "urd",
+                "uzb",
+                "vai",
+                "ven",
+                "vie",
+                "vol",
+                "vot",
+                "wak",
+                "wal",
+                "war",
+                "was",
+                "wen",
+                "wln",
+                "wol",
+                "xal",
+                "xho",
+                "yao",
+                "yap",
+                "yid",
+                "yor",
+                "ypk",
+                "zap",
+                "zbl",
+                "zen",
+                "zgh",
+                "zha",
+                "znd",
+                "zul",
+                "zun",
+                "zxx",
+                "zza"
+            ],
+            "title": "Language",
+            "type": "string"
+        },
+        "MacromolecularMachineMixin": {
+            "additionalProperties": false,
+            "description": "A union of gene locus, gene product, and macromolecular complex. These are the basic units of function in a cell. They either carry out individual biological activities, or they encode molecules which do this.",
+            "properties": {
+                "name": {
+                    "description": "genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "MacromolecularMachineMixin",
+            "type": "object"
+        },
+        "MannerOfDeath": {
+            "description": "",
+            "enum": [
+                "not deceased",
+                "accidental",
+                "homicide",
+                "suicide",
+                "natural",
+                "manner of death undetermined",
+                "unknown if subject is deceased or not"
+            ],
+            "title": "MannerOfDeath",
+            "type": "string"
+        },
+        "MaritalStatus": {
+            "description": "",
+            "enum": [
+                "never married",
+                "married",
+                "domestic partnership",
+                "divorced",
+                "separated",
+                "widowed"
+            ],
+            "title": "MaritalStatus",
+            "type": "string"
+        },
+        "MaterialSample": {
+            "additionalProperties": false,
+            "description": "A sample is a limited quantity of something (e.g. an individual or set of individuals from a population, or a portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use. [SIO]",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:MaterialSample"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "MaterialSample",
+            "type": "object"
+        },
+        "NamedThing": {
+            "additionalProperties": false,
+            "description": "a databased entity or concept/class",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:NamedThing"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "NamedThing",
+            "type": "object"
+        },
+        "NeoplasticType": {
+            "description": "",
+            "enum": [
+                "intrinsic",
+                "metastasis",
+                "other (specify)"
+            ],
+            "title": "NeoplasticType",
+            "type": "string"
+        },
+        "NeurodegenerativeType": {
+            "description": "",
+            "enum": [
+                "beta amyloid",
+                "pTau",
+                "pTDP-43",
+                "alpha-synuclein",
+                "Other (specify)"
+            ],
+            "title": "NeurodegenerativeType",
+            "type": "string"
+        },
+        "Occurrent": {
+            "additionalProperties": false,
+            "description": "A processual entity.",
+            "title": "Occurrent",
+            "type": "object"
+        },
+        "OntologyClass": {
+            "additionalProperties": false,
+            "description": "a concept or class in an ontology, vocabulary or thesaurus. Note that nodes in a biolink compatible KG can be considered both instances of biolink classes, and OWL classes in their own right. In general you should not need to use this class directly. Instead, use the appropriate biolink class. For example, for the GO concept of endocytosis (GO:0006897), use bl:BiologicalProcess as the type.",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "OntologyClass",
+            "type": "object"
+        },
+        "OrganismTaxon": {
+            "additionalProperties": false,
+            "description": "A classification of a set of organisms. Example instances: NCBITaxon:9606 (Homo sapiens), NCBITaxon:2 (Bacteria). Can also be used to represent strains or subspecies.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:OrganismTaxon"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "exact_match": {
+                    "description": "An external concept that is interchangeable with this entity. Symmetric and transitive, so it chains through third-party mappings. NOTE: this slot was added by bican (utils/bican_biolink_edit.py); it is not part of the Biolink Model.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_taxonomic_rank": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "OrganismTaxon",
+            "type": "object"
+        },
+        "PerinatalEvent": {
+            "description": "",
+            "enum": [
+                "subdural hemorrhage",
+                "subarachnoid hemorrhage",
+                "intraparenchymal hemorrhage",
+                "intraventricular hemorrhage",
+                "hypoxia",
+                "other (specify)",
+                "none"
+            ],
+            "title": "PerinatalEvent",
+            "type": "string"
+        },
+        "PhysicalEntity": {
+            "additionalProperties": false,
+            "description": "An entity that has material reality (a.k.a. physical essence).",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:PhysicalEntity"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "PhysicalEntity",
+            "type": "object"
+        },
+        "PhysicalEssence": {
+            "additionalProperties": false,
+            "description": "Semantic mixin concept.  Pertains to entities that have physical properties such as mass, volume, or charge.",
+            "title": "PhysicalEssence",
+            "type": "object"
+        },
+        "PhysicalEssenceOrOccurrent": {
+            "additionalProperties": false,
+            "description": "Either a physical or processual entity.",
+            "title": "PhysicalEssenceOrOccurrent",
+            "type": "object"
+        },
+        "PostmortemMRI": {
+            "description": "",
+            "enum": [
+                "cadaveric",
+                "fresh ex vivo",
+                "fixed ex vivo"
+            ],
+            "title": "PostmortemMRI",
+            "type": "string"
+        },
+        "Preparation": {
+            "description": "",
+            "enum": [
+                "formalin fixed",
+                "4% paraformaldehyde fixed",
+                "frozen",
+                "other",
+                "hemisphere not available"
+            ],
+            "title": "Preparation",
+            "type": "string"
+        },
+        "Procedure": {
+            "additionalProperties": false,
+            "description": "A series of actions conducted in a certain order or manner",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:Procedure"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "Procedure",
+            "type": "object"
+        },
+        "ProvActivity": {
+            "additionalProperties": false,
+            "description": "An activity is something that occurs over a period of time and acts upon or with entities;  it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.",
+            "properties": {
+                "used": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProvEntity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Usage is the beginning of utilizing an entity by an activity. Before usage, the activity had not begun to utilize this entity and could not have been affected by the entity."
+                }
+            },
+            "title": "ProvActivity",
+            "type": "object"
+        },
+        "ProvEntity": {
+            "additionalProperties": false,
+            "description": "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects;  entities may be real or imaginary.",
+            "properties": {
+                "was_derived_from": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProvEntity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."
+                },
+                "was_generated_by": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProvActivity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation."
+                }
+            },
+            "title": "ProvEntity",
+            "type": "object"
+        },
+        "QuantityValue": {
+            "additionalProperties": false,
+            "description": "A value of an attribute that is quantitative and measurable, expressed as a combination of a unit and a numeric value",
+            "properties": {
+                "has_numeric_value": {
+                    "description": "connects a quantity value to a number",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "has_unit": {
+                    "description": "connects a quantity value to a unit",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "QuantityValue",
+            "type": "object"
+        },
+        "Race": {
+            "description": "",
+            "enum": [
+                "American Indian or Alaska Native",
+                "Asian",
+                "Black or African American",
+                "Native Hawaiian or Other Pacific Islander",
+                "White",
+                "More than one race",
+                "Other Race",
+                "Prefer not to Answer",
+                "Unknown"
+            ],
+            "title": "Race",
+            "type": "string"
+        },
+        "RelativeFrequencyAnalysisResult": {
+            "additionalProperties": false,
+            "description": "A result of a relative frequency analysis.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:RelativeFrequencyAnalysisResult"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "creation_date": {
+                    "description": "date on which an entity was created. This can be applied to nodes or edges",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "format": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "license": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rights": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "RelativeFrequencyAnalysisResult",
+            "type": "object"
+        },
+        "RelativeType": {
+            "description": "",
+            "enum": [
+                "biological mother",
+                "biological father",
+                "full sibling",
+                "half sibling",
+                "child",
+                "maternal grandmother",
+                "paternal grandmother",
+                "maternal grandfather",
+                "paternal grandfather",
+                "maternal aunt",
+                "paternal aunt",
+                "maternal uncle",
+                "paternal uncle",
+                "maternal niece/nephew",
+                "paternal niece/nephew",
+                "maternal cousin",
+                "paternal cousin",
+                "grandchild",
+                "great-grandchild",
+                "other (specify)"
+            ],
+            "title": "RelativeType",
+            "type": "string"
+        },
+        "Repository": {
+            "description": "",
+            "enum": [
+                "TBD",
+                "Miami",
+                "Mt. Sinai",
+                "Sepulveda",
+                "Harvard",
+                "Maryland Psychiatric",
+                "HBCC",
+                "Maryland",
+                "Pittsburgh",
+                "UCLA"
+            ],
+            "title": "Repository",
+            "type": "string"
+        },
+        "Sex": {
+            "description": "",
+            "enum": [
+                "male",
+                "female",
+                "intersex",
+                "none of these describe me",
+                "prefer not to answer",
+                "unknown"
+            ],
+            "title": "Sex",
+            "type": "string"
+        },
+        "SexualOrientation": {
+            "description": "",
+            "enum": [
+                "bisexual",
+                "homosexual (gay/lesbian)",
+                "heterosexual",
+                "not reported",
+                "other",
+                "unknown",
+                "asexual",
+                "prefer not to say",
+                "do not know"
+            ],
+            "title": "SexualOrientation",
+            "type": "string"
+        },
+        "StudyResult": {
+            "additionalProperties": false,
+            "description": "A collection of data items from a study that are about a particular study subject or experimental unit (the 'focus' of the Result) - optionally with context/provenance metadata that may be relevant to the interpretation of this data as evidence.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:StudyResult"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "creation_date": {
+                    "description": "date on which an entity was created. This can be applied to nodes or edges",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "format": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "license": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rights": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "StudyResult",
+            "type": "object"
+        },
+        "SubjectOfInvestigation": {
+            "additionalProperties": false,
+            "description": "An entity that has the role of being studied in an investigation, study, or experiment",
+            "title": "SubjectOfInvestigation",
+            "type": "object"
+        },
+        "TaxonomicRank": {
+            "additionalProperties": false,
+            "description": "A descriptor for the rank within a taxonomic classification. Example instance: TAXRANK:0000017 (kingdom)",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "TaxonomicRank",
+            "type": "object"
+        },
+        "TestName": {
+            "description": "",
+            "enum": [
+                "Hepatitis A",
+                "Hepatitis C Antibody",
+                "Hepatitis B Surface Antigen",
+                "Hepatitis B Surface Antibody",
+                "Hepatitis B Core Antibody",
+                "HIV-1/HIV-2 Plus O Antibody",
+                "HIV-1/HIV-2",
+                "HIV-1 Antibody",
+                "COVID-19 Virus (RT-PCR)",
+                "Other (specify)"
+            ],
+            "title": "TestName",
+            "type": "string"
+        },
+        "ThingWithTaxon": {
+            "additionalProperties": false,
+            "description": "A mixin that can be used on any entity that can be taxonomically classified. This includes individual organisms; genes, their products and other molecular entities; body parts; biological processes",
+            "properties": {
+                "in_taxon": {
+                    "description": "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "in_taxon_label": {
+                    "description": "The human readable scientific name for the taxon of the entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "ThingWithTaxon",
+            "type": "object"
+        },
+        "Tissue": {
+            "description": "",
+            "enum": [
+                "adipose",
+                "adrenal",
+                "anus",
+                "aorta",
+                "appendix",
+                "artery",
+                "ascending colon",
+                "astrocytes",
+                "bladder",
+                "bone rib",
+                "breast",
+                "bronchus",
+                "cervical spinal cord",
+                "colon ascending",
+                "colon descending",
+                "CSF",
+                "DRG cervical",
+                "DRG sacral",
+                "DRG thoracic",
+                "diaphragm",
+                "DNA",
+                "DRG lumbar",
+                "duodenum",
+                "esophagus",
+                "eyes",
+                "fallopian tube",
+                "fibroblasts",
+                "gallbladder",
+                "hair",
+                "heart",
+                "ileum",
+                "jejunum",
+                "kidney",
+                "liver",
+                "long bone",
+                "lumbar spinal cord",
+                "lung",
+                "lymph node",
+                "middle ear bone",
+                "nail",
+                "ovary",
+                "pancreas",
+                "peripheral nerve",
+                "pineal",
+                "pituitary",
+                "placenta",
+                "plasma",
+                "prostate",
+                "psoas muscle",
+                "RBC",
+                "RNA",
+                "sacral spinal cord",
+                "serum",
+                "skin",
+                "spleen",
+                "stomach",
+                "systemic tissue",
+                "temporalis muscle",
+                "testicle",
+                "thoracic spinal cord",
+                "thymus",
+                "thyroid",
+                "tissue",
+                "tissue-other",
+                "tongue",
+                "tonsil",
+                "trachea",
+                "umbilical cord",
+                "ureter",
+                "urinary bladder",
+                "urine",
+                "uterus",
+                "vein",
+                "vitreous",
+                "vitreous humor",
+                "whole blood"
+            ],
+            "title": "Tissue",
+            "type": "string"
+        },
+        "TissueCollectionState": {
+            "description": "",
+            "enum": [
+                "autopsy",
+                "surgery"
+            ],
+            "title": "TissueCollectionState",
+            "type": "string"
+        },
+        "TissueSource": {
+            "description": "",
+            "enum": [
+                "whole blood",
+                "plasma",
+                "brain",
+                "nasal swab",
+                "serum",
+                "other",
+                "unknown"
+            ],
+            "title": "TissueSource",
+            "type": "string"
+        },
+        "TraumaticType": {
+            "description": "",
+            "enum": [
+                "contusion",
+                "chronic traumatic encephalopathy",
+                "other (specify)"
+            ],
+            "title": "TraumaticType",
+            "type": "string"
+        },
+        "VascularType": {
+            "description": "",
+            "enum": [
+                "acute infarct",
+                "chronic infarct",
+                "hemorrhage",
+                "other (specify)"
+            ],
+            "title": "VascularType",
+            "type": "string"
+        }
+    },
+    "$id": "https://w3id.org/brain-bican/donor",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "metamodel_version": "1.12.0",
+    "title": "Donor",
+    "type": "object",
+    "version": null
+}
+
