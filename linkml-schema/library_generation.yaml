@@ -2705,7 +2705,7 @@ classes:
         local_names:
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
-            local_name_value: LibraryAliquot
+            local_name_value: Library Aliquot
           NIMP_variable_name:
             local_name_source: NIMP_variable_name
             local_name_value: nemo_aliquot_fastq_public_url
