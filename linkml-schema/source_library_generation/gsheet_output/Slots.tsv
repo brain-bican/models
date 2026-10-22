@@ -20,6 +20,6 @@ DissectionRoiPolygon		xref				bican_biolink												ROI	roi_nhash_id
 DissociatedCellSample		xref				bican_biolink												Dissociated Cell Sample	dissociated_cell_sample_nhash_id
 EnrichedCellSample		xref				bican_biolink												Enriched Cell Sample	enriched_cell_sample_nhash_id
 Library		xref				bican_biolink												Library	library_nhash_id
-LibraryAliquot		xref				bican_biolink												Library Pool	library_pool_nhash_id
+LibraryAliquot		xref				bican_biolink												Library Aliquot	library_aliquot_nhash_id
 LibraryPool		xref				bican_biolink												Library Pool	library_pool_nhash_id
 TissueSample		xref				bican_biolink												Tissue	tissue_nhash_id
