@@ -1,8 +1,9 @@
 name: generating other formats for genome_annotation
 
 on:
-  pull_request_target:
-    types: [opened, synchronize]
+  push:
+    branches:
+      - main
     paths:
       - 'linkml-schema/genome_annotation.yaml'
       - 'linkml-schema/bican_biolink.yaml'

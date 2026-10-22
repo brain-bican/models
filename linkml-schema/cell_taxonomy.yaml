@@ -1,0 +1,1136 @@
+name: CellTaxonomy
+title: Cell Taxonomy Schema
+id: https://w3id.org/brain-bican/cell-taxonomy
+imports:
+- bican_biolink
+- bican_prov
+- bican_core
+- bican_skos
+- genome_annotation
+- anatomical_structure
+- linkml:types
+prefixes:
+  bican: https://identifiers.org/brain-bican/vocab/
+  UBERON: http://purl.obolibrary.org/obo/UBERON_
+  CL: http://purl.obolibrary.org/obo/CL_
+  DHBA: https://purl.brain-bican.org/ontology/dhbao/DHBA_
+  linkml: https://w3id.org/linkml/
+default_prefix: bican
+default_range: string
+subsets:
+  data:
+    description: AIT assigned label to tag attributes representing data.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  assigned_metadata:
+    description: AIT assigned label to tag attributes representing assigned metadata.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  annotations:
+    description: AIT assigned label to tag attributes representing annotations.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  tooling:
+    description: AIT assigned label to tag attributes representing tooling.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  analysis:
+    description: AIT assigned label to tag attributes representing analysis.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  X:
+    description: Location within anndata object that stores data.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  raw:
+    description: Location within anndata object that stores data.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  obs:
+    description: Location within anndata object that stores cell metadata.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  obsm:
+    description: Location within anndata object that stores cell-shaped matrices.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  var:
+    description: Location within anndata object that stores gene metadata.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  varm:
+    description: Location within anndata object that stores gene-shaped metadata.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+  uns:
+    description: Location within anndata object that stores header and everything
+      else.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+enums:
+  SuspensionType:
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    permissible_values:
+      cell: {}
+      nucleus: {}
+      na: {}
+  CellTypeSetType:
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    permissible_values:
+      taxonomic_level:
+        description: Denotes CellTypeSet is at Taxonomic level.
+      neighborhood:
+        description: Denotes CellTypeSet is at Neighborhood level.
+  ExpressionMatrixType:
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    permissible_values:
+      normalized:
+        description: Matrix contains normalized expression values.
+      raw_count:
+        description: Matrix contains raw counts.
+  AbbreviationEntityType:
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    permissible_values:
+      cell_type:
+        description: Abbreviation denotes a Cell Type entity.
+      gene:
+        description: Abbreviation denotes a Gene entity.
+      anatomical:
+        description: Abbreviation denotes an Anatomical Structure entity.
+slots:
+  accession_id:
+    description: A provider-assigned accession identifier for a given entity.
+    in_subset:
+    - uns
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    range: string
+  order:
+    annotations:
+      ait_location:
+        tag: ait_location
+        value: uns.cluster_info.display_order_<level> (data only)
+    description: The priority or display order of an entity among all other entities
+      of the same type.
+    in_subset:
+    - uns
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    range: integer
+  has_parent:
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    range: named thing
+  part_of_set:
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    range: named thing
+  has_abbreviation:
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    range: Abbreviation
+classes:
+  Cell:
+    description: A single cell observation in the taxonomy; corresponds to one row
+      in the obs DataFrame of the h5ad file.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - id
+    slot_usage:
+      id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: obs.index
+        description: Unique identifier for each individual cell.
+        in_subset:
+        - obs
+        - assigned_metadata
+        range: string
+    attributes:
+      cluster_id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: obs.cluster_id
+        description: Human-readable cluster label for the cluster assigned to this
+          cell at a given annotation level.
+        in_subset:
+        - obs
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      load_id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: obs.load_id
+        description: Identifier for the sequencing library from which molecular measurements
+          were derived.
+        in_subset:
+        - obs
+        - assigned_metadata
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      assay:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: obs.assay
+        description: Human-readable sequencing modality (e.g. 10x 3' v3).
+        in_subset:
+        - obs
+        - assigned_metadata
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      assay_ontology_term_id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: obs.assay_ontology_term_id
+        description: EFO ontology term for assay (e.g. EFO:0009922 for 10x 3' v3).
+        in_subset:
+        - obs
+        - assigned_metadata
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      anatomical_region:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: obs.anatomical_region
+        description: Human-readable name for the anatomical region from which the
+          cell was collected.
+        in_subset:
+        - obs
+        - assigned_metadata
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      anatomical_region_ontology_term_id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: obs.anatomical_region_ontology_term_id
+        description: UBERON ontology term for anatomical region (e.g. UBERON:0000955
+          for brain).
+        in_subset:
+        - obs
+        - assigned_metadata
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      brain_region_ontology_term_id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: obs.brain_region_ontology_term_id
+        description: Brain atlas region ID from DHBA/HBA/MBA for the anatomical region.
+        in_subset:
+        - obs
+        - assigned_metadata
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      suspension_type:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: obs.suspension_type
+        description: Whether the measurement was performed on intact cells, nuclei,
+          or is not applicable.
+        in_subset:
+        - obs
+        - assigned_metadata
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: SuspensionType
+      is_primary_data:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: obs.is_primary_data
+        description: True if this is the canonical instance of this cellular observation;
+          False for reanalysis or secondary views.
+        in_subset:
+        - obs
+        - assigned_metadata
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: boolean
+      part_of_cluster:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: the Cluster named by obs.cluster_id)'
+        description: The cluster to which this cell has been assigned by the clustering
+          algorithm.
+        in_subset:
+        - obs
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: Cluster
+  CellTypeSet:
+    description: A named annotation level in the taxonomy hierarchy (e.g. Class, Subclass)
+      grouping cell type taxons. May represent a taxonomic level or a neighborhood.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - id
+    - name
+    - order
+    - has_parent
+    - has_abbreviation
+    slot_usage:
+      id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.hierarchy (key)
+        description: Unique identifier for this annotation level.
+        in_subset:
+        - uns
+        - annotations
+        range: string
+      name:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.hierarchy (key) / obs (column name)
+        description: Name of this annotation level used as column header in obs (e.g.
+          Class, Subclass).
+        in_subset:
+        - obs
+        - uns
+        - annotations
+        range: string
+      order:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.hierarchy (value)
+        description: Integer rank of this annotation level in the hierarchy; lower
+          values are broader types.
+        in_subset:
+        - uns
+        - annotations
+        range: integer
+      has_parent:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: the preceding level in uns.hierarchy, by order)'
+        description: The next broader annotation level in the taxonomy hierarchy (e.g.
+          Subclass has_parent Class).
+        in_subset:
+        - uns
+        - annotations
+        range: CellTypeSet
+      has_abbreviation:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.tokens_<level> (data only)
+          ait_separator:
+            tag: ait_separator
+            value: '|'
+        description: One of potentially many abbreviations that are part of the cell
+          type set name.
+        in_subset:
+        - uns
+        - annotations
+        range: Abbreviation
+        multivalued: true
+    attributes:
+      cell_type_set_type:
+        description: A tag denoting whether this grouping represents a taxonomic level
+          or neighborhood.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: CellTypeSetType
+      part_of_taxonomy:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: the single taxonomy described by this file)'
+        description: The taxonomy for which this annotation level is defined.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: CellTypeTaxonomy
+  CellTypeTaxon:
+    description: A node in the cell type taxonomy representing a unit of cell type
+      classification at a specific annotation level. Taxons may be organized into
+      a hierarchy and grouped into neighborhoods.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    - OntologyMappable
+    slots:
+    - id
+    - name
+    - accession_id
+    - order
+    - has_parent
+    - part_of_set
+    - has_abbreviation
+    slot_usage:
+      id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: (synthesized)
+        description: Unique identifier for this cell type taxon.
+        range: string
+      name:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: obs.<annotation_level>
+        description: Human-readable label for this cell type taxon at the given annotation
+          level (e.g. Glutamatergic).
+        in_subset:
+        - obs
+        - annotations
+        range: string
+      accession_id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.accession_<level> (data only)
+        description: Stable cross-version identifier for this cell type taxon (e.g.
+          CS20230722_CLAS_11).
+        in_subset:
+        - uns
+        - annotations
+        range: string
+      order:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.display_order_<level> (data only)
+        description: The priority or display order of this taxon among all taxons
+          in the taxonomy.
+        in_subset:
+        - uns
+        - annotations
+        range: integer
+      has_parent:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: the taxon at the preceding uns.hierarchy level, same
+              uns.cluster_info row)'
+        description: Reference to the parent taxon at the next broader annotation
+          level.
+        in_subset:
+        - uns
+        - annotations
+        range: CellTypeTaxon
+      part_of_set:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: the uns.hierarchy level whose uns.cluster_info column
+              this taxon came from)'
+        description: The annotation level (CellTypeSet) for which this taxon is a
+          member.
+        in_subset:
+        - uns
+        - annotations
+        range: CellTypeSet
+      has_abbreviation:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.tokens_<level> (data only)
+          ait_separator:
+            tag: ait_separator
+            value: '|'
+        description: One of potentially many abbreviations that are part of the cell
+          type taxon name.
+        in_subset:
+        - uns
+        - annotations
+        range: Abbreviation
+        multivalued: true
+    attributes:
+      cell_type_ontology_term:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.CL:ID_<level> (data only)
+        description: CL ontology term for this cell type; use CL:0000003 for native
+          cell if unknown.
+        in_subset:
+        - obs
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        aliases:
+        - cell_type_ontology_term_id
+        range: string
+        pattern: ^CL:\d{7}$
+      number_of_cells:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: count obs rows grouped by obs.<annotation_level>)'
+        description: The aggregated number of cells that defines this cell type taxon.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: integer
+      literature_support:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.literature_support
+          ait_separator:
+            tag: ait_separator
+            value: '|'
+        description: Published study in which this cell type was previously described.
+          The value "Novel" indicates no prior published description.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+        multivalued: true
+      literature_name_short:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.literature_name_short
+          ait_separator:
+            tag: ait_separator
+            value: '|'
+        description: Short name used for this cell type in the supporting literature.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+        multivalued: true
+      literature_name_long:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.literature_name_long
+          ait_separator:
+            tag: ait_separator
+            value: '|'
+        description: Full name used for this cell type in the supporting literature.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+        multivalued: true
+      curated_markers:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.curated_markers
+          ait_separator:
+            tag: ait_separator
+            value: ','
+        description: Marker genes curated as characteristic of this cell type. One
+          set per taxon; the AIT consensus taxonomy does not split these by species.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: GeneAnnotation
+        multivalued: true
+  CellTypeTaxonomy:
+    description: A systematic classification of cell types and their hierarchical
+      relationships in the mammalian brain, including annotation levels and their
+      corresponding cell type nodes.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - id
+    - accession_id
+    - content_url
+    - was_derived_from
+    slot_usage:
+      id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: (synthesized)
+        description: Unique identifier for this taxonomy.
+        range: string
+      accession_id:
+        description: Provider-assigned accession identifier for this taxonomy (e.g.
+          CCN20230722).
+        range: string
+      content_url:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.dataset_purl
+        description: Permanent URL to molecular data if the expression matrix is not
+          embedded in the file.
+        in_subset:
+        - uns
+        - data
+        aliases:
+        - dataset_purl
+        range: uri
+      was_derived_from:
+        description: One or more cluster sets from which this taxonomy was derived.
+        range: ClusterSet
+        multivalued: true
+    attributes:
+      title:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.title
+        description: Description differentiating this taxonomy from others in the
+          same collection; should be unique within a collection.
+        in_subset:
+        - uns
+        - tooling
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        aliases:
+        - name
+        range: string
+      schema_version:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.schema_version
+        description: Version of the AIT schema used to produce this file (e.g. 1.0.0).
+        in_subset:
+        - uns
+        - tooling
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      batch_condition:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.batch_condition
+        description: Cell metadata key(s) in obs that define batches for normalization
+          or integration.
+        in_subset:
+        - uns
+        - tooling
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      dendrogram:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.dendrogram
+        description: JSON-formatted hierarchical clustering dendrogram encoding the
+          taxonomy hierarchy.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      hierarchy:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.hierarchy
+        description: Ordered mapping of annotation level names to integer ranks; lower
+          rank means broader type.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      mode:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.mode
+        description: Active taxonomy mode controlling which subset of cells and analysis
+          components to use.
+        in_subset:
+        - uns
+        - tooling
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      filter:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.filter
+        description: Per-mode boolean flags indicating cells to exclude (True means
+          exclude).
+        in_subset:
+        - uns
+        - tooling
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: boolean
+      cluster_algorithm:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_algorithm
+        description: Full description of clustering algorithm and parameters used
+          to produce cluster assignments.
+        in_subset:
+        - uns
+        - tooling
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      cluster_info:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info
+        description: Summary table of cluster-level metadata including cluster sizes
+          and representative metadata.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      default_embedding:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.default_embedding
+        description: Key in obsm of the embedding to display by default; must match
+          an X_-prefixed entry.
+        in_subset:
+        - uns
+        - tooling
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      cellannotation_schema:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cellannotation_schema
+        description: CAS annotation schema stored as JSON encoding labelset and annotation
+          metadata.
+        in_subset:
+        - uns
+        - tooling
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      quality_control_markers:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.quality_control_markers
+        description: Marker gene expression data for patchseq quality control analysis.
+        in_subset:
+        - uns
+        - analysis
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        aliases:
+        - quality_control_markers
+        range: string
+      cluster_id_mean_expr:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: varm.cluster_id_mean_expr
+        description: "Gene-by-cluster expression summary for the taxonomy hierarchy\
+          \ (genes \xD7 clusters)."
+        in_subset:
+        - varm
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      reference_genome:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.reference_genome
+        description: Reference genome assembly used to align the molecular measurements.
+        in_subset:
+        - uns
+        - assigned_metadata
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      gene_annotation_version:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.gene_annotation_version
+        description: Genome annotation version used during alignment.
+        in_subset:
+        - uns
+        - assigned_metadata
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      has_embedding:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: one Embedding per obsm key)'
+        description: One or more dimensionality reductions associated with this taxonomy.
+        in_subset:
+        - obsm
+        - analysis
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: Embedding
+        multivalued: true
+      has_expression_matrix:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: one ExpressionMatrix per X / raw.X group present)'
+        description: One or more cell-by-gene matrices associated with this taxonomy
+          (normalized and/or raw counts).
+        in_subset:
+        - X
+        - raw
+        - data
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: ExpressionMatrix
+        multivalued: true
+  ClusterSet:
+    description: The set of clusters produced by a single clustering run. A CellTypeTaxonomy
+      is derived from one or more ClusterSets.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - id
+    - name
+    - was_derived_from
+    slot_usage:
+      id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: (synthesized)
+        description: Unique identifier for this cluster set.
+        in_subset:
+        - uns
+        - annotations
+        range: string
+      name:
+        description: Human-readable name for this cluster set (e.g. the name of the
+          clustering run).
+        in_subset:
+        - uns
+        - annotations
+        range: string
+      was_derived_from:
+        range: ExpressionMatrix
+        multivalued: true
+  Cluster:
+    description: A single cluster resulting from a clustering algorithm; groups cells
+      with similar molecular profiles. Corresponds to one row in cluster_info and
+      one distinct value of cluster_id in obs.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - id
+    - name
+    - part_of_set
+    - has_parent
+    slot_usage:
+      id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: (synthesized)
+        description: Unique identifier for this cluster.
+        in_subset:
+        - obs
+        - uns
+        - annotations
+        range: string
+      name:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: obs.cluster_id
+        description: Human-readable label for this cluster; corresponds to cluster_id
+          values in obs.
+        in_subset:
+        - obs
+        - uns
+        - annotations
+        range: string
+      part_of_set:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: the single synthesized ClusterSet for this file)'
+        description: The cluster set to which this cluster belongs.
+        in_subset:
+        - uns
+        - annotations
+        range: ClusterSet
+      has_parent:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: taxa at the levels above cluster_id in uns.hierarchy;
+              read per row of uns.cluster_info)'
+        in_subset:
+        - obs
+        - uns
+        - annotations
+        range: CellTypeTaxon
+        multivalued: true
+    attributes:
+      number_of_observations:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: count obs rows grouped by obs.cluster_id)'
+        description: Number of cells assigned to this cluster.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: integer
+  ExpressionMatrix:
+    description: A cell-by-gene matrix of molecular measurements. Each row represents
+      a cell and each column represents a gene. May be normalized (X) or raw counts
+      (raw.X).
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    aliases:
+    - X
+    - raw.X
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - id
+    - content_url
+    slot_usage:
+      id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: (synthesized)
+        description: Unique identifier for this expression matrix.
+        range: string
+      content_url:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.dataset_purl
+        description: URL to the matrix file if the matrix is not embedded directly
+          in the h5ad file.
+        in_subset:
+        - uns
+        - data
+        aliases:
+        - dataset_purl
+        range: uri
+    attributes:
+      matrix_type:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: normalized if read from X, raw_count if read from raw.X)'
+        description: Whether this matrix contains normalized expression values or
+          raw counts.
+        in_subset:
+        - X
+        - raw
+        - data
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: ExpressionMatrixType
+      has_variable:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: '(derived: one GeneAnnotation per var row)'
+        description: One of the genes (variables) measured across all cells in this
+          matrix; corresponds to a column in var.
+        in_subset:
+        - var
+        - assigned_metadata
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: GeneAnnotation
+        multivalued: true
+  Embedding:
+    description: "A dimensionality reduction of the cell-by-gene matrix (e.g. UMAP,\
+      \ PCA, tSNE). Stored as a cell \xD7 dim matrix in obsm. No BKE equivalent."
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - id
+    slot_usage:
+      id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: (synthesized)
+        description: Unique identifier for this embedding.
+        range: string
+    attributes:
+      embedding_key:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: obsm.X_<embedding> (key)
+        description: Key used to store the embedding in obsm; must be prefixed with
+          X_ (e.g. X_umap, X_pca).
+        in_subset:
+        - obsm
+        - analysis
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      embedding_matrix:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: obsm.X_<embedding> (value)
+        description: "N-dimensional matrix of shape n_cells \xD7 n_dims representing\
+          \ the low-dimensional projection."
+        in_subset:
+        - obsm
+        - analysis
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: float
+  Abbreviation:
+    description: Maps an abbreviation string to its decoded meaning. Optionally the
+      abbreviation can be linked to one or more entities it denotes.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    - OntologyMappable
+    slots:
+    - id
+    slot_usage:
+      id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: (synthesized)
+        description: Unique identifier for this abbreviation entry.
+        in_subset:
+        - uns
+        - annotations
+        range: string
+    attributes:
+      term:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.tokens_<level> (data only)
+          ait_separator:
+            tag: ait_separator
+            value: '|'
+        description: An abbreviation term as it appears in a cell type or cell set
+          name.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      meaning:
+        description: The decoded meaning of the abbreviation term.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      entity_type:
+        description: The entity type which the abbreviation term denotes.
+        in_subset:
+        - uns
+        - annotations
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: AbbreviationEntityType
+  ColorPalette:
+    description: A schematic set of display colors that can be applied to individual
+      components of the associated entity set (for example, a taxonomy).
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - id
+    - name
+    - description
+    slot_usage:
+      id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: (synthesized)
+        description: Unique identifier for this color palette.
+        in_subset:
+        - uns
+        - tooling
+        range: string
+      name:
+        description: Name of the color palette.
+        in_subset:
+        - uns
+        - tooling
+        range: string
+      description:
+        description: Description of the color palette.
+        in_subset:
+        - uns
+        - tooling
+        range: string
+    attributes:
+      is_palette_for:
+        description: The cell type taxonomy for which the palette provides display
+          color properties.
+        in_subset:
+        - uns
+        - tooling
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: CellTypeTaxonomy
+  DisplayColor:
+    description: One element of a color palette representing the association between
+      a color and an entity.
+    from_schema: https://w3id.org/brain-bican/cell-taxonomy
+    is_a: named thing
+    mixins:
+    - ProvEntity
+    slots:
+    - id
+    slot_usage:
+      id:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: (synthesized)
+        description: Unique identifier for this display color entry.
+        in_subset:
+        - uns
+        - tooling
+        range: string
+    attributes:
+      color_hex_triplet:
+        annotations:
+          ait_location:
+            tag: ait_location
+            value: uns.cluster_info.color_hex_<level> (data only)
+        description: A hex string representing the display color for an associated
+          entity.
+        in_subset:
+        - uns
+        - tooling
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: string
+      part_of_palette:
+        description: The color palette for which the display color map is part of.
+        in_subset:
+        - uns
+        - tooling
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: ColorPalette
+      is_color_for_taxon:
+        description: The associated cell type taxon for the specified display color.
+        in_subset:
+        - uns
+        - tooling
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: CellTypeTaxon
+      is_color_for_set:
+        description: The associated cell type set for the specified display color.
+        in_subset:
+        - uns
+        - tooling
+        from_schema: https://w3id.org/brain-bican/cell-taxonomy
+        range: CellTypeSet

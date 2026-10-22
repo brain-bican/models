@@ -1,5 +1,5 @@
 class	Inheritance: is_a	Inheritance: mixin	Subsets	Definition	from_schema	Class URI
-> class	is_a	mixins	in_subset	description	from_schema	class_uri
+> class	is_a	mixins	in_subset	description	ignore	class_uri
 >		internal_separator: "|"	internal_separator: "|"			
 CellTypeTaxonomyCreationProcess	procedure	ProvActivity		The process of organizing cells or clusters into a systematic classification of cell types and their heirarchical relationships and groupings. 		
 CellTypeTaxonomy	named thing	ProvEntity		A cell type taxonomy is a systematic classification of cell types and their heirarchical relationships and groupings. A taxonomy may include concepts such as heirarchical taxonomic levels or (potentially overlapping) neighborhoods.		

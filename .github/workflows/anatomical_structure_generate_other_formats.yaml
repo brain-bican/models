@@ -1,8 +1,9 @@
 name: generating other formats for anatomical_structure
 
 on:
-  pull_request_target:
-    types: [opened, synchronize]
+  push:
+    branches:
+      - main
     paths:
       - 'linkml-schema/anatomical_structure.yaml'
       - 'linkml-schema/bican_biolink.yaml'

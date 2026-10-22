@@ -4,19 +4,38 @@ on:
   push:
     branches:
       - main
-
+  workflow_dispatch:
+  # Rebuild after the generate workflows commit regenerated diagrams to main
+  # (their commits use GITHUB_TOKEN, so they don't trigger the push event above).
+  workflow_run:
+    workflows:
+      - generating other formats for anatomical_structure
+      - generating other formats for assertion_evidence
+      - generating other formats for bke_taxonomy
+      - generating other formats for cell_taxonomy
+      - generating other formats for genome_annotation
+      - generating other formats for library_generation
+    types: [completed]
+    branches: [main]
+  
 permissions:
   contents: write
 
+# Only the latest pending docs build matters, so intermediate ones can be dropped.
+concurrency:
+  group: generate-docs
+  cancel-in-progress: false
+
 jobs:
   generate:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v7
         with:
           python-version: "3.10.x"
 
@@ -39,6 +58,7 @@ jobs:
           cp erdiagram-autogen/assertion_evidence.md docs/assertion_evidence.md
           cp erdiagram-autogen/bke_taxonomy.md docs/bke_taxonomy.md
           cp erdiagram-autogen/donor.md docs/donor.md
+          cp erdiagram-autogen/cell_taxonomy.md docs/cell_taxonomy.md
           gen-doc -d docs linkml-schema/library_generation.yaml
           mv docs/index.md docs/index_library_generation.md
           gen-doc -d docs linkml-schema/anatomical_structure.yaml
@@ -51,6 +71,8 @@ jobs:
           mv docs/index.md docs/index_bke_taxonomy.md
           gen-doc -d docs linkml-schema/donor.yaml
           mv docs/index.md docs/index_donor.md
+          gen-doc -d docs linkml-schema/cell_taxonomy.yaml
+          mv docs/index.md docs/index_cell_taxonomy.md
           mv docs/index_main.md docs/index.md
           
 

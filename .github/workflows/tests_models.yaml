@@ -4,23 +4,28 @@ on:
   push:
     branches:
       - main
-  pull_request_target:
-    types: [opened, synchronize]
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'linkml-schema/**'
+      - 'tests/**'
+      - 'pyproject.toml'
+      - '.github/workflows/tests_models.yaml'
 
 jobs:
   test:
     runs-on: ubuntu-latest
-  strategy:
-    fail-fast: false
-    matrix:
-      python-version: ["3.10", "3.11", "3.12", "3.13"]
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
 
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
 

@@ -128,6 +128,12 @@
             "title": "Activity",
             "type": "object"
         },
+        "ActivityAndBehavior": {
+            "additionalProperties": false,
+            "description": "Activity or behavior of any independent integral living, organization or mechanical actor in the world",
+            "title": "ActivityAndBehavior",
+            "type": "object"
+        },
         "AgeAtDeathReferencePoint": {
             "description": "",
             "enum": [
@@ -140,9 +146,9 @@
         "AgeAtDeathUnit": {
             "description": "",
             "enum": [
-                "days",
-                "months",
-                "years"
+                "day",
+                "month",
+                "year"
             ],
             "title": "AgeAtDeathUnit",
             "type": "string"
@@ -171,6 +177,13 @@
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "cdna_amplification_set": {
+                    "description": "cDNA amplification set, containing multiple amplified_cDNA_names that were processed at the same time.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
@@ -238,10 +251,25 @@
                         "null"
                     ]
                 },
+                "pcr_cycles": {
+                    "description": "Number of PCR cycles used during cDNA amplification for this cDNA.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
                 "percent_cdna_longer_than_400bp": {
                     "description": "QC metric to measure mRNA degradation of cDNA.  Higher % is higher quality starting material.  Over 400bp is used as a universal cutoff for intact (full length) vs degraded cDNA and is a common output from Bioanalyzer and Fragment Analyzer elecropheragrams.",
                     "type": [
                         "number",
+                        "null"
+                    ]
+                },
+                "preparation_date": {
+                    "description": "Date of cDNA amplification.",
+                    "format": "date",
+                    "type": [
+                        "string",
                         "null"
                     ]
                 },
@@ -317,6 +345,12 @@
             ],
             "title": "AmplifiedCdnaRnaAmplificationPassFail",
             "type": "string"
+        },
+        "Annotation": {
+            "additionalProperties": false,
+            "description": "Biolink Model root class for entity annotations.",
+            "title": "Annotation",
+            "type": "object"
         },
         "Attribute": {
             "additionalProperties": false,
@@ -534,6 +568,13 @@
                         "null"
                     ]
                 },
+                "input_quantity_count": {
+                    "description": "Number of enriched or dissociated cells/nuclei going into the barcoding process.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
                     "type": [
@@ -552,6 +593,21 @@
                     "description": "Expected number of cells/nuclei of a barcoded_cell_sample that will be barcoded and available for sequencing.  This is a derived number from 'Barcoded cell input quantity count' that is dependent on the \"capture rate\" of the barcoding method.  It is usually a calculated fraction of the 'Barcoded cell input quantity count' going into the barcoding method.",
                     "type": [
                         "integer",
+                        "null"
+                    ]
+                },
+                "port_well": {
+                    "description": "Specific position of the loaded port of the 10x chip.  An Enriched or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded Cell Sample). Can be left null for non-10x methods.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "preparation_date": {
+                    "description": "Date of cell barcoding process.",
+                    "format": "date",
+                    "type": [
+                        "string",
                         "null"
                     ]
                 },
@@ -574,6 +630,17 @@
                         "array",
                         "null"
                     ]
+                },
+                "tag_local_name": {
+                    "description": "Barcoded Cell Sample tags can be used to group a set of barcoded cell samples so that the tag can be used to obtain all the members of the cohort",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "technique": {
+                    "$ref": "#/$defs/BarcodedCellSampleTechnique",
+                    "description": "Required standardized nomenclature to describe the general method used to barcode individual cells. This method (eg Multiome, ATAConly, GEXonly) will be more general than the Library Method (which is specific for alignment) and could be used for general classification of Barcoded Cell Samples."
                 },
                 "type": {
                     "items": {
@@ -634,10 +701,162 @@
                 "Multiome",
                 "ATACOnly",
                 "GEXOnly",
-                "snm3C-seq"
+                "snm3C-seq",
+                "Droplet Paired-Tag",
+                "Slide-tag_std",
+                "Slide-tag_recon",
+                "snmCT-seq",
+                "PatchSeq-SmartSeq",
+                "SmartSeq",
+                "DBiT-Seq"
             ],
             "title": "BarcodedCellSampleTechnique",
             "type": "string"
+        },
+        "BiologicalEntity": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:BiologicalEntity"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "in_taxon": {
+                    "description": "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "in_taxon_label": {
+                    "description": "The human readable scientific name for the taxon of the entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "BiologicalEntity",
+            "type": "object"
         },
         "BrainSlab": {
             "additionalProperties": false,
@@ -713,7 +932,7 @@
                     ]
                 },
                 "name": {
-                    "description": "Name of a thick flat piece of brain tissue obtained by slicing a whole brain, brain hemisphere or subdivision with a blade at regular interval.  When multiple brain slabs are obtained from the slicing process, an ordinal is assigned to provide information about the relative positioning of the slabs.",
+                    "description": "The identifier given to the slab by the brain bank.",
                     "type": [
                         "string",
                         "null"
@@ -796,21 +1015,6 @@
             "additionalProperties": false,
             "description": "The process of creating a collection of cDNA molecules derived and amplified from an input barcoded cell sample.  A large amount of cDNA is needed to have accurate and reliable sequencing detection of gene expression.  This process generates multiple copies of each mRNA transcript (expressed gene) within each cell while retaining the cell's unique barcode from the barcoding step. This is a necessary step for GEX methods but is not used for ATAC methods.",
             "properties": {
-                "cDNA_amplification_process_date": {
-                    "description": "Date of cDNA amplification.",
-                    "format": "date",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "cDNA_amplification_set": {
-                    "description": "cDNA amplification set, containing multiple amplified_cDNA_names that were processed at the same time.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
                     "enum": [
@@ -887,13 +1091,6 @@
                         "null"
                     ]
                 },
-                "pcr_cycles": {
-                    "description": "Number of PCR cycles used during cDNA amplification for this cDNA.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
                 "provided_by": {
                     "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
                     "items": {
@@ -963,17 +1160,6 @@
                     },
                     "type": "array"
                 },
-                "cell_barcoding_method": {
-                    "$ref": "#/$defs/BarcodedCellSampleTechnique",
-                    "description": "Standardized nomenclature to describe the general barcoding method used.  For example: Multiome, ATAC Only, GEX Only or snm3C-seq."
-                },
-                "cell_barcoding_process_date": {
-                    "description": "Date of cell barcoding process.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
                     "type": [
@@ -1026,13 +1212,6 @@
                         "null"
                     ]
                 },
-                "input_quantity": {
-                    "description": "Number of enriched or dissociated cells/nuclei going into the barcoding process.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
                     "type": [
@@ -1042,13 +1221,6 @@
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "port_well": {
-                    "description": "Specific position of the loaded port of the 10x chip.  An Enriched or Dissociated Cell Sample is loaded into a port on a chip (creating a Barcoded Cell Sample). Can be left null for non-10x methods.",
                     "type": [
                         "string",
                         "null"
@@ -1133,13 +1305,6 @@
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "cell_dissociation_process_date": {
-                    "description": "Date of cell dissociation process.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
                 },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
@@ -1279,13 +1444,6 @@
                     },
                     "type": "array"
                 },
-                "cell_enrichment_process_date": {
-                    "description": "Date of cell enrichment process.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
                     "type": [
@@ -1410,6 +1568,35 @@
             "title": "CellEnrichment",
             "type": "object"
         },
+        "CellLabelBarcode": {
+            "description": "",
+            "enum": [
+                "CMO301",
+                "CMO302",
+                "CMO303",
+                "CMO304",
+                "CMO305",
+                "CMO306",
+                "CMO307",
+                "CMO308",
+                "CMO309",
+                "CMO310",
+                "CMO311",
+                "CMO312",
+                "2nt-001",
+                "2nt-002",
+                "2nt-003",
+                "2nt-004",
+                "3nt-001",
+                "3nt-002",
+                "3nt-003",
+                "3nt-004",
+                "3nt-005",
+                "3nt-006"
+            ],
+            "title": "CellLabelBarcode",
+            "type": "string"
+        },
         "Checksum": {
             "additionalProperties": false,
             "description": "Checksum values associated with digital entities.",
@@ -1494,6 +1681,12 @@
                 "id"
             ],
             "title": "Checksum",
+            "type": "object"
+        },
+        "ChemicalEntityOrGeneOrGeneProduct": {
+            "additionalProperties": false,
+            "description": "A union of chemical entities and children, and gene or gene product. This mixin is helpful to use when searching across chemical entities that must include genes and their children as chemical entities.",
+            "title": "ChemicalEntityOrGeneOrGeneProduct",
             "type": "object"
         },
         "Dataset": {
@@ -1713,7 +1906,7 @@
                     ]
                 },
                 "digest": {
-                    "description": "Stores checksum information.",
+                    "description": "NeMO Aliquot Fastq Public URL",
                     "items": {
                         "anyOf": [
                             {
@@ -2125,6 +2318,10 @@
                     },
                     "type": "array"
                 },
+                "cell_label_barcode": {
+                    "$ref": "#/$defs/CellLabelBarcode",
+                    "description": "Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the dissociated cell sample and allows separate dissociated cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source dissociated cell sample."
+                },
                 "cell_prep_type": {
                     "$ref": "#/$defs/DissociatedCellSampleCellPrepType",
                     "description": "The type of cell preparation. For example: Cells, Nuclei. This is a property of dissociated_cell_sample."
@@ -2142,10 +2339,6 @@
                         "string",
                         "null"
                     ]
-                },
-                "dissociated_cell_oligo_name": {
-                    "$ref": "#/$defs/DissociatedCellSampleCellLabelBarcode",
-                    "description": "Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the dissociated cell sample and allows separate dissociated cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source dissociated cell sample."
                 },
                 "equivalent_identifiers": {
                     "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
@@ -2194,6 +2387,21 @@
                 },
                 "name": {
                     "description": "Name of a collection of dissociated cells or nuclei derived from dissociation of a tissue sample.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "patched_cell_structure": {
+                    "description": "Ontological structure assigned to a single patched cell. This is typically assigned and confirmed after imaging.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "preparation_date": {
+                    "description": "Date of cell dissociation process.",
+                    "format": "date",
                     "type": [
                         "string",
                         "null"
@@ -2264,35 +2472,6 @@
             "title": "DissociatedCellSample",
             "type": "object"
         },
-        "DissociatedCellSampleCellLabelBarcode": {
-            "description": "",
-            "enum": [
-                "CMO301",
-                "CMO302",
-                "CMO303",
-                "CMO304",
-                "CMO305",
-                "CMO306",
-                "CMO307",
-                "CMO308",
-                "CMO309",
-                "CMO310",
-                "CMO311",
-                "CMO312",
-                "2nt-001",
-                "2nt-002",
-                "2nt-003",
-                "2nt-004",
-                "3nt-001",
-                "3nt-002",
-                "3nt-003",
-                "3nt-004",
-                "3nt-005",
-                "3nt-006"
-            ],
-            "title": "DissociatedCellSampleCellLabelBarcode",
-            "type": "string"
-        },
         "DissociatedCellSampleCellPrepType": {
             "description": "",
             "enum": [
@@ -2306,32 +2485,6 @@
             "additionalProperties": false,
             "description": "A person or organism that is the source of a biological sample for scientific study.  Many biological samples are generated from a single donor.",
             "properties": {
-                "age_at_death_description": {
-                    "description": "Text description of the age of death following typical scientific convention for the species or developmental stage. For example: P56, E11.5",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "age_at_death_reference_point": {
-                    "$ref": "#/$defs/AgeAtDeathReferencePoint",
-                    "description": "The reference point for an age interval; for example, birth or conception."
-                },
-                "age_at_death_unit": {
-                    "$ref": "#/$defs/AgeAtDeathUnit",
-                    "description": "The unit used for representing the donor age from the reference point."
-                },
-                "age_at_death_value": {
-                    "description": "The value representing the donor age from the reference point.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "biological_sex": {
-                    "$ref": "#/$defs/Sex",
-                    "description": "Biological sex of donor at birth"
-                },
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
                     "enum": [
@@ -2419,7 +2572,7 @@
                     ]
                 },
                 "name": {
-                    "description": "Name of person or organism that is the source of a biological sample for scientific study.  Many biological samples are generated from a single donor.",
+                    "description": "A human-readable name for an attribute or entity.",
                     "type": [
                         "string",
                         "null"
@@ -2432,13 +2585,6 @@
                     },
                     "type": [
                         "array",
-                        "null"
-                    ]
-                },
-                "species": {
-                    "description": "Species of donor.",
-                    "type": [
-                        "string",
                         "null"
                     ]
                 },
@@ -2516,6 +2662,10 @@
                     },
                     "type": "array"
                 },
+                "cell_label_barcode": {
+                    "$ref": "#/$defs/CellLabelBarcode",
+                    "description": "Name of molecular barcode used to individual Enriched Cell Source to allow for pooling of Enriched Cell Sources before 10x load (Barcoding Cell step) [aka 1st round barcodes]"
+                },
                 "deprecated": {
                     "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
                     "type": [
@@ -2525,13 +2675,6 @@
                 },
                 "description": {
                     "description": "a human-readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "enriched_cell_oligo_name": {
-                    "description": "Name of cell source oligo used in cell plexing.  The oligo molecularly tags all the cells in the enriched cell sample and allows separate enriched cell samples to be combined downstream in the barcoded cell sample.  The oligo name is associated with a sequence in a lookup table.  This sequence will be needed during alignment to associate reads with the parent source enriched cell sample.",
                     "type": [
                         "string",
                         "null"
@@ -2598,6 +2741,14 @@
                 },
                 "name": {
                     "description": "Name of collection of enriched cells or nuclei after enrichment process (usually via FACS using the Enrichment Plan) applied to dissociated_cell_sample.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "preparation_date": {
+                    "description": "Date of cell enrichment process.",
+                    "format": "date",
                     "type": [
                         "string",
                         "null"
@@ -2818,6 +2969,91 @@
             "title": "EnrichedCellSampleSplitting",
             "type": "object"
         },
+        "Entity": {
+            "additionalProperties": false,
+            "description": "Root Biolink Model class for all things and informational relationships, real or imagined.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:Entity"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Entity",
+            "type": "object"
+        },
+        "FastqFileAlignmentStatus": {
+            "description": "",
+            "enum": [
+                "1",
+                "2",
+                "3"
+            ],
+            "title": "FastqFileAlignmentStatus",
+            "type": "string"
+        },
         "Gene": {
             "additionalProperties": false,
             "description": "A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene locus may include regulatory regions, transcribed regions and/or other functional sequence regions.",
@@ -2977,6 +3213,21 @@
             "title": "Gene",
             "type": "object"
         },
+        "GeneOrGeneProduct": {
+            "additionalProperties": false,
+            "description": "A union of gene loci or gene products. Frequently an identifier for one will be used as proxy for another",
+            "properties": {
+                "name": {
+                    "description": "genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "GeneOrGeneProduct",
+            "type": "object"
+        },
         "Genome": {
             "additionalProperties": false,
             "description": "A genome is the sum of genetic material within a cell or virion.",
@@ -3129,6 +3380,175 @@
             "title": "Genome",
             "type": "object"
         },
+        "GenomicEntity": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "has_biological_sequence": {
+                    "description": "connects a genomic feature to its sequence",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "GenomicEntity",
+            "type": "object"
+        },
+        "InformationContentEntity": {
+            "additionalProperties": false,
+            "description": "a piece of information that typically describes some topic of discourse or is used as support.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:InformationContentEntity"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "creation_date": {
+                    "description": "date on which an entity was created. This can be applied to nodes or edges",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "format": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "license": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rights": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "InformationContentEntity",
+            "type": "object"
+        },
         "Library": {
             "additionalProperties": false,
             "description": "A collection of fragmented and barcode-indexed DNA molecules for sequencing. An index or barcode is typically introduced to enable identification of library origin to allow libraries to be pooled together for sequencing.",
@@ -3209,6 +3629,13 @@
                         "null"
                     ]
                 },
+                "input_ng": {
+                    "description": "Amount of cDNA going into library construction in nanograms.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
                     "type": [
@@ -3229,6 +3656,21 @@
                 },
                 "name": {
                     "description": "Name of a library, which is a collection of fragmented and barcode-indexed DNA molecules for sequencing.  An index or barcode is typically introduced to enable identification of library origin to allow libraries to be pooled together for sequencing.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "prep_set": {
+                    "description": "Library set, containing multiple library_names that were processed at the same time.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "preparation_date": {
+                    "description": "Date of library construction.",
+                    "format": "date",
                     "type": [
                         "string",
                         "null"
@@ -3264,6 +3706,10 @@
                         "array",
                         "null"
                     ]
+                },
+                "technique": {
+                    "$ref": "#/$defs/LibraryTechnique",
+                    "description": "Standardized nomenclature to describe the specific library method used.  This specifies the alignment method required for the library.  For example, 10xV3.1 (for RNASeq single assay), 10xMult-GEX (for RNASeq multiome assay), and 10xMult-ATAC (for ATACSeq multiome assay)."
                 },
                 "type": {
                     "items": {
@@ -3351,6 +3797,10 @@
                         "array",
                         "null"
                     ]
+                },
+                "fastq_file_alignment_status": {
+                    "$ref": "#/$defs/FastqFileAlignmentStatus",
+                    "description": "The FASTQ file alignment status as reported by the Library Lab"
                 },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
@@ -3526,34 +3976,8 @@
                         "null"
                     ]
                 },
-                "input_quantity_ng": {
-                    "description": "Amount of cDNA going into library construction in nanograms.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
                 "iri": {
                     "description": "An IRI for an entity. This is determined by the id using expansion rules.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "library_construction_method": {
-                    "$ref": "#/$defs/LibraryTechnique",
-                    "description": "Standardized nomenclature to describe the specific library method used.  This specifies the alignment method required for the library.  For example, 10xV3.1 (for RNASeq single assay), 10xMult-GEX (for RNASeq multiome assay), and 10xMult-ATAC (for ATACSeq multiome assay)."
-                },
-                "library_construction_process_date": {
-                    "description": "Date of library construction.",
-                    "format": "date",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "library_construction_set": {
-                    "description": "Library set, containing multiple library_names that were processed at the same time.",
                     "type": [
                         "string",
                         "null"
@@ -3666,6 +4090,13 @@
                         "null"
                     ]
                 },
+                "flowcell": {
+                    "description": "The Flowcell is a unique identifer of the sequencing cartridge (provided by the sequencing instrument manufacturer) used and consumed when sequencing Library Pools on an Illumina sequencing instrument. A flowcell can be different sizes with different number of lanes. The flowcell size determines the number of total reads it will produce. Typically one Flowcell is used to run one Library Pool across all lanes. Multiple pools, however, can be run on a single flowcell as long as the pools are partitioned onto separate lanes of the flowcell. Each lane from a flowcell will produce fastq files for all Library Aliquots within the Library Pool applied to a given lane.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "full_name": {
                     "description": "a long-form human readable name for a thing",
                     "type": [
@@ -3701,8 +4132,23 @@
                         "null"
                     ]
                 },
+                "local_tube_id": {
+                    "description": "Library Pool Tube local name.  Label of the tube containing the library pool, which is made up of multiple library_aliquots.  This is a Library Lab local tube name, before the pool is aliquoted to the Seq Core provided tube 'Library Pool Tube Name'.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "name": {
-                    "description": "Library lab's library pool name.  For some labs this may be the same as \"Libray pool tube local name\".   Other labs distinguish between the local tube label of the library pool and the library pool name provided to SeqCore for tracking.  Local Pool Name is used to communicate sequencing status between SeqCore and Library Labs.",
+                    "description": "Library lab's library pool name.  For some labs this may be the same as \"Library pool tube local name\".   Other labs distinguish between the local tube label of the library pool and the library pool name provided to SeqCore for tracking.  Local Pool Name is used to communicate sequencing status between SeqCore and Library Labs.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "preparation_date": {
+                    "description": "Date of library pooling process.",
+                    "format": "date",
                     "type": [
                         "string",
                         "null"
@@ -3728,8 +4174,8 @@
                         "null"
                     ]
                 },
-                "tube_internal_label": {
-                    "description": "Library Pool Tube local name.  Label of the tube containing the library pool, which is made up of multiple library_aliquots.  This is a Library Lab local tube name, before the pool is aliquoted to the Seq Core provided tube 'Library Pool Tube Name'.",
+                "tube_barcode": {
+                    "description": "Library Pool tube name as provided by the SeqCore (often a barcode). This tube is provided from the SeqCore and is part of the SeqCore tracking system.",
                     "type": [
                         "string",
                         "null"
@@ -3782,7 +4228,7 @@
         },
         "LibraryPooling": {
             "additionalProperties": false,
-            "description": "The process of constructing of a libray pool by combining library aliquots from a set of input libraries. Each library aliquot in a library pool will have a unique R1/R2 index to allow for sequencing together then separating the sequencing output by originating library aliquot through the process of demultiplexing.",
+            "description": "The process of constructing of a library pool by combining library aliquots from a set of input libraries. Each library aliquot in a library pool will have a unique R1/R2 index to allow for sequencing together then separating the sequencing output by originating library aliquot through the process of demultiplexing.",
             "properties": {
                 "category": {
                     "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
@@ -3855,13 +4301,6 @@
                 },
                 "name": {
                     "description": "A human-readable name for an attribute or entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "process_date": {
-                    "description": "Date of library pooling process.",
                     "type": [
                         "string",
                         "null"
@@ -4471,10 +4910,45 @@
                 "Slide-seq MERFISH",
                 "whole brain MERFISH",
                 "DBiT RNA-seq",
-                "DBiT ATAC-seq"
+                "DBiT ATAC-seq",
+                "Droplet Paired-Tag; DNA",
+                "Droplet Paired-Tag; RNA",
+                "Multiplex Droplet Paired-Tag; DNA",
+                "Multiplex Droplet Paired-Tag; RNA",
+                "10xV4",
+                "10x_5P_v5.2",
+                "PIPSeq_T2_3P_v4+",
+                "PIPSeq_T20_3P_v4+",
+                "Slide-tag_10x5Pv2;GEX",
+                "Slide-tag_10x5Pv2;Spatial",
+                "Slide-tag_PIPSeq_T100_3P_v4+;GEX",
+                "Slide-tag_PIPSeq_T100_3P_v4+;Spatial",
+                "Slide-tag_PIPSeq_T20_3P_v4+;GEX",
+                "Slide-tag_PIPSeq_T20_3P_v4+;Spatial",
+                "10x5Pv3",
+                "Slide-tag_10xV4;GEX",
+                "Slide-tag_10xV4;Spatial",
+                "Slide-tag_TruSeq;Recon",
+                "10xV4_OCM",
+                "SMARTSeqV4"
             ],
             "title": "LibraryTechnique",
             "type": "string"
+        },
+        "MacromolecularMachineMixin": {
+            "additionalProperties": false,
+            "description": "A union of gene locus, gene product, and macromolecular complex. These are the basic units of function in a cell. They either carry out individual biological activities, or they encode molecules which do this.",
+            "properties": {
+                "name": {
+                    "description": "genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "MacromolecularMachineMixin",
+            "type": "object"
         },
         "MaterialSample": {
             "additionalProperties": false,
@@ -4732,6 +5206,27 @@
             "title": "NamedThing",
             "type": "object"
         },
+        "Occurrent": {
+            "additionalProperties": false,
+            "description": "A processual entity.",
+            "title": "Occurrent",
+            "type": "object"
+        },
+        "OntologyClass": {
+            "additionalProperties": false,
+            "description": "a concept or class in an ontology, vocabulary or thesaurus. Note that nodes in a biolink compatible KG can be considered both instances of biolink classes, and OWL classes in their own right. In general you should not need to use this class directly. Instead, use the appropriate biolink class. For example, for the GO concept of endocytosis (GO:0006897), use bl:BiologicalProcess as the type.",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "OntologyClass",
+            "type": "object"
+        },
         "OrganismTaxon": {
             "additionalProperties": false,
             "description": "A classification of a set of organisms. Example instances: NCBITaxon:9606 (Homo sapiens), NCBITaxon:2 (Bacteria). Can also be used to represent strains or subspecies.",
@@ -4762,6 +5257,16 @@
                 },
                 "equivalent_identifiers": {
                     "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "exact_match": {
+                    "description": "An external concept that is interchangeable with this entity. Symmetric and transitive, so it chains through third-party mappings. NOTE: this slot was added by bican (utils/bican_biolink_edit.py); it is not part of the Biolink Model.",
                     "items": {
                         "type": "string"
                     },
@@ -4994,6 +5499,18 @@
             "title": "PhysicalEntity",
             "type": "object"
         },
+        "PhysicalEssence": {
+            "additionalProperties": false,
+            "description": "Semantic mixin concept.  Pertains to entities that have physical properties such as mass, volume, or charge.",
+            "title": "PhysicalEssence",
+            "type": "object"
+        },
+        "PhysicalEssenceOrOccurrent": {
+            "additionalProperties": false,
+            "description": "Either a physical or processual entity.",
+            "title": "PhysicalEssenceOrOccurrent",
+            "type": "object"
+        },
         "Procedure": {
             "additionalProperties": false,
             "description": "A series of actions conducted in a certain order or manner",
@@ -5120,6 +5637,55 @@
                 "category"
             ],
             "title": "Procedure",
+            "type": "object"
+        },
+        "ProvActivity": {
+            "additionalProperties": false,
+            "description": "An activity is something that occurs over a period of time and acts upon or with entities;  it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.",
+            "properties": {
+                "used": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProvEntity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Usage is the beginning of utilizing an entity by an activity. Before usage, the activity had not begun to utilize this entity and could not have been affected by the entity."
+                }
+            },
+            "title": "ProvActivity",
+            "type": "object"
+        },
+        "ProvEntity": {
+            "additionalProperties": false,
+            "description": "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects;  entities may be real or imaginary.",
+            "properties": {
+                "was_derived_from": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProvEntity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."
+                },
+                "was_generated_by": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ProvActivity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation."
+                }
+            },
+            "title": "ProvEntity",
             "type": "object"
         },
         "QuantityValue": {
@@ -5310,6 +5876,200 @@
             "title": "Sex",
             "type": "string"
         },
+        "Species": {
+            "description": "",
+            "enum": [
+                "NCBITaxon:9606",
+                "NCBITaxon:9483",
+                "NCBITaxon:10090",
+                "NCBITaxon:9544",
+                "NCBITaxon:60711",
+                "NCBITaxon:9999",
+                "NCBITaxon:9361",
+                "NCBITaxon:9598",
+                "NCBITaxon:9669",
+                "NCBITaxon:9593",
+                "NCBITaxon:9545",
+                "NCBITaxon:13616",
+                "NCBITaxon:9986",
+                "NCBITaxon:10116",
+                "NCBITaxon:9541",
+                "NCBITaxon:9534",
+                "NCBITaxon:9614",
+                "NCBITaxon:9555",
+                "NCBITaxon:27679",
+                "NCBITaxon:9521",
+                "NCBITaxon:30608",
+                "NCBITaxon:37293",
+                "NCBITaxon:37347",
+                "NCBITaxon:10181",
+                "NCBITaxon:9823",
+                "NCBITaxon:9685",
+                "NCBITaxon:9742"
+            ],
+            "title": "Species",
+            "type": "string"
+        },
+        "StudyResult": {
+            "additionalProperties": false,
+            "description": "A collection of data items from a study that are about a particular study subject or experimental unit (the 'focus' of the Result) - optionally with context/provenance metadata that may be relevant to the interpretation of this data as evidence.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "biolink:StudyResult"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "creation_date": {
+                    "description": "date on which an entity was created. This can be applied to nodes or edges",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "format": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "license": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rights": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "StudyResult",
+            "type": "object"
+        },
+        "SubjectOfInvestigation": {
+            "additionalProperties": false,
+            "description": "An entity that has the role of being studied in an investigation, study, or experiment",
+            "title": "SubjectOfInvestigation",
+            "type": "object"
+        },
         "TaxonomicRank": {
             "additionalProperties": false,
             "description": "A descriptor for the rank within a taxonomic classification. Example instance: TAXRANK:0000017 (kingdom)",
@@ -5323,6 +6083,31 @@
                 "id"
             ],
             "title": "TaxonomicRank",
+            "type": "object"
+        },
+        "ThingWithTaxon": {
+            "additionalProperties": false,
+            "description": "A mixin that can be used on any entity that can be taxonomically classified. This includes individual organisms; genes, their products and other molecular entities; body parts; biological processes",
+            "properties": {
+                "in_taxon": {
+                    "description": "connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "in_taxon_label": {
+                    "description": "The human readable scientific name for the taxon of the entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "ThingWithTaxon",
             "type": "object"
         },
         "TissueDissection": {
@@ -5565,7 +6350,7 @@
                     ]
                 },
                 "structure": {
-                    "description": "Structure of tissue sample.",
+                    "description": "The code referring to a structure in a brain atlas that the tissue was found to be associated with.",
                     "items": {
                         "type": "string"
                     },
@@ -5625,13 +6410,152 @@
             ],
             "title": "TissueSample",
             "type": "object"
+        },
+        "VersionedNamedThing": {
+            "additionalProperties": false,
+            "description": "An iteration of the biolink:NamedThing class that stores metadata about the object's version.",
+            "properties": {
+                "category": {
+                    "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag. In an RDF database it should be a biolink model class URI. This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`. In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}",
+                    "enum": [
+                        "bican:VersionedNamedThing"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecated": {
+                    "description": "A boolean flag indicating that an entity is no longer considered current or valid.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "a human-readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "A set of identifiers that are considered equivalent to the primary identifier of the entity. This attribute is used to represent a collection of identifiers that are considered equivalent to the primary identifier of an entity. These equivalent identifiers may come from different databases, ontologies, or naming conventions, but they all refer to the same underlying concept or entity. This attribute is particularly useful in data integration and interoperability scenarios, where it is important to recognize and link different representations of the same entity across various sources.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "full_name": {
+                    "description": "a long-form human readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_attribute": {
+                    "description": "connects any entity to an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI",
+                    "type": "string"
+                },
+                "information_content": {
+                    "description": "Information content (IC) value for a term, primarily from Automats.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "iri": {
+                    "description": "An IRI for an entity. This is determined by the id using expansion rules.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an attribute or entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provided_by": {
+                    "description": "The value in this node property represents the knowledge provider that created or assembled the node and all of its attributes.  Used internally to represent how a particular node made its way into a knowledge provider or graph.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "revision_of": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "synonym": {
+                    "description": "Alternate human-readable names for a thing",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "version": {
+                    "type": "string"
+                },
+                "xref": {
+                    "description": "A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "version",
+                "id",
+                "category",
+                "category"
+            ],
+            "title": "VersionedNamedThing",
+            "type": "object"
         }
     },
     "$id": "https://identifiers.org/brain-bican/library-generation-schema",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.12.0",
     "title": "library-generation-schema",
     "type": "object",
     "version": null
 }
+

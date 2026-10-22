@@ -5,8 +5,9 @@
 ```
 name: generating other formats for <MODEL_NAME>
 on:
-  pull_request_target:
-    types: [opened, synchronize]
+  push:
+    branches:
+      - main
     paths:
       - 'linkml-schema/<MODEL_NAME>.yaml'
 permissions:
@@ -25,6 +26,7 @@ cp erdiagram-autogen/<MODEL_NAME>.md docs/<MODEL_NAME>.md
 gen-doc -d docs linkml-schema/<MODEL_NAME>.yaml
 mv docs/index.md docs/index_<MODEL_NAME>.md
 ```
+Also add `generating other formats for <MODEL_NAME>` to the `workflow_run` list at the top of generate_docs.yaml, so the docs are rebuilt after the new model's files are regenerated.
 
 ### 3. add schema to software_update_generate_other_formats.yaml github workflow
 ```

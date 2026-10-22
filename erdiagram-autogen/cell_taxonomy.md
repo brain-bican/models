@@ -1,0 +1,246 @@
+```mermaid
+erDiagram
+Abbreviation {
+    string id  
+    AbbreviationEntityType entity_type  
+    string meaning  
+    string term  
+    label_type name  
+    narrative_text description  
+    uriorcurieList category  
+    boolean deprecated  
+    uriorcurieList equivalent_identifiers  
+    label_type full_name  
+    float information_content  
+    iri_type iri  
+    uriorcurieList named_thing_category  
+    stringList provided_by  
+    label_typeList synonym  
+    stringList type  
+    uriorcurieList xref  
+}
+Cell {
+    string id  
+    string anatomical_region  
+    string anatomical_region_ontology_term_id  
+    string assay  
+    string assay_ontology_term_id  
+    string brain_region_ontology_term_id  
+    string cluster_id  
+    boolean is_primary_data  
+    string load_id  
+    SuspensionType suspension_type  
+    label_type name  
+    narrative_text description  
+    uriorcurieList category  
+    boolean deprecated  
+    uriorcurieList equivalent_identifiers  
+    label_type full_name  
+    float information_content  
+    iri_type iri  
+    uriorcurieList named_thing_category  
+    stringList provided_by  
+    label_typeList synonym  
+    stringList type  
+    uriorcurieList xref  
+}
+CellTypeSet {
+    string id  
+    string name  
+    CellTypeSetType cell_type_set_type  
+    integer order  
+    narrative_text description  
+    uriorcurieList category  
+    boolean deprecated  
+    uriorcurieList equivalent_identifiers  
+    label_type full_name  
+    float information_content  
+    iri_type iri  
+    uriorcurieList named_thing_category  
+    stringList provided_by  
+    label_typeList synonym  
+    stringList type  
+    uriorcurieList xref  
+}
+CellTypeTaxon {
+    string id  
+    string name  
+    string accession_id  
+    string cell_type_ontology_term  
+    stringList literature_name_long  
+    stringList literature_name_short  
+    stringList literature_support  
+    integer number_of_cells  
+    integer order  
+    narrative_text description  
+    uriorcurieList category  
+    boolean deprecated  
+    uriorcurieList equivalent_identifiers  
+    label_type full_name  
+    float information_content  
+    iri_type iri  
+    uriorcurieList named_thing_category  
+    stringList provided_by  
+    label_typeList synonym  
+    stringList type  
+    uriorcurieList xref  
+}
+CellTypeTaxonomy {
+    string id  
+    string accession_id  
+    string batch_condition  
+    string cellannotation_schema  
+    string cluster_algorithm  
+    string cluster_id_mean_expr  
+    string cluster_info  
+    uriList content_url  
+    string default_embedding  
+    string dendrogram  
+    boolean filter  
+    string gene_annotation_version  
+    string hierarchy  
+    string mode  
+    string quality_control_markers  
+    string reference_genome  
+    string schema_version  
+    string title  
+    label_type name  
+    narrative_text description  
+    uriorcurieList category  
+    boolean deprecated  
+    uriorcurieList equivalent_identifiers  
+    label_type full_name  
+    float information_content  
+    iri_type iri  
+    uriorcurieList named_thing_category  
+    stringList provided_by  
+    label_typeList synonym  
+    stringList type  
+    uriorcurieList xref  
+}
+Cluster {
+    string id  
+    string name  
+    integer number_of_observations  
+    narrative_text description  
+    uriorcurieList category  
+    boolean deprecated  
+    uriorcurieList equivalent_identifiers  
+    label_type full_name  
+    float information_content  
+    iri_type iri  
+    uriorcurieList named_thing_category  
+    stringList provided_by  
+    label_typeList synonym  
+    stringList type  
+    uriorcurieList xref  
+}
+ClusterSet {
+    string id  
+    string name  
+    narrative_text description  
+    uriorcurieList category  
+    boolean deprecated  
+    uriorcurieList equivalent_identifiers  
+    label_type full_name  
+    float information_content  
+    iri_type iri  
+    uriorcurieList named_thing_category  
+    stringList provided_by  
+    label_typeList synonym  
+    stringList type  
+    uriorcurieList xref  
+}
+ColorPalette {
+    string id  
+    string name  
+    string description  
+    uriorcurieList category  
+    boolean deprecated  
+    uriorcurieList equivalent_identifiers  
+    label_type full_name  
+    float information_content  
+    iri_type iri  
+    uriorcurieList named_thing_category  
+    stringList provided_by  
+    label_typeList synonym  
+    stringList type  
+    uriorcurieList xref  
+}
+DisplayColor {
+    string id  
+    string color_hex_triplet  
+    label_type name  
+    narrative_text description  
+    uriorcurieList category  
+    boolean deprecated  
+    uriorcurieList equivalent_identifiers  
+    label_type full_name  
+    float information_content  
+    iri_type iri  
+    uriorcurieList named_thing_category  
+    stringList provided_by  
+    label_typeList synonym  
+    stringList type  
+    uriorcurieList xref  
+}
+Embedding {
+    string id  
+    string embedding_key  
+    float embedding_matrix  
+    label_type name  
+    narrative_text description  
+    uriorcurieList category  
+    boolean deprecated  
+    uriorcurieList equivalent_identifiers  
+    label_type full_name  
+    float information_content  
+    iri_type iri  
+    uriorcurieList named_thing_category  
+    stringList provided_by  
+    label_typeList synonym  
+    stringList type  
+    uriorcurieList xref  
+}
+ExpressionMatrix {
+    string id  
+    uriList content_url  
+    ExpressionMatrixType matrix_type  
+    label_type name  
+    narrative_text description  
+    uriorcurieList category  
+    boolean deprecated  
+    uriorcurieList equivalent_identifiers  
+    label_type full_name  
+    float information_content  
+    iri_type iri  
+    uriorcurieList named_thing_category  
+    stringList provided_by  
+    label_typeList synonym  
+    stringList type  
+    uriorcurieList xref  
+}
+
+Abbreviation ||--}o OntologyClass : "broad_match, close_match, exact_match, mapping_relation, narrow_match, related_match"
+Cell ||--|o Cluster : "part_of_cluster"
+CellTypeSet ||--|o CellTypeSet : "has_parent"
+CellTypeSet ||--|o CellTypeTaxonomy : "part_of_taxonomy"
+CellTypeSet ||--}o Abbreviation : "has_abbreviation"
+CellTypeTaxon ||--|o CellTypeSet : "part_of_set"
+CellTypeTaxon ||--|o CellTypeTaxon : "has_parent"
+CellTypeTaxon ||--}o Abbreviation : "has_abbreviation"
+CellTypeTaxon ||--}o GeneAnnotation : "curated_markers"
+CellTypeTaxon ||--}o OntologyClass : "broad_match, close_match, exact_match, mapping_relation, narrow_match, related_match"
+CellTypeTaxonomy ||--}o ClusterSet : "was_derived_from"
+CellTypeTaxonomy ||--}o Embedding : "has_embedding"
+CellTypeTaxonomy ||--}o ExpressionMatrix : "has_expression_matrix"
+Cluster ||--|o ClusterSet : "part_of_set"
+Cluster ||--}o CellTypeTaxon : "has_parent"
+ClusterSet ||--}o ExpressionMatrix : "was_derived_from"
+ColorPalette ||--|o CellTypeTaxonomy : "is_palette_for"
+DisplayColor ||--|o CellTypeSet : "is_color_for_set"
+DisplayColor ||--|o CellTypeTaxon : "is_color_for_taxon"
+DisplayColor ||--|o ColorPalette : "part_of_palette"
+ExpressionMatrix ||--}o GeneAnnotation : "has_variable"
+
+```

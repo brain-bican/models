@@ -1,8 +1,9 @@
 name: generating other formats for library_generation
 
 on:
-  pull_request_target:
-    types: [opened, synchronize]
+  push:
+    branches:
+      - main
     paths:
       - 'linkml-schema/library_generation.yaml'
       - 'linkml-schema/bican_biolink.yaml'
