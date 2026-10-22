@@ -10577,24 +10577,24 @@ class Donor(ProvEntity, ThingWithTaxon, PhysicalEntity):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'exact_mappings': ['NIMP:Donor'],
          'from_schema': 'https://w3id.org/brain-bican/donor',
          'mixins': ['thing with taxon', 'ProvEntity'],
-         'slot_usage': {'donor_nhash_id': {'description': 'NIMP generated globally '
-                                                          'unique identifier for a '
-                                                          'Donor',
-                                           'exact_mappings': ['bican:98b28574-f97f-4436-b723-10a6508431b5',
-                                                              'NIMP:PD-DEXRDO36'],
-                                           'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                                    'local_name_value': 'donor_nhash_id'}},
-                                           'name': 'donor_nhash_id'},
-                        'name': {'description': 'Donor identifier given by the brain '
+         'slot_usage': {'name': {'description': 'Donor identifier given by the brain '
                                                 'bank or the institution that holds '
                                                 'the brain',
                                  'exact_mappings': ['bican:f8af20f7-e8b8-47b5-8a68-9ec1f913ffdf',
                                                     'NIMP:PD-QLQLFB34'],
-                                 'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'donor_local_name'}},
+                                 'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                                        'local_name_value': 'donor_local_name'},
+                                                 'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                                        'local_name_value': 'Donor'}},
                                  'name': 'name'},
-                        'xref': {'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                                          'local_name_value': 'donor_nhash_id'}},
+                        'xref': {'description': 'NIMP generated globally unique '
+                                                'identifier for a Donor',
+                                 'exact_mappings': ['bican:98b28574-f97f-4436-b723-10a6508431b5',
+                                                    'NIMP:PD-DEXRDO36'],
+                                 'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                                        'local_name_value': 'donor_nhash_id'},
+                                                 'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                                        'local_name_value': 'Donor'}},
                                  'name': 'xref'}}})
 
     name: Optional[str] = Field(default=None, description="""Donor identifier given by the brain bank or the institution that holds the brain""", json_schema_extra = { "linkml_meta": {'aliases': ['label', 'display name', 'title'],
@@ -10620,12 +10620,14 @@ class Donor(ProvEntity, ThingWithTaxon, PhysicalEntity):
          'exact_mappings': ['bican:f8af20f7-e8b8-47b5-8a68-9ec1f913ffdf',
                             'NIMP:PD-QLQLFB34'],
          'in_subset': ['translator_minimal', 'samples'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'donor_local_name'}},
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'donor_local_name'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'Donor'}},
          'mappings': ['rdfs:label'],
          'narrow_mappings': ['dct:title', 'WIKIDATA_PROPERTY:P1476'],
          'slot_uri': 'rdfs:label'} })
-    xref: Optional[list[str]] = Field(default=None, description="""A database cross reference or alternative identifier for a NamedThing or edge between two NamedThings.  This property should point to a database record or webpage that supports the existence of the edge, or gives more detail about the edge. This property can be used on a node or edge to provide multiple URIs or CURIE cross references.""", json_schema_extra = { "linkml_meta": {'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
+    xref: Optional[list[str]] = Field(default=None, description="""NIMP generated globally unique identifier for a Donor""", json_schema_extra = { "linkml_meta": {'aliases': ['dbxref', 'Dbxref', 'DbXref', 'record_url', 'source_record_urls'],
          'definition_uri': 'https://w3id.org/biolink/vocab/xref',
          'domain': 'named thing',
          'domain_of': ['named thing',
@@ -10643,379 +10645,518 @@ class Donor(ProvEntity, ThingWithTaxon, PhysicalEntity):
                        'biological entity',
                        'genome',
                        'Donor'],
-         'in_subset': ['translator_minimal'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'donor_nhash_id'}},
-         'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
-         'slot_uri': 'biolink:xref'} })
-    donor_nhash_id: Optional[str] = Field(default=None, description="""NIMP generated globally unique identifier for a Donor""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:98b28574-f97f-4436-b723-10a6508431b5',
                             'NIMP:PD-DEXRDO36'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'donor_nhash_id'}}} })
+         'in_subset': ['translator_minimal'],
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'donor_nhash_id'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'Donor'}},
+         'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
+         'slot_uri': 'biolink:xref'} })
     repository: Optional[Repository] = Field(default=None, description="""If the brain is from NBB the NBB repository the brain belongs to""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:408682ed-0e27-41e2-b9fa-f05674366d6e',
                             'NIMP:PD-NYNYAR61'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'repository'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'repository'}}} })
     donor_source: Optional[DonorSource] = Field(default=None, description="""The source of the donor brain e.g. NBB/UM1 project/other""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:0d0cf732-0f76-409d-9a73-7a96d829d3d3',
                             'NIMP:PD-TPTPPS27'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'donor_source'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'donor_source'}}} })
     ethnicity: Optional[Ethnicity] = Field(default=None, description="""Ethnicity of the donor""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:918370df-49f6-4361-9c52-f46b16412980',
                             'NIMP:PD-JEJECK48'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'ethnicity'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'ethnicity'}}} })
     race: Optional[Race] = Field(default=None, description="""Race of the donor""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:e515c009-550e-4f9c-b1b6-fc876a6fb2a8',
                             'NIMP:PD-PRPRRP41'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'race'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'race'}}} })
     secondary_race: Optional[Race] = Field(default=None, description="""Second race if available for the donor""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:192fe5b1-c812-4767-86fb-3178f9914705',
                             'NIMP:PD-SESEQB42'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'second_race'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'second_race'}}} })
     sex: Optional[Sex] = Field(default=None, description="""Donor's sex at birth""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:c819b9d5-2fde-40b2-bf0d-e07b56f96ac9',
                             'NIMP:PD-LXUBTM45'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'sex'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'sex'}}} })
     gender: Optional[Gender] = Field(default=None, description="""Donor's gender at death""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:1c71e775-65aa-442b-a392-1cf9a44e326e',
                             'NIMP:PD-KLKLJH33'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'gender'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'gender'}}} })
     sex_orientation: Optional[SexualOrientation] = Field(default=None, description="""Donor's sexual orientation at death""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:e47e8a2f-72fb-4036-b288-f4580dc2aa4e',
                             'NIMP:PD-HKHGTM45'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'sex_orientation'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'sex_orientation'}}} })
     age_of_death: Optional[int] = Field(default=None, description="""Donor's age at death in years""", ge=0, le=200, json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:14eb923a-161d-45e2-889d-81fea7b632b6',
                             'NIMP:PD-FTEMQD38'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'age_of_death'}},
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'age_of_death'}},
          'unit': {'ucum_code': 'a'}} })
     birth_country_name: Optional[BirthCountry] = Field(default=None, description="""Donor's birth country""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:9c27fd29-b512-492f-a32f-b615c7585ff7',
                             'NIMP:PD-SQSQDF25'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'birth_country_name'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'birth_country_name'}}} })
     primary_language: Optional[Language] = Field(default=None, description="""Donor's primary language""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:abe9edc7-96ca-4c6a-a1ed-c008548cc373',
                             'NIMP:PD-ATEVEV39'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'primary_language'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'primary_language'}}} })
     secondary_language: Optional[Language] = Field(default=None, description="""Donor's secondary language""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:37b7495f-b010-4d1c-ae32-9cb19c680950',
                             'NIMP:PD-OBIUQB42'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'secondary_language'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'secondary_language'}}} })
     marital_status: Optional[MaritalStatus] = Field(default=None, description="""Donor's marital or partner status""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:4f0e41c9-dd15-4a37-ae6b-11b7131d7cba',
                             'NIMP:PD-JCYJCN35'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'marital_status'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'marital_status'}}} })
     education_years_number: Optional[int] = Field(default=None, description="""Number of years of education the donor had""", ge=0, le=30, json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:add3f7fe-ae60-4cc1-bb2e-72bbbe9a1a7d',
                             'NIMP:PD-SJSJRC41'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'education_years_number'}},
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'education_years_number'}},
          'unit': {'ucum_code': 'a'}} })
     handedness: Optional[Handedness] = Field(default=None, description="""Donor's handedness""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:82a4087c-d0e3-48ca-8bea-a81eefc683a0',
                             'NIMP:PD-WGWGTM45'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'handedness'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'handedness'}}} })
     confirmed_hbcac: Optional[str] = Field(default=None, description="""Confirmation status of meeting inclusion criteria of the Human Brain Cell Atlas Collection at NBB""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:b6cdddf7-6f0b-4855-a0fa-16c2ab29f219',
                             'NIMP:PD-YBLATM45'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'confirmed_hbcac'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'confirmed_hbcac'}}} })
     age_at_death_value: Optional[float] = Field(default=None, description="""Donor's age at death value""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:57e24d3c-c9c7-4ef3-9809-a35802d563ec',
                             'NIMP:PD-FTFTCP24'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'age_at_death_value'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'age_at_death_value'}}} })
     age_at_death_unit: Optional[str] = Field(default=None, description="""The unit of the value mentioned under \"age_at_death_value\"""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:b5436e99-f0a7-4c30-825d-56b88ee2ac1d',
                             'NIMP:PD-AVAVEV39'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'age_at_death_unit'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'age_at_death_unit'}}} })
     age_at_death_reference_point: Optional[str] = Field(default=None, description="""Reference point from which the donor's age at death was calculated""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:3bed1f94-9d82-4ed7-afdf-79d896b24dbb',
                             'NIMP:PD-RARAGG39'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'age_at_death_reference_point'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'age_at_death_reference_point'}}} })
     donor_species: Optional[str] = Field(default=None, description="""NCBI Taxonomy code of the donor species""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:6837cb02-6bd7-4fb8-838c-9062ead96ba4',
                             'NIMP:PD-HEHERP41'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'donor_species'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'donor_species'}}} })
     consent_status: Optional[str] = Field(default=None, description="""Whether the type of consent is open or controlled""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:1a53e733-276f-421a-850d-eb46e50db972',
                             'NIMP:PD-CBCBWQ40'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'consent_status'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'consent_status'}}} })
     positive_test_result: Optional[str] = Field(default=None, description="""Whether the donor has had a positive serology test result""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:0ef73629-5172-4517-a1f8-295be1603b80',
                             'NIMP:PD-PDZDNL63'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'positive_test_result'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'positive_test_result'}}} })
     donor_project: Optional[str] = Field(default=None, description="""Donor Project""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:cd772fb0-a2fe-4df3-b2dd-b62370be37fc',
                             'NIMP:PD-HEHEQB42'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'donor_project'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'donor_project'}}} })
     donor_labs: Optional[str] = Field(default=None, description="""Donor Labs""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:b97c384f-a556-42a2-a3c2-c31e5771f481',
                             'NIMP:PD-APAPRP41'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'donor_labs'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'donor_labs'}}} })
     death_causes_data_available: Optional[str] = Field(default=None, description="""NIMP indicator for availability of the cause of death""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:e46e9d58-d982-4800-b7de-67f608951211',
                             'NIMP:PD-FYUCNY46'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'death_causes_data_available'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'death_causes_data_available'}}} })
     rins_data_available: Optional[str] = Field(default=None, description="""NIMP indicator for availability of RNA Integrity Number""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:d05825e6-b785-42a3-9bdf-c34b30e698b8',
                             'NIMP:PD-JRJCAR61'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'rins_data_available'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'rins_data_available'}}} })
     rines_data_available: Optional[str] = Field(default=None, description="""NIMP indicator for availability of RNA Integrity Number equivalent""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:28a5e912-570b-4a7f-87f2-36bd5db92090',
                             'NIMP:PD-CJRWAR61'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'rines_data_available'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'rines_data_available'}}} })
     hemisphere: Optional[Hemisphere] = Field(default=None, description="""Hemisphere of the brain""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:68b7a28b-d695-4ec9-800b-6a27ca206081',
                             'NIMP:PD-JRJRFQ31'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'hemisphere'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'hemisphere'}}} })
     post_mortem_interval: Optional[float] = Field(default=None, description="""Post Mortem Interval in hours""", ge=0, le=8888, json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:6fd5c5ac-b128-4a4a-ae98-09eaeba22f92',
                             'NIMP:PD-CHCHLC46'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'post_mortem_interval'}},
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'post_mortem_interval'}},
          'unit': {'ucum_code': 'h'}} })
     left_hemisphere_preparation: Optional[Preparation] = Field(default=None, description="""The method of which the left hemisphere of the brain was prepared""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:57d5378f-a451-4bf5-a472-cc88d0d29586',
                             'NIMP:PD-JSJSUS44'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'left_hemisphere_preparation'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'left_hemisphere_preparation'}}} })
     left_hemisphere_prep_2: Optional[str] = Field(default=None, description="""The second method used to prepare the left hemisphere""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:d76753fb-b30b-419b-b853-d341510d8034',
                             'NIMP:PD-ZMPWIB34'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'left_hemisphere_prep_2'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'left_hemisphere_prep_2'}}} })
     right_hemisphere_preparation: Optional[Preparation] = Field(default=None, description="""The method of which the right hemisphere of the brain was prepared""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:477c2600-f979-43c5-9c61-ab61fd771584',
                             'NIMP:PD-MLMLPG50'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'right_hemisphere_preparation'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'right_hemisphere_preparation'}}} })
     right_hemisphere_prep_2: Optional[str] = Field(default=None, description="""The second method used to prepare the right hemisphere""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:b0a52336-fe31-4ac4-8914-b0bb76a8ef5a',
                             'NIMP:PD-FWUVWQ40'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'right_hemisphere_prep_2'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'right_hemisphere_prep_2'}}} })
     rin: Optional[float] = Field(default=None, description="""RNA Integrity Number""", ge=0, le=99, json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:cd472c0d-0b64-45c9-a38e-e54d15cea953',
                             'NIMP:PD-LPLPSK50'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'rin'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'rin'}}} })
     rine: Optional[float] = Field(default=None, description="""RNA Integrity Number equivalent""", ge=0, le=99, json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:1210148d-d8fb-45aa-b51a-4b19b6d09bec',
                             'NIMP:PD-XCXCRC41'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'rine'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'rine'}}} })
     ph: Optional[float] = Field(default=None, description="""pH value""", ge=0, le=99, json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:9e67af02-c081-43e1-a42c-bf9603cae616',
                             'NIMP:PD-FXFXDK42'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'ph'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'ph'}}} })
     brain_weight: Optional[int] = Field(default=None, description="""The weight of the brain in grams""", ge=0, le=9998, json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:546fc32d-f8a2-4c00-924a-8c4730f11f51',
                             'NIMP:PD-WUASWQ40'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'brain_weight'}},
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'brain_weight'}},
          'unit': {'ucum_code': 'g'}} })
     weighed_type: Optional[BrainTissueWeightType] = Field(default=None, description="""The type of the brain tissue weighed based on the preparation""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:a7463e3f-0c61-4718-a7d0-60fd2116908a',
                             'NIMP:PD-FGHMDF25'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'weighed_type'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'weighed_type'}}} })
     photo_2d_available: Optional[str] = Field(default=None, description="""Is a 2D photograph is available?""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:611beda8-1ac6-4183-a284-04a30bb474f3',
                             'NIMP:PD-NINIEV39'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'photo_2d_available'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'photo_2d_available'}}} })
     scan_3d_available: Optional[str] = Field(default=None, description="""Is a 3D scan is available?""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:658e8a80-e232-438f-8c1e-d5f38724dc55',
                             'NIMP:PD-RBRBQB42'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'scan_3d_available'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'scan_3d_available'}}} })
     antemortem_mri_available: Optional[str] = Field(default=None, description="""Is an Antemortem MRI is available?""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:43a04caa-4f28-47ac-8a9d-74c40f10776f',
                             'NIMP:PD-RCRCRC24'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'antemortem_mri_available'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'antemortem_mri_available'}}} })
     postmortem_mri_available: Optional[str] = Field(default=None, description="""Is a Postmortem MRI Available""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:0badd072-0c25-48c6-9357-44d5b5bc0818',
                             'NIMP:PD-YNYNEV39'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'postmortem_mri_available'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'postmortem_mri_available'}}} })
     postmortem_mri_type: Optional[PostmortemMRI] = Field(default=None, description="""The type of postmortem MRI if it is available.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:64a607a9-21e6-4c73-8f2e-2d67b0dc51c8',
                             'NIMP:PD-BEBEEV39'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'postmortem_mri_type'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'postmortem_mri_type'}}} })
     non_brain_specimen_data_available: Optional[str] = Field(default=None, description="""NIMP indicator for availability of non-brain Specimen data""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:e537aacd-040a-423b-9920-9ce5adecf111',
                             'NIMP:PD-JSFGYJ57'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'non_brain_specimen_data_available'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'non_brain_specimen_data_available'}}} })
     neurologic_events_data_available: Optional[str] = Field(default=None, description="""NIMP indicator for availability of perinatal neurologic events data""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:27a7df05-5aec-4060-85b9-2b4658ecd1e8',
                             'NIMP:PD-SLCHJH85'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'neurologic_events_data_available'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'neurologic_events_data_available'}}} })
     infectious_testings_data_available: Optional[str] = Field(default=None, description="""NIMP indicator for availability of infectious Disease/Serology testing data""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:af034af4-9a8d-49ed-a100-1e87ebe962f5',
                             'NIMP:PD-AATACA52'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'infectious_testings_data_available'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'infectious_testings_data_available'}}} })
     tox_screening_data_available: Optional[str] = Field(default=None, description="""NIMP indicator for availability of toxicology screening data""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:3730c096-5524-43f4-a3c0-010ccdf80ae1',
                             'NIMP:PD-LELMNL63'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'tox_screening_data_available'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'tox_screening_data_available'}}} })
     nn_diagnoses_data_available: Optional[str] = Field(default=None, description="""NIMP indicator for availability of non-neuropathological diagnoses data""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:87a4e421-4586-4938-91cc-6ae4e6e95dde',
                             'NIMP:PD-JXZWYJ57'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'nn_diagnoses_data_available'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'nn_diagnoses_data_available'}}} })
     non_brain_tissue_available: Optional[str] = Field(default=None, description="""Are any non-brain tissues available?""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:3a064c96-a956-4cf3-8b77-056b8e392f99',
                             'NIMP:PD-LGLGRZ37'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'non_brain_tissue_available'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'non_brain_tissue_available'}}} })
     tissue_type: Optional[Tissue] = Field(default=None, description="""The type of non-brain tissues""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:33ccbc85-ae35-44d6-8bc6-c2fb91116cf7',
                             'NIMP:PD-JLJLCT43'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'tissue_type'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'tissue_type'}}} })
     clinical_brain_diagnosis: Optional[str] = Field(default=None, description="""The ICD-10 code of the clinical brain diagnosis""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:b7a34c73-ae08-43d3-80d2-d5ef8436e449',
                             'NIMP:PD-CLCLXT26'],
          'in_subset': ['Restricted'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'clinical_brain_diagnosis_code'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'clinical_brain_diagnosis_code'}}} })
     clinical_brain_diagnosis_confidence_level: Optional[ConfidenceLevel] = Field(default=None, description="""The confidence level of the clinical brain diagnosis""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:2e72b4b9-d5fb-4f0d-897c-1f977ed4fabd',
                             'NIMP:PD-LCLCJH33'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'clinical_brain_diagnosis_confidence_level'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'clinical_brain_diagnosis_confidence_level'}}} })
     genetic_diagnosis_code: Optional[str] = Field(default=None, description="""The ICD-10 code of the genetic diagnosis""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:7a7916e0-ff79-4426-b49f-58e2f2a8a367',
                             'NIMP:PD-KRKRBX30'],
          'in_subset': ['Restricted'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'genetic_diagnosis_code'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'genetic_diagnosis_code'}}} })
     genetic_diagnosis_confidence_level: Optional[ConfidenceLevel] = Field(default=None, description="""The confidence level of the genetic diagnosis""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:cb2b0108-8c07-40e8-92a3-b693b6dc64b4',
                             'NIMP:PD-NONORZ37'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'genetic_diagnosis_confidence_level'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'genetic_diagnosis_confidence_level'}}} })
     non_brain_diagnosis_code: Optional[str] = Field(default=None, description="""The ICD-10 code of the non-brain diagnosis""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:65e8824e-01d2-44cf-9f47-9962461a65c9',
                             'NIMP:PD-DNDNPI37'],
          'in_subset': ['Restricted'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'non_brain_diagnosis_code'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'non_brain_diagnosis_code'}}} })
     non_brain_diagnosis_confidence_level: Optional[ConfidenceLevel] = Field(default=None, description="""The confidence level of the non-brain diagnosis""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:2a7ff937-287b-40a3-a1f6-ebf598683774',
                             'NIMP:PD-FGFGUS44'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'non_brain_diagnosis_confidence_level'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'non_brain_diagnosis_confidence_level'}}} })
     birth_weight_lbs: Optional[float] = Field(default=None, description="""Birth weight in pounds""", ge=0, le=100, json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:69d9a60d-32d5-4c3a-a26a-802d8f030c8d',
                             'NIMP:PD-YOVEEV39'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'birth_weight_lbs'}},
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'birth_weight_lbs'}},
          'unit': {'ucum_code': '[lb_av]'}} })
     birth_weight_oz: Optional[float] = Field(default=None, description="""Birth weight in ounces""", ge=0, le=100, json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:b6f30050-f762-4427-8533-31738e737ea2',
                             'NIMP:PD-CANPLC46'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'birth_weight_oz'}},
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'birth_weight_oz'}},
          'unit': {'ucum_code': '[oz_av]'}} })
     apgar_5_minute_score: Optional[int] = Field(default=None, description="""The APGAR Five Minute Score. This is a test given to newborns just after birth""", ge=1, le=10, json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:3a10dabf-39b0-4eb7-8399-85fd325c5646',
                             'NIMP:PD-GLPDCP24'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'apgar_5_minute_score'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'apgar_5_minute_score'}}} })
     apgar_10_minute_score: Optional[int] = Field(default=None, description="""The APGAR Ten Minute Score. This is a test given to newborns just after birth""", ge=1, le=10, json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:09d512b6-7c20-4693-8894-77824ad7f04d',
                             'NIMP:PD-YKRCCP24'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'apgar_10_minute_score'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'apgar_10_minute_score'}}} })
     neuropathology_diagnosis_code: Optional[str] = Field(default=None, description="""The ICD-10 codes for the neuropathological diagnoses""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:784e9cc1-7258-4535-a6d5-f7f9a4c2da4b',
                             'NIMP:PD-NCMNSS51'],
          'in_subset': ['Restricted'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'neuropathology_diagnosis_code'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'neuropathology_diagnosis_code'}}} })
     artifacts_type: Optional[ArtifactType] = Field(default=None, description="""The type of artifacts""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:dc217b9b-ed6b-48e2-93b4-4f648dc395f7',
                             'NIMP:PD-NCNCRC24'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'artifacts_type'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'artifacts_type'}}} })
     developmental_type_specify: Optional[str] = Field(default=None, description="""The developmental neuropathology diagnoses specified""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:bee7d477-2dec-4bf5-878e-a105a0054366',
                             'NIMP:PD-TYTYOO47'],
          'in_subset': ['Restricted'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'developmental_type_specify'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'developmental_type_specify'}}} })
     inflammatory_type_specify: Optional[str] = Field(default=None, description="""The inflammatory neuropathology diagnoses specified""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:616ba8d8-ced3-4f3e-b1ca-7103eb7a2c94',
                             'NIMP:PD-MAMATE52'],
          'in_subset': ['Restricted'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'inflammatory_type_specify'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'inflammatory_type_specify'}}} })
     infectious_type_specify: Optional[str] = Field(default=None, description="""The infectious neuropathology diagnoses specified""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:c73cea5e-44d1-4dd9-b55e-3c6ef5dd2ef2',
                             'NIMP:PD-TYTYTE52'],
          'in_subset': ['Restricted'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'infectious_type_specify'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'infectious_type_specify'}}} })
     traumatic_type: Optional[TraumaticType] = Field(default=None, description="""The type of traumatic neuropathology diagnosis""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:01d2f488-f30b-40e0-913f-c9adc6b39b97',
                             'NIMP:PD-DRDRCT43'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'traumatic_type'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'traumatic_type'}}} })
     vascular_type: Optional[VascularType] = Field(default=None, description="""The type of vascular neuropathology diagnosis""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:5beafa90-ffdb-4cce-a78c-a3b3175210b6',
                             'NIMP:PD-RIRITM45'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'vascular_type'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'vascular_type'}}} })
     neoplastic_type: Optional[NeoplasticType] = Field(default=None, description="""The type of neoplastic neuropathology diagnosis""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:a58be8f4-2756-4a66-9d05-1fbf44b4e810',
                             'NIMP:PD-NENERZ37'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'neoplastic_type'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'neoplastic_type'}}} })
     aging_type: Optional[AgingType] = Field(default=None, description="""The type of aging-related neuropathology diagnosis""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:5e31b66f-131e-4d5e-8760-ddd85f5634d5',
                             'NIMP:PD-WNWNRC24'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'aging_type'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'aging_type'}}} })
     neurodegenerative_type: Optional[NeurodegenerativeType] = Field(default=None, description="""The type of neurodegenerative neuropathology diagnosis""", json_schema_extra = { "linkml_meta": {'domain_of': ['Donor'],
          'exact_mappings': ['bican:b150b62c-a968-4f5d-9aa3-d1ab5207ff83',
                             'NIMP:PD-PEPERZ37'],
-         'local_names': {'NIMP': {'local_name_source': 'NIMP',
-                                  'local_name_value': 'neurodegenerative_type'}}} })
+         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
+                                                'local_name_value': 'Donor'},
+                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
+                                                'local_name_value': 'neurodegenerative_type'}}} })
     in_taxon: Optional[list[str]] = Field(default=None, description="""connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'""", json_schema_extra = { "linkml_meta": {'aliases': ['instance of',
                      'is organism source of gene product',
                      'organism has gene',

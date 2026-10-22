@@ -4,6 +4,7 @@
       "source": "donor.yaml"
    },
    "@context": {
+      "@version": 1.1,
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "AGRKB": "https://www.alliancegenome.org/",
       "AspGD": {
@@ -585,9 +586,6 @@
             "meaning": "@id"
          },
          "@id": "weighed_type"
-      },
-      "donor_nhash_id": {
-         "@id": "donor_nhash_id"
       },
       "equivalent_identifiers": {
          "@type": "xsd:anyURI",

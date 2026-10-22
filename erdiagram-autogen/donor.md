@@ -22,7 +22,6 @@ Donor {
     string death_causes_data_available  
     string developmental_type_specify  
     string donor_labs  
-    string donor_nhash_id  
     string donor_project  
     donor_source donor_source  
     string donor_species  
