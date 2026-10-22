@@ -18197,7 +18197,8 @@ class DigitalAsset(ProvEntity, Dataset):
          'mixins': ['ProvEntity'],
          'slot_usage': {'content_url': {'exact_mappings': ['NIMP:PD-DADALW44'],
                                         'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
-                                                                               'local_name_value': 'LibraryAliquot'},
+                                                                               'local_name_value': 'Library '
+                                                                                                   'Aliquot'},
                                                         'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
                                                                                'local_name_value': 'nemo_aliquot_fastq_public_url'}},
                                         'name': 'content_url'},
@@ -18221,7 +18222,7 @@ class DigitalAsset(ProvEntity, Dataset):
     content_url: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['DigitalAsset'],
          'exact_mappings': ['NIMP:PD-DADALW44'],
          'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
-                                                'local_name_value': 'LibraryAliquot'},
+                                                'local_name_value': 'Library Aliquot'},
                          'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
                                                 'local_name_value': 'nemo_aliquot_fastq_public_url'}},
          'slot_uri': 'schema:url'} })
