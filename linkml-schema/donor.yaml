@@ -3102,11 +3102,11 @@ classes:
     slot_usage:
       name:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: Donor
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
+            local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: donor_local_name
         description: Donor identifier given by the brain bank or the institution that
           holds the brain
@@ -3115,11 +3115,11 @@ classes:
         - NIMP:PD-QLQLFB34
       xref:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: Donor
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
+            local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
             local_name_value: donor_nhash_id
         description: NIMP generated globally unique identifier for a Donor
         exact_mappings:
@@ -3128,12 +3128,12 @@ classes:
     attributes:
       repository:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: repository
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: repository
         description: If the brain is from NBB the NBB repository the brain belongs
           to
         from_schema: https://w3id.org/brain-bican/donor
@@ -3143,12 +3143,12 @@ classes:
         range: repository
       donor_source:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: donor_source
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: donor_source
         description: The source of the donor brain e.g. NBB/UM1 project/other
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3157,12 +3157,12 @@ classes:
         range: donor_source
       ethnicity:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: ethnicity
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: ethnicity
         description: Ethnicity of the donor
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3171,12 +3171,12 @@ classes:
         range: ethnicity
       race:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: race
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: race
         description: Race of the donor
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3185,12 +3185,12 @@ classes:
         range: race
       secondary_race:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: second_race
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: second_race
         description: Second race if available for the donor
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3199,12 +3199,12 @@ classes:
         range: race
       sex:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: sex
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: sex
         description: Donor's sex at birth
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3213,12 +3213,12 @@ classes:
         range: sex
       gender:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: gender
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: gender
         description: Donor's gender at death
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3227,12 +3227,12 @@ classes:
         range: gender
       sex_orientation:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: sex_orientation
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: sex_orientation
         description: Donor's sexual orientation at death
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3241,12 +3241,12 @@ classes:
         range: sexual_orientation
       age_of_death:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: age_of_death
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: age_of_death
         description: Donor's age at death in years
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3259,12 +3259,12 @@ classes:
           ucum_code: a
       birth_country_name:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: birth_country_name
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: birth_country_name
         description: Donor's birth country
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3273,12 +3273,12 @@ classes:
         range: birth_country
       primary_language:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: primary_language
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: primary_language
         description: Donor's primary language
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3287,12 +3287,12 @@ classes:
         range: language
       secondary_language:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: secondary_language
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: secondary_language
         description: Donor's secondary language
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3301,12 +3301,12 @@ classes:
         range: language
       marital_status:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: marital_status
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: marital_status
         description: Donor's marital or partner status
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3315,12 +3315,12 @@ classes:
         range: marital_status
       education_years_number:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: education_years_number
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: education_years_number
         description: Number of years of education the donor had
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3333,12 +3333,12 @@ classes:
           ucum_code: a
       handedness:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: handedness
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: handedness
         description: Donor's handedness
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3347,12 +3347,12 @@ classes:
         range: handedness
       confirmed_hbcac:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: confirmed_hbcac
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: confirmed_hbcac
         description: Confirmation status of meeting inclusion criteria of the Human
           Brain Cell Atlas Collection at NBB
         from_schema: https://w3id.org/brain-bican/donor
@@ -3362,12 +3362,12 @@ classes:
         range: string
       age_at_death_value:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: age_at_death_value
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: age_at_death_value
         description: Donor's age at death value
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3376,12 +3376,12 @@ classes:
         range: float
       age_at_death_unit:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: age_at_death_unit
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: age_at_death_unit
         description: The unit of the value mentioned under "age_at_death_value"
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3390,12 +3390,12 @@ classes:
         range: string
       age_at_death_reference_point:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: age_at_death_reference_point
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: age_at_death_reference_point
         description: Reference point from which the donor's age at death was calculated
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3404,12 +3404,12 @@ classes:
         range: string
       donor_species:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: donor_species
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: donor_species
         description: NCBI Taxonomy code of the donor species
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3418,12 +3418,12 @@ classes:
         range: string
       consent_status:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: consent_status
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: consent_status
         description: Whether the type of consent is open or controlled
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3432,12 +3432,12 @@ classes:
         range: string
       positive_test_result:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: positive_test_result
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: positive_test_result
         description: Whether the donor has had a positive serology test result
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3446,12 +3446,12 @@ classes:
         range: string
       donor_project:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: donor_project
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: donor_project
         description: Donor Project
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3460,12 +3460,12 @@ classes:
         range: string
       donor_labs:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: donor_labs
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: donor_labs
         description: Donor Labs
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3474,12 +3474,12 @@ classes:
         range: string
       death_causes_data_available:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: death_causes_data_available
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: death_causes_data_available
         description: NIMP indicator for availability of the cause of death
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3488,12 +3488,12 @@ classes:
         range: string
       rins_data_available:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: rins_data_available
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: rins_data_available
         description: NIMP indicator for availability of RNA Integrity Number
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3502,12 +3502,12 @@ classes:
         range: string
       rines_data_available:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: rines_data_available
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: rines_data_available
         description: NIMP indicator for availability of RNA Integrity Number equivalent
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3516,12 +3516,12 @@ classes:
         range: string
       hemisphere:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: hemisphere
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: hemisphere
         description: Hemisphere of the brain
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3530,12 +3530,12 @@ classes:
         range: hemisphere
       post_mortem_interval:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: post_mortem_interval
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: post_mortem_interval
         description: Post Mortem Interval in hours
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3548,12 +3548,12 @@ classes:
           ucum_code: h
       left_hemisphere_preparation:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: left_hemisphere_preparation
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: left_hemisphere_preparation
         description: The method of which the left hemisphere of the brain was prepared
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3562,12 +3562,12 @@ classes:
         range: preparation
       left_hemisphere_prep_2:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: left_hemisphere_prep_2
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: left_hemisphere_prep_2
         description: The second method used to prepare the left hemisphere
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3576,12 +3576,12 @@ classes:
         range: string
       right_hemisphere_preparation:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: right_hemisphere_preparation
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: right_hemisphere_preparation
         description: The method of which the right hemisphere of the brain was prepared
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3590,12 +3590,12 @@ classes:
         range: preparation
       right_hemisphere_prep_2:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: right_hemisphere_prep_2
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: right_hemisphere_prep_2
         description: The second method used to prepare the right hemisphere
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3604,12 +3604,12 @@ classes:
         range: string
       rin:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: rin
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: rin
         description: RNA Integrity Number
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3620,12 +3620,12 @@ classes:
         maximum_value: '99.0'
       rine:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: rine
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: rine
         description: RNA Integrity Number equivalent
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3636,12 +3636,12 @@ classes:
         maximum_value: '99.0'
       ph:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: ph
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: ph
         description: pH value
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3652,12 +3652,12 @@ classes:
         maximum_value: '99.0'
       brain_weight:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: brain_weight
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: brain_weight
         description: The weight of the brain in grams
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3670,12 +3670,12 @@ classes:
           ucum_code: g
       weighed_type:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: weighed_type
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: weighed_type
         description: The type of the brain tissue weighed based on the preparation
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3684,12 +3684,12 @@ classes:
         range: brain_tissue_weight_type
       photo_2d_available:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: photo_2d_available
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: photo_2d_available
         description: Is a 2D photograph is available?
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3698,12 +3698,12 @@ classes:
         range: string
       scan_3d_available:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: scan_3d_available
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: scan_3d_available
         description: Is a 3D scan is available?
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3712,12 +3712,12 @@ classes:
         range: string
       antemortem_mri_available:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: antemortem_mri_available
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: antemortem_mri_available
         description: Is an Antemortem MRI is available?
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3726,12 +3726,12 @@ classes:
         range: string
       postmortem_mri_available:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: postmortem_mri_available
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: postmortem_mri_available
         description: Is a Postmortem MRI Available
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3740,12 +3740,12 @@ classes:
         range: string
       postmortem_mri_type:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: postmortem_mri_type
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: postmortem_mri_type
         description: The type of postmortem MRI if it is available.
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3754,12 +3754,12 @@ classes:
         range: postmortem_MRI
       non_brain_specimen_data_available:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: non_brain_specimen_data_available
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: non_brain_specimen_data_available
         description: NIMP indicator for availability of non-brain Specimen data
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3768,12 +3768,12 @@ classes:
         range: string
       neurologic_events_data_available:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: neurologic_events_data_available
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: neurologic_events_data_available
         description: NIMP indicator for availability of perinatal neurologic events
           data
         from_schema: https://w3id.org/brain-bican/donor
@@ -3783,12 +3783,12 @@ classes:
         range: string
       infectious_testings_data_available:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: infectious_testings_data_available
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: infectious_testings_data_available
         description: NIMP indicator for availability of infectious Disease/Serology
           testing data
         from_schema: https://w3id.org/brain-bican/donor
@@ -3798,12 +3798,12 @@ classes:
         range: string
       tox_screening_data_available:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: tox_screening_data_available
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: tox_screening_data_available
         description: NIMP indicator for availability of toxicology screening data
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3812,12 +3812,12 @@ classes:
         range: string
       nn_diagnoses_data_available:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: nn_diagnoses_data_available
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: nn_diagnoses_data_available
         description: NIMP indicator for availability of non-neuropathological diagnoses
           data
         from_schema: https://w3id.org/brain-bican/donor
@@ -3827,12 +3827,12 @@ classes:
         range: string
       non_brain_tissue_available:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: non_brain_tissue_available
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: non_brain_tissue_available
         description: Are any non-brain tissues available?
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3841,12 +3841,12 @@ classes:
         range: string
       tissue_type:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: tissue_type
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: tissue_type
         description: The type of non-brain tissues
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3855,12 +3855,12 @@ classes:
         range: tissue
       clinical_brain_diagnosis:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: clinical_brain_diagnosis_code
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: clinical_brain_diagnosis_code
         description: The ICD-10 code of the clinical brain diagnosis
         in_subset:
         - Restricted
@@ -3871,12 +3871,12 @@ classes:
         range: string
       clinical_brain_diagnosis_confidence_level:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: clinical_brain_diagnosis_confidence_level
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: clinical_brain_diagnosis_confidence_level
         description: The confidence level of the clinical brain diagnosis
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3885,12 +3885,12 @@ classes:
         range: confidence_level
       genetic_diagnosis_code:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: genetic_diagnosis_code
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: genetic_diagnosis_code
         description: The ICD-10 code of the genetic diagnosis
         in_subset:
         - Restricted
@@ -3901,12 +3901,12 @@ classes:
         range: string
       genetic_diagnosis_confidence_level:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: genetic_diagnosis_confidence_level
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: genetic_diagnosis_confidence_level
         description: The confidence level of the genetic diagnosis
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3915,12 +3915,12 @@ classes:
         range: confidence_level
       non_brain_diagnosis_code:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: non_brain_diagnosis_code
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: non_brain_diagnosis_code
         description: The ICD-10 code of the non-brain diagnosis
         in_subset:
         - Restricted
@@ -3931,12 +3931,12 @@ classes:
         range: string
       non_brain_diagnosis_confidence_level:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: non_brain_diagnosis_confidence_level
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: non_brain_diagnosis_confidence_level
         description: The confidence level of the non-brain diagnosis
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3945,12 +3945,12 @@ classes:
         range: confidence_level
       birth_weight_lbs:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: birth_weight_lbs
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: birth_weight_lbs
         description: Birth weight in pounds
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3963,12 +3963,12 @@ classes:
           ucum_code: '[lb_av]'
       birth_weight_oz:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: birth_weight_oz
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: birth_weight_oz
         description: Birth weight in ounces
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -3981,12 +3981,12 @@ classes:
           ucum_code: '[oz_av]'
       apgar_5_minute_score:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: apgar_5_minute_score
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: apgar_5_minute_score
         description: The APGAR Five Minute Score. This is a test given to newborns
           just after birth
         from_schema: https://w3id.org/brain-bican/donor
@@ -3998,12 +3998,12 @@ classes:
         maximum_value: '10.0'
       apgar_10_minute_score:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: apgar_10_minute_score
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: apgar_10_minute_score
         description: The APGAR Ten Minute Score. This is a test given to newborns
           just after birth
         from_schema: https://w3id.org/brain-bican/donor
@@ -4015,12 +4015,12 @@ classes:
         maximum_value: '10.0'
       neuropathology_diagnosis_code:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: neuropathology_diagnosis_code
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: neuropathology_diagnosis_code
         description: The ICD-10 codes for the neuropathological diagnoses
         in_subset:
         - Restricted
@@ -4031,12 +4031,12 @@ classes:
         range: string
       artifacts_type:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: artifacts_type
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: artifacts_type
         description: The type of artifacts
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -4045,12 +4045,12 @@ classes:
         range: artifact_type
       developmental_type_specify:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: developmental_type_specify
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: developmental_type_specify
         description: The developmental neuropathology diagnoses specified
         in_subset:
         - Restricted
@@ -4061,12 +4061,12 @@ classes:
         range: string
       inflammatory_type_specify:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: inflammatory_type_specify
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: inflammatory_type_specify
         description: The inflammatory neuropathology diagnoses specified
         in_subset:
         - Restricted
@@ -4077,12 +4077,12 @@ classes:
         range: string
       infectious_type_specify:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: infectious_type_specify
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: infectious_type_specify
         description: The infectious neuropathology diagnoses specified
         in_subset:
         - Restricted
@@ -4093,12 +4093,12 @@ classes:
         range: string
       traumatic_type:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: traumatic_type
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: traumatic_type
         description: The type of traumatic neuropathology diagnosis
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -4107,12 +4107,12 @@ classes:
         range: traumatic_type
       vascular_type:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: vascular_type
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: vascular_type
         description: The type of vascular neuropathology diagnosis
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -4121,12 +4121,12 @@ classes:
         range: vascular_type
       neoplastic_type:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: neoplastic_type
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: neoplastic_type
         description: The type of neoplastic neuropathology diagnosis
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -4135,12 +4135,12 @@ classes:
         range: neoplastic_type
       aging_type:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: aging_type
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: aging_type
         description: The type of aging-related neuropathology diagnosis
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
@@ -4149,12 +4149,12 @@ classes:
         range: aging_type
       neurodegenerative_type:
         local_names:
-          NIMP_variable_name:
-            local_name_source: NIMP_variable_name
-            local_name_value: neurodegenerative_type
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
             local_name_value: Donor
+          NIMP_variable_name:
+            local_name_source: NIMP_variable_name
+            local_name_value: neurodegenerative_type
         description: The type of neurodegenerative neuropathology diagnosis
         from_schema: https://w3id.org/brain-bican/donor
         exact_mappings:
