@@ -1,5 +1,5 @@
 SubGroup/LinkML Class Name	LinkML Slot or Attribute Name	Subsets	Definition	Data Type	GIVEN Data Type	BICAN UUID	Aliases	Unit	Min Value	Max Value	Nullable	NIMP Terminology NHash	NIMP Local Variable Name	Local Variable Name Source	NIMP Resource Subgroup
-> class	attribute	in_subset	description	range	ignore	exact_mappings: {curie_prefix: bican}	ignore	unit: {inner_key: descriptive_name}	minimum_value	maximum_value	ignore	exact_mappings: {curie_prefix: NIMP}	local_names	local_names	ignore
+> class	attribute	in_subset	description	range	ignore	exact_mappings: {curie_prefix: bican}	ignore	unit: {inner_key: ucum_code}	minimum_value	maximum_value	ignore	exact_mappings: {curie_prefix: NIMP}	local_names	local_names	ignore
 >		internal_separator: "|"											inner_key: local_name_value	inner_key: local_name_source	
 Donor	repository		If the brain is from NBB the NBB repository the brain belongs to	repository	repository	408682ed-0e27-41e2-b9fa-f05674366d6e	Repository				TRUE	PD-NYNYAR61	repository	NIMP	General Subject Fields
 Donor	donor_source		The source of the donor brain e.g. NBB/UM1 project/other	donor_source	donor_source	0d0cf732-0f76-409d-9a73-7a96d829d3d3	Donor Source				FALSE	PD-TPTPPS27	donor_source	NIMP	General Subject Fields
@@ -9,12 +9,12 @@ Donor	secondary_race		Second race if available for the donor	race	race	192fe5b1-
 Donor	sex		Donor's sex at birth	sex	sex	c819b9d5-2fde-40b2-bf0d-e07b56f96ac9	Sex at Birth				TRUE	PD-LXUBTM45	sex	NIMP	General Subject Fields
 Donor	gender		Donor's gender at death	gender	gender	1c71e775-65aa-442b-a392-1cf9a44e326e	Gender at Time of Death				TRUE	PD-KLKLJH33	gender	NIMP	General Subject Fields
 Donor	sex_orientation		Donor's sexual orientation at death	sexual_orientation	sexual_orientation	e47e8a2f-72fb-4036-b288-f4580dc2aa4e	Sexual Orientation at Time of Death				TRUE	PD-HKHGTM45	sex_orientation	NIMP	General Subject Fields
-Donor	age_of_death		Donor's age at death in years	integer	integer	14eb923a-161d-45e2-889d-81fea7b632b6	Age Value (Years)	year	0	200	TRUE	PD-FTEMQD38	age_of_death	NIMP	General Subject Fields
+Donor	age_of_death		Donor's age at death in years	integer	integer	14eb923a-161d-45e2-889d-81fea7b632b6	Age Value (Years)	a	0	200	TRUE	PD-FTEMQD38	age_of_death	NIMP	General Subject Fields
 Donor	birth_country_name		Donor's birth country	birth_country	birth_country	9c27fd29-b512-492f-a32f-b615c7585ff7	Birth Country Name				TRUE	PD-SQSQDF25	birth_country_name	NIMP	General Subject Fields
 Donor	primary_language		Donor's primary language	language	language	abe9edc7-96ca-4c6a-a1ed-c008548cc373	Primary Language Code				TRUE	PD-ATEVEV39	primary_language	NIMP	General Subject Fields
 Donor	secondary_language		Donor's secondary language	language	language	37b7495f-b010-4d1c-ae32-9cb19c680950	Secondary Language Code				TRUE	PD-OBIUQB42	secondary_language	NIMP	General Subject Fields
 Donor	marital_status		Donor's marital or partner status	marital_status	marital_status	4f0e41c9-dd15-4a37-ae6b-11b7131d7cba	Marital or Partner Status ATOD				TRUE	PD-JCYJCN35	marital_status	NIMP	General Subject Fields
-Donor	education_years_number		Number of years of education the donor had	integer	integer	add3f7fe-ae60-4cc1-bb2e-72bbbe9a1a7d	Education Years Number	year	0	30	TRUE	PD-SJSJRC41	education_years_number	NIMP	General Subject Fields
+Donor	education_years_number		Number of years of education the donor had	integer	integer	add3f7fe-ae60-4cc1-bb2e-72bbbe9a1a7d	Education Years Number	a	0	30	TRUE	PD-SJSJRC41	education_years_number	NIMP	General Subject Fields
 Donor	handedness		Donor's handedness	handedness	handedness	82a4087c-d0e3-48ca-8bea-a81eefc683a0	Handedness				TRUE	PD-WGWGTM45	handedness	NIMP	General Subject Fields
 Donor	confirmed_hbcac		Confirmation status of meeting inclusion criteria of the Human Brain Cell Atlas Collection at NBB	string	categorical	b6cdddf7-6f0b-4855-a0fa-16c2ab29f219	HBCAC Confirmation Status				TRUE	PD-YBLATM45	confirmed_hbcac	NIMP	General Subject Fields
 Donor	age_at_death_value		Donor's age at death value	float	float	57e24d3c-c9c7-4ef3-9809-a35802d563ec	Age at Death Value				TRUE	PD-FTFTCP24	age_at_death_value	NIMP	General Subject Fields
@@ -29,7 +29,7 @@ Donor	death_causes_data_available		NIMP indicator for availability of the cause 
 Donor	rins_data_available		NIMP indicator for availability of RNA Integrity Number	string	categorical	d05825e6-b785-42a3-9bdf-c34b30e698b8	Rin Data Availability				TRUE	PD-JRJCAR61	rins_data_available	NIMP	General Subject Fields
 Donor	rines_data_available		NIMP indicator for availability of RNA Integrity Number equivalent	string	categorical	28a5e912-570b-4a7f-87f2-36bd5db92090	Rine Data Availability				TRUE	PD-CJRWAR61	rines_data_available	NIMP	General Subject Fields
 Donor	hemisphere		Hemisphere of the brain	hemisphere	hemisphere	68b7a28b-d695-4ec9-800b-6a27ca206081	Hemisphere				TRUE	PD-JRJRFQ31	hemisphere	NIMP	General Specimen Data
-Donor	post_mortem_interval		Post Mortem Interval in hours	float	float	6fd5c5ac-b128-4a4a-ae98-09eaeba22f92	Post Mortem Interval	hour	0	8888	TRUE	PD-CHCHLC46	post_mortem_interval	NIMP	General Specimen Data
+Donor	post_mortem_interval		Post Mortem Interval in hours	float	float	6fd5c5ac-b128-4a4a-ae98-09eaeba22f92	Post Mortem Interval	h	0	8888	TRUE	PD-CHCHLC46	post_mortem_interval	NIMP	General Specimen Data
 Donor	left_hemisphere_preparation		The method of which the left hemisphere of the brain was prepared	preparation	preparation	57d5378f-a451-4bf5-a472-cc88d0d29586	Left Hemisphere Preparation				TRUE	PD-JSJSUS44	left_hemisphere_preparation	NIMP	General Specimen Data
 Donor	left_hemisphere_prep_2		The second method used to prepare the left hemisphere	string	categorical	d76753fb-b30b-419b-b853-d341510d8034	Left Hemisphere Preparation (Second Method)				TRUE	PD-ZMPWIB34	left_hemisphere_prep_2	NIMP	General Specimen Data
 Donor	right_hemisphere_preparation		The method of which the right hemisphere of the brain was prepared	preparation	preparation	477c2600-f979-43c5-9c61-ab61fd771584	Right Hemisphere Preparation				TRUE	PD-MLMLPG50	right_hemisphere_preparation	NIMP	General Specimen Data
@@ -37,7 +37,7 @@ Donor	right_hemisphere_prep_2		The second method used to prepare the right hemis
 Donor	rin		RNA Integrity Number	float	float	cd472c0d-0b64-45c9-a38e-e54d15cea953	RIN		0	99	TRUE	PD-LPLPSK50	rin	NIMP	General Specimen Data
 Donor	rine		RNA Integrity Number equivalent	float	float	1210148d-d8fb-45aa-b51a-4b19b6d09bec	RINe		0	99	TRUE	PD-XCXCRC41	rine	NIMP	General Specimen Data
 Donor	ph		pH value	float	float	9e67af02-c081-43e1-a42c-bf9603cae616	pH		0	99	TRUE	PD-FXFXDK42	ph	NIMP	General Specimen Data
-Donor	brain_weight		The weight of the brain in grams	integer	integer	546fc32d-f8a2-4c00-924a-8c4730f11f51	Brain Weight Measurement	gram	0	9998	TRUE	PD-WUASWQ40	brain_weight	NIMP	General Specimen Data
+Donor	brain_weight		The weight of the brain in grams	integer	integer	546fc32d-f8a2-4c00-924a-8c4730f11f51	Brain Weight Measurement	g	0	9998	TRUE	PD-WUASWQ40	brain_weight	NIMP	General Specimen Data
 Donor	weighed_type		The type of the brain tissue weighed based on the preparation	brain_tissue_weight_type	brain_tissue_weight_type	a7463e3f-0c61-4718-a7d0-60fd2116908a	Brain Tissue Weighed Type				TRUE	PD-FGHMDF25	weighed_type	NIMP	General Specimen Data
 Donor	photo_2d_available		Is a 2D photograph is available?	string	categorical	611beda8-1ac6-4183-a284-04a30bb474f3	Photo 2d Available				TRUE	PD-NINIEV39	photo_2d_available	NIMP	General Specimen Data
 Donor	scan_3d_available		Is a 3D scan is available?	string	categorical	658e8a80-e232-438f-8c1e-d5f38724dc55	Scan 3d Available				TRUE	PD-RBRBQB42	scan_3d_available	NIMP	General Specimen Data
@@ -57,8 +57,8 @@ Donor	genetic_diagnosis_code	Restricted	The ICD-10 code of the genetic diagnosis
 Donor	genetic_diagnosis_confidence_level		The confidence level of the genetic diagnosis	confidence_level	confidence_level	cb2b0108-8c07-40e8-92a3-b693b6dc64b4	Genetic Diagnosis Confidence Level				TRUE	PD-NONORZ37	genetic_diagnosis_confidence_level	NIMP	Diagnoses
 Donor	non_brain_diagnosis_code	Restricted	The ICD-10 code of the non-brain diagnosis	string	string	65e8824e-01d2-44cf-9f47-9962461a65c9	Non-Brain Diagnosis Code				TRUE	PD-DNDNPI37	non_brain_diagnosis_code	NIMP	Diagnoses
 Donor	non_brain_diagnosis_confidence_level		The confidence level of the non-brain diagnosis	confidence_level	confidence_level	2a7ff937-287b-40a3-a1f6-ebf598683774	Non-Brain Diagnosis Confidence Level				TRUE	PD-FGFGUS44	non_brain_diagnosis_confidence_level	NIMP	Diagnoses
-Donor	birth_weight_lbs		Birth weight in pounds	float	float	69d9a60d-32d5-4c3a-a26a-802d8f030c8d	Birth Weight Value (Lbs)	pound	0	100	TRUE	PD-YOVEEV39	birth_weight_lbs	NIMP	Infant Medical History
-Donor	birth_weight_oz		Birth weight in ounces	float	float	b6f30050-f762-4427-8533-31738e737ea2	Birth Weight Value (Oz)	ounce	0	100	TRUE	PD-CANPLC46	birth_weight_oz	NIMP	Infant Medical History
+Donor	birth_weight_lbs		Birth weight in pounds	float	float	69d9a60d-32d5-4c3a-a26a-802d8f030c8d	Birth Weight Value (Lbs)	[lb_av]	0	100	TRUE	PD-YOVEEV39	birth_weight_lbs	NIMP	Infant Medical History
+Donor	birth_weight_oz		Birth weight in ounces	float	float	b6f30050-f762-4427-8533-31738e737ea2	Birth Weight Value (Oz)	[oz_av]	0	100	TRUE	PD-CANPLC46	birth_weight_oz	NIMP	Infant Medical History
 Donor	apgar_5_minute_score		The APGAR Five Minute Score. This is a test given to newborns just after birth	integer	integer	3a10dabf-39b0-4eb7-8399-85fd325c5646	Apgar Five Minute Score		1	10	TRUE	PD-GLPDCP24	apgar_5_minute_score	NIMP	Infant Medical History
 Donor	apgar_10_minute_score		The APGAR Ten Minute Score. This is a test given to newborns just after birth	integer	integer	09d512b6-7c20-4693-8894-77824ad7f04d	Apgar Ten Minute Score		1	10	TRUE	PD-YKRCCP24	apgar_10_minute_score	NIMP	Infant Medical History
 Donor	neuropathology_diagnosis_code	Restricted	The ICD-10 codes for the neuropathological diagnoses	string	string	784e9cc1-7258-4535-a6d5-f7f9a4c2da4b	Neuropathology Diagnosis ICD-10 Codes				TRUE	PD-NCMNSS51	neuropathology_diagnosis_code	NIMP	Neuropathological Diagnoses

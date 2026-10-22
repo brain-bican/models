@@ -15,6 +15,7 @@ prefixes:
   schema: http://schema.org/
   ncbi: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi
   NIMP: http://example.org/NIMP/
+  qudr: http://qudt.org
 default_prefix: bican
 default_range: string
 subsets:
@@ -3231,7 +3232,7 @@ classes:
         minimum_value: '0.0'
         maximum_value: '200.0'
         unit:
-          descriptive_name: year
+          ucum_code: a
       birth_country_name:
         local_names:
           NIMP:
@@ -3290,7 +3291,7 @@ classes:
         minimum_value: '0.0'
         maximum_value: '30.0'
         unit:
-          descriptive_name: year
+          ucum_code: a
       handedness:
         local_names:
           NIMP:
@@ -3460,7 +3461,7 @@ classes:
         minimum_value: '0.0'
         maximum_value: '8888.0'
         unit:
-          descriptive_name: hour
+          ucum_code: h
       left_hemisphere_preparation:
         local_names:
           NIMP:
@@ -3558,7 +3559,7 @@ classes:
         minimum_value: '0.0'
         maximum_value: '9998.0'
         unit:
-          descriptive_name: gram
+          ucum_code: g
       weighed_type:
         local_names:
           NIMP:
@@ -3791,7 +3792,7 @@ classes:
         minimum_value: '0.0'
         maximum_value: '100.0'
         unit:
-          descriptive_name: pound
+          ucum_code: '[lb_av]'
       birth_weight_oz:
         local_names:
           NIMP:
@@ -3806,7 +3807,7 @@ classes:
         minimum_value: '0.0'
         maximum_value: '100.0'
         unit:
-          descriptive_name: ounce
+          ucum_code: '[oz_av]'
       apgar_5_minute_score:
         local_names:
           NIMP:
