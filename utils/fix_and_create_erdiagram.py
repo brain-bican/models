@@ -126,3 +126,16 @@ cell_taxonomy_diagram = (
     / "cell_taxonomy.md"
 )
 fix_diagram(cell_taxonomy_yaml, cell_taxonomy_diagram)
+
+# 5. FIX DONOR DIAGRAM
+donor_yaml = (
+    pathlib.Path(__file__).parent.resolve()
+    / "../linkml-schema"
+    / "donor.yaml"
+)
+donor_diagram = (
+    pathlib.Path(__file__).parent.resolve()
+    / "../erdiagram-autogen"
+    / "donor.md"
+)
+fix_diagram(donor_yaml, donor_diagram)
