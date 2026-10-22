@@ -13426,9 +13426,9 @@ class LibraryAliquot(ProvEntity, MaterialSample):
                                              'range': 'Library'},
                         'xref': {'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
                                                                         'local_name_value': 'Library '
-                                                                                            'Pool'},
+                                                                                            'Aliquot'},
                                                  'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
-                                                                        'local_name_value': 'library_pool_nhash_id'}},
+                                                                        'local_name_value': 'library_aliquot_nhash_id'}},
                                  'name': 'xref'}}})
 
     was_derived_from: Optional[str] = Field(default=None, description="""The input library from which the library aliquot was derived from.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity',
@@ -13511,9 +13511,9 @@ class LibraryAliquot(ProvEntity, MaterialSample):
                        'DissectionRoiPolygon'],
          'in_subset': ['translator_minimal'],
          'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
-                                                'local_name_value': 'Library Pool'},
+                                                'local_name_value': 'Library Aliquot'},
                          'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
-                                                'local_name_value': 'library_pool_nhash_id'}},
+                                                'local_name_value': 'library_aliquot_nhash_id'}},
          'narrow_mappings': ['gff3:Dbxref', 'gpi:DB_Xrefs'],
          'slot_uri': 'biolink:xref'} })
     fastq_file_alignment_status: Optional[FastqFileAlignmentStatus] = Field(default=None, description="""The FASTQ file alignment status as reported by the Library Lab""", json_schema_extra = { "linkml_meta": {'domain_of': ['LibraryAliquot'],
@@ -13521,7 +13521,7 @@ class LibraryAliquot(ProvEntity, MaterialSample):
                             'NIMP:PD-KRKRCT43'],
          'in_subset': ['alignment'],
          'local_names': {'NIMP_resource_type': {'local_name_source': 'NIMP_resource_type',
-                                                'local_name_value': 'LibraryAliquot'},
+                                                'local_name_value': 'Library Aliquot'},
                          'NIMP_variable_name': {'local_name_source': 'NIMP_variable_name',
                                                 'local_name_value': 'fastq_file_alignment_status'}}} })
     was_generated_by: Optional[str] = Field(default=None, description="""Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProvEntity',
