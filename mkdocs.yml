@@ -15,6 +15,7 @@ nav:
   - Overview: index.md
   - Models:
     - Library Generation: index_library_generation.md
+    - Donor: index_donor.md
     - Cell Taxonomy: index_cell_taxonomy.md
     - Genome Annotation: index_genome_annotation.md
     - Anatomical Structure: index_anatomical_structure.md
@@ -23,6 +24,7 @@ nav:
     
   - Visualizations: 
     - Library Generation: library_generation.md
+    - Donor: donor.md
     - Cell Taxonomy: cell_taxonomy.md
     - Genome Annotation: genome_annotation.md
     - Anatomical Structure: anatomical_structure.md
