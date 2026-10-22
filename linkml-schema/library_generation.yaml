@@ -2312,16 +2312,16 @@ classes:
         local_names:
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
-            local_name_value: Library Pool
+            local_name_value: Library Aliquot
           NIMP_variable_name:
             local_name_source: NIMP_variable_name
-            local_name_value: library_pool_nhash_id
+            local_name_value: library_aliquot_nhash_id
     attributes:
       fastq_file_alignment_status:
         local_names:
           NIMP_resource_type:
             local_name_source: NIMP_resource_type
-            local_name_value: LibraryAliquot
+            local_name_value: Library Aliquot
           NIMP_variable_name:
             local_name_source: NIMP_variable_name
             local_name_value: fastq_file_alignment_status
