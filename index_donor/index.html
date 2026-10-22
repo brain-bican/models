@@ -1,0 +1,1907 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../index_library_generation/">
+      
+      
+        <link rel="next" href="../index_cell_taxonomy/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Donor - BICAN Knowledge Graph Models Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#donor-schema" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="BICAN Knowledge Graph Models Documentation" class="md-header__button md-logo" aria-label="BICAN Knowledge Graph Models Documentation" data-md-component="logo">
+      
+  <img src="../images/bican_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BICAN Knowledge Graph Models Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Donor
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/brain-bican/models" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="BICAN Knowledge Graph Models Documentation" class="md-nav__button md-logo" aria-label="BICAN Knowledge Graph Models Documentation" data-md-component="logo">
+      
+  <img src="../images/bican_logo.png" alt="logo">
+
+    </a>
+    BICAN Knowledge Graph Models Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/brain-bican/models" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_library_generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Library Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Donor
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Donor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subsets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subsets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_cell_taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cell Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_genome_annotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Genome Annotation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_anatomical_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anatomical Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_bke_taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BKE Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index_assertion_evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assertion Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visualizations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Visualizations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../library_generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Library Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../donor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Donor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cell_taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cell Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../genome_annotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Genome Annotation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anatomical_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anatomical Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bke_taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BKE Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assertion_evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assertion Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subsets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subsets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="donor-schema">Donor Schema</h1>
+<p>The BICAN Donor Metadata schema specifies the metadata relating to donors in BICAN. These metadata reflect the metadata needed to accurately track donors and related entities from the brain banks through the specimen portal.</p>
+<p>URI: https://w3id.org/brain-bican/donor</p>
+<p>Name: Donor</p>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Annotation/">Annotation</a></td>
+<td>Biolink Model root class for entity annotations</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../QuantityValue/">QuantityValue</a></td>
+<td>A value of an attribute that is quantitative and measurable, expressed as a c...</td>
+</tr>
+<tr>
+<td><a href="../ChemicalEntityOrGeneOrGeneProduct/">ChemicalEntityOrGeneOrGeneProduct</a></td>
+<td>A union of chemical entities and children, and gene or gene product</td>
+</tr>
+<tr>
+<td><a href="../Entity/">Entity</a></td>
+<td>Root Biolink Model class for all things and informational relationships, real...</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../NamedThing/">NamedThing</a></td>
+<td>a databased entity or concept/class</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Activity/">Activity</a></td>
+<td>An activity is something that occurs over a period of time and acts upon or w...</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Attribute/">Attribute</a></td>
+<td>A property or characteristic of an entity</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../BiologicalEntity/">BiologicalEntity</a></td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Gene/">Gene</a></td>
+<td>A region (or regions) that includes all of the sequence elements necessary to...</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Genome/">Genome</a></td>
+<td>A genome is the sum of genetic material within a cell or virion</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../InformationContentEntity/">InformationContentEntity</a></td>
+<td>a piece of information that typically describes some topic of discourse or is...</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Dataset/">Dataset</a></td>
+<td>an item that refers to a collection of data from a data source</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../StudyResult/">StudyResult</a></td>
+<td>A collection of data items from a study that are about a particular study sub...</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../RelativeFrequencyAnalysisResult/">RelativeFrequencyAnalysisResult</a></td>
+<td>A result of a relative frequency analysis</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../OrganismTaxon/">OrganismTaxon</a></td>
+<td>A classification of a set of organisms</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../PhysicalEntity/">PhysicalEntity</a></td>
+<td>An entity that has material reality (a</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Donor/">Donor</a></td>
+<td>A person or organism that is the source of a biological sample for scientific...</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../MaterialSample/">MaterialSample</a></td>
+<td>A sample is a limited quantity of something (e</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Procedure/">Procedure</a></td>
+<td>A series of actions conducted in a certain order or manner</td>
+</tr>
+<tr>
+<td><a href="../GenomicEntity/">GenomicEntity</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MacromolecularMachineMixin/">MacromolecularMachineMixin</a></td>
+<td>A union of gene locus, gene product, and macromolecular complex</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../GeneOrGeneProduct/">GeneOrGeneProduct</a></td>
+<td>A union of gene loci or gene products</td>
+</tr>
+<tr>
+<td><a href="../OntologyClass/">OntologyClass</a></td>
+<td>a concept or class in an ontology, vocabulary or thesaurus</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../TaxonomicRank/">TaxonomicRank</a></td>
+<td>A descriptor for the rank within a taxonomic classification</td>
+</tr>
+<tr>
+<td><a href="../PhysicalEssenceOrOccurrent/">PhysicalEssenceOrOccurrent</a></td>
+<td>Either a physical or processual entity</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Occurrent/">Occurrent</a></td>
+<td>A processual entity</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../ActivityAndBehavior/">ActivityAndBehavior</a></td>
+<td>Activity or behavior of any independent integral living, organization or mech...</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../PhysicalEssence/">PhysicalEssence</a></td>
+<td>Semantic mixin concept</td>
+</tr>
+<tr>
+<td><a href="../ProvActivity/">ProvActivity</a></td>
+<td>An activity is something that occurs over a period of time and acts upon or w...</td>
+</tr>
+<tr>
+<td><a href="../ProvEntity/">ProvEntity</a></td>
+<td>An entity is a physical, digital, conceptual, or other kind of thing with som...</td>
+</tr>
+<tr>
+<td><a href="../SubjectOfInvestigation/">SubjectOfInvestigation</a></td>
+<td>An entity that has the role of being studied in an investigation, study, or e...</td>
+</tr>
+<tr>
+<td><a href="../ThingWithTaxon/">ThingWithTaxon</a></td>
+<td>A mixin that can be used on any entity that can be taxonomically classified</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../age_at_death_reference_point/">age_at_death_reference_point</a></td>
+<td>Reference point from which the donor's age at death was calculated</td>
+</tr>
+<tr>
+<td><a href="../age_at_death_unit/">age_at_death_unit</a></td>
+<td>The unit of the value mentioned under "age_at_death_value"</td>
+</tr>
+<tr>
+<td><a href="../age_at_death_value/">age_at_death_value</a></td>
+<td>Donor's age at death value</td>
+</tr>
+<tr>
+<td><a href="../age_of_death/">age_of_death</a></td>
+<td>Donor's age at death in years</td>
+</tr>
+<tr>
+<td><a href="../aging_type/">aging_type</a></td>
+<td>The type of aging-related neuropathology diagnosis</td>
+</tr>
+<tr>
+<td><a href="../antemortem_mri_available/">antemortem_mri_available</a></td>
+<td>Is an Antemortem MRI is available?</td>
+</tr>
+<tr>
+<td><a href="../apgar_10_minute_score/">apgar_10_minute_score</a></td>
+<td>The APGAR Ten Minute Score</td>
+</tr>
+<tr>
+<td><a href="../apgar_5_minute_score/">apgar_5_minute_score</a></td>
+<td>The APGAR Five Minute Score</td>
+</tr>
+<tr>
+<td><a href="../artifacts_type/">artifacts_type</a></td>
+<td>The type of artifacts</td>
+</tr>
+<tr>
+<td><a href="../attribute_name/">attribute_name</a></td>
+<td>The human-readable 'attribute name' can be set to a string which reflects its...</td>
+</tr>
+<tr>
+<td><a href="../birth_country_name/">birth_country_name</a></td>
+<td>Donor's birth country</td>
+</tr>
+<tr>
+<td><a href="../birth_weight_lbs/">birth_weight_lbs</a></td>
+<td>Birth weight in pounds</td>
+</tr>
+<tr>
+<td><a href="../birth_weight_oz/">birth_weight_oz</a></td>
+<td>Birth weight in ounces</td>
+</tr>
+<tr>
+<td><a href="../brain_weight/">brain_weight</a></td>
+<td>The weight of the brain in grams</td>
+</tr>
+<tr>
+<td><a href="../category/">category</a></td>
+<td>Name of the high level ontology class in which this entity is categorized</td>
+</tr>
+<tr>
+<td><a href="../chembl_chirality/">chembl_chirality</a></td>
+<td>Tern indicating the chirality of the chemical entity</td>
+</tr>
+<tr>
+<td><a href="../chembl_drug_warning/">chembl_drug_warning</a></td>
+<td>Text describing warnings for use of chemicals as therapeutics</td>
+</tr>
+<tr>
+<td><a href="../chembl_prodrug/">chembl_prodrug</a></td>
+<td>Flag indicating if a drug is a prodrug that is active only after being metabo...</td>
+</tr>
+<tr>
+<td><a href="../clinical_brain_diagnosis/">clinical_brain_diagnosis</a></td>
+<td>The ICD-10 code of the clinical brain diagnosis</td>
+</tr>
+<tr>
+<td><a href="../clinical_brain_diagnosis_confidence_level/">clinical_brain_diagnosis_confidence_level</a></td>
+<td>The confidence level of the clinical brain diagnosis</td>
+</tr>
+<tr>
+<td><a href="../confirmed_hbcac/">confirmed_hbcac</a></td>
+<td>Confirmation status of meeting inclusion criteria of the Human Brain Cell Atl...</td>
+</tr>
+<tr>
+<td><a href="../consent_status/">consent_status</a></td>
+<td>Whether the type of consent is open or controlled</td>
+</tr>
+<tr>
+<td><a href="../creation_date/">creation_date</a></td>
+<td>date on which an entity was created</td>
+</tr>
+<tr>
+<td><a href="../death_causes_data_available/">death_causes_data_available</a></td>
+<td>NIMP indicator for availability of the cause of death</td>
+</tr>
+<tr>
+<td><a href="../deprecated/">deprecated</a></td>
+<td>A boolean flag indicating that an entity is no longer considered current or v...</td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>a human-readable description of an entity</td>
+</tr>
+<tr>
+<td><a href="../developmental_type_specify/">developmental_type_specify</a></td>
+<td>The developmental neuropathology diagnoses specified</td>
+</tr>
+<tr>
+<td><a href="../donor_labs/">donor_labs</a></td>
+<td>Donor Labs</td>
+</tr>
+<tr>
+<td><a href="../donor_project/">donor_project</a></td>
+<td>Donor Project</td>
+</tr>
+<tr>
+<td><a href="../donor_source/">donor_source</a></td>
+<td>The source of the donor brain e</td>
+</tr>
+<tr>
+<td><a href="../donor_species/">donor_species</a></td>
+<td>NCBI Taxonomy code of the donor species</td>
+</tr>
+<tr>
+<td><a href="../education_years_number/">education_years_number</a></td>
+<td>Number of years of education the donor had</td>
+</tr>
+<tr>
+<td><a href="../equivalent_identifiers/">equivalent_identifiers</a></td>
+<td>A set of identifiers that are considered equivalent to the primary identifier...</td>
+</tr>
+<tr>
+<td><a href="../ethnicity/">ethnicity</a></td>
+<td>Ethnicity of the donor</td>
+</tr>
+<tr>
+<td><a href="../exact_match/">exact_match</a></td>
+<td>An external concept that is interchangeable with this entity</td>
+</tr>
+<tr>
+<td><a href="../format/">format</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../full_name/">full_name</a></td>
+<td>a long-form human readable name for a thing</td>
+</tr>
+<tr>
+<td><a href="../gender/">gender</a></td>
+<td>Donor's gender at death</td>
+</tr>
+<tr>
+<td><a href="../genetic_diagnosis_code/">genetic_diagnosis_code</a></td>
+<td>The ICD-10 code of the genetic diagnosis</td>
+</tr>
+<tr>
+<td><a href="../genetic_diagnosis_confidence_level/">genetic_diagnosis_confidence_level</a></td>
+<td>The confidence level of the genetic diagnosis</td>
+</tr>
+<tr>
+<td><a href="../handedness/">handedness</a></td>
+<td>Donor's handedness</td>
+</tr>
+<tr>
+<td><a href="../has_attribute/">has_attribute</a></td>
+<td>connects any entity to an attribute</td>
+</tr>
+<tr>
+<td><a href="../has_attribute_type/">has_attribute_type</a></td>
+<td>connects an attribute to a class that describes it</td>
+</tr>
+<tr>
+<td><a href="../has_biological_sequence/">has_biological_sequence</a></td>
+<td>connects a genomic feature to its sequence</td>
+</tr>
+<tr>
+<td><a href="../has_numeric_value/">has_numeric_value</a></td>
+<td>connects a quantity value to a number</td>
+</tr>
+<tr>
+<td><a href="../has_qualitative_value/">has_qualitative_value</a></td>
+<td>connects an attribute to a value</td>
+</tr>
+<tr>
+<td><a href="../has_quantitative_value/">has_quantitative_value</a></td>
+<td>connects an attribute to a value</td>
+</tr>
+<tr>
+<td><a href="../has_taxonomic_rank/">has_taxonomic_rank</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../has_unit/">has_unit</a></td>
+<td>connects a quantity value to a unit</td>
+</tr>
+<tr>
+<td><a href="../hemisphere/">hemisphere</a></td>
+<td>Hemisphere of the brain</td>
+</tr>
+<tr>
+<td><a href="../id/">id</a></td>
+<td>A unique identifier for an entity</td>
+</tr>
+<tr>
+<td><a href="../in_taxon/">in_taxon</a></td>
+<td>connects an entity to its taxonomic classification</td>
+</tr>
+<tr>
+<td><a href="../in_taxon_label/">in_taxon_label</a></td>
+<td>The human readable scientific name for the taxon of the entity</td>
+</tr>
+<tr>
+<td><a href="../infectious_testings_data_available/">infectious_testings_data_available</a></td>
+<td>NIMP indicator for availability of infectious Disease/Serology testing data</td>
+</tr>
+<tr>
+<td><a href="../infectious_type_specify/">infectious_type_specify</a></td>
+<td>The infectious neuropathology diagnoses specified</td>
+</tr>
+<tr>
+<td><a href="../inflammatory_type_specify/">inflammatory_type_specify</a></td>
+<td>The inflammatory neuropathology diagnoses specified</td>
+</tr>
+<tr>
+<td><a href="../information_content/">information_content</a></td>
+<td>Information content (IC) value for a term, primarily from Automats</td>
+</tr>
+<tr>
+<td><a href="../iri/">iri</a></td>
+<td>An IRI for an entity</td>
+</tr>
+<tr>
+<td><a href="../left_hemisphere_prep_2/">left_hemisphere_prep_2</a></td>
+<td>The second method used to prepare the left hemisphere</td>
+</tr>
+<tr>
+<td><a href="../left_hemisphere_preparation/">left_hemisphere_preparation</a></td>
+<td>The method of which the left hemisphere of the brain was prepared</td>
+</tr>
+<tr>
+<td><a href="../license/">license</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../macromolecular_machine_mixin_name/">macromolecular_machine_mixin_name</a></td>
+<td>genes are typically designated by a short symbol and a full name</td>
+</tr>
+<tr>
+<td><a href="../marital_status/">marital_status</a></td>
+<td>Donor's marital or partner status</td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>A human-readable name for an attribute or entity</td>
+</tr>
+<tr>
+<td><a href="../named_thing_category/">named_thing_category</a></td>
+<td>Name of the high level ontology class in which this entity is categorized</td>
+</tr>
+<tr>
+<td><a href="../neoplastic_type/">neoplastic_type</a></td>
+<td>The type of neoplastic neuropathology diagnosis</td>
+</tr>
+<tr>
+<td><a href="../neurodegenerative_type/">neurodegenerative_type</a></td>
+<td>The type of neurodegenerative neuropathology diagnosis</td>
+</tr>
+<tr>
+<td><a href="../neurologic_events_data_available/">neurologic_events_data_available</a></td>
+<td>NIMP indicator for availability of perinatal neurologic events data</td>
+</tr>
+<tr>
+<td><a href="../neuropathology_diagnosis_code/">neuropathology_diagnosis_code</a></td>
+<td>The ICD-10 codes for the neuropathological diagnoses</td>
+</tr>
+<tr>
+<td><a href="../nn_diagnoses_data_available/">nn_diagnoses_data_available</a></td>
+<td>NIMP indicator for availability of non-neuropathological diagnoses data</td>
+</tr>
+<tr>
+<td><a href="../node_property/">node_property</a></td>
+<td>A grouping for any property that holds between a node and a value</td>
+</tr>
+<tr>
+<td><a href="../non_brain_diagnosis_code/">non_brain_diagnosis_code</a></td>
+<td>The ICD-10 code of the non-brain diagnosis</td>
+</tr>
+<tr>
+<td><a href="../non_brain_diagnosis_confidence_level/">non_brain_diagnosis_confidence_level</a></td>
+<td>The confidence level of the non-brain diagnosis</td>
+</tr>
+<tr>
+<td><a href="../non_brain_specimen_data_available/">non_brain_specimen_data_available</a></td>
+<td>NIMP indicator for availability of non-brain Specimen data</td>
+</tr>
+<tr>
+<td><a href="../non_brain_tissue_available/">non_brain_tissue_available</a></td>
+<td>Are any non-brain tissues available?</td>
+</tr>
+<tr>
+<td><a href="../organism_taxon_has_taxonomic_rank/">organism_taxon_has_taxonomic_rank</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ph/">ph</a></td>
+<td>pH value</td>
+</tr>
+<tr>
+<td><a href="../photo_2d_available/">photo_2d_available</a></td>
+<td>Is a 2D photograph is available?</td>
+</tr>
+<tr>
+<td><a href="../positive_test_result/">positive_test_result</a></td>
+<td>Whether the donor has had a positive serology test result</td>
+</tr>
+<tr>
+<td><a href="../post_mortem_interval/">post_mortem_interval</a></td>
+<td>Post Mortem Interval in hours</td>
+</tr>
+<tr>
+<td><a href="../postmortem_mri_available/">postmortem_mri_available</a></td>
+<td>Is a Postmortem MRI Available</td>
+</tr>
+<tr>
+<td><a href="../postmortem_mri_type/">postmortem_mri_type</a></td>
+<td>The type of postmortem MRI if it is available</td>
+</tr>
+<tr>
+<td><a href="../primary_language/">primary_language</a></td>
+<td>Donor's primary language</td>
+</tr>
+<tr>
+<td><a href="../provided_by/">provided_by</a></td>
+<td>The value in this node property represents the knowledge provider that create...</td>
+</tr>
+<tr>
+<td><a href="../race/">race</a></td>
+<td>Race of the donor</td>
+</tr>
+<tr>
+<td><a href="../related_to/">related_to</a></td>
+<td>A relationship that is asserted between two named things</td>
+</tr>
+<tr>
+<td><a href="../related_to_at_instance_level/">related_to_at_instance_level</a></td>
+<td>Represents a relationship held between two instances of a data classes</td>
+</tr>
+<tr>
+<td><a href="../repository/">repository</a></td>
+<td>If the brain is from NBB the NBB repository the brain belongs to</td>
+</tr>
+<tr>
+<td><a href="../right_hemisphere_prep_2/">right_hemisphere_prep_2</a></td>
+<td>The second method used to prepare the right hemisphere</td>
+</tr>
+<tr>
+<td><a href="../right_hemisphere_preparation/">right_hemisphere_preparation</a></td>
+<td>The method of which the right hemisphere of the brain was prepared</td>
+</tr>
+<tr>
+<td><a href="../rights/">rights</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../rin/">rin</a></td>
+<td>RNA Integrity Number</td>
+</tr>
+<tr>
+<td><a href="../rine/">rine</a></td>
+<td>RNA Integrity Number equivalent</td>
+</tr>
+<tr>
+<td><a href="../rines_data_available/">rines_data_available</a></td>
+<td>NIMP indicator for availability of RNA Integrity Number equivalent</td>
+</tr>
+<tr>
+<td><a href="../rins_data_available/">rins_data_available</a></td>
+<td>NIMP indicator for availability of RNA Integrity Number</td>
+</tr>
+<tr>
+<td><a href="../scan_3d_available/">scan_3d_available</a></td>
+<td>Is a 3D scan is available?</td>
+</tr>
+<tr>
+<td><a href="../secondary_language/">secondary_language</a></td>
+<td>Donor's secondary language</td>
+</tr>
+<tr>
+<td><a href="../secondary_race/">secondary_race</a></td>
+<td>Second race if available for the donor</td>
+</tr>
+<tr>
+<td><a href="../sex/">sex</a></td>
+<td>Donor's sex at birth</td>
+</tr>
+<tr>
+<td><a href="../sex_orientation/">sex_orientation</a></td>
+<td>Donor's sexual orientation at death</td>
+</tr>
+<tr>
+<td><a href="../symbol/">symbol</a></td>
+<td>Symbol for a particular thing</td>
+</tr>
+<tr>
+<td><a href="../synonym/">synonym</a></td>
+<td>Alternate human-readable names for a thing</td>
+</tr>
+<tr>
+<td><a href="../tissue_type/">tissue_type</a></td>
+<td>The type of non-brain tissues</td>
+</tr>
+<tr>
+<td><a href="../tox_screening_data_available/">tox_screening_data_available</a></td>
+<td>NIMP indicator for availability of toxicology screening data</td>
+</tr>
+<tr>
+<td><a href="../traumatic_type/">traumatic_type</a></td>
+<td>The type of traumatic neuropathology diagnosis</td>
+</tr>
+<tr>
+<td><a href="../type/">type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../used/">used</a></td>
+<td>Usage is the beginning of utilizing an entity by an activity</td>
+</tr>
+<tr>
+<td><a href="../vascular_type/">vascular_type</a></td>
+<td>The type of vascular neuropathology diagnosis</td>
+</tr>
+<tr>
+<td><a href="../version/">version</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../was_derived_from/">was_derived_from</a></td>
+<td>A derivation is a transformation of an entity into another, an update of an e...</td>
+</tr>
+<tr>
+<td><a href="../was_generated_by/">was_generated_by</a></td>
+<td>Generation is the completion of production of a new entity by an activity</td>
+</tr>
+<tr>
+<td><a href="../weighed_type/">weighed_type</a></td>
+<td>The type of the brain tissue weighed based on the preparation</td>
+</tr>
+<tr>
+<td><a href="../xref/">xref</a></td>
+<td>A database cross reference or alternative identifier for a NamedThing or edge...</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enumerations">Enumerations</h2>
+<table>
+<thead>
+<tr>
+<th>Enumeration</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../AgingType/">AgingType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ArtifactType/">ArtifactType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BirthCountry/">BirthCountry</a></td>
+<td>Namibia</td>
+</tr>
+<tr>
+<td><a href="../BrainTissueWeightType/">BrainTissueWeightType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CauseOfDeath/">CauseOfDeath</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ConditionType/">ConditionType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ConfidenceLevel/">ConfidenceLevel</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../DonorSource/">DonorSource</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../DrugsFound/">DrugsFound</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Ethnicity/">Ethnicity</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Gender/">Gender</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Handedness/">Handedness</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Hemisphere/">Hemisphere</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IncomeRange/">IncomeRange</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../InformantRelationship/">InformantRelationship</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Language/">Language</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MannerOfDeath/">MannerOfDeath</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MaritalStatus/">MaritalStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../NeoplasticType/">NeoplasticType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../NeurodegenerativeType/">NeurodegenerativeType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../PerinatalEvent/">PerinatalEvent</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../PostmortemMRI/">PostmortemMRI</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Preparation/">Preparation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Race/">Race</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RelativeType/">RelativeType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Repository/">Repository</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Sex/">Sex</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SexualOrientation/">SexualOrientation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TestName/">TestName</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Tissue/">Tissue</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TissueCollectionState/">TissueCollectionState</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TissueSource/">TissueSource</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TraumaticType/">TraumaticType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../VascularType/">VascularType</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="types">Types</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../BiologicalSequence/">BiologicalSequence</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Boolean/">Boolean</a></td>
+<td>A binary (true or false) value</td>
+</tr>
+<tr>
+<td><a href="../Curie/">Curie</a></td>
+<td>a compact URI</td>
+</tr>
+<tr>
+<td><a href="../Date/">Date</a></td>
+<td>a date (year, month and day) in an idealized calendar</td>
+</tr>
+<tr>
+<td><a href="../DateOrDatetime/">DateOrDatetime</a></td>
+<td>Either a date or a datetime</td>
+</tr>
+<tr>
+<td><a href="../Datetime/">Datetime</a></td>
+<td>The combination of a date and time</td>
+</tr>
+<tr>
+<td><a href="../Decimal/">Decimal</a></td>
+<td>A real number with arbitrary precision that conforms to the xsd:decimal speci...</td>
+</tr>
+<tr>
+<td><a href="../Double/">Double</a></td>
+<td>A real number that conforms to the xsd:double specification</td>
+</tr>
+<tr>
+<td><a href="../Float/">Float</a></td>
+<td>A real number that conforms to the xsd:float specification</td>
+</tr>
+<tr>
+<td><a href="../Integer/">Integer</a></td>
+<td>An integer</td>
+</tr>
+<tr>
+<td><a href="../IriType/">IriType</a></td>
+<td>An IRI</td>
+</tr>
+<tr>
+<td><a href="../Jsonpath/">Jsonpath</a></td>
+<td>A string encoding a JSON Path</td>
+</tr>
+<tr>
+<td><a href="../Jsonpointer/">Jsonpointer</a></td>
+<td>A string encoding a JSON Pointer</td>
+</tr>
+<tr>
+<td><a href="../LabelType/">LabelType</a></td>
+<td>A string that provides a human-readable name for an entity</td>
+</tr>
+<tr>
+<td><a href="../NarrativeText/">NarrativeText</a></td>
+<td>A string that provides a human-readable description of something</td>
+</tr>
+<tr>
+<td><a href="../Ncname/">Ncname</a></td>
+<td>Prefix part of CURIE</td>
+</tr>
+<tr>
+<td><a href="../Nodeidentifier/">Nodeidentifier</a></td>
+<td>A URI, CURIE or BNODE that represents a node in a model</td>
+</tr>
+<tr>
+<td><a href="../Objectidentifier/">Objectidentifier</a></td>
+<td>A URI or CURIE that represents an object in the model</td>
+</tr>
+<tr>
+<td><a href="../Sparqlpath/">Sparqlpath</a></td>
+<td>A string encoding a SPARQL Property Path</td>
+</tr>
+<tr>
+<td><a href="../String/">String</a></td>
+<td>A character string</td>
+</tr>
+<tr>
+<td><a href="../SymbolType/">SymbolType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Time/">Time</a></td>
+<td>A time object represents a (local) time of day, independent of any particular...</td>
+</tr>
+<tr>
+<td><a href="../Unit/">Unit</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Uri/">Uri</a></td>
+<td>a complete URI</td>
+</tr>
+<tr>
+<td><a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>a URI or a CURIE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="subsets">Subsets</h2>
+<table>
+<thead>
+<tr>
+<th>Subset</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ModelOrganismDatabase/">ModelOrganismDatabase</a></td>
+<td>Subset that is relevant for a typical Model Organism Database (MOD)</td>
+</tr>
+<tr>
+<td><a href="../Restricted/">Restricted</a></td>
+<td>The data stored in this attribute is restricted to people with a required cle...</td>
+</tr>
+<tr>
+<td><a href="../Samples/">Samples</a></td>
+<td>Sample/biosample datamodel</td>
+</tr>
+<tr>
+<td><a href="../Testing/">Testing</a></td>
+<td>TBD</td>
+</tr>
+<tr>
+<td><a href="../TranslatorMinimal/">TranslatorMinimal</a></td>
+<td>Minimum subset of translator work</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

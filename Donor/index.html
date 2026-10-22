@@ -1,0 +1,4521 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.7" name="generator"/>
+<title>Class: Donor - BICAN Knowledge Graph Models Documentation</title>
+<link href="../assets/stylesheets/main.ec1eaa64.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#class-donor">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="BICAN Knowledge Graph Models Documentation" class="md-header__button md-logo" data-md-component="logo" href=".." title="BICAN Knowledge Graph Models Documentation">
+<img alt="logo" src="../images/bican_logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            BICAN Knowledge Graph Models Documentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Class: Donor
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/brain-bican/models" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="BICAN Knowledge Graph Models Documentation" class="md-nav__button md-logo" data-md-component="logo" href=".." title="BICAN Knowledge Graph Models Documentation">
+<img alt="logo" src="../images/bican_logo.png"/>
+</a>
+    BICAN Knowledge Graph Models Documentation
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/brain-bican/models" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../index_library_generation/">
+<span class="md-ellipsis">
+    
+  
+    Library Generation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../index_donor/">
+<span class="md-ellipsis">
+    
+  
+    Donor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../index_cell_taxonomy/">
+<span class="md-ellipsis">
+    
+  
+    Cell Taxonomy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../index_genome_annotation/">
+<span class="md-ellipsis">
+    
+  
+    Genome Annotation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../index_anatomical_structure/">
+<span class="md-ellipsis">
+    
+  
+    Anatomical Structure
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../index_bke_taxonomy/">
+<span class="md-ellipsis">
+    
+  
+    BKE Taxonomy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../index_assertion_evidence/">
+<span class="md-ellipsis">
+    
+  
+    Assertion Evidence
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Visualizations
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Visualizations
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../library_generation/">
+<span class="md-ellipsis">
+    
+  
+    Library Generation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../donor/">
+<span class="md-ellipsis">
+    
+  
+    Donor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cell_taxonomy/">
+<span class="md-ellipsis">
+    
+  
+    Cell Taxonomy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../genome_annotation/">
+<span class="md-ellipsis">
+    
+  
+    Genome Annotation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../anatomical_structure/">
+<span class="md-ellipsis">
+    
+  
+    Anatomical Structure
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../bke_taxonomy/">
+<span class="md-ellipsis">
+    
+  
+    BKE Taxonomy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../assertion_evidence/">
+<span class="md-ellipsis">
+    
+  
+    Assertion Evidence
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="class-donor">Class: Donor</h1>
+<p><em>A person or organism that is the source of a biological sample for scientific study.  Many biological samples are generated from a single donor.</em></p>
+<div data-search-exclude="" markdown="1">
+
+
+
+URI: [bican:Donor](https://identifiers.org/brain-bican/vocab/Donor)
+
+
+
+
+
+
+<div class="mermaid"> classDiagram
+    class Donor
+    click Donor href "../Donor/"
+      ThingWithTaxon &lt;|-- Donor
+        click ThingWithTaxon href "../ThingWithTaxon/"
+      ProvEntity &lt;|-- Donor
+        click ProvEntity href "../ProvEntity/"
+      PhysicalEntity &lt;|-- Donor
+        click PhysicalEntity href "../PhysicalEntity/"
+
+      Donor : age_at_death_reference_point
+
+      Donor : age_at_death_unit
+
+      Donor : age_at_death_value
+
+      Donor : age_of_death
+
+      Donor : aging_type
+
+
+
+
+
+        Donor --&gt; "0..1" aging_type : aging_type
+        click aging_type href "../aging_type/"
+
+
+
+      Donor : antemortem_mri_available
+
+      Donor : apgar_10_minute_score
+
+      Donor : apgar_5_minute_score
+
+      Donor : artifacts_type
+
+
+
+
+
+        Donor --&gt; "0..1" ArtifactType : artifacts_type
+        click ArtifactType href "../ArtifactType/"
+
+
+
+      Donor : birth_country_name
+
+
+
+
+
+        Donor --&gt; "0..1" BirthCountry : birth_country_name
+        click BirthCountry href "../BirthCountry/"
+
+
+
+      Donor : birth_weight_lbs
+
+      Donor : birth_weight_oz
+
+      Donor : brain_weight
+
+      Donor : category
+
+      Donor : clinical_brain_diagnosis
+
+      Donor : clinical_brain_diagnosis_confidence_level
+
+
+
+
+
+        Donor --&gt; "0..1" ConfidenceLevel : clinical_brain_diagnosis_confidence_level
+        click ConfidenceLevel href "../ConfidenceLevel/"
+
+
+
+      Donor : confirmed_hbcac
+
+      Donor : consent_status
+
+      Donor : death_causes_data_available
+
+      Donor : deprecated
+
+      Donor : description
+
+      Donor : developmental_type_specify
+
+      Donor : donor_labs
+
+      Donor : donor_project
+
+      Donor : donor_source
+
+
+
+
+
+        Donor --&gt; "0..1" donor_source : donor_source
+        click donor_source href "../donor_source/"
+
+
+
+      Donor : donor_species
+
+      Donor : education_years_number
+
+      Donor : equivalent_identifiers
+
+      Donor : ethnicity
+
+
+
+
+
+        Donor --&gt; "0..1" ethnicity : ethnicity
+        click ethnicity href "../ethnicity/"
+
+
+
+      Donor : full_name
+
+      Donor : gender
+
+
+
+
+
+        Donor --&gt; "0..1" gender : gender
+        click gender href "../gender/"
+
+
+
+      Donor : genetic_diagnosis_code
+
+      Donor : genetic_diagnosis_confidence_level
+
+
+
+
+
+        Donor --&gt; "0..1" ConfidenceLevel : genetic_diagnosis_confidence_level
+        click ConfidenceLevel href "../ConfidenceLevel/"
+
+
+
+      Donor : handedness
+
+
+
+
+
+        Donor --&gt; "0..1" handedness : handedness
+        click handedness href "../handedness/"
+
+
+
+      Donor : has_attribute
+
+
+
+
+
+        Donor --&gt; "*" Attribute : has_attribute
+        click Attribute href "../Attribute/"
+
+
+
+      Donor : hemisphere
+
+
+
+
+
+        Donor --&gt; "0..1" hemisphere : hemisphere
+        click hemisphere href "../hemisphere/"
+
+
+
+      Donor : id
+
+      Donor : in_taxon
+
+
+
+
+
+        Donor --&gt; "*" OrganismTaxon : in_taxon
+        click OrganismTaxon href "../OrganismTaxon/"
+
+
+
+      Donor : in_taxon_label
+
+      Donor : infectious_testings_data_available
+
+      Donor : infectious_type_specify
+
+      Donor : inflammatory_type_specify
+
+      Donor : information_content
+
+      Donor : iri
+
+      Donor : left_hemisphere_prep_2
+
+      Donor : left_hemisphere_preparation
+
+
+
+
+
+        Donor --&gt; "0..1" Preparation : left_hemisphere_preparation
+        click Preparation href "../Preparation/"
+
+
+
+      Donor : marital_status
+
+
+
+
+
+        Donor --&gt; "0..1" marital_status : marital_status
+        click marital_status href "../marital_status/"
+
+
+
+      Donor : name
+
+      Donor : named_thing_category
+
+      Donor : neoplastic_type
+
+
+
+
+
+        Donor --&gt; "0..1" neoplastic_type : neoplastic_type
+        click neoplastic_type href "../neoplastic_type/"
+
+
+
+      Donor : neurodegenerative_type
+
+
+
+
+
+        Donor --&gt; "0..1" neurodegenerative_type : neurodegenerative_type
+        click neurodegenerative_type href "../neurodegenerative_type/"
+
+
+
+      Donor : neurologic_events_data_available
+
+      Donor : neuropathology_diagnosis_code
+
+      Donor : nn_diagnoses_data_available
+
+      Donor : non_brain_diagnosis_code
+
+      Donor : non_brain_diagnosis_confidence_level
+
+
+
+
+
+        Donor --&gt; "0..1" ConfidenceLevel : non_brain_diagnosis_confidence_level
+        click ConfidenceLevel href "../ConfidenceLevel/"
+
+
+
+      Donor : non_brain_specimen_data_available
+
+      Donor : non_brain_tissue_available
+
+      Donor : ph
+
+      Donor : photo_2d_available
+
+      Donor : positive_test_result
+
+      Donor : post_mortem_interval
+
+      Donor : postmortem_mri_available
+
+      Donor : postmortem_mri_type
+
+
+
+
+
+        Donor --&gt; "0..1" PostmortemMRI : postmortem_mri_type
+        click PostmortemMRI href "../PostmortemMRI/"
+
+
+
+      Donor : primary_language
+
+
+
+
+
+        Donor --&gt; "0..1" Language : primary_language
+        click Language href "../Language/"
+
+
+
+      Donor : provided_by
+
+      Donor : race
+
+
+
+
+
+        Donor --&gt; "0..1" race : race
+        click race href "../race/"
+
+
+
+      Donor : repository
+
+
+
+
+
+        Donor --&gt; "0..1" repository : repository
+        click repository href "../repository/"
+
+
+
+      Donor : right_hemisphere_prep_2
+
+      Donor : right_hemisphere_preparation
+
+
+
+
+
+        Donor --&gt; "0..1" Preparation : right_hemisphere_preparation
+        click Preparation href "../Preparation/"
+
+
+
+      Donor : rin
+
+      Donor : rine
+
+      Donor : rines_data_available
+
+      Donor : rins_data_available
+
+      Donor : scan_3d_available
+
+      Donor : secondary_language
+
+
+
+
+
+        Donor --&gt; "0..1" Language : secondary_language
+        click Language href "../Language/"
+
+
+
+      Donor : secondary_race
+
+
+
+
+
+        Donor --&gt; "0..1" race : secondary_race
+        click race href "../race/"
+
+
+
+      Donor : sex
+
+
+
+
+
+        Donor --&gt; "0..1" sex : sex
+        click sex href "../sex/"
+
+
+
+      Donor : sex_orientation
+
+
+
+
+
+        Donor --&gt; "0..1" SexualOrientation : sex_orientation
+        click SexualOrientation href "../SexualOrientation/"
+
+
+
+      Donor : synonym
+
+      Donor : tissue_type
+
+
+
+
+
+        Donor --&gt; "0..1" Tissue : tissue_type
+        click Tissue href "../Tissue/"
+
+
+
+      Donor : tox_screening_data_available
+
+      Donor : traumatic_type
+
+
+
+
+
+        Donor --&gt; "0..1" traumatic_type : traumatic_type
+        click traumatic_type href "../traumatic_type/"
+
+
+
+      Donor : type
+
+      Donor : vascular_type
+
+
+
+
+
+        Donor --&gt; "0..1" vascular_type : vascular_type
+        click vascular_type href "../vascular_type/"
+
+
+
+      Donor : was_derived_from
+
+
+
+
+
+        Donor --&gt; "0..1" ProvEntity : was_derived_from
+        click ProvEntity href "../ProvEntity/"
+
+
+
+      Donor : was_generated_by
+
+
+
+
+
+        Donor --&gt; "0..1" ProvActivity : was_generated_by
+        click ProvActivity href "../ProvActivity/"
+
+
+
+      Donor : weighed_type
+
+
+
+
+
+        Donor --&gt; "0..1" BrainTissueWeightType : weighed_type
+        click BrainTissueWeightType href "../BrainTissueWeightType/"
+
+
+
+      Donor : xref
+
+
+</div>
+
+
+
+
+
+
+## Inheritance
+* [Entity](Entity.md)
+    * [NamedThing](NamedThing.md)
+        * [PhysicalEntity](PhysicalEntity.md) [ [PhysicalEssence](PhysicalEssence.md)]
+            * **Donor** [ [ThingWithTaxon](ThingWithTaxon.md) [ProvEntity](ProvEntity.md)]
+
+
+## Slots
+
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [name](name.md) | 0..1 <br/> [LabelType](LabelType.md) | Donor identifier given by the brain bank or the institution that holds the br... | direct |
+| [xref](xref.md) | * <br/> [Uriorcurie](Uriorcurie.md) | NIMP generated globally unique identifier for a Donor | direct |
+| [repository](repository.md) | 0..1 <br/> [repository](repository.md) | If the brain is from NBB the NBB repository the brain belongs to | direct |
+| [donor_source](donor_source.md) | 0..1 <br/> [donor_source](donor_source.md) | The source of the donor brain e | direct |
+| [ethnicity](ethnicity.md) | 0..1 <br/> [ethnicity](ethnicity.md) | Ethnicity of the donor | direct |
+| [race](race.md) | 0..1 <br/> [race](race.md) | Race of the donor | direct |
+| [secondary_race](secondary_race.md) | 0..1 <br/> [race](race.md) | Second race if available for the donor | direct |
+| [sex](sex.md) | 0..1 <br/> [sex](sex.md) | Donor's sex at birth | direct |
+| [gender](gender.md) | 0..1 <br/> [gender](gender.md) | Donor's gender at death | direct |
+| [sex_orientation](sex_orientation.md) | 0..1 <br/> [SexualOrientation](SexualOrientation.md) | Donor's sexual orientation at death | direct |
+| [age_of_death](age_of_death.md) | 0..1 <br/> [Integer](Integer.md) | Donor's age at death in years | direct |
+| [birth_country_name](birth_country_name.md) | 0..1 <br/> [BirthCountry](BirthCountry.md) | Donor's birth country | direct |
+| [primary_language](primary_language.md) | 0..1 <br/> [Language](Language.md) | Donor's primary language | direct |
+| [secondary_language](secondary_language.md) | 0..1 <br/> [Language](Language.md) | Donor's secondary language | direct |
+| [marital_status](marital_status.md) | 0..1 <br/> [marital_status](marital_status.md) | Donor's marital or partner status | direct |
+| [education_years_number](education_years_number.md) | 0..1 <br/> [Integer](Integer.md) | Number of years of education the donor had | direct |
+| [handedness](handedness.md) | 0..1 <br/> [handedness](handedness.md) | Donor's handedness | direct |
+| [confirmed_hbcac](confirmed_hbcac.md) | 0..1 <br/> [String](String.md) | Confirmation status of meeting inclusion criteria of the Human Brain Cell Atl... | direct |
+| [age_at_death_value](age_at_death_value.md) | 0..1 <br/> [Float](Float.md) | Donor's age at death value | direct |
+| [age_at_death_unit](age_at_death_unit.md) | 0..1 <br/> [String](String.md) | The unit of the value mentioned under "age_at_death_value" | direct |
+| [age_at_death_reference_point](age_at_death_reference_point.md) | 0..1 <br/> [String](String.md) | Reference point from which the donor's age at death was calculated | direct |
+| [donor_species](donor_species.md) | 0..1 <br/> [String](String.md) | NCBI Taxonomy code of the donor species | direct |
+| [consent_status](consent_status.md) | 0..1 <br/> [String](String.md) | Whether the type of consent is open or controlled | direct |
+| [positive_test_result](positive_test_result.md) | 0..1 <br/> [String](String.md) | Whether the donor has had a positive serology test result | direct |
+| [donor_project](donor_project.md) | 0..1 <br/> [String](String.md) | Donor Project | direct |
+| [donor_labs](donor_labs.md) | 0..1 <br/> [String](String.md) | Donor Labs | direct |
+| [death_causes_data_available](death_causes_data_available.md) | 0..1 <br/> [String](String.md) | NIMP indicator for availability of the cause of death | direct |
+| [rins_data_available](rins_data_available.md) | 0..1 <br/> [String](String.md) | NIMP indicator for availability of RNA Integrity Number | direct |
+| [rines_data_available](rines_data_available.md) | 0..1 <br/> [String](String.md) | NIMP indicator for availability of RNA Integrity Number equivalent | direct |
+| [hemisphere](hemisphere.md) | 0..1 <br/> [hemisphere](hemisphere.md) | Hemisphere of the brain | direct |
+| [post_mortem_interval](post_mortem_interval.md) | 0..1 <br/> [Float](Float.md) | Post Mortem Interval in hours | direct |
+| [left_hemisphere_preparation](left_hemisphere_preparation.md) | 0..1 <br/> [Preparation](Preparation.md) | The method of which the left hemisphere of the brain was prepared | direct |
+| [left_hemisphere_prep_2](left_hemisphere_prep_2.md) | 0..1 <br/> [String](String.md) | The second method used to prepare the left hemisphere | direct |
+| [right_hemisphere_preparation](right_hemisphere_preparation.md) | 0..1 <br/> [Preparation](Preparation.md) | The method of which the right hemisphere of the brain was prepared | direct |
+| [right_hemisphere_prep_2](right_hemisphere_prep_2.md) | 0..1 <br/> [String](String.md) | The second method used to prepare the right hemisphere | direct |
+| [rin](rin.md) | 0..1 <br/> [Float](Float.md) | RNA Integrity Number | direct |
+| [rine](rine.md) | 0..1 <br/> [Float](Float.md) | RNA Integrity Number equivalent | direct |
+| [ph](ph.md) | 0..1 <br/> [Float](Float.md) | pH value | direct |
+| [brain_weight](brain_weight.md) | 0..1 <br/> [Integer](Integer.md) | The weight of the brain in grams | direct |
+| [weighed_type](weighed_type.md) | 0..1 <br/> [BrainTissueWeightType](BrainTissueWeightType.md) | The type of the brain tissue weighed based on the preparation | direct |
+| [photo_2d_available](photo_2d_available.md) | 0..1 <br/> [String](String.md) | Is a 2D photograph is available? | direct |
+| [scan_3d_available](scan_3d_available.md) | 0..1 <br/> [String](String.md) | Is a 3D scan is available? | direct |
+| [antemortem_mri_available](antemortem_mri_available.md) | 0..1 <br/> [String](String.md) | Is an Antemortem MRI is available? | direct |
+| [postmortem_mri_available](postmortem_mri_available.md) | 0..1 <br/> [String](String.md) | Is a Postmortem MRI Available | direct |
+| [postmortem_mri_type](postmortem_mri_type.md) | 0..1 <br/> [PostmortemMRI](PostmortemMRI.md) | The type of postmortem MRI if it is available | direct |
+| [non_brain_specimen_data_available](non_brain_specimen_data_available.md) | 0..1 <br/> [String](String.md) | NIMP indicator for availability of non-brain Specimen data | direct |
+| [neurologic_events_data_available](neurologic_events_data_available.md) | 0..1 <br/> [String](String.md) | NIMP indicator for availability of perinatal neurologic events data | direct |
+| [infectious_testings_data_available](infectious_testings_data_available.md) | 0..1 <br/> [String](String.md) | NIMP indicator for availability of infectious Disease/Serology testing data | direct |
+| [tox_screening_data_available](tox_screening_data_available.md) | 0..1 <br/> [String](String.md) | NIMP indicator for availability of toxicology screening data | direct |
+| [nn_diagnoses_data_available](nn_diagnoses_data_available.md) | 0..1 <br/> [String](String.md) | NIMP indicator for availability of non-neuropathological diagnoses data | direct |
+| [non_brain_tissue_available](non_brain_tissue_available.md) | 0..1 <br/> [String](String.md) | Are any non-brain tissues available? | direct |
+| [tissue_type](tissue_type.md) | 0..1 <br/> [Tissue](Tissue.md) | The type of non-brain tissues | direct |
+| [clinical_brain_diagnosis](clinical_brain_diagnosis.md) | 0..1 <br/> [String](String.md) | The ICD-10 code of the clinical brain diagnosis | direct |
+| [clinical_brain_diagnosis_confidence_level](clinical_brain_diagnosis_confidence_level.md) | 0..1 <br/> [ConfidenceLevel](ConfidenceLevel.md) | The confidence level of the clinical brain diagnosis | direct |
+| [genetic_diagnosis_code](genetic_diagnosis_code.md) | 0..1 <br/> [String](String.md) | The ICD-10 code of the genetic diagnosis | direct |
+| [genetic_diagnosis_confidence_level](genetic_diagnosis_confidence_level.md) | 0..1 <br/> [ConfidenceLevel](ConfidenceLevel.md) | The confidence level of the genetic diagnosis | direct |
+| [non_brain_diagnosis_code](non_brain_diagnosis_code.md) | 0..1 <br/> [String](String.md) | The ICD-10 code of the non-brain diagnosis | direct |
+| [non_brain_diagnosis_confidence_level](non_brain_diagnosis_confidence_level.md) | 0..1 <br/> [ConfidenceLevel](ConfidenceLevel.md) | The confidence level of the non-brain diagnosis | direct |
+| [birth_weight_lbs](birth_weight_lbs.md) | 0..1 <br/> [Float](Float.md) | Birth weight in pounds | direct |
+| [birth_weight_oz](birth_weight_oz.md) | 0..1 <br/> [Float](Float.md) | Birth weight in ounces | direct |
+| [apgar_5_minute_score](apgar_5_minute_score.md) | 0..1 <br/> [Integer](Integer.md) | The APGAR Five Minute Score | direct |
+| [apgar_10_minute_score](apgar_10_minute_score.md) | 0..1 <br/> [Integer](Integer.md) | The APGAR Ten Minute Score | direct |
+| [neuropathology_diagnosis_code](neuropathology_diagnosis_code.md) | 0..1 <br/> [String](String.md) | The ICD-10 codes for the neuropathological diagnoses | direct |
+| [artifacts_type](artifacts_type.md) | 0..1 <br/> [ArtifactType](ArtifactType.md) | The type of artifacts | direct |
+| [developmental_type_specify](developmental_type_specify.md) | 0..1 <br/> [String](String.md) | The developmental neuropathology diagnoses specified | direct |
+| [inflammatory_type_specify](inflammatory_type_specify.md) | 0..1 <br/> [String](String.md) | The inflammatory neuropathology diagnoses specified | direct |
+| [infectious_type_specify](infectious_type_specify.md) | 0..1 <br/> [String](String.md) | The infectious neuropathology diagnoses specified | direct |
+| [traumatic_type](traumatic_type.md) | 0..1 <br/> [traumatic_type](traumatic_type.md) | The type of traumatic neuropathology diagnosis | direct |
+| [vascular_type](vascular_type.md) | 0..1 <br/> [vascular_type](vascular_type.md) | The type of vascular neuropathology diagnosis | direct |
+| [neoplastic_type](neoplastic_type.md) | 0..1 <br/> [neoplastic_type](neoplastic_type.md) | The type of neoplastic neuropathology diagnosis | direct |
+| [aging_type](aging_type.md) | 0..1 <br/> [aging_type](aging_type.md) | The type of aging-related neuropathology diagnosis | direct |
+| [neurodegenerative_type](neurodegenerative_type.md) | 0..1 <br/> [neurodegenerative_type](neurodegenerative_type.md) | The type of neurodegenerative neuropathology diagnosis | direct |
+| [in_taxon](in_taxon.md) | * <br/> [OrganismTaxon](OrganismTaxon.md) | connects an entity to its taxonomic classification | [ThingWithTaxon](ThingWithTaxon.md) |
+| [in_taxon_label](in_taxon_label.md) | 0..1 <br/> [LabelType](LabelType.md) | The human readable scientific name for the taxon of the entity | [ThingWithTaxon](ThingWithTaxon.md) |
+| [was_derived_from](was_derived_from.md) | 0..1 <br/> [ProvEntity](ProvEntity.md) | A derivation is a transformation of an entity into another, an update of an e... | [ProvEntity](ProvEntity.md) |
+| [was_generated_by](was_generated_by.md) | 0..1 <br/> [ProvActivity](ProvActivity.md) | Generation is the completion of production of a new entity by an activity | [ProvEntity](ProvEntity.md) |
+| [id](id.md) | 1 <br/> [String](String.md) | A unique identifier for an entity | [Entity](Entity.md), [PhysicalEntity](PhysicalEntity.md), [NamedThing](NamedThing.md) |
+| [iri](iri.md) | 0..1 <br/> [IriType](IriType.md) | An IRI for an entity | [Entity](Entity.md), [PhysicalEntity](PhysicalEntity.md), [NamedThing](NamedThing.md) |
+| [type](type.md) | * <br/> [String](String.md) |  | [Entity](Entity.md), [PhysicalEntity](PhysicalEntity.md), [NamedThing](NamedThing.md) |
+| [description](description.md) | 0..1 <br/> [NarrativeText](NarrativeText.md) | a human-readable description of an entity | [Entity](Entity.md), [PhysicalEntity](PhysicalEntity.md), [NamedThing](NamedThing.md) |
+| [has_attribute](has_attribute.md) | * <br/> [Attribute](Attribute.md) | connects any entity to an attribute | [Entity](Entity.md), [PhysicalEntity](PhysicalEntity.md), [NamedThing](NamedThing.md) |
+| [deprecated](deprecated.md) | 0..1 <br/> [Boolean](Boolean.md) | A boolean flag indicating that an entity is no longer considered current or v... | [Entity](Entity.md), [PhysicalEntity](PhysicalEntity.md), [NamedThing](NamedThing.md) |
+| [provided_by](provided_by.md) | * <br/> [String](String.md) | The value in this node property represents the knowledge provider that create... | [PhysicalEntity](PhysicalEntity.md), [NamedThing](NamedThing.md) |
+| [full_name](full_name.md) | 0..1 <br/> [LabelType](LabelType.md) | a long-form human readable name for a thing | [PhysicalEntity](PhysicalEntity.md), [NamedThing](NamedThing.md) |
+| [synonym](synonym.md) | * <br/> [LabelType](LabelType.md) | Alternate human-readable names for a thing | [PhysicalEntity](PhysicalEntity.md), [NamedThing](NamedThing.md) |
+| [information_content](information_content.md) | 0..1 <br/> [Float](Float.md) | Information content (IC) value for a term, primarily from Automats | [PhysicalEntity](PhysicalEntity.md), [NamedThing](NamedThing.md) |
+| [equivalent_identifiers](equivalent_identifiers.md) | * <br/> [Uriorcurie](Uriorcurie.md) | A set of identifiers that are considered equivalent to the primary identifier... | [PhysicalEntity](PhysicalEntity.md), [NamedThing](NamedThing.md) |
+| [named_thing_category](named_thing_category.md) | 1..* <br/> [Uriorcurie](Uriorcurie.md) | Name of the high level ontology class in which this entity is categorized | [PhysicalEntity](PhysicalEntity.md), [NamedThing](NamedThing.md) |
+| [category](category.md) | 1..* <br/> [Uriorcurie](Uriorcurie.md) | Name of the high level ontology class in which this entity is categorized | [Entity](Entity.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://w3id.org/brain-bican/donor
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | bican:Donor |
+| native | bican:Donor |
+| exact | NIMP:Donor |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+<pre><code class="language-yaml">name: Donor
+description: A person or organism that is the source of a biological sample for scientific
+  study.  Many biological samples are generated from a single donor.
+from_schema: https://w3id.org/brain-bican/donor
+exact_mappings:
+- NIMP:Donor
+is_a: physical entity
+mixins:
+- thing with taxon
+- ProvEntity
+slots:
+- name
+- xref
+slot_usage:
+  name:
+    name: name
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: donor_local_name
+    description: Donor identifier given by the brain bank or the institution that
+      holds the brain
+    exact_mappings:
+    - bican:f8af20f7-e8b8-47b5-8a68-9ec1f913ffdf
+    - NIMP:PD-QLQLFB34
+  xref:
+    name: xref
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: donor_nhash_id
+    description: NIMP generated globally unique identifier for a Donor
+    exact_mappings:
+    - bican:98b28574-f97f-4436-b723-10a6508431b5
+    - NIMP:PD-DEXRDO36
+attributes:
+  repository:
+    name: repository
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: repository
+    description: If the brain is from NBB the NBB repository the brain belongs to
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:408682ed-0e27-41e2-b9fa-f05674366d6e
+    - NIMP:PD-NYNYAR61
+    rank: 1000
+    domain_of:
+    - Donor
+    range: repository
+  donor_source:
+    name: donor_source
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: donor_source
+    description: The source of the donor brain e.g. NBB/UM1 project/other
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:0d0cf732-0f76-409d-9a73-7a96d829d3d3
+    - NIMP:PD-TPTPPS27
+    rank: 1000
+    domain_of:
+    - Donor
+    range: donor_source
+  ethnicity:
+    name: ethnicity
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: ethnicity
+    description: Ethnicity of the donor
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:918370df-49f6-4361-9c52-f46b16412980
+    - NIMP:PD-JEJECK48
+    rank: 1000
+    domain_of:
+    - Donor
+    range: ethnicity
+  race:
+    name: race
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: race
+    description: Race of the donor
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:e515c009-550e-4f9c-b1b6-fc876a6fb2a8
+    - NIMP:PD-PRPRRP41
+    rank: 1000
+    domain_of:
+    - Donor
+    range: race
+  secondary_race:
+    name: secondary_race
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: second_race
+    description: Second race if available for the donor
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:192fe5b1-c812-4767-86fb-3178f9914705
+    - NIMP:PD-SESEQB42
+    rank: 1000
+    domain_of:
+    - Donor
+    range: race
+  sex:
+    name: sex
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: sex
+    description: Donor's sex at birth
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:c819b9d5-2fde-40b2-bf0d-e07b56f96ac9
+    - NIMP:PD-LXUBTM45
+    rank: 1000
+    domain_of:
+    - Donor
+    range: sex
+  gender:
+    name: gender
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: gender
+    description: Donor's gender at death
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:1c71e775-65aa-442b-a392-1cf9a44e326e
+    - NIMP:PD-KLKLJH33
+    rank: 1000
+    domain_of:
+    - Donor
+    range: gender
+  sex_orientation:
+    name: sex_orientation
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: sex_orientation
+    description: Donor's sexual orientation at death
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:e47e8a2f-72fb-4036-b288-f4580dc2aa4e
+    - NIMP:PD-HKHGTM45
+    rank: 1000
+    domain_of:
+    - Donor
+    range: sexual_orientation
+  age_of_death:
+    name: age_of_death
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: age_of_death
+    description: Donor's age at death in years
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:14eb923a-161d-45e2-889d-81fea7b632b6
+    - NIMP:PD-FTEMQD38
+    rank: 1000
+    domain_of:
+    - Donor
+    range: integer
+    minimum_value: '0.0'
+    maximum_value: '200.0'
+    unit:
+      ucum_code: a
+  birth_country_name:
+    name: birth_country_name
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: birth_country_name
+    description: Donor's birth country
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:9c27fd29-b512-492f-a32f-b615c7585ff7
+    - NIMP:PD-SQSQDF25
+    rank: 1000
+    domain_of:
+    - Donor
+    range: birth_country
+  primary_language:
+    name: primary_language
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: primary_language
+    description: Donor's primary language
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:abe9edc7-96ca-4c6a-a1ed-c008548cc373
+    - NIMP:PD-ATEVEV39
+    rank: 1000
+    domain_of:
+    - Donor
+    range: language
+  secondary_language:
+    name: secondary_language
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: secondary_language
+    description: Donor's secondary language
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:37b7495f-b010-4d1c-ae32-9cb19c680950
+    - NIMP:PD-OBIUQB42
+    rank: 1000
+    domain_of:
+    - Donor
+    range: language
+  marital_status:
+    name: marital_status
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: marital_status
+    description: Donor's marital or partner status
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:4f0e41c9-dd15-4a37-ae6b-11b7131d7cba
+    - NIMP:PD-JCYJCN35
+    rank: 1000
+    domain_of:
+    - Donor
+    range: marital_status
+  education_years_number:
+    name: education_years_number
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: education_years_number
+    description: Number of years of education the donor had
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:add3f7fe-ae60-4cc1-bb2e-72bbbe9a1a7d
+    - NIMP:PD-SJSJRC41
+    rank: 1000
+    domain_of:
+    - Donor
+    range: integer
+    minimum_value: '0.0'
+    maximum_value: '30.0'
+    unit:
+      ucum_code: a
+  handedness:
+    name: handedness
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: handedness
+    description: Donor's handedness
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:82a4087c-d0e3-48ca-8bea-a81eefc683a0
+    - NIMP:PD-WGWGTM45
+    rank: 1000
+    domain_of:
+    - Donor
+    range: handedness
+  confirmed_hbcac:
+    name: confirmed_hbcac
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: confirmed_hbcac
+    description: Confirmation status of meeting inclusion criteria of the Human Brain
+      Cell Atlas Collection at NBB
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:b6cdddf7-6f0b-4855-a0fa-16c2ab29f219
+    - NIMP:PD-YBLATM45
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  age_at_death_value:
+    name: age_at_death_value
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: age_at_death_value
+    description: Donor's age at death value
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:57e24d3c-c9c7-4ef3-9809-a35802d563ec
+    - NIMP:PD-FTFTCP24
+    rank: 1000
+    domain_of:
+    - Donor
+    range: float
+  age_at_death_unit:
+    name: age_at_death_unit
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: age_at_death_unit
+    description: The unit of the value mentioned under "age_at_death_value"
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:b5436e99-f0a7-4c30-825d-56b88ee2ac1d
+    - NIMP:PD-AVAVEV39
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  age_at_death_reference_point:
+    name: age_at_death_reference_point
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: age_at_death_reference_point
+    description: Reference point from which the donor's age at death was calculated
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:3bed1f94-9d82-4ed7-afdf-79d896b24dbb
+    - NIMP:PD-RARAGG39
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  donor_species:
+    name: donor_species
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: donor_species
+    description: NCBI Taxonomy code of the donor species
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:6837cb02-6bd7-4fb8-838c-9062ead96ba4
+    - NIMP:PD-HEHERP41
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  consent_status:
+    name: consent_status
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: consent_status
+    description: Whether the type of consent is open or controlled
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:1a53e733-276f-421a-850d-eb46e50db972
+    - NIMP:PD-CBCBWQ40
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  positive_test_result:
+    name: positive_test_result
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: positive_test_result
+    description: Whether the donor has had a positive serology test result
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:0ef73629-5172-4517-a1f8-295be1603b80
+    - NIMP:PD-PDZDNL63
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  donor_project:
+    name: donor_project
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: donor_project
+    description: Donor Project
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:cd772fb0-a2fe-4df3-b2dd-b62370be37fc
+    - NIMP:PD-HEHEQB42
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  donor_labs:
+    name: donor_labs
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: donor_labs
+    description: Donor Labs
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:b97c384f-a556-42a2-a3c2-c31e5771f481
+    - NIMP:PD-APAPRP41
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  death_causes_data_available:
+    name: death_causes_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: death_causes_data_available
+    description: NIMP indicator for availability of the cause of death
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:e46e9d58-d982-4800-b7de-67f608951211
+    - NIMP:PD-FYUCNY46
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  rins_data_available:
+    name: rins_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: rins_data_available
+    description: NIMP indicator for availability of RNA Integrity Number
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:d05825e6-b785-42a3-9bdf-c34b30e698b8
+    - NIMP:PD-JRJCAR61
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  rines_data_available:
+    name: rines_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: rines_data_available
+    description: NIMP indicator for availability of RNA Integrity Number equivalent
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:28a5e912-570b-4a7f-87f2-36bd5db92090
+    - NIMP:PD-CJRWAR61
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  hemisphere:
+    name: hemisphere
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: hemisphere
+    description: Hemisphere of the brain
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:68b7a28b-d695-4ec9-800b-6a27ca206081
+    - NIMP:PD-JRJRFQ31
+    rank: 1000
+    domain_of:
+    - Donor
+    range: hemisphere
+  post_mortem_interval:
+    name: post_mortem_interval
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: post_mortem_interval
+    description: Post Mortem Interval in hours
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:6fd5c5ac-b128-4a4a-ae98-09eaeba22f92
+    - NIMP:PD-CHCHLC46
+    rank: 1000
+    domain_of:
+    - Donor
+    range: float
+    minimum_value: '0.0'
+    maximum_value: '8888.0'
+    unit:
+      ucum_code: h
+  left_hemisphere_preparation:
+    name: left_hemisphere_preparation
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: left_hemisphere_preparation
+    description: The method of which the left hemisphere of the brain was prepared
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:57d5378f-a451-4bf5-a472-cc88d0d29586
+    - NIMP:PD-JSJSUS44
+    rank: 1000
+    domain_of:
+    - Donor
+    range: preparation
+  left_hemisphere_prep_2:
+    name: left_hemisphere_prep_2
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: left_hemisphere_prep_2
+    description: The second method used to prepare the left hemisphere
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:d76753fb-b30b-419b-b853-d341510d8034
+    - NIMP:PD-ZMPWIB34
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  right_hemisphere_preparation:
+    name: right_hemisphere_preparation
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: right_hemisphere_preparation
+    description: The method of which the right hemisphere of the brain was prepared
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:477c2600-f979-43c5-9c61-ab61fd771584
+    - NIMP:PD-MLMLPG50
+    rank: 1000
+    domain_of:
+    - Donor
+    range: preparation
+  right_hemisphere_prep_2:
+    name: right_hemisphere_prep_2
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: right_hemisphere_prep_2
+    description: The second method used to prepare the right hemisphere
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:b0a52336-fe31-4ac4-8914-b0bb76a8ef5a
+    - NIMP:PD-FWUVWQ40
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  rin:
+    name: rin
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: rin
+    description: RNA Integrity Number
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:cd472c0d-0b64-45c9-a38e-e54d15cea953
+    - NIMP:PD-LPLPSK50
+    rank: 1000
+    domain_of:
+    - Donor
+    range: float
+    minimum_value: '0.0'
+    maximum_value: '99.0'
+  rine:
+    name: rine
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: rine
+    description: RNA Integrity Number equivalent
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:1210148d-d8fb-45aa-b51a-4b19b6d09bec
+    - NIMP:PD-XCXCRC41
+    rank: 1000
+    domain_of:
+    - Donor
+    range: float
+    minimum_value: '0.0'
+    maximum_value: '99.0'
+  ph:
+    name: ph
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: ph
+    description: pH value
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:9e67af02-c081-43e1-a42c-bf9603cae616
+    - NIMP:PD-FXFXDK42
+    rank: 1000
+    domain_of:
+    - Donor
+    range: float
+    minimum_value: '0.0'
+    maximum_value: '99.0'
+  brain_weight:
+    name: brain_weight
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: brain_weight
+    description: The weight of the brain in grams
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:546fc32d-f8a2-4c00-924a-8c4730f11f51
+    - NIMP:PD-WUASWQ40
+    rank: 1000
+    domain_of:
+    - Donor
+    range: integer
+    minimum_value: '0.0'
+    maximum_value: '9998.0'
+    unit:
+      ucum_code: g
+  weighed_type:
+    name: weighed_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: weighed_type
+    description: The type of the brain tissue weighed based on the preparation
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:a7463e3f-0c61-4718-a7d0-60fd2116908a
+    - NIMP:PD-FGHMDF25
+    rank: 1000
+    domain_of:
+    - Donor
+    range: brain_tissue_weight_type
+  photo_2d_available:
+    name: photo_2d_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: photo_2d_available
+    description: Is a 2D photograph is available?
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:611beda8-1ac6-4183-a284-04a30bb474f3
+    - NIMP:PD-NINIEV39
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  scan_3d_available:
+    name: scan_3d_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: scan_3d_available
+    description: Is a 3D scan is available?
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:658e8a80-e232-438f-8c1e-d5f38724dc55
+    - NIMP:PD-RBRBQB42
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  antemortem_mri_available:
+    name: antemortem_mri_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: antemortem_mri_available
+    description: Is an Antemortem MRI is available?
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:43a04caa-4f28-47ac-8a9d-74c40f10776f
+    - NIMP:PD-RCRCRC24
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  postmortem_mri_available:
+    name: postmortem_mri_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: postmortem_mri_available
+    description: Is a Postmortem MRI Available
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:0badd072-0c25-48c6-9357-44d5b5bc0818
+    - NIMP:PD-YNYNEV39
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  postmortem_mri_type:
+    name: postmortem_mri_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: postmortem_mri_type
+    description: The type of postmortem MRI if it is available.
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:64a607a9-21e6-4c73-8f2e-2d67b0dc51c8
+    - NIMP:PD-BEBEEV39
+    rank: 1000
+    domain_of:
+    - Donor
+    range: postmortem_MRI
+  non_brain_specimen_data_available:
+    name: non_brain_specimen_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: non_brain_specimen_data_available
+    description: NIMP indicator for availability of non-brain Specimen data
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:e537aacd-040a-423b-9920-9ce5adecf111
+    - NIMP:PD-JSFGYJ57
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  neurologic_events_data_available:
+    name: neurologic_events_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: neurologic_events_data_available
+    description: NIMP indicator for availability of perinatal neurologic events data
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:27a7df05-5aec-4060-85b9-2b4658ecd1e8
+    - NIMP:PD-SLCHJH85
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  infectious_testings_data_available:
+    name: infectious_testings_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: infectious_testings_data_available
+    description: NIMP indicator for availability of infectious Disease/Serology testing
+      data
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:af034af4-9a8d-49ed-a100-1e87ebe962f5
+    - NIMP:PD-AATACA52
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  tox_screening_data_available:
+    name: tox_screening_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: tox_screening_data_available
+    description: NIMP indicator for availability of toxicology screening data
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:3730c096-5524-43f4-a3c0-010ccdf80ae1
+    - NIMP:PD-LELMNL63
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  nn_diagnoses_data_available:
+    name: nn_diagnoses_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: nn_diagnoses_data_available
+    description: NIMP indicator for availability of non-neuropathological diagnoses
+      data
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:87a4e421-4586-4938-91cc-6ae4e6e95dde
+    - NIMP:PD-JXZWYJ57
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  non_brain_tissue_available:
+    name: non_brain_tissue_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: non_brain_tissue_available
+    description: Are any non-brain tissues available?
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:3a064c96-a956-4cf3-8b77-056b8e392f99
+    - NIMP:PD-LGLGRZ37
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  tissue_type:
+    name: tissue_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: tissue_type
+    description: The type of non-brain tissues
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:33ccbc85-ae35-44d6-8bc6-c2fb91116cf7
+    - NIMP:PD-JLJLCT43
+    rank: 1000
+    domain_of:
+    - Donor
+    range: tissue
+  clinical_brain_diagnosis:
+    name: clinical_brain_diagnosis
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: clinical_brain_diagnosis_code
+    description: The ICD-10 code of the clinical brain diagnosis
+    in_subset:
+    - Restricted
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:b7a34c73-ae08-43d3-80d2-d5ef8436e449
+    - NIMP:PD-CLCLXT26
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  clinical_brain_diagnosis_confidence_level:
+    name: clinical_brain_diagnosis_confidence_level
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: clinical_brain_diagnosis_confidence_level
+    description: The confidence level of the clinical brain diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:2e72b4b9-d5fb-4f0d-897c-1f977ed4fabd
+    - NIMP:PD-LCLCJH33
+    rank: 1000
+    domain_of:
+    - Donor
+    range: confidence_level
+  genetic_diagnosis_code:
+    name: genetic_diagnosis_code
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: genetic_diagnosis_code
+    description: The ICD-10 code of the genetic diagnosis
+    in_subset:
+    - Restricted
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:7a7916e0-ff79-4426-b49f-58e2f2a8a367
+    - NIMP:PD-KRKRBX30
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  genetic_diagnosis_confidence_level:
+    name: genetic_diagnosis_confidence_level
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: genetic_diagnosis_confidence_level
+    description: The confidence level of the genetic diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:cb2b0108-8c07-40e8-92a3-b693b6dc64b4
+    - NIMP:PD-NONORZ37
+    rank: 1000
+    domain_of:
+    - Donor
+    range: confidence_level
+  non_brain_diagnosis_code:
+    name: non_brain_diagnosis_code
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: non_brain_diagnosis_code
+    description: The ICD-10 code of the non-brain diagnosis
+    in_subset:
+    - Restricted
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:65e8824e-01d2-44cf-9f47-9962461a65c9
+    - NIMP:PD-DNDNPI37
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  non_brain_diagnosis_confidence_level:
+    name: non_brain_diagnosis_confidence_level
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: non_brain_diagnosis_confidence_level
+    description: The confidence level of the non-brain diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:2a7ff937-287b-40a3-a1f6-ebf598683774
+    - NIMP:PD-FGFGUS44
+    rank: 1000
+    domain_of:
+    - Donor
+    range: confidence_level
+  birth_weight_lbs:
+    name: birth_weight_lbs
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: birth_weight_lbs
+    description: Birth weight in pounds
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:69d9a60d-32d5-4c3a-a26a-802d8f030c8d
+    - NIMP:PD-YOVEEV39
+    rank: 1000
+    domain_of:
+    - Donor
+    range: float
+    minimum_value: '0.0'
+    maximum_value: '100.0'
+    unit:
+      ucum_code: '[lb_av]'
+  birth_weight_oz:
+    name: birth_weight_oz
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: birth_weight_oz
+    description: Birth weight in ounces
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:b6f30050-f762-4427-8533-31738e737ea2
+    - NIMP:PD-CANPLC46
+    rank: 1000
+    domain_of:
+    - Donor
+    range: float
+    minimum_value: '0.0'
+    maximum_value: '100.0'
+    unit:
+      ucum_code: '[oz_av]'
+  apgar_5_minute_score:
+    name: apgar_5_minute_score
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: apgar_5_minute_score
+    description: The APGAR Five Minute Score. This is a test given to newborns just
+      after birth
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:3a10dabf-39b0-4eb7-8399-85fd325c5646
+    - NIMP:PD-GLPDCP24
+    rank: 1000
+    domain_of:
+    - Donor
+    range: integer
+    minimum_value: '1.0'
+    maximum_value: '10.0'
+  apgar_10_minute_score:
+    name: apgar_10_minute_score
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: apgar_10_minute_score
+    description: The APGAR Ten Minute Score. This is a test given to newborns just
+      after birth
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:09d512b6-7c20-4693-8894-77824ad7f04d
+    - NIMP:PD-YKRCCP24
+    rank: 1000
+    domain_of:
+    - Donor
+    range: integer
+    minimum_value: '1.0'
+    maximum_value: '10.0'
+  neuropathology_diagnosis_code:
+    name: neuropathology_diagnosis_code
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: neuropathology_diagnosis_code
+    description: The ICD-10 codes for the neuropathological diagnoses
+    in_subset:
+    - Restricted
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:784e9cc1-7258-4535-a6d5-f7f9a4c2da4b
+    - NIMP:PD-NCMNSS51
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  artifacts_type:
+    name: artifacts_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: artifacts_type
+    description: The type of artifacts
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:dc217b9b-ed6b-48e2-93b4-4f648dc395f7
+    - NIMP:PD-NCNCRC24
+    rank: 1000
+    domain_of:
+    - Donor
+    range: artifact_type
+  developmental_type_specify:
+    name: developmental_type_specify
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: developmental_type_specify
+    description: The developmental neuropathology diagnoses specified
+    in_subset:
+    - Restricted
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:bee7d477-2dec-4bf5-878e-a105a0054366
+    - NIMP:PD-TYTYOO47
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  inflammatory_type_specify:
+    name: inflammatory_type_specify
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: inflammatory_type_specify
+    description: The inflammatory neuropathology diagnoses specified
+    in_subset:
+    - Restricted
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:616ba8d8-ced3-4f3e-b1ca-7103eb7a2c94
+    - NIMP:PD-MAMATE52
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  infectious_type_specify:
+    name: infectious_type_specify
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: infectious_type_specify
+    description: The infectious neuropathology diagnoses specified
+    in_subset:
+    - Restricted
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:c73cea5e-44d1-4dd9-b55e-3c6ef5dd2ef2
+    - NIMP:PD-TYTYTE52
+    rank: 1000
+    domain_of:
+    - Donor
+    range: string
+  traumatic_type:
+    name: traumatic_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: traumatic_type
+    description: The type of traumatic neuropathology diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:01d2f488-f30b-40e0-913f-c9adc6b39b97
+    - NIMP:PD-DRDRCT43
+    rank: 1000
+    domain_of:
+    - Donor
+    range: traumatic_type
+  vascular_type:
+    name: vascular_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: vascular_type
+    description: The type of vascular neuropathology diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:5beafa90-ffdb-4cce-a78c-a3b3175210b6
+    - NIMP:PD-RIRITM45
+    rank: 1000
+    domain_of:
+    - Donor
+    range: vascular_type
+  neoplastic_type:
+    name: neoplastic_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: neoplastic_type
+    description: The type of neoplastic neuropathology diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:a58be8f4-2756-4a66-9d05-1fbf44b4e810
+    - NIMP:PD-NENERZ37
+    rank: 1000
+    domain_of:
+    - Donor
+    range: neoplastic_type
+  aging_type:
+    name: aging_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: aging_type
+    description: The type of aging-related neuropathology diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:5e31b66f-131e-4d5e-8760-ddd85f5634d5
+    - NIMP:PD-WNWNRC24
+    rank: 1000
+    domain_of:
+    - Donor
+    range: aging_type
+  neurodegenerative_type:
+    name: neurodegenerative_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: neurodegenerative_type
+    description: The type of neurodegenerative neuropathology diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:b150b62c-a968-4f5d-9aa3-d1ab5207ff83
+    - NIMP:PD-PEPERZ37
+    rank: 1000
+    domain_of:
+    - Donor
+    range: neurodegenerative_type
+
+</code></pre>
+</details>
+
+### Induced
+
+<details>
+<pre><code class="language-yaml">name: Donor
+description: A person or organism that is the source of a biological sample for scientific
+  study.  Many biological samples are generated from a single donor.
+from_schema: https://w3id.org/brain-bican/donor
+exact_mappings:
+- NIMP:Donor
+is_a: physical entity
+mixins:
+- thing with taxon
+- ProvEntity
+slot_usage:
+  name:
+    name: name
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: donor_local_name
+    description: Donor identifier given by the brain bank or the institution that
+      holds the brain
+    exact_mappings:
+    - bican:f8af20f7-e8b8-47b5-8a68-9ec1f913ffdf
+    - NIMP:PD-QLQLFB34
+  xref:
+    name: xref
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: donor_nhash_id
+    description: NIMP generated globally unique identifier for a Donor
+    exact_mappings:
+    - bican:98b28574-f97f-4436-b723-10a6508431b5
+    - NIMP:PD-DEXRDO36
+attributes:
+  repository:
+    name: repository
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: repository
+    description: If the brain is from NBB the NBB repository the brain belongs to
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:408682ed-0e27-41e2-b9fa-f05674366d6e
+    - NIMP:PD-NYNYAR61
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: repository
+  donor_source:
+    name: donor_source
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: donor_source
+    description: The source of the donor brain e.g. NBB/UM1 project/other
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:0d0cf732-0f76-409d-9a73-7a96d829d3d3
+    - NIMP:PD-TPTPPS27
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: donor_source
+  ethnicity:
+    name: ethnicity
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: ethnicity
+    description: Ethnicity of the donor
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:918370df-49f6-4361-9c52-f46b16412980
+    - NIMP:PD-JEJECK48
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: ethnicity
+  race:
+    name: race
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: race
+    description: Race of the donor
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:e515c009-550e-4f9c-b1b6-fc876a6fb2a8
+    - NIMP:PD-PRPRRP41
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: race
+  secondary_race:
+    name: secondary_race
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: second_race
+    description: Second race if available for the donor
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:192fe5b1-c812-4767-86fb-3178f9914705
+    - NIMP:PD-SESEQB42
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: race
+  sex:
+    name: sex
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: sex
+    description: Donor's sex at birth
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:c819b9d5-2fde-40b2-bf0d-e07b56f96ac9
+    - NIMP:PD-LXUBTM45
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: sex
+  gender:
+    name: gender
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: gender
+    description: Donor's gender at death
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:1c71e775-65aa-442b-a392-1cf9a44e326e
+    - NIMP:PD-KLKLJH33
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: gender
+  sex_orientation:
+    name: sex_orientation
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: sex_orientation
+    description: Donor's sexual orientation at death
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:e47e8a2f-72fb-4036-b288-f4580dc2aa4e
+    - NIMP:PD-HKHGTM45
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: sexual_orientation
+  age_of_death:
+    name: age_of_death
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: age_of_death
+    description: Donor's age at death in years
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:14eb923a-161d-45e2-889d-81fea7b632b6
+    - NIMP:PD-FTEMQD38
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: integer
+    minimum_value: '0.0'
+    maximum_value: '200.0'
+    unit:
+      ucum_code: a
+  birth_country_name:
+    name: birth_country_name
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: birth_country_name
+    description: Donor's birth country
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:9c27fd29-b512-492f-a32f-b615c7585ff7
+    - NIMP:PD-SQSQDF25
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: birth_country
+  primary_language:
+    name: primary_language
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: primary_language
+    description: Donor's primary language
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:abe9edc7-96ca-4c6a-a1ed-c008548cc373
+    - NIMP:PD-ATEVEV39
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: language
+  secondary_language:
+    name: secondary_language
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: secondary_language
+    description: Donor's secondary language
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:37b7495f-b010-4d1c-ae32-9cb19c680950
+    - NIMP:PD-OBIUQB42
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: language
+  marital_status:
+    name: marital_status
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: marital_status
+    description: Donor's marital or partner status
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:4f0e41c9-dd15-4a37-ae6b-11b7131d7cba
+    - NIMP:PD-JCYJCN35
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: marital_status
+  education_years_number:
+    name: education_years_number
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: education_years_number
+    description: Number of years of education the donor had
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:add3f7fe-ae60-4cc1-bb2e-72bbbe9a1a7d
+    - NIMP:PD-SJSJRC41
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: integer
+    minimum_value: '0.0'
+    maximum_value: '30.0'
+    unit:
+      ucum_code: a
+  handedness:
+    name: handedness
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: handedness
+    description: Donor's handedness
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:82a4087c-d0e3-48ca-8bea-a81eefc683a0
+    - NIMP:PD-WGWGTM45
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: handedness
+  confirmed_hbcac:
+    name: confirmed_hbcac
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: confirmed_hbcac
+    description: Confirmation status of meeting inclusion criteria of the Human Brain
+      Cell Atlas Collection at NBB
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:b6cdddf7-6f0b-4855-a0fa-16c2ab29f219
+    - NIMP:PD-YBLATM45
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  age_at_death_value:
+    name: age_at_death_value
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: age_at_death_value
+    description: Donor's age at death value
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:57e24d3c-c9c7-4ef3-9809-a35802d563ec
+    - NIMP:PD-FTFTCP24
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: float
+  age_at_death_unit:
+    name: age_at_death_unit
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: age_at_death_unit
+    description: The unit of the value mentioned under "age_at_death_value"
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:b5436e99-f0a7-4c30-825d-56b88ee2ac1d
+    - NIMP:PD-AVAVEV39
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  age_at_death_reference_point:
+    name: age_at_death_reference_point
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: age_at_death_reference_point
+    description: Reference point from which the donor's age at death was calculated
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:3bed1f94-9d82-4ed7-afdf-79d896b24dbb
+    - NIMP:PD-RARAGG39
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  donor_species:
+    name: donor_species
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: donor_species
+    description: NCBI Taxonomy code of the donor species
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:6837cb02-6bd7-4fb8-838c-9062ead96ba4
+    - NIMP:PD-HEHERP41
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  consent_status:
+    name: consent_status
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: consent_status
+    description: Whether the type of consent is open or controlled
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:1a53e733-276f-421a-850d-eb46e50db972
+    - NIMP:PD-CBCBWQ40
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  positive_test_result:
+    name: positive_test_result
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: positive_test_result
+    description: Whether the donor has had a positive serology test result
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:0ef73629-5172-4517-a1f8-295be1603b80
+    - NIMP:PD-PDZDNL63
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  donor_project:
+    name: donor_project
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: donor_project
+    description: Donor Project
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:cd772fb0-a2fe-4df3-b2dd-b62370be37fc
+    - NIMP:PD-HEHEQB42
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  donor_labs:
+    name: donor_labs
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: donor_labs
+    description: Donor Labs
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:b97c384f-a556-42a2-a3c2-c31e5771f481
+    - NIMP:PD-APAPRP41
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  death_causes_data_available:
+    name: death_causes_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: death_causes_data_available
+    description: NIMP indicator for availability of the cause of death
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:e46e9d58-d982-4800-b7de-67f608951211
+    - NIMP:PD-FYUCNY46
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  rins_data_available:
+    name: rins_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: rins_data_available
+    description: NIMP indicator for availability of RNA Integrity Number
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:d05825e6-b785-42a3-9bdf-c34b30e698b8
+    - NIMP:PD-JRJCAR61
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  rines_data_available:
+    name: rines_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: rines_data_available
+    description: NIMP indicator for availability of RNA Integrity Number equivalent
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:28a5e912-570b-4a7f-87f2-36bd5db92090
+    - NIMP:PD-CJRWAR61
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  hemisphere:
+    name: hemisphere
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: hemisphere
+    description: Hemisphere of the brain
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:68b7a28b-d695-4ec9-800b-6a27ca206081
+    - NIMP:PD-JRJRFQ31
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: hemisphere
+  post_mortem_interval:
+    name: post_mortem_interval
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: post_mortem_interval
+    description: Post Mortem Interval in hours
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:6fd5c5ac-b128-4a4a-ae98-09eaeba22f92
+    - NIMP:PD-CHCHLC46
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: float
+    minimum_value: '0.0'
+    maximum_value: '8888.0'
+    unit:
+      ucum_code: h
+  left_hemisphere_preparation:
+    name: left_hemisphere_preparation
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: left_hemisphere_preparation
+    description: The method of which the left hemisphere of the brain was prepared
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:57d5378f-a451-4bf5-a472-cc88d0d29586
+    - NIMP:PD-JSJSUS44
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: preparation
+  left_hemisphere_prep_2:
+    name: left_hemisphere_prep_2
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: left_hemisphere_prep_2
+    description: The second method used to prepare the left hemisphere
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:d76753fb-b30b-419b-b853-d341510d8034
+    - NIMP:PD-ZMPWIB34
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  right_hemisphere_preparation:
+    name: right_hemisphere_preparation
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: right_hemisphere_preparation
+    description: The method of which the right hemisphere of the brain was prepared
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:477c2600-f979-43c5-9c61-ab61fd771584
+    - NIMP:PD-MLMLPG50
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: preparation
+  right_hemisphere_prep_2:
+    name: right_hemisphere_prep_2
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: right_hemisphere_prep_2
+    description: The second method used to prepare the right hemisphere
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:b0a52336-fe31-4ac4-8914-b0bb76a8ef5a
+    - NIMP:PD-FWUVWQ40
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  rin:
+    name: rin
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: rin
+    description: RNA Integrity Number
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:cd472c0d-0b64-45c9-a38e-e54d15cea953
+    - NIMP:PD-LPLPSK50
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: float
+    minimum_value: '0.0'
+    maximum_value: '99.0'
+  rine:
+    name: rine
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: rine
+    description: RNA Integrity Number equivalent
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:1210148d-d8fb-45aa-b51a-4b19b6d09bec
+    - NIMP:PD-XCXCRC41
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: float
+    minimum_value: '0.0'
+    maximum_value: '99.0'
+  ph:
+    name: ph
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: ph
+    description: pH value
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:9e67af02-c081-43e1-a42c-bf9603cae616
+    - NIMP:PD-FXFXDK42
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: float
+    minimum_value: '0.0'
+    maximum_value: '99.0'
+  brain_weight:
+    name: brain_weight
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: brain_weight
+    description: The weight of the brain in grams
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:546fc32d-f8a2-4c00-924a-8c4730f11f51
+    - NIMP:PD-WUASWQ40
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: integer
+    minimum_value: '0.0'
+    maximum_value: '9998.0'
+    unit:
+      ucum_code: g
+  weighed_type:
+    name: weighed_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: weighed_type
+    description: The type of the brain tissue weighed based on the preparation
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:a7463e3f-0c61-4718-a7d0-60fd2116908a
+    - NIMP:PD-FGHMDF25
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: brain_tissue_weight_type
+  photo_2d_available:
+    name: photo_2d_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: photo_2d_available
+    description: Is a 2D photograph is available?
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:611beda8-1ac6-4183-a284-04a30bb474f3
+    - NIMP:PD-NINIEV39
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  scan_3d_available:
+    name: scan_3d_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: scan_3d_available
+    description: Is a 3D scan is available?
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:658e8a80-e232-438f-8c1e-d5f38724dc55
+    - NIMP:PD-RBRBQB42
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  antemortem_mri_available:
+    name: antemortem_mri_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: antemortem_mri_available
+    description: Is an Antemortem MRI is available?
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:43a04caa-4f28-47ac-8a9d-74c40f10776f
+    - NIMP:PD-RCRCRC24
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  postmortem_mri_available:
+    name: postmortem_mri_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: postmortem_mri_available
+    description: Is a Postmortem MRI Available
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:0badd072-0c25-48c6-9357-44d5b5bc0818
+    - NIMP:PD-YNYNEV39
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  postmortem_mri_type:
+    name: postmortem_mri_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: postmortem_mri_type
+    description: The type of postmortem MRI if it is available.
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:64a607a9-21e6-4c73-8f2e-2d67b0dc51c8
+    - NIMP:PD-BEBEEV39
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: postmortem_MRI
+  non_brain_specimen_data_available:
+    name: non_brain_specimen_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: non_brain_specimen_data_available
+    description: NIMP indicator for availability of non-brain Specimen data
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:e537aacd-040a-423b-9920-9ce5adecf111
+    - NIMP:PD-JSFGYJ57
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  neurologic_events_data_available:
+    name: neurologic_events_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: neurologic_events_data_available
+    description: NIMP indicator for availability of perinatal neurologic events data
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:27a7df05-5aec-4060-85b9-2b4658ecd1e8
+    - NIMP:PD-SLCHJH85
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  infectious_testings_data_available:
+    name: infectious_testings_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: infectious_testings_data_available
+    description: NIMP indicator for availability of infectious Disease/Serology testing
+      data
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:af034af4-9a8d-49ed-a100-1e87ebe962f5
+    - NIMP:PD-AATACA52
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  tox_screening_data_available:
+    name: tox_screening_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: tox_screening_data_available
+    description: NIMP indicator for availability of toxicology screening data
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:3730c096-5524-43f4-a3c0-010ccdf80ae1
+    - NIMP:PD-LELMNL63
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  nn_diagnoses_data_available:
+    name: nn_diagnoses_data_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: nn_diagnoses_data_available
+    description: NIMP indicator for availability of non-neuropathological diagnoses
+      data
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:87a4e421-4586-4938-91cc-6ae4e6e95dde
+    - NIMP:PD-JXZWYJ57
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  non_brain_tissue_available:
+    name: non_brain_tissue_available
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: non_brain_tissue_available
+    description: Are any non-brain tissues available?
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:3a064c96-a956-4cf3-8b77-056b8e392f99
+    - NIMP:PD-LGLGRZ37
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  tissue_type:
+    name: tissue_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: tissue_type
+    description: The type of non-brain tissues
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:33ccbc85-ae35-44d6-8bc6-c2fb91116cf7
+    - NIMP:PD-JLJLCT43
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: tissue
+  clinical_brain_diagnosis:
+    name: clinical_brain_diagnosis
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: clinical_brain_diagnosis_code
+    description: The ICD-10 code of the clinical brain diagnosis
+    in_subset:
+    - Restricted
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:b7a34c73-ae08-43d3-80d2-d5ef8436e449
+    - NIMP:PD-CLCLXT26
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  clinical_brain_diagnosis_confidence_level:
+    name: clinical_brain_diagnosis_confidence_level
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: clinical_brain_diagnosis_confidence_level
+    description: The confidence level of the clinical brain diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:2e72b4b9-d5fb-4f0d-897c-1f977ed4fabd
+    - NIMP:PD-LCLCJH33
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: confidence_level
+  genetic_diagnosis_code:
+    name: genetic_diagnosis_code
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: genetic_diagnosis_code
+    description: The ICD-10 code of the genetic diagnosis
+    in_subset:
+    - Restricted
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:7a7916e0-ff79-4426-b49f-58e2f2a8a367
+    - NIMP:PD-KRKRBX30
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  genetic_diagnosis_confidence_level:
+    name: genetic_diagnosis_confidence_level
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: genetic_diagnosis_confidence_level
+    description: The confidence level of the genetic diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:cb2b0108-8c07-40e8-92a3-b693b6dc64b4
+    - NIMP:PD-NONORZ37
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: confidence_level
+  non_brain_diagnosis_code:
+    name: non_brain_diagnosis_code
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: non_brain_diagnosis_code
+    description: The ICD-10 code of the non-brain diagnosis
+    in_subset:
+    - Restricted
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:65e8824e-01d2-44cf-9f47-9962461a65c9
+    - NIMP:PD-DNDNPI37
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  non_brain_diagnosis_confidence_level:
+    name: non_brain_diagnosis_confidence_level
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: non_brain_diagnosis_confidence_level
+    description: The confidence level of the non-brain diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:2a7ff937-287b-40a3-a1f6-ebf598683774
+    - NIMP:PD-FGFGUS44
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: confidence_level
+  birth_weight_lbs:
+    name: birth_weight_lbs
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: birth_weight_lbs
+    description: Birth weight in pounds
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:69d9a60d-32d5-4c3a-a26a-802d8f030c8d
+    - NIMP:PD-YOVEEV39
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: float
+    minimum_value: '0.0'
+    maximum_value: '100.0'
+    unit:
+      ucum_code: '[lb_av]'
+  birth_weight_oz:
+    name: birth_weight_oz
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: birth_weight_oz
+    description: Birth weight in ounces
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:b6f30050-f762-4427-8533-31738e737ea2
+    - NIMP:PD-CANPLC46
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: float
+    minimum_value: '0.0'
+    maximum_value: '100.0'
+    unit:
+      ucum_code: '[oz_av]'
+  apgar_5_minute_score:
+    name: apgar_5_minute_score
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: apgar_5_minute_score
+    description: The APGAR Five Minute Score. This is a test given to newborns just
+      after birth
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:3a10dabf-39b0-4eb7-8399-85fd325c5646
+    - NIMP:PD-GLPDCP24
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: integer
+    minimum_value: '1.0'
+    maximum_value: '10.0'
+  apgar_10_minute_score:
+    name: apgar_10_minute_score
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: apgar_10_minute_score
+    description: The APGAR Ten Minute Score. This is a test given to newborns just
+      after birth
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:09d512b6-7c20-4693-8894-77824ad7f04d
+    - NIMP:PD-YKRCCP24
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: integer
+    minimum_value: '1.0'
+    maximum_value: '10.0'
+  neuropathology_diagnosis_code:
+    name: neuropathology_diagnosis_code
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: neuropathology_diagnosis_code
+    description: The ICD-10 codes for the neuropathological diagnoses
+    in_subset:
+    - Restricted
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:784e9cc1-7258-4535-a6d5-f7f9a4c2da4b
+    - NIMP:PD-NCMNSS51
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  artifacts_type:
+    name: artifacts_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: artifacts_type
+    description: The type of artifacts
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:dc217b9b-ed6b-48e2-93b4-4f648dc395f7
+    - NIMP:PD-NCNCRC24
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: artifact_type
+  developmental_type_specify:
+    name: developmental_type_specify
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: developmental_type_specify
+    description: The developmental neuropathology diagnoses specified
+    in_subset:
+    - Restricted
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:bee7d477-2dec-4bf5-878e-a105a0054366
+    - NIMP:PD-TYTYOO47
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  inflammatory_type_specify:
+    name: inflammatory_type_specify
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: inflammatory_type_specify
+    description: The inflammatory neuropathology diagnoses specified
+    in_subset:
+    - Restricted
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:616ba8d8-ced3-4f3e-b1ca-7103eb7a2c94
+    - NIMP:PD-MAMATE52
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  infectious_type_specify:
+    name: infectious_type_specify
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: infectious_type_specify
+    description: The infectious neuropathology diagnoses specified
+    in_subset:
+    - Restricted
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:c73cea5e-44d1-4dd9-b55e-3c6ef5dd2ef2
+    - NIMP:PD-TYTYTE52
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: string
+  traumatic_type:
+    name: traumatic_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: traumatic_type
+    description: The type of traumatic neuropathology diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:01d2f488-f30b-40e0-913f-c9adc6b39b97
+    - NIMP:PD-DRDRCT43
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: traumatic_type
+  vascular_type:
+    name: vascular_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: vascular_type
+    description: The type of vascular neuropathology diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:5beafa90-ffdb-4cce-a78c-a3b3175210b6
+    - NIMP:PD-RIRITM45
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: vascular_type
+  neoplastic_type:
+    name: neoplastic_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: neoplastic_type
+    description: The type of neoplastic neuropathology diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:a58be8f4-2756-4a66-9d05-1fbf44b4e810
+    - NIMP:PD-NENERZ37
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: neoplastic_type
+  aging_type:
+    name: aging_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: aging_type
+    description: The type of aging-related neuropathology diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:5e31b66f-131e-4d5e-8760-ddd85f5634d5
+    - NIMP:PD-WNWNRC24
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: aging_type
+  neurodegenerative_type:
+    name: neurodegenerative_type
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: neurodegenerative_type
+    description: The type of neurodegenerative neuropathology diagnosis
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - bican:b150b62c-a968-4f5d-9aa3-d1ab5207ff83
+    - NIMP:PD-PEPERZ37
+    rank: 1000
+    owner: Donor
+    domain_of:
+    - Donor
+    range: neurodegenerative_type
+  name:
+    name: name
+    definition_uri: https://w3id.org/biolink/vocab/name
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: donor_local_name
+    description: Donor identifier given by the brain bank or the institution that
+      holds the brain
+    in_subset:
+    - translator_minimal
+    - samples
+    from_schema: https://w3id.org/brain-bican/donor
+    aliases:
+    - label
+    - display name
+    - title
+    mappings:
+    - rdfs:label
+    exact_mappings:
+    - bican:f8af20f7-e8b8-47b5-8a68-9ec1f913ffdf
+    - NIMP:PD-QLQLFB34
+    narrow_mappings:
+    - dct:title
+    - WIKIDATA_PROPERTY:P1476
+    rank: 1000
+    domain: entity
+    slot_uri: rdfs:label
+    owner: Donor
+    domain_of:
+    - attribute
+    - entity
+    - macromolecular machine mixin
+    - Donor
+    - named thing
+    - organism taxon
+    - study result
+    - relative frequency analysis result
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: label type
+  xref:
+    name: xref
+    definition_uri: https://w3id.org/biolink/vocab/xref
+    local_names:
+      NIMP_resource_type:
+        local_name_source: NIMP_resource_type
+        local_name_value: Donor
+      NIMP_variable_name:
+        local_name_source: NIMP_variable_name
+        local_name_value: donor_nhash_id
+    description: NIMP generated globally unique identifier for a Donor
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/brain-bican/donor
+    aliases:
+    - dbxref
+    - Dbxref
+    - DbXref
+    - record_url
+    - source_record_urls
+    exact_mappings:
+    - bican:98b28574-f97f-4436-b723-10a6508431b5
+    - NIMP:PD-DEXRDO36
+    narrow_mappings:
+    - gff3:Dbxref
+    - gpi:DB_Xrefs
+    rank: 1000
+    domain: named thing
+    slot_uri: biolink:xref
+    owner: Donor
+    domain_of:
+    - named thing
+    - gene
+    - Donor
+    - attribute
+    - organism taxon
+    - study result
+    - relative frequency analysis result
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - genome
+    range: uriorcurie
+    multivalued: true
+  in taxon:
+    name: in taxon
+    definition_uri: https://w3id.org/biolink/vocab/in_taxon
+    annotations:
+      canonical_predicate:
+        tag: canonical_predicate
+        value: true
+    description: connects an entity to its taxonomic classification. Only certain
+      kinds of entities can be taxonomically classified; see 'thing with taxon'
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/brain-bican/donor
+    aliases:
+    - instance of
+    - is organism source of gene product
+    - organism has gene
+    - gene found in organism
+    - gene product has organism source
+    exact_mappings:
+    - RO:0002162
+    - WIKIDATA_PROPERTY:P703
+    narrow_mappings:
+    - RO:0002160
+    rank: 1000
+    is_a: related to at instance level
+    domain: thing with taxon
+    slot_uri: biolink:in_taxon
+    inherited: true
+    alias: in_taxon
+    owner: Donor
+    domain_of:
+    - thing with taxon
+    - biological entity
+    - gene
+    - genome
+    range: organism taxon
+    multivalued: true
+  in taxon label:
+    name: in taxon label
+    definition_uri: https://w3id.org/biolink/vocab/in_taxon_label
+    annotations:
+      denormalized:
+        tag: denormalized
+        value: true
+    description: The human readable scientific name for the taxon of the entity.
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - WIKIDATA_PROPERTY:P225
+    rank: 1000
+    is_a: node property
+    domain: thing with taxon
+    slot_uri: biolink:in_taxon_label
+    alias: in_taxon_label
+    owner: Donor
+    domain_of:
+    - thing with taxon
+    - biological entity
+    - gene
+    - genome
+    range: label type
+  was_derived_from:
+    name: was_derived_from
+    description: A derivation is a transformation of an entity into another, an update
+      of an entity resulting in a new one, or the construction of a new entity based
+      on a pre-existing entity.
+    from_schema: https://w3id.org/brain-bican/donor
+    rank: 1000
+    slot_uri: prov:wasDerivedFrom
+    owner: Donor
+    domain_of:
+    - ProvEntity
+    range: ProvEntity
+  was_generated_by:
+    name: was_generated_by
+    description: Generation is the completion of production of a new entity by an
+      activity. This entity did not exist before generation and becomes available
+      for usage after this generation.
+    from_schema: https://w3id.org/brain-bican/donor
+    rank: 1000
+    slot_uri: prov:wasGeneratedBy
+    owner: Donor
+    domain_of:
+    - ProvEntity
+    range: ProvActivity
+  id:
+    name: id
+    definition_uri: https://w3id.org/biolink/vocab/id
+    description: A unique identifier for an entity. Must be either a CURIE shorthand
+      for a URI or a complete URI
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - AGRKB:primaryId
+    - gff3:ID
+    - gpi:DB_Object_ID
+    rank: 1000
+    domain: entity
+    slot_uri: biolink:id
+    identifier: true
+    owner: Donor
+    domain_of:
+    - ontology class
+    - entity
+    - attribute
+    - named thing
+    - taxonomic rank
+    - organism taxon
+    - study result
+    - relative frequency analysis result
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: string
+    required: true
+  iri:
+    name: iri
+    definition_uri: https://w3id.org/biolink/vocab/iri
+    description: An IRI for an entity. This is determined by the id using expansion
+      rules.
+    in_subset:
+    - translator_minimal
+    - samples
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - WIKIDATA_PROPERTY:P854
+    rank: 1000
+    slot_uri: biolink:iri
+    owner: Donor
+    domain_of:
+    - attribute
+    - entity
+    - named thing
+    - organism taxon
+    - study result
+    - relative frequency analysis result
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: iri type
+  type:
+    name: type
+    definition_uri: https://w3id.org/biolink/vocab/type
+    from_schema: https://w3id.org/brain-bican/donor
+    mappings:
+    - rdf:type
+    exact_mappings:
+    - gff3:type
+    - gpi:DB_Object_Type
+    rank: 1000
+    domain: entity
+    slot_uri: rdf:type
+    owner: Donor
+    domain_of:
+    - entity
+    - attribute
+    - named thing
+    - organism taxon
+    - study result
+    - relative frequency analysis result
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: string
+    multivalued: true
+  description:
+    name: description
+    definition_uri: https://w3id.org/biolink/vocab/description
+    description: a human-readable description of an entity
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/brain-bican/donor
+    aliases:
+    - definition
+    mappings:
+    - dct:description
+    exact_mappings:
+    - IAO:0000115
+    - skos:definitions
+    narrow_mappings:
+    - gff3:Description
+    rank: 1000
+    slot_uri: dct:description
+    owner: Donor
+    domain_of:
+    - entity
+    - attribute
+    - named thing
+    - organism taxon
+    - study result
+    - relative frequency analysis result
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: narrative text
+  has attribute:
+    name: has attribute
+    definition_uri: https://w3id.org/biolink/vocab/has_attribute
+    description: connects any entity to an attribute
+    in_subset:
+    - samples
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - SIO:000008
+    close_mappings:
+    - OBI:0001927
+    narrow_mappings:
+    - OBAN:association_has_subject_property
+    - OBAN:association_has_object_property
+    - CPT:has_possibly_included_panel_element
+    - DRUGBANK:category
+    - EFO:is_executed_in
+    - HANCESTRO:0301
+    - LOINC:has_action_guidance
+    - LOINC:has_adjustment
+    - LOINC:has_aggregation_view
+    - LOINC:has_approach_guidance
+    - LOINC:has_divisor
+    - LOINC:has_exam
+    - LOINC:has_method
+    - LOINC:has_modality_subtype
+    - LOINC:has_object_guidance
+    - LOINC:has_scale
+    - LOINC:has_suffix
+    - LOINC:has_time_aspect
+    - LOINC:has_time_modifier
+    - LOINC:has_timing_of
+    - NCIT:R88
+    - NCIT:eo_disease_has_property_or_attribute
+    - NCIT:has_data_element
+    - NCIT:has_pharmaceutical_administration_method
+    - NCIT:has_pharmaceutical_basic_dose_form
+    - NCIT:has_pharmaceutical_intended_site
+    - NCIT:has_pharmaceutical_release_characteristics
+    - NCIT:has_pharmaceutical_state_of_matter
+    - NCIT:has_pharmaceutical_transformation
+    - NCIT:is_qualified_by
+    - NCIT:qualifier_applies_to
+    - NCIT:role_has_domain
+    - NCIT:role_has_range
+    - INO:0000154
+    - HANCESTRO:0308
+    - orphanet:C016
+    - orphanet:C017
+    - RO:0000053
+    - RO:0000086
+    - RO:0000087
+    - SNOMED:has_access
+    - SNOMED:has_clinical_course
+    - SNOMED:has_count_of_base_of_active_ingredient
+    - SNOMED:has_dose_form_administration_method
+    - SNOMED:has_dose_form_release_characteristic
+    - SNOMED:has_dose_form_transformation
+    - SNOMED:has_finding_context
+    - SNOMED:has_finding_informer
+    - SNOMED:has_inherent_attribute
+    - SNOMED:has_intent
+    - SNOMED:has_interpretation
+    - SNOMED:has_laterality
+    - SNOMED:has_measurement_method
+    - SNOMED:has_method
+    - SNOMED:has_priority
+    - SNOMED:has_procedure_context
+    - SNOMED:has_process_duration
+    - SNOMED:has_property
+    - SNOMED:has_revision_status
+    - SNOMED:has_scale_type
+    - SNOMED:has_severity
+    - SNOMED:has_specimen
+    - SNOMED:has_state_of_matter
+    - SNOMED:has_subject_relationship_context
+    - SNOMED:has_surgical_approach
+    - SNOMED:has_technique
+    - SNOMED:has_temporal_context
+    - SNOMED:has_time_aspect
+    - SNOMED:has_units
+    - UMLS:has_structural_class
+    - UMLS:has_supported_concept_property
+    - UMLS:has_supported_concept_relationship
+    - UMLS:may_be_qualified_by
+    rank: 1000
+    domain: entity
+    slot_uri: biolink:has_attribute
+    alias: has_attribute
+    owner: Donor
+    domain_of:
+    - entity
+    - attribute
+    - named thing
+    - organism taxon
+    - study result
+    - relative frequency analysis result
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: attribute
+    multivalued: true
+  deprecated:
+    name: deprecated
+    definition_uri: https://w3id.org/biolink/vocab/deprecated
+    description: A boolean flag indicating that an entity is no longer considered
+      current or valid.
+    from_schema: https://w3id.org/brain-bican/donor
+    exact_mappings:
+    - oboInOwl:ObsoleteClass
+    rank: 1000
+    slot_uri: biolink:deprecated
+    owner: Donor
+    domain_of:
+    - entity
+    - attribute
+    - named thing
+    - organism taxon
+    - study result
+    - relative frequency analysis result
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: boolean
+  provided by:
+    name: provided by
+    definition_uri: https://w3id.org/biolink/vocab/provided_by
+    description: The value in this node property represents the knowledge provider
+      that created or assembled the node and all of its attributes.  Used internally
+      to represent how a particular node made its way into a knowledge provider or
+      graph.
+    from_schema: https://w3id.org/brain-bican/donor
+    rank: 1000
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:provided_by
+    alias: provided_by
+    owner: Donor
+    domain_of:
+    - named thing
+    - attribute
+    - organism taxon
+    - study result
+    - relative frequency analysis result
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: string
+    multivalued: true
+  full name:
+    name: full name
+    definition_uri: https://w3id.org/biolink/vocab/full_name
+    description: a long-form human readable name for a thing
+    from_schema: https://w3id.org/brain-bican/donor
+    rank: 1000
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:full_name
+    alias: full_name
+    owner: Donor
+    domain_of:
+    - named thing
+    - attribute
+    - organism taxon
+    - study result
+    - relative frequency analysis result
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: label type
+  synonym:
+    name: synonym
+    definition_uri: https://w3id.org/biolink/vocab/synonym
+    description: Alternate human-readable names for a thing
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/brain-bican/donor
+    aliases:
+    - alias
+    narrow_mappings:
+    - skos:altLabel
+    - gff3:Alias
+    - AGRKB:synonyms
+    - gpi:DB_Object_Synonyms
+    - HANCESTRO:0330
+    - IAO:0000136
+    - RXNORM:has_tradename
+    rank: 1000
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:synonym
+    owner: Donor
+    domain_of:
+    - named thing
+    - attribute
+    - organism taxon
+    - study result
+    - relative frequency analysis result
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: label type
+    multivalued: true
+  information content:
+    name: information content
+    definition_uri: https://w3id.org/biolink/vocab/information_content
+    description: Information content (IC) value for a term, primarily from Automats.
+    from_schema: https://w3id.org/brain-bican/donor
+    rank: 1000
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:information_content
+    alias: information_content
+    owner: Donor
+    domain_of:
+    - named thing
+    - attribute
+    - organism taxon
+    - study result
+    - relative frequency analysis result
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: float
+  equivalent identifiers:
+    name: equivalent identifiers
+    definition_uri: https://w3id.org/biolink/vocab/equivalent_identifiers
+    description: A set of identifiers that are considered equivalent to the primary
+      identifier of the entity. This attribute is used to represent a collection of
+      identifiers that are considered equivalent to the primary identifier of an entity.
+      These equivalent identifiers may come from different databases, ontologies,
+      or naming conventions, but they all refer to the same underlying concept or
+      entity. This attribute is particularly useful in data integration and interoperability
+      scenarios, where it is important to recognize and link different representations
+      of the same entity across various sources.
+    from_schema: https://w3id.org/brain-bican/donor
+    see_also:
+    - biolink:xref
+    - biolink:synonyms
+    rank: 1000
+    is_a: node property
+    domain: named thing
+    slot_uri: biolink:equivalent_identifiers
+    alias: equivalent_identifiers
+    owner: Donor
+    domain_of:
+    - named thing
+    - attribute
+    - organism taxon
+    - study result
+    - relative frequency analysis result
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    range: uriorcurie
+    multivalued: true
+  named thing_category:
+    name: named thing_category
+    definition_uri: https://w3id.org/biolink/vocab/category
+    description: Name of the high level ontology class in which this entity is categorized.
+      Corresponds to the label for the biolink entity type class. In a neo4j database
+      this MAY correspond to the neo4j label tag. In an RDF database it should be
+      a biolink model class URI. This field is multi-valued. It should include values
+      for ancestors of the biolink class; for example, a protein such as Shh would
+      have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`.
+      In an RDF database, nodes will typically have an rdf:type triples. This can
+      be to the most specific biolink class, or potentially to a class more specific
+      than something in biolink. For example, a sequence feature `f` may have a rdf:type
+      assertion to a SO class such as TF_binding_site, which is more specific than
+      anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity,
+      biolink:NamedThing}
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/brain-bican/donor
+    rank: 1000
+    is_a: category
+    domain: named thing
+    slot_uri: biolink:category
+    designates_type: true
+    alias: category
+    owner: Donor
+    domain_of:
+    - named thing
+    - attribute
+    - organism taxon
+    - study result
+    - relative frequency analysis result
+    - information content entity
+    - dataset
+    - physical entity
+    - activity
+    - procedure
+    - material sample
+    - biological entity
+    - gene
+    - genome
+    is_class_field: true
+    is_usage_slot: true
+    usage_slot_name: category
+    range: uriorcurie
+    required: true
+    multivalued: true
+  category:
+    name: category
+    definition_uri: https://w3id.org/biolink/vocab/category
+    description: Name of the high level ontology class in which this entity is categorized.
+      Corresponds to the label for the biolink entity type class. In a neo4j database
+      this MAY correspond to the neo4j label tag. In an RDF database it should be
+      a biolink model class URI. This field is multi-valued. It should include values
+      for ancestors of the biolink class; for example, a protein such as Shh would
+      have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`.
+      In an RDF database, nodes will typically have an rdf:type triples. This can
+      be to the most specific biolink class, or potentially to a class more specific
+      than something in biolink. For example, a sequence feature `f` may have a rdf:type
+      assertion to a SO class such as TF_binding_site, which is more specific than
+      anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity,
+      biolink:NamedThing}
+    in_subset:
+    - translator_minimal
+    from_schema: https://w3id.org/brain-bican/donor
+    rank: 1000
+    is_a: type
+    domain: entity
+    slot_uri: biolink:category
+    designates_type: true
+    owner: Donor
+    domain_of:
+    - entity
+    is_class_field: true
+    range: uriorcurie
+    required: true
+    multivalued: true
+
+</code></pre>
+</details></div>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>
